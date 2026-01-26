@@ -1,0 +1,687 @@
+﻿= Ultimate UI for WinForms 変更ログ
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<Ref_25_2_65, 25.2.65 (2025 年 12 月)>>
+* <<Ref_25_2_41, 25.2.41 (2025 年 11 月)>>
+* <<Ref_25_1_100, 25.1.100 (2025 年 10 月)>>
+* <<Ref_25_1_63, 25.1.63 (2025 年 7 月)>>
+* <<Ref_25_1, 25.1 (2025 年)>>
+* <<Ref_24_2_27, 24.2.27 (2025 年 2 月)>>
+* <<Ref_24_2, 24.2 (2024 年)>>
+** <<BC_24_2,重大な変更>>
+* <<Ref_24_1_57, 24.1.57 (2024 年 9 月)>>
+* <<Ref_24_1_38,24.1.38 (2024 年 8 月)>>
+** <<BC_24_1_13,重大な変更 24.1.38 (2024 年 8 月)>>
+* <<Ref_23_2_180,23.2.180 (2024 年 6 月)>>
+* <<Ref_23_2_131,23.2.131 (2024 年 4 月)>>
+* <<Ref_23_2, 23.2 (2023 年)>> 
+
+[[Ref_25_2_65]]
+
+== 25.2.65 (2025 年 12 月)
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+
+|バグ番号|コントロール|説明
+
+|`33808`
+|UltraDataChart
+|TimeAxisInterval の IntervalType Ticks に設定されたスケールが表示されない。
+
+|`34255`
+|UltraDataChart
+|0.00001 スケールの目盛りが重なって表示される。
+
+|`38510`
+|UltraDataChart
+|Stacked シリーズの AssigningCategoryStyle イベント サポート。
+
+|`39970`
+|UltraDataChart
+|データ ソース内に同一の DateTime 値が複数存在する場合、TimeXAxis 上では元のデータと同じ順序で表示されないことがある。
+
+|`40763`
+|UltraDataChart
+|UltraDataChart のデフォルトツールチップで、線が表示されたり、境界線の位置がずれることがある。
+
+|====
+
+=== 機能拡張
+
+==== チャート
+
+- TimeXAxisLabelFormat に LabelFormatOverride イベントが追加され、TimeXAxis のすべての時間形式レベルでイベントを使用して書式設定をオーバーライドできるようになりました。
+
+[[Ref_25_2_41]]
+
+== 25.2.41 (2025 年 11 月)
+
+$$.NET 10$$ のサポート
+
+バージョン 2025.2 以降、Ultimate UI for Windows Forms ツールセットは .NET 10 をサポートします。.NET 10 の詳細については、link:https://learn.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-10/overview[Microsoft サイト]をご確認ください。
+
+詳細については、link:https://learn.microsoft.com/ja-jp/lifecycle/products/microsoft-net-and-net-core[Microsoft .NET ライフサイクル]を参照してください。
+
+$$.NET 6$$ および .NET 7 のサポートは終了しました。
+
+=== Azure Map Imagery は RTM になりました
+
+=== 新しいチャート機能
+
+==== 軸注釈の衝突検出 (ベータ版)
+
+軸注釈が自動で衝突を検出し、適切に収まるよう切り詰めます。この機能を有効にするには、次のプロパティを設定します:
+
+- `ShouldAvoidAnnotationCollisions`
+- `ShouldAutoTruncateAnnotations`
+
+==== ユーザー注釈レイヤー (ベータ版)
+
+{ProductName} では、新しいユーザー注釈機能を使用して、実行時に `{DataChartName}` にスライス、ストリップ、ポイントの各注釈を追加できます。これにより、エンドユーザーは、スライス注釈を使用して会社の四半期レポートなどの単一の重要イベントを強調したり、ストリップ注釈を使用して期間を持つイベントを示したりするなど、プロットに詳細を追加できます。ポイント注釈またはこれら 3 つの任意の組み合わせを使用して、プロットされたシリーズ上の個々のポイントを呼び出すこともできます。
+
+image::images/userAnnotationLayers.png[]
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+
+|バグ番号|コントロール|説明
+
+|`32618`
+|UltraMaskedEditor
+|UltraMaskedEdit のナレーターが AccessibleName を読み上げない。
+
+|`36205`
+|UltraDataChart
+|BrushCollection が Equals 関数でエラーをスローする。
+
+|`38375`
+|UltraGrid
+|UltraGrid の ValueList 検索が、列の CellMultiLine を true に設定した場合に正しく動作しない。
+
+|`38876`
+|UltraDataSource
+|DataPieChart と Category Chart の互換性の問題。
+
+|`38968`
+|UltraTree
+|最初の親ノードから子ノードを削除すると NullReferenceException が発生する。
+
+|`39807`
+|App Styling
+|$$.NET 9$$ で UltraButton に AppStyle ISL が正しく適用されない。
+
+|`40136`
+|Excel Library
+|Excel ワークブック読み込み時に FormulaParseException 例外が発生する。
+
+|`40262`
+|UltraSpreadsheet
+|警告がある場合に #Circularity! が表示される。Excel に合わせて、値 (例: 0) を表示するように改善。
+
+|====
+
+[[Ref_25_1_100]]
+
+== 25.1.100 (2025 年 10 月)
+
+=== UltraGeographicMap の Azure マップ画像のサポート (ベータ版)
+
+=== UltraDataChart の新しい軸ラベル イベント (ベータ版)
+
+軸ラベルに対するさまざまな操作を検出できるように、次のイベントが `UltraDataChart` に追加されました。
+
+- `LabelMouseDown`
+- `LabelMouseUp`
+- `LabelMouseEnter`
+- `LabelMouseLeave`
+- `LabelMouseMove`
+- `LabelMouseClick`
+
+=== チャートの対応軸 (ベータ版)
+
+X 軸と Y 軸に `CompanionAxis` プロパティが追加され、既存の軸を簡単に複製できるようになりました。`CompanionAxisEnabled` プロパティを有効にすると、複製された軸はチャートの反対側に配置され、そこから各軸プロパティを設定できます。
+
+=== RadialPieSeries インセット アウトライン (ベータ版)
+
+`RadialPieSeries` のアウトライン描画方法を制御するために `UseInsetOutlines` プロパティが追加されました。`true` に設定すると、アウトラインがスライス形状の内側に描画され、`false` (既定値) に設定すると、アウトラインはスライス形状の端に半分内側・半分外側で描画されます。
+
+image::images/UseInsetOutlinesFeature.png[]
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+
+|バグ番号|コントロール|説明
+
+|`23697`
+|UltraGrid
+|UltraCalcManager が存在する場合、UltraGrid デザイナー ウィザードのページ 5 で InvalidOperationException が発生する。
+
+|`33861`
+|Excel Library
+|折れ線チャートを追加すると、ドイツ語カルチャで Excel ファイルが破損する。
+
+|`36790`
+|Excel Library
+|SUMIFS 関数が正しく計算されない。
+
+|`37930`
+|UltraDataChart
+|Data Annotation Overlay のテキスト色が機能しない。
+
+|`38016`
+|UltraToolbarsManager
+|ショートカット キーで別フォームを開いた際にポップアップ メニューが正しく閉じない。
+
+|`38100`
+|UltraExpandableGroupBox
+|高解像度環境で、展開可能なグループ ボックスが要素を誤った位置に配置してしまい、+/- ボタンが隠れる。
+
+|`38101`
+|UltraDataChart
+|WPF 以外のプラットフォームで ChartPosition と PlotAreaPosition が逆になる。
+
+|`38125`
+|UltraToolbarsManager
+|複数のモニターを縦に並べた環境で長時間の操作を行うと、ツールバー マネージャーで OverflowException が発生する。
+
+|`38376`
+|UltraCalculatorDropDown
+|EU 形式を使用した場合、UltraCalculatorDropDown が値を誤って変換する。
+
+|`38377`
+|UltraCalculatorDropDown
+|テキストボックスにカンマを入力してドロップダウンを開くと NullReferenceException が発生する。
+
+|`38487`
+|エディター
+|実行時に DPI が変更されるとツールチップで NullReferenceException が発生する。
+
+|`38488`
+|UltraToolbarsManager
+|UltraToolbarsManager の「カスタマイズ」ダイアログ内のコマンド リストボックスが App Styling を無視する。
+
+|`38544`
+|UltraGrid
+|UltraGridExcelexporter が画像列を使用するとクラッシュする。
+
+|`38664`
+|UltraComboEditor
+|UltraComboEditor のドロップダウンは TopMost の埋め込みフォームの背後に表示される。
+
+|`39070`
+|UltraSpreadsheet
+|Excel シートをアップロードする際に「Object reference not set to an instance (オブジェクト参照がオブジェクトのインスタンスに設定されていません)」エラーが発生する。
+
+|====
+
+=== 拡張機能
+
+==== UltraBulletGraph
+
+- 新しい `LabelsVisible` プロパティが追加されました。 (ベータ版)
+
+==== チャート
+
+- DataToolTipLayer、ItemToolTipLayer、CategoryToolTipLayer にスタイル設定用の新しいプロパティが追加されました: `ToolTipBackground`、`ToolTipBorderBrush`、および `ToolTipBorderThickness`。
+
+- DataLegend にスタイル設定用の新しいプロパティが追加されました: `ContentBackground`、`ContentBorderBrush`、および `ContentBorderThickness`。`ContentBorderBrush` と `ContentBorderThickness` はそれぞれ既定で transparent と 0 に設定されているため、境界線を表示するにはこれらのプロパティを設定する必要があります。
+
+- マウスのワールド相対位置を提供する `WorldPosition` という新しいプロパティが `ChartMouseEventArgs` に追加されました。この位置は、軸空間内の X 軸と Y 軸の両方に対して 0 から 1 の間の値になります。
+
+- `SeriesViewer` と `DomainChart` に `HighlightingFadeOpacity` が追加されました。ハイライト表示されたシリーズに適用される不透明度を設定できます。
+
+- ドメイン チャートの `CalloutLabelUpdating` イベントを公開しました。
+
+==== UltraLinearGauge
+
+- 新しい `LabelsVisible` プロパティが追加されました。 (ベータ版)
+
+[[Ref_25_1_63]]
+== 25.1.63 (2025 年 7 月)
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+|バグ番号|コントロール|説明
+
+|`28320`
+|UltraGrid
+|ドロップダウン リストがビュー下部で完全に表示されていないセルで開かれると、意図しない項目が選択される。
+
+|`33420`
+|UltraSpreadsheet
+|カスタムの数値書式で数値をフォーマットすると、誤った結果が表示される。
+
+|`34575`
+|Charts
+|複数のチャートタイプにおいて、DataTooltip の背景が正しく描画されない。
+
+|`35105`
+|UltraListView
+|UseFlatMode = true と ThemedElementAlpha = transparent の組み合わせで、幅のリサイズが発生する。
+
+|`36204`
+|UltraSplitter
+|UltraSplitter が高 DPI 環境で正しくスケーリングされない。
+
+|`36448`
+|UltraRadialGauge
+|ラジアル ラベルの書式設定プロパティ (例: Title、SubTitles) が機能しない。
+
+|`37244`
+|Excel Library
+|カスタムの DataValidation が正しく動作しない。
+
+|`37499`
+|UltraGrid
+|UltraGrid デザイナーで [開始] ボタンを使用すると、グリッドのカーソルが Hand に変更される。
+
+|`38142`
+|ValueList
+|ValueListDropDownAppearanceManager において、顧客からの要望による null チェックを追加。
+
+|====
+
+=== 機能拡張
+
+==== UltraDataChart
+
+- 軸ラベルに MaximumExtent および MaximumExtentPercentage プロパティを追加しました (ベータ版)。
+
+[[Ref_25_1]]
+== 25.1.26
+
+=== {DataChartName}
+
+=== データ注釈バンド レイヤー (ベータ版)
+
+link:{DataChartLink}.DataAnnotationBandLayer.html[DataAnnotationBandLayer] は、シリーズ上に表示される新しい注釈レイヤーです。
+
+link:{DataChartLink}.DataAnnotationBandLayer.html[DataAnnotationBandLayer] についての完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:datachart-data-annotation-band-layer.html[{DataChartName} データ注釈バンド レイヤー]
+
+=== データ注釈ライン レイヤー (ベータ版)
+
+link:{DataChartLink}.DataAnnotationLineLayer.html[DataAnnotationLineLayer] は、シリーズ上に表示される新しい注釈レイヤーです。
+
+link:{DataChartLink}.DataAnnotationLineLayer.html[DataAnnotationLineLayer] についての完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:datachart-data-annotation-line-layer.html[{DataChartName} データ注釈ライン レイヤー]
+
+=== データ注釈矩形レイヤー (ベータ版)
+
+link:{DataChartLink}.DataAnnotationRectLayer.html[DataAnnotationRectLayer] は、シリーズ上に表示される新しい注釈レイヤーです。
+
+link:{DataChartLink}.DataAnnotationRectLayer.html[DataAnnotationRectLayer] についての完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:datachart-data-annotation-rect-layer.html[{DataChartName} データ注釈矩形レイヤー]
+
+=== データ注釈スライス レイヤー (ベータ版)
+
+link:{DataChartLink}.DataAnnotationSliceLayer.html[DataAnnotationSliceLayer] は、シリーズ上に表示される新しい注釈レイヤーです。
+
+link:{DataChartLink}.DataAnnotationSliceLayer.html[DataAnnotationSliceLayer] についての完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:datachart-data-annotation-slice-layer.html[{DataChartName} データ注釈スライス レイヤー]
+
+=== データ注釈ストリップ レイヤー (ベータ版)
+
+link:{DataChartLink}.DataAnnotationStripLayer.html[DataAnnotationStripLayer] は、シリーズ上に表示される新しい注釈レイヤーです。
+
+link:{DataChartLink}.DataAnnotationStripLayer.html[DataAnnotationStripLayer] についての完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:datachart-data-annotation-strip-layer.html[{DataChartName} データ注釈ストリップ レイヤー]
+
+=== Data Legend および DataTooltip LayoutMode
+
+`UltraDataLegend` 要素と `DataToolTipLayer` 要素では、凡例をテーブルまたは垂直構造でレイアウトするために使用できる `LayoutMode` プロパティが公開されるようになりました。詳細については、以下のリンク先のこのドキュメントの各トピックを参照してください。
+
+- link:datachart-data-legend.html[データ凡例]
+- link:datachart-data-tooltip.html[データ ツールチップ]
+
+=== ドラッグ選択 (ベータ版)
+
+チャートの `DefaultInteraction` プロパティに新しい列挙体 `DragSelect` が追加されました。これにより、チャートのプレビュー矩形を使用してシリーズのポイントが選択されます。
+
+=== オーバーレイ テキスト (ベータ版)
+
+以下のシリーズ タイプでは、新しく追加された `OverlayText` プロパティを使用することで、チャートに追加の注釈としてテキストをオーバーレイ表示できるようになりました。
+
+- link:{DataChartLink}.ValueLayer.html[ValueLayer]
+- link:{DataChartLink}.ValueOverlay.html[ValueOverlay]
+
+前述のシリーズ タイプに加えて、上記の新しいデータ注釈レイヤーもこの機能をサポートしています。
+
+OverlayText で始まるプロパティを使用して、このオーバーレイ テキストの表示方法 (角度、色、背景、パディング、マージン、フォントなど) を設定できます。たとえば、`OverlayTextBrush` は色を設定します。
+
+=== トレンドライン レイヤー
+
+`TrendlineLayer` は、特定のシリーズにトレンド ライン レイヤーごとに 1 つのトレンド ラインを適用できる新しいシリーズ タイプです。これにより、チャートに複数の `TrendlineLayer` シリーズ タイプを使用できるため、単一のシリーズで複数のトレンド ラインを使用できるようになります。
+
+=== 機能拡張
+==== UltraDataPieChart
+
+- チャートは `GetOthersContext()` メソッドを公開するようになりました。これにより、Others (その他) スライスのコンテンツが返されます。
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+|バグ番号|コントロール|説明
+
+|`34918`
+|一般
+|多数のウルトラ コントロールを含むフォームを処理するには、多数の標準コントロールを含むフォームを処理するよりも時間がかかる。
+
+|`36504`
+|UltraGrid
+|高 DPI では列ヘッダーを移動しても半分しか表示されない。
+
+|`37005`
+|UltraComboEditor
+|DataGridView の UltraComboEditorColumn で NullReferenceException が発生する。
+
+|====
+
+[[Ref_24_2_27]]
+== 24.2.27 (2025 年 2 月)
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+|バグ番号|コントロール|説明
+
+|`28383`
+|UltraToolbarsManager
+|フォーム デザイナーの変更後、RibbonGroup の要素が新しいキーを取得する。
+
+|`33103`
+|UltraDoughnutChart
+|UltraDoughnutChart でシリーズを追加するとメモリリークが発生する。
+
+|`33456`
+|UltraGrid
+|UltraGrid の DateTime 列でミリ秒の編集ができない。
+
+|`33605`
+|UltraDataChart
+|UltraLegend に ScatterLineSeries の線の色が正しく表示されない。
+
+|`33768`
+|UltraToolbarsManager
+|ドラッグアンドドロップで新しいツールを追加しても、PopupMenuTool が開かない。
+
+|`33769`
+|UltraToolbarsManager
+|PopupMenuTool のデザイナー タブで追加されたツールを削除できない。
+
+|`34425`
+|UltraGrid
+|UltraGrid でカンマを含む項目が正しくフィルタリングされない。
+
+|`34439`
+|UltraGrid
+|ダイアログ内でグリッドを開き、読み込み中にマウスを重ねると ArgumentNullException が発生する。
+
+|`34879`
+|UltraDataChart
+|ダイアログ内で UltraDataChart を開閉すると「InvalidOperationException: クロススレッド操作が無効」が発生する。
+
+|`35777`
+|UltraStatusBar
+|UltraStatusBar の OnPaint イベントで未処理の例外が発生する。
+
+|`36200`
+|Excel
+|Spreadsheet/Excel - 非同期計算の重大変更。
+
+|`36379`
+|Excel
+|Excel ワークブック内のアルファ チャネルを含む色は読み込まれない。
+
+|====
+
+[[Ref_24_2]]
+== 24.2 (2024 年リリース)
+
+=== .NET 9 のサポート
+
+バージョン 2024.2 以降、Ultimate UI for Windows Forms ツールセットは .NET 9 をサポートします。.NET 9 の詳細については、link:https://learn.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-9/overview[Microsoft サイト]をご確認ください。
+
+このリリースでは、link:https://dotnet.microsoft.com/ja-jp/platform/support/policy/dotnet-core[Microsoft .NET ライフサイクル]に従い、.NET 3.1、.NET 5、.NET 7 はサポートされなくなりました。
+
+[[BC_24_2]]
+==== 重大な変更
+
+NET 9 のリリースに伴い、Ultimate UI for Windows Forms ツールセット内の多くの save および load メソッドで使用されていた Binary Formatter が Microsoft によって削除されました。この削除とその解決策の詳細については、link:binary-formatter-net-9.html[このトピック]を参照してください。
+
+[[Ref_24_1_57]]
+== 24.1.57 (2024 年 9 月)
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+|バグ番号|コントロール|説明
+
+|`28019`
+|一般
+|テキストのクリッピングとオプションに関するウィンドウのサイズ設定の問題。
+
+|`28839`
+|UltraSpreadsheet
+|数式の参照範囲内のセルが更新されてもセルの値が再計算されない。
+
+|`29794`
+|UltraDataChart
+|UltraDataChart が ShowDialog() によって表示されるフォームに配置されている場合、それを閉じると親フォームで ArgumentException が発生する。
+
+|`31121`
+|UltraTextEditor
+|コントロールが拡張されると、UltraTextEditor のボタンが重複する。
+
+|`31405`
+|UltraValidator
+|440 行目で NullReferenceException が発生する。
+
+|`31689`
+|UltraGeographicMap
+|別のマップ インスタンスが破棄された後、マップが空白として表示される。
+
+|`32546`
+|UltraDataSource
+|実行時に列キーを変更するとキーが既に存在するというエラーが発生する。
+
+|`32873`
+|UltraDataChart
+|リアルタイム データ更新中にチャートの更新が停止する。
+
+|====
+
+
+[[Ref_24_1_38]]
+== 24.1.38 (2024 年 8 月)
+
+=== {DataPieChartName}
+
+link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] は、円チャートを表示する新しいコンポーネントです。このコンポーネントは、link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}] と同様に動作し、基になるデータ モデルのプロパティを自動的に検出しながら、ItemLegend コンポーネントを介して選択、強調表示、アニメーション、凡例のサポートを可能にします。
+
+link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] の完全なドキュメントは、以下のリンクから参照できます。
+
+- link:data-pie-chart.html[{DataPieChartName}]
+
+=== データ凡例 & データ ツールチップのグループ化
+
+新しい link:{DataChartLink}.{DataChartName}.html[{DataChartName}] グループ化機能が追加されました。`GroupRowVisible` プロパティは、各シリーズのグループ化を切り替え、オプトインすると `DataLegendGroup` プロパティを介してグループ テキストを割り当てることができます。同じ値が複数のシリーズに適用されている場合、それらはグループ化されて表示されます。すべてのユーザー向けに分類および整理する必要がある大規模なデータセットに役立ちます。
+
+=== チャートの選択
+
+新しいシリーズ選択。これは、link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}] および link:{DataChartLink}.{DataChartName}.html[{DataChartName}] のすべてのカテゴリ、財務、およびラジアル シリーズに広く採用されています。シリーズはクリックして異なる色で表示したり、明るくしたり、薄くしたり、フォーカスのアウトラインを表示したりできます。色は、`SelectionBrush` および FocusBrush` プロパティで変更できます。個々のシリーズまたはデータ項目全体を通じて影響を受ける項目を管理します。複数のシリーズとマーカーがサポートされています。特定のデータ項目の値間のさまざまな相違点や類似点を示すのに役立ちます。また、`SelectedSeriesItemsChanged` イベントと `SelectedSeriesItems` は、選択内容に基づいたデータ分析を行うポップアップやその他の画面など、アプリケーション内で実行できるその他のアクションを取り巻く堅牢なビジネス要件を構築するための追加の支援として利用できます。さらに、`SelectedSeriesItems` コレクションで選択した項目を読み取ることができます。
+
+=== 比例カテゴリ角度軸
+
+link:{DataChartLink}.{DataChartName}.html[{DataChartName}] のラジアル円シリーズの新しい軸により、データ チャートのすべての追加機能を使用して強力な視覚化を可能にする円チャートの作成が可能になります。
+
+[[BC_24_1_13]]
+== 重大な変更
+
+=== ラジアル/極座標シリーズ
+極座標およびラジアル シリーズのプロット領域は、チャート全体のスペースに広がるように拡張され、正方形に制約されなくなりました。これにより、ラベルがブリード領域に拡張できるようになります。
+
+[[Ref_23_2_180]]
+== 23.2.180 (2024 年 6 月)
+
+[options="header", cols="a,a,a"]
+|====
+|バグ番号|コントロール|説明
+
+|`25709`
+|UltraGrid
+|列フィルターを XML に保存できない。
+
+|`27836`
+|UltraGrid
+|1 回目にユーロ記号を入力できない。
+
+|`28405`
+|Excel ライブラリ
+|非表示の数式を含む Excel を読み込むと数式が表示される。
+
+|`28839`
+|UltraSpreadsheet
+|数式の参照範囲内のセルが更新されてもセルの値が再計算されない。
+
+|`29736`
+|UltraToolbarsManager
+|特定のシナリオで UltraToolbarsManager デザイナーの問題が発生する。
+
+|`29793`
+|UltraDataChart
+|シリーズ上で Reset() を呼び出すと、ShowDefaultTooltip を true に戻してもツールヒントを表示できない。
+
+|`29794`
+|UltraDataChart
+|UltraDataChart が ShowDialog() によって表示されるフォームに配置されている場合、それを閉じると親フォームで ArgumentException が発生する。
+
+|`30078`
+|UltraTabControl
+|UltraTabControl.Style が StateButtons に設定されている場合、NotificationBadgeText はタブ ヘッダーに表示されない。
+
+|`30345`
+|UltraGrid
+|すべての行がフィルター処理されると、Rows.VisibleRowCount は 1 を返す。
+
+|`31103`
+|UltraToolbarsManager
+|net 8 アプリケーションでは、FileMenuStyle を ApplicationMenu2010 に設定すると、PopupMenu (ファイル メニュー) に新しいツールを挿入できない。
+
+|`31185`
+|UltraGrid
+|グリッドをデザイナーにドロップすると大きな違いがある。
+
+|`31200`
+|UltraGrid
+|UltraGrid を Excel にエクスポートすると、非表示のセルが表示され、すべての列が表示されない。
+
+|`31203`
+|UltraDataChart
+|シリーズの Brush を LinearGradientBrush に設定すると、Null 参照例外が発生する。
+
+|`31701`
+|UltraDataChart
+|チャートのツールヒントを含むフォームを開いて閉じると、System.InvalidOperationException が発生する。
+
+|====
+
+[[Ref_23_2_131]]
+== 4 月 23.2.131 リリース
+
+=== ファンネル チャートの強調表示
+
+4 月 23.2 リリース以降、link:{FunnelChartLink}.{FunnelChartName}.html[{FunnelChartName}] に強調表示オーバーレイがあります。このオーバーレイは、`HighlightedItemsSource`、`HighlightValueDisplayMode`、`HighlightedValueMemberPath`、および `HighlightingOpacity` という複数の強調表示プロパティを通じて公開されます。
+
+`HighlightValueDisplayMode` が `Overlay` に設定されている場合、これは `HighlightedItemsSource` および `HighlightedValueMemberPath` と連携して、チャートの `ItemsSource` と `HighlightedItemsSource` の値の差を表示する強調表示されたオーバーレイを提供します。`HighlightingOpacity` プロパティを使用して、強調表示 オーバーレイの不透明度を制御できます。
+
+=== ゲージの強調表示機能
+
+link:{RadialGaugeLink}.{RadialGaugeName}.html[{RadialGaugeName}]、link:{LinearGaugeLink}.{LinearGaugeName}.html[{LinearGaugeName}]、と link:{BulletGraphLink}.{BulletGraphName}.html[{BulletGraphName}] は、`HighlightValue` と `HighlightValueDisplayMode` プロパティを公開するようになりました。
+
+`{RadialGaugeName}` および `{LinearGaugeName}` では、値と `Overlay` の `HighlightValueDisplayMode` を指定すると、メインの針が薄く表示され、追加の針が表示されます。
+
+`{BulletGraphName}` では、`HighlightValueDisplayMode` が `Overlay` に設定されている場合、パフォーマンス バーに値と `HighlightValue` の差が反映されるようになりました。強調表示された値には、フィルター処理された/サブセット測定されたパーセンテージが塗りつぶされた色で表示され、残りのバーの外観は割り当てられた値にフェードアウトされます。
+
+=== ラジアル チャートのラベル モード
+
+link:{DataChartLink}.{DataChartName}.html[{DataChartName}] の `CategoryAngleAxis` は、ラベルの位置をさらに構成できる `LabelMode` プロパティを公開するようになりました。これにより、`Center` 列挙型を選択してデフォルト モードを切り替えることも、ラベルを円形のプロット領域に近づける新しいモード `ClosestPoint` を使用することもできます。
+
+=== ラジアル ゲージのオプティカル スケーリング
+
+link:{RadialGaugeLink}.{RadialGaugeName}.html[{RadialGaugeName}] には、ラベル、サブタイトル、タイトルのスケーリングを変更できる機能が追加されました。これは、`OpticalScalingEnabled` プロパティを true に設定することで行われます。次に、ラベルが 100% のオプティカル スケーリングを持つサイズを管理する `OpticalScalingSize` を設定できます。基本的に、ゲージのサイズが大きくなると、ラベルのフォントも大きくなります。
+
+たとえば、このプロパティが 500 に設定され、ゲージのサイズが 1000 の場合、ラベルのフォント サイズは 200% 大きくなります。
+
+=== ラジアル ゲージのタイトルとサブタイトル
+
+link:{RadialGaugeLink}.{RadialGaugeName}.html[{RadialGaugeName}] の新しいタイトルとサブタイトルのプロパティが利用できるようになりました。`TitleText` と `SubtitleText` は、ゲージの下部近くに対応するタイトルを表示します。さらに、`TitleFontSize`、`TitleFontFamily`、`TitleFontStyle`、`TitleFontWeight`、`TitleExtent` など、さまざまなタイトルとサブタイトルのフォント プロパティが追加されました。最後に、新しい `TitleDisplaysValue` により、値を針の位置に対応させることができます。
+
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+|バグ番号|コントロール|説明
+
+|`28442`
+|UltraComboEditor
+|Arial フォントを使用した UltraComboEditor で一部の項目が表示されない問題。
+
+|`28521`
+|一般
+|最新の .NET SDK でコンパイルすると、アセンブリ内のソース リンクが正しくない問題。
+
+|`29794`
+|UltraDataChart
+|UltraDataChart が ShowDialog() によって表示されるフォームに配置されている場合、それを閉じると親フォームで ArgumentException が発生する問題。
+
+|`30270`
+|UltraSpreadsheet
+|同じワークブック内の別のセルを参照する数式を持つセルをコピーすると、UltraSpreadsheet に正しく貼り付けられない問題。
+
+|`274447`
+|Excel ライブラリ
+|自動フィルターは、.xlsm Excel ファイルの読み込み後に自動的に適用される問題。
+
+|====
+
+[[Ref_23_2]]
+== 23.2 (2023 年リリース)
+
+=== .NET 8.0 のサポート
+
+バージョン 2023.2 以降、Ultimate UI for WinForms ツールセットは .NET 8 をサポートします。.NET 8 の詳細については、link:https://learn.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-8[Microsoft サイト]をご確認ください。
+
+=== チャート強調表示フィルター
+
+link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}] と link:{DataChartLink}.{DataChartName}.html[{DataChartName}] は、データのサブセットの内外で強調表示およびアニメーション化する方法を公開するようになりました。この強調表示の表示はシリーズのタイプによって異なります。列およびエリア シリーズの場合、サブセットはデータの合計セットの上に表示され、サブセットはシリーズの実際のブラシによって色付けされ、合計セットは不透明度を下げます。折れ線シリーズの場合、サブセットは点線で表示されます。
+
+image:images/chart-highlight-filter.png[]
+
+この機能には、link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}] で使用できる OData に似た新しいフィルター構文が含まれています。
+
+次のドキュメントでは、チャート コントロールに強調表示フィルターを適用するさまざまな方法について説明します。
+
+- link:datachart-highlight-filter.html[{DataChartName} 強調表示フィルター]
+- link:categorychart-highlight-filter.html[{CategoryChartName} 強調表示フィルター]

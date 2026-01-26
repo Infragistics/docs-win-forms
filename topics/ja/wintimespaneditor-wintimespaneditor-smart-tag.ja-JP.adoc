@@ -1,0 +1,45 @@
+﻿////
+|metadata|
+{
+    "name": "wintimespaneditor-wintimespaneditor-smart-tag",
+    "controlName": ["WinTimeSpanEditor"],
+    "tags": ["API","Design Environment"],
+    "guid": "7d19d6da-6cb4-41dc-9373-0540cb06e091",
+    "buildFlags": [],
+    "createdOn": "2010-06-03T20:30:27.3537401Z"
+}
+|metadata|
+////
+
+= WinTimeSpanEditor スマートタグ
+
+[cols="a,a"]
+|====
+
+|Visual Studio 2005/2008（.NET Framework 2.0）では、{ProductName} コントロール/コンポーネントがそれぞれ固有のスマートタグを備えています。コントロールやコンポーネントを選択するだけで、スマートタグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。WinTimeSpanEditor™ スマートタグには、以下のセクションと共にコントロールの名前が含まれます。外観 - コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。各セクションの項目（フィールド、ドロップダウン リスト、チェックボックスなど）の説明と、各項目が対応するプロパティ グリッドのプロパティについては、以下の表を参照してください。|image::Images/WinTimeSpanEditor_Smart_Tag_01.png[]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|表示スタイル
+|WinNumericEditor のスタイルを、Office 2000、Office XP、Office 2003、Visual Studio 2005、Office 2007、WindowsVista または ScenicRibbon に似たスタイルに変更します。
+| link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[DisplayStyle]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|動作|説明|対応するプロパティ
+
+|スピン ボタンを表示
+|スピン ボタンを表示または非表示にするチェックボックス。
+| link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimespaneditor~spinbuttonvisible.html[SpinButtonVisible]
+
+|スピン ボタンの配置
+|スピン ボタンの位置を指定します。
+| link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimespaneditor~spinbuttonalignment.html[SpinButtonAlignment]
+
+|====

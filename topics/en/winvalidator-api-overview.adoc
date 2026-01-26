@@ -1,0 +1,44 @@
+﻿////
+|metadata|
+{
+    "name": "winvalidator-api-overview",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{AE578CA1-991C-4353-8FBA-51DFC02E72A2}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API Overview
+
+This section lists each namespace that is relevant to the control. We also give you several key classes that you will be using while programming with this control. The namespaces and classes on this page link directly into our API documentation.
+
+[cols="a,a"]
+|====
+|*Misc Namespace:* +
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[Infragistics.Win.Misc Namespace]
+|*Key Classes:* 
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator.html[UltraValidator] 
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validation.html[Validation] 
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationgroup.html[ValidationGroup] 
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationresult.html[ValidationResult] 
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings.html[ValidationSettings]
+
+|*Win Namespace:* 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win_namespace.html[Infragistics.Win Namespace]
+|*Key Classes:* 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition.html[OperatorCondition] 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.rangecondition.html[RangeCondition] 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.containedinlistcondition.html[ContainedInListCondition]
+
+|====

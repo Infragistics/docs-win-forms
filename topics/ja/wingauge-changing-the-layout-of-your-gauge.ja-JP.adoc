@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-changing-the-layout-of-your-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{AE7AF015-D7DF-4808-A1AC-134D48F8A7B3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージのレイアウトの変更
+
+[プロパティ] パネルは、ゲージのコンポーネントのレイアウト方法を修正するために使用できる多数の異なるレイアウト タブを提供します。たとえば、[目盛レイアウト] タブを使用して、ラジアル ゲージの目盛の間にどのくらいスペースをあけるのかを指定できます。
+
+[プロパティ] パネルで使用可能な [レイアウト] タブそれぞれの説明については、以下のリンクをクリックしてください。
+
+* link:wingauge-anchor-layout-tab.html[アンカー レイアウト タブ]
+* link:wingauge-back-anchor-layout-tab.html[バック アンカー レイアウト タブ]
+* link:wingauge-bar-marker-layout-tab.html[バー マーカー レイアウト タブ]
+* link:wingauge-dial-layout-tab.html[目盛盤レイアウト タブ]
+* link:wingauge-gauge-layout-tab.html[ゲージ レイアウト タブ]
+* link:wingauge-labels-layout-tab.html[ラベル レイアウト タブ]
+* link:wingauge-needle-marker-layout-tab.html[針マーカー レイアウト タブ]
+* link:wingauge-range-layout-tab.html[レンジ レイアウト タブ]
+* link:wingauge-scale-layout-tab.html[スケール レイアウト タブ]
+* link:wingauge-tickmark-layout-tab.html[目盛レイアウト タブ]

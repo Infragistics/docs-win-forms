@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-hide-a-day-of-the-week",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{1DC51906-B522-4541-BDC9-613607CF0429}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 週の曜日の非表示化
+
+このトピックは、7 つすべての WinSchedule 名前空間エレメントがツールボックスに追加されていることを前提とします。
+
+== デザインタイム
+
+[start=1]
+. 7 つすべての WinSchedule エレメントをフォームに追加します。
+[start=2]
+. フォームに表示する任意の 5 つの視覚的エレメントを選択します。
+[start=3]
+. [プロパティ] ウィンドウから pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment~calendarinfo.html[CalendarInfo]"]  プロパティを選択します。
+[start=4]
+. CalendarInfo プロパティのドロップダウン リストから UltraCalendarInfo1 を選択します。
+[start=5]
+. その他 4 つの視覚的エレメントに繰り返します。
+[start=6]
+. Form_Load イベントで追加します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+...
+Private Sub UsetheUltraCalendarInfoObjecttoHideaDayoftheWeek_Load( _
+ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+Me.UltraCalendarInfo1.DaysOfWeek(DayOfWeekEnum.Sunday).Visible = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+...
+private void UsetheUltraCalendarInfoObjecttoHideaDayoftheWeek_Load(
+object sender, System.EventArgs e)
+{
+this.ultraCalendarInfo1.DaysOfWeek[DayOfWeekEnum.Sunday].Visible = false;
+}
+----

@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-outlook-2007-navigation-pane-can-now-be-collapsed-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E8068F40-B3BC-4944-9CB2-4B0A3AD5798A}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:12:54Z"
+}
+|metadata|
+////
+
+= Outlook 2007 ナビゲーション ペインを折り畳むことができる
+
+2006 Volume 3リリースでは、弊社の多くのコントロールに Office 2007 のルック アンド フィールが適用されました。WinExplorerBar は、新しいルック アンド フィールを受け取ったコントロールのひとつです。WinExplorerBar は、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~style.html[Style]"]  プロパティが OutlookNavigationPane に設定されている場合、Outlook 2007 ナビゲーション ペインをエミュレートできます。
+
+本リリースでは、ナビゲーション ペインを縮小する機能が追加されました。ナビゲーション ペインを縮小する主な利点は、エンド ユーザーがリカバーできる画面領域の量です。縮小すれば、ナビゲーション ペインは大幅にサイズが少なくなり、小さいシルバーが表示されるだけです。
+
+最も顕著な違いはグループ領域です。グループ領域は、項目またはコントロール コンテナが表示される場所です。この領域はデフォルトでは [ナビゲーション ペイン] ボタンに置き換わります（このテキストは好みのテキストに変更可能です）。このボタンをクリックすると、フライアウトが表示し、グループ領域内に含まれるすべての項目が表示されます。このフライアウトの表示方法、時間、そして場所は、ナビゲーション ペインのオブジェクト モデルによって完全にカスタマイズ可能です。
+
+[cols="a,a"]
+|====
+|展開されたナビゲーション ペイン
+|縮小されたナビゲーション ペイン
+
+|image::images/WinExplorerBar_Outlook_2007_Navigation_Pane_Can_Now_Be_Collapsed_Whats_New_20071_01.png[] 
+
+|image::images/WinExplorerBar_Outlook_2007_Navigation_Pane_Can_Now_Be_Collapsed_Whats_New_20071_02.png[] 
+
+|====
+
+== 関連トピック
+
+link:winexplorerbar-change-the-size-of-the-navigation-pane-flyout.html[ナビゲーション ペイン フライアウトのサイズを変更]
+
+link:winexplorerbar-change-the-text-in-the-navigation-pane-group-area.html[ナビゲーション ペイン グループ領域のテキストを変更]
+
+link:winexplorerbar-show-the-navigation-pane-flyout-at-the-mouse-coordinates-on-a-right-click.html[右クリックでマウス座標でナビゲーション ペイン フライアウトを表示]

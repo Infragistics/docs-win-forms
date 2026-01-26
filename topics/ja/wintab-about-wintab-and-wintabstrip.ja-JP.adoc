@@ -1,0 +1,36 @@
+﻿////
+|metadata|
+{
+    "name": "wintab-about-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started"],
+    "guid": "{20970BFE-F20C-4CE9-9CF5-B9036FBD2ED3}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab と WinTabStrip について
+
+Infragistics.Win.UltraWinTabControl アセンブリには、次の Windows Forms 要素が含まれています。
+
+
+* 
+*pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrol.html[UltraTabControl]"] -- この要素は、Microsoft が提供する TabControl の一連の重要な機能を提供します。Microsoft TabControl と同様に、各タブは、そのタブに固有の子コントロールを含むタブ ページ コントロールを作成します。基本的な機能に加えて、公開されている特別な共有コントロール ページに、一部またはすべてのタブで共有される子コントロールが含まれています。タブが選択されると、適切な共有コントロールがタブのタブ ページに自動的に再割り当てされます。 
+UltraTabControl の pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tabs.html[Tabs]"] 
+プロパティは、各タブを表す  pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab.html[UltraTab]"] ブジェクトのコレクションを返します。UltraTab オブジェクトは pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~tabpage.html[TabPage]"]、 pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~visible.html[Visible]"]、 pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~enabled.html[Enabled]"]、 pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~text.html[Text]"]、 pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~tooltiptext.html[ToolTipText]"]、 pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~appearance.html[Appearance]"]タブに関連するプロパティを公開します。さらに、UltraTabControl は、タブ スタイル、タブ レイアウト、タブの向き、テキストの向きおよびさまざまなタブ スクロール オプションを指定するプロパティを公開します。
+
+*
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabstripcontrol.html[UltraTabStripControl]"] -- この要素は UltraTabControl のすべての機能を公開しますが、各タブに固有のタブ ページ コントロールは作成されません。子コントロールは共有コントロール ページのみに含まれます。この要素は、すべてのタブが主に同じ子コントロールを表示する場合に便利です。また、データソースに簡単にバインドすることもできます。
+
+*注: * Microsoft TabControl は、タブのオーナー描画をサポートする DrawItem イベントを公開します。UltraTabControl と UltraTabStripControl は、DrawFilter インターフェイスがより強力な機能を提供するため、このイベントを公開しません。
+
+以下のトピックでは、WinTab™ および WinTabStrip™ コントロールの機能の概要を説明します。
+
+* pick:[win-forms="link:WinTab-WinTab-and-WinTabStrip-Terms-and-Concepts.html[WinTab および WinTabStrip に関する用語と概念]"]
+* pick:[win-forms="link:WinTab-Differences-WinTab-and-WinTabStrip.html[WinTab と WinTabStip の違い]"]
+* pick:[win-forms="link:WinTab-Working-With-Tabs.htmlタブの操作]"]
+* pick:[win-forms="link:WinTab-Sharing-Controls-Among-WinTabs.html[WinTabs 間でのコントロールの共有]"]
+* pick:[win-forms="link:WinTab-Layout-and-Appearance-of-WinTab-and-WinTabStrip.html[WinTab および WinTabStrip のレイアウトと外観]"]
+* pick:[win-forms="link:WinTab-Convert-a-Tab-Control-to-WinTab.html[Tab コントロールを WinTab に変換する]"]

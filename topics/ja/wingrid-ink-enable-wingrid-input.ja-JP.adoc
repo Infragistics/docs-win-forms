@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-ink-enable-wingrid-input",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{144E9BDA-272D-45A9-88BA-EF4FA0A51D80}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= インク対応の WinGrid の入力
+
+{ProductName} 製品パッケージに WinInkProvider™ を追加すると、アプリケーション内で Infragistics 要素のインクを有効にする作業が非常に簡単になります。TabletPC プラットフォームにアプリケーションを配備しようとしている場合、以下の簡単な手順を実行して、アプリケーション内の WinGrid™ 要素にインク機能を追加してください。
+
+[start=1]
+. フォームに UltraGrid 要素を追加します。
+[start=2]
+. Visual Studio ツールボックスで UltraInkProvider 要素を見つけます。
+
+ツールボックス内の UltraInkProvider 要素をダブルクリックします。ダブルクリックした要素がフォームのコンポーネント トレイに追加されます。
+
+必要な手順は以上です。グリッドがテキスト入力に用いる埋め込み可能なエディターは、これですべてインク有効になりました。どのテキスト入力フィールドにもその右端にペン アイコン ボタンが表示されます。ペンでこのボタンをクリックすると、選択した要素のテキスト入力パネルが開きます。
+
+[NOTE]
+====
+*注:* インク認識を実行できるのは、Windows の TabletPC 版が動いている TabletPC システムのみです。TabletPC 以外のシステムで開発している場合は、TabletPC SDK を導入して UltraInkProvider 要素を使えるようにする必要があります。詳細については、UltraInkProvider ヘルプのインク有効なアプリケーションの要件トピックを参照してください。また WinInkProvider の概要にも詳細情報が記載されています。
+====
+
+[start=3]
+. 次のスナップショットはインク有効な WindGrid です。テキスト入力パネルはキーボード入力とインク入力の 2 つから構成されています。このスナップショットではテキスト入力部分を表示しています。右側の [ペン] ボタンをクリックすると、インク入力モードに切り替わります。
+
+image::Images/WinGrid_Ink_Enable_WinGrid_Input_01.png[ultra の入力をインク有効にする]
+
+次は UltraWinGrid 固有の説明です。
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトの ShowInkButton プロパティの設定によって、WinGrid 内でインク ボタンが表示されないようにできます。ShowInkButton プロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトからも公開されているので、列単位でインク ボタンを有効/無効にすることができます。
+[start=5]
+. デフォルトで、マウスがセル上に移動すると UltraWinGrid はインク ボタンを表示します。常にインク ボタンを表示するには、UltraGridColumn オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~buttondisplaystyle.html[ButtonDisplayStyle]"]  プロパティを設定します。

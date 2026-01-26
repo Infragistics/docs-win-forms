@@ -1,0 +1,48 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-navigation-and-selection",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Navigation","Selection"],
+    "guid": "{42DEDA04-E714-4146-B142-D6C9A9E52E86}",
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:32:27Z"
+}
+|metadata|
+////
+
+= ナビゲーションと選択
+
+マウスまたはキーボードを使用して、™ コントロール内のデータをナビゲートできます。以下のリンクはナビゲーションと選択のさまざまな方法を紹介します。
+
+* link:wingrid-afterrowactivate-event.html[AfterRowActivate イベント]
+* link:wingrid-binding-wingrid-rows-to-text-boxes.html[WinGrid 行をテキスト ボックスにバインド]
+* link:wingrid-changing-the-active-row.html[アクティブな行の変更]
+* link:wingrid-changing-the-behavior-of-the-tab-key.html[Tab キーの動作の変更]
+* link:wingrid-clickcell-event.html[ClickCell イベント]
+* link:wingrid-creating-scrolling-region-in-row-or-column.html[行または列でスクロール領域を作成]
+* link:wingrid-creating-fixed-non-scrolling-columns.html[固定（非スクロール）列の作成]
+* link:wingrid-controlling-the-tab-order-of-cells.html[セルのタブ順序を制御]
+* link:wingrid-customizing-column-moving-indicators.html[列移動インジケーターのカスタマイズ]
+* link:wingrid-determining-which-row-the-user-clicked.html[ユーザーがクリックした行の特定]
+* link:wingrid-determining-which-column-the-user-clicked.html[ユーザーがクリックした列の特定]
+* link:wingrid-determining-which-cell-the-user-clicked.html[ユーザーがクリックしたセルの特定]
+* link:wingrid-determining-which-band-the-user-clicked.html[ユーザーがクリックしたバンドの特定]
+* link:wingrid-disabling-the-splitting-of-wingrid-into-regions.html[WinGrid の領域への分割を無効化]
+* link:wingrid-displaying-checkbox-in-column-header.html[列ヘッダーにチェックボックスを表示]
+* link:wingrid-doubleclick-events.html[DoubleClick イベント]
+* link:wingrid-keeping-the-active-row-visible.html[アクティブ行の表示状態を保持]
+* link:wingrid-moving-swapping-columns.html[列の移動と交換]
+* link:wingrid-overriding-default-cursor-movement.html[デフォルトのカーソル移動をオーバーライド]
+* link:wingrid-right-fixed-headers.html[右の固定ヘッダー]
+* link:wingrid-setting-the-active-cell.html[アクティブ セルの設定]
+* link:wingrid-setting-the-activerow-of-wingrid.html[WinGrid のアクティブ行の設定]
+* link:wingrid-scrolling-a-parent-row-to-the-top-of-the-grid.html[親行をグリッドの先頭にスクロール]
+* link:wingrid-scrolling-a-row-into-view.html[行を表示可能領域にスクロールする]
+* link:wingrid-scrolling-one-row-at-a-time.html[同時に 1 行をスクロール]
+* link:wingrid-specifying-fixed-columns.html[固定列の指定]
+* link:wingrid-specifying-fixed-rows.html[固定行の指定]
+* link:wingrid-using-wingrid-as-a-data-navigator.html[WinGrid をデータ ナビゲータとして使用]
+* link:wingrid-working-with-column-scroll-regions.html[列スクロール領域の操作]
+* link:wingrid-working-with-row-scroll-regions.html[行スクロール領域の操作]
+* link:wingrid-working-with-selected-rows.html[選択行の操作]

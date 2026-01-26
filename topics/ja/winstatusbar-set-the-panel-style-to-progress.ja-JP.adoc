@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-progress",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{41101022-55FF-4B22-A16D-3A0C77BE9775}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを Progress に設定
+
+プログレス バー スタイルのパネルには、プログレス バーとそれに関連付けられたラベルが表示されます。このパネルを使用すると、処理の完了まで後どれくらいかかるのかなど、時間のかかる処理に関するフィードバックをユーザーに提供できます。
+
+Progress スタイルのパネルをデザインタイムに設定するには：
+
+[start=1]
+. WinStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+. パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  を "Progress" に設定します。Key プロパティを "Progress" に設定することで一意の名前を指定します。
+[start=5]
+. ProgressInfo オブジェクトを開き、さまざまなプロパティを検査します。標準のプログレス バーのプロパティをミラーすることに注意してください。さらに Appearance オブジェクトがあります。
+[start=6]
+. 希望に応じて色とフォントを変更します。この例では他のプロパティはそのままにします。選択するパネルにプログレス バーが表示されます。
+
+上記の手順でステータス バーにプログレス バーを配置しても、測定すべき進捗状況が現在ないため、何も表示されません。プログレスを表示できるシンプルなプロセスを提供するには、ボタンをアプリケーションに追加し、Click イベントに以下のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Dim i As Integer
+For i = 1 To 100
+	Me.UltraStatusBar1.Panels("Progress").ProgressBarInfo.Value = i
+	Me.UltraStatusBar1.Refresh()
+	System.Threading.Thread.Sleep(50)
+Next
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+for(int i=1; i$$<=$$100; i++)
+{
+	this.ultraStatusBar1.Panels["Progress"].ProgressBarInfo.value = i;
+	this.ultraStatusBar1.Refresh();
+	System.Threading.Thread.Sleep(50);
+}
+----
+
+ランタイムの場合
+
+ランタイムにパネルを追加してそのタイプを "Progress" に設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub WinStatusBarQuickTourProgressBarPanel_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraStatusBar1.Panels.Add("Progress", PanelStyle.Progress)
+	Me.UltraStatusBar1.Panels("Progress").ProgressBarInfo.Label = "value"
+	Dim i As Integer
+	For i = 1 To 100
+		Me.UltraStatusBar1.Panels("Progress").ProgressBarInfo.Value = i
+		Me.UltraStatusBar1.Refresh()
+		System.Threading.Thread.Sleep(50)
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void WinStatusBarQuickTourProgressBarPanel_Load(object sender, System.EventArgs e)
+{
+	this.ultraStatusBar1.Panels.Add("Progress", Infragistics.Win.UltraWinStatusBar.PanelStyle.Progress);
+	this.ultraStatusBar1.Panels["Progress"].ProgressBarInfo.Label = "value";
+	for(int i=1; i$$<=$$100; i++)
+	{
+		this.ultraStatusBar1.Panels["Progress"].ProgressBarInfo.value = i;
+		this.ultraStatusBar1.Refresh();
+		System.Threading.Thread.Sleep(50);
+	}
+}
+----

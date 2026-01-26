@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-api-overview",
+    "controlName": ["WinComboEditor"],
+    "tags": ["API"],
+    "guid": "{238CD730-524E-44FE-96BA-63AAD8F00152}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinEditors 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinEditors]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor.html[UltraComboEditor]"]

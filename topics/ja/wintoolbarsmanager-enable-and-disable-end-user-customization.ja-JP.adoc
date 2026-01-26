@@ -1,0 +1,112 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-enable-and-disable-end-user-customization",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{4848E6C1-11B8-47E8-94C5-141BC990AF57}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= エンド ユーザによるカスタマイズの許可と禁止
+
+デフォルトでは、WinToolbarsManager のカスタマイズ機能はすべて有効になっています。アプリケーションのエンド ユーザーは、ツールの追加、削除、または位置変更を自由に行えるほか、ツールバーの作成や削除も自由に行えます。既存のツールバーを希望するように再配置することもできます。
+
+場合によっては、ツールバーに対するツールの追加や削除をユーザーが実行できないようにすることが可能です。また、ユーザーがツールバーのドッキングや非表示を実行できないようにすることも可能です。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings.html[ToolbarSettings]"]  オブジェクトのプロパティのうち、ユーザーがランタイムにツールバーに対して実行できる動作と実行できない動作について制御するものを次に示します。これらのプロパティはすべてデフォルトで True に設定されています。
+
+[NOTE]
+====
+*注：* UltraToolbarsManager の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~runtimecustomizationoptions.html[RuntimeCustomizationOptions]"]  プロパティを使用してランタイム カスタマイズの制限を実現できる追加オプションがあります。
+====
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowcustomize.html[AllowCustomize]"]  - この設定は、ランタイム カスタマイザからツールバーのツールをエンド ユーザーが操作できるかどうかを決定します。この設定は、ユーザーによるツールバーのドック、フロート、または再配置の能力に影響を及ぼしません。
+
+[NOTE]
+====
+*注：* このプロパティによって、エンド ユーザーはランタイム カスタマイズ ダイアログにアクセスできなくなるわけではありません。これを行うには、UltraToolbarsManager の RuntimeCustomizationOptions プロパティを変更して、AllowCustomizeDialog オプションを除外する必要があります。
+====
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Me.UltraToolbarsManager1.ToolbarSettings.AllowCustomize = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraToolbarsManager1.ToolbarSettings.AllowCustomize = DefaultableBoolean.True;
+----
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowdockbottom.html[AllowDockBottom]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowdocktop.html[AllowDockTop]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowdockright.html[AllowDockRight]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowdockleft.html[AllowDockLeft]"]  - これらの設定は、ツールバーがドックされる領域を指定します。ツールバーを特定の領域に制限するには、対応する AllowDock プロパティを True に設定し、それ以外のプロパティを False に設定するだけです。たとえば、ツールバーのドッキング可能な位置をフォームの上端または下端（水平方向のみ）に制限する場合は、AllowDockLeft と AllowDockRight を False に設定します。
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Me.UltraToolbarsManager1.ToolbarSettings.AllowDockBottom = DefaultableBoolean.True
+Me.UltraToolbarsManager1.ToolbarSettings.AllowDockLeft = DefaultableBoolean.True
+Me.UltraToolbarsManager1.ToolbarSettings.AllowDockRight = DefaultableBoolean.True
+Me.UltraToolbarsManager1.ToolbarSettings.AllowDockTop = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraToolbarsManager1.ToolbarSettings.AllowDockBottom = DefaultableBoolean.True;
+this.ultraToolbarsManager1.ToolbarSettings.AllowDockLeft = DefaultableBoolean.True;
+this.ultraToolbarsManager1.ToolbarSettings.AllowDockRight = DefaultableBoolean.True;
+this.ultraToolbarsManager1.ToolbarSettings.AllowDockTop = DefaultableBoolean.True;
+----
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowfloating.html[AllowFloating]"]  - 次の設定は、ツールバーのドッキングを解除して固有のウィンドウにフローティングできるかどうかを示します。
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Me.UltraToolbarsManager1.ToolbarSettings.AllowFloating = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraToolbarsManager1.ToolbarSettings.AllowFloating = DefaultableBoolean.True;
+----
+
+[NOTE]
+====
+*注：* この設定と上記の「AllowDock」設定とを組み合わせることで、ユーザーがツールバーをまったく移動できないようにすることが可能です。AllowFloat プロパティとすべての AllowDock プロパティを False に設定すると、ユーザーはツールバーを移動できなくなります。
+====
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~allowhiding.html[AllowHiding]"]  - 次の設定は、ツールバーを非表示にできるかどうか（閉じることができるかどうか）を示します。False に設定すると、ユーザーはツールバーをアプリケーションから削除できなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win;
+...
+Me.UltraToolbarsManager1.ToolbarSettings.AllowHiding = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraToolbarsManager1.ToolbarSettings.AllowHiding = DefaultableBoolean.True;
+----

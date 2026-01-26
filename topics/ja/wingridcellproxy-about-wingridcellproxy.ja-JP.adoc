@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridcellproxy-about-wingridcellproxy",
+    "controlName": [],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{4A6ED1C3-AFCB-45C1-AA8C-97C645E0A9AA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridCellProxy について
+
+WinGridCellProxy™ は、WinGridRowEditTemplate™ コントロールのエディタとして動作する一意のコントロールです。2 つのコントロールの一意のデザインのため、WinGridCellProxy は WinGridRowEditTemplate コントロール内だけで機能できます。WinGridCellProxy の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcellproxy~columnkey.html[ColumnKey] プロパティを基本データの対応する列のキーに設定することで、WinGridCellProxy は編集テンプレートが表示する行に列データを表示します。WinGridCellProxy は多目的の組み込み可能なエディタとして機能し、列のデータを表示する特定の組み込み可能なエディタ、つまり「セル プロキシー」という用語の役割を果たします。
+
+== 関連トピック
+
+link:wingridrowedittemplate-about-wingridrowedittemplate.html[WinGridRowEditTemplate について]
+
+link:wingridcellproxy-add-a-wingridcellproxy-to-a-wingridrowedittemplate.html[WinGridCellProxy を行の編集テンプレートに追加]

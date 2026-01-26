@@ -1,0 +1,105 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-merging-cells-with-the-same-values",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{45717128-3456-48CF-9F03-BE44002511DB}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 同じ値を持つセルの結合
+
+[NOTE]
+====
+*注：* このトピックは同じ列のセルを結合する方法を示します。 同じ行のセルの結合はサポートされません。
+====
+
+== 列内に同じ値を持つセルを結合するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[column]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~mergedcellstyle.html[MergedCellStyle]"]  プロパティを Always か OnlyWhenSorted に設定します。 OnlyWhenSorted に設定すると、列が並べ替えられたときのみ、列のセルが結合します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(3).MergedCellStyle = MergedCellStyle.Always
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[3].MergedCellStyle = MergedCellStyle.Always;
+----
+
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~mergedcellstyle.html[MergedCellStyle]"]  プロパティを使用して、WinGrid™ のすべての列のセルを結合することもできます。 こうすると、すべての列について MergedCellStyle を設定しなくて済みます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.MergedCellStyle = MergedCellStyle.Always
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.MergedCellStyle = MergedCellStyle.Always;
+----
+
+[start=4]
+. 結合セルの外観を設定するには、Override オブジェクトおよび pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~mergedcellappearance.html[MergedCellAppearance]"]  プロパティを使用します。 Override の MergedCellAppearance はすべての列に作用しますが、列の MergedCellAppearance は対応する列のみに作用します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.MergedCellAppearance.BackColor = Color.LightYellow
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.MergedCellAppearance.BackColor = Color.LightYellow;
+----
+
+[start=5]
+. どのセルが結合するのかを決定するためのカスタム ロジックを指定するために pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~mergedcellevaluator.html[MergedCellEvaluator]"]  プロパティを使用できます。 セルの結合のためのカスタム ロジックを指定するために IMergedCellEvaluator インターフェイスを実装する必要があります。 この詳細は、 link:wingrid-using-custom-merge-cell-logic.html[「カスタムのセル ロジックを使用」]を参照してください。
+[start=6]
+. UltraGridColumn オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~mergedcellevaluationtype.html[MergedCellEvaluationType]"]  プロパティは、セルの値とセルの表示テキストのどちらに基づいてセルを結合するかを指定します。 場合によっては、表示テキストは同じでも値が異なるセルが存在することがあります。 たとえば、2 つの値を同じ表示テキストにマップする ValueList が列に設定されている場合や、数値を四捨五入する書式が列に適用されていて、2 つの異なる数値が同じ表示テキストになっている場合などがこれに該当します。 このような場合は、セル値ではなく表示テキストに基づいてセルを結合できます。 そのためには、MergedCellEvaluationType プロパティを MergeSameText に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).MergedCellEvaluationType = _
+  MergedCellEvaluationType.MergeSameText
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].MergedCellEvaluationType = 
+  MergedCellEvaluationType.MergeSameText;
+----
+
+[start=7]
+. 次のスナップショットでは、Country、City、および Region 列に結合されたセルがあります。
+
+image::Images/WinGrid_Merge_Cells_with_the_Same_Values_01.png[ultragrid のセルを同じ値でマージします]

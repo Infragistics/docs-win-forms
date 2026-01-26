@@ -1,0 +1,233 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-control-dragging-and-dropping-items",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Events"],
+    "guid": "{B298DDBB-F1B3-403A-BBC8-46FCFA5007D7}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Items のドラッグ アンド ドロップのコントロール
+
+WinExplorerBar エレメントは、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[グループ]"] 間でのpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[項目]"] のドラッグ アンド ドロップを自動的にサポートします。どの項目をドラッグでき、それをどこにドロップできるかを細かく制御するためのプロパティがあります。また、ドラッグ アンド ドロップ プロセスを管理するためのイベントもあります。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinExplorerBar
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinExplorerBar;
+----
+
+[start=2]
+. 項目のpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[ItemSettings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~allowdragcopy.html[AllowDragCopy]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~allowdragmove.html[AllowDragMove]"] プロパティを使用して、ドラッグ アンド ドロップを使用して項目を移動またはコピーできるかどうかを指定します。これらのプロパティの列挙型の設定を使用して、項目を含むグループを基準としてドラッグ アンド ドロップによる移動の範囲を指定します。使用可能な設定は、None、Within Groups、および Within And Across Groups です。また、デフォルト設定を使用することで、これらのプロパティを継承することもできます。
+
+これらのプロパティを両方とも None に設定すると、項目をドラッグ アンド ドロップできなくなります。両方のプロパティを None 以外の値に設定すると、標準的なドラッグ アンド ドロップのキーボード規則（ドラッグまたはドラッグ+ Shift キーで移動、ドラッグ+ Ctrl キーでコピー）を使用して項目を移動またはコピーできます。各プロパティを個別に設定すると、指定した範囲内で対応する動作（項目の移動のみまたはコピーのみ）を実行できます。
+
+次のコードは、指定した項目をそのグループ内でのみ移動できるようにします。グループの外に移動またはコピーすることはできません。
+
+*Visual Basic の場合：*
+
+----
+Private Sub SupportingDragandDrop_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraExplorerBar1.Groups(0).Items("Camper").Settings.AllowDragCopy = ItemDragStyle.None
+	Me.UltraExplorerBar1.Groups(0).Items("Camper").Settings.AllowDragMove = ItemDragStyle.WithinGroupOnly
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SupportingDragandDrop_Load(object sender, System.EventArgs e)
+{
+	this.ultraExplorerBar1.Groups[0].Items["Camper"].Settings.AllowDragCopy = ItemDragStyle.None;
+	this.ultraExplorerBar1.Groups[0].Items["Camper"].Settings.AllowDragMove = ItemDragStyle.WithinGroupOnly;
+}
+----
+
+明示的に設定しなければ、AllowDragCopy プロパティおよび AllowDragMove プロパティは、Items のpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~style.html[Style]"]  が Label または Separator の場合は False に解決され、それ以外のすべての Item スタイルの場合は True に解決されます。
+[start=3]
+. グループの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[GroupSettings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~allowitemdrop.html[AllowItemDrop]"]  プロパティは、特定のグループを、他の Groups から Items をドラッグ アンド ドロップする際のターゲットにできるかどうかを指定します。このプロパティはデフォルト設定可能なブール値です。つまり、値を継承することも、明示的に True または False を設定することもできます。
+
+GroupSettings オブジェクトには pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~allowdrag.html[AllowDrag]"] プロパティも含まれます。このプロパティは、グループ全体をドラッグできるかどうかを指定します。このプロパティが True に解決される場合、ユーザーはマウスでグループの順序を変更できます。コントロールの Style プロパティが ExplorerBar に設定されていて、その ColumnCount プロパティが 1 より大きい場合は、グループのドラッグはサポート _されません_ 。
+[start=4]
+. 項目とグループに権限を設定するだけでなく、エレメントによって提供されるイベントを使用してドラッグ アンド ドロップ プロセスに関与することもできます。UltraWinExplorerBar にはドラッグ アンド ドロップ プロセス中に呼び出されるイベントが 6 つあります。そのうち 3 つは項目に関するもので、残り 3 つはグループに関するものです。これらのイベントの概要を以下に示します。
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~groupdragging_ev.html[GroupDragging]"]  - ユーザーがグループをドラッグしようとしたときに発生します。このイベントを使用すれば、グループと、アプリケーションの状態を調べ、ドラッグ アンド ドロップ操作が許可されているかどうかを判断できます。このイベントの  _cancel_  パラメータを True に設定すると、グループがドラッグできなくなります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraExplorerBar1_GroupDragging(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinExplorerBar.CancelableGroupEventArgs) _
+  Handles UltraExplorerBar1.GroupDragging
+	' このコードはグループのヘッダの ForeColor が赤かどうかをチェックし、
+	' 赤の場合はグループのドラッグを禁止します。
+	If e.Group.Settings.AppearancesLarge.HeaderAppearance.ForeColor.Equals(Color.Red) _
+	  Or e.Group.Settings.AppearancesSmall.HeaderAppearance.ForeColor.Equals(Color.Red) _
+	  Then
+		e.Cancel = True
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraExplorerBar1_GroupDragging(object sender, Infragistics.Win.UltraWinExplorerBar.CancelableGroupEventArgs e)
+{
+	// このコードはグループのヘッダの ForeColor が赤かどうかをチェックし、
+	// 赤の場合はグループのドラッグを禁止します。
+	if (e.Group.Settings.AppearancesLarge.HeaderAppearance.ForeColor.Equals(Color.Red) ||
+	  e.Group.Settings.AppearancesSmall.HeaderAppearance.ForeColor.Equals(Color.Red))
+	{
+		e.Cancel = true;
+	}
+}
+----
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~groupdragover_ev.html[GroupDragOver]"]  - ドラッグされるグループが、ドロップ可能なターゲット グループの上に来たときに発生します。このイベントのパラメータには、TargetGroup、TargetGroupRelativePosition、および AllowDrop があります。TargetGroup は、現在のグループのドロップ先の Group オブジェクトを返します。TargetGroupRelativePosition は、ドラッグしたグループをドロップしたときに、ターゲット グループの前と後のどちらに配置されるかを示す列挙値を渡します。AllowDrop は、ドラッグしたグループを現在のターゲット グループにドロップできるかどうかを示します。その他にも、ドラッグ中のグループ、表示されているマウス カーソル、および画面座標内でのグループの X 座標と Y 座標にアクセスするパラメータがあります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraExplorerBar1_GroupDragOver(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinExplorerBar.GroupDragOverEventArgs) _
+  Handles UltraExplorerBar1.GroupDragOver
+	' このコードは、Group 0 よりも上にどのグループもドロップできないようにすることで、
+	' 一番上のグループを最上位に保持します。
+	' これは、エレメントの ListBar または Toolbox であることを前提とします。
+	If e.TargetGroup.Index = 0 Then
+		If e.TargetGroupRelativePosition = GroupDropPosition.Before Then
+			e.DragCursor = System.Windows.Forms.Cursors.PanSouth
+			e.AllowDrop = False
+		ElseIf e.TargetGroupRelativePosition = GroupDropPosition.After Then
+			e.DragCursor = Cursors.Default
+			e.AllowDrop = True
+		End If
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraExplorerBar1_GroupDragOver(object sender, Infragistics.Win.UltraWinExplorerBar.GroupDragOverEventArgs e)
+{
+	// このコードは、Group 0 よりも上にどのグループもドロップできないようにすることで、
+	// 一番上のグループを最上位に保持します。
+	// これは、エレメントの ListBar または Toolbox であることを前提とします。
+	if (e.TargetGroup.Index == 0)
+	{
+		if (e.TargetGroupRelativePosition == GroupDropPosition.Before)
+		{
+			e.DragCursor = System.Windows.Forms.Cursors.PanSouth;
+			e.AllowDrop = false;
+		}
+		else if (e.TargetGroupRelativePosition == GroupDropPosition.After)
+		{
+			e.DragCursor = System.Windows.Forms.Cursors.Default;
+			e.AllowDrop = true;
+		}
+	}
+}
+----
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~groupdropped_ev.html[GroupDropped]"]  - グループのドラッグ アンド ドロップ操作が完了し、ドラッグされたグループが Groups コレクションの新しい位置を占めたときに発生します。パラメータには OriginalIndex があります。このパラメータは、ドラッグされたグループのドラッグ アンド ドロップを行う前の Groups コレクション内での位置を示します。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemdragging_ev.html[ItemDragging]"]  - ユーザーが項目をドラッグしようとしたときに発生します。このイベントを使用すれば、項目と、アプリケーションの状態を調べ、ドラッグ アンド ドロップ操作が許可されているかどうかを判断できます。このイベントの  _cancel_  パラメータを True に設定すると、項目がドラッグできなくなります。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemdragover_ev.html[ItemDragOver]"]  - ドラッグ中の項目が、ドロップ可能なターゲット グループの上に来たときに発生します。このイベントのパラメータには、TargetGroup、DragAction、および AllowDrop があります。TargetGroup は、現在の項目のドロップ先の Group オブジェクトを返します。 DragAction は、項目がコピーされるか、または移動されるかを示す列挙値を渡します。AllowDrop は、ドラッグした項目を現在のターゲット グループにドロップできるかどうかを示します。その他にも、ドラッグ中の項目、表示されているマウス カーソル、および画面座標内での項目の X 座標と Y 座標にアクセスするパラメータがあります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraExplorerBar1_ItemDragOver(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinExplorerBar.ItemDragOverEventArgs) _
+  Handles UltraExplorerBar1.ItemDragOver
+	If e.DragAction = Infragistics.Win.UltraWinExplorerBar.ItemDragAction.Copy Then
+		' 項目を Group1 にコピーすることのみを許可します。
+		If e.TargetGroup.Key = "Group1" Then
+			Me.StatusBar1.Text = "Drop item here to copy it."
+			e.DragCursor = System.Windows.Forms.Cursors.Default
+			e.AllowDrop = True
+		Else
+			' ステータス バーのテキストとカーソルを更新し、 
+			' 項目をコピーできないことを示します。
+			Me.StatusBar1.Text = "Item cannot be dropped on Group '" + e.TargetGroup.Text + "'."
+			e.DragCursor = System.Windows.Forms.Cursors.No
+			e.AllowDrop = False
+		End If
+	Else
+		' 項目を Group2 にコピーすることのみを許可します。
+		If e.TargetGroup.Key = "Group2" Then
+			Me.StatusBar1.Text = "Drop item here to move it."
+			e.DragCursor = System.Windows.Forms.Cursors.Default
+			e.AllowDrop = True
+		Else
+			' ステータス バーのテキストとカーソルを更新し、 
+			' 項目をターゲット グループに移動できないことを示します。
+			Me.StatusBar1.Text = "Item cannot be dropped on Group '" + e.TargetGroup.Text + "'."
+			e.DragCursor = System.Windows.Forms.Cursors.No
+			e.AllowDrop = False
+		End If
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraExplorerBar1_ItemDragOver(object sender, Infragistics.Win.UltraWinExplorerBar.ItemDragOverEventArgs e)
+{
+	if(e.DragAction == Infragistics.Win.UltraWinExplorerBar.ItemDragAction.Copy)
+	{
+		// 項目を Group1 にコピーすることのみを許可します。
+		if (e.TargetGroup.Key == "Group1")
+		{
+			this.statusBar1.Text = "Drop item here to copy it.";
+			e.DragCursor = System.Windows.Forms.Cursors.Default;
+			e.AllowDrop = true;
+		}
+		else
+		{
+			// ステータス バーのテキストとカーソルを更新し、 
+			// 項目をコピーできないことを示します。
+			this.statusBar1.Text = "Item cannot be dropped on Group '" + e.TargetGroup.Text + "'.";
+			e.DragCursor = System.Windows.Forms.Cursors.No;
+			e.AllowDrop = false;
+		}
+	}
+	else
+	{
+		// 項目を Group2 にコピーすることのみを許可します。
+		if (e.TargetGroup.Key == "Group2")
+		{
+			this.statusBar1.Text = "Drop item here to move it.";
+			e.DragCursor = System.Windows.Forms.Cursors.Default;
+			e.AllowDrop = true;
+		}
+		else
+		{
+			// ステータス バーのテキストとカーソルを更新し、 
+			// 項目をターゲット グループに移動できないことを示します。
+			this.statusBar1.Text = "Item cannot be dropped on Group '" + e.TargetGroup.Text + "'.";
+			e.DragCursor = System.Windows.Forms.Cursors.No;
+			e.AllowDrop = false;
+		}
+	}
+}
+----
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemdropped_ev.html[ItemDropped]"]  - 項目のドラッグ アンド ドロップ操作が完了し、ドラッグされた項目が新しい位置を占めたときに発生します。パラメータには DragAction と OriginalGroup があります。DragAction は、項目がコピーされるか、または移動されるかを示す列挙値を渡します。OriginalGroup は、ドラッグ アンド ドロップを行う前に項目が属していたグループを示します。

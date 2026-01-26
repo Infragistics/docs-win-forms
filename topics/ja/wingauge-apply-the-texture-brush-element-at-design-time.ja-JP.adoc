@@ -1,0 +1,41 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-texture-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{3164ACB6-DC21-465C-9B29-1C43BBA3A0C0}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムにテクスチャ ブラシ エレメントを適用
+
+テクスチャ ブラシ エレメントをゲージにプロパティに適用すると、キャンバスのようなテクスチャされたルック アンド フィールをプロパティに提供します。
+
+*デザインタイムにテクスチャ ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[テクスチャ] を選択します。これによって新しいテクスチャ ブラシ エレメントが作成されます。
+[start=5]
+. 以下のプロパティを設定します。
+
+** 終了色 -- シルバー
+** 開始色 -- DimGray
+** テクスチャ -- キャンバス
+
+== 関連トピック
+
+link:wingauge-texture-brush-element.html[テクスチャ ブラシ エレメント]
+
+link:wingauge-apply-the-texture-brush-element-at-run-time.html[ランタイムにテクスチャ ブラシ エレメントを適用]
+
+link:wingauge-apply-the-texture-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してテクスチャ ブラシ エレメントを適用]

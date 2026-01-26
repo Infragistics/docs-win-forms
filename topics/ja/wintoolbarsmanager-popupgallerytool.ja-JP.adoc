@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupgallerytool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{759D49F4-2E38-4886-8401-B972DCD77428}",  
+    "buildFlags": [],
+    "createdOn": "2006-06-10T10:48:32Z"
+}
+|metadata|
+////
+
+= PopupGalleryTool
+
+PoupGalleryTool の詳細は以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-using-microsoft-office-2007-ui-capabilities.html[Microsoft Office 2007 UI 機能を使用する]
+* link:wintoolbarsmanager-popupgallerytool-about-the-popupgallery-tool.html[PopupGallery ツールについて]
+* link:wintoolbarsmanager-using-the-popupgallerytool.html[PopupGallery ツールの使用]

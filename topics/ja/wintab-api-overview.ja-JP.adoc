@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-api-overview",
+    "controlName": ["WinTab"],
+    "tags": ["API","Getting Started"],
+    "guid": "{2521EACE-B29C-4B9C-B376-C229A8ADE665}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinTab 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol_namespace.html[Infragistics.Win.UltraWinTabControl]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabstripcontrol.html[UltraTabStripControl]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrol.html[UltraTabControl]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab.html[UltraTab]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabpagecontrol.html[UltraTabPageControl]"]

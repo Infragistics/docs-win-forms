@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-characterposition",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{97F2399B-3DF5-4FAC-83AB-B2C00BBE6852}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを CharacterPosition に設定
+
+WinStatusBar の CharacterPostion スタイルは、コントロールの現在の行と文字位置を表示するパネルです。
+
+CharacterPosition スタイルのパネルをデザインタイムに設定するには:
+
+[start=1]
+. UltraStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  プロパティが表示されるまでプロパティをスクロールします。Style プロパティを CharacterPosition に設定します。
+[start=5]
+. Control プロパティを、このパネルで反映するコントロールに設定します。有効なインスタンス化されたコントロールはこのドロップダウン リストないに表示されます。
+[start=6]
+. [OK] をクリックしてウィンドウを閉じると、CharacterPosition パネルがステータスバーに追加されます。
+
+image::images\WinStatusBar_WinStatusBar_QuickTour_CharacterPosition_Panel_01.png[]
+
+CharacterPosition スタイルのパネルをランタイムに設定するには:
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub WinStatusBarQuickTourCharacterPositionPanel_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' Create an instance of RichTextBox
+	Dim myRichTextBox As New RichTextBox
+	Me.Controls.Add(myRichTextBox)
+	' 新しいパネルを作成します
+	Dim myPanel As New UltraStatusPanel()
+	' パネルのスタイルを設定します
+	myPanel.Style = PanelStyle.CharacterPosition
+	' デフォルトのテキストを設定します。
+	myPanel.Text = "CharacterPosition"
+	' エレメントにパネルを追加します
+	Me.UltraStatusBar1.Panels.Add(myPanel)
+	' 文字の位置が反映されるコントロールを指定します
+	Me.UltraStatusBar1.Panels(0).Control = RichTextBox1
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void WinStatusBarQuickTourCharacterPositionPanel_Load(object sender, System.EventArgs e)
+{
+	// Create an instance of RichTextBox
+	RichTextBox myRichTextBox = new RichTextBox();
+	this.Controls.Add(myRichTextBox);
+	// 新しいパネルを作成します
+	UltraStatusPanel myPanel = new UltraStatusPanel();
+	// パネルのスタイルを設定します
+	myPanel.Style = PanelStyle.CharacterPosition;
+	// デフォルトのテキストを設定します。
+	myPanel.Text = "CharacterPosition";
+	// エレメントにパネルを追加します
+	this.ultraStatusBar1.Panels.Add(myPanel);
+	// 文字の位置が反映されるコントロールを指定します
+	this.ultraStatusBar1.Panels[0].Control = richTextBox1;
+}
+----
+
+image::images/WinStatusBar_Set_the_Panel_Style_to_CharacterPosition_01.png[]

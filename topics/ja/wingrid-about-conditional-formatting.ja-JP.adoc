@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-about-conditional-formatting",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Styling"],
+    "guid": "{5CAE94AE-E64A-4550-9D45-F14C4C46DE61}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 条件フォーマッティングについて
+
+条件フォーマッティングによって WinGrid のセルの列などの特定の値をテストすることができ、特定の外観を基準に一致するセルに適用します。たとえば、セル値が一定の数（ゼロ）よりも小さく、セルの ForeColor を赤に設定している Appearance オブジェクトを適用しているかどうかをチェックする条件を構築することができます。
+
+== 条件のタイプ
+
+構築できる条件にはいくつかのタイプがあります。これらの条件のいくつかは、LessThan または GreaterThan のような単純な演算子を使用します。他の条件によって、アプリケーションの個々の要件を満たす複雑な数式を構築することができます。全部で 4 つの条件があり、それぞれが pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.icondition.html[ICondition]"]  インタフェースを実装します。これらの条件は以下のように定義されます。
+
+* *演算子条件* – pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition.html[OperatorCondition]"]  クラスは、2 つの値の共通の比較を実行する簡単な方法を提供します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition~conditionoperator.html[ConditionOperator]"]  プロパティを使用して、どのように 2 つの値を比較するかを定義する演算子を設定できます。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition~comparevalue.html[CompareValue]"]  プロパティは、WinGrid セルに対してテストする値を表します。
+* *数式条件* – pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formulacondition.html[FormulaCondition]"]  クラスは、OperatorCondition クラスよりも柔軟性が優れています。数式条件の構築によって、想定できるほとんどの数式を構築するために WinCalcManager コンポーネントを使用することができます。ランタイムに数式文字列で pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formulacondition~formula.html[Formula]"]  プロパティを設定するか、デザインタイムで [フォーミュラ ビルダー] ダイアログ ボックスを使用することができます。
+* *True 条件* – pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.truecondition.html[TrueCondition]"]  クラスは演算子または数式で値を評価しません。常に True を返すだけです。これは、他の条件に以前は一致しなかった WinGrid セルのデフォルト外観に常に適用したい場合に役立ちます。
+* *条件グループ* – pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.conditiongroup.html[ConditionGroup]"]  クラスも評価しません。条件グループは条件のコレクションです。条件グループに希望するだけの数の条件を追加することができます。グループのすべての条件が一致するか、その中のひとつだけが一致する場合、関連付けられた外観が適用されるかどうかを制御します。
+
+== 外観に条件を割り当てる
+
+条件が構築されれば、外観に関連付ける必要があります。条件および条件グループの構築、およびそれらを外観に一致させることは、デザイン タイム中に同時にすべて行われます。デザイン タイムで条件を構築することについては、 link:wingrid-using-the-conditional-formatting-dialog-box.html[「条件フォーマッティング ダイアログ ボックスを使用」]を参照してください。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.conditionvalueappearance.html[ConditionValueAppearance]"]  クラスはこの割り当てを実行し、これは条件/外観の割り当てのコレクションです。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.conditionvalueappearance~add.html[Add]"]  メソッドを使用することによって、関連付けたい外観に沿って条件を渡します。割り当てられた条件および外観のコレクションを持てば（ひとつの条件/外観の割り当てだけが必要）、WinGrid 列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~valuebasedappearance.html[ValueBasedAppearance]"]  プロパティを ConditionValueAppearance に設定して完成します。これで WinGrid 列は一致する条件にこの外観を適用します。

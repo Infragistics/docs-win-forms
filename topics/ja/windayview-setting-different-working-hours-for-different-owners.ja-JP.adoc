@@ -1,0 +1,67 @@
+﻿////
+
+|metadata|
+{
+    "name": "windayview-setting-different-working-hours-for-different-owners",
+    "controlName": ["WinDayView"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{5221778A-3A44-4147-B91C-E8FAA94AB4D9}",  
+    "buildFlags": [],
+    "createdOn": "2007-02-05T12:35:24Z"
+}
+|metadata|
+////
+
+= オーナーごとに異なる就業時間を設定
+
+一部のスケジュール アプリケーションでは、各 Owner ごとに異なる就業時間を定義しなければならない場合があります。さらに、これらの就業時間は各 Owner に対して日ごとに変わる場合があります。これをサポートするために必要なのは、CalendarInfo の DaysOfWeek コレクションに類似するコレクションで、Owner 毎に各曜日で就業日を定義できます。そのために新しく pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~dayofweeksettings.html[DayOfWeekSettings]"]  コレクションが用意されました。これは特定のオーナーに固有の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweeksettings.html[DayOfWeekSettings]"]  オブジェクトのコレクションで、7 つの曜日それぞれに対して DayOfWeekSettings オブジェクトが 1 つずつ含まれています。DayOfWeekSettings オブジェクトは就業日の開始時刻と終了時刻を決定するプロパティとして、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweeksettings~workdaystarttime.html[WorkDayStartTime]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweeksettings~workdayendtime.html[WorkDayEndTime]"]  の 2 つを公開しています。
+
+このトピックは、 link:windayview-showing-multiple-owners-on-windayview.html[「WinDayView で複数のオーナーを表示」]を完了していることを前提とします。このトピックのコードで、そのトピックで定義したオーナーを使用するからです。Welby 博士の就業日などのプロパティを月曜日、9AM から 1PM に設定してみましょう。
+
+*Visual Basic の場合：*
+
+----
+Dim welby As Owner = Me.ultraCalendarInfo1.Owners("welby")
+Dim mondaySettings As DayOfWeekSettings = welby.DayOfWeekSettings(System.DayOfWeek.Monday)
+mondaySettings.WorkDayStartTime = DateTime.Today.AddHours(9.0F)
+mondaySettings.WorkDayEndTime = mondaySettings.WorkDayStartTime.AddHours(4.0F)
+----
+
+*C# の場合：*
+
+----
+Owner welby = this.ultraCalendarInfo1.Owners["welby"];
+DayOfWeekSettings mondaySettings = welby.DayOfWeekSettings[System.DayOfWeek.Monday]
+mondaySettings.WorkDayStartTime = DateTime.Today.AddHours(9.0F);
+mondaySettings.WorkDayEndTime = mondaySettings.WorkDayStartTime.AddHours(4.0F);
+----
+
+WorkDayStartTime プロパティと WorkDayEndTime プロパティに割り当てた値の日コンポーネントは適用されないので、任意の値を使用できます。WinSchedule の時刻に関する精度は 1 分に制限されているため、秒のコンポーネントは関係ないので、ここで重要な唯一の値は時と分の値のコンポーネントです。
+
+もう 1 つ特に言及すべきこととして、WorkDayStartTime プロパティと WorkDayEndTime プロパティの階層的性質があります。内部的には、実装はオブジェクトに各プロパティの値が設定されているかどうかを追跡します。それがあれば、それらの値はその Owner の就業時間を決定するために使用されます。値がデフォルトのままであれば、その曜日の CalendarInfo の DaysOfWeek コレクションで対応する入力によって定義される値が使用されます。特定の値が存在する場合に Owner の DayOfWeekSettings コレクションが使用され、存在しない場合は CalendarInfo の DaysOfWeek コレクションが使用されます。
+
+DayOfWeekSettings オブジェクトでは、WorkDayStartTime および WorkDayEndTime プロパティのほかに、対応する曜日を就業日と見なすかどうかを決定する pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslotsettings~isworkday.html[IsWorkDay]"]  プロパティも公開されています。IsWorkDay プロパティも WorkDayStartTime および WorkDayEndTime プロパティと同じ階層的な規則に従います。実際には IsWorkDay プロパティの型は pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.defaultableboolean.html[DefaultableBoolean]"]  で、"Default" 定数を通じてプロパティが設定されていないことを指定します。Default 設定のままである場合は、CalendarInfo の DaysOfWeek コレクション内のその曜日に対応するエントリの IsWorkDay プロパティによって定義された値が使用されます。この値が設定されると、その曜日の Owner で使用されます。
+
+前例を広げて、Quincy 博士（Coroner のオフィスの同僚）が治療で週末を忙しくしていたので月曜に休みをとると仮定します。CalendarInfo の DaysOfWeek コレクションの月曜日の入力で IsWorkDay プロパティのデフォルト値が True になっているので、Quincy 博士の DayOfWeekSettings コレクションでは月曜日に DayOfWeekSettings オブジェクトを使用し、IsWorkDay プロパティを DefaultableBoolean.False に設定します。これによって、月曜日のステータスは就業日として Quincy 博士のために再定義されます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Dim quincy As Owner = Me.ultraCalendarInfo1.Owners("quincy")
+mondaySettings = quincy.DayOfWeekSettings(System.DayOfWeek.Monday)
+mondaySettings.IsWorkDay = DefaultableBoolean.False
+----
+
+*C# の場合：*
+
+----
+Owner quincy = this.ultraCalendarInfo1.Owners["quincy"];
+mondaySettings = quincy.DayOfWeekSettings[System.DayOfWeek.Monday];
+mondaySettings.IsWorkDay = DefaultableBoolean.False;
+----
+
+プロジェクトを実行すると、Welby 博士の月曜日の就業時間が彼の同僚と異なっており、Quincy 博士の TimeSlot は休日であるため月曜日は非就業時間として表示されます。
+
+image::Images/WinCalendarInfo_Setting_Different_Working_Hours_for_Different_Owners_01.png[]

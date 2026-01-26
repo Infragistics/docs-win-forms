@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-progressbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{4408D44E-20AE-4D47-B746-D816139255D9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ProgressBar
+
+ProgressBar ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-progressbar-about-the-progressbar-tool.html[ProgressBar ツールについて]
+* link:wintoolbarsmanager-add-a-progressbar-tool-to-a-toolbar.html[ツールバーへの ProgressBar ツールの追加]

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{A66FC5AA-913D-4EE9-845C-A7EE5E8BCB84}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule
+
+WinSchedule コントロール（WinCalendarCombo、WinMonthViewMulti、WinCalendarLook など）は WinSchedule アセンブリの一部であり、同様の機能を活用するため、複数の WinSchedule コントロールに適用されるトピックをこのセクションにまとめました。
+
+以下は、WinSchedule コントロールの機能やアプリケーションでこれを使いたくなる理由から、複数の WinSchedule に共通するタスクを実行する際のステップごとの手順に至るまで、WinSchedule コントロールに関する貴重な情報へのリンクです。
+
+* link:winschedule-understanding-winschedule-controls-and-components.html[WinSchedule コントロールおよびコンポーネントの理解] -- このセクションでは、WinSchedule コントロールおよびコンポーネントの機能をより良く理解するための支援となるあらゆる情報や、アプリケーションを開発するためにこのコントロールおよびコンポーネントの機能を使いたくなる理由が説明されています。
+* link:win-winschedule-using-winschedule.html[WinSchedule の使用] -- このセクションは、WinSchedule コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:winschedule-api-overview.html[API 概要] -- このトピックでは、WinSchedule コントロールおよびコンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

@@ -1,0 +1,143 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-customize-error-messages",
+    "controlName": [],
+    "tags": [],
+    "guid": "3bbeffb7-0731-4072-9ce0-8e1ef515aee1",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.100855Z"
+}
+|metadata|
+////
+
+= エラー メッセージのカスタマイズ
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Syntax Parsing Engine により生成されたエラー メッセージのカスタマイズ方法を説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-create-custom-language.html[カスタム言語の作成]
+|このトピックは、カスタム言語を作成するプロセスを説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350251087, エラー メッセージ >>
+* <<_Ref350251090, 概要 >>
+* <<_Ref350251095, エラー メッセージのカスタマイズ >>
+* <<_Ref350251158, GetErrorAlias メソッドのオーバーライド >>
+* <<_Ref350251163, OnError メソッドのオーバーライド >>
+* <<_Ref350251108, 関連コンテンツ >>
+
+[[_Ref350251087]]
+== エラー メッセージ
+
+[[_Ref350251090]]
+
+=== 概要
+
+Syntax Parsing Engine は、エラーを検出するとメッセージを生成します。他に指定されない限り、エラー メッセージには以下のフォームが含まれます。
+
+* トークンが省略される場合: “Unexpected token ‘<text from token>’”
+* 不明ノードが挿入される場合:
+** ノードが非終端記号の場合: “<NonTerminalSymbol.Name> expected”
+** ノードが `RegularExpression` の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~comparison.html[Comparison] 値を持つ終端記号の場合: “<TerminalSymbol.Name> expected”
+** ノードがその他の非終端記号の場合: “<NonTerminalSymbol.Name> expected”
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~iserror.html[IsError] 値が `true` に設定されている非終端記号を表すノードの場合: “< _NonTerminalSymbol.Name _>__  is incorrect”
+
+[[_Ref350251095]]
+
+=== エラー メッセージのカスタマイズ
+
+デフォルトのエラー メッセージはアプリケーションの目的には一致しない場合があります。その場合、以下のいずれかのメソッドを使用してメッセージをカスタマイズできます。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase.html[LanguageBase] 派生クラス上の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~geterroralias.html[GetErrorAlias] メソッドをオーバーライド
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~onerror.html[OnError] メソッドをオーバーライド
+
+[[_Ref350251099]]
+
+=== GetErrorAlias メソッドのオーバーライド
+
+エラーが発生すると、パーサーは `GetErrorAlias` メソッドを呼び出します。これは、その言語に指定した link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol.html[Symbol] のエイリアスを提供できます。デフォルトで `null` を返しますオーバーライドし、null 以外の値を返すと、エラー メッセージが以下のように変わります。
+
+* トークンが省略される場合: “Unexpected token ‘<alias>’”
+* 不明ノードが挿入される場合: “<alias> expected”
+* `IsError` 値が `true` に設定されている非終端記号を表すノードの場合: “<alias> is incorrect”
+
+キーワード “End Get” のペアを表す「EndGetStatement」という名前の記号を持つ Visual Basic 言語で使用される例ユーザーがプロパティの get アクセサ－の末尾で「End Get」を省略すると、デフォルトのエラー メッセージ「EndGetStatement 」が使用された場合ユーザーに奇妙に見えます。そうではなく、言語を実装すると `GetErrorAlias` をオーバーライドし、エラー メッセージが「‘End Get’ expected」と表示されるようにこの記号の「End Get」を返します。
+
+[[_Ref350251103]]
+
+=== OnError メソッドのオーバーライド
+
+エラー メッセージの表示、追加または削除をより制御するには、代わりに `OnError` メソッドをオーバーライドできます。`OnError` メソッドの引数である link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext.html[ParseErrorContext] クラスには、エラーを検証しカスタマイズできる以下のメンバーがあります。
+
+[options="header", cols="a,a"]
+|====
+|*プロパティ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext~errors.html[エラー]
+|エラーのコレクション。パーサーによって検出された単一のエラーのみを含みます。このコレクションは、エラーの場所でドキュメントに添付されるエラーを変更するよう修正できます。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext~ismissing.html[IsMissing]
+|期待されるもののユーザーによって提供されていないため、挿入する必要がある不明構文ノードをエラーに表すかどうかを示します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext~isskipped.html[IsSkipped]
+|ドキュメント内に予期されない省略コンテンツをエラーに表すかどうかを示します。終端記号のみが省略されます。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext~snapshotspan.html[SnapshotSpan]
+|現在解析中の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocumentsnapshot.html[TextDocumentSnapshot] についてドキュメント内にエラーの位置を示します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext~span.html[Span]
+|ドキュメント内の項目の位置を示します。これは `SnapshotSpan` と同じですが、スナップショットには関連づけられません。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.parseerrorcontext~symbol.html[記号]
+|省略された、または予想されたエラーに関連づけられる `記号`
+
+|====
+
+たとえば、C# 内に「IncompleteMember」エラー非終端記号がある場合 (詳細は「 link:ig-spe-error-production-strategy.html[エラー生産方法]」を参照)、「IncompleteMember is incorrect」というエラー メッセージの代わりに「クラスまたは構造体内のメンバー定義が不完全」と全体的に置換する場合があります。
+
+[[_Ref350251108]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-create-custom-language.html[カスタム言語の作成]
+|このトピックは、カスタム言語を作成するプロセスを説明します。
+
+| link:ig-spe-create-a-textdocument.html[TextDocument の作成]
+|このトピックでは TextDocument を紹介し、TextDocument 上で言語を設定する方法について説明します。
+
+| link:ig-spe-working-with-the-syntax-tree.html[構文ツリーでの作業]
+|このグループ内のトピックは、構文ツリーでの作業方法を詳細に説明します。
+
+|====

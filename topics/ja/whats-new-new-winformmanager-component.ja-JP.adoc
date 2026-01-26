@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new-winformmanager-component",
+    "controlName": [],
+    "tags": [],
+    "guid": "085afe15-d925-44ac-a7f3-83a9fbb0d8b5",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T15:06:39.7066053Z"
+}
+|metadata|
+////
+
+= 新しい WinFormManager コンポーネント
+
+新しい WinFormManager™ コンポーネントによって、キャプション領域、フォーム境界線など通常スタイルできないフォームの領域と閉じる、元のサイズに戻す、最大化、最小化、コンテキスト ヘルプ ボタンをスタイルできます。プロパティ ウィンドウによってフォームをスタイルできますが、Infragistics® 独自の AppStylist によってもスタイルできます。WinFormsManager コンポーネントを選択することによって、アプリケーションで使用されるすべてのフォームの外観に整合性を持たせることができます（たとえば、新しい WinFormManager を使用して子フォームを構成し、WinToolbarsManager があるメイン フォームを Office 2007 の外観と一致させることができます）。
+
+image::Images/WinFormManger_Whats_New.png[]
+
+== *関連トピック*
+
+link:winformmanager-understanding-winformmanager.html[WinFormManager の理解]

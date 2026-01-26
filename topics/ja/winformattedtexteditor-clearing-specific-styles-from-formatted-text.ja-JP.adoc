@@ -1,0 +1,165 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-clearing-specific-styles-from-formatted-text",
+    "controlName": [],
+    "tags": ["How Do I","Styling"],
+    "guid": "{C3FCAC77-28B4-4B13-8423-8EA39D6D5D84}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:44:30Z"
+}
+|metadata|
+////
+
+= フォーマットされたテキストから特定のスタイルをクリア
+
+== 始める前に
+
+WinFormattedTextEditor コントロールは、テキストに適用されたすべてのスタイル情報を収集できます。WinFormattedTextEditor はテキストから個々のスタイルを削除することもできます。基本的な文字列操作を使用して、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~clearstyleattributes.html[ClearStyleAttributes]"]  メソッドとともに pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~getcurrentstyle.html[GetCurrentStyle]"]  メソッドを使用して、どのスタイルがテキストに適用されているかを発見し、削除したいスタイルだけを選択することができます。
+
+GetCurrentStyle メソッドは、スタイルのすべてのサブ属性の文字列を返します。これらのサブ属性の詳細は、 link:winformattedtexteditor-style-attribute.html[「Style 属性」]を参照してください。これらのサブ属性を収集後に文字列配列にソートする必要があります。String.Split メソッドは、すべてのサブ属性を分離するために最適です。すべてのサブ属性が収集された後、希望しないサブ属性を ClearStyleAttributes メソッドに渡すだけで十分です。スタイルの文字列を文字列配列に分割します。ClearStyleAttributes メソッドに渡す必要があるからです。
+
+== 達成すること
+
+この詳細なガイドでは、現在選択しているテキストまたはカーソルが置かれているテキストから選択したスタイルだけを削除する手順を示します。GetCurrentStyle メソッドを使用して、スタイルのサブ属性の文字列を収集します。次に String.Split メソッドを使用して、個別のスタイルに文字列を細分して、WinListView コントロールへの項目として追加します。WinListView コントロールは、チェックボックス付きのリスト表示にあります。特定のチェックボックスを選択し、[スタイルを削除] ボタンをクリックすると、WinListView から SelectedItems が ClearStyleAttributes メソッドに渡されます。正しいスタイルが削除されます。
+
+== 次の手順を実行します
+
+[start=1]
+. 適切なコンピュータでフォームを設定する必要があります。フォームにテキストボックスから UltraFormattedTextEditor、UltraListView、および UltraButton をドラッグ アンド ドロップします。この順序で上から下に整列します。この時点で、フォームは次のようになります。
+
+image::images/WinFormattedTextEditor_Clearing_Specific_Styles_from_Formatted_Text_01.png[]
+
+[start=2]
+. ultraFormattedTextEditor1 の Value プロパティに以下のフォーマットされたテキストをコピー アンド ペーストします。
+
+<p style='color:White; background-color:Red; font-family:Arial; font-size:16pt; text-align:Right;'>WinFormattedTextEditor</p>
+
+<p style='color:White; background-color:Green; font-family:Verdana; font-size:16pt; text-align:Center;'>WinListView</p>
+
+<p style='color:White; background-color:Blue; font-family:Times New Roman; font-size:16pt;'>WinButton</p>
+[start=3]
+. *WinListView コントロールを設定します。*
+
+ultraListView1 がチェックボックス付きのリストに項目を表示するようにします。ultraListView1 を選択した状態で、[プロパティ] ウィンドウで View プロパティを検索し、List に設定します。ViewSettingsList オブジェクトを展開し、CheckBoxStyle を CheckBox に設定します。
+[start=4]
+. *ultraFormattedTextEditor1 の EditStateChanged イベントおよび ultraButton1 の Click イベントを作成します。*
+
+C# でこの　アプリケーションを作成している場合、ultraFormattedTextEditor1 が選択されていることを確認して、[プロパティ] ウィンドウの上に配置されている [イベント] ボタンをクリックしてください。EditStateChanged イベントを指定してダブルクリックします。Visual Basic では、Code 表示に切り替えて、コード領域の上の左上ドロップダウンから UltraFormattedTextEditor1 を選択します。右へのドロップダウンによって、左のドロップダウンに基づいてコンテンツが変わります。右のドロップダウンから EditStateChanged を選択します。
+
+ボタン用の Click イベントも必要です。ultraFormattedTextEditor1 で行った同じ手順に従うか、デザイン ビューでボタンをダブルクリックすることができます。
+[start=5]
+. *EditStateChanged イベント用のコードを書きます。*
+
+カーソルを移動するかテキストを修正、追加、または削除する場合、EditStateChanged イベントが発生します。カーソルが置かれているテキストに現在適用されている異なるスタイルで ultraListView1 を満たしたい場合があります。したがって、最初に GetCurrentStyle メソッドを使用してスタイルを収集する必要があります。文字列をサブ文字列に分割し、文字列の配列に配置します。文字列の配列をループして、各文字列を ultraListView1 に追加します。以下のコードを EditStateChanged イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+'以前のリスト項目をクリアします。
+Me.UltraListView1.Items.Clear()
+'スタイルの文字列配列を作成します。
+Dim styles As String() =_
+  Me.UltraFormattedTextEditor1.EditInfo.GetCurrentStyle().ToString().Split(New Char() {";"})
+'文字列を配列から ListView に追加します。
+Dim s As String
+For Each s In styles
+	If s = "" Then
+		Exit For ' 空の文字列を追加しないでください。
+	End If
+	Me.UltraListView1.Items.Add(s.Trim(), s.Trim())
+Next s
+----
+
+*C# の場合：*
+
+----
+//以前のリスト項目をクリアします。
+this.ultraListView1.Items.Clear();
+//スタイルの文字列配列を作成します。
+string[] styles =
+  this.ultraFormattedTextEditor1.EditInfo.GetCurrentStyle().ToString().Split(new char[] {';'});
+//文字列を配列から ListView に追加します。
+foreach(string s in styles)
+{
+	if(s == "") break; // 空の文字列を追加しないでください。
+	this.ultraListView1.Items.Add(s.Trim(),s.Trim());
+}
+----
+
+[start=6]
+. *Click イベント用のコードを記述します。*
+
+ボタンをクリックすると ultraListView1 からのチェックされた項目が文字列の新しい配列に収集されます。この新しい配列は、WinFormattedTextEditor の EditInfo オブジェクトの ClearStyleAttributes メソッドに渡されます。以下のコードを ultraButton1 の Click イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+'多くのエレメントのように ListView コントロールの
+'CheckedItems コレクションで
+'文字列配列を宣言します。
+Dim styles(Me.UltraListView1.CheckedItems.Count - 1) As String
+'以前に宣言した文字列配列に 
+'ListView でチェックしたスタイルを追加します。
+Dim i As Integer
+For i = 0 To (Me.UltraListView1.CheckedItems.Count - 1)
+	'チェックした項目を取得します。
+	Dim item As String = Me.UltraListView1.CheckedItems(i).Key.ToString()
+	'文字列を再分割します。ClearStyleAttributes メソッドは、
+	'属性名だけを渡しますが、そのように設定されていません。
+	'そこで、個々の文字列をコロン（:）で
+	' 2 つの文字列に分割します。
+	Dim nameValuePair As String() = item.Split(":"c)
+	'文字列の最初の部分を取得します。
+	Dim name As String = nameValuePair(0)
+	'チェックされた項目の属性を配列に追加します。
+	styles(i) = name
+	'オプション：何が配列にあるのかが分かります。
+	Console.WriteLine(styles(i).ToString())
+Next i
+'選択したテキストから文字列配列に 
+'追加した項目を削除します。
+Me.UltraFormattedTextEditor1.EditInfo.ClearStyleAttributes(styles, True)
+----
+
+*C# の場合：*
+
+----
+//多くのエレメントのように ListView コントロールの
+//CheckedItems コレクションで
+//文字列配列を宣言します。
+string[] styles = new string[this.ultraListView1.CheckedItems.Count];
+//以前に宣言した文字列配列に 
+//ListView でチェックしたスタイルを追加します。
+for(int i = 0; i < this.ultraListView1.CheckedItems.Count; i++)
+{
+	//チェックした項目を取得します。
+	string item = this.ultraListView1.CheckedItems[i].Key.ToString();
+	//文字列を再分割します。ClearStyleAttributes メソッドは、
+	//属性名だけを渡しますが、そのように設定されていません。
+	//そこで、個々の文字列をコロン（:）で
+	//2 つの文字列に分割します。
+	string[] nameValuePair = item.Split( ':' );
+	//文字列の最初の部分を取得します。
+	string name = nameValuePair[0];
+	//チェックされた項目の属性を配列に追加します。
+	styles[i] = name;
+	// オプション:何が配列にあるのかが分かります。
+	Console.WriteLine(styles[i].ToString());
+}
+//選択したテキストから文字列配列に 
+//追加した項目を削除します。
+this.ultraFormattedTextEditor1.EditInfo.ClearStyleAttributes(styles, true);
+----
+
+[start=7]
+. *アプリケーションを実行します。*
+
+WinFormattedTextEditor にカーソルを置きます。適用されたスタイルが WinListView コントロールに表示されます。スタイルを選択しボタンをクリックします。
+
+image::images/WinFormattedTextEditor_Clearing_Specific_Styles_from_Formatted_Text_02.png[]
+
+ボタンをクリックすると、特定のスタイルが WinFormattedTextEditor テキストから削除されます。WinListView コントロールからもスタイルが削除されていることに注意してください。
+
+image::images/WinFormattedTextEditor_Clearing_Specific_Styles_from_Formatted_Text_03.png[]

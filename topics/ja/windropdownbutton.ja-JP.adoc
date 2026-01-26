@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "windropdownbutton",
+    "controlName": ["WinDropDownButton"],
+    "tags": [],
+    "guid": "{AE6655A3-8D14-4EA4-8068-EFE3FD428218}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDropDownButton
+
+以下のリンクをクリックすると、WinDropDownButton コントロールに関する説明を読むことができます。
+
+* link:windropdownbutton-about-windropdownbutton.html[WinDropDownButton について] -- WinDropDownButton コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:windropdownbutton-smart-tag.html[WinDropDownButton スマート タグ] -- WinDropDownButton コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:windropdownbutton-using-the-dropdown-button.html[ドロップダウン ボタンの使用] -- WinDropDownButton コントロールの使用方法を説明しています。
+* link:windropdownbutton-api-overview.html[API の概要] -- WinDropDownButton コントロールを使用してプログラミング中に作業する名前空間とクラスをリストします。

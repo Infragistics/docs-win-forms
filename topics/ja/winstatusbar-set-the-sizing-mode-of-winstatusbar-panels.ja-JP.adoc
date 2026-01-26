@@ -1,0 +1,94 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-sizing-mode-of-winstatusbar-panels",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I"],
+    "guid": "{E23DEA4B-9C93-4E46-80BD-F4E67FF3A38B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinStatusBar パネルのサイズ変更モードの設定
+
+パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~sizingmode.html[SizingMode]"]  プロパティは、パネル幅を管理する方法を決定します。
+
+デザインタイムでパネルの SizingMode を設定します。
+
+[start=1]
+. UltraStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+. SizingMode プロパティが表示されるまでプロパティをスクロールします。このプロパティには 4 個の設定があります。
+
+** *Fixed（固定）：* Panel の幅は pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~width.html[Width]"]  プロパティに基づきます。これはパネルのデフォルトサイズ モードです。
+** *Automatic（自動）：* パネル上のテキストとイメージの長さに基づいて、Panel のサイズが自動的に設定されます。
+** *Spring（バネ）：* パネルが、使用可能な領域をすべて使用します。パネルが 1 つしかない場合はステータスバー全体を使用します。すべてのパネルがこのモードを使用している場合、たとえば 3 つのパネルが Spring モードに設定されている場合は、それぞれの幅が 3 分の 1 になります。パネルの一部が Spring に設定されていて、その他が Spring に設定されていない場合は、Spring に設定されているパネルが残りの領域を要求します。
+
+たとえば、幅が 900 ピクセルの StatusBar に 4 つのパネルがあるとします。パネル 1 が 100 の固定幅に、パネル 2 が 300 の固定幅に、パネル 3 および 4 が「Spring」に、それぞれ設定されているとします。パネル 3 および 4 に領域の残りの 500 ピクセルが分配され、それぞれの幅は 250 になります。
+** *Adjustable（調整可能）：* パネルの幅は Width プロパティに基づきます。ユーザーはコンテンツに基づくパネルを自動的にサイズ変更するために、ランタイムでパネルの右端をドラッグするか、右端をダブルクリックできます。
+
+image::images\WinStatusBar_Setting_the_Sizing_Mode_of_WinStatusBar_Panels_01.png[]
+
+パネルの SizingMode プロパティが Adjustable に設定されている場合、UltraStatusBar の ResizeStyle プロパティを使用して、サイズ変更が即時、遅延、または無効のいずれに設定されるのかを決定します。このプロパティが None 以外の値に設定されている場合、これらのパネルはパネルの右端をドラッグしてサイズ変更することができます。
+
+ResizeStyle をデザインタイムに設定するには、以下の手順に従ってください。
+
+[start=1]
+. デザイナで UltraStatusBar を選択し、[プロパティ] ウィンドウに移動します。
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatusbar~resizestyle.html[ResizeStyle]"]  プロパティをスクロールします。
+[start=3]
+. このプロパティには 3 個の設定があります。
+
+** *None（なし）：* エンド ユーザーはパネルのサイズを変更できません。
+** *Deferred（遅延）：* 垂直線はリリース時にパネルの右端がどこになるのかを示してドラッグ操作中に描画されます。マウスを放すまでパネルのサイズは変更されません。
+** *Immediate（即時）：* パネルのサイズはドラッグ操作中に変更されるので、サイズ変更操作が完了した時に、どのようにパネルが整列されるかを正確にユーザーは確認できます。
+
+ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub SettingtheSizingModeofWinStatusBarPanels_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 新しいパネルを作成します。
+	Dim myPanel As New UltraStatusPanel()
+	' パネルのスタイルを設定します。
+	myPanel.Style = PanelStyle.Button
+	' パネルをエレメントに追加します。
+	Me.UltraStatusBar1.Panels.Add(myPanel)
+	' パネルのサイズ モードを設定します。
+	Me.UltraStatusBar1.Panels(0).SizingMode = PanelSizingMode.Automatic
+	' UltraStatusBar 全体の ResizeStyle を設定します。
+	Me.UltraStatusBar1.ResizeStyle = ResizeStyle.Immediate
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void SettingtheSizingModeofWinStatusBarPanels_Load(object sender, System.EventArgs e)
+{
+	// 新しいパネルを作成します。
+	UltraStatusPanel myPanel= new UltraStatusPanel();
+	// パネルのスタイルを設定します。
+	myPanel.Style=PanelStyle.Button;
+	// パネルをエレメントに追加します。
+	this.ultraStatusBar1.Panels.Add(myPanel);
+	// パネルのサイズ モードを設定します。
+	this.ultraStatusBar1.Panels[0].SizingMode=PanelSizingMode.Automatic;
+	// UltraStatusBar 全体の ResizeStyle を設定します。
+	this.ultraStatusBar1.ResizeStyle=ResizeStyle.Immediate;
+}
+----

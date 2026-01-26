@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2010-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "c1f2320f-ae29-4fac-87ab-352e00a3c40b",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T14:55:11.5407919Z"
+}
+|metadata|
+////
+
+= 2010 Volume 2 の新機能
+
+{ProductName} 2010 Volume 2 のリリースには、Windows Forms のコントロールとコンポーネントをこれまで以上に活用することができる多数の新しいコントロールと強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:whats-new-new-winformmanager-component.html[新しい WinFormManager コンポーネント]
+* link:whats-new-new-wintimespaneditor-control.html[新しい WinTimeSpanEditor コントロール]
+* link:whats-new-resizing-drop-downs-in-drop-down-controls.html[ドロップダウン コントロールでドロップダウンをリサイズ]
+* link:whats-new-restyled-run-time-dialogs.html[スタイルが変更されたランタイム ダイアログ]
+* link:whats-new-taskworkinghourmode-for-winganttview.html[WinGanttView の TaskWorkingHourMode]
+* link:whats-new-excel-templates.html[Excel テンプレート]
+* link:whats-new-version-free-assembly-names.html[バージョンフリー アセンブリ名]
+* link:whats-new-support-for-microsoft-visual-studio-2010.html[Microsoft Visual Studio 2010 のサポート]

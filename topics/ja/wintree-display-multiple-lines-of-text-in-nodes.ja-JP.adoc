@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-display-multiple-lines-of-text-in-nodes",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{A04D8569-86C6-48E2-BBA0-F313A01D1641}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードでの複数行テキストの表示
+
+WinTree のバージョン 3 から、ツリー ノードの編集機能が大幅に強化されています。ツリー ノードの編集は、Infragistics.Win アセンブリの埋め込みエディタ テクノロジーによって処理されるようになりました。拡張編集機能を補うため、ツリー ノードに複数行のテキストを表示する機能も組み込まれました。
+
+ノードでの複数行テキストの表示を切り替えるときは、Override オブジェクトの MultiLine プロパティを主に使用します。このプロパティを True に設定すると、Override によって制御される 1 つまたは複数のノードで複数行のテキストが有効になります。複数行テキストの操作に利用できる他のプロパティには、同じく Override オブジェクトの MaxLabelHeight プロパティと MaxLabelWidth プロパティがあります。特に、MaxLabelWidth は複数行テキストの折り返し場所を指定します。
+
+複数行テキストをグリッド レベルで有効にするには、次のようなコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Me.UltraTree1.Override.Multiline = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraTree1.Override.Multiline = DefaultableBoolean.True;
+----
+
+image::images/WinTree_Display_Multiple_Lines_of_Text_in_Nodes_01.png[]
+
+1 つのノードの Override を使用して、そのノードでのみ複数行テキストを有効にすることもできます。例：
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Me.UltraTree1.Nodes(3).Override.Multiline = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraTree1.Nodes[3].Override.Multiline = DefaultableBoolean.True;
+----

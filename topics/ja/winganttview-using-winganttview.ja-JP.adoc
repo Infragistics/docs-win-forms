@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-using-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{D8FEF003-582F-4A65-9EC6-302AE1692BB4}",  
+    "buildFlags": [],
+    "createdOn": "2010-05-01T11:13:21Z"
+}
+|metadata|
+////
+
+= WinGanttView の使用
+
+このセクションでは、短いタスクベースのトピックで、WinGanttView™ コントロールに関連する固有のタスクの実行方法を説明します。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-custom-columns.html[カスタム列]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView のチャート領域でタイムライン間隔を設定]
+* link:winganttview-timeline-task-positioning.html[タスクおよびタイムラインの配置]
+* link:winganttview-task-duration-adjustment.html[タスク期間の調整]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintdocument-api-overview",
+    "controlName": ["WinPrintDocument"],
+    "tags": ["API","Printing"],
+    "guid": "{43ACC37A-5508-4BC1-B3F4-4970C706C589}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== Printing 名前空間
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing_namespace.html[Infragistics.Win.Printing]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.ultraprintdocument.html[UltraPrintDocument]"]

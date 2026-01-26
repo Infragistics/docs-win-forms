@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-2009.2-wingrid",
+    "controlName": [],
+    "tags": [],
+    "guid": "{3997A92F-B85D-4D12-AB4B-5FF1A99712EE}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T09:46:27Z"
+}
+|metadata|
+////
+
+= WinGrid
+
+==== WinGrid アクティブ セルの境界線スタイル
+
+この新しい機能は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトを拡張して 4 辺すべてで Border Color の色を適用します。現在、Border Color はセルの 1 辺のみに適用されます。またアクティブ セルの境界線の太さを設定するために新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activecellborderthickness.html[ActiveCellBorderThickness]"]  プロパティが pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクトに追加されています。
+
+*太い境界線がアクティブ セルを囲んでいる WinGrid*
+
+image::Images/WinGrid_Set_Active_Cell_Border_Thickness_01.png[]
+
+*列移動インジケーターのカスタマイズ*
+
+ひとつの表示可能な位置から別の表示可能な位置まで列ヘッダーをドラッグ アンド ドロップする時に表示される矢印画像（列移動インジケーター）を修正したり変更することさえ可能になりました。さまざまな方向をポイントする場合、インジケーターで矢印の方向を変えることさえ可能です。さらに、新しい pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.dragdropindicatorsettings~color.html[DragDropIndicatorSettings.Color]"]  プロパティを使用すると、RowLayout モードの時に WinGrid™ で列ヘッダーを空のスペースにドラッグ アンド ドロップすると表示される矩形の色をカスタマイズできます。
+
+image::Images/WinGrid_What's_New_Customize_Column_Moving_Indicators.png[]
+
+*選択オーバーレイ*
+
+Microsoft® Excel® で複数セルに渡ってクリック アンド ドラッグすると、矩形の選択領域が選択されたセル上にオーバーレイされます。このオーバーレイの外観は元となるセルをカラーウォッシュしたものです。この機能は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~selectionoverlaycolor.html[SelectionOverlayColor]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~selectionoverlaybordercolor.html[SelectionOverlayBorderColor]"]  プロパティ設定によって WinGrid コントロールで使用可能となりました。
+
+image::Images/WinGrid_Enable_Selection_Overlay_for_Selected_Cells_01.png[]
+
+*GroupByRow コネクターの外観*
+
+OutlookGroupBy ViewStyle で UltraGridRows をグループ化すると、展開されたグループの左側の領域は GroupByRowConnector であると見なされます。これまでは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクトで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowappearance.html[GroupByRowAppearance]"]  プロパティを使用してこの領域の外観を制御することが可能でした。今回のリリースでは、UltraGridOverride オブジェクトの新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowconnectorappearance.html[GroupByRowConnectorAppearance]"]  プロパティを使用して GroupBy 行コネクターをより正確に制御することが可能となりました。また、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~groupbyrowappearance.html[GroupByRowAppearance]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~groupbyrowconnectorappearance.html[GroupByRowConnectorAppearnace]"]  プロパティによって列レベルでGroupByRow オブジェクトの外観を設定することが可能となりました。
+
+image::Images/WinGrid_Styling_Rows_and_Row_Connectors_in_Outlook_Group_By_Mode_03.png[]
+
+*行セレクター状態固有の画像*
+
+今回のリリースで、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[UltraGridRow]"]  オブジェクトのさまざまな状態に現れるデフォルトの行セレクター画像を変えることが可能となりました。画像をカスタマイズできる行の状態は、アクティブ行、保留中の変更のある行、新規行追加、保留中の変更のあるアクティブ行、アクティブな新規行追加です。これまでは、これらの行の状態の画像をオフにしたり修正できませんでした。今回、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridLayout]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[RowSelectorImages]"]  プロパティを使用することによって、カスタム画像を適用したり、デフォルトの状態画像を完全に削除することさえ可能です。
+
+image::Images/WinGrid_Styling_Row_Selector_Images_for_Different_States_of_a_Row_01.png[]
+
+*アクティブ セルの行セレクターと列ヘッダーの外観スタイル*
+
+2 つの新しい Appearance プロパティが追加されており、アクティブな pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridcell]"]  のための pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[UltraGridRow]"]  オブジェクトの行セレクターと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[ultraGridColumn]"]  ヘッダーの外観スタイルを修正する機能を提供します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activecellrowselectorappearance.html[ActiveCellRowSelectorAppearance]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activecellcolumnheaderappearance.html[ActiveCellColumnHeaderAppearance]"]  という 2 つの新しいプロパティが各 Band だけでなく、UltraGrid の Override オブジェクトに追加されました。
+
+*アクティブおよび選択セルの外観*
+
+新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~defaultselectedbackcolor.html[DefaultSelectedBackColor]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~defaultselectedforecolor.html[DefaultSelectedForeColor]"]  プロパティはアクティブな選択セルのデフォルトの色の表示を無効にする方法を提供します。これまでは、UltraGridOverride オブジェクトで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~selectedrowappearance.html[SelectedRowAppearance]"]  プロパティを使用して、ForeColor と BackColorを変更することが可能でしたが、選択行/セルに色を適用する方法はありませんでした。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~activeappearance.html[ActiveAppearance]"]  プロパティが公開されており、セルがアクティブな状態と見なされるときには必ず設定できます。UltraGridCell オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~appearance.html[Appearance]"]  プロパティを使用して、アクティブなセルの外観を設定するために使用できます。ただし、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクトの ActiveRowAppearance が設定されている場合、Appearance プロパティによって設定されたセルの外観設定をオーバーライドします。したがってより排他的な ActiveAppearance プロパティが今回のリリースでは追加されています。
+
+また、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activeappearancesenabled.html[ActiveAppearancesEnabled]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~selectedappearancesenabled.html[SelectedAppearancesEnabled]"]  という 2 つの新しいプロパティが UltraGridOverride オブジェクトに追加されており、セルがアクティブおよび選択された状態固有の外観を表示できないようにする方法を提供します。
+
+*IDataErrorInfo 実装のフィルタリング サポート*
+
+WinGrid™ は今回列のセルにエラーがあるかどうかに基づいてフィルタリングをサポートします。これは元となるデータ ソースの IDataErrorInfo 実装によって判断されます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filteroperatordropdownitems.html[FilterOperandDropDownItems]"]  と呼ばれる新しいプロパティが pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトに追加されています。このプロパティを列挙体に割り当ててフィルター ドロップダウン メニューにどのオペランドを表示すべきかを示すことができます。さまざまなフラグ付きオプションは、All、Blanks、CellValues、Custom、ShowNone、Default、Errors、NonBlanks、NonErrors、ShowAll です。
+
+== 関連トピック
+
+* link:wingrid-setting-active-cell-border-thickness.html[アクティブ セルの境界線の太さを設定]
+* link:wingrid-customizing-column-moving-indicators.html[列移動インジケーターのカスタマイズ]
+* link:wingrid-enabling-selection-overlay-for-selected-cells.html[選択セルの選択オーバーレイを有効にする]
+* link:wingrid-styling-rows-and-row-connectors-in-outlook-group-by-mode.html[Outlook Group By モードで行および行コネクターをスタイリング]
+* link:wingrid-styling-row-selector-images-for-different-states-of-a-row.html[行のさまざまな状態の行セレクター画像をスタイリング]
+* link:wingrid-styling-active-cell-row-selector-and-column-header-appearances.html[アクティブ セルの行セレクターと列ヘッダーの外観をスタイリング]
+* link:wingrid-setting-cell-active-and-selected-appearance.html[セルのアクティブおよび選択された外観を設定]
+* link:wingrid-filtering-rows-with-errors.html[エラーで行をフィルタリング]

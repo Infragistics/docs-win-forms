@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttviewprintdocument",
+    "controlName": ["WinGanttView"],
+    "tags": ["Printing"],
+    "guid": "0211248e-44a7-49fd-a4f5-1b95cc2e7b71",  
+    "buildFlags": [],
+    "createdOn": "2012-02-08T22:02:24.9541325Z"
+}
+|metadata|
+////
+
+= WinGanttViewPrintDocument
+
+WinGanttViewPrintDocument™ コンポーネント専用の情報につきましては、以下の各リンクをご参照ください。
+
+* link:winganttviewprintdocument-about-winganttviewprintdocument.html[WinGanttViewPrintDocument について] -- このコンポーネントについての情報を提供します。
+* link:winganttviewprintdocument-using-winganttviewprintdocument.html[WinGanttViewPrintDocument の使用] -- WinGanttViewPrintDocument コンポーネントの機能と、アプリケーション内でお勧めする使用法などについてご紹介します。
+* link:winganttviewprintdocument-winganttviewprintdocument-smart-tag.html[WinGanttViewPrintDocument スマート タグ] -- ここでは、WinGanttViewPrintDocument コンポーネントのスマート タグで表示されるプロパティと設定値についてご説明します。
+* link:winganttviewprintdocument-api-overview.html[API の概要] -- このトピックでは、WinGanttViewPrintDocument コンポーネントでプログラミングをする際に使用する名前空間とクラスの一覧を表示します。このトピックでリストされた名前空間とクラスは、「Infragistics Windowsフォームヘルプ」の「API参照ガイド」セクションへリンクしていて便利です。

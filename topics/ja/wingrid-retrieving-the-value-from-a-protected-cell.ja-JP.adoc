@@ -1,0 +1,85 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-retrieving-the-value-from-a-protected-cell",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{EE742C14-158C-4542-A889-B55D1D90DB66}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= プロテクト セルから値の取得
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement.html[UIElement]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~elementfrompoint.html[ElementFromPoint]"]  メソッドを使用して、セルの値を取得できます。次のコードは、セルがプロテクトされている場合でも、ダブルクリックに応じてセルの値を返す方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_DoubleClickCell(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.DoubleClickCellEventArgs) _
+  Handles UltraGrid1.DoubleClickCell
+	' カーソル位置を取得します
+	Dim point As Point = Cursor.Position
+	' グリッドのクライアント座標に変換します
+	point = Me.UltraGrid1.PointToClient(point)
+	' クライアント座標で UIElement を取得します（ある場合）
+	Dim oUI As UIElement = Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint(point)
+	Dim oCellUI As CellUIElement
+	If oUI Is Nothing Then
+		Return
+	End If
+	' 指定された座標に最低レベルの要素があります。 
+	' CellUIElement を取得するには、CellUIElement にヒットするまで
+	' 親チェーンをたどります
+	While Not oUI Is Nothing
+		If oUI.GetType() Is GetType(CellUIElement) Then
+			' 適切なタイプとして CellUIElement を取得します
+			oCellUI = oUI
+			' セルの値を表示します
+			MessageBox.Show("Cell.Value = " + oCellUI.Cell.Value.ToString())
+		End If
+		oUI = oUI.Parent
+	End While
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_DoubleClickCell(object sender, 
+  Infragistics.Win.UltraWinGrid.DoubleClickCellEventArgs e)
+{
+	// カーソル位置を取得します
+	Point point = Cursor.Position;
+	// グリッドのクライアント座標に変換します
+	point = this.ultraGrid1.PointToClient(point);
+	// クライアント座標で UIElement を取得します（ある場合）
+	UIElement oUI = this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(point);
+	if (oUI == null)
+		return;
+	// 指定された座標に最低レベルの要素があります。 
+	// CellUIElement を取得するには、CellUIElement にヒットするまで
+	' 親チェーンをたどります
+	while (oUI != null)
+	{
+		if (oUI.GetType() == typeof(CellUIElement))
+		{
+			// 適切なタイプとして CellUIElement を取得します
+			CellUIElement oCellUI = (CellUIElement)oUI;
+			// セルの値を表示します
+			MessageBox.Show("Cell.Value = " + oCellUI.Cell.Value.ToString());
+		}
+		oUI = oUI.Parent;
+	}
+}
+----

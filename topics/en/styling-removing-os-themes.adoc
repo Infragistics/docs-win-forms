@@ -1,0 +1,16 @@
+﻿= Removing OS Themes across the Entire Application
+
+link:appstylistruntime.html[AppStylist] provides a simple way of removing OS themes across the entire application. When creating a new ISL file, you will be prompted to turn off themed drawing for all our UIElements. This way you can ensure that all the controls in your application have their themed drawing disabled and you can achieve a consistent look for all controls in your application. What this option does is to set the *ThemedElementAlpha* for the *Normal* state of the *Base* role to *Transparent*. Note that most of the ISL libraries that Infragistics provides already do that, so if you are using such library, we have already taken care of this for you. After you have an ISL library with disabled OS themes, you only need to load the library using the following line, before the main form is created:
+
+[source, csharp]
+Infragistics.Win.AppStyling.StyleManager.Load(pathToISL);
+
+If you want to disable the themed drawing on a control level, you can set the *UseOSThemes* property to *False*:
+
+[source, csharp]
+this.ultraCheckEditor1.UseOsThemes = Infragistics.Win.DefaultableBoolean.False;
+
+If you want to disable the themed drawing for a specific control, you can set the *ThemedElementAlpha* property of its appearance to *Transparent*:
+
+[source, csharp]
+this.ultraCheckEditor1.Appearance.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent;

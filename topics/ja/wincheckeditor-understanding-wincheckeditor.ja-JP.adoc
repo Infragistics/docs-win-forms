@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincheckeditor-understanding-wincheckeditor",
+    "controlName": ["WinCheckEditor"],
+    "tags": [],
+    "guid": "{7C92D813-6DF3-484E-994F-A4F93C0342B6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCheckEditor の理解
+
+これは、WinCheckEditor™ コントロール、ならびにその主要な特性と機能についての学習を開始するために絶好の場所です。このセクションのトピックを読むと、アプリケーションで WinCheckEditor コンポーネントを使用することの利点を理解できます。
+
+WinCheckEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wincheckeditor-about-wincheckeditor.html[WinCheckEditor について] -- WinCheckEditor コントロールの概要を説明しています。
+* link:wincheckeditor-smart-tag.html[WinCheckEditor スマート タグ] -- WinCheckEditor コントロールのスマート タグで表示されるプロパティと設定値について説明しています。

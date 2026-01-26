@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-understanding-wintoolbarsmanager",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{FE042AEC-C32A-4438-B6D1-B7BD156B8B67}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager の理解
+
+WinToolbarsManager コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinToolbarsManager を使用することの利点を理解できます。
+
+WinToolbarsManager コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-about-wintoolbarsmanager.html[WinToolbarsManager について] -- WinToolbarsManager コンポーネントの概要を説明しています。
+* link:wintoolbarsmanager-terms-and-concepts.html[用語と概念] -- WinToolbarsManager コンポーネントの概念を説明しています。
+* link:wintoolbarsmanager-in-place-designer.html[WinToolbarsManager のインプレース デザイナ] -- Visual Studio .NET IDE で提供されている WinToolbarsManager インプレース デザイナの概要を説明しています。
+* link:wintoolbarsmanager-design-time-customize-dialog-box.html[WinToolbarsManager のデザインタイム カスタマイズ ダイアログボックス] -- WinToolbarsManager コンポーネントで提供されているデザインタイム カスタマイズ ダイアログボックスのすべてのタブについて説明しています。
+* link:wintoolbarsmanager-mdi-ribbon-merging.html[MDI リボンのマージ] -- WinToolbarsManager における MDI リボンのマージのサポートについて概要を説明しています。
+* link:wintoolbarsmanager-mdi-toolbar-merging.html[MDI ツールバーのマージ] -- WinToolbarsManager における MDI ツールバーのマージのサポートについて概要を説明しています。
+
+* link:wintoolbarsmanager-smart-tag.html[WinToolbarsManager スマート タグ] -- WinToolbarsManager コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。
+

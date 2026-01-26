@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmaskededit-incrementing-the-spin-value",
+    "controlName": ["WinMaskedEdit"],
+    "tags": ["How Do I"],
+    "guid": "{E60A7E79-958B-49FA-AC1E-E2B18D961D61}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スピン値の増加 (WinMaskedEdit)
+
+WinMaskedEdit™ コントロールによって、エンド ユーザーは矢印キーおよびスピン ボタンで値を増やして変更できます。
+
+1 以外の値で増分するには、pick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~spinincrement.html[SpinIncrement]"]  プロパティを負ではない有理数に設定する必要があります。WinMaskedEdit は異なるデータ タイプを編集できるので、pick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~editas.html[EditAs]"]  プロパティを SpinIncrement プロパティに選択されたものに一致するタイプに設定する必要もあります。
+
+以下のコード例は、WinMaskedEdit のpick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~value.html[Value]"]  を Double として 25 ずつ増分する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraMaskedEdit1.EditAs  = Infragistics.Win.UltraWinMaskedEdit.EditAsType.Double
+Me.UltraMaskedEdit1.SpinIncrement = 25
+----
+
+*C# の場合：*
+
+----
+this.ultraMaskedEdit1.EditAs = Infragistics.Win.UltraWinMaskedEdit.EditAsType.Double;
+this.ultraMaskedEdit1.SpinIncrement = 25;
+----

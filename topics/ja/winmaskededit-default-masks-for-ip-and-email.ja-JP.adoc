@@ -1,0 +1,132 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmaskededit-default-masks-for-ip-and-email",
+    "controlName": ["WinMaskedEdit"],
+    "tags": [],
+    "guid": "1a34cb6c-bbf9-4f2c-9d7e-0e9679fdf87a",  
+    "buildFlags": [],
+    "createdOn": "2013-02-14T14:56:52.2308273Z"
+}
+|metadata|
+////
+
+= IP と Email のデフォルト マスク
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit.html[UltraMaskedEdit]™ コントロールの 13.1 リリースの新しい 3 つの入力マスクの概要を提供します。入力マスクはインターネット プロトコル (IP) バージョン 4 と 6、およびメールアドレスです。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winmaskededit-about-winmaskededit.html[WinMaskedEdit について]
+|_WinMaskedEdit_™ は、Windows Forms のコントロールの 1 つで、Windows Forms で強力な、カスタマイズ可能な入力マスクを提供します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref347833837,入力マスクの設定>>
+
+** <<_Ref347833844,はじめに>>
+** <<_Ref347833853,IPv4>>
+** <<_Ref347833861,IPv6>>
+** <<_Ref347833868,メール>>
+
+* <<_Ref341350139,関連コンテンツ>>
+
+[[_Ref347833837]]
+== 入力マスクの設定
+
+[[_Ref347833844]]
+
+=== はじめに
+
+この機能は link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit.html[UltraMaskedEdit] コントロールの link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~inputmask.html[InputMask] プロパティに 3 つの新しい入力マスクを提供します。インターネット プロトコル (IP) バージョン 4 と 6 、およびメール アドレスを追加しました。
+
+[[_Ref347833853]]
+
+=== IPv4
+
+==== マスク:
+
+`nnn.nnn.nnn.nnn`
+
+[options="header", cols="a,a"]
+|====
+|説明|入力
+
+|各の `n` 文字は数値 (0 - 9) を表します。アプリケーションを実行するとき、`n` 文字のプレースホルダーは表示しません。
+|必要なし
+
+|====
+
+[[_Ref347833861]]
+
+=== IPv6
+
+==== マスク:
+
+`<AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA:AAAA`
+
+[options="header", cols="a,a"]
+|====
+|説明|入力
+
+|行間の `<` 文字プレースホルダーは、すべての次の文字を小文字に設定します。
+|必須
+
+|各の `A` 文字は英数字値 (0-9、a-z、A-Z) を表します。
+|必須
+
+|====
+
+[[_Ref347833868]]
+
+=== メール
+
+==== マスク:
+
+`<Aaaaaaaa@Aaaaaaaa.AAa`
+
+[options="header", cols="a,a"]
+|====
+|説明|入力
+
+|行間の `<` 文字プレースホルダーは、すべての次の文字を小文字に設定します。
+|必須
+
+|各の `A` 文字は英数字値 (0-9、a-z、A-Z) を表します。
+|必須
+
+|各の `a` 文字は英数字値 (0-9、a-z、A-Z) を表します。
+|必要なし
+
+|====
+
+[[_Ref341350139]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winmaskededit.html[WinMaskedEdit]
+|このセクションはコントロールについての情報を提供し、機能についてのトピックへのリンクを提供します。
+
+|====

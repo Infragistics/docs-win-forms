@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridprintdocument-using-wingridprintdocument2",
+    "controlName": ["WinGridPrintDocument"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{650958F8-99B1-4742-8222-30E6D69F120B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridPrintDocument の使用
+
+このセクションでは、WinGridPrintDocument™ コンポーネント関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[WinGridPrintDocument で WinPrintPreviewDialog を使用]
+* link:wingridprintdocument-printing-total-number-of-pages.html[WinGridPrintDocument ページ総数を印刷]

@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridcellproxy-add-a-wingridcellproxy-to-a-wingridrowedittemplate",
+    "controlName": [],
+    "tags": ["Extending","Grids","How Do I"],
+    "guid": "{2993458F-DE55-43F4-B87E-92D1D98191DA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridCellProxy を WinGridRowEditTemplate に追加
+
+WinGridCellProxy™ コントロールは、名前が意味する WinGrid™ セルのプロキシーそのものです。ただし、それはプロキシーなので、特定のセルのコピーであることを意味しません。プロキシーは、WinGrid のそれらのセルと同じエディタを使用するので、WinGrid の他のセルと同じデータを含むことができます。プロキシー セルを WinGrid セルと同じデータで表示するには、データ ソースおよびデータ メンバを提供する必要があります。
+
+WinGridCellProxy を使用すると、データ ソースの提供は非常はシンプルです。WinGridCellProxy コントロールを使用できるのは、WinGridRowEditTemplate™ 内だけです。したがって、プロキシーをテンプレートの Controls コレクションに追加したら、基本的にそのデータ ソースを設定します。各 WinGridRowEditTemplate は WinGrid のひとつの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[バンド]に関連付けられ、バンドの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~rowedittemplate.html[RowEditTemplate] プロパティを link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrowedittemplate.html[UltraGridRowEditTemplate] オブジェクトのインスタンスに設定すると、そのバンドにテンプレートのデータ ソースを設定します。
+
+WinGridCellProxy にデータ メンバを提供することは、関連付けられたバンドから列のキーに ColumnKey プロパティを設定することに関わります。固有の列に設定されると、WinGridCellProxy は、それが WinMaskedEdit、WinCombo、WinOptionSet などになるかどうかにかかわらず、その列の基本エディタが実行する役割であればどのような役割でも実行します。
+
+以下のコード例は、WinGridCellProxy のインスタンスを作成し、それを WinGridRowEditTemplate の Controls コレクションに追加し、ColumnKey プロパティを介してデータ メンバを設定する方法を示します。
+
+[NOTE]
+====
+*注：* 本トピックは、フォームの WinGridRowEditTemplate コントロールが WinGrid のバンドに既に関連付けられていることを前提とします。詳細は、 link:wingridrowedittemplate-creating-a-wingridrowedittemplate-programmatically.html[「WinGridRowEditTemplate をプログラムで作成」]を参照してください。
+====
+
+*Visual Basic の場合：*
+
+----
+'UltraGridCellProxy オブジェクトをインスタンス化します。
+Dim ultraGridCellProxy1 As Infragistics.Win.UltraWinGrid.UltraGridCellProxy = _
+  New Infragistics.Win.UltraWinGrid.UltraGridCellProxy()
+' プロキシーをテンプレートの Controls コレクションに追加します。
+Me.UltraGridRowEditTemplate1.Controls.Add(ultraGridCellProxy1)
+'データ ソースの列のキーに ColumnKey プロパティを設定することで
+'データ メンバをプロキシーに提供します。
+ultraGridCellProxy1.ColumnKey = "CompanyName"
+----
+
+*C# の場合：*
+
+----
+//UltraGridCellProxy オブジェクトをインスタンス化します。
+Infragistics.Win.UltraWinGrid.UltraGridCellProxy ultraGridCellProxy1 = 
+  new Infragistics.Win.UltraWinGrid.UltraGridCellProxy();
+//プロキシーをテンプレートの Controls コレクションに追加します。
+this.ultraGridRowEditTemplate1.Controls.Add(ultraGridCellProxy1);
+//データ ソースの列のキーに ColumnKey プロパティを設定することで
+//データ メンバをプロキシーに提供します。
+ultraGridCellProxy1.ColumnKey = "CompanyName";
+----

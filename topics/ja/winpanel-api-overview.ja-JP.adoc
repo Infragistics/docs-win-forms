@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpanel-api-overview",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{32870996-67D0-476F-96CD-A1A93C6A1FA5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキークラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinMisc 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[Infragistics.Win.Misc 名前空間]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapanel.html[UltraPanel]"]

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-navigation-toolbar-limit-the-size-of-the-navigation-history",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Navigation"],
+    "guid": "{80C52026-DE9D-4F89-91C5-D94987308DF9}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-09T12:12:17Z"
+}
+|metadata|
+////
+
+= ナビゲーション履歴のサイズを制限
+
+ナビゲーション履歴を作成する場合、10 または 20 項目などの管理可能な数に履歴のサイズを制限することを考慮してください。 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~navigateto.html[NavigateTo] メソッドを呼び出すたびにリストが大きくなるからです。アプリケーションがインターネット ブラウザで、エンド ユーザーが 1 度のブラウズ セッションで 50 サイトをサーフィンする場合、最新の履歴のドロップダウン ボタンに非常に大きなドロップダウン リストが作成されます。 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~maximumnavigationitems.html[MaximumNavigationItems] プロパティを設定することで、このリストに表示される履歴項目の量を制限することができます。このプロパティを設定することで、ナビゲーション履歴は、ユーザーが指定する履歴項目数だけを維持できます。たとえば MaximumNavigationItems プロパティを 10 に設定してエンド ユーザーが 11 項目にナビゲートすると、リストの最初の項目は削除され、最新の項目のための領域が作られます。
+
+以下のコードは、ナビゲーション履歴のサイズを 10 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem.html[NavigationHistoryItems] に制限します。フォームの Load イベントにこのコードを配置するか、[プロパティ] ウィンドウにプロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraToolbarsManager1.NavigationToolbar.MaximumNavigationItems = 10
+----
+
+*C# の場合：*
+
+----
+this.ultraToolbarsManager1.NavigationToolbar.MaximumNavigationItems = 10;
+----

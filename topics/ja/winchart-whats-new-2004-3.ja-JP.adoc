@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-whats-new-2004-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{17CFFA24-7420-4658-8294-7DD3F8D9A419}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinChart 2004.3
+
+* OthersCategoryText クラスを追加しました。これはドーナツ型グラフ、円グラフ、立体円グラフに適用されます。
+* ラベル軸の設定のために TickmarkInterval を追加 – TickmarkStyle = DataInterval and TickmarkInterval >0 の場合、軸ラベルは n 時間ごと（n は Axis.TickmarkInterval の値）に表示されます。
+* ChartTransform3DEventArgs クラスが新しく追加されました。マウスを使用して、立体チャートを回転または縮小/拡大した場合にイベントが発生します。
+* System.Drawing.Printing.PrintDocument 型のオブジェクトを返す GetPrintDocument() メソッドを追加しました。
+* ChartInvalidDataEvent を追加しました。
+* ChartDataInvalidEventArgs クラスを追加しました。それはエラーの性質に関する情報を保持します。そして、チャート内に表示するために設定することができるテキスト プロパティを保持します。このイベントはデータが選択されたチャート タイプが適していない場合に発生します。
+* ChartDataDoubleClicked イベントを追加しました。
+* UltraChart.Legend.DataAssociation の SplitData プロパティ値を追加しました。これによって、合成チャート（散布図 - 折れ線グラフや棒グラフ - 折れ線グラフ）が両方のチャート タイプでデータを表示できるようになりました。
+* 棒グラフ - 折れ線グラフのためのカスタム レイヤで棒と線の両プリミティブを操作する機能が追加されました。
+* ユーザーによる操作でチャートのズーム機能やスクロール機能が発生したときのためのキャンセル可能なスクロールおよびスケール イベントが追加されました。

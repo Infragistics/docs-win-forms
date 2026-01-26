@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmessageboxmanager-using-winmessageboxmanager",
+    "controlName": ["WinMessageBoxManager"],
+    "tags": ["How Do I"],
+    "guid": "d7c2dc36-61ac-4f32-8336-5765d7df4d31",  
+    "buildFlags": [],
+    "createdOn": "2010-07-16T13:49:33.9641777Z"
+}
+|metadata|
+////
+
+= WinMessageBoxManager の使用
+
+以下のセクションには、WinMessageBoxManager™ コントロールに関連した特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックが含まれています。
+
+* link:winmessageboxmanager-working-with-winmessageboxmanager.html[WinMessageBoxManager の操作]
+* link:winmessageboxmanager-custom-text-for-messagebox-buttons.html[MessageBox ボタンのカスタム テキスト]
+* link:winmessageboxmanager-setting-up-the-startposition-and-startlocation-properties.html[StartPosition および StartLocation プロパティの設定]

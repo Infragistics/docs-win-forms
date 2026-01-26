@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-display-a-desktop-alert-window",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","Getting Started","How Do I"],
+    "guid": "{10AB4589-C3F9-46B4-8AC0-1A040966C0CB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デスクトップ アラート ウィンドウを表示
+
+すべてのデフォルト設定でキャプションと説明付きの標準通知を（MessageBox のように）単純に表示する必要があるだけであれば、以下のトピックを参照してください。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~show.html[UltraDesktopAlert.Show] メソッドの 2 番目のオーバーロードは、caption と text の 2 つの文字列パラメータを受け入れます。最初のパラメータは、アラート ウィンドウのトップのタイトルで、2 番目のパラメータは、テキストまたは説明でエンド ユーザーに通知する内容です。
+
+image::images/WinDesktopAlert_Display_a_Desktop_Alert_Window_01.png[]
+
+以下のコードを使用して、上記のスクリーンショットに似たシンプルなデスクトップ アラート ウィンドウを表示します。
+
+*Visual Basic の場合：*
+
+----
+' コードの最小量はデスクトップ アラート ウィンドウを表示することです。
+' 最初のパラメータはキャプション（タイトル）で、2 番目は 
+' 説明のテキストです。
+Me.UltraDesktopAlert1.Show("Sharing Violation", _
+  "Another user is currently using the same file. " + _
+  "You will not be able to save your work!")
+----
+
+*C# の場合：*
+
+----
+// コードの最小量はデスクトップ アラート ウィンドウを表示することです。
+// 最初のパラメータはキャプション（タイトル）で、2 番目は 
+// 説明のテキストです。
+this.ultraDesktopAlert1.Show("Sharing Violation",
+  "Another user is currently using the same file. " +
+  "You will not be able to save your work!");
+----

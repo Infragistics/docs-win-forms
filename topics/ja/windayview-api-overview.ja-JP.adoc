@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "windayview-api-overview",
+    "controlName": ["WinDayView"],
+    "tags": ["API"],
+    "guid": "{878477D1-3030-4C18-8F62-630642FE9232}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinDayView 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview_namespace.html[Infragistics.Win.UltraWinSchedule.DayView]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.alldayeventuielement.html[AllDayEventUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.appointmentuielement.html[AppointmentUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.dayuielement.html[DayUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.houruielement.html[HourUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.minuteuielement.html[MinuteUIElement]"]

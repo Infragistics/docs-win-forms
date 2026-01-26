@@ -1,0 +1,147 @@
+﻿////
+|metadata|
+{
+    "name": "styling-guide-about-the-office-2007-look-and-feel",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{C79699BA-6C69-4055-9BEE-CE7DDD92E7F3}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Office 2007 のルック アンド フィールについて
+
+{ProductName} 2006 Volume 3 では、コントロールに新しいルック アンド フィール（Microsoft® Office 2007 のルック アンド フィール）が追加されました。このルック アンド フィールは、青、黒、シルバーの 3 つの個別の色が含まれるという意味でユニークです。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.office2007colortable.html[Office2007ColorTable]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.office2007colortable~colorscheme.html[ColorScheme]"]  プロパティを使用することで、これらの色を前後に変更することができます。
+
+弊社のコントロールのほぼすべては、この新しいテーマをサポートします。すべての弊社の WinEditor コントロールは、DisplayStyle プロパティを通して Office 2007 のルック アンド フィールをサポートしています。WinButton、WinScrollBar などのボタン UIElement を使用する複数のコントロールおよび WinEditors のほとんどは、ButtonStyle プロパティを通してこのルック アンド フィールをサポートします。このコントロール自体は、ViewStyle プロパティを通して Office 2007 のルック アンド フィールを活用できます。Office 2007 のルック アンド フィールをサポートするコントロールおよびコンポーネントの完全なリストは以下を参照してください。
+
+== DisplayStyle
+
+DisplayStyle プロパティを Office2007 に設定することによって、以下のコントロールに Office 2007 のルック アンド フィールを適用できます。特定のコントロールの DisplayStyle プロパティを表示するためには、以下の青色のリンクをクリックしてください。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[WinCalculatorDropDown]"] 
+* WinCalendarCombo（CalendarLook の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~viewstyle.html[ViewStyle]"]  は Office2007 に設定する必要があります）
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[WinColorPicker]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~displaystyle.html[WinCombo]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[WinComboEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditorbase~displaystyle.html[WinCurrencyEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultradatetimeeditor~displaystyle.html[WinDateTimeEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[WinFontNameEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~displaystyle.html[WinMaskedEdit]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditorbase~displaystyle.html[WinNumericEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[WinTextEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.texteditorcontrolbase~displaystyle.html[WinTimeZoneEditor]"] 
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~displaystyle.html[WinToolTipManager]"] 
+* エディタを使用するコントロール
+
+== ButtonStyle
+
+ButtonStyle プロパティを Office2007 に設定することによって、以下のコントロールに Office 2007 のルック アンド フィールを適用できます。特定のコントロールの ButtonStyle プロパティを表示するためには、以下の青色のリンクをクリックしてください。
+
+* エディタ コントロール（UltraCalendarCombo および UltraTextEditor がないことに注意してください）
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.editorwithtextdropdowncontrolbase~buttonstyle.html[WinCalculatorDropdown]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.editorwithtextdropdowncontrolbase~buttonstyle.html[WinColorPicker]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~buttonstyle.html[UltraCombo]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~buttonstyle.html[WinComboEditor]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditorbase~buttonstyle.html[WinCurrencyEditor]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultradatetimeeditor~buttonstyle.html[WinDateTimeEditor]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~buttonstyle.html[WinFontNameEditor]"] 
+** pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.editorbutton~buttonstyle.html[UltraMaskedEdit]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditorbase~buttonstyle.html[WinNumericEditor]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~buttonstyle.html[WinTimeZoneEditor]"] 
+
+* pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrabuttonbase~buttonstyle.html[WinButton]"] 
+* pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrabuttonbase~buttonstyle.html[WinDropDownButton]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratoggleeditorbase~buttonstyle.html[WinCheckEditor]"]™
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinscrollbar.ultrascrollbar~buttonstyle.html[WinScrollBar]"] 
+
+== ViewStyle
+
+ViewStyle プロパティを Office2007 に設定することによって、以下のコントロールに Office 2007 のルック アンド フィールを適用できます。特定のコントロールの ViewStyle プロパティを表示するためには、以下の青色のリンクをクリックしてください。
+
+[NOTE]
+====
+*注：* コントロールの表示スタイルが他のプロパティによって設定されている場合、（）で示します。
+====
+
+* ContextMenu (pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.igcontrols.menustyle.html[MenuStyle]"] )
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatusbar~viewstyle.html[WinStatusBar]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~viewstyle.html[WinTab]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~viewstyle.html[WinTabbedMdiManager]"] 
+* WinDockManager (pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~windowstyle.html[WindowStyle]"] )
+* pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~viewstyle.html[WinGroupBox]"] 
+* pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraexpandablegroupbox~viewstyle.html[WinExpandableGroupBox]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~viewstyle.html[WinExplorerBar]"] 
+* WinToolbarsManager (pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~style.html[Style]"] )
+* WinSchedule - CalendarLook の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~viewstyle.html[ViewStyle]"]  プロパティは以下のコントロールに影響を与えます。
+
+** WinDayView
+** WinMonthViewMulti
+** WinMonthViewSingle
+** WinWeekView
+
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinscrollbar.ultrascrollbar~viewstyle.html[WinScrollBar]"] 
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinscrollbar.scrollbarlook~viewstyle.html[ScrollBarLook]"]  – 以下のコントロールに影響を与えます。
+
+** WinExplorerBar
+** WinCombo
+** WinGrid
+** WinListView
+** WinTree
+
+== GlyphStyle
+
+弊社の WinCheckEditor および WinOptionSet コントロールは、新しいルック アンド フィールもエミュレートします。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.glyphstyle.html[GlyphStyle]"]  プロパティをこれらの 2 つのコントロールに追加し、ラジオ ボタンとチェックボックスの外観を変更しました。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams.html[UIElementDrawParams]"]  構造で WinGrid、WinListView、および WinTree などの他のコントロールの内部のチェックボックスやラジオ ボタンも変更できます。詳細は以下のトピックを参照してください。
+
+* link:wincheckeditor-apply-the-office-2007-style-to-wincheckeditor.html[Office 2007 スタイルを WinCheckEditor に適用]
+* link:winoptionset-apply-the-office-2007-style-to-winoptionset.html[Office 2007 スタイルを WinOptionSet に適用]
+
+== カラー スキーム
+
+Office 2007 のルック アンド フィールは、3 つの完全に異なるカラー スキームでもたらされます。デフォルトのカラー スキームは青で、ご使用のアプリケーションを Windows XP の外観にします。新しい Windows® Vista™ オペレーティング システムを表す黒を選択することもできます。他のカラー スキームはシルバーで、Windows XP Silver テーマをエミュレートします。これらの色の設定は、ひとつのプロパティの設定に関わります。ただし、Office 2007 のルック アンド フィールを使用しているご使用のアプリケーションのすべてのコントロールは、このカラー スキームを採用します。他で黒のカラー スキームを使用中に青のカラー スキームを使用するコントロールを使用できません。以下のコードは、アプリケーション全体で Office 2007 カラー スキームを黒に変更します。
+
+*Visual Basic の場合：*
+
+----
+Infragistics.Win.Office2007ColorTable.ColorScheme = _
+  Infragistics.Win.Office2007ColorScheme.Black
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.Office2007ColorTable.ColorScheme =
+  Infragistics.Win.Office2007ColorScheme.Black;
+----
+
+== カラー グラデーション
+
+新しい Office 2007 表示スタイルを実装するには、新しいグラデーション タイプを作成する必要があります。弊社は pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.gradientstyle.html[GradientStyle]"]  列挙体に新しいグラデーションのタイプである Glass を追加しました。Glass は単なるひとつのグラデーション スタイルではなく、複数の異なるグラデーション タイプを伴います。各 Glass グラデーション スタイルは、実際の列挙体で方向や数を持つことに注意してください。方向は、グラデーションがスタートする方向から読み取ります。数は、次のグラデーション カラーが一杯になるまでどれほどのピクセルが必要であるかを示します。以下は、2006 Volume 3 リリースで追加された Glass グラデーションのリストです。
+
+* GlassBottom20
+* GlassBottom20Bright
+* GlassBottom37
+* GlassBottom37Bright
+* GlassBottom50
+* GlassBottom50Bright
+* GlassLeft20
+* GlassLeft20Bright
+* GlassLeft37
+* GlassLeft37Bright
+* GlassLeft50
+* GlassLeft50Bright
+* GlassRight20
+* GlassRight20Bright
+* GlassRight37
+* GlassRight37Bright
+* GlassRight50
+* GlassRight50Bright
+* GlassTop20
+* GlassTop20Bright
+* GlassTop37
+* GlassTop37Bright
+* GlassTop50
+* GlassTop50Bright

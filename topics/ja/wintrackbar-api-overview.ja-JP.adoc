@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintrackbar-api-overview",
+    "controlName": ["WinTrackBar"],
+    "tags": ["API"],
+    "guid": "{CE0A8F7A-9C70-4205-BA71-FC2F8260B277}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-01T15:52:14Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinEditors 名前空間:
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinEditors 名前空間]
+
+
+=== キー クラス：
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar.html[UltraTrackBar]

@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-adding-tools-to-the-dynamically-created-taskpane-toolbar-part-2-of-2",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{BFAA24FB-B4D5-4017-937C-83F2F3691D68}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 動的に作成された TaskPane ツールバーへのツールの追加（パート 2）
+
+このトピックでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  を動的に作成して、その TaskPaneTool にツールを追加する方法について説明します。このトピックは、 link:wintoolbarsmanager-creating-a-taskpane-toolbar-dynamically-part-1-of-2.html[「TaskPane ツールバーの動的な作成（パート 1）」]の続きです。
+
+[start=1]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  を作成したら、次に TaskPaneTools を追加します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい TaskPaneTool を作成します。
+Dim myTaskPaneTool1 As New TaskPaneTool("myTaskPaneTool1")
+' TaskPaneTool のキャプションを設定します。
+myTaskPaneTool1.SharedProps.Caption = "myTaskPaneTool1"
+' TaskPaneTool を UltraToolbarsManager の Tools コレクションに追加します。
+myToolbarManager.Tools.Add(myTaskPaneTool1)
+' TaskPaneTool を TaskPaneToolbar に追加します。
+myTaskPaneToolbar.Tools.AddRange(New ToolBase() {myTaskPaneTool1})
+----
+
+*C# の場合：*
+
+----
+// 新しい TaskPaneTool を作成します。
+TaskPaneTool myTaskPaneTool1 = new TaskPaneTool("myTaskPaneTool1");
+// TaskPaneTool のキャプションを設定します。
+myTaskPaneTool1.SharedProps.Caption = "myTaskPaneTool1";
+// TaskPaneTool を UltraToolbarsManager の Tools コレクションに追加します。
+myToolbarManager.Tools.Add(myTaskPaneTool1);
+// TaskPaneTool を TaskPaneToolbar に追加します。
+myTaskPaneToolbar.Tools.AddRange(new ToolBase[] { myTaskPaneTool1});
+----
+
+[start=2]
+. コードを使用して基本的な TaskPaneTool を設定し、それを UltraTaskPaneToolbar に追加する手順はこれですべてです。
+[start=3]
+. これでコントロールを TaskPaneTool に追加する準備ができました。次に、コントロールを TaskPaneTool に追加する方法を説明するため、シンプルな Panel コントロールを TaskPaneTool に追加します。
+
+*Visual Basic の場合：*
+
+----
+' TaskPaneTool に配置する一般的なコントロールを作成します。
+Dim myPanel As New Panel
+' TaskPaneTool でホストするコントロールを設定します。
+myTaskPaneTool1.Control = myPanel
+' 選択状態にする TaskPaneTool を設定します。
+myTaskPaneToolbar.SelectedTaskPaneTool = myTaskPaneTool1
+----
+
+*C# の場合：*
+
+----
+// TaskPaneTool に配置する一般的なコントロールを作成します。
+System.Windows.Forms.Panel myPanel = new Panel();
+// TaskPaneTool でホストするコントロールを設定します。
+myTaskPaneTool1.Control = myPanel;
+// 選択状態にする TaskPaneTool を設定します。
+myTaskPaneToolbar.SelectedTaskPaneTool = myTaskPaneTool1;
+----
+
+[start=4]
+. プロジェクトをビルドして実行すると、次のように右端にドッキングした TaskPaneToolbar が表示されます。これには、Panel コントロールをホストしている TaskPaneTool が含まれます。
+
+image::Images/WinToolbarsManager_Working_with_Dynamically_Created_TaskPane_Toolbars_01.png[]
+
+[NOTE]
+====
+*注：* TaskPaneTool に追加できるコントロールは 1 つだけなので、複数のコントロールを追加したい場合は、それらをパネルまたはグループボックスに配置してから、それを TaskPaneTool に追加するコントロールとして選択します。たとえば、複数のボタンとテキストボックスが必要な場合は、それらすべてのコントロールを中に配置したパネルまたはグループボックスを作成してから、そのパネルまたはグループボックスを TaskPaneTool のコントロールとして選択します。
+====

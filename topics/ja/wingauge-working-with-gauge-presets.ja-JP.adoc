@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-working-with-gauge-presets",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{92995457-431D-4F73-AE7F-AF29FAAEEBE6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ プリセットでの作業
+
+ゲージ デザイナには、Gauge コントロールを使用してすばやく開始するために役に立つように設計されたさまざまな事前に定義されたプリセットが含まれています。これらのプリセットを使用する方法については以下のリンクをクリックしてください。
+
+* link:wingauge-opening-a-gauge-preset.html[ゲージ プリセットを開く]
+* link:wingauge-creating-a-gauge-using-a-preset.html[プリセットを使用してゲージを作成]
+* link:wingauge-modifying-and-saving-a-preset.html[プリセットの修正と保存]
+* link:wingauge-applying-a-preset.html[プリセットを適用]

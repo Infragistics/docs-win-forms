@@ -1,0 +1,376 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-resource-strings",
+    "controlName": [],
+    "tags": ["Design Environment","Localization","Resource Strings"],
+    "guid": "{B6FC1E3A-DB63-4B63-BA59-C02A6AD2C909}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|Accessibility_DefaultAction_ColumnHeader_Sort
+|並べ替え
+
+|Accessibility_UltraListItem_DefaultAction
+|編集
+
+|EditErrorEventMessageBoxText
+|'{0}' の値が不正です
+
+|EditErrorEventMessageBoxTitle
+|エラー
+
+|Exception_CannotAddItemToDifferentCollection
+|UltraListViewItem は、複数の UltraListViewItemsCollection に属することができません。
+
+|Exception_CannotAddItemToSameCollection
+|UltraListViewItem は、既に属している同じ UltraListViewItemsCollection に追加することができません。
+
+|Exception_CannotInitializeFromItem
+|UltraListViewSubItem インスタンスは UltraListViewItem インスタンスから初期化することはできません。
+
+|Exception_CannotInitializeFromSubItem
+|UltraListViewItem インスタンスは UltraListViewSubItem インスタンスから初期化することはできません。
+
+|Exception_CannotSelectItemFromDifferentCollection
+|UltraListViewItem は、コントロールの Items コレクションに属していない場合選択することができません。
+
+|UltraListView_P_Appearance
+|コントロールのフォーマットを制御する Appearance オブジェクトを取得または設定します。
+
+|UltraListView_P_Appearances
+|Appearance オブジェクトを保存できるリポジトリを返します。
+
+|UltraListView_P_AutoKeyboardSearch
+|ユーザーが文字入力をしたときに、コントロールが項目に移動するかどうか取得または設定します。
+
+|UltraListView_P_BorderStyle
+|コントロール周囲に描画される境界線のスタイルを取得または設定します。
+
+|UltraListView_P_DisplayRectangle
+|コントロールのクライアント領域を示す Rectangle を取得します。
+
+|UltraListView_P_GroupAppearance
+|この UltraListView インスタンスで表示される UltraListViewGroup オブジェクトの一般的な外観を取得または設定します。
+
+|UltraListView_P_GroupHeaderMargins
+|UltraListViewGroup で表示されているヘッダーの周辺にスペースを配置するマージンを取得または設定します。
+
+|UltraListView_P_GroupHeadersVisible
+|UltraListViewItem がユーザー インターフェイスに表示されるかどうかを取得または設定します。
+
+|UltraListView_P_Groups
+|UltraListViewGroup オブジェクトのコレクションを返します。
+
+|UltraListView_P_ImageTransparentColor
+|この UltraListView コントロールで表示する画像を描画するとき、透明色にする色を取得または設定します。
+
+|UltraListView_P_Items
+|UltraListViewItem オブジェクトのコレクションを返します。
+
+|UltraListView_P_ItemSettings
+|項目固有のプロパティを定義する UltraListViewItemSettings オブジェクトを返します。
+
+|UltraListView_P_MainColumn
+|UltraListViewMainColumn オブジェクトを返します。View プロパティが "Details" に設定されているときに、UltraListViewMainColumn オブジェクトは項目の値を表示する列のプロパティを決定します。
+
+|UltraListView_P_ScrollBarLook
+|この UltraListView インスタンスのスクロールバーの外観と動作を決定します。
+
+|UltraListView_P_ScrollbarSmallChangeHorizontal
+|水平スクロールバーの左/右スクロール矢印のクリックによりスクロールする量をピクセル単位で取得または設定します。
+
+|UltraListView_P_ScrollbarSmallChangeVertical
+|縦スクロールバーの上/下スクロール矢印のクリックによりスクロールする量をピクセル単位で取得または設定します。
+
+|UltraListView_P_ShowGroups
+|項目をグループに表示するかどうかを取得または設定します。
+
+|UltraListView_P_SubItemColumns
+|コントロールが表示するサブ項目のある列を定義する UltraListViewSubItemColumn オブジェクトのコレクションを返します。
+
+|UltraListView_P_View
+|コントロールでの項目の表示方法を取得または設定します。
+
+|UltraListView_P_ViewSettingsDetails
+|このコントロールの View プロパティが "Details" に設定されているときのプロパティを定義する UltraListViewDetailsSettings オブジェクトを返します。
+
+|UltraListView_P_ViewSettingsIcons
+|コントロールの View プロパティが "Icons" に設定されているときのプロパティを定義する UltraListViewIconsSettings オブジェクトを返します。
+
+|UltraListView_P_ViewSettingsList
+|このコントロールの View プロパティが "List" に設定されているときのプロパティを定義する UltraListViewListSettings オブジェクトを返します。
+
+|UltraListView_P_ViewSettingsThumbnails
+|このコントロールの View プロパティが "Thumbnails" に設定されているときのプロパティを定義する UltraListViewThumbnailsSettings オブジェクトを返します。
+
+|UltraListView_P_ViewSettingsTiles
+|このコントロールの View プロパティが "Tiles" に設定されているときのプロパティを定義する UltraListViewTilesSettings オブジェクトを返します。
+
+|UltraListViewCheckedItemsCollection_Exception_SetCheckState
+|Items コレクションに属していない UltraListViewItem で SetCheckState メソッドを呼び出すことができません。
+
+|UltraListViewColumnBase_Exception_DataTypeNotValid
+|現在この列に割り当てられているエディターでは、列のデータ タイプでは、指定したデータ型はサポートされていません。
+
+|UltraListViewColumnBase_Exception_EditorAndDataTypeCombinationNotValid
+|'{0}' エディターは '{1}' 型をサポートしません。
+
+|UltraListViewColumnBase_Exception_EditorNotValid
+|指定されたエディターは、この列に対して無効です。DataType プロパティが指定されたエディターに適切な値に設定されているかどうか確認してください。
+
+|UltraListViewColumnBase_P_AllowMoving
+|ユーザーが列ヘッダーをクリックしたときに、この UltraListViewColumnBase を移動できるかどうかを取得または設定します。
+
+|UltraListViewColumnBase_P_AllowSizing
+|ユーザーが列ヘッダーの右端をドラッグしたときに、この UltraListViewColumnBase のサイズを変更できるかどうかを取得または設定します。
+
+|UltraListViewColumnBase_P_AllowSorting
+|ユーザーがヘッダーをクリックしたときに、この UltraListViewColumnBase をソートできるかどうかを取得または設定します。
+
+|UltraListViewColumnBase_P_AutoSizeMode
+|エンドユーザーがヘッダーをダブルクリックする時にこの列の幅がヘッダー テキストまたはすべての項目またはサブ項目値を表示するのに十分な大きさに自動的になるかどうかを取得または設定します。
+
+|UltraListViewColumnBase_P_DataType
+|この UltraListViewColumnBase の項目/サブ項目のデータ型を取得または設定します。
+
+|UltraListViewColumnBase_P_EditorComponent
+|この UltraListViewColumnBase のサブ項目のデータを表示する EmbeddableEditorBase 派生エディターを提供する、IProvidesEmbeddableEditor インプリメンタを取得または設定します。
+
+|UltraListViewColumnBase_P_EditorControl
+|この UltraListViewColumnBase のサブ項目のデータを表示する EmbeddableEditorBase 派生エディターを提供する、IProvidesEmbeddableEditor インプリメンタを取得または設定します。
+
+|UltraListViewColumnBase_P_Format
+|項目/サブ項目の表示方法を制御するためにセル データに適用される文字列書式を取得または設定します。
+
+|UltraListViewColumnBase_P_FormatProvider
+|この列の項目/サブ項目の書式設定を制御する IFormatProvider インプリメンタを取得または設定します。
+
+|UltraListViewColumnBase_P_HeaderAppearance
+|この UltraListViewColumnBase インスタンスのヘッダーに適用される外観を取得または設定します。
+
+|UltraListViewColumnBase_P_NullText
+|セルの値が null の場合にそのセルによって表示される文字列を取得または設定します。
+
+|UltraListViewColumnBase_P_ShowSortIndicators
+|この UltraListViewColumnBase に対してソート インジケーターが表示されるかどうかを取得または設定します。
+
+|UltraListViewColumnBase_P_Sorting
+|ソートするかどうか、およびどのようにソートするかを取得または設定します。
+
+|UltraListViewColumnBase_P_Text
+|この UltraListViewColumnBase インスタンスのヘッダーに表示される文字列を取得または設定します。
+
+|UltraListViewColumnBase_P_ValueList
+|この UltraListViewColumnBase の項目/サブ項目のデータをテキストに値をマップするために使用される IValueList インターフェイス インプリメンタを取得または設定します。
+
+|UltraListViewColumnBase_P_VisiblePositionInDetailsView
+|コントロールの View プロパティが "Details" に設定されているときに、この列がユーザー インターフェイスに表示される位置を取得または設定します（一番左に表示されている列を使用します）。
+
+|UltraListViewColumnBase_P_Width
+|UltraListViewColumnBase の幅をピクセル単位で取得または設定します。
+
+|UltraListViewDetailsSettings_P_AllowColumnMoving
+|ユーザーが列ヘッダーを別の位置にドラッグしたときに、列を移動できるかどうかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_AllowColumnSizing
+|ユーザーが列ヘッダーの右端をドラッグしたときに、列のサイズを変更できるかどうかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_AllowColumnSorting
+|ユーザーが列ヘッダーをクリックしたときに、列をソートできるかどうかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_AutoFitColumns
+|すべての使用可能な水平領域を使用するようにすべての列の幅が自動的に計算されるかどうかを取得または設定します。これによって、水平スクロールバーが表示されないようにします。
+
+|UltraListViewDetailsSettings_P_AutoSizeMode
+|ヘッダー テキストおよびすべての項目/サブ項目、またはそのどちらか一方を表示するために列の幅を自動的に大きくするかどうかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_ColumnHeaderAppearance
+|列のヘッダーに適用される外観を取得または設定します。
+
+|UltraListViewDetailsSettings_P_ColumnHeaderBorderStyle
+|列ヘッダーの境界線のスタイルを取得または設定します。
+
+|UltraListViewDetailsSettings_P_ColumnHeaderImageList
+|列ヘッダーの画像を提供する ImageList を取得または設定します。
+
+|UltraListViewDetailsSettings_P_ColumnHeaderImageSize
+|列ヘッダーに表示される画像のサイズを取得または設定します。
+
+|UltraListViewDetailsSettings_P_ColumnHeaderStyle
+|列ヘッダーのスタイルを取得または設定します。
+
+|UltraListViewDetailsSettings_P_ColumnsShowSortIndicators
+|この列に対してソート インジケーターが表示されるかどうかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_FullRowSelect
+|選択をすべてにサブ項目に表示するか、この項目のみに表示するかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_SubItemAppearance
+|サブ項目の外観を取得または設定します。
+
+|UltraListViewDetailsSettings_P_SubItemColumnsVisibleByDefault
+|VisibleInDetailsView プロパティはデフォルト値のままの列を表示するかどうかを取得または設定します。
+
+|UltraListViewDetailsSettings_P_SubItemTipStyle
+|列ヘッダーのスタイルを取得または設定します。
+
+|UltraListViewGroup_P_Appearance
+|UltraListViewGroup の外観を取得または設定します。
+
+|UltraListViewGroup_P_Enabled
+|ユーザー インターフェイスでこの UltraListViewGroup を有効にするかどうかを取得または設定します。
+
+|UltraListViewGroup_P_HeaderMargins
+|この UltraListViewGroup ヘッダーの周囲に余白を提供するマージンを取得または設定します。
+
+|UltraListViewGroup_P_HeaderVisible
+|ユーザー インターフェイスでこの UltraListViewGroup が表示されるかどうかを取得または設定します。
+
+|UltraListViewGroup_P_Text
+|この UltraListViewGroup を識別するために使用されるテキストを取得または設定します。
+
+|UltraListViewGroup_P_Visible
+|この UltraListViewGroup がユーザー インターフェイスに表示されるかどうかを取得または設定します。
+
+|UltraListViewIconicViewSettingsBase_P_Alignment
+|次の例または行に自動的に折り返す前に、水平と垂直のどちらの方向に配置するかを取得または設定します。
+
+|UltraListViewIconicViewSettingsBase_P_ItemSize
+|項目が表示されるサイズを取得または設定します。
+
+|UltraListViewIconicViewSettingsBase_P_MaxLines
+|項目に表示されるテキスト行の最大数を取得または設定します。
+
+|UltraListViewIconicViewSettingsBase_P_Spacing
+|項目の行と列の間のピクセル数を取得または設定します。Size 構造体の Width メンバーは列間のスペースを決定します。Height メンバーは行の間のスペースを決定します。
+
+|UltraListViewIconicViewSettingsBase_P_TextAreaAlignment
+|項目のテキスト領域の配置を取得または設定します。
+
+|UltraListViewItem_P_CheckState
+|この UltraListViewItem がチェックされている、されていない、不定のいずれであるかを取得または設定します。
+
+|UltraListViewItem_P_Enabled
+|この UltraListViewItem をユーザー インターフェイスで有効にするかどうかを取得または設定します。
+
+|UltraListViewItem_P_Group
+|この UltraListViewItem が属する UltraListViewGroup を取得または設定します。
+
+|UltraListViewItem_P_HotTracking
+|カーソルを UIElement の境界内に置くと、この UltraListViewItem が「ホットトラッキング」するかどうかを取得または設定します。
+
+|UltraListViewItem_P_MaxLines
+|この UltraListViewItem に表示されるテキスト行の最大数を取得または設定します。
+
+|UltraListViewItem_P_SubItems
+|この UltraListViewItem のサブ項目を含む UltraListViewSubItems コレクションを返します。
+
+|UltraListViewItem_P_Visible
+|この UltraListViewItem がユーザー インターフェイスに表示されるかどうかを取得または設定します。
+
+|UltraListViewItemBase_P_Appearance
+|この項目/サブ項目の外観を取得または設定します。
+
+|UltraListViewItemSettings_P_ActiveAppearance
+|ActiveItem に適用される外観を取得または設定します。
+
+|UltraListViewItemSettings_P_AllowEdit
+|エンドユーザーがこの項目を編集できるかどうかを取得または設定します。
+
+|UltraListViewItemSettings_P_Appearance
+|項目に適用される外観を取得または設定します。
+
+|UltraListViewItemSettings_P_DefaultImage
+|解決された外観に画像を含まない項目に表示される画像を取得または設定します。
+
+|UltraListViewItemSettings_P_HideSelection
+|コントロールが入力フォーカスを持たない場合、SelectedAppearance の Color プロパティの適用が可能かどうかを取得または設定します。
+
+|UltraListViewItemSettings_P_HotTracking
+|カーソルを UIElement の境界内に置くと、項目が「ホットトラッキング」するかどうかを取得または設定します。
+
+|UltraListViewItemSettings_P_HotTrackingAppearance
+|カーソルを UIElement の境界内に置いたときにその項目に適用される外観を取得または設定します。
+
+|UltraListViewItemSettings_P_LassoSelectMode
+|「投げ縄」ドラッグ選択がサポートされるかどうかを取得または設定します。サポートされる場合は、ラッソをドラッグするマウス ボタンを取得または設定します。
+
+|UltraListViewItemSettings_P_NullText
+|値が Null の項目/サブ項目に表示される文字列を取得または設定します。
+
+|UltraListViewItemSettings_P_SelectedAppearance
+|項目が選択されたときに適用される外観を取得または設定します。
+
+|UltraListViewItemSettings_P_SelectionType
+|ユーザー インターフェイスを介して項目を選択する方法を設定する SelectionType 定数を取得または設定します。
+
+|UltraListViewItemSettings_P_SubItemsVisibleInToolTipByDefault
+|TipStyle プロパティが "Automatic" に設定された場合、サブ項目をツールチップにデフォルトで表示するかどうかを取得または設定します。
+
+|UltraListViewItemSettings_P_TipStyle
+|項目の上にマウス カーソルが移動したときにツールチップが表示されるかどうか、および表示される場合は、表示方法も取得または設定します。
+
+|UltraListViewListSettings_P_ColumnWidth
+|項目が表示される列の幅を取得または設定します。
+
+|UltraListViewListSettings_P_MultiColumn
+|項目を複数の列に表示するかどうかを取得または設定します。
+
+|UltraListViewListSettingsBase_P_CheckBoxStyle
+|項目の横にチェックボックスを表示するかどうか、および表示する場合はチェックボックスの状態は 2 ステートか 3 ステートかを取得または設定します。
+
+|UltraListViewMainColumn_P_ItemAppearance
+|この UltraListViewMainColumn によって表示される項目に適用される外観を取得または設定します。
+
+|UltraListViewSettingsBase_P_ImageList
+|この View 設定とともに表示される項目の画像を提供する ImageList コンポーネントを取得または設定します。
+
+|UltraListViewSettingsBase_P_ImageSize
+|この View 設定で表示される項目の画像のサイズを取得または設定します。
+
+|UltraListViewSubItemColumn_P_SubItemAppearance
+|UltraListViewSubItemColumn で表示されるサブ項目の外観を取得または設定します。
+
+|UltraListViewSubItemColumn_P_SubItemTipStyle
+|この列内のセルのサブ項目のテキストが一部しか表示されていないときにツールチップを表示するかどうかを取得または設定します。
+
+|UltraListViewSubItemColumn_P_VisibleInDetailsView
+|コントロールの Viewプロパティが "Details" に設定されているときに、この列がユーザー インターフェイスに表示されるかどうかを取得または設定します。
+
+|UltraListViewSubItemColumn_P_VisibleInTilesView
+|コントロールの View プロパティが "Tiles" に設定されているときに、この列がユーザー インターフェイスに表示されるかどうかを取得または設定します。
+
+|UltraListViewSubItemColumn_P_VisibleInToolTip
+|列のテキスト内容をツールチップに表示するかどうかを取得または設定します。ItemSettings の TipStyle プロパティが "Automatic" に設定された場合に表示されます。
+
+|UltraListViewSubItemColumn_P_VisiblePositionInTilesView
+|コントロールの View プロパティが "Tiles" に設定されているときに、この列がユーザー インターフェイスに表示される位置を取得または設定します（一番上に表示されている列を使用します）。
+
+|UltraListViewSubItemColumn_P_VisiblePositionInToolTip
+|ItemSettings の TipStyle プロパティが "Automatic" に設定された場合、列のテキスト内容とそれに関連付けられているサブ項目の値をツールチップに表示するかどうかを取得または設定します。
+
+|UltraListViewTilesSettings_P_NullText
+|値が Null の項目/サブ項目に表示される文字列を取得または設定します。
+
+|UltraListViewTilesSettings_P_SubItemAppearance
+|サブ項目の外観を取得または設定します。
+
+|UltraListViewTilesSettings_P_SubItemsVisibleByDefault
+|UltraListView コントロールの View プロパティが "Tiles" に設定されているときに、サブ項目がデフォルトで表示されるかどうかを取得または設定します。
+
+|====

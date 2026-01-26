@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-non-scrolling-summaries",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Summaries"],
+    "guid": "{A93D3135-1E9D-4F75-90F3-6E9A17CDD5E8}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 非スクロール集計の表示
+
+WinGrid はデフォルトで行コレクションの下部に集計を表示します。さらに、行がスクロールするとこの集計はスクロールします。
+
+このトピックでは、集計を固定してスクロールしないようにする方法を紹介します。また行コレクションの末尾ではなく、先頭に集計を表示する方法も述べます。
+
+[NOTE]
+====
+*注:* 集計はルート バンドのみに固定されます。子バンドでは集計を表示しますが、スクロールします。
+====
+
+== スクロールしない集計を表示するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~summarydisplayarea.html[SummaryDisplayArea]"]  に、BottomFixed ビットか TopFixed ビットがオンになっている値をセットします。SummaryDisplayArea プロパティはフラグ型列挙体です。ビットごとの OR 演算子を使用して複数の値を指定できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DisplayingNonScrollingSummaries_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True
+	Me.UltraGrid1.DisplayLayout.Override.SummaryDisplayArea = SummaryDisplayAreas.TopFixed
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DisplayingNonScrollingSummaries_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True;
+	this.ultraGrid1.DisplayLayout.Override.SummaryDisplayArea = SummaryDisplayAreas.TopFixed;
+}
+----
+
+[NOTE]
+====
+*注:* SummaryDisplayArea プロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.summarysettings.html[SummarySettings]"]  オブジェクトからも公開されているので、異なる集計を異なる領域に表示できます。
+====
+
+[start=3]
+. 下記のスクリーンショットでは、先頭に集計が固定されている UltraGrid を表示しています。スクロールバーの位置に注目してください。先頭の方の行はスクロールアウトされて見えなくなっていますが、集計領域は常に表示されたままです。
+
+image::Images/WinGrid_Display_Non_Scrolling_Summaries_01.png[]

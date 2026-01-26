@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-displaying-items-with-images",
+    "controlName": ["WinEditors"],
+    "tags": ["Data Presentation","How Do I"],
+    "guid": "{2AA8804D-4770-4560-9CF2-016F41345B62}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像を持つ項目の表示
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinTextEditor
+* WinComboEditor
+* WinFontNameEditor
+* WinDateTimeEditor
+* WinNumericEditor 
+* WinCurrencyEditor
+
+すべての WinEditors エレメントは、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~image.html[Image]"]  プロパティを通じて画像の表示をサポートします。
+
+UltraComboEditor コントロールは、項目の Appearance の Image プロパティを介して、ドロップダウン リストの項目ごとの画像の表示もサポートします。さらに WinComboEditor エレメントは、リストのすべての項目に適用される pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~itemappearance.html[ItemAppearance]"]  プロパティを提供しています。個々の項目で Appearance が設定されている場合は、その設定がエレメントの ItemAppearance よりも優先されます。

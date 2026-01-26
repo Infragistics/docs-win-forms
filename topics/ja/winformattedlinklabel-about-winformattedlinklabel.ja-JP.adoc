@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-about-winformattedlinklabel",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["Getting Started"],
+    "guid": "{3829E184-C85F-410E-9D7C-BB8AF2DE9C92}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel について
+
+WinFormattedLinkLabel コントロールは、フォーマットされたテキストといくつかのハイパーリンクを表示します。この作業を実行するには、HTML タグによく似た XML タグが使用されます。したがって、WinFormattedLinkLabel でテキストを描画するには、テキストを正しくフォーマットされた XML ドキュメントにする必要があります。WinFormattedLinkLabel コントロールは、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"]  クラスを使用してテキストを描画します。FormattedLinkEditor クラスは、埋め込みエディタをサポートするすべての {ProductName} コントロールでエディタとして使用できます。

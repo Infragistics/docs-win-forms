@@ -1,0 +1,191 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-complex-numbers",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "9cabbdd1-3b20-4b47-b5f6-bee687eb445d",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:05:14.7966877Z"
+}
+|metadata|
+////
+
+= 複素数
+
+Infragistics Math Library™ は link:http://en.wikipedia.org/wiki/Complex_numbers[複素数]での作業のために機能を提供します。
+
+== 複素数演算のタイプ
+
+複素数によってサポートされる演算は以下の基本的な分類項目に分類されます。
+
+* <<Imaginary_Unit,虚数単位の作成>>
+* <<Complex_Numbers,複素数の作成>>
+
+** <<Numbers_Using_Properties,プロパティを使用して複素数を作成>>
+
+* <<Mathematical_Operations,数学演算 (+、-、$$* $$、/、<、$$<=$$、>、>=、==、!=)>>
+* <<Functions_With_Complex_Numbers,標準的な数学関数を複素数と使用>>
+
+[[Imaginary_Unit]]
+== 虚数単位の作成
+
+虚数単位  *_i_*  は、実部が 0 に等しく虚部が 1 に等しい新しい複素数として作成できます。虚数単位は link:{ApiPlatform}math{ApiVersion}~infragistics.math.constant.html[Constant] クラスでも提供されます。
+
+*Visual Basic の場合:*
+
+----
+'虚数単位の作成
+'新しい複素数の使用
+Dim i As New Complex(0, 1)
+'虚数単位の作成
+'I 定数の使用
+Dim i As Complex = Constant.I
+----
+
+*C# の場合：*
+
+----
+//虚数単位の作成
+//新しい複素数の使用
+Complex i = new Complex(0, 1);
+//虚数単位の作成
+//I 定数の使用
+Complex i = Constant.I;
+----
+
+[[Complex_Numbers]]
+== 複素数の作成
+
+複素数にはひとつのコンストラクターがあり、数の実のコンポーネントと虚のコンポーネントを指定します。
+
+複素数を構成するあまり正式ではなくあまり効率的ではない方法は、虚数単位とともにプラス演算子を使用することです。
+
+以下のコードは、コンストラクターとプラス演算子を使用して、新しい link:{ApiPlatform}math{ApiVersion}~infragistics.math.constant.html[Complex] オブジェクトを作成する方法を説明します。
+
+*Visual Basic の場合:*
+
+----
+'複素数の作成
+'コンストラクターの使用
+Dim z As New Complex(1, 1)
+'複素数の作成
+'プラス演算子の使用
+Dim z As Complex = 1 + 1 * Constant.I
+----
+
+*C# の場合：*
+
+----
+//複素数の作成
+//コンストラクターの使用
+Complex z = new Complex(1, 1);
+//複素数の作成 
+//プラス演算子の使用
+Complex z = 1 + 1 * Constant.I;
+----
+
+*z* というタイトルの 2 つの変数は同等になります。2 番目の表記は計算的にあまり効率的ではありません。加算演算と乗算演算に加えて、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.constant~i.html[Constant.I] の構成が関わるからです。
+
+[[Numbers_Using_Properties]]
+== プロパティを使用して複素数を作成
+
+複素数には4つのプロパティがあり、大きさとフェーズだけでなく、実のコンポーネントと虚のコンポーネントを指定します。以下のコードは複素数を作成する方法を説明し、そのプロパティを使用して、実部、虚部、大きさおよびフェーズを取得します。
+
+*Visual Basic の場合:*
+
+----
+Dim z As New Complex(1, 1)
+Dim real As Double = z.Re
+Dim imaginary As Double = z.Im
+Dim magnitude As Double = z.Mag
+Dim phase As Double = z.Phase
+----
+
+*C# の場合：*
+
+----
+Complex z = new Complex(1, 1);
+double real = z.Re;
+double imaginary = z.Im;
+double magnitude = z.Mag;
+double phase = z.Phase;
+----
+
+これらの関数には link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] クラスの静的バージョンもあります。ただし関数のフォームを指定するために名前が若干異なります。
+
+*Visual Basic の場合:*
+
+----
+Dim z As New Complex(1, 1)
+Dim real As Double = Compute.Real(z)
+Dim imaginary As Double = Compute.Imaginary(z)
+Dim magnitude As Double = Compute.Abs(z)
+Dim phase As Double = Compute.Arg(z)
+----
+
+*C# の場合：*
+
+----
+Complex z = new Complex(1, 1);
+double real = Compute.Real(z);
+double imaginary = Compute.Imaginary(z);
+double magnitude = Compute.Abs(z);
+double phase = Compute.Arg(z);
+----
+
+[[Mathematical_Operations]]
+== 数学演算
+
+以下の演算は複素数のために事前に定義されています。
+
+* 算術演算
+
+** 加算 (+)
+** 減算 (-)
+** 乗算 ($$* $$)
+** 除算 (/)
+** 余りのある除算 (%)
+
+* 比較演算
+
+** 等しい (==)
+** 等しくない (!=)
+** ～より大きい (>)
+** ～より小さい (<)
+** 以上 (>=)
+** 以下 ($$<=$$)
+
+[[Functions_With_Complex_Numbers]]
+== 標準的な数学関数を複素数と使用
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] クラスには静的なメソッドが含まれており、これらのメソッドは複素数を使用するために拡張されたすべての標準的な数学関数を表します。以下はいくつかの数学関数のコード例です。
+
+*Visual Basic の場合:*
+
+----
+Dim z As New Complex(1, 1)
+Dim sinz As Complex = Compute.Sin(z)
+Dim cosz As Complex = Compute.Cos(z)
+Dim expz As Complex = Compute.Exp(z)
+Dim logz As Complex = Compute.Log(z)
+----
+
+*C# の場合：*
+
+----
+Complex z = new Complex(1, 1);
+Complex sinz = Compute.Sin(z);
+Complex cosz = Compute.Cos(z);
+Complex expz = Compute.Exp(z);
+Complex logz = Compute.Log(z);
+----
+
+== 関連トピック
+
+link:infragistics-math-vectors.html[ベクトル]
+
+link:infragistics-math-matrices.html[行列]
+
+link:infragistics-math-mathematical-functions.html[数学関数]

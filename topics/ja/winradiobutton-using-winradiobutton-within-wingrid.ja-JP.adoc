@@ -1,0 +1,26 @@
+﻿= WinGrid での WinRadioButton の使用
+
+`WinRadioButton` は、列の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~style.html[Style] を次のいずれかに設定することによって、`WinGrid` 列のエディターとして使用できます。
+
+* link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnstyle.html[RadioButtonByBand] -- バンド内のすべてのラジオ ボタンが排他的な選択のためグループ化されます。
+* link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnstyle.html[RadioButtonByRowsCollection] -- 同一行コレクションのラジオ ボタンが排他的な選択のためグループ化されます。従って、行の子行のラジオ ボタンはグループ化され、親コレクション、兄弟コレクション、または子コレクションのラジオ ボタンに関係なくチェック/チェック解除されます。
+
+== コミットされていない変更
+通常 WinGrid は、行のセルがフォーカスを失うと、行に加えられた変更を自動的にコミットします。ラジオ ボタンをチェックすると、一緒にグループ化された他のすべてのラジオ ボタンが強制的にチェック解除されます。この変更はフォーカスなしで起こるため、自動的にデータソースにコミットされません。行を更新する、
+
+[source, csharp]
+row.Update();
+
+またはグリッド全体を更新することによってコミットします。
+
+[source, csharp]
+grid.UpdateData();
+
+== WinGrid 機能の排他的選択の制限
+ラジオ ボタンの排他的選択を回避する WinGrid の機能は 2 つあります。
+
+=== キャンセル操作
+ラジオ ボタンが WinGrid のエディターであるため、インタラクションはキャンセル可能です。ラジオ ボタンが選択されると、該当するすべてのラジオ ボタンのチェックが解除されます。次に新しい選択がキャンセルされると、以前チェックされていたラジオ ボタンがチェックされず、選択されたラジオ ボタンのないラジオ ボタン グループになります。
+
+=== グループ化
+`ColumnStyle` が `RadioButtonByRowsCollection` に設定され、グループ化/グループ解除によって子行が新しい RowsCollections になると、選択した 2 つの行が同じ `RowsCollection` にグループ化されます。この場合、チェック済みの状態を保持します。新しい選択については、コレクションに含まれている限り、新しいコレクションで排他的な選択になります。

@@ -1,0 +1,178 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-the-active-cell",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{2A2DB8DF-56AB-4AE8-BF39-D02AD97E7A6F}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブ セルの設定
+
+== バックグラウンド
+
+WinGrid では、グリッド内の現在の行を参照するとき、「アクティブ行」の概念を使用します。アクティブ セルは、いくつかの要素のひとつによって決定されます。入力フォーカスを持つ編集モードのセルは、自動的にアクティブ セルとなります。また、選択によってもアクティブ セルを決定することもできます。ユーザーがセルをクリックして選択すると、そのセルがアクティブ セルとなります。ユーザーが範囲選択を実行している場合、その範囲の最も遠い限度を定義するセルがアクティブ セルとなります（範囲はアクティブ セルの位置とアンカー セルの位置の関係によって、または範囲選択が行なわれた際にアクティブだったセルによって決まります）。
+
+アクティブ セルは、ユーザーの操作またはコードによって設定できます。アクティブ セルにはエレメントのフォーカス四角形を通常含む異なる外観があります。
+
+== 質問
+
+* 次のセルにタブで移動して次のセルをアクティブ セルにできますか?
+* プログラム コードでアクティブ セルを設定できますか?
+* 左のマウス ボタンが実行するように右ボタンがアクティブ セルを設定することができますか?
+
+== 解決策
+
+左のマウス ボタンを使用してセルをクリックします。Tab を押してセル間を移動します。有効な Cell オブジェクトの参照で ActiveCell プロパティを UltraGrid に設定します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは、いくつかの行と列を含むグリッドを表示します。左のマウス ボタンでセルをクリックすることによって、演算子はアクティブ セルを設定できます。[コードでセルをアクティブ化] ボタンは、3 番目の行と 2 番目の列にアクティブ セルを設定するプログラム コードを起動します。右のマウス ボタンで任意のセルにアクティブ セルを設定するためのコードもこのプログラムにはあります。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Setting_the_Active_Cell_01.png[]
+
+UltraWinGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeLayout - UltraGrid InitializeLayout イベントのコードは、グリッドの幅に列が収めるようにグリッドに指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+}
+----
+
+* UltraGrid1.MouseUp - UltraGrid1.MouseUp コードは右のマウス ボタンをチェックして、mouseup の位置から UIElement を取得し、UIElement に関連づけられた Cell へのオブジェクト参照を取得します。値がある場合には、Cell 参照は ActiveCell プロパティを設定し、編集モードを開始ます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_MouseUp(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) _
+  Handles UltraGrid1.MouseUp
+	' セルから値を取得して表示するためにオブジェクトを宣言します
+	Dim mouseupUIElement As UIElement
+	Dim mouseupCell As UltraGridCell
+	If e.Button = MouseButtons.Right Then
+		' MouseUp の位置から UIElement を取得します
+		mouseupUIElement = _
+		  Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+		' UIElement からセルを取得します
+		mouseupCell = mouseupUIElement.GetContext(GetType(UltraGridCell))
+		' セル オブジェクトの参照がある場合、アクティブ セルに設定して編集します
+		If Not mouseupCell Is Nothing Then
+			Me.UltraGrid1.ActiveCell = mouseupCell
+			Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+		End If
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// セルから値を取得して表示するためにオブジェクトを宣言します
+	UIElement mouseupUIElement;
+	UltraGridCell mouseupCell;
+	if(e.Button == MouseButtons.Right)
+	{
+		// MouseUp の位置から UIElement を取得します
+		mouseupUIElement = 
+		  this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(new Point(e.X, e.Y));
+		// UIElement からセルを取得します
+		mouseupCell = (UltraGridCell)mouseupUIElement.GetContext(typeof(UltraGridCell));
+		// セル オブジェクトの参照がある場合、アクティブ セルに設定して編集します
+		if(mouseupCell != null)
+		{
+			this.ultraGrid1.ActiveCell = mouseupCell;
+			this.ultraGrid1.PerformAction(
+			  UltraGridAction.EnterEditMode, false, false);
+		}
+	}
+}
+----
+
+Button イベント
+
+Button イベント領域には以下のイベント ハンドラがあります。
+
+* btnActivateCellwithCode.Click - Activate Cell With Code Click イベントは、3 行下への参照を取得し、ActiveRow を設定して、ActiveCell を設定して、編集モードを開始します:
+
+[NOTE]
+====
+*注:* アクティブ行にある場合に限り（ActiveRow プロパティによって決定された）、ActiveCell プロジェクトは設定できます。したがって ActiveRow は ActiveCell の前に設定する必要があります。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnActivateCellwithCode_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnActivateCellwithCode.Click
+	' 3 行目にある "ContactName" セルをアクティブ化します
+	Dim aUGRow As UltraGridRow = Me.UltraGrid1.GetRow(ChildRow.First)
+	Dim intPtr As Integer
+	For intPtr = 1 To 2
+		aUGRow = aUGRow.GetSibling(SiblingRow.Next)
+	Next intPtr
+	Me.UltraGrid1.ActiveRow = aUGRow
+	Me.UltraGrid1.ActiveCell = aUGRow.Cells("ContactName")
+	Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnActivateCellwithCode_Click(object sender, System.EventArgs e)
+{
+	// 3 行目にある "ContactName" セルをアクティブ化します
+	UltraGridRow aUGRow = this.ultraGrid1.GetRow(ChildRow.First);
+	for(int intPtr = 1; intPtr $$<=$$ 2; intPtr++)
+	{
+		aUGRow = aUGRow.GetSibling(SiblingRow.Next);
+	}
+	this.ultraGrid1.ActiveRow = aUGRow;
+	this.ultraGrid1.ActiveCell = aUGRow.Cells["ContactName"];
+	this.ultraGrid1.PerformAction(UltraGridAction.EnterEditMode, false, false);
+}
+----
+
+== まとめ
+
+このプロジェクトは、ユーザーの入力とコードの両方を使用してアクティブ セルの設定方法を示します。

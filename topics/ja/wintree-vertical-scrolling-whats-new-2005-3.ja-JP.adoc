@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-vertical-scrolling-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{41436EEC-734B-4459-9C55-0218D28066BF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 垂直スクロール
+
+*ScrollToLastItem* -- 垂直スクロールの動作は前バージョンのコントロールと同じになります。つまり、最後の表示ノードが一番上のノードになるまでコントロールをスクロールできます。
+
+*ScrollToFill* -- 最後の表示ノードが完全に表示された位置より上にスクロールされないように垂直スクロールの範囲が制限されます。
+
+image::images/WinTree_How_to_Change_the_Vertical_Scrolling_Behavior_of_the_Scrollbar_02.png[]
+
+== 関連トピック
+
+link:wintree-change-the-vertical-scrolling-behavior-of-a-scrollbar.html[スクロールバーの垂直スクロールの動作を変更]

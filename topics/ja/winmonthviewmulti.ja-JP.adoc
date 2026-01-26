@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmonthviewmulti",
+    "controlName": ["WinMonthViewMulti"],
+    "tags": ["Getting Started"],
+    "guid": "{903EC21E-1BDC-4AD6-B9D1-46115959F2FE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMonthViewMulti
+
+以下のリンクをクリックすると、WinMonthViewMulti コントロールに関する説明を読むことができます。
+
+* link:winmonthviewmulti-about-winmonthviewmulti.html[WinMonthViewMulti について] -- WinMonthViewMulti コントロールの機能と、このコントロールをアプリケーション内で使用することの利点について説明しています。
+* link:winmonthviewmulti-smart-tag.html[WinMonthViewMulti スマート タグ] -- WinMonthViewMulti コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winmonthviewmulti-display-the-year-scroll-buttons.html[年スクロール ボタンを表示] -- WinMonthViewMulti で [年スクロール] ボタンを表示するために必要な手順を説明します。
+* link:winmonthviewmulti-api-overview.html[API 概要] -- このトピックでは、WinMonthViewMulti コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-wintimelineview-smart-tag",
+    "controlName": ["WinTimelineView"],
+    "tags": ["Getting Started"],
+    "guid": "{AE43703B-CC5B-46DF-8DFD-D933747A6601}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView スマート タグ
+
+Visual Studio 2005/2008（.NET Framework 2.0/3.5）では、{ProductName} の個々のコントロール/コンポーネントにはスマートタグがあります。コントロールやコンポーネントを選択するだけで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WinTimelineView™ スマートタグには、コンポーネントの名前と次のセクションがあります。
+
+* *外観：* コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* *データ:* コントロールが使用している基になるデータ（データ ソースやデータ メンバーなど）を参照します。
+* *日/時間の間隔：* 水平タイムラインに沿って表示されるコントロールによって必要とされるタイムスロット設定を参照します。
+* *レイアウト：* コントロールをフォームのどこに、どのように配置するかを指定するプロパティがあります。
+* *オーナー：* オーナーをどのようにグループ化するかを参照します。
+
+前述の項目の説明と、プロパティ グリッドの項目が対応するプロパティについては、以下の表を参照してください。
+
+image::Images/WinTimeLineView_Smart_Tag.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|カレンダーの外観
+|ドロップダウンをクリックすると、フォーム上にある使用可能なすべての WinCalendarLook コントロールが表示されます。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultraschedulecontrolbase~calendarlook.html[CalendarLook]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|データ|説明|対応するプロパティ
+
+|カレンダー情報
+|ドロップダウンをクリックすると、フォーム上にある使用可能なすべての WinCalendarInfo コントロールが表示されます。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultraschedulecontrolbase~calendarinfo.html[CalendarInfo]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|日/時間の間隔|説明|対応するプロパティ
+
+|追加の間隔
+|プライマリ間隔の上に表示される日/時間の間隔を定義します。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~additionalintervals.html[AdditionalIntervals]"] 
+
+|プライマリ間隔
+|コントロールに有効な最小時間の間隔を定義します。列ヘッダーの一番下の行に表示されます。デフォルトの間隔は 15 分に設定されます。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~primaryinterval.html[PrimaryInterval]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|レイアウト|説明|対応するプロパティ
+
+|ドック
+|WinTimelineView を上、右、下、左、全体のどこにドッキングするか、またはどこにもドッキングしないかを選択します。
+|Dock
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|オーナー|説明|対応するプロパティ
+
+|OwnerGroupingStyle
+|ユーザー インターフェイスで個別行としてオーナーを表示するために [分離] を選択するか、オーナーを結合するために [結合] を選択します。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~ownergroupingstyle.html[OwnerGroupingStyle]"] 
+
+|====

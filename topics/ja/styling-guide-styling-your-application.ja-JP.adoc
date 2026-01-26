@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-styling-your-application",
+    "controlName": [],
+    "tags": ["Styling","Templating"],
+    "guid": "{0F42F3F5-20E5-43AC-AA01-9E76E9184097}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-04T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションのスタイリング
+
+アプリケーション スタイリングはグラフィック デザイナに Infragistics 独自の AppStylist® で作業する特権を与えます。Infragistics AppStylist は、より多くのコーディングを解放することでアプリケーション開発者を、また個々の技術を活用することでグラフィック デザイナを支援する画期的なアプリケーションです。ヘルプのこの特定のセクションは、スタイル ライブラリを作成および維持する、AppStylist ユーザー インタフェースを理解する、またアプリケーションによりスタイリッシュなテーマを作成するために UI の異なるコントロールを使用することを支援することによって、AppStylist エクスペリエンスのすべての側面でグラフィック デザイナをガイドします。AppStylist の詳細は以下のリンクをクリックしてください。
+
+* link:styling-guide-introducing-application-styling-for-windows-forms.html[アプリケーション スタイリングの紹介]
+* link:styling-guide-getting-started.html[はじめに]
+* link:styling-guide-getting-to-know-infragistics-appstylist-for-windows-forms.html[Infragistics AppStylist for Windows Forms について]
+* link:styling-guide-walkthroughs.html[早わかり]
+* link:styling-guide-known-issues-and-limitations.html[既知の問題と制限]

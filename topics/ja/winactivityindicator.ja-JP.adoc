@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator",
+    "controlName": ["WinActivityIndicator"],
+    "tags": [],
+    "guid": "{683913E9-57CF-4199-9651-A2906F0FB274}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-02T13:21:37Z"
+}
+|metadata|
+////
+
+= WinActivityIndicator
+
+WinActivityIndicator™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このセクションをご覧ください。 このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinActivityIndicator についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinActivityIndicator コントロールについての情報にアクセスします。
+
+== link:winactivityindicator-understanding-winactivityindicator.html[WinActivityIndicator の理解]
+
+このセクションには WinActivityIndicator コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:winactivityindicator-using-winactivityindicator.html[WinActivityIndicator の使用]
+
+このセクションには役に立つ短いトピックがあり、WinActivityIndicator コントロールを使って特定の作業を実行する方法を示すサンプルコードが付いています。
+
+== link:winactivityindicator-api-overview.html[API の概要]
+
+このトピックは、WinActivityIndicator コントロールでプログラミング中に作業する名前空間とクラスをリストします。 このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API リファレンス ガイド」セクションへリンクしていて便利です。

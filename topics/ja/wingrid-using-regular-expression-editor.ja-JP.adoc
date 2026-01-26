@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-regular-expression-editor",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Validation"],
+    "guid": "{3DCB6B2E-185C-42DC-9686-F61CDF611063}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 正規表現エディタの使用
+
+WinGrid 列のセルのテキストには正規表現制約を適用できます。ユーザーがセルに値を入力してそのセルからフォーカスを移動しようとすると、セル内の新しいテキストが列の正規表現に対して検証されます。列の正規表現を指定するには、その列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~regexpattern.html[RegexPattern]"]  プロパティを使用します。
+
+この機能を補うのが正規表現エディタです。このデザインタイム ユーティリティを使用すると、正規表現を迅速に作成してテストできます。列の正規表現を作成したら、[OK] ボタンをクリックするだけで、作成した正規表現がその列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~regexpattern.html[RegexPattern]"]  プロパティに割り当てられます。
+
+先に進む前に、注意すべき重要な点がひとつあります。セルのテキストが有効であると見なされるためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~regexpattern.html[RegexPattern]"]  プロパティで指定した正規表現が、検証するセル内のテキスト全体と一致する必要があります。ただし正規表現エディタは一般的なデザインタイム ユーティリティなので、そのような制限はありません。たとえば、列の正規表現を *[a-z]{3}* に設定したとします（これは英小文字が 3 つ連続することを意味します）。
+
+次の文字列はこの列において有効です。
+
+* ice
+* oui
+* lop
+
+次の文字列はこの列において無効です。
+
+* boom
+* 123abc
+* Infragistics
+
+上記の 2 つ目の値グループは、正規表現に一致しない文字が文字列に含まれるため、WinGrid では無効と見なされます。"boom" の "boo" 部分は正規表現に一致しますが、最後の "m" がその一致部分に含まれないため、セルのテキストは無効になります。それに対して正規表現エディタでは、文字列のすべての文字が一致する必要はありません。正規表現エディタでは、上記のすべての値が有効な一致を含むと見なされます。列の正規表現を作成、テストするときは、この違いを常に念頭に置いてください。
+
+*ヒント：* 正規表現エディタで WinGrid と同じように一致を確認するには、正規表現の先頭に *^* メタ文字、末尾に *$* メタ文字を付けます。これらの文字を正規表現に付加すると、一致がテスト データの先頭から始まり、テスト データの最後の文字が一致の最後の文字になります。逆に WinGrid で正規表現エディタと同じように一致を確認するには、正規表現の先頭と末尾に *.$$*$$* を付けます。こうすると、テストする文字列内のどの部分が正規表現と一致してもいいようになります。
+
+[NOTE]
+====
+*注:* 正規表現エディタを使用するためには、デザインタイムにグリッドのスキーマを定義する必要があります。
+====
+
+== 正規表現エディタを開く
+
+[start=1]
+. 正規表現エディタにアクセスするには、グリッドの [スタート!] ボタンをクリックするか、または WinGridを 右クリックして [UltraWinGrid デザイナ] を選択します。
+
+image::Images/WinGrid_Use_the_Regular_Expression_Editor_01.png[]
+
+[start=2]
+. UltraWinGrid デザイナで [バンドおよび列の設定] ノードを展開し、 link:ms-help://infragistics-help/infragistics-win/infragistics.win.ultrawingrid/ultrawingrid/infragistics.win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[Band] ノードを展開します。
+[start=3]
+. 展開したバンドの下の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Columns]"]  ノードを選択します。一番右のペインに、選択した列のプロパティが表示されます。列のプロパティ グリッドで、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~regexpattern.html[RegexPattern]"]  プロパティが表示されるまで下にスクロールします。右側の列でこのプロパティを選択すると、省略（...）ボタンが表示されます。このボタンをクリックすると、正規表現エディタが開きます。
+
+image::Images/WinGrid_Regular_Expression_Editor_03.png[]
+
+== 正規表現エディタの使用例
+
+[start=1]
+. WinGrid に電話番号のみを含む列があるとします。この列に常に有効な電話番号が含まれるようにするには、ユーザー入力を検証する正規表現を指定します。次のパターンの電話番号が必要であるとします。
+
+*nnn-nnn-nnnn*
+
+"n" は数字を表します。この場合は次のような正規表現を作成できます。
+
+*\d{3}-\d{3}-\d{4}*
+[start=2]
+. 電話番号を含む列で正規表現エディタを開き、一番上のテキスト ボックスに上記の正規表現を入力します。
+[start=3]
+. 次に、2 番目のテキスト ボックスにテストデータを入力します。この例では、次のテスト データを使用します。
+
+*555-372-9081 90-138 90210 249-8932 (912)-232-1328*
+[start=4]
+. テスト データに対して正規表現をテストするには、[一致を検出] ボタンをクリックします。これだけで、正規表現に一致するすべてのテスト データ項目がリスト ボックスに表示されます。リスト ボックスで一致項目のひとつを選択すると、それに対応するテスト データ内のサブ文字列が強調表示されます。
+
+image::Images/WinGrid_Regular_Expression_Editor_04.png[]
+
+[start=5]
+. 正規表現エディタの [OK] ボタンをクリックすると、電話番号列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~regexpattern.html[RegexPattern]"]  プロパティが一番上のテキスト ボックスの値に設定されます。アプリケーションを実行すると、その正規表現を使用して、その列のセルに入力したデータが検証されます。
+
+== 表示されるエラー メッセージ
+
+[start=1]
+. ユーザーが電話番号列のセルに「52-2652」と入力したとします。ユーザーがそのセルから離れようとすると、次のようなエラー メッセージ ボックスが表示されます。
+
+image::Images/WinGrid_Regular_Expression_Editor_05.png[]
+
+[start=2]
+. 入力値の検証が失敗したときに表示するエラー メッセージをカスタマイズするには、WinGrid の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~error_ev.html[Error]"]  イベントを使用します。イベントをキャンセルして独自のメッセージ ボックスを表示するか、またはデフォルトのメッセージ ボックスに表示するテキストを変更できます。アクティブセルが電話番号列のセルであることを確認した後、Error イベント ハンドラで次のコードを使用します。
+
+== エラー イベントをキャンセルしてカスタムのメッセージ ボックスを表示する場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_Error(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.ErrorEventArgs) _
+  Handles UltraGrid1.Error
+	e.Cancel = True
+	If e.ErrorType = ErrorType.Data Then
+		MessageBox.Show("That is not a valid phone number!!")
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_Error(object sender, Infragistics.Win.UltraWinGrid.ErrorEventArgs e)
+{
+	e.Cancel = true;
+	if(e.ErrorType == ErrorType.Data)
+		MessageBox.Show("That is not a valid phone number!!");
+}
+----
+
+正規表現の詳細については、MSDN の Web ページ（ link:http://msdn.microsoft.com/ja-jp/library/hs600312.aspx[.NET Framework 正規表現]）を参照してください。

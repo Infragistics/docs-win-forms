@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-mainmenu-about-the-mainmenu-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{81301761-2067-4A4E-9941-5BF5FE6654DE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MainMenu ツールバーについて
+
+ツールバーは、0 個以上のツールを格納できる「ツール コンテナ」です。これらのデフォルトの視覚表現と動作は、Microsoft Office のツールバーと同じです。ツールがツールバーにあるとき、それらのツールはボタンとして描画され、ツールバーの方向によって水平または垂直に配置されます。ツールの DisplayStyle プロパティは、ツールが画像、テキストの両方のいずれか一方で表示されるかを決定します。
+
+WinToolbarsManager の内部では、ツールバーは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[UltraToolbar]"]  クラスによって描画されます。
+
+== MainMenuBar
+
+ツールバーには MainMenuBar と呼ばれる特別な種類があります。MainMenuBars は、 pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~ismainmenubar.html[IsMainMenuBar]"]  プロパティが True に設定された通常の UltraToolbar オブジェクトです。MainMenuBar として指定されたツールバーは、他のツールバーとは異なる特性を持ちます。
+
+* 常に表示されます。
+* ツールバーが表示されるドッキング領域の行全体を占めます。他のツールバーは同じ行には表示されません。
+* MDI 子フォーム上に存在する UltraToolbarsManager で定義された場合は、キーの値にかかわらず、MDI の親のメイン メニューに自動的にマージされます。
+* すべてのツールが常に表示されます。1 行の幅が狭いために表示しきれない場合は、複数行に折り返されます。
+* PopupMenu ツールが MainMenuBar に表示されるときには、通常のツールバーでツールのテキストの右側に表示される下向きの小さな矢印は表示されません。
+
+IsMainMenuBar が True および False に設定されたツールバーの画面をそれぞれ次に示します。
+
+image::Images/UltraToolbarsManager_About_Toolbars_01.png[]
+
+image::Images/UltraToolbarsManager_About_Toolbars_02.png[]

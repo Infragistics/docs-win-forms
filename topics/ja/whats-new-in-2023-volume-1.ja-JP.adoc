@@ -1,0 +1,30 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2023 Volume 1 の新機能
+
+=== チャートのダッシュ配列
+
+link:{DataChartLink}.{DataChartName}.html[{DataChartName}] のシリーズは、`DashArray` を適用して破線として視覚化する機能をサポートするようになりました。ダッシュ配列は、`TrendLineDashArray` プロパティを介してシリーズのトレンドラインに適用することもできます。
+
+さらに、軸は軸線と軸の主グリッド線と副グリッド線のダッシュ配列をサポートします。これは、それぞれ軸の `StrokeDashArray`、`MajorStrokeDashArray`、`MinorStrokeDashArray` プロパティによって制御されます。
+
+次のドキュメントでは、link:{DataChartLink}.{DataChartName}.html[{DataChartName}] に適用できるさまざまなダッシュ配列について説明します。
+
+- link:datachart-configuring-major-and-minor-intervals.html[軸のストローク、主グリッド線と副グリッド線のダッシュ配列]
+- link:datachart-category-line-series#DashArray.html[折れ線シリーズのダッシュ配列]
+- link:datachart-trend-lines.html[トレンドラインのダッシュ配列]
+
+=== チャートの値レイヤー
+
+link:{DataChartLink}.valuelayer.html[ValueLayer] という名前の新しいシリーズ タイプが利用可能になり、最大値、最小値、平均値など、プロットされたデータのさまざまな焦点のオーバーレイを描画できるようになりました。これは、チャートのプロット領域に破線として表示されます。
+
+次のトピックでは、この新しいシリーズ タイプについて詳しく説明します。
+
+- link:datachart-series-value-layer.html[ValueLayer]

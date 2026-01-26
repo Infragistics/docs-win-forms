@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-styling-wintab-scroll-buttons",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{77C47261-CDDB-4083-BE6B-A45565CCACA4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab スクロール ボタンをスタイル
+
+このトピックは、WinTab™ コントロールのスクロール ボタンをスタイルする方法を示します。Tab オブジェクトの量が WinTab コントロールの表示可能な部分を超えると、スクロール ボタンがデフォルトで表示され、エンドユーザーは Tab オブジェクトでスクロールできます。
+
+*Visual Basic の場合：*
+
+----
+' スクロール ボタンを常に表示するように設定します 
+Me.ultraTabControl1.ScrollButtons = TabScrollButtons.Always 
+' ScrollButton のタイプを設定します 
+Me.ultraTabControl1.ScrollButtonTypes = ScrollButtonTypes. NextPrevious
+' ScrollButton のスタイルを設定します 
+Me.ultraTabControl1.ScrollButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton 
+' ScrollButton の矢印のスタイルを設定します 
+Me.ultraTabControl1.ScrollArrowStyle = ScrollArrowStyle.VisualStudio
+----
+
+*C# の場合：*
+
+----
+// スクロール ボタンを常に表示するように設定します
+ this.ultraTabControl1.ScrollButtons = TabScrollButtons.Always;
+ // ScrollButton のタイプを設定します
+ this.ultraTabControl1.ScrollButtonTypes = ScrollButtonTypes. NextPrevious;
+ // ScrollButton のスタイルを設定します
+ this.ultraTabControl1.ScrollButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007ScrollbarButton;
+ // ScrollButton の矢印のスタイルを設定します
+  this.ultraTabControl1.ScrollArrowStyle = ScrollArrowStyle.VisualStudio;
+----

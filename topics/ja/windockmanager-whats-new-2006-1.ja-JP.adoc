@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2F6CCECD-1699-4212-AB9E-F8C4F6A467F8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDockManager 2006.1
+
+Infragistics 2006 Volume 1 リリースに新たに追加されたWinDockManager™ 機能について説明しています。
+
+* link:windockmanager-pane-navigator-whats-new-2006-1.html[ペインナビゲータ] -- このビジュアルなナビゲータ インタフェースを使用すると、ペイント MDI 子を容易にナビゲートできます。

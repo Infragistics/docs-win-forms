@@ -1,0 +1,82 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-styles-of-wintree",
+    "controlName": ["WinTree"],
+    "tags": ["Getting Started","How Do I","Styling"],
+    "guid": "{6DB67659-943D-43FC-92FB-DAA82368D716}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree のスタイル
+
+{ProductName} 2005 Volume 2 から開始しましたが、WinTree はいくつかの基本スタイルで複数列機能を持つように更新されました。また、列の追加機能のほかに、各ノードの列を IList または IBindingList データソースのフィールドにバインドする機能も追加されました。今回追加された初期機能はデータの読み取りのみをサポートします。
+
+ツリーは基本的にナビゲーション ツールなので、データはデータソースに書き戻されません。この機能は多くの点でグリッドによく似ていて、WinTree よりも WinGrid に適しているように見えます。しかし、ツリーには次の利点があります。
+
+* 異種のデータを表示できる。これは主に FreeForm スタイルの利点です。ツリーでは、同じ行コレクションの中に異なる型のデータを表示できます。WinGrid ではこういうことはできません。
+* 深さが一定でないデータを表示できる。WinGrid では、データセット全体のスキーマは最初の行で決定されます。そのため、再帰的な関係を使用する場合、グリッドではどの行も最初の行より階層を深くすることはできません。UltraWinTree にはこのような制限はありません。
+
+このトピックでは、シンプルなデータソースを使用して各種 ViewStyle の基本的な外観を示します。シンプルなデータテーブルを作成するコードは次のとおりです。
+
+列構造には 3 種類の基本スタイルがあります。
+
+== 基本スタイル
+
+3 種類のスタイルの主な違いは、列ヘッダの表示位置と、想定されているツリーのデータ構造にあります。OutlookExpress スタイルでは、ツリーのすべてのレベルのすべてのデータが同じ基本構造（同じ列と同じデータ型）を持つものと想定されています。Grid スタイルでは、ツリーのスキーマが各 pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[Nodes コレクション]"] 内で同じであると想定されています。FreeForm スタイルでは、ツリーの各ノードが個別にチェックされます。これは、異種のデータで OutlookExpress スタイルまたは Grid スタイルを使用できないということを意味するわけではありません。ただ単に、これらのスタイルはデフォルトのままでは機能しないので、開発者が少し追加の作業を行う必要があることを意味しています。
+
+== Outlook Express スタイル
+
+このスタイルは通常、再帰的な関係を持つ同種のデータに対して使用します。このスタイルでは、1 つのバンド内およびすべてのバンドにわたって、すべてのデータ行が同じ型になります。
+
+このスタイルでは、列ヘッダのセットがツリーの最上部に 1 回だけ表示されます。同じ列セットを使用しないデータ行がある場合、それらのデータ行の列は、VisiblePosition が一致する列のセルとして表示されます。VisiblePosition が一致する表示列がない列は表示されません。この規則は、列が同じノード コレクションと子ノード コレクションのどちらに属するかにかかわらず適用されます。たとえば、ツリーに 2 つのノードがあるとします。表示列は RootColumnSet に基づきます。RootColumnSet の列を A、B、C とします。ツリーの最初のノードは ColumnSet が割り当てられていませんが、そのデータが A、B、C に一致するので、普通に表示されます。ツリーの 2 番目のノードには列 D、E、F を含む ColumnSet が割り当てられています。このノードでは、列 A の下に列 D の値、列 B の下に列 E の値、列 Cの下に列 F の値が表示されます。列 D、E、F の列ヘッダは表示されません。それらは列 A、B、C に視覚的にマージされます。
+
+次のスクリーンショットは、同じデータを Outlook Express スタイルの WinTree（上）と WinGrid（下）で表示した例を示します。
+
+image::Images/WinTree_Overview_of_Styles_01.png[]
+
+このスタイルでは、常に 1 つの列が展開インジケータ列として指定されます。これは展開インジケータを表示する列です。展開インジケータ列にできるのは 1 列だけですが、列のドラッグなどによって展開インジケータ列を変更することは可能です。WinTree の Outlook Express スタイルでは、最初のテキスト列に展開インジケータが表示されます。各列は DefaultableBoolean 型の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~canshowexpansionindicator.html[CanShowExpansionIndicators]"]  プロパティを持ちます。デフォルトでは、これは列の DataType に基づきます。つまり、テキスト列は True に解決され、それ以外の列は False に解決されます。ツリーの表示列のうち、CanHaveExpansionIndicators が True である最も左の列に展開インジケータが表示されます。
+
+== Grid スタイル
+
+このスタイルは通常、再帰的でない階層データを表示するときに使用します。Grid スタイルでは、行の型がそれぞれ異なるバンドによって構成された階層構造でデータが表示されます。このスタイルでは、ツリーの各ノード コレクションに異なる列を表示できます。列を表示しないことも可能です。
+
+バインドされている状況では、データソースのルート レベルのバンドの行がルート ノードになり、子行に対してリレーションシップが定義されます。この場合、データは基本的に各レベルでは同種ですが、レベル全体では同種ではありません。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~showbandnodes.html[ShowBandNodes]"]  プロパティは、兄弟バンドを区別するために各子バンドのノードを作成するかどうかを決定します。バンドノードは、データに兄弟バンドが存在するときは常に表示されます。たとえば、"Root" というルート バンドがデータに存在し、このバンドが "Child Band 1" と "Child Band 2" の 2 つの子バンドを持つ場合、ツリーには次のようなノードが作成されます。
+
+* ルート ノード
+
+** 子バンド 1
+
+*** 子ノード
+*** 子ノード
+
+* ルート ノード
+
+** 子バンド 2
+
+*** 子ノード
+*** 子ノード
+
+次のスクリーンショットは、同じデータを Grid スタイルの WinTree（上）と WinGrid（下）で表示した例を示します。
+
+image::Images/WinTree_Overview_of_Styles_02.png[]
+
+これはバンド自体を表す疑似的なレベルを階層に挿入します。上記の例では、Root Node と Child Node の列はおそらく表示されますが（ただしこれは必須ではありません）、"Child Band 1" ノードと "Child Band 2" ノードの列は表示されません。ShowBandNodes を使用すると、兄弟バンドが存在しない場合でもバンド ノードを表示できます。しかしデフォルトでは、これらのバンドノードは兄弟バンドを区別する必要がある場合のみ表示されます。
+
+OutlookExpress スタイルと同様に、ノード コレクション内の特定のノードに他のノードとは異なる列を持たせることができます。ただし、それらのヘッダは表示されません。各ノード コレクションで表示されるpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn.html[列]"] ヘッダは、Nodes コレクションの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.nodeleveloverridescollection.html[NodeLevelOverride]"] 、Tree、または RootColumnSet で定義されます。各ノードのpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[列セット]"] は考慮されません。表示列ヘッダと異なる列を持つノードはマージして表示され、その列ヘッダは表示されません。
+
+== FreeForm スタイル
+
+この最後のスタイルは完全なフリーフォームです。ツリー内の各 Override に完全に異なる列セットを設定できます（列を設定しないことも可能です）。これは、同じコレクション内でも個々のノードに異なるデータと異なる列を表示できることを意味します。
+
+次のスクリーンショットは、FreeForm スタイルの WinTree を示します。
+
+image::Images/WinTree_Overview_of_Styles_03.png[]
+
+このスタイルでは、ツリーのすべてのノードにそれぞれ固有の列ヘッダのセットが表示されます。NodeLayout の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~labelstyle.html[LabelStyle]"]  プロパティは実質的に無視され、すべてのラベルがセルと一緒に表示されます。

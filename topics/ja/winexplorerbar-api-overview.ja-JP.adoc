@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-api-overview",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["API","Getting Started"],
+    "guid": "{B3E52D8A-EF44-4F0B-925A-405723AC8283}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinExplorerBar 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar_namespace.html[Infragistics.Win.UltraWinExplorerBar]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar.html[UltraExplorerBar]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[UltraExplorerBarGroup]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[UltraExplorerBarGroupSettings]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[UltraExplorerBarItem]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[UltraExplorerBarItemSettings]"]

@@ -1,0 +1,192 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincarousel-save-load-carousel-layout",
+    "controlName": [],
+    "tags": [],
+    "guid": "731deff9-733a-422d-ad55-49b0461d16ab",  
+    "buildFlags": [],
+    "createdOn": "2014-09-12T22:36:41.3405636Z"
+}
+|metadata|
+////
+
+= カルーセル レイアウトの保存と読み込み
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、コントロールがデータにバインドされていない場合に、カルーセル項目を含む link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel_members.html[UltraCarousel] レイアウトを保存する方法と読み込む方法を紹介します。バインドされている場合、保存されたレイアウトを読み込んだ後でコントロールを再度バインドする必要があります。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref397459010,概要>>
+
+** <<_Ref397459018,概要>>
+** <<_Ref397459026,アプリケーションの要件>>
+** <<_Ref397459035,デザイン時の保存と読み込み>>
+** <<_Ref397459062,コードでの保存と読み込み>>
+
+* <<_Ref381022312,関連コンテンツ>>
+
+[[_Ref397459010]]
+== 概要
+
+[[_Ref397459018]]
+
+=== 概要
+
+UltraCarousel コントロールにより、コードを使用してデザイン時にユーザー構成の保存と読み込みを行えます。構成ダイアログには、保存に要素を含めたり除外したりするための追加オプションが含まれます。
+
+.注:
+[NOTE]
+====
+コントロールがデータにバインドされていない場合に限り、保存した構成に項目が含められます。バインドされている場合、以前に保存した構成を読み込んだ後でコントロールを再度バインドする必要があります。
+====
+
+[[_Ref397459026]]
+
+=== アプリケーションの要件
+
+1. _Infragistics WinForms 2014 Volume 2_   またはそれ以降のバージョンをインストールします。
+
+2.Visual Studio 2010 またはそれ以降のバージョンを使用して、新しい Windows Forms アプリケーションを開始します。
+
+[[_Ref397459035]]
+
+=== デザイン時の保存と読み込み
+
+このトピックでは、フォーム上に UltraCarousel コントロールを持つ既存のアプリケーションがあることを前提としています。
+
+==== カルーセル構成の保存:
+
+1.既存のプロジェクトを開始し、Visual Studio デザイナーで UltraCarousel コントロールを含むフォームを開きます。
+
+2.必要なオプションを持つカルーセル コントロールを構成し、カルーセル デザイナーの`保存`または`名前を付けて保存`ボタンのアイコンをクリックします。
+
+3.ポップアップ ウィンドウで、すべて保存または一部保存を選択できます。また、ファイル形式 ( _XML_   または _バイナリ_  ) も選択できます。その後、ポップアップダイアログで`保存`をクリックします。
+
+image::images/SaveLoad_Carousel_Configuration_1.png[]
+
+==== カルーセル構成の読み込み:
+
+以前に保存した構成を読み込むには、構成ダイアログで「`開く`」のフォルダー アイコンをクリックし、保存したファイルの位置に移動し、開きます。
+
+[[_Ref397459062]]
+
+=== コードでの保存と読み込み
+
+ユーザー構成の保存と読み込みは、XML とバイナリの 2 つのファイル形式を使用可能です。
+
+==== XML ファイルとして保存:
+
+*C# の場合:*
+
+[source,csharp]
+----
+carousel1.SaveAsXml("SaveCarousel.xml");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+carousel1.SaveAsXml("SaveCarousel.xml")
+----
+
+==== XML ファイルからの読み込み:
+
+*C# の場合:*
+
+[source,csharp]
+----
+if (File.Exists("SaveCarousel.xml"))
+{
+    using (Stream file = File.OpenRead("SaveCarousel.xml"))
+    {
+        carousel1.LoadFromXml("SaveCarousel.xml");
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+If File.Exists("SaveCarousel.xml") Then
+      Using file__1 As Stream = File.OpenRead("SaveCarousel.xml")
+            carousel1.LoadFromXml("SaveCarousel.xml")
+      End Using
+End If
+----
+
+==== バイナリ ファイルとして保存:
+
+*C# の場合:*
+
+[source,csharp]
+----
+carousel1.SaveAsBinary("SaveCarousel.bin");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+carousel1.SaveAsBinary("SaveCarousel.bin")
+----
+
+==== バイナリ ファイルからの読み込み:
+
+*C# の場合:*
+
+[source,csharp]
+----
+if (File.Exists("SaveCarousel.bin"))
+{
+    using (Stream file = File.OpenRead("SaveCarousel.bin"))
+    {
+        carousel1.LoadFromBinary("SaveCarousel.bin");
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+If File.Exists("SaveCarousel.bin") Then
+      Using file__1 As Stream = File.OpenRead("SaveCarousel.bin")
+            carousel1.LoadFromBinary("SaveCarousel.bin")
+      End Using
+End If
+----
+
+[[_Ref381022312]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincarousel-adding-carousel-items-in-code.html[コードでのカルーセル項目の追加]
+|このトピックでは、コードビハインドを使用して UltraCarousel 項目を追加する方法を紹介します。
+
+| link:wincarousel-adding-carousel-items-using-the-designer.html[デザイナーを使用したカルーセル項目の追加]
+|このトピックでは、コントロールのデザイン時のインターフェイスを使用して UltraCarousel 項目を追加および構成する方法を紹介します。
+
+| link:wincarousel-binding-data-to-carousel-in-code.html[コードでのデータのカルーセルへのバインド]
+|このトピックでは、コードビハインドでデータを UltraCarousel にバインドする方法を紹介します。
+
+| link:wincarousel-binding-data-to-carousel-using-the-designer.html[デザイナーを使用したカルーセルへのデータのバインド]
+|このトピックでは、デザイン時にデータ ソースをセットアップする方法、およびそれを UltraCarousel コントロールにバインドする方法を手順とともに紹介します。
+
+|====

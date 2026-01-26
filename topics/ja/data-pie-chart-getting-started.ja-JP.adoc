@@ -1,0 +1,167 @@
+﻿////
+|metadata|
+{
+    "name": "data-pie-chart-getting-started",
+    "controlName": ["{DataPieChartName}"],
+    "tags": [],
+    "buildFlags": []
+}
+|metadata|
+////
+
+= {DataPieChartName} を使用した作業の開始
+
+=== 目的
+
+このトピックではコード例を使用して、link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] コントロールを {PlatformName} アプリケーションに追加する方法を説明します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<Adding,{DataPieChartName} を {PlatformName} アプリケーションへ追加>>
+
+** <<Introduction,はじめに>>
+** <<Preview,プレビュー>>
+** <<Prerequisites,要件>>
+** <<Overview,概要>>
+** <<Steps,手順>>
+
+[[Adding]]
+== {DataPieChartName} を {PlatformName} アプリケーションへ追加
+
+[[Introduction]]
+
+=== はじめに
+
+以下の手順は、{DataPieChartName} を {PlatformName} アプリケーションに追加する方法を示します。
+
+[[Preview]]
+
+=== プレビュー
+
+以下は {DataPieChartName} の画像です。
+
+* TODO: DATA PIE CHART SCREEN HERE
+
+[[Prerequisites]]
+=== 要件
+
+以下は、{DataPieChartName} コントロールを追加するための一般要件です。
+
+ifdef::wpf[]
+
+以下の NuGet パッケージ参照をメイン プロジェクトに追加します。
+
+** Infragistics.WPF.Charts
+
+NuGet フィードのセットアップと NuGet パッケージの追加の詳細については、link:nuget-feeds.html[NuGet フィード] ドキュメントを参照してください。
+
+endif::wpf[]
+
+ifdef::win-forms[]
+以下の Infragistics アセンブリをメイン プロジェクトに追加します。
+
+** {ApiPlatform}{DataPieChartAssembly}.{DllVersion}dll 
+** {ApiPlatform}{DataVizAssembly}.{DllVersion}dll 
+** {ApiPlatform}Win.Portable.Core.{DllVersion}dll 
+endif::win-forms[]
+
+ifdef::wpf[]
+*XAML の場合:*
+[source,xaml]
+----
+xmlns:ig="http://schemas.infragistics.com/xaml"
+----  
+endif::wpf[]
+ 
+ifdef::wpf,win-forms[]
+*C# の場合:* 
+[source,csharp]
+----
+using {DataPieChartNamespace};  
+----  
+endif::wpf,win-forms[]
+ 
+ifdef::wpf,win-forms[] 
+*VB の場合:* 
+[source,vb]
+----
+Imports {DataPieChartNamespace}
+---- 
+endif::wpf,win-forms[]
+  
+[[Overview]]
+
+=== 概要
+
+以下はプロセスの概要です。
+
+1. {DataPieChartName} コントロールを {PlatformName} アプリケーションへ追加
+
+2. 結果の確認
+
+[[Steps]]
+
+=== 結果の確認
+
+以下では {DataPieChartName} コントロールをページに追加するために必要な手順を示します。
+
+=== 1. {DataPieChartName} コントロールをページに追加します。
+
+以下のコードは、表示に必要な最小限のコードとプロパティ設定で {DataPieChartName} コントロールを追加します。
+
+ifdef::xaml[]
+
+*XAML の場合:*
+
+[source,xaml]
+----
+<Grid x:Name=”LayoutRoot”>
+ <ig:{DataPieChartName} DataSource="{Binding DataCollection}" />
+</Grid>
+----
+
+endif::xaml[]
+
+
+
+ifdef::wpf[]
+*Visual Basic の場合:*
+[source,vb]
+----
+Dim dataPieChart As New {DataPieChartName}()
+dataPieChart.DataSource = data
+Me.LayoutRoot.Children.Add(dataPieChart)  
+----
+
+*C# の場合:*
+[source,csharp]
+----
+var dataPieChart = new {DataPieChartName}();
+dataPieChart.DataSource = data;
+this.LayoutRoot.Children.Add(dataPieChart);  
+----
+endif::wpf[]
+
+ifdef::win-forms[]
+*Visual Basic の場合:*
+[source,vb]
+----
+Dim dataPieChart As New {DataPieChartName}()
+dataPieChart.DataSource = data
+Me.Controls.Add(dataPieChart)  
+----
+
+*C# の場合:*
+[source,csharp]
+----
+var dataPieChart = new {DataPieChartName}();
+dataPieChart.DataSource = data;
+this.Controls.Add(dataPieChart);  
+----
+endif::win-forms[]
+
+=== 2. 結果を確認します。
+
+結果を確認するために、プロジェクトをビルドおよび実行します。手順を正しく実装した場合、{DataPieChartName} は上記のプレビュー セクションで示したように表示されます。

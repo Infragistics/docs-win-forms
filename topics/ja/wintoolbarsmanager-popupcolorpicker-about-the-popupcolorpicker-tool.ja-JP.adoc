@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupcolorpicker-about-the-popupcolorpicker-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{2D82E954-B682-42FD-B21C-3504CAA24E80}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupColorPicker ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== PopupColorPicker
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcolorpickertool.html[PopupColorPickerTool]"]
+
+派生元：Toolbase $$->$$ PopupToolBase $$->$$ TearawayToolBase $$->$$ PopupControlContainerToolBase
+
+説明：PopupControlContainer ツールは、ユーザーが選択できる色のポップアップ リストを表示します。すべての TearawayToolBase 派生ツールと同様に、「AllowTearaway」と呼ばれるプロパティを持っています。このプロパティを使用すると、「ポップアップ」されているコントロールを「切り離して」固有のウィンドウにフローティングできます。
+
+サンプル：
+
+ドロップダウン
+
+image::Images/WinToolbarsManager_About_Tools_09.png[]
+
+「切り離し」とフローティング
+
+image::Images/WinToolbarsManager_About_Tools_10.png[]

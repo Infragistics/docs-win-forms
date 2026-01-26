@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-understanding-wintabbedmdimanager",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{17E12843-1BB3-4631-AC6A-4C842FD60ADD}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTabbedMdiManager の理解
+
+WinTabbedMdiManager コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinTabbedMdiManager コンポーネントを使用することの利点を理解できます。
+
+WinTabbedMdiManager コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintabbedmdimanager-about-wintabbedmdimanager.html[WinTabbedMdiManager について] -- WinTabbedMdiManager コンポーネントの概要を説明しています。
+* link:wintabbedmdimanager-defining-the-appearance-of-tabs.html[タブの外観の定義] -- タブ項目の位置、サイズ、および外観を制御するプロパティについて説明しています。
+* link:wintabbedmdimanager-working-with-tabs.html[タブの操作] -- タブとタブグループの概要、そのサイズ変更、移動、選択、スクロールの方法について簡単に説明しています。
+* link:wintabbedmdimanager-tab-serialization.html[タブのシリアル化] -- タブのシリアル化の効果について説明しています。
+* link:wintabbedmdimanager-smart-tag.html[WinTabbedMdiManager スマート タグ] -- WinTabbedMdiManager コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。

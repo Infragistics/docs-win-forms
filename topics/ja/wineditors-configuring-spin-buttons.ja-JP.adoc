@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-configuring-spin-buttons",
+    "controlName": [],
+    "tags": [],
+    "guid": "2412a604-71dc-43ba-9e1d-0e4f68c85ee3",  
+    "buildFlags": [],
+    "createdOn": "2014-01-28T20:13:55.4927464Z"
+}
+|metadata|
+////
+
+= スピン ボタンの構成
+
+=== はじめに
+
+このグループのトピックはエディター コントロールのスピン ボタンの構成を紹介します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wineditors-displaying-spin-buttons.html[スピン ボタンの表示]
+|このトピックはすべてのエディター コントロールでスピン ボタンを表示する方法を紹介します。
+
+| link:winnumericeditor-incrementing-the-spin-value.html[スピン値の増加 (WinNumericEditor)]
+|このトピックでは、 _WinNumericEditor_™ コントロールの矢印キーまたはスピン ボタンを使用して値を増分する方法を紹介します。
+
+| link:winmaskededit-incrementing-the-spin-value.html[スピン値の増加 (WinMaskedEdit)]
+|このトピックでは、 _WinMaskedEdit_™ コントロールの矢印キーまたはスピン ボタンを使用して値を増分する方法を紹介します。
+
+| link:wineditors-configuring-the-spin-acceleration.html[スピン アクセラレーションの構成]
+|このトピックは、エディター コントロールのスピン ボタン アクセラレーションを紹介します。
+
+|====

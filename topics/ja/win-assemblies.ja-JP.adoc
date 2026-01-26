@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-assemblies",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{B867E97F-8D22-42C3-80AF-135903A39806}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アセンブリ
+
+アセンブリは、共通言語ランタイム（CLR）のコア部分です。これは、アプリケーションを実行するために CLR が必要とするタイプとリソースの集合で、通常はひとつの実行可能ファイル（.exe）または DLL（dynamic-link library）の形で格納されています。アセンブリは、配備、バージョン管理、セキュリティ権限などアプリケーションの重要な特性の管理を行います。
+
+Infragistics の .NET アセンブリの詳細は、下記のリンクをクリックしてください。
+
+== link:win-windows-forms-assemblies.html[Windows Forms アセンブリ]
+
+このトピックでは、{ProductName} に含まれる Windows Forms アセンブリのすべてのリストと、それらアセンブリのコントロールおよびコンポーネントについて紹介します。
+
+== link:win-adding-an-assembly-to-a-project.html[アセンブリのプロジェクトへの追加]
+
+このトピックでは、Infragistics .NET アセンブリを Visual Studio プロジェクトに簡単に追加する方法について説明します。
+
+== link:win-assembly-resource-strings.html[アセンブリ リソース文字列]
+
+このセクションには、各Infragistics Windowsフォーム アセンブリが使用するすべてのリソース文字列とその文字列のデフォルト テキスト値について記述したトピックが含まれています。

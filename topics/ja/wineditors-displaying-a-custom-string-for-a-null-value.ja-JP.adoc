@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-displaying-a-custom-string-for-a-null-value",
+    "controlName": ["WinEditors"],
+    "tags": ["Data Presentation","How Do I"],
+    "guid": "{AB13BDDE-499F-4AE3-A01B-36585C45E750}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Null 値のカスタム文字列を表示
+
+このトピックはすべての WinEditor コントロールに適用されます。
+
+WinEditor コントロールは、コントロールの現在値が null（VB では Nothing）である時にカスタム文字列を表示する機能を提供します。以下のシナリオでこの機能の有効性の例を説明します。
+
+DropDownStyle プロパティが DropDownList に設定されている ComboEditor コントロールで項目が選択されていません。テキストを表示しないのではなく、カスタム文字列（例：「項目が選択されていません」）を表示したい場合に役立ちます。

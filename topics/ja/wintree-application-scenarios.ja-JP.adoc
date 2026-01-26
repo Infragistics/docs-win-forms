@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-application-scenarios",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{B41239D6-5FCF-42E9-A600-DC012A8D40F7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションのシナリオ
+
+以下のリンクは、™ コントロールで作業をする間に遭遇するかもしれないさまざまなリアルタイムの状況を紹介します。
+
+* link:wintree-add-and-remove-nodes-programmatically.html[ノードをプログラムによって追加および削除]
+* link:wintree-disable-a-node-in-wintree.html[WinTree でノードを無効にする]
+* link:wintree-inserting-a-node-at-a-specific-index.html[特定のインデックスにノードを挿入する]
+* link:wintree-change-the-active-node.html[アクティブなノードを変更する]

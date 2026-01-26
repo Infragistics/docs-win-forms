@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-validate-a-range-of-values",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{747FE8DC-028F-40A9-8800-8DAD147D8CE6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 値の範囲を検証
+
+WinValidator™ は、複数の異なるシナリオを検証できますが、そのひとつが値の範囲です。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.rangecondition.html[RangeCondition] オブジェクトを使用すれば、最小値および最大値を設定して固有の値が範囲内にあるかどうかを確認するためにテストできます。新しい RangeCondition オブジェクトをインスタンス化する場合、第三のコンストラクタによってオブジェクトとして最小値および最大値の両方、そして範囲に含まれるオブジェクトのタイプを定義する Type オブジェクトを供給することができます。RangeCondition オブジェクトを持てば、必要なのは検証しているコントロールの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings.html[ValidationSettings] オブジェクトを取得し、ValidationSettings オブジェクトで公開された link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings~condition.html[Condition] プロパティに RangeCondition を設定することだけです。
+
+以下のコードは、整数がゼロより大きく 255 より小さいかどうかをテストする RangeCondition オブジェクトの作成方法を示します（RGB 値の数値エディタと同様）。本トピックは、フォームに WinValidator コンポーネントおよび WinNumericEditor™ コントロールがあることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+' 値が 0 より小さいか 255 より大きい場合、
+' 検証が失敗する条件を作成します。
+Dim rc As Infragistics.Win.RangeCondition = _
+	New Infragistics.Win.RangeCondition(0, 255, GetType(Integer))
+' コントロールがどのように検証されるかを 
+' 決定する ValidationSettings オブジェクトを取得します。
+Dim vs As Infragistics.Win.Misc.ValidationSettings = _
+	Me.UltraValidator1.GetValidationSettings(Me.UltraNumericEditor1)
+' 条件を RangeCondition に設定します
+vs.Condition = rc
+----
+
+*C# の場合：*
+
+----
+// 値が 0 より小さいか 255 より大きい場合、
+// 検証が失敗する条件を作成します。
+Infragistics.Win.RangeCondition rc =
+	new Infragistics.Win.RangeCondition(0, 255, typeof(int));
+// コントロールがどのように検証されるかを 
+// 決定する ValidationSettings オブジェクトを取得します。
+Infragistics.Win.Misc.ValidationSettings vs = 
+	this.ultraValidator1.GetValidationSettings(this.ultraNumericEditor1);
+// 条件を RangeCondition に設定します
+vs.Condition = rc;
+----

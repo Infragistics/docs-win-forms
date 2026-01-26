@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-display-a-label-over-the-icon-area",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{8AAAEA7A-AF47-4A65-88E1-B561A3C1CB6C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アイコン領域にラベルを表示
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.comにお問い合わせください。
+====
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  を論理的なセクションに分割するために、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.labeltool.html[LabelTool]"]  をヘッダとして使用したい場合があります。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.menusettings~labeldisplaystyle.html[LabelDisplayStyle]"]
+
+以下のコードは、PopupMenuTool の作成方法とその LabelDisplayStyle プロパティをヘッダに設定する方法を示しています。これによってポップアップ メニューは右の画像のようになります（"Header 1" と "Header 2" は LabelTools）。
+
+[cols="a,a"]
+|====
+|image::images/WinToolbarsManager_Display_a_Label_Over_the_Icon_Area_01.png[]
+|image::images/WinToolbarsManager_Display_a_Label_Over_the_Icon_Area_02.png[]
+
+|デフォルト
+|ヘッダ
+
+|====
+
+*Visual Basic の場合：*
+
+----
+Dim contextMenu As New Infragistics.Win.UltraWinToolbars.PopupMenuTool("ContextMenu")
+contextMenu.Settings.LabelDisplayStyle =_
+  Infragistics.Win.UltraWinToolbars.LabelMenuDisplayStyle.Header
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.UltraWinToolbars.PopupMenuTool contextMenu = new 
+  Infragistics.Win.UltraWinToolbars.PopupMenuTool("ContextMenu");
+contextMenu.Settings.LabelDisplayStyle = 
+  Infragistics.Win.UltraWinToolbars.LabelMenuDisplayStyle.Header;
+----
+
+== 関連トピック
+
+link:wintoolbarsmanager-display-a-menu-as-a-context-menu.html[メニューをコンテキスト メニューとして表示]

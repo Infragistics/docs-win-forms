@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-working-with-tabs",
+    "controlName": ["WinTab"],
+    "tags": ["Events","How Do I"],
+    "guid": "{0FD177F6-4BED-43A5-89A5-7613C347F656}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの操作
+
+このトピックでは、タブの追加、削除、無効化、非表示、並べ替えなど、タブを操作するさまざまな方法について説明します。タブの外観の書式設定については、 link:wintab-layout-and-appearance-of-wintab-and-wintabstrip.html[「WinTab および WinTabStrip のレイアウトと外観」]概要トピックで別に説明しています。
+
+タブは次の方法で追加できます。
+
+* デザインタイムに、[タブの追加] メニューによって新しいタブを追加します。
+* または、デザインタイムにエレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabscollection.html[Tabs]"]  プロパティ用のコレクション エディタを使用して、タブを追加できます。
+* ランタイムに、Tabs コレクションの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabscollection~add.html[Add]"]  メソッドを呼び出してタブを追加します。1 つの文字列パラメータを引数にとるオーバーロード（タブの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~key.html[Key]"]  プロパティを初期化します）か、2 つの文字列を引数にとるオーバーロード（1 つは Key の初期化用、もう 1 つは pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~text.html[Text]"]  の初期化用）のどちらかを使用します。
+
+タブは次の方法で削除できます。
+
+* デザインタイムに、[タブの削除] メニューによって、現在選択されているタブを削除します。
+* または、デザインタイムにエレメントの Tabs プロパティ用のコレクション エディタを使用して、タブを削除できます。
+* ランタイムに、Tabs コレクションの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabscollection~remove(ultratab).html[Remove]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabscollection~removeat.html[RemoveAt]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabscollection~clear.html[Clear]"]  のいずれかのメソッドを呼び出してタブを削除します。これらのメソッドはそれぞれ、現在のタブ、指定したタブ、またはすべてのタブを削除します。
+
+タブは次の方法で並べ替えまたは位置変更ができます。
+
+* デザインタイムに、タブを新しい相対位置にドラッグできます。
+* または、デザインタイムにエレメントの Tabs プロパティ用のコレクション エディタを使用して、タブの位置を変更できます。
+* ランタイムで pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab.html[UltraTab]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~reposition.html[Reposition]"]  メソッドを呼び出すか、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~visibleindex.html[VisibleIndex]"]  プロパティを設定します。
+* また、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~allowtabmoving.html[AllowTabMoving]"]  プロパティが True に設定されている場合は、ランタイムにユーザーがタブをドラッグできます。カスタマイズされたタブ順序は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~savetaborderasbinary.html[SaveTabOrderAsBinary]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~savetaborderasxml.html[SaveTabOrderAsXml]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~loadtaborderfrombinary.html[LoadTabOrderFromBinary]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~loadtaborderfromxml.html[LoadTabOrderFromXml]"]  の各メソッドを使用して、セッション間で容易に永続化できます。
+* デザインタイムには、すべてのタブが表示され、有効になっています。UltraTab オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~visible.html[Visible]"]  プロパティを False に設定すると、ランタイムにタブが非表示になります。UltraTab オブジェクトの Enabled プロパティを False に設定すると、ランタイムにタブが無効になります。

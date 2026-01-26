@@ -1,0 +1,314 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-autosuggest-highlight-appearance",
+    "controlName": ["WinComboEditor"],
+    "tags": ["How Do I","Selection","Styling"],
+    "guid": "107e98af-8108-48e2-a38b-21bea2728784",  
+    "buildFlags": [],
+    "createdOn": "2013-02-20T21:20:32.4420275Z"
+}
+|metadata|
+////
+
+= AutoSuggest 強調表示の外観
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WinComboEditor™_   コントロール自動補完ドロップダウン リストおよび  _WinGrid_   列に埋め込んだオート コンプリート セル値で強調表示するテキストの外観を構成する方法を紹介します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincomboeditor-suggest-possible-values-with-wincomboeditor.html[WinComboEditor で可能性のある値を提案]
+|このトピックでは、 _WinComboEditor_ のオート コンプリート機能および候補オプションを説明し、コード例も提供します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref347736192,AutoSuggestHighlight 外観機能>>
+
+** <<_Ref341518673,はじめに>>
+** <<_Ref347736208, _WinComboEditor_   に AutoSuggestHighlight 外観の構成>>
+** <<_Ref347736216, _UltraGridColumn_   に AutoSuggestHighlight 外観の構成>>
+** <<_Ref347736271,テスト データ>>
+
+* <<_Ref341518687,関連コンテンツ>>
+
+[[_Ref347736192]]
+== AutoSuggestHighlight 外観機能
+
+[[_Ref341518673]]
+
+=== はじめに
+
+この機能は、 _WinComboEditor_   および  _UltraGridColumn_   などの  _WinGrid_   の列オブジェクトのドロップダウン コントロールに使用される 2 つの追加の値リストプロパティを提供します。
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist~autosuggesthighlightappearance.html[AutoSuggestHighlightAppearance] - 項目の autosuggest オプションが標準の状態に設定される場合、ドロップダウンの強調表示されたテキストに適用されます。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist~autosuggesthighlightselectedappearance.html[AutoSuggestHighlightSelectedAppearance] - autosuggest オプションが有効な場合、ドロップダウンで選択された強調表示テキストに適用されています。項目を選択するには、キーボード、マウス、または HotTracked (マウスを項目の上に移動する操作) を使用できます。
+
+.注:
+[NOTE]
+====
+Appearance オブジェクトはこの機能を構成するプロパティのセットを公開し、以下の Appearance プロパティのサポートを提供します。
+====
+
+* ForeColor
+* BackColor
+* フォント プロパティ (Bold、Underline、Italic、および Strikeout)
+
+=== 前提条件
+
+手順を実行するには、最初に以下のプロパティを  _WinComboEditor_   または  _WinGrid_   に設定する必要があります。
+
+* `AutoCompleteMode` - ユーザーが入力した文字に基づく候補のドロップダウン リストを有効にします。
+* `AutoSuggestFilterMode` - ドロップダウンにユーザーが入力した文字を強調表示します。
+
+==== _WinComboEditor_
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraComboEditor1.AutoCompleteMode = AutoCompleteMode.Suggest;
+ultraComboEditor1.AutoSuggestFilterMode = AutoSuggestFilterMode.Contains;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraComboEditor1.AutoCompleteMode = AutoCompleteMode.Suggest
+ultraComboEditor1.AutoSuggestFilterMode = AutoSuggestFilterMode.Contains
+----
+
+==== _WinGrid_
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DataSource = new TestData();
+ultraGrid1.DisplayLayout.Bands[0].Columns[0].AutoCompleteMode = AutoCompleteMode.Suggest;
+ultraGrid1.DisplayLayout.Bands[0].Columns[0].AutoSuggestFilterMode = AutoSuggestFilterMode.Contains;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DataSource = New TestData()
+ultraGrid1.DisplayLayout.Bands(0).Columns(0).AutoCompleteMode = AutoCompleteMode.Suggest
+ultraGrid1.DisplayLayout.Bands(0).Columns(0).AutoSuggestFilterMode = AutoSuggestFilterMode.Contains
+----
+
+[[_Ref347736208]]
+
+=== WinComboEditor に AutoSuggestHighlight 外観の構成
+
+==== ValueList の作成
+
+以下のコード例は、 _WinComboEditor_   コントロールの `AutoSuggestHighlightAppearance` および `AutoSuggestHighlightSelectedAppearance` が設定された ValueList を表示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public void CreateValueList()
+{
+    ValueList _valueList = new ValueList(0); 
+    // いくつかの項目を追加します 
+    _valueList.ValueListItems.Add(1, "One");
+    _valueList.ValueListItems.Add(2, "Two");
+    _valueList.ValueListItems.Add(3, "Three");
+    // プロパティの外観を設定します
+    _valueList.AutoSuggestHighlightAppearance.ForeColor = Color.Blue;
+    _valueList.AutoSuggestHighlightSelectedAppearance.BackColor = Color.Yellow;
+    // WinComboEditor を ValueList に設定します
+    ultraComboEditor1.ValueList = _valueList;
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Public Sub CreateValueList()
+      Dim _valueList As New ValueList(0)
+      ' いくつかの項目を追加します 
+      _valueList.ValueListItems.Add(1, "One")
+      _valueList.ValueListItems.Add(2, "Two")
+      _valueList.ValueListItems.Add(3, "Three")
+      ' プロパティの外観を設定します
+      _valueList.AutoSuggestHighlightAppearance.ForeColor = Color.Blue
+      _valueList.AutoSuggestHighlightSelectedAppearance.BackColor = Color.Yellow
+      ' WinComboEditor を ValueList に設定します
+      ultraComboEditor1.ValueList = _valueList
+End Sub
+----
+
+以下の画像では、 _WinComboEditor_   のドロップダウンにユーザーが入力された文字が強調表示されています。オプションの文字色が適用されています。
+
+image::images/WinComboEditor_AutoSuggestHighlight_Appearance_1.png[]
+
+以下の画像では、ユーザーがドロップダウンの項目の上にマウスを移動したときのユーザーが入力された文字が強調表示で HotTracking されています。
+
+image::images/WinComboEditor_AutoSuggestHighlight_Appearance_2.png[]
+
+[[_Ref347736216]]
+
+=== UltraGridColumn に AutoSuggestHighlight 外観の構成
+
+==== ValueList を作成します。
+
+以下のコード例は、 _UltraGridColumn_   コントロールの `AutoSuggestHighlightAppearance` および `AutoSuggestHighlightSelectedAppearance` のために ValueList を作成することを紹介します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public void CreateValueList(UltraGrid grid)
+{
+    // キーを ValueList のインスタンスに割り当てます
+    ValueList _valueList = ultraGrid1.DisplayLayout.ValueLists.Add("vList");
+    // いくつかの項目を追加します 
+    _valueList.ValueListItems.Add(1, "One");
+    _valueList.ValueListItems.Add(2, "Two");
+    _valueList.ValueListItems.Add(3, "Three");
+    // オプションで Appearance および Selected Appearance プロパティを設定します
+    _valueList.AutoSuggestHighlightAppearance.ForeColor = Color.Blue;
+    _valueList.AutoSuggestHighlightSelectedAppearance.BackColor = Color.Yellow;
+    // 値リストを含む列を取得します
+    UltraGridColumn column = grid.DisplayLayout.Bands[0].Columns["Label"];
+    // 列を ValueList に設定します
+    column.ValueList = _valueList;
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Public Sub CreateValueList(grid As UltraGrid)
+      ' キーを ValueList のインスタンスに割り当てます
+      Dim _valueList As ValueList = ultraGrid1.DisplayLayout.ValueLists.Add("vList")
+      ' いくつかの項目を追加します 
+      _valueList.ValueListItems.Add(1, "One")
+      _valueList.ValueListItems.Add(2, "Two")
+      _valueList.ValueListItems.Add(3, "Three")
+      ' オプションで Appearance および Selected Appearance プロパティを設定します
+      _valueList.AutoSuggestHighlightAppearance.ForeColor = Color.Blue
+      _valueList.AutoSuggestHighlightSelectedAppearance.BackColor = Color.Yellow
+      ' 値リストを含む列を取得します
+      Dim column As UltraGridColumn = grid.DisplayLayout.Bands(0).Columns("Label")
+      ' 列を ValueList に設定します
+      column.ValueList = _valueList
+End Sub
+----
+
+以下の画像では、 _WinGrid_   列の埋め込んだドロップダウンにユーザーが入力された文字が強調表示され、オプションの文字色が適用されています。
+
+image::images/WinComboEditor_AutoSuggestHighlight_Appearance_3.png[]
+
+以下の画像では、ユーザーがドロップダウンの上にマウスを移動したときのユーザーが入力された文字が強調表示で HotTracking されています。
+
+image::images/WinComboEditor_AutoSuggestHighlight_Appearance_4.png[]
+
+[[_Ref347736271]]
+
+=== テスト データ
+
+上の UltraGridColumn コード例は以下のテスト データを使用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public class TestData : List<TestDataItem>
+{
+    public TestData()
+    {
+        Add(new TestDataItem { Label = "One", Value = 1 });
+        Add(new TestDataItem { Label = "Two", Value = 2 });
+        Add(new TestDataItem { Label = "Three", Value = 3 });
+    }
+}
+public class TestDataItem
+{
+    public string Label { get; set; }
+    public int Value { get; set; }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Public Class TestData
+      Inherits List(Of TestDataItem)
+      Public Sub New()
+            Add(New TestDataItem() With { _
+                  .Label = "One", _
+                  .Value = 1 _
+            })
+            Add(New TestDataItem() With { _
+                  .Label = "Two", _
+                  .Value = 2 _
+            })
+            Add(New TestDataItem() With { _
+                  .Label = "Three", _
+                  .Value = 3 _
+            })
+      End Sub
+End Class
+Public Class TestDataItem
+      Public Property Label() As String
+            Get
+                  Return m_Label
+            End Get
+            Set
+                  m_Label = Value
+            End Set
+      End Property
+      Private m_Label As String
+      Public Property Value() As Integer
+            Get
+                  Return m_Value
+            End Get
+            Set
+                  m_Value = Value
+            End Set
+      End Property
+      Private m_Value As Integer
+End Class
+----
+
+[[_Ref341518687]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincomboeditor-filter-options-to-filter-suggested-values.html[候補の値をフィルターするフィルター オプション]
+|`AutoCompleteMode` プロパティは、エンド ユーザーが _WinComboEditor_ のテキスト ボックスに入力すると可能な候補値をリストすることを可能にするさまざまな設定を提供します。
+
+| link:wingrid-embeddable-editors.html[埋め込みエディター]
+|このセクションでは、 _WinGrid_ の構造機能拡張であるさまざまな埋め込みエディターについてのトピックを参照できます。
+
+|====

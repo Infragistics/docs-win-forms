@@ -1,0 +1,45 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2022 Volume 2 の新機能
+
+=== チャートの改善
+
+デフォルトの動作を大幅に改善し、カテゴリ チャート API を改良して使いやすくしました。 
+
+これらの新しいチャートの改善点は次のとおりです: 
+
+* ブラウザー / 画面サイズに基づいた水平ラベル回転のレスポンシブ レイアウト。
+* すべてのプラットフォームでの丸型ラベルの描画が強化されました。
+* StackedFragmentSeries にマーカー プロパティを追加しました。
+* `ShouldPanOnMaximumZoom` プロパティを追加しました。
+* 新しいカテゴリ軸プロパティ:
+
+	- `ZoomMaximumCategoryRange`
+	- `ZoomMaximumItemSpan`
+	- `ZoomToCategoryRange` 
+	- `ZoomToItemSpan` 
+
+* カテゴリの文字列と数値をグループ化、ソート、集計するための新しいチャート集計 API により、チャート データを事前に集計または計算する必要がなくなります。
+
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSortDescriptions.html[InitialSortDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSorts.html[InitialSorts] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}SortDescriptions.html[SortDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialGroups.html[InitialGroups] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialGroupDescriptions.html[InitialGroupDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}GroupDescriptions.html[GroupDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSummaries.html[InitialSummaries] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSummaryDescriptions.html[InitialSummaryDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}SummaryDescriptions.html[SummaryDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialGroupSortDescriptions.html[InitialGroupSortDescriptions] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}GroupSorts.html[GroupSorts] を追加しました。
+- link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}GroupSortDescriptions.html[GroupSortDescriptions] を追加しました。
+
+[Note]
+link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}IncludedProperties.html[IncludedProperties] | link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}ExcludedProperties.html[ExcludedProperties] を使用している場合、チャート集計は機能しません。チャートのこれらのプロパティは非集計データ用です。データを集計しようとすると、これらのプロパティは使用できなくなります。うまくいかない理由は、描画のためにチャートに渡されたコレクションを集計により置き換えるためです。include/exclude プロパティは、そのデータの in/out プロパティをフィルターするように設計されており、それらのプロパティは新しい集計されたコレクションには存在しません。

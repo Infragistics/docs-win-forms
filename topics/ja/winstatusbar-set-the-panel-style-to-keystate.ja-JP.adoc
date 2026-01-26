@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-keystate",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I"],
+    "guid": "{20E85A1E-9E2F-4160-975A-9F96E17F6719}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを KeyState に設定
+
+キー状態とは、キーボードの特別なキーがロックされているかどうかを示すものです。このプロパティに設定できるキーは、[Num Lock]、[Caps Lock]、[Scroll Lock]、[Insert]、および [Kana]（日本語文字で使用します）です。KeyState スタイルのパネルには、アプリケーションを実行しているマシンの現在のキーロック状態が示されます。
+
+KeyState スタイルのパネルをデザインタイムに設定するには：
+
+[start=1]
+. WinStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+. パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  を "KeyState" に設定します。
+[start=5]
+. KeyStateInfo プロパティを開き、追跡したい状態のキーを選択します。
+[start=6]
+. 希望する pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.keystateinfo~displaystyle.html[DisplayStyle]"]  を選択します。オンおよびオフを選択し、オンおよびオフのテキストを変更したい場合、提供されるスペースで実行します。
+[start=7]
+. [OK] をクリックしてプロジェクトを実行します。
+
+ランタイムの場合
+
+ランタイムにパネルを追加してそのタイプを "KeyState" に設定し、上記のプロパティを設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub WinStatusBarQuickTourKeyStatePanel_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraStatusBar1.Panels.Add("KeyState", PanelStyle.KeyState)
+	Me.UltraStatusBar1.Panels("KeyState").KeyStateInfo.Key = KeyState.CapsLock
+	Me.UltraStatusBar1.Panels("KeyState").KeyStateInfo.DisplayStyle = KeyStateDisplayStyle.ChangeText
+	Me.UltraStatusBar1.Panels("KeyState").KeyStateInfo.OffText = "NOCAPSLOCK"
+	Me.UltraStatusBar1.Panels("KeyState").KeyStateInfo.OnText = "CAPSLOCK"
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void WinStatusBarQuickTourKeyStatePanel_Load(object sender, System.EventArgs e)
+{
+	this.ultraStatusBar1.Panels.Add("KeyState", PanelStyle.KeyState);
+	this.ultraStatusBar1.Panels["KeyState"].KeyStateInfo.Key = KeyState.CapsLock;
+	this.ultraStatusBar1.Panels["KeyState"].KeyStateInfo.DisplayStyle = KeyStateDisplayStyle.ChangeText;
+	this.ultraStatusBar1.Panels["KeyState"].KeyStateInfo.OffText = "NOCAPSLOCK";
+	this.ultraStatusBar1.Panels["KeyState"].KeyStateInfo.OnText = "CAPSLOCK";
+}
+----

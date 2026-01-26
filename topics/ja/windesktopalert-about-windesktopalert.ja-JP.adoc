@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-about-windesktopalert",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","Appointments","Getting Started"],
+    "guid": "{5F521684-B235-43AD-8FFD-8AA55100215A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDesktopAlert について
+
+WinDesktopAlert™ コンポーネントは、エンド ユーザーに一刻を争う状況または重要な状況を通知するためにコンピュータ画面の右下隅にポップアップする小さいウィンドウです。この状況としては、メールの受信、データベースの更新、またはファイル システムの変更などが挙げられます。考えられるシナリオを挙げれば切りがありません。イベントが発生すると必ず、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~show.html[Show] メソッドを呼び出しデスクトップ アラート ウィンドウが表示します。
+
+*2 つのスタイル* – WinDesktopAlert コンポーネントは Outlook2007 と WindowsLiveMessenger の 2 つのスタイルで使用できます。Outlook2007 スタイルは Microsoft® Outlook® Desktop Alerts をエミュレートしますが、WindowsLiveMessenger スタイルは Windows Live™ Messenger アラートをエミュレートします。これら 2 つの組み込みスタイルを利用するために必要なのは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~style.html[Style] プロパティの設定だけです。
+
+[cols="a,a"]
+|====
+|image::images/WinDesktopAlert_About_WinDesktopAlert_01.png[]
+|image::images/WinDesktopAlert_About_WinDesktopAlert_02.png[Windows Live Messenger デスクトップ アラート ウィンドウの画像のためのプレースホルダ]
+
+|Office2007
+|WindowsLiveMessenger
+
+|====
+
+*複数のモニタのサポート* – WinDesktopAlert は、デフォルトでプライマリ モニタにデスクトップ アラート ウィンドウを表示するオプション、または link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~screen.html[Screen] プロパティを設定することによってセカンダリ モニタに表示するオプションがあります。
+
+*デスクトップ アラート ウィンドウ* – link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo.html[UltraDesktopAlertShowWindowInfo] オブジェクトは、アプリケーションのニーズに合わせてデスクトップ アラート ウィンドウのカスタマイズを可能にするいくつかの役に立つプロパティを公開しています。キャプション、説明、フッタ テキストを設定します。それぞれをエンド ユーザーがクリックして、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~desktopalertlinkclicked_ev.html[DesktopAlertLinkClicked] イベントによって処理することができます。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~data.html[Data] プロパティによって、任意のイベントから DesktopAlertLinkClicked イベントまたは link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~alertbuttonclicked_ev.html[AlertButtonClicked] イベントの WindowInfo オブジェクトに任意のオブジェクトを渡すことができます。これによって、その他の方法でアクセスすることができないイベントから特定のオブジェクトを取得できます。このシナリオの例は、 link:windesktopalert-displaying-a-desktop-alert-window-when-a-winschedule-reminder-comes-due.html[「WinSchedule アラームの設定時間になるとデスクトップ アラート ウィンドウを表示」]を参照してください。

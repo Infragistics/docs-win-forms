@@ -1,0 +1,64 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-auto-sizing-columns-and-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{346787C2-D2FD-422E-B7DC-3DD30B91513F}",
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= 列と行の自動サイズ変更
+
+== 列を WinGrid の幅に自動的に合わせる
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. 列のサイズを WinGrid の幅に合わせて自動的に変更するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~autofitstyle.html[AutoFitStyle]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.autofitstyle.html[ResizeAllColumns]"]  に設定します。こうすると、すべての列が WinGrid 内に収まるように各列の幅が比例的に拡大または縮小されます。その結果、水平スクロールバーが表示されなくなります。また、ユーザーが WinGrid のサイズを変更すると、それに合わせて列のサイズも自動的に変更されます。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+----
+
+image::images/WinGrid_Auto_Sizing_Columns_and_Rows_01.png[]
+
+[start=3]
+. 特定の列のサイズが自動的に変更されないようにするには、次のようにします。
+
+* 行レイアウト モードが無効な場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~lockedwidth.html[LockedWidth]"]  を True に設定します。
+ 
+
+* 行レイアウト モードが有効な場合は、自動フィットさせるすべての列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowlayoutcolumninfo~weightx.html[WeightX]"]  をゼロ以外の値に設定し、サイズが自動変更されないようにする列の WeightX をデフォルトのままにします。
+
+*Related Topics*
+
+* link:wingrid-displaying-multi-line-cells.html[複数行セルの表示]
+* link:wingrid-creating-multiple-row-layout-use-levels.html[レベルを使用した複数行レイアウトの作成]
+* link:wingrid-working-with-row-layouts.html[行レイアウトの操作]

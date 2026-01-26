@@ -1,0 +1,18 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-understanding-wingauge",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{A78AB472-52D1-47DB-ACAD-E4B380DFC4F3}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGauge の理解
+
+ここでは、Gauge コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションでゲージを使用することの利点を理解できます。
+
+* link:wingauge-about-wingauge.html[WinGauge について] -- Gauge コントロールの概要を説明しています。
+* link:wingauge-smart-tag.html[WinGauge スマート タグ] -- WinGauge スマート タグで利用可能な機能性について説明しています。

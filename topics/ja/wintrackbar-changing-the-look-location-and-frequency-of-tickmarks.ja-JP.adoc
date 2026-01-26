@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintrackbar-changing-the-look-location-and-frequency-of-tickmarks",
+    "controlName": ["WinTrackBar"],
+    "tags": ["How Do I","Navigation","Styling"],
+    "guid": "{6A9ED20C-A333-4E5C-9368-F9DA9ADAA5B3}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-01T12:50:01Z"
+}
+|metadata|
+////
+
+= 目盛りのルック、場所、および頻度の変更
+
+目盛りは、ひとつの TrackBar にいくつの値を持つことができるのかをエンド ユーザーが正確に確認する支援を行うために有効な方法です。 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar~minvalue.html[MinValue] プロパティと link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar~maxvalue.html[MaxValue] プロパティによって WinTrackBar の最小値と最大値をそれぞれ設定することができます。最小値を 0 そして最大値を 100 に設定すると、パーセント値を意味します。3 つの TrackBars のグループで、それぞれの最小値を 0 、最大値を 255 に設定すると RGB カラー値を意味します。目盛りを正しく表示しなければ、エンド ユーザーが混乱する結果となります。
+
+大きな目盛りと小さい目盛りの 2 セットの目盛りの外観、位置、および頻度を変更できる方法がいくつかあります。名前が意味するように、大きな目盛りは値の大きな範囲を示すことを意味し、小さい目盛りは短い範囲を表示します。当然ながら、大きな目盛りを小さい目盛りよりも少しだけ目立たせたい場合があります。これを達成するために、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.tickmarksettingsbase~extent.html[Extent] プロパティと link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.tickmarksettingsbase~thickness.html[Thickness] プロパティの両方を変更したい場合があります。Extent はコントロールの横から目盛りをどれくらい伸ばすのかを決定します。目盛りは、ピクセルで目盛りの幅（線の太さ）を決定します。
+
+上記のプロパティを使用すれば、WinTrackBar をエンド ユーザーが一目で理解できる正確な測定機器にすることができます。以下のコード例を使用して、WinTrackBar をルーラーに変換します。
+
+image::images/WinTrackBar_Changing_the_Look_Location_and_Frequency_of_Tickmarks_01.png[]
+
+*Visual Basic の場合：*
+
+----
+'標準の ViewStyle では、小さい目盛りがデフォルトで
+'表示され、大きい目盛りでは表示されません。
+Me.UltraTrackBar1.TickmarkSettingsMajor.Visible = _
+    Infragistics.Win.DefaultableBoolean.True
+'大きな目盛りの長さを小さい目盛りの
+'長さの 2 倍に伸ばします。
+Me.UltraTrackBar1.TickmarkSettingsMajor.Extent = 20
+Me.UltraTrackBar1.TickmarkSettingsMinor.Extent = 10
+Me.UltraTrackBar1.TickmarkSettingsMinor.TrackOffset += 10
+'大きい目盛りと比べて 2 倍の数の小さい目盛り 
+'が存在することになります。
+Me.UltraTrackBar1.TickmarkSettingsMajor.Frequency = 10
+Me.UltraTrackBar1.TickmarkSettingsMinor.Frequency = 5
+'WinTrackBar の上下の両方に大きな目盛りと小さい
+'目盛りを表示します。方向が垂直である場合、
+'両方は、上下ではなく、左右という
+'意味になります。
+Me.UltraTrackBar1.TickmarkSettingsMajor.Location = _
+    Infragistics.Win.UltraWinEditors.TickmarkLocation.Both
+Me.UltraTrackBar1.TickmarkSettingsMinor.Location = _
+    Infragistics.Win.UltraWinEditors.TickmarkLocation.Both
+'大きな目盛りを小さい目盛りよりも少し
+'太くします。
+Me.UltraTrackBar1.TickmarkSettingsMajor.Thickness = 2
+Me.UltraTrackBar1.TickmarkSettingsMinor.Thickness = 1
+----
+
+*C# の場合：*
+
+----
+//標準の ViewStyle では、小さい目盛りがデフォルトで
+//表示され、大きい目盛りでは表示されません。
+this.ultraTrackBar1.TickmarkSettingsMajor.Visible = 
+    Infragistics.Win.DefaultableBoolean.True;
+//大きな目盛りの長さを小さい目盛りの
+//長さの 2 倍に伸ばします。
+this.ultraTrackBar1.TickmarkSettingsMajor.Extent = 20;
+this.ultraTrackBar1.TickmarkSettingsMinor.Extent = 10;
+this.ultraTrackBar1.TickmarkSettingsMinor.TrackOffset += 10;
+//大きい目盛りと比べて 2 倍の数の小さい目盛り 
+//が存在することになります。
+this.ultraTrackBar1.TickmarkSettingsMajor.Frequency = 10;
+this.ultraTrackBar1.TickmarkSettingsMinor.Frequency = 5;
+//WinTrackBar の上下の両方に大きな目盛りと小さい
+//目盛りを表示します。方向が垂直である場合、
+//両方は、上下ではなく、左右という
+//意味になります。
+this.ultraTrackBar1.TickmarkSettingsMajor.Location = 
+    Infragistics.Win.UltraWinEditors.TickmarkLocation.Both;
+this.ultraTrackBar1.TickmarkSettingsMinor.Location =
+    Infragistics.Win.UltraWinEditors.TickmarkLocation.Both;
+//大きな目盛りを小さい目盛りよりも少し
+//太くします。
+this.ultraTrackBar1.TickmarkSettingsMajor.Thickness = 2;
+this.ultraTrackBar1.TickmarkSettingsMinor.Thickness = 1;
+----

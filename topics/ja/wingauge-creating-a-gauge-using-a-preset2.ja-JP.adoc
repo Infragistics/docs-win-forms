@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-gauge-using-a-preset2",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Theming"],
+    "guid": "{0726BC63-F9D8-42BA-9E89-AE8483A4A409}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プリセットを使用してゲージを作成
+
+このセクションは、プリセットを使用してゲージを作成する方法について説明します。
+
+* link:wingauge-creating-a-digital-gauge-using-the-gauge-presets.html[ゲージ プリセットを使用してデジタル ゲージを作成]
+* link:wingauge-creating-a-linear-gauge-using-the-gauge-presets.html[ゲージ プリセットを使用してリニア ゲージを作成]
+* link:wingauge-creating-a-radial-gauge-using-the-gauge-presets.html[ゲージ プリセットを使用してラジアル ゲージを作成]

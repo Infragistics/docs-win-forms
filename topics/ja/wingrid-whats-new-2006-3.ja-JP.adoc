@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B866F5A2-5C8E-4D39-B3EE-78C503DE20E2}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T13:37:43Z"
+}
+|metadata|
+////
+
+= WinGrid 2006.3
+
+2006 Volume 3 リリースで追加された新しい WinGrid™ 機能を学習してください。
+
+* link:wingrid-new-cell-appearances-whats-new-20063.html[新しいセルの外観]
+* link:wingrid-new-formattedtexteditor-option-added-to-columnstyle-enumeration-whats-new-20063.html[ColumnStyle 列挙体に追加された新しい FormattedTextEditor オプション]
+* link:wingrid-new-style-for-hottracking-cells-whats-new-20063.html[ホットトラッキング セルの新しいスタイル]
+* link:wingrid-you-can-now-clear-modified-cells-from-allocated-memory-whats-new-20063.html[割り当てられたメモリから修正したセルをクリアできるようになった]
+* link:wingrid-you-can-now-determine-if-a-cell-has-been-allocated-in-memory-whats-new-20063.html[セルがメモリに割り当てられたかどうかを判断できるようになった]

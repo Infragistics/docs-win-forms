@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-excel-style-functions",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Extending"],
+    "guid": "{F8D724F7-D26D-4752-8F29-340563D682F6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Excel スタイル関数
+
+WebCalcManager コンポーネントでサポートされる Excel® スタイルの関数の説明と例は以下のリンクを参照してください。
+
+* link:wincalcmanager-date-and-time-functions.html[日付&時間関数]
+* link:wincalcmanager-engineering-functions.html[エンジニアリング関数]
+* link:wincalcmanager-financial-functions.html[財務関数]
+* link:wincalcmanager-information-functions.html[情報関数]
+* link:wincalcmanager-logical-functions.html[論理関数]
+* link:wincalcmanager-lookup-and-reference-functions.html[ルックアップおよび参照関数]
+* link:wincalcmanager-math-functions.html[算術関数]
+* link:wincalcmanager-statistical-functions.html[統計関数]
+* link:wincalcmanager-text-and-data-functions.html[テキスト&データ関数]

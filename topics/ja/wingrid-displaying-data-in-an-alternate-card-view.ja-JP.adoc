@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-data-in-an-alternate-card-view",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{4307F217-3F0C-4B4C-BE79-C756ACA46764}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 代替カード ビューでのデータ表示
+
+== バックグラウンド
+
+必ずしもすべてのデータに、列ヘッダとセル行のある通常のグリッド ビューが提供されるわけではありません。WinGrid は、列ヘッダが左側に配置され、行が列として表示されるようなカード ビューを代わりに提供します。
+
+== 質問
+
+* どうすれば、列ヘッダを左側に、かつ行データを列として表示できるでしょうか?
+
+== 解決策
+
+バンドの CardView プロパティを True に設定すると、列ヘッダが左側の列に表示され、データ行が列として表示されます。
+
+image::Images/WinGrid_Displaying_Data_in_an_Alternate_Card_View_01.png[]
+
+InitializeLayout イベント内のコードはバンド 0 の CardView オプションをオンにします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Bands(0).CardView = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Bands[0].CardView = true;
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、データの通常表示とカード ビュー表示とを比較表示し、カード ビュー内で表示するためのバンド プロパティの設定方法も示しています。

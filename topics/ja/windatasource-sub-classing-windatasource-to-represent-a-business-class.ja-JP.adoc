@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-sub-classing-windatasource-to-represent-a-business-class",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios","Data Binding","Sample Data Source"],
+    "guid": "{A3861508-3BB3-48A2-AAA7-7449E1A3EAD8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource のサブクラス化によるビジネスクラスの作成
+
+このトピックは、次の 5 つの記事で構成されています。
+
+* link:windatasource-getting-started.html[はじめに]
+* link:windatasource-retrieving-data-in-your-business-class.html[ビジネス クラスでのデータの取得]
+* link:windatasource-inserting-and-updating-data-in-your-business-class.html[ビジネス クラスでのデータの挿入と更新]
+* link:windatasource-initializing-field-values-with-the-onrowadded-event.html[OnRowAdded イベントによるフィールド データの初期化]
+* link:windatasource-using-your-business-class-in-an-application.html[アプリケーションでのビジネス クラスの使用]

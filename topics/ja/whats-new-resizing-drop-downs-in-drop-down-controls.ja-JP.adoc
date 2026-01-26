@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-resizing-drop-downs-in-drop-down-controls",
+    "controlName": [],
+    "tags": [],
+    "guid": "410a1a89-87b3-44d9-b4f7-57bb9e29b0c5",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T16:05:23.7670357Z"
+}
+|metadata|
+////
+
+= ドロップダウン コントロールでドロップダウンをリサイズ
+
+WinComboEditor™、WinCombo™、WinDropDown™ および WinPopupControlContainer™ のようなドロップダウン コントロールでドロップダウンをリサイズするためのサポートが追加されました。ドロップダウンは、ハンドルを使用してリサイズできます。ハンドルはドロップダウンの一番下に垂直または水平に配置できます。ドロップダウンのリサイズされた高さと幅はアプリケーションのその実行に対して保存されます。このハンドルは通常の Infragistics® Appstyling と外観プロパティを使用したスタイリングをサポートしています。
+
+== *関連トピック*
+
+link:wincomboeditor-resize-drop-down-in-wincomboeditor.html[WinComboEditor でドロップダウンをリサイズ]
+
+link:wincombo-resize-drop-down-in-wincombo.html[WinCombo でドロップダウンをリサイズ]
+
+link:windropdown-resize-drop-down-in-windropdown.html[WinDropDown でドロップダウンをリサイズ]
+
+link:winpopupcontrolcontainer-resize-drop-down-in-winpopupcontrolcontainer.html[WinPopupControlContainer でドロップダウンをリサイズ]

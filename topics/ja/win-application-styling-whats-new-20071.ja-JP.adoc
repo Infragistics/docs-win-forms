@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-application-styling-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B29BC379-95B6-4A73-8E37-577D491CFBF5}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T14:58:15Z"
+}
+|metadata|
+////
+
+= アプリケーション スタイリング 2007.1
+
+以下のリンクをクリックすることによって、2007 Volume 1 リリースで {ProductName} に追加されたアプリケーション スタイリングの新しい拡張を学習してください。
+
+* link:win-export-images-from-a-style-library-whats-new-20071.html[スタイル ライブラリから画像をエクスポート]
+* link:win-add-your-personal-information-to-a-style-library-whats-new-20071.html[スタイル ライブラリに個人情報を追加]
+* link:win-new-isl-generator-whats-new-20071.html[新しい ISL ジェネレータ]
+* link:win-multiple-controls-can-now-use-separate-style-libraries-whats-new-20071.html[複数のコントロールが個別のスタイル ライブラリを使用可能となった]

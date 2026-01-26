@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-bounds-pane3",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{5E3B6219-3F90-43F5-9259-032776559515}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 境界ペイン
+
+[境界] ペインは、Gauge コントロール上のゲージのサイズと位置を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~bounds.html[X]"]  -- この値は、Gauge コントロールの左側からのゲージの距離を決定します。x 値を Gauge コントロールの幅を超えるまたは 0 未満となるように設定すると、ゲージが Gauge コントロールに表示されない場合があります。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~bounds.html[Y]"]  -- この値は、Gauge コントロールの上部からのゲージの距離を決定します。y 値を Gauge コントロールの高さを超えるまたは 0 未満となるように設定すると、ゲージが Gauge コントロールに表示されない場合があります。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~bounds.html[幅]"]  -- 幅の値は 0 から 100 に設定できます。この値はゲージの幅を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~bounds.html[高さ]"]  -- 高さの値は 0 から 100 に設定できます。この値はゲージの高さを決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~boundsmeasure.html[単位]"]  -- この値は、ゲージの測定の単位を指定します。ゲージは、ピクセルまたは Gauge コントロールのパーセントで測定できます。
+
+image::images/Bounds_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-digital-gauge.html[デジタル ゲージ]
+
+link:wingauge-linear-gauge.html[リニア ゲージ]
+
+link:wingauge-radial-gauge.html[ラジアル ゲージ]

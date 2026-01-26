@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-gauge-types",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Getting Started"],
+    "guid": "{90CA55E9-728A-4F98-9D17-A6A52E64601D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ タイプ
+
+Gauge コントロールは以下の主要なゲージ タイプを提供します。
+
+* link:wingauge-digital-gauges.html[デジタル ゲージ] – 自動車のオドメーターに似ています。
+* link:wingauge-linear-gauges.html[リニア ゲージ] – 壁掛けの温度計に似ています。
+* link:wingauge-radial-gauges.html[ラジアル ゲージ] – 自動車のスピードメーターに似ています。

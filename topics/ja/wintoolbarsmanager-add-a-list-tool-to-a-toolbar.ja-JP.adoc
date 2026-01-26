@@ -1,0 +1,100 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-a-list-tool-to-a-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{3B30C983-1913-4A99-AEA6-7D91AF8B7678}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーへのリスト ツールの追加
+
+WinToolbarsManagerコンポーネントには、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[ToolBar]"]  に追加できる 15 種類のツールが含まれています。ここでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtool.html[ListTool]"] をデザインタイムおよびランタイムに追加する方法を示し、このツールの主な機能の 1 つについて説明します。StateButton には、状態ボタンが押されたとき、および離されたときにイメージを表示できます。そのため、ImageList コントロールを使用してこれらのイメージを格納できます。
+
+== デザインタイムの場合
+
+[start=1]
+. UltraWinToolbar エレメントを設定するため、UltraToolbarsManager エレメント上で右クリックし、[ユーザー設定] を選択して、デザインタイム カスタマイザを開きます。
+[start=2]
+. 新しいツールを作成するため、ユーザー設定の [ツール] タブをクリックしてから [新規] ボタンをクリックします。
+[start=3]
+. ツールの種類として PopupMenu ツールを選択し、[追加] ボタンをクリックします。
+[start=4]
+. ツールの種類として List ツールを選択し、[追加] ボタンをクリックします。
+[start=5]
+. サイド ストリップを指定するため、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenu]"]  ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~settings.html[Settings]"]  プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.menusettings~issidestripvisible.html[IsSideStripVisible]"]  を True に設定します。サイド ストリップの外観をカスタマイズする場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.menusettings~sidestripappearance.html[SideStripAppearance]"]  のプロパティを設定します。
+[start=6]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtoolitem.html[ListToolItems]"]  を追加するため、List ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtoolitemscollection.html[ListToolItems]"]  コレクションをクリックします。[追加] ボタンを選択して ListToolItem を追加します。ListToolItem の追加が完了したら、[OK] ボタンをクリックします。
+[start=7]
+. ユーザー設定の [ツールバー] タブをクリックしてから [新規作成] ボタンをクリックします。
+[start=8]
+. [ツール] タブをクリックし、PopupMenu ツールをフォーム上の ToolBar にドラッグします。
+[start=9]
+. List ツールを PopupMenu ツールにドラッグします。
+
+== ランタイムの場合
+
+次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub UseaListTool_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim popupmenutool As New PopupMenuTool("popupmenutool")
+	popupmenutool.SharedProps.Caption = "PopupMenuTool1"
+	Dim listtool As New ListTool("listtool")
+	' ツールをツールバー マネージャの Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(popupmenutool)
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(popupmenutool)
+	Me.UltraToolbarsManager1.Tools.Add(listtool)
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(listtool)
+	' 項目をリストに追加します。
+	listtool.ListToolItems.Add("Classical", "Classical")
+	listtool.ListToolItems.Add("Rock", "Rock")
+	listtool.ListToolItems.Add("Metal", "Metal")
+	' リスト ツールをポップアップ メニューに追加します。
+	popupmenutool.Tools.AddTool("listtool")
+	' メニューのサイド ストリップを指定します。
+	popupmenutool.Settings.IsSideStripVisible = DefaultableBoolean.True
+	popupmenutool.Settings.SideStripAppearance.BackColor = Color.Blue
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinToolbars;
+...
+private void UseaListTool_Load(object sender, System.EventArgs e)
+{
+	PopupMenuTool popupmenutool = new PopupMenuTool("popupmenutool");
+	popupmenutool.SharedProps.Caption = "PopupMenuTool1";
+	ListTool listtool = new ListTool("listtool");
+	// ツールをツールバー マネージャのツール コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(popupmenutool);
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(popupmenutool);
+	this.ultraToolbarsManager1.Tools.Add(listtool);
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(listtool);
+	// 項目をリストに追加します。
+	listtool.ListToolItems.Add("Classical", "Classical");
+	listtool.ListToolItems.Add("Rock", "Rock");
+	listtool.ListToolItems.Add("Metal", "Metal");
+	// リスト ツールをポップアップ メニューに追加します。
+	popupmenutool.Tools.AddTool("listtool");
+	// メニューのサイド ストリップを指定します。
+	popupmenutool.Settings.IsSideStripVisible = DefaultableBoolean.True;
+	popupmenutool.Settings.SideStripAppearance.BackColor = Color.Blue;
+}
+----
+
+image::images/WinToolbarsManager_Add_a_List_Tool_to_a_Toolbar_01.png[]

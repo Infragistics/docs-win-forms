@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-api-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "263dd34c-4609-441b-a632-ac031a14ea11",  
+    "buildFlags": [],
+    "createdOn": "2014-09-09T16:51:28.746241Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。また、このコントロールでプログラミングするときに使用する主なクラスを紹介します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinPivotGrid Namespace:
+
+link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}~infragistics.win.ultrawinpivotgrid_namespace.html[Infragistics.Win.UltraWinPivotGrid]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}~infragistics.win.ultrawinpivotgrid.ultrapivotgrid_members.html[UltraPivotGrid]

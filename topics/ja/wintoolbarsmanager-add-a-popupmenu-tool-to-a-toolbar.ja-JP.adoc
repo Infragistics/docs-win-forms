@@ -1,0 +1,116 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-a-popupmenu-tool-to-a-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{609A7A9B-3397-42B5-BFC0-0DFB45CD2F49}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーへの PopupMenu ツールの追加
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenu]"] では、ツールのメニューを表示できます。 This topic demonstrates how to add a PopupMenu to the pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[Toolbar]"]  and how to add a pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[Button]"]  and a Textbox Tool to the Popup menu.ButtonツールとTextBoxツールは、ToolBarのレベルでは同じ方法で追加できます。このポップアップメニューツールはToolBarのPopupStyleを持ち、分離、フローティング、およびセグメント化できます。
+
+== デザイン時の場合：
+
+[start=1]
+. WinToolbarsManager™ コンポーネントを設定するため、UltraToolbarManager コントロール上で右クリックし、［ユーザー設定］を選択して、ユーザー設定ダイアログを開きます。
+[start=2]
+. 新しいツールを作成するため、ユーザー設定の「ツール」タブをクリックしてから〈新規〉ボタンをクリックします。
+[start=3]
+. PopupMenuツールを選択し、〈追加〉ボタンをクリックします。
+[start=4]
+. セグメント化ポップアップツールを指定するため、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popuptoolbase~dropdownarrowstyle.html[DropDownArrowStyle]"]  を Segmented に設定します。
+[start=5]
+. Popup メニュー で pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.tearawaytoolbase~allowtearaway.html[AllowTearaway]"]  を有効にします。
+[start=6]
+. PopupStyle を Menu として指定するため、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~settings.html[Settings]"]  プロパティの PopupStyle を選択します。
+[start=7]
+. Buttonツールを選択し、〈追加〉ボタンをクリックします。
+[start=8]
+. TextBoxツールを選択し、〈追加〉ボタンをクリックします。
+[start=9]
+. ユーザー設定の「ツールバー」タブをクリックしてから〈新規作成〉ボタンをクリックします。
+[start=10]
+. 「ツール」タブをクリックし、PopupMenu ツールをフォーム上の ToolBar にドラッグします。
+[start=11]
+. ボタン ツールを Popup メニュー ツールにドラッグします。
+[start=12]
+. TextBox ツールを Popup メニュー ツールにドラッグします。
+
+== 実行時：
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub Add_a_Popup_Menu_to_a_Toolbar_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim popupmenutool As New PopupMenuTool("popupmenutool")
+        ' Adds the tool to the Toolbar Manager's Tools collection
+        Me.UltraToolbarsManager1.Tools.Add(popupmenutool)
+        Me.UltraToolbarsManager1.Toolbars.AddToolbar("MAIN")
+        Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(popupmenutool)
+        popupmenutool.SharedProps.DisplayStyle = ToolDisplayStyle.ImageAndText
+        ' Specifies a segmented Popup menu
+        popupmenutool.DropDownArrowStyle = DropDownArrowStyle.Segmented
+        ' Specifies the Popup Style as Menu
+        popupmenutool.Settings.PopupStyle = PopupStyle.Menu
+        ' Specifies the Popup menu to be torn away and floated.
+        popupmenutool.AllowTearaway = True
+        Dim textbox As New TextBoxTool("textbox")
+        Me.UltraToolbarsManager1.Tools.Add(textbox)
+        textbox.Text = "TextBox1"
+        ' Adds the TextBox to the Popup menu
+        popupmenutool.Tools.Add(textbox)
+        Dim button As New ButtonTool("button")
+        ' Adds a button tool the the Tools collection 
+        Me.UltraToolbarsManager1.Tools.Add(button)
+        button.SharedProps.AppearancesSmall.Appearance.BackColor = Color.RosyBrown
+        button.SharedProps.Caption = "Button1"
+        button.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+        ' Adds the Button to the Popup menu
+        popupmenutool.Tools.Add(button)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void Add_a_Popup_Menu_to_a_Toolbar_Load(object sender, EventArgs e)
+{
+        PopupMenuTool popupmenutool = new PopupMenuTool("popupmenutool");
+        popupmenutool.SharedProps.DisplayStyle = ToolDisplayStyle.ImageAndText;
+        // Specifies a segmented Popup menu
+        popupmenutool.DropDownArrowStyle = DropDownArrowStyle.Segmented;
+        // Specifies the Popup Style as Menu
+        popupmenutool.Settings.PopupStyle = PopupStyle.Menu;
+        // Specifies the Popup menu to be torn away and floated.
+        popupmenutool.AllowTearaway = true;
+        // Adds the tool to the Toolbar Manager's Tools collection
+        this.ultraToolbarsManager1.Tools.Add(popupmenutool);
+        this.ultraToolbarsManager1.Toolbars.AddToolbar("MAIN");
+        this.ultraToolbarsManager1.Toolbars[0].Tools.Add(popupmenutool);
+        TextBoxTool textbox = new TextBoxTool("textbox");
+        this.ultraToolbarsManager1.Tools.Add(textbox);
+        textbox.Text = "TextBox1";
+        // Adds the TextBox to the Popup menu
+        popupmenutool.Tools.Add(textbox);
+        ButtonTool button = new ButtonTool("button");
+        // Adds a button tool the the Tools collection 
+        this.ultraToolbarsManager1.Tools.Add(button);
+        button.SharedProps.AppearancesSmall.Appearance.BackColor = Color.RosyBrown;
+        button.SharedProps.Caption = "Button1";
+        button.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+        // Adds the Button to the Popup menu
+        popupmenutool.Tools.Add(button);
+}
+----

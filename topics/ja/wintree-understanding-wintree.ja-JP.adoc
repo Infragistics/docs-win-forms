@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "name": "wintree-understanding-wintree",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{B7ECB5FC-501A-4A43-9DD9-0863AAF916BD}","buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree の理解
+
+WinTree コントロール、およびその主要な機能と機能性について解説しています。このセクションのトピックを読むと、アプリケーションで WinTree を使用することの利点を理解できます。
+
+WinTree コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintree-about-wintree.html[WinTree について] -- WinTree コントロールの概要を説明しています。
+
+* link:wintree-smart-tag.html[WinTree スマート タグ] -- WinTree コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+
+
+* link:wintree-wintree-columnsets-overview.html[WinTree ColumnSets の概要] -- ColumnSets の概要を提供します。
+* link:wintree-columnset-layout-designer.html[ColumnSet レイアウト デザイナ] -- WinTree コントロールで列のセットのプロパティを定義することができる、WinTree コントロールの ColumnSet レイアウト デザイナにアクセスする方法を説明しています。
+* link:wintree-styles-of-wintree.html[WinTree のスタイル] -- WinTree の 3 つのスタイル (Outlook Express、Grid、FreeForm) について説明しています。
+* link:wintree-embeddable-editors-overview.html[埋め込みエディタの概要] -- 埋め込みエディタの概要、およびその WinTree での操作方法を説明しています。
+* link:wintree-nodes-overview.html[ノードの概要] -- ノードの概要、特にノードへのアクセス、ノードの位置の変更、ノードへの外観の適用などの方法について説明しています。
+* link:wintree-synchronizing-check-boxes-of-the-tree-nodes.html[ツリー ノードのチェックボックスの同期化] -- WinTree で親ノードおよび子ノードのチェックボックスの同期化を紹介します。

@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-hiding-row-selectors",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{EFB6414B-2032-4710-A150-46E1B93C18B0}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 行セレクタの非表示
+
+== 行セレクタを非表示にするには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+[start=2]
+. 次のコードは WinGrid コントロール内で行セレクタを非表示にする方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub HidingRowSelectors_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Override.RowSelectors = DefaultableBoolean.False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void HidingRowSelectors_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.RowSelectors = DefaultableBoolean.False;
+}
+----
+
+[start=3]
+. このスナップショットにはグリッドが 2 つあります。一方は行セレクタがあり、他方は行セレクタがありません。
+
+image::Images/WinGrid_Hide_Row_Selectors_01.png[]
+
+image::Images/WinGrid_Hide_Row_Selectors_02.png[]

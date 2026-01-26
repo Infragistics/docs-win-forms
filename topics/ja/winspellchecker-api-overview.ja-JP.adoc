@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-api-overview",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["API"],
+    "guid": "{B27383CC-1A82-46C3-BE8B-BCBE5B6801B3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinSpellChecker 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker_namespace.html[Infragistics.Win.UltraWinSpellChecker]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.asyoutypemanager.html[AsYouTypeManager]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.error.html[Error]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions.html[SpellOptions]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.suggestioncollection.html[SuggestionCollection]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker.html[UltraSpellChecker]"]

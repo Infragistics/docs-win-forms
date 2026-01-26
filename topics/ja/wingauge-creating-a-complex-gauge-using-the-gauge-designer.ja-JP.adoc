@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-complex-gauge-using-the-gauge-designer",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{06050E4F-B27D-4EEB-8C8F-613C944080C5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ デザイナを使用して複雑なゲージを作成
+
+link:wingauge-designer.html[ゲージ デザイナ]を使用して、複数のスケール、レンジ、マーカーを含む複数のゲージで構成可能な複雑なゲージを作成できます。
+
+以下のトピックは、複数部から構成される詳細なガイドで、デザイナを使用してデジタル ゲージを含む複雑なラジアル ゲージを作成するプロセスを説明します。
+
+* link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-1-of-5.html[ゲージ デザイナを使用して複雑なゲージを作成（1/5）]
+* link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-2-of-5.html[ゲージ デザイナを使用して複雑なゲージを作成（2/5）]
+* link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-3-of-5.html[ゲージ デザイナを使用して複雑なゲージを作成（3/5）]
+* link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-4-of-5.html[ゲージ デザイナを使用して複雑なゲージを作成（4/5）]
+* link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-5-of-5.html[ゲージ デザイナを使用して複雑なゲージを作成（5/5）]
+
+複数部から構成される詳細なガイドを完了すると、以下のスクリーンショットのようなゲージが完成します。
+
+image::images/Gauge_Creating_a_Complex_Gauge_Using_the_Gauge_Designer_01.png[]

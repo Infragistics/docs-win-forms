@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-using-wincombo",
+    "controlName": ["WinCombo"],
+    "tags": [],
+    "guid": "{A09B0463-7A51-46E4-A505-7AF1191160AB}",  
+    "buildFlags": [],
+    "createdOn": "2009-07-12T15:23:54Z"
+}
+|metadata|
+////
+
+= WinCombo の使用
+
+このセクションは、WinCombo™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:wincombo-binding-wincombo-to-a-data-table.html[WinCombo をデータ テーブルにバインド]
+* link:wincombo-binding-wincombo-to-data-using-linq-to-sql.html[LINQ to SQL を使用して WinCombo をデータにバインド]
+* link:wincombo-displayinghiding-dropdown.html[デフォルト ドロップダウン ボタンをコードで表示/非表示する]
+* link:wincombo-filter-options-to-filter-suggested-values-of-a-column.html[列の候補値をフィルターするフィルター オプション]
+* link:wincombo-ignoring-diacritics-on-autocomplete.html[オートコンプリートで分音記号を無視]
+* link:wincombo-resize-drop-down-in-wincombo.html[WinCombo でドロップダウンのサイズ変更]
+* link:wincombo-selecting-multiple-values-within-wincombo.html[WinCombo 内で複数の値を選択]

@@ -1,0 +1,66 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-enable-winspellchecker-to-spell-check-while-typing",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["How Do I","Validation"],
+    "guid": "{1C25DAB0-9DAA-4AEA-BD43-3724ABC05867}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker を有効にして入力時にスペルチェック
+
+WinSpellChecker エンジンは非常に強力で、エンド ユーザーが入力するテキストをチェックできます。WinSpellChecker は、スペルミスしたワードを pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.suggestioncollection.html[Suggestions]"]  コレクションからの正しいワードで自動的に置き換えることができます。
+
+これを機能させるには、WinSpellChecker コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~mode.html[Mode]"]  プロパティを AsYouType または DialogOnValidatingAndAsYouType に設定する必要があります。Mode プロパティをこれらの 2 つの列挙体のひとつに設定することで、エンド ユーザーが入力した時に赤色の波線が付いてスペルミスのワードに下線が付けられることを WinSpellcheck に認識させることができます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~spellerror_ev.html[SpellError]"]  イベントでは、これらのスペルミスのワードを置き換える、そして置き換え用のテキストのオプションを持ちます。EventArgs の pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spellerroreventargs~action.html[Action]"]  プロパティを Replace に設定すると、すべてのスペルエラーを置き換えるように WinSpellChecker に指示します。デフォルトでは、pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spellerroreventargs~replaceword.html[ReplaceWord]"]  プロパティを使用してスペルミスのワードを置き換えることを WinSpellChecker に指示しなければ、それ自体でワードを置き換えます。本質的には、ドキュメントのスペルチェックのポイントを無効にします。任意のワードに ReplaceWord を設定すると、ReplaceWord を設定したワードで現在のエラーのスペルミスのワードと置き換えます。スペルミスのワードの Suggestions コレクションで最初のワードに ReplaceWord を設定できます。したがって、エンド ユーザーがスペルミスをすると、WinSpellChecker は相応しいワードで置き換えます。
+
+以下のコードを使用して、WinSpellChecker を有効にし、SpellError イベントを使用することでエンド ユーザーが入力時にスペルミスのワードを自動的に修正します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSpellChecker
+...
+Private Sub UltraSpellChecker1_SpellError(ByVal sender As Object, ByVal e As
+  Infragistics.Win.UltraWinSpellChecker.SpellErrorEventArgs) 
+  Handles UltraSpellChecker1.SpellError
+	' 修正候補がないかどうかを確認します。
+	' 修正候補がなければ、コードのこの行なしで、
+	' ArgumentOutOfRange 例外がスローされます。
+	If e.SpellingError.Suggestions.Count = 0 Then 
+		Return
+	End If
+	'スペルミスが入力されると、スペルミスのワードを置き換えるように
+	' SpellChecker に指示します。
+	e.Action = SpellErrorAction.Replace
+	'修正候補コレクションの最初の修正候補で
+	'スペルミスのワードを置き換えるように SpellChecker に指示します。
+	e.ReplaceWord = e.SpellingError.Suggestions(0).ToString()
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSpellChecker;
+...
+private void ultraSpellChecker1_SpellError(object sender, Infragistics.Win.UltraWinSpellChecker.SpellErrorEventArgs e)
+{
+	// 修正候補がないかどうかを確認します。
+	// 修正候補がなければ、コードのこの行なしで、
+	// ArgumentOutOfRange 例外がスローされます。
+	if (e.SpellingError.Suggestions.Count == 0) return;
+	//スペルミスが入力されると、スペルミスのワードを置き換えるように
+	//SpellChecker に指示します。
+	e.Action = SpellErrorAction.Replace;
+	//修正候補コレクションの最初の修正候補で
+	//スペルミスのワードを置き換えるように SpellChecker に指示します。
+	e.ReplaceWord = e.SpellingError.Suggestions[0].ToString();
+}
+----

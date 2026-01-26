@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-inboxcontrolstyler-api-overview",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{D8D47FA6-C5CE-4248-AB1F-7FA2F74DC232}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== AppStyling.Runtime 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.runtime_namespace.html[Infragistics.Win.AppStyling.Runtime]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.runtime.inboxcontrolstyler.html[InboxControlStyler]"]
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.runtime.inboxcontrolstylesettings.html[InboxControlStyleSettings]"]

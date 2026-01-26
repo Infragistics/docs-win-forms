@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2008-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{75B05D12-633D-4203-978C-62F7CBC61E4D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2008 Volume 2 の新機能
+
+{ProductName} 2008 Volume 2 のリリースには、Windows Formsのコントロールとコンポーネントをこれまで以上に活用することができるいくつかの強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:win-new-designer-for-wincheckeditor-and-winoptionset.html[WinCheckBox および WinOptionSet の新しいデザイナ]
+* link:win-new-wingridrowedittemplate-control.html[新しい WinGridRowEditTemplate コントロール]
+* link:win-new-winvalidator-control.html[新しい WinValidator コントロール]
+* link:win-suggest-mode-for-wincomboeditor.html[WinComboEditor の Suggest モード]
+* link:win-visual-studio-2008-window-style-for-windockmanager.html[WinDockManager の Visual Studio 2008 Window スタイル]
+* link:win-whats-new-2008-2-winchart-2008-2.html[WinChart 2008.2]
+* link:win-wingrid-20082.html[WinGrid 2008.2]
+* link:win-wineditor-can-now-increment-by-values-other-than-one.html[WinNumericEditor は 1 以外の値で増分できる]

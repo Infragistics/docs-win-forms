@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-task-settings-for-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": ["How Do I"],
+    "guid": "{C0FAD3E4-44A1-4D32-BDB4-F2CC456ADA4B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGanttView のタスク設定
+
+このトピックは、 link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~tasksettings.html[TaskSettings] オブジェクトを使用して、WinGanttView™ コントロールに追加されるタスクに適用可能な設定を説明します。 これらの設定によって、コントロールのグリッドおよびチャート セクション内の特定のタスクまたはすべてのタスクに対するエンドユーザーによる操作を制御できます。 エンドユーザーによる特定のタスク情報の編集を制限できます。 特定のタスクに適用されるタスク設定は、コントロールに直接適用される設定に優先します。
+
+以下の例のコードは、タスクとタスク詳細を表示するフォームに UltraGanttView コントロールをドロップしてあることを前提とします。 WinGanttView へのタスクの追加の詳細は、 link:winganttview-adding-tasks-to-winganttview.html[「タスクを WinGanttView に追加」]を参照してください。
+
+*Visual Basic の場合：*
+
+----
+' すべての Task の Duration、Deadline、および削除を無効にします。
+Me.ultraGanttView1.TaskSettings.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
+Me.ultraGanttView1.TaskSettings.AllowEditDuration = Infragistics.Win.DefaultableBoolean.[False]
+Me.ultraGanttView1.TaskSettings.AllowEditDeadline = Infragistics.Win.DefaultableBoolean.[False]
+' 特定な Task のためにの特定なユーザー インタラクションを可能にします。
+Me.ultraGanttView1.CalendarInfo.Tasks(0).Tasks(0).TaskSettings.AllowEditStartDateTime = Infragistics.Win.DefaultableBoolean.[False]
+Me.ultraGanttView1.CalendarInfo.Tasks(1).Tasks(0).TaskSettings.AllowEditPercentComplete = Infragistics.Win.DefaultableBoolean.[False]
+Me.ultraGanttView1.CalendarInfo.Tasks(0).Tasks(1).TaskSettings.AllowDelete = Infragistics.Win.DefaultableBoolean.[True]
+----
+
+*C# の場合：*
+
+----
+// すべての Task の Duration、Deadline、および削除を無効にします。
+this.ultraGanttView1.TaskSettings.AllowDelete = Infragistics.Win.DefaultableBoolean.False;
+this.ultraGanttView1.TaskSettings.AllowEditDuration = Infragistics.Win.DefaultableBoolean.False;
+this.ultraGanttView1.TaskSettings.AllowEditDeadline = Infragistics.Win.DefaultableBoolean.False;
+// 特定な Task のためにの特定なユーザー インタラクションを可能にします。
+this.ultraGanttView1.CalendarInfo.Tasks[0].Tasks[0].TaskSettings.AllowEditStartDateTime = Infragistics.Win.DefaultableBoolean.False;
+this.ultraGanttView1.CalendarInfo.Tasks[1].Tasks[0].TaskSettings.AllowEditPercentComplete = Infragistics.Win.DefaultableBoolean. False;
+this.ultraGanttView1.CalendarInfo.Tasks[0].Tasks[1].TaskSettings.AllowDelete = Infragistics.Win.DefaultableBoolean.True;
+----
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView のチャート領域でタイムライン間隔を設定]

@@ -1,0 +1,145 @@
+﻿////
+|metadata|
+{
+    "name": "ig-spe-grammar-analysis",
+    "controlName": [],
+    "tags": [],
+    "guid": "1de4d7d6-7499-415b-a4f8-0c4118de35be",
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0378487Z"
+}
+|metadata|
+////
+
+= 文章校正の解析
+
+[[_Ref350782457]]
+== トピックの概要
+
+=== 目的
+
+このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350782459, 文章校正の解析 >>
+* <<_Ref350782472, 文章校正解析の要点 >>
+* <<_Ref350782476, 警告の取得 >>
+* <<_Ref350782479, 関連コンテンツ >>
+
+[[_Ref350782459]]
+== 文章校正の解析
+
+[[_Ref350782472]]
+
+=== 文章校正解析のサマリー
+
+文章校正の定義では許可されないことが多くあります (詳細は「 link:ig-spe-restrictions.html[制限]」トピックを参照)。しかし、その他に許可されるものはありますが文章校正ライターが意図したものではない、または字句アナライザーや構文アナライザーを遅くすることになる可能性があります。以下に、文章解析中に強調表示されるこのような問題およびその回避方法を示します。
+
+[[_Ref350782476]]
+
+=== 警告の取得
+
+文章校正定義でその問題を判断するには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~analyze.html[Grammar.Analyze] メソッドを使用し、型 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisoptions.html[GrammarAnalysisOptions] のインスタンスを渡して解析を構成できます。
+
+
+
+[NOTE]
+====
+注:
+`GrammarAnalysisOptions` オブジェクトを指定しない場合、Syntax Parsing Engine はデフォルトのオプション セットで使用します。
+====
+
+`GrammarAnalysisOptions` には、以下の構成可能オプションが含まれます。
+
+プロパティ:
+
+[options="header", cols="a,a"]
+|====
+|*プロパティ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisoptions~analyzeforambiguity.html[AnalyzeForAmbiguity]
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarningtype.html[あいまいさ] 警告に対する文章校正を解析するかどうかを示します。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisoptions~analyzeforcomplexnonterminalsymbol.html[AnalyzeForComplexNonTerminalSymbol]
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarningtype.html[ComplexNonTerminalSymbol] 警告に対する文章校正を解析するかどうかを示します。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisoptions~analyzeforsymbolcannotbeparsed.html[AnalyzeForSymbolCannotBeParsed]
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarningtype.html[SymbolCannotBeParsed] 警告に対する文章校正を解析するかどうかを示します。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisoptions~analyzeforunnecessarysyntaxrule.html[AnalyzeForUnnecessarySyntaxRule]
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarningtype.html[UnnecessarySyntaxRule] 警告に対する文章校正を解析するかどうかを示します。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisoptions~complexnonterminalsymbolproductionlimit.html[ComplexNonTerminalSymbolProductionLimit]
+|複雑であるとみなされる前に link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarningtype.html[NonTerminalSymbol] が所有しなければならない最小の生産数この値のデフォルトは 100 です。
+
+|====
+
+このメソッドの戻り値は型 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisresult.html[GrammarAnalysisResult] のインスタンスです。文章校正および型 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarning.html[GrammarWarning] のオブジェクトを含む link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammaranalysisresult~warnings.html[Warnings] コレクションを含みます。`GrammarWarning` タイプには、文字列型の記述的な link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarning~message.html[Message] と、型 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarningtype.html[GrammarWarningType] の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammarwarning~type.html[Type] プロパティがあります。これは以下の値を持つ列挙体です。
+
+[options="header", cols="a,a"]
+|====
+|*値*|*説明*
+
+|`Ambiguity`
+|文章校正の生産により特定のテキストの解析時にあいまいさが発生するタイミングを示します。詳細については、 link:ig-spe-ambiguities.html[「あいまいさ」]のトピックを参照してください。あいまいさが受け付け可能であると分かっており、警告は文章校正を解析することにより作成される警告をクラッターする場合、あいまいさに関わる非終端記号のいずれかにおいて link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~suppressambiguitywarnings.html[NonTerminalSymbol.SuppressAmbiguityWarnings] プロパティを `true` に設定することで抑制できます。
+
+|`ComplexNonTerminalSymbol`
+|非終端記号用のルールツリーが内部的に 100 生産を超えるよう拡張されるときを示します。ただしこの制限は GrammarAnalysisOptions で構成できます。複雑な非終端記号があると、構文アナライザーやエラー レポートの生成プロセスが格段に遅くなります。
+
+|`SymbolCannotBeParsed`
+|文章校正で定義された非終端記号または重要な終端記号が直接または間接的に開始記号で参照されないことを示します。これは、構文ツリーで表しているノードがないことを意味します。
+
+|`UnnecessarySyntaxRule`
+|以下のような、構文ルールが不要な場合を示します。 
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.concatenationsyntaxrule.html[ConcatenationSyntaxRule] 内で link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.emptysyntaxrule.html[EmptySyntaxRule] を使用記号シーケンスに空を連結することは、記号シーケンスを持つのと同じです。 
+
+* 自身が link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.optionalsyntaxrule.html[OptionalSyntaxRule] または link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.repetitionsyntaxrule.html[RepetitionSyntaxRule] の子である link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.alternationsyntaxrule.html[AlternationSyntaxRule] 内で `EmptySyntaxRule` を使用オプションまたは繰り返しのルールは、指定されるものに加えてオルタナティブの 1 つが空のルールであることが示唆されます。指定は不要です。 
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.factorsyntaxrule.html[FactorSyntaxRule] には、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxruleownerbase~rule.html[Rule] プロパティとして `RepetitionSyntaxRule` のインスタンスがあります。ゼロ個以上の固定の数を有することは、ゼロ個以上を有することと同じです。そのため、`FactorSyntaxRule` を使用する必要は無く、`RepetitionSyntaxRule` は所定の位置で使用できます。 
+
+|====
+
+[[_Ref350782479]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-restrictions.html[制約]
+|このトピックでは、文章校正の定義に関する制限を説明します。
+
+| link:ig-spe-ambiguities.html[あいまいさ]
+|このトピックでは、ドキュメントの解析中に発生しうる曖昧さおよびその取扱方法について説明します。
+
+| link:ig-spe-lexical-analysis-overview.html[字句解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+|====

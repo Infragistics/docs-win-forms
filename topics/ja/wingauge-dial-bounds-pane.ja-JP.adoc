@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-dial-bounds-pane",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{52683D7B-756B-4885-AD84-398508054D09}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 境界ペイン
+
+[境界] ペインは、Gauge コントロール上の目盛盤のサイズと位置を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~bounds.html[X]"]  -- この値は、Gauge コントロールの左側からの目盛盤の距離を決定します。x 値は Gauge コントロールの幅を超えたり、0 未満に設定すべきではありません。このように設定すると、目盛盤が表示されません。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~bounds.html[Y]"]  -- この値は、Gauge コントロールの上からの目盛盤の距離を決定します。y 値は Gauge コントロールの高さを超えたり、0 未満に設定すべきではありません。このように設定すると、目盛盤が表示されません。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~bounds.html[幅]"]  -- 幅の値は 0 から 100 に設定できます。この値は目盛盤の幅を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~bounds.html[高さ]"]  -- 高さの値は 0 から 100 に設定できます。この値は目盛盤の高さを決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~boundsmeasure.html[単位]"]  -- この値は、目盛盤の測定の単位を指定します。目盛盤は、ピクセルまたは Gauge コントロールのパーセントで測定できます。
+
+image::images/Bounds_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-dial-layout-tab.html[目盛盤レイアウト タブ]

@@ -1,0 +1,169 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-load-data-on-demand",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios","Data Binding"],
+    "guid": "{B51D895B-EB11-4460-A021-2419AD29ED87}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ロードオンデマンド
+
+データをオンデマンドで WinDataSource コンポーネントにロードするには、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~celldatarequested_ev.html[CellDataRequested]"]  イベントを使用します。CellDataRequested イベントは、WinDataSource にバインドされているコントロールがセルの値を要求したときに、WinDataSource がセル値を持っていない場合（たとえば、表示対象の行がグリッドの表示領域に表示された直後など）に発生します。この「ロードオンデマンド」または「仮想モード」は、WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~loadstyle.html[LoadStyle]"]  プロパティの設定とは異なります。
+
+LoadStyle を pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.loadstyle.html[LoadOnDemand]"]  に設定すると、すべての行を一度にロードするのではなく、必要に応じて行がロードされます。並べ替えなどの動作では、すべての行にアクセスする必要があるため、ロード スタイル セットにかかわらずすべての行がロードされます。
+
+== CellDataRequested の理解
+
+値が提供されると、その値は WinDataSource によってキャッシュされ、次回同じセルに対して CellDataRequested イベントは発生しなくなります。値がキャッシュされないようにするには、イベント ハンドラ内で *CacheData* を False に設定します。pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatarow~setcellvalue.html[SetCellValue]"]  メソッドを使用すれば、このイベントをフックせずにセル値を提供することもできます。また、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatarow~resetcachedvalue.html[ResetCachedValue]"]  メソッドを使用してセルのキャッシュされた値をクリアすると、次回そのセルに対して CellDataRequested イベントが発生します。
+
+次の例のコードは、WinDataSource コントロールを使用した仮想ロードの実装方法を示しています。WinGrid と WinDataSource がすでにフォーム上にあることを前提としています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinDataSource
+Imports Infragistics.Win.UltraWinGrid
+Private Sub Load_Data_on_Demand_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+   Me.UltraGrid1.DataSource = Me.UltraDataSource1
+	' 後でさまざまなイベント ハンドラ内で参照できるように、ルート バンド キー
+	' を設定します。
+	Me.UltraDataSource1.Band.Key = "RootBand"
+	' 3 つの列をルート バンドに追加します。
+	Me.UltraDataSource1.Band.Columns.Add("ID", GetType(Integer))
+	Me.UltraDataSource1.Band.Columns.Add("Col0", GetType(Integer))
+	Me.UltraDataSource1.Band.Columns.Add("Col1", GetType(String))
+	' 子バンドをルート バンドに追加します。
+	Dim childBand As UltraDataBand = Me.UltraDataSource1.Band.ChildBands.Add("ChildBand")
+	' 2 つの列を子バンドに追加します。
+	childBand.Columns.Add("ChildCol0", GetType(Double))
+	childBand.Columns.Add("ChildCol1", GetType(DateTime))
+	' ルート行コレクションのカウントを 100 に設定します。
+	Me.UltraDataSource1.Rows.SetCount(100)
+	' ルート行に ID を設定します。
+	Dim column As UltraDataColumn = Me.UltraDataSource1.Band.Columns("ID")
+	Dim i As Integer
+	For i = 0 To Me.UltraDataSource1.Rows.Count - 1
+		Me.UltraDataSource1.Rows(i)(column) = i
+	Next
+End Sub
+Dim random As Random = New Random()
+Private Sub UltraDataSource1_CellDataRequested(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinDataSource.CellDataRequestedEventArgs) _
+  Handles UltraDataSource1.CellDataRequested
+	' CellDataRequested はセルごとに発生します。CellDataRequested イベント ハンドラ内では、
+	' e.Row プロパティはセルデータが要求された行を示し、e.Column は
+	' セル データが要求された列を示します。
+	Dim row As UltraDataRow = e.Row
+	If "RootBand" Is e.Column.Band.Key Then
+		Select Case e.Column.Key
+			Case "Col0"
+				e.Data = Me.random.Next()
+			Case "Col1"
+				e.Data = "String " & Me.random.Next()
+		End Select
+	ElseIf "ChildBand" Is e.Column.Band.Key Then   
+		Select Case e.Column.Key
+			Case "ChildCol0"
+				e.Data = Me.random.NextDouble()
+			Case "ChildCol1"
+				e.Data = DateTime.Now.AddDays(Me.random.Next(1000))
+		End Select   
+	End If
+	' CacheData が True（デフォルト）に設定されている場合、UltraDataSource は
+	' 提供されたセル値をキャッシュします。したがって、次回同じセルに対して CellDataRequested
+	' は発生しません。
+	e.CacheData = True
+End Sub
+Private Sub UltraDataSource1_InitializeRowsCollection(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinDataSource.InitializeRowsCollectionEventArgs) _
+  Handles UltraDataSource1.InitializeRowsCollection
+	If "ChildBand" Is e.Rows.Band.Key Then
+		' 親行あたりの子行の数を 10 行にします。
+		e.Rows.SetCount(10)
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinDataSource; 
+using Infragistics.Win.UltraWinGrid; 
+private void Load_Data_on_Demand_Load(object sender, EventArgs e) 
+{ 
+	this.ultraGrid1.DataSource = this.ultraDataSource1; 
+	// 後でさまざまなイベント ハンドラ内で参照できるように、ルート バンド キー 
+	// を設定します。 
+	this.ultraDataSource1.Band.Key = "RootBand"; 
+	// 3 つの列をルート バンドに追加します。 
+	this.ultraDataSource1.Band.Columns.Add( "ID", typeof( int ) ); 
+	this.ultraDataSource1.Band.Columns.Add( "Col0", typeof( int ) ); 
+	this.ultraDataSource1.Band.Columns.Add( "Col1", typeof( string ) ); 
+	// 子バンドをルート バンドに追加します。 
+	UltraDataBand childBand = this.ultraDataSource1.Band.ChildBands.Add( "ChildBand" ); 
+	// 2 つの列を子バンドに追加します。 
+	childBand.Columns.Add( "ChildCol0", typeof( double ) ); 
+	childBand.Columns.Add( "ChildCol1", typeof( DateTime ) ); 
+	// ルート行コレクションのカウントを 100 に設定します。 
+	this.ultraDataSource1.Rows.SetCount( 100 ); 
+	// ルート行に ID を設定します。 
+	UltraDataColumn column = this.ultraDataSource1.Band.Columns["ID"]; 
+	for ( int i = 0; i < this.ultraDataSource1.Rows.Count; i++ ) 
+	this.ultraDataSource1.Rows[i][column] = i; 
+} 
+Random random = new Random( ); 
+private void ultraDataSource1_CellDataRequested(object sender, 
+  Infragistics.Win.UltraWinDataSource.CellDataRequestedEventArgs e) 
+{ 
+	// CellDataRequested はセルごとに発生します。 
+	// e.Row プロパティはセルデータが要求された行を示し、e.Column は 
+	// セル データが要求された列を示します。 
+	UltraDataRow row = e.Row; 
+	if ( "RootBand" == e.Column.Band.Key ) 
+	{ 
+		switch ( e.Column.Key ) 
+		{ 
+			case "Col0": 
+				e.Data = this.random.Next( ); 
+				break; 
+			case "Col1": 
+				e.Data = "String " + this.random.Next( ); 
+				break; 
+		} 
+	} 
+	else if ( "ChildBand" == e.Column.Band.Key ) 
+	{ 
+		switch ( e.Column.Key ) 
+		{ 
+			case "ChildCol0": 
+				e.Data = this.random.NextDouble( ); 
+				break; 
+			case "ChildCol1": 
+				e.Data = DateTime.Now.AddDays( this.random.Next( 1000 ) ); 
+				break; 
+		} 
+	} 
+	// CacheData が True（デフォルト）に設定されている場合、UltraDataSource は 
+	// 提供されたセル値をキャッシュします。したがって、次回同じセルに対して CellDataRequested 
+	// は発生しません。 
+	e.CacheData = true; 
+}
+private void ultraDataSource1_InitializeRowsCollection(object sender, 
+  Infragistics.Win.UltraWinDataSource.InitializeRowsCollectionEventArgs e) 
+{ 
+	if ( "ChildBand" == e.Rows.Band.Key ) 
+	{ 
+		// 親行あたりの子行の数を 10 行にします。 
+		e.Rows.SetCount( 10 ); 
+	} 
+}
+----
+
+image::images/WinDataSource_Load_Data_on_Demand_01.png[]

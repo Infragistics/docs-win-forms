@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-conditional-formatting",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{94DC0DD3-2FF8-46E4-B131-2923B9CE07CA}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-11T09:37:50Z"
+}
+|metadata|
+////
+
+= 条件フォーマッティングの使用
+
+このセクションでは、Conditional Formatting に関連する固有のタスクの実行方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wingrid-creating-an-operator-condition.html[演算子条件を作成]
+* link:wingrid-creating-a-formula-condition.html[数式条件を作成]
+* link:wingrid-combining-multiple-conditions.html[複数の条件を結合]
+* link:wingrid-implementing-conditional-formatting-at-design-time.html[デザイン タイムで条件フォーマッティングを実装]

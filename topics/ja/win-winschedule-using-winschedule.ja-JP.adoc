@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-winschedule-using-winschedule",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{C6564921-8B7C-4A4C-9983-2D6FE9E2C5DB}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:51:22Z"
+}
+|metadata|
+////
+
+= WinSchedule の使用
+
+このセクションには、2 つ以上の WinSchedule™ コントロールおよびコンポーネントに適用する機能を使用する方法を紹介する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winschedule-create-and-display-an-appointment.html[予定の作成と表示]
+* link:winschedule-appointment-dragging-and-resizing-enhancements.html[予定のドラッグおよびリサイズ機能の拡張]
+* link:winschedule-determine-which-winschedule-object-the-user-clicked.html[ユーザがクリックした WinSchedule オブジェクトを判別]
+* link:winschedule-display-week-numbers.html[週番号の表示]
+* link:winschedule-scroll-the-current-day-into-view.html[現在の日の表示領域へのスクロール]
+* link:winschedule-set-appearances-for-alternate-months.html[交互月の外観を設定]
+* link:winschedule-share-data-selection-and-appearances.html[データ、選択項目、および外観の共有]
+* link:winschedule-use-appointmentaction-to-run-an-external-application.html[AppointmentActionを使用して外部アプリケーションを実行する]
+* link:winschedule-use-performaction-to-navigate-to-the-next-day.html[PerformAction を使用して次の日に移動する]
+* link:winschedule-use-the-click-to-add-indicator.html[追加インジケータにクリックを使用]
+* link:winschedule-order-of-precedence-for-datesettings,-recurringdatesettings,-and-dayofweeksettings.html[DateSettings、RecurringDateSettings および DayofWeekSettings 優先順位]
+* link:winschedule-setting-date-specific-non-contiguous-working-hours-for-different-owners.html[異なるオーナーに対して日付固有の非連続就業時間を設定]

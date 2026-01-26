@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridfilteruiprovider-api-overview",
+    "controlName": [],
+    "tags": ["API","Filtering","Getting Started"],
+    "guid": "{A968CB4D-639D-4FC3-922A-38A2A3D5AD77}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinGrid 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider.html[Infragistics.Win.SupportDialogs 名前空間]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider.html[UltraGridFilterUIProvider]"]

@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-accomplish-simple-tasks-with-the-performaction-method",
+    "controlName": [],
+    "tags": ["Events","How Do I"],
+    "guid": "{28C13959-1365-4ACB-8B91-FAD583DDE786}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:28:41Z"
+}
+|metadata|
+////
+
+= PerformAction メソッドで簡単なタスクを実行
+
+WinFormattedTextEditor には、エンド ユーザーのワープロの使い勝手をより便利にする複数の pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor~keyactionmappings.html[KeyActionMappings]"]  が含まれています。これらのマッピングのそれぞれは、関連付けられたアクションがあります。デフォルトの KeyActionMappings の完全なリストについては、 link:winformattedtexteditor-default-keyactionmappings-for-winformattedtexteditor.html[「WinFormattedTextEditor のデフォルト KeyActionMappings」]を参照してください。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo.html[EditInfo]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~performaction(formattedlinkeditoraction).html[PerformAction]"]  メソッドを使用すれば、エンドユーザーがキーボードで実行できるコードを通して任意のアクションを実行できます。
+
+以下のコードは、すべてのテキストを選択し、それを削除して WinFormattedTextEditor コントロールのコンテンツをクリアする方法を説明します。アプリケーションを開く時にドキュメントが空であることを確認したい場合、FormLoad イベントにこのコードを配置できます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.FormattedLinkLabel
+Private Sub Form1_Load(ByVal sender As System.Object,_
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraFormattedTextEditor1.EditInfo.PerformAction(
+          FormattedLinkEditorAction.SelectAll)
+        Me.UltraFormattedTextEditor1.EditInfo.PerformAction(
+          FormattedLinkEditorAction.Delete)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.FormattedLinkLabel;
+private void Form1_Load(object sender, System.EventArgs e)
+{
+        this.ultraFormattedTextEditor1.EditInfo.PerformAction(
+          FormattedLinkEditorAction.SelectAll);
+        this.ultraFormattedTextEditor1.EditInfo.PerformAction(
+          FormattedLinkEditorAction.Delete);
+}
+----

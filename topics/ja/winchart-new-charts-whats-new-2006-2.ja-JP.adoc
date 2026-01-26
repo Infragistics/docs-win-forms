@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-new-charts-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C7289245-FBA0-4DAD-9454-352DEE1EA3E9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しいグラフ
+
+2006 Volume 2 リリースで、以下の平面および立体チャートを増え続けるチャート スイートに追加しました。
+
+* link:winchart-3d-bubble-chart-whats-new-2006-2.html[立体バブル チャート]
+* link:winchart-3d-cone-chart-whats-new-2006-2.html[立体円錐グラフ]
+* link:winchart-2d-and-3d-funnel-charts-whats-new-2006-2.html[平面および立体ファンネル チャート]
+* link:winchart-3d-point-chart-whats-new-2006-2.html[立体ポイント チャート]
+* link:winchart-2d-and-3d-pyramid-charts-whats-new-2006-2.html[平面および立体ピラミッド チャート]

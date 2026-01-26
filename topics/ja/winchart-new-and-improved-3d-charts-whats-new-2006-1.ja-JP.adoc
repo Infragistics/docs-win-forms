@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-new-and-improved-3d-charts-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4078590D-3E7D-4A98-A66B-AF3324A1CF79}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 立体グラフ機能の新規追加と強化
+
+Infragistics 2006 volume 1 リリースのチャート スイートには、いくつかの新しい立体チャートが追加されました。これにより、立体チャートをより自由に配置することができるようになりました。以下のリンクをクリックすると、それぞれの種類のチャートの例を見ることができ、新しい立体チャートのすばらしさを知ることができます。
+
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-07.png[3D円柱棒グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-08.png[3D円柱円状グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-09.png[立体ドーナツ型グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-10.png[3D積層型円柱棒グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-11.png[3D積層型円柱円状グラフ]
+
+新しい立体チャートを追加するとともに、既存の立体グラフ作成機能も新しい 3D グラフ描画エンジンの利点を活用するように設計しなおされました。以下のリンクをクリックすると、画期的に進歩した立体チャートの画像の例を見ることができます。
+
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-01.png[立体棒グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-02.png[立体縦棒グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-03.png[立体円グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-04.png[立体積層型横棒グラフ]
+* link:images/winchart-new-and-improved-3d-charts-whats-new-2006-1-05.png[立体積層型縦棒グラフ]
+
+以下の左側のスクリーンショットは、既存のグラフ描画エンジンで作成した立体棒グラフの例です。右側のスクリーンショットを見ると、新しい 3D グラフ描画エンジンで描画した立体棒グラフで画質と外観が大幅に改善されたことが明らかです。
+
+image::Images/WinChart_New_and_Improved_3D_Charts_Whats_New_2006_1_06.png[]
+
+image::images/winchart-new-and-improved-3d-charts-whats-new-2006-1-01.png[]
+
+== 関連トピック
+
+link:winchart-new-3d-chart-rendering-engine-whats-new-2006-1.html[新しい 3D グラフ描画エンジン]
+
+link:chart-chart-types.html[チャート タイプ]

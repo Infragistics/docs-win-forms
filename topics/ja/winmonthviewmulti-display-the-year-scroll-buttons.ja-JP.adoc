@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmonthviewmulti-display-the-year-scroll-buttons",
+    "controlName": ["WinMonthViewMulti"],
+    "tags": ["How Do I"],
+    "guid": "{663B1492-A9A7-4FC3-B90B-F66BD5C75F46}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 年スクロール ボタンを表示
+
+年のスクロール ボタンを WinMonthViewMulti に追加することは、単純なプロパティ変更です。デフォルトでは、年のスクロール ボタンは非表示で、表示されるのは月スクロール ボタンだけです。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewmultibase~yearscrollbuttonsvisible.html[YearScrollButtonsVisible]"]  プロパティを True に設定することで、年スクロール ボタンが月スクロール ボタンの外側の端に表示されます。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewmultibase~yearscrollchange.html[YearScrollChange]"]  プロパティを設定することで年スクロール ボタンをエンド ユーザーがクリックすると、スクロールされる年数を変更することもできます。
+
+以下のコードは、年スクロール ボタンを強制的に表示し、ボタンをクリックすると 2 年分がスクロールします。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+' 年スクロール ボタンを表示します。
+Me.UltraMonthViewMulti1.YearScrollButtonsVisible = DefaultableBoolean.True
+' 年スクロール ボタンを 1 度クリックすると 2 年分がスクロールします。
+Me.UltraMonthViewMulti1.YearScrollChange = 2
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+// 年スクロール ボタンを表示します。
+this.ultraMonthViewMulti1.YearScrollButtonsVisible = DefaultableBoolean.True;
+// 年スクロール ボタンを 1 度クリックすると 2 年分がスクロールします。
+this.ultraMonthViewMulti1.YearScrollChange = 2;
+----
+
+image::images/WinMonthViewMulti_Display_the_Year_Scroll_Buttons_01.png[]

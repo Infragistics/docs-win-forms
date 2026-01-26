@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-tab-layout",
+    "controlName": ["WinTab"],
+    "tags": ["Layouts"],
+    "guid": "{651EA797-6732-4F62-9E48-0FFB389FD09C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タブのレイアウト
+
+このトピックは、WinTab™ コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tablayoutstyle.html[TabLayoutStyle]"]  プロパティを使用して、単一行または複数行でタブを表示できる方法を示します。また、複数行でタブを表示する場合、WinTab コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tabsperrow.html[TabsPerRow]"]  プロパティを使用して、各行で表示されるタブの数を指定できます。
+
+このトピックは、WinTab コントロールがタブが 4 つあるフォームにドロップされたことを前提とします。
+
+*Visual Basic の場合：*
+
+----
+' 複数行で表示されるタブを設定します 
+Me.ultraTabControl1.TabLayoutStyle = TabLayoutStyle.MultiRowTabsPerRow 
+' 各行のタブの数を 2 に設定します 
+Me.ultraTabControl1.TabsPerRow = 2
+----
+
+*C# の場合：*
+
+----
+// 複数行で表示されるタブを設定します
+this.ultraTabControl1.TabLayoutStyle = TabLayoutStyle.MultiRowTabsPerRow;
+// 各行のタブの数を 2 に設定します
+this.ultraTabControl1.TabsPerRow = 2;
+----
+
+以下のスクリーンショットは、4 つのタブがある WinTab コントロールを示しており、タブは各行 2 つずつの複数行にレイアウトされます。
+
+image::Images/WinTab_Tab_Layout.png[]

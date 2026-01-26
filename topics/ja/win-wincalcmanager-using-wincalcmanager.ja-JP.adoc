@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wincalcmanager-using-wincalcmanager",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Application Scenarios"],
+    "guid": "{5225AB4C-FD90-4E42-BFE5-FB787DDA6E33}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T13:54:14Z"
+}
+|metadata|
+////
+
+= WinCalcManager の使用
+
+このセクションでは、WinCalcManager™ コンポーネントを使用するときのよくあるシナリオおよびタスクを説明する詳細な手順ごとのチュートリアルを提供します。
+
+* link:wincalcmanager-formula-and-reference-guide.html[WinCalcManager Formula and Reference Guide]
+* link:wincalcmanager-namedreferences-formula.html[NamedReferences フォーミュラ]
+* link:wincalcmanager-setting-wincalcmanager-formulas-at-run-time.html[WinCalcManager の数式をランタイムに設定する]
+* link:wincalcmanager-summing-two-controls-at-design-time.html[デザインタイムに 2 つのコントロールの値を合計する]
+* link:using-wincalcmanager-with-wingrid.html[WinGrid での WinCalcManager の使用]
+* link:wincalcmanager-using-wincalcmanager-with-the-datagridview-control.html[DataGridView コントロールで WinCalcManager を使用する]
+* link:wincalcmanager-using-formulabuilder-at-run-time.html[フォーミュラ ビルダーをランタイムに使用する]

@@ -1,0 +1,179 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2018 Volume 2 の新機能
+
+toc::[]
+
+== {ExcelEngineName} 機能
+
+=== チャート サポート
+
+image:images/whats_new_excel_charts.png[]
+
+Excel ライブラリにチャーティング サポートが追加されました。70 タイプを超えるチャートは、ダッシュボード レポートでデータを簡単に可視化します。Excel チャーティング API は、凡例、タイトル、軸タイトル、その他グリッドライン、目盛線、色などのスタイル設定オプションを多数含むチャートの描画を完全に制御できます。簡単に　Excel チャート機能を再現できます。MS Excel をインストール必要はありません。
+
+Excel ドキュメントにチャートを簡単に追加できます。Infragistics Excel ライブラリは、Worksheet オブジェクトのインスタンスを取得し、Shapes コレクションで AddChart メソッドを呼び出します。作成するチャートのタイプ (70 タイプ)、チャートのサイズと位置、チャートに適用する書式設定を提供します。
+
+{ExcelEngineName} の Excel チャートの詳細情報に関しては、link:excelengine-adding-a-chart-to-an-excel-worksheet.html[Excel ワークシートにチャートを追加 {ExcelEngineName}] トピックを参照してください。
+
+=== スパークライン
+
+Excel Engine は Excel ワークシートに折れ線、棒状、積層型スパークラインを追加することをサポートします。XLSX ファイル形式にする必要があります。
+
+image:images/ExcelChart_Sparklines.png[]
+
+{ExcelEngineName} の Excel チャートの詳細情報に関しては、link:excelengine-adding-a-sparkline-to-an-excel-worksheet.html[スパークラインをワークシートに追加 ({ExcelEngineName})] トピックを参照してください。
+
+== {SpreadsheetName} 機能
+
+=== セル書式設定ダイアログ
+{SpreadsheetName} を使用してセル データの表示方法を変更できます。たとえば、小数点の右にある桁数を指定、あるいはセルにパターンおよび境界線を追加できます。この設定を「セルの書式設定」ダイアログ ボックスでアクセスして変更できます。(セルを右クリックして書式設定セルを選択)。
+
+==== 表示形式タブ
+デフォルトですべてのワークシート セルが一般的な数値形式で書式設定されます。一般的な形式では、セルに入力された値はそのまま使用されます。たとえば、セルに 36526 と入力して Enter を押した場合、セル コンテンツは 36526 と表示されます。セルで一般的な数値形式が使用されるためです。ただし、最初にセルを通貨として書式設定した場合、数字 36526 は $36,526.00 として表示されます。
+
+image:images/Format_Cells_Dialog_Number.png[]
+
+==== 配置タブ
+テキストと数値を配置し、配置タブを使用してセルの方向を変更してテキスト コントロールを指定できます。
+
+image:images/Format_Cells_Dialog_Alignment.png[]
+
+==== フォント タブ
+用語「フォント」は、書体 (Arial など) とその属性 (ポイント サイズ、フォント スタイル、下線、色、エフェクト) を指します。セル書式設定ダイアログ ボックスのフォント タブを使用してこれらの設定を制御します。ダイアログ ボックスのプレビュー セクションのレビューで設定のプレビューを表示できます。
+
+image:images/Format_Cells_Dialog_Font.png[]
+
+==== 罫線タブ
+Excel で単一セルまたはセルの範囲の周りに境界線を配置できます。セルの左上角から右下角、またはセルの左下角から右上角へ線を描画できます。
+線のスタイル、線の太さ、または線の色を変更してデフォルト設定のセルの境界線をカスタマイズできます。
+
+image:images/Format_Cells_Dialog_Border.png[]
+
+==== 塗りつぶしタブ
+セル書式設定ダイアログ ボックスの塗りつぶしタブを使用して選択セルの背景色を設定します。[パターン リスト] を使用して 2 色パターンまたはセル背景にシェードを適用できます。
+
+image:images/Format_Cells_Dialog_Fill.png[]
+
+==== 保護タブ
+[保護] タブでワークシートをロックしてデータや数式を保護できます。このオプションは、ワークシートも保護しない限り、効果はありません。
+
+image:images/Format_Cells_Dialog_Protection.png[]
+
+セル書式設定ダイアログの詳細については、link:spreadsheet-format-cells-dialog.html[セル書式設定ダイアログ]を参照してください。
+
+=== {SpreadsheetName} のユーザー設定の並べ替えダイアログ
+
+image:images/spreadsheet_sort_dialog_whats_new.png[]
+
+Excel ドキュメントで並べ替えは重要な機能ですが、ユーザー設定の並べ替えダイアログでは Excel データのカスタムな並べ替えが可能です。たとえば、Department 列と Employee 列がある場合に Department (すべての従業員を同じ部署でグループ化) で並べ替えてから名前 (各部署内でアルファベット順) で並べ替えるなどの設定が可能です。
+
+{SpreadsheetName} の並べ替えダイアログの詳細については、link:spreadsheet-uiu-custom-sort-dialog.html[並べ替えダイアログのインタラクション {SpreadsheetName}] トピックを参照してください。
+
+
+=== トップ 10 フィルター ダイアログ
+
+image:images/whats_new_excel_top_10.png[]
+
+トップ 10 機能を使用してリストをフィルター時に上位 10 項目または 10 パーセントのみが表示されます。また、数値またはパーセンテージが下位のレコードを表示することも可能です。たとえば、企業のトップ給与を示す場合、Salary 列をフィルターしてトップ 10 の給与のレコードのみ表示できます。トップ 10 パーセントの給与所得者をフィルターした場合は、合計の 10 % の収入を得た人のみが含まれます。
+
+トップ 10 は、任意のパーセンテージでフィルターできます。
+
+=== フィルタリングと並べ替えの改善
+
+18.1 でオートフィルター ドロップダウンを追加しました。ドロップダウンは昇順/降順に並べ替えるメニュー項目が含まれ、列に適用されたフィルターをクリアして数値/日付/テキスト フィルターを適用できます。ただし、前景色、塗りつぶし、アイコンに基づいて並べ替えやフィルターする機能はサポートされませんでした。18.2 では、ドロップダウンの項目を前景、塗りつぶし、列内のセル アイコンに基づいてフィルタリング、並べ替えできます。
+
+=== フィルタリング メニュー 
+
+image:images/whats_new_excel_filter_menu.png[] 
+
+=== 並べ替えメニュー
+
+image:images/whats_new_excel_sorting_menu.png[] 
+
+=== 選択の解除
+
+Excel の複数セルや範囲を選択した後に選択範囲を変更できます。Ctrl キーを押しならがらクリック、あるいはクリックアンドドラッグで選択したセルまたは範囲の選択を解除できます。セルを再度選択する場合は、Ctrl キーを押しながらセルをクリックして選択します。
+
+== UltraCategoryChart
+
+=== コールアウト注釈
+
+image:images/whats_new_category_chart_callouts.png[]
+
+コールアウト注釈は重要なデータポイントに注釈を追加、あるいはロジックに基づくコールアウト ボックスの値をカスタマイズできます。たとえば、データ ソース内の最大値を計算できます。
+
+コールアウト レコメントの詳細情報に関しては、link:categorychart-annotation-and-overlays.html#CalloutLayer[注釈とオーバーレイ  トピック]をを参照してください。
+
+=== 十字線レイヤー 
+
+image:images/whats_new_category_chart_crosshair.png[]
+
+カーソルの位置に水平線、垂直線またはその両方で十字線の表示を設定できます。十字線レイヤーはカーソルの位置に一致するデータ ポイントを表示し、X 軸と Y 軸ラベルの上にカラーボックスで値を表示できます。
+
+十字線レイヤーの詳細情報に関しては、link:categorychart-annotation-and-overlays.html#CrosshairLayer[注釈とオーバーレイ トピック]を参照してください。
+
+=== 最終値の注釈 
+
+image:images/whats_new_category_chart_final_value.png[]
+
+カテゴリ チャートでは、データ ソース内の最終データ ポイントの値に最終値注釈を追加する方法を示します。この注釈は Y 軸ラベルで各データソースにカラーボックスとして描画されます。
+
+最終値の注釈の詳細に関しては、link:categorychart-annotation-and-overlays.html#FinalValueLayer[注釈とオーバーレイ  トピック]を参照してください。
+
+=== ハイライト レイヤー
+
+image:images/whats_new_category_chart_highlight.png[]
+
+カテゴリ チャートは、ユーザーがプロットしたデータ ポイントをホバーする 2 つのハイライト レイヤーを表示できます。  
+
+*  カテゴリ ハイライト レイヤーは、マウスカーソルに最も近いカテゴリの最初から最後に拡張する垂直の長方形を描画します。この長方形は、デフォルトで半透明な灰色で塗りつぶされます。
+
+*  項目ハイライト レイヤーは、マウスカーソルに最も近いカテゴリの各データ項目の垂直長方形を描画します。この長方形は、デフォルトでシリーズの色と一致する半透明色で塗りつぶされます。
+
+十字線レイヤーの詳細に関しては、link:categorychart-annotation-and-overlays.html#CategoryHighlightLayer[注釈とオーバーレイ  トピック]を参照してください。
+
+=== ツールチップ タイプ
+
+image:images/whats_new_category_chart_tooltip.png[]
+
+カテゴリ チャートの ToolTipType プロパティは 2 つのツールチップタイプが追加されました。
+
+*  データ カテゴリ内のすべてのシリーズのツールチップを組み合わせて描画するカテゴリ ツールチップ。
+
+*  データ カテゴリの各シリーズの個々のツールチップを描画する項目ツールチップ。
+
+ツールチップ、レイヤーの詳細に関しては、link:categorychart-annotation-and-overlays.html#CategoryTooltipLayer[注釈とオーバーレイ  トピック]を参照してください。
+
+== UltraDataChart
+
+=== Callouts Layer  
+
+image:images/whats_new_datachart_callout.png[]
+
+コールアウト レイヤーは、データ チャートの新機能です。データ ポイントに注釈したり、値を表示したりできます。コールアウト レイヤーは複数データ シリーズまたは単一のデータ シリーズで使用できます。このコールアウト レイヤーの外観をカスタマイズして、コールアウト ラベルをデータ項目にバインドや連続したデータ ポイント間の変更を計算します。
+
+コールアウト レイヤーの情報に関しては、link:datachart-calloutlayer.html[コールアウト レイヤートピック]を参照してください。
+
+=== 十字線レイヤー
+
+image:images/whats_new_datachart_crosshair.png[]
+
+十字線レイヤーの注釈機能は、マウス カーソルの位置にデータ ポイントの値を表示し、X 軸と Y 軸ラベルの上にカラーボックスで値を表示できます。
+
+十字線レイヤーの情報に関しては、link:datachart-crosshairlayer.html[十字線レイヤー トピック]を参照してください。
+
+=== 最終値レイヤー  
+
+image:images/whats_new_datachart_final_value.png[]
+
+最終値レイヤーは、データソースの最後のデータポイントの値を示す注釈レイヤーです。この注釈は Y 軸ラベルで各データソースにカラーボックスとして描画されます。
+
+最終値レイヤーの詳細情報に関しては、link:datachart-finalvaluelayer.html[最終値レイヤー トピック]を参照してください。

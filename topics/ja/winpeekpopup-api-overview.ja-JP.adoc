@@ -1,0 +1,10 @@
+﻿= API 概要
+
+
+このセクションでは、コントロールに関連する各名前空間を示します。また、プログラミングをする時に使用する複数複数のキー クラスも表示します。このページの名前空間とクラスは API マニュアルに直接リンクします。
+
+== WinPeekPopup 名前空間:
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[Infragistics.Win.Misc 名前空間]
+
+== キー クラス:
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapeekpopup.html[UltraPeekPopup]

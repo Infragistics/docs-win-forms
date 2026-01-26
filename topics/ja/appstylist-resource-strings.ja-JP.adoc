@@ -1,0 +1,1078 @@
+﻿////
+
+|metadata|
+{
+    "name": "appstylist-resource-strings",
+    "controlName": [],
+    "tags": ["Resource Strings"],
+    "guid": "{84318F6C-ED7A-47D7-B7D9-40B6FA32BD24}",  
+    "buildFlags": [],
+    "createdOn": "2006-02-06T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics AppStylist リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|Application_AutoRefresh_Button
+|自動更新
+
+|Application_CanvasOptions_Button
+|キャンバス オプション
+
+|Application_CanvasOptions_PreviewCanvas_Label
+|プレビュー キャンバス
+
+|Application_Dialog_Title
+|Infragistics AppStylist for Windows Forms - {0}
+
+|Application_DisableAppStyling_Status
+|Infragistics AppStylist for Windows Forms コントロール上でのスタイリングを無効化中
+
+|Application_DisplayStartPage_Status
+|開始ページを表示する
+
+|Application_Initialize_Status
+|Infragistics AppStylist for Windows Forms を初期化中
+
+|Application_InitializeSupport_Status
+|Infragistics AppStylist for Windows Forms サポートを初期化中
+
+|Application_LoadingCanvases_Status
+|キャンバスをロード中です。
+
+|Application_LoadUserSettings_Status
+|ユーザー設定をロード中です。
+
+|Application_ProcessCommandLine_Status
+|コマンドライン引数の処理中です。
+
+|Application_PropertiesPane
+|プロパティ
+
+|Application_PropertiesPane_NavigatorText
+|UI ロール設定、そして一部のコントロール固有の設定を調整するために使用されるペイン。
+
+|Application_StyleExplorerPane
+|スタイル エクスプローラー
+
+|Application_StyleExplorerPane_NavigatorText
+|UI ロール、コンポーネント ロール、または共有オブジェクト ロールを参照するためのナビゲーション ツールを提供します。
+
+|Application_StyleLibraryPropertiesPane
+|スタイル ライブラリ プロパティ
+
+|Application_StyleLibraryPropertiesPane_NavigatorText
+|スタイル ライブラリのプロパティの調整に使用するペイン。例えば Office2007 の色スキーマ設定など。
+
+|Canvas_Schedule_GanttView_Notes
+|メモ
+
+|Canvases_DockManager_CalendarComboPane
+|UltraCalendarCombo
+
+|Canvases_DockManager_ColorPickerPane
+|UltraColorPicker
+
+|Canvases_DockManager_DateTimePane
+|UltraDateTimeEditor
+
+|Canvases_DockManager_ExplorerBarPane
+|UltraExplorerBar 付きの DockablePane
+
+|Canvases_DockManager_MaskedEditPane
+|UltraMaskedEditor 付きの DockablePane
+
+|Canvases_DockManager_MonthViewMultiPane
+|UltraMonthViewMulti
+
+|Canvases_DockManager_NavigatorText
+|さまざまなコントロール付きの複数のドック可能なペインで整列されたキャンバス。
+
+|Canvases_DockManager_Title
+|ドック マネージャー
+
+|Canvases_DockManager_UltraComboPane
+|UltraComboEditor 付き DockablePane
+
+|Canvases_Editors_BoundGridEditors
+|バウンド グリッド エディター
+
+|Canvases_Editors_DropDownButton
+|スライダー付 DropDownButton
+
+|Canvases_Editors_FormattedTextValue
+|<b>書式化</b> <i>テキスト</i>
+
+|Canvases_Editors_NavigatorText
+|WinEditors のすべてで整列されたキャンバス。
+
+|Canvases_Editors_ProgressBarGroupBox
+|スライダーコントロール付のプログレス バー
+
+|Canvases_Editors_ShowSpellCheckDialog
+|スペルチェック ダイアログを表示
+
+|Canvases_Editors_TextBoxLabel
+|スペルチェックを行うテキストボックス:
+
+|Canvases_Editors_Title
+|エディター
+
+|Canvases_Grid_Band0_Caption
+|バンド ヘッダー
+
+|Canvases_Grid_Band1_Caption
+|関係 1
+
+|Canvases_Grid_CellError
+|Cell Error
+
+|Canvases_Grid_EditFormula_Button
+|数式の編集
+
+|Canvases_Grid_Formula
+|数式
+
+|Canvases_Grid_NavigatorText
+|UltraGrid と UltraCombo 付きのキャンバス
+
+|Canvases_Grid_Right_Fixed_Header
+|右側固定ヘッダー
+
+|Canvases_Grid_RowError
+|Row Error
+
+|Canvases_Grid_Title
+|グリッド
+
+|Canvases_Home_CreateLibrary_Caption
+|新しいライブラリの作成
+
+|Canvases_Home_GettingStarted_Caption
+|はじめに
+
+|Canvases_Home_NavigatorText
+|Infragistics AppStylist for Windows Forms 使用して開始するための基本的なヘルプを提供するフォーム。
+
+|Canvases_Home_OpenLibrary_Caption
+|開く...
+
+|Canvases_Home_OpenRecent_Caption
+|最近のファイルを開く
+
+|Canvases_Home_StepFour
+|キーボードを使用して希望のロールに<<font color="139,196,237" face="Trebuchet MS"><font color="21, 28, 85"><b>ナビゲート</b></font>するか、左側のツリーからロールを選択します。</font>
+
+|Canvases_Home_StepOne
+|スタイル ライブラリを<font color="139,196,237" face="Trebuchet MS"><font color="21, 28, 85"><b>作成/開きます</b></font>。</font>
+
+|Canvases_Home_StepThree
+|使用できるスタイリング ポイントを確認するためにマウスをキャンバス上の項目に<font color="139,196,237" face="Trebuchet MS"><font color="21, 28, 85"><b>置きます</b></font> 。
+
+|Canvases_Home_StepTwo
+|タブからプレビュー キャンバスを<font color="139,196,237" face="Trebuchet MS"><font color="21, 28, 85"><b>選択</b></font>します。
+
+|Canvases_Home_Title
+|開始
+
+|Canvases_Inbox_Button
+|ボタン
+
+|Canvases_Inbox_CheckBox
+|CheckBox
+
+|Canvases_Inbox_ComboBox
+|ComboBox
+
+|Canvases_Inbox_GroupBox
+|GroupBox
+
+|Canvases_Inbox_RadioButton
+|RadioButton
+
+|Canvases_Inbox_TextBox
+|TextBox
+
+|Canvases_InboxControls_NavigatorText
+|インボックス .NET コントロールおよび InboxControlStyler を含むキャンバス
+
+|Canvases_InboxControls_Title
+|インボックス コントロール
+
+|Canvases_Messages_MessageInfo_Footer
+|インターネットのファイルは役に立ちますが、このファイルの種類はコンピューターに問題を起こす可能性があります。信頼する発行元のソフトウェアのみ実行してください。<a href="http://jp.infragistics.com">Infragistics Web サイト</a>
+
+|Canvases_Messages_MessageInfo_Header
+|このソフトウェアを実行しますか？
+
+|Canvases_Messages_MessageInfo_Text
+|<span >名前: Infragistics Professional</span><br/>発行元: Infragistics
+
+|Canvases_Messages_NavigatorText
+|コントロールに提供するさまざまな情報メッセージを使用するキャンバス
+
+|Canvases_Messages_Title
+|メッセージ
+
+|Canvases_Misc_DesktopAlert_Caption
+|デスクトップ アラート
+
+|Canvases_Misc_DesktopAlert_Footer
+|フッター テキスト
+
+|Canvases_Misc_DesktopAlert_Text
+|これは UltraDesktopAlert のインスタンスです。
+
+|Canvases_Misc_Expandable_GroupBox_Caption
+|拡張可能な PrintPreview 領域
+
+|Canvases_Misc_GridPreview_Groupbox_Caption
+|サムネイル プレビュー付きグリッド
+
+|Canvases_Misc_MouseArea_GroupBox_Caption
+|マウスをツールチップ用の領域に移動
+
+|Canvases_Misc_NavigatorText
+|UltraPrintPreview、UltraStatusBar、UltraExpandableGroupBox、および UltraTooltipManager などのコントロールを説明するキャンバス
+
+|Canvases_Misc_PrintPreviews_Label_Caption
+|印刷プレビュー
+
+|Canvases_Misc_RefreshPreview_Caption
+|プレビューの更新
+
+|Canvases_Misc_SampleToolTip_Text
+|スタイリングされてない UltraGroupBox のツールチップ
+
+|Canvases_Misc_SampleToolTip_Title
+|サンプル ツールチップ
+
+|Canvases_Misc_ShowDesktopAlert
+|デスクトップ アラートを表示
+
+|Canvases_Misc_ShowPrintPreview_Button_Caption
+|PrintPreview ダイアログを表示
+
+|Canvases_Misc_StatusBarPanel_AutoStatus
+|自動状態
+
+|Canvases_Misc_StatusBarPanel_GroupBoxCollapsed
+|縮小 GroupBox
+
+|Canvases_Misc_StatusBarPanel_GroupBoxExpanded
+|展開 GroupBox
+
+|Canvases_Misc_StatusBarPanel_MarqueeText
+|マーキー テキスト
+
+|Canvases_Misc_StatusBarPanel_State
+|状態
+
+|Canvases_Misc_Title
+|その他
+
+|Canvases_Navigation_ExplorerBar_Group1
+|グループ 1
+
+|Canvases_Navigation_ExplorerBar_Group2
+|グループ 2
+
+|Canvases_Navigation_ExplorerBar_Group3
+|グループ 3
+
+|Canvases_Navigation_ListViewGroup_Text
+|グループ {0}
+
+|Canvases_Navigation_ListViewItem_Text
+|項目 {0}
+
+|Canvases_Navigation_NavigatorText
+|UltraExplorerBar、UltraListView、および UltraTree 付きのキャンバス
+
+|Canvases_Navigation_Title
+|ナビゲーション
+
+|Canvases_Panels_NavigatorText
+|UltraSplitter などのコントロールを紹介するキャンバス
+
+|Canvases_Panels_tile1Content_Caption
+|タイル 1 内容
+
+|Canvases_Panels_tile2Content_Caption
+|タイル 2 内容
+
+|Canvases_Panels_tile3Content_Caption
+|タイル 3 内容
+
+|Canvases_Panels_tile4Content_Caption
+|タイル 4 内容
+
+|Canvases_Panels_tile5Content_Caption
+|タイル 5 内容
+
+|Canvases_Panels_tile6Content_Caption
+|タイル 6 内容
+
+|Canvases_Panels_tile7Content_Caption
+|タイル 7 内容
+
+|Canvases_Panels_Title
+|パネル
+
+|Canvases_Panels_UltraPanel_btnBottom_Caption
+|Bottom
+
+|Canvases_Panels_UltraPanel_btnLeft_Caption
+|左
+
+|Canvases_Panels_UltraPanel_btnRight_Caption
+|右
+
+|Canvases_Panels_UltraPanel_btnTop_Caption
+|Top
+
+|Canvases_Panels_ultraTile1_Caption
+|タイル 1
+
+|Canvases_Panels_ultraTile2_Caption
+|タイル 2
+
+|Canvases_Panels_ultraTile3_Caption
+|タイル 3
+
+|Canvases_Panels_ultraTile4_Caption
+|タイル 4
+
+|Canvases_Panels_ultraTile5_Caption
+|タイル 5
+
+|Canvases_Panels_ultraTile6_Caption
+|タイル 6
+
+|Canvases_Panels_ultraTile7_Caption
+|タイル 7
+
+|Canvases_ResetButton
+|キャンバスをリセット
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Close
+|閉じる
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Document1
+|ドキュメント 1
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Document2
+|ドキュメント 2
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Document3
+|ドキュメント 3
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Exit
+|終了
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_New
+|新規
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Open
+|開く
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Options
+|オプション
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_RecentDocuments
+|最近の文書
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_Save
+|保存
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_SaveAs
+|名前を付けて保存...
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_SaveAs_DocumentType1
+|ドキュメント タイプ 1
+
+|Canvases_Ribbon_ApplicationMenuTool_Caption_SaveAs_DocumentType2
+|ドキュメント タイプ 2
+
+|Canvases_Ribbon_ApplicationMenuTool_Description_New
+|新規ファイルの作成
+
+|Canvases_Ribbon_ApplicationMenuTool_Description_Open
+|既存のファイルを開く
+
+|Canvases_Ribbon_ButtonTool
+|ButtonTool
+
+|Canvases_Ribbon_ClipboardGroup
+|クリップボード
+
+|Canvases_Ribbon_FifthContext
+|5 つ目のコンテキスト
+
+|Canvases_Ribbon_FirstContext
+|最初のコンテキスト
+
+|Canvases_Ribbon_FontGroup
+|フォント
+
+|Canvases_Ribbon_FormattedText_RightClickHint
+|<p ><span >(右クリックでコンテキスト メニューを表示)</span></p>
+
+|Canvases_Ribbon_FourthContext
+|4 つ目のコンテキスト
+
+|Canvases_Ribbon_GlyphCheckbox
+|グリフ チェックボックス
+
+|Canvases_Ribbon_GlyphOption1
+|グリフ オプション1
+
+|Canvases_Ribbon_GlyphOption2
+|グリフ オプション2
+
+|Canvases_Ribbon_HomeTab_Caption
+|ホーム
+
+|Canvases_Ribbon_InsertTab_Caption
+|挿入
+
+|Canvases_Ribbon_MiscGroup
+|その他
+
+|Canvases_Ribbon_MiscGroup2
+|パネル
+
+|Canvases_Ribbon_ParagraphGroup
+|段落
+
+|Canvases_Ribbon_PopupControlContainer
+|PopupControlContainerTool
+
+|Canvases_Ribbon_PopupMenuTool
+|PopupMenuTool
+
+|Canvases_Ribbon_SecondContext
+|2 つ目のコンテキスト
+
+|Canvases_Ribbon_SixthContext
+|6 つ目のコンテキスト
+
+|Canvases_Ribbon_StylesGroup
+|スタイル
+
+|Canvases_Ribbon_TextBoxTool
+|TextBoxTool
+
+|Canvases_Ribbon_ThirdContext
+|3 つ目のコンテキスト
+
+|Canvases_Ribbon_Title
+|リボン
+
+|Canvases_Schedule_Appointment_Caption
+|予定 {0}
+
+|Canvases_Schedule_DayWeekTab_Caption
+|日/週のビュー
+
+|Canvases_Schedule_GanttView_ChildTask
+|子タスク
+
+|Canvases_Schedule_GanttView_Milestone
+|マイルストーン
+
+|Canvases_Schedule_GanttView_RootTask
+|ルート タスク
+
+|Canvases_Schedule_GanttView_SubTask
+|サブタスク
+
+|Canvases_Schedule_MonthTab_Caption
+|月のビュー
+
+|Canvases_Schedule_NavigatorText
+|さまざまな WinSchedule コントロールを使用するキャンバス、予定付きプリセット
+
+|Canvases_Schedule_TimelineView_DayCaption
+|日
+
+|Canvases_Schedule_TimelineView_HourCaption
+|時
+
+|Canvases_Schedule_TimelineView_MinuteCaption
+|分
+
+|Canvases_Schedule_TimelineView_MonthCaption
+|月
+
+|Canvases_Schedule_TimelineView_PrimaryIntervalCaption
+|第一
+
+|Canvases_Schedule_TimelineView_WeekCaption
+|週
+
+|Canvases_Schedule_TimelineView_YearCaption
+|年
+
+|Canvases_Schedule_TimelineViewTab_Caption
+|タイムライン ビュー
+
+|Canvases_Schedule_Title
+|スケジュール
+
+|Canvases_Splitters_lblDockedBottom_Caption
+|下端にドッキング
+
+|Canvases_Splitters_lblDockedLeft_Caption
+|左端にドッキング
+
+|Canvases_Splitters_lblDockedRight_Caption
+|右端にドッキング
+
+|Canvases_Splitters_lblDockedTop_Caption
+|上端にドッキング
+
+|Canvases_Splitters_Title
+|スプリッター
+
+|Canvases_Tabs_NavigatorText
+|UltraTabControl および UltraTabStripControl の複数のスタイルで飾られたキャンバス
+
+|Canvases_Tabs_Title
+|タブ
+
+|Canvases_Toolbars_BigMenu
+|メニュー(大)
+
+|Canvases_Toolbars_ColorPicker
+|色の選択
+
+|Canvases_Toolbars_ComboBoxTool
+|ComboBox
+
+|Canvases_Toolbars_LabelTool
+|ラベル ツール
+
+|Canvases_Toolbars_MaskedEditTool
+|MaskedEdit
+
+|Canvases_Toolbars_NavigatorText
+|UltraToolbarsManager を使用してツールバーの複数のタイプで設定されたキャンバス
+
+|Canvases_Toolbars_PanelLabel
+|独自のツールバーを持つパネルコントロール
+
+|Canvases_Toolbars_PopupMenu
+|ポップアップ メニュー
+
+|Canvases_Toolbars_TearoffMenu
+|ティアオフメニュー
+
+|Canvases_Toolbars_TextBoxTool
+|TextBox
+
+|Canvases_Toolbars_Title
+|ツールバー
+
+|Canvases_Toolbars_UserControlLabel
+|ユーザーコントロール上のツールバー
+
+|CanvasOptions_Grid_AppearanceTab_Caption
+|外観
+
+|CanvasOptions_Grid_Filtering_AllowFiltering
+|フィルタリングを許可
+
+|CanvasOptions_Grid_Filtering_FilterRow
+|フィルター行
+
+|CanvasOptions_Grid_Filtering_HeaderIcons
+|ヘッダー アイコン
+
+|CanvasOptions_Grid_Filtering_UseFilterProvider
+|フィルター プロバイダーの使用
+
+|CanvasOptions_Grid_FilteringGroup_Caption
+|フィルタリング
+
+|CanvasOptions_Grid_FunctionalityTab_Caption
+|機能
+
+|CanvasOptions_Grid_Misc_ShowColScrollRegion
+|ColScrollRegion の表示
+
+|CanvasOptions_Grid_Misc_ShowEmptyRows
+|空行の表示
+
+|CanvasOptions_Grid_Misc_ShowErrors
+|エラーの表示
+
+|CanvasOptions_Grid_Misc_ShowFixedHeaders
+|固定ヘッダーの表示
+
+|CanvasOptions_Grid_Misc_ShowGroupBox
+|GroupBy ボックスの表示
+
+|CanvasOptions_Grid_Misc_ShowRowPrompts
+|行プロンプトの表示
+
+|CanvasOptions_Grid_Misc_ShowRowScrollRegion
+|RowScrollRegion の表示
+
+|CanvasOptions_Grid_Misc_StretchColumnsToFill
+|塗つぶすために列を伸縮
+
+|CanvasOptions_Grid_MiscGroup_Caption
+|その他
+
+|CanvasOptions_Grid_NewRows_AllowAddRow
+|行の追加を許可
+
+|CanvasOptions_Grid_NewRows_FixedAddRow
+|固定された AddRow
+
+|CanvasOptions_Grid_NewRows_HideAddRow
+|AddRow を隠す
+
+|CanvasOptions_Grid_NewRows_ShowAddNewBox
+|追加ボックスの表示
+
+|CanvasOptions_Grid_NewRows_TemplateAddRow
+|テンプレート AddRow
+
+|CanvasOptions_Grid_NewRowsGroup_Caption
+|新しい行
+
+|CanvasOptions_Grid_Summaries_AllowSummaries
+|集計を許可
+
+|CanvasOptions_Grid_Summaries_Bottom
+|Bottom
+
+|CanvasOptions_Grid_Summaries_InGroupByRows
+|InGroupByRows
+
+|CanvasOptions_Grid_Summaries_ShowSummaryIcon
+|集計アイコンを表示
+
+|CanvasOptions_Grid_Summaries_Top
+|Top
+
+|CanvasOptions_Grid_SummariesGroup_Caption
+|集計
+
+|CanvasOptions_Grid_View_CardView
+|カード ビュー
+
+|CanvasOptions_Grid_View_Flat
+|フラット
+
+|CanvasOptions_Grid_View_Hierarchical
+|階層
+
+|CanvasOptions_Grid_View_OutlookGroupBy
+|OutlookGroupBy
+
+|CanvasOptions_Grid_ViewGroup_Caption
+|表示
+
+|CanvasOptions_Navigation_EB_ExplorerBar
+|ExplorerBar
+
+|CanvasOptions_Navigation_EB_ListBar
+|ListBar
+
+|CanvasOptions_Navigation_EB_Outlook
+|OutlookNavigationPane
+
+|CanvasOptions_Navigation_EB_Toolbox
+|ツールボックス
+
+|CanvasOptions_Navigation_EB_VS2005
+|VisualStudio2005Toolbox
+
+|CanvasOptions_Navigation_ExplorerBarStyleGroup_Caption
+|スタイル
+
+|CanvasOptions_Navigation_ExplorerBarTab
+|ExplorerBar
+
+|CanvasOptions_Navigation_ListViewStyleGroup_Caption
+|表示
+
+|CanvasOptions_Navigation_ListViewTab
+|ListView
+
+|CanvasOptions_Navigation_LV_Details
+|詳細
+
+|CanvasOptions_Navigation_LV_Icons
+|アイコン
+
+|CanvasOptions_Navigation_LV_List
+|リスト
+
+|CanvasOptions_Navigation_LV_Thumbnails
+|サムネイル
+
+|CanvasOptions_Navigation_LV_Tiles
+|タイル
+
+|CanvasOptions_Navigation_TreeTab
+|ツリー
+
+|CanvasOptions_Navigation_TreeViewStyleGroup_Caption
+|ツリー
+
+|CanvasOptions_Navigation_WT_FreeForm
+|FreeForm
+
+|CanvasOptions_Navigation_WT_Grid
+|グリッド
+
+|CanvasOptions_Navigation_WT_OutlookExpress
+|Outlook Express
+
+|CanvasOptions_Navigation_WT_Standard
+|標準
+
+|CanvasOptions_Ribbon_ApplicationMenu
+|ApplicationMenu
+
+|CanvasOptions_Ribbon_BackStage
+|BackStage
+
+|CanvasOptions_Ribbon_FileMenuStyleGroup_Caption
+|FileMenuStyle
+
+|CanvasOptions_Ribbon_RibbonTab
+|リボン
+
+|CanvasOptions_Tabs_CloseButtonLocation_Default
+|デフォルト
+
+|CanvasOptions_Tabs_CloseButtonLocation_HeaderArea
+|ヘッダー領域
+
+|CanvasOptions_Tabs_CloseButtonLocation_None
+|なし
+
+|CanvasOptions_Tabs_CloseButtonLocation_Tab
+|タブ
+
+|CanvasOptions_Tabs_CloseButtonLocationGroup_Caption
+|閉じるボタンの位置
+
+|CanvasOptions_Tabs_CloseButtonsTab
+|閉じるボタン
+
+|CanvasOptions_Tabs_CloseButtonVisibility_Always
+|常に表示
+
+|CanvasOptions_Tabs_CloseButtonVisibility_Default
+|デフォルト
+
+|CanvasOptions_Tabs_CloseButtonVisibility_Never
+|表示しない
+
+|CanvasOptions_Tabs_CloseButtonVisibility_WhenSelected
+|選択されたとき
+
+|CanvasOptions_Tabs_CloseButtonVisibility_WhenSelectedOrHotTracked
+|選択またはホットトラックされたとき
+
+|CanvasOptions_Tabs_CloseButtonVisibilityGroup_Caption
+|閉じるボタンの表示可能
+
+|CanvasOptions_Tabs_Style_Default
+|デフォルト
+
+|CanvasOptions_Tabs_Style_Excel
+|Excel
+
+|CanvasOptions_Tabs_Style_Flat
+|フラット
+
+|CanvasOptions_Tabs_Style_NotePage
+|NotePage
+
+|CanvasOptions_Tabs_Style_NotePageFlat
+|NotePageFlat
+
+|CanvasOptions_Tabs_Style_PropertyPage
+|PropertyPage
+
+|CanvasOptions_Tabs_Style_PropertyPage2003
+|PropertyPage2003
+
+|CanvasOptions_Tabs_Style_PropertyPageFlat
+|PropertyPageFlat
+
+|CanvasOptions_Tabs_Style_PropertyPageSelected
+|PropertyPageSelected
+
+|CanvasOptions_Tabs_Style_StateButtons
+|静的ボタン
+
+|CanvasOptions_Tabs_Style_VisualStudio
+|VisualStudio
+
+|CanvasOptions_Tabs_Style_VisualStudio2005
+|VisualStudio2005
+
+|CanvasOptions_Tabs_Style_Wizard
+|ウィザード
+
+|CanvasOptions_Tabs_StyleGroup_Caption
+|スタイル
+
+|CanvasOptions_Tabs_StyleTab
+|スタイル
+
+|FileMenu_Exit
+|終了(&X)
+
+|FileMenu_ExportImages
+|画像のエクスポート...
+
+|FileMenu_ExportResources
+|リソースのエクスポート
+
+|FileMenu_ImportResources
+|リソースのインポート
+
+|FileMenu_ManageISLGeneratorColorCategories
+|ISL ジェネレーター カラー カテゴリの管理...
+
+|FileMenu_New
+|新しいスタイル ライブラリ(&N)
+
+|FileMenu_NewBlankStyleLibrary
+|新しい空スタイル ライブラリ(&N)
+
+|FileMenu_NewStyleLibraryFromTemplate
+|テンプレートからの新規スタイル ライブラリ(&T)
+
+|FileMenu_NewStyleLibraryWizard
+|新しいスタイル ライブラリ（&N)...
+
+|FileMenu_Open
+|スタイル ライブラリを開く(&O)
+
+|FileMenu_Save
+|スタイル ライブラリの保存(&S)
+
+|FileMenu_SaveAs
+|スタイル ライブラリを新規保存(&A)
+
+|FileMenu_StyleLibraryProperties
+|スタイル ライブラリのプロパティ...
+
+|HelpMenu_About
+|Infragistics AppStylist for Windows Forms のバージョン情報(&A)...
+
+|LicenseErrorDialog_Contact
+|<a href="jp.infragistics.com">jp.infragistics.com</a>
+
+|LicenseErrorDialog_Contact_Caption
+|お問い合わせ先：
+
+|LicenseErrorDialog_Error_Caption
+|ライセンス エラー
+
+|LicenseErrorDialog_OK
+|OK
+
+|MainMenu_File
+|ファイル(&F)
+
+|MainMenu_Help
+|ヘルプ(&H)
+
+|MainMenu_Tools
+|ツール(&T)
+
+|MainMenu_View
+|表示(&V)
+
+|No_Selected_Object
+|（ロールまたはリソースが選択されていません）
+
+|No_Selected_StyleSet
+|（スタイルセットが選択されていません）
+
+|OptionsDialog_AppSplashScreen_Label_Caption
+|アプリケーション スプラッシュ画面
+
+|OptionsDialog_CancelButton_Caption
+|キャンセル
+
+|OptionsDialog_ColorScheme_Label_Caption
+|カラー スキーム
+
+|OptionsDialog_CreateNewstyleSetAction_LeaveThemesOn
+|テーマをオンにしておく
+
+|OptionsDialog_CreateNewstyleSetAction_Prompt
+|常にプロンプト
+
+|OptionsDialog_CreateNewstyleSetAction_TurnOffThemes
+|テーマをオフにする
+
+|OptionsDialog_DisplayRoleToolTips_Checkbox_Caption
+|ロールの選択ツールチップを表示する。
+
+|OptionsDialog_DisplayTo_EndLabel_Caption
+|最近のファイル リスト上のファイル
+
+|OptionsDialog_DisplayTo_FrontLabel_Caption
+|最大表示
+
+|OptionsDialog_Header_Title
+|Infragistics AppStylist for Windows Forms オプション
+
+|OptionsDialog_NewStyleSetComments_Label_Caption
+|システム テーマは、新しいスタイルセットを作成する時に自動的に無効にできます。ここでデフォルト動作を設定します。
+
+|OptionsDialog_NewStyleSetDialog_Label_Caption
+|新しいスタイルセット ダイアログ
+
+|OptionsDialog_Office2007ColorScheme_Black
+|黒
+
+|OptionsDialog_Office2007ColorScheme_Blue
+|青
+
+|OptionsDialog_Office2007ColorScheme_Silver
+|シルバー
+
+|OptionsDialog_PreviewChunkVisible_Always
+|常に表示
+
+|OptionsDialog_PreviewChunkVisible_Default
+|画面解像度に基づく
+
+|OptionsDialog_PreviewChunkVisible_Never
+|表示しない
+
+|OptionsDialog_RecentFilesList_Label_Caption
+|最近のファイル リスト
+
+|OptionsDialog_ResetButton_Caption
+|リセット
+
+|OptionsDialog_ResetLayoutButton_Caption
+|レイアウトをリセット
+
+|OptionsDialog_RolePreviews_Label_Caption
+|ロール プレビュー
+
+|OptionsDialog_SaveButton_Caption
+|保存
+
+|OptionsDialog_ShowPreviewInRoleEditor_Label_Caption
+|ロール エディターでプレビューを表示：
+
+|OptionsDialog_ShowSplashScreen_Checkbox_Caption
+|アプリケーション起動時にスプラッシュ画面の表示
+
+|OptionsDialog_Title
+|Infragistics AppStylist for Windows Forms オプション
+
+|OptionsDialog_Tooltips_Label_Caption
+|ツールチップ
+
+|OptionsDialog_UseThe_Label_Caption
+|使用
+
+|OptionsDialog_WhenCreatingNewStyleSet_Label_Caption
+|新しいスタイルセットを作成時：
+
+|Properties_Pane_Title
+|プロパティ- {0} - {1}
+
+|ToolsMenu_Options
+|オプション(&O)
+
+|Unnamed_ApplicationStyleLibrary
+|[]
+
+|UseThemesDialog_FirstComment
+|完全なスタイリング コントロールを持つために、このスタイルセットのシステム テーマをオフにします。
+
+|UseThemesDialog_Header_Caption
+|システム テーマをオフにしますか？
+
+|UseThemesDialog_No_Button_Caption
+|いいえ、そのままにする
+
+|UseThemesDialog_Note_Caption
+|注意: システム テーマは、テーマ化された要素 アルファを不透明に設定することで、特定のロールに対してオンにすることができます。
+
+|UseThemesDialog_Remember_Checkbox_Caption
+|この動作を記憶
+
+|UseThemesDialog_SecondComment
+|Infragistics の組み込み Windows API のテーマ サポートの利点を活用するためにシステム テーマをオンのままにします。
+
+|UseThemesDialog_Title
+|新しいスタイルセット オプション
+
+|UseThemesDialog_Yes_Button_Caption
+|はい、オフにします。
+
+|ViewMenu_DockManager_Canvas
+|DockManager キャンバス
+
+|ViewMenu_Editors_Canvas
+|エディター キャンバス
+
+|ViewMenu_Grid_Canvas
+|グリッド キャンバス
+
+|ViewMenu_InboxControls_Canvas
+|インボックス コントロール キャンバス
+
+|ViewMenu_Messages_Canvas
+|メッセージ キャンバス
+
+|ViewMenu_Misc_Canvas
+|その他キャンバス
+
+|ViewMenu_Navigation_Canvas
+|ナビゲーション キャンバス
+
+|ViewMenu_Panels_Canvas
+|パネル キャンバス
+
+|ViewMenu_Ribbon_Canvas
+|リボン キャンバス
+
+|ViewMenu_Schedule_Canvas
+|スケジュール キャンバス
+
+|ViewMenu_Splitters_Canvas
+|スプリッター キャンバス
+
+|ViewMenu_StartPage
+|開始ページ
+
+|ViewMenu_StyleLibraryPropertiesPane
+|スタイル ライブラリ プロパティ ペイン
+
+|ViewMenu_Tabs_Canvas
+|タブ キャンバス
+
+|ViewMenu_Toolbars_Canvas
+|ツールバー キャンバス
+
+|====

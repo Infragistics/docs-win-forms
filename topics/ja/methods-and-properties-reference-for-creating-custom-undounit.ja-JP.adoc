@@ -1,0 +1,155 @@
+﻿////
+|metadata|
+{
+    "name": "methods-and-properties-reference-for-creating-custom-undounit",
+    "controlName": [],
+    "tags": ["API","Application Scenarios","Tips and Tricks"],
+    "guid": "e1eabd96-cad2-418f-be8a-21682f5298e3",
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3900125Z"
+}
+|metadata|
+////
+
+= カスタム UndoUnit を作成するためのメソッドおよびプロパティ参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、Infragistics Undo/Redo Framework™ でカスタム UndoUnit を作成することに関連する使用可能なメソッドおよびプロパティをリストします。
+
+=== 前提条件
+
+以下の表は、このトピックを理解するための前提条件として必要なトピックを示しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+|====
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref321150202, カスタム UndoUnit を作成するためのメソッドおよびプロパティ参照 >>
+** <<_Ref321150208,はじめに>>
+** <<_Ref321150221,メソッド参照の概要>>
+** <<_Ref321150226,プロパティ参照の概要>>
+
+* <<_Ref321150232, 関連コンテンツ >>
+
+[[_Ref321150202]]
+== カスタム UndoUnit を作成するためのメソッドおよびプロパティ参照
+
+[[_Ref321150208]]
+
+=== はじめに
+
+link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit_members.html[UndoUnit] は変更を元に戻す/やり直すために使用される抽象基本クラスです。
+
+特定のタイプの変更の元に戻す/やり直しをサポートする必要がある場合、カスタム `UndoUnit` を作成する必要があります。このクラスは以下にリストされたいくつかの抽象メンバーを公開します。
+
+image::images/Methods_and_Properties_Reference_for_Creating_Custom_UndoUnit_1.png[]
+
+[[_Ref321150221]]
+
+=== メソッド参照の概要
+
+以下の表で、`UndoUnit` クラスによって公開されるメソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+|`Execute`
+|変更を元に戻す/やり直す操作を実行するのに使用されます。 
+
+このメソッドは link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undoexecutecontext_members.html[UndoExecuteContext] オブジェクトをパラメーターとして取得します。このパラメーターは以下に関する情報を提供します: 
+
+* 実行される操作のタイプ (たとえば - Undo、Redo、Rollback) 
+
+* 操作が実行される `UndoManager` への参照。 
+
+.注: 
+
+[NOTE] 
+
+==== 
+
+元に戻す/やり直し操作の間、オブジェクトは元に戻す/やり直しスタックから削除されますが、代替えのスタックに自動的に置かれません。 
+
+UndoUnit によって行われた変更は、AddChange メソッドを起動することにより (ヘルパー メソッドにより直接的または間接的に)、操作が元に戻す/やり直しスタックに追加されることが前提となります。 
+
+操作されるオブジェクトがこれを実行しない場合、カスタム UndoUnit が自分でこれを処理できます。 
+
+====
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit~getdescription.html[GetDescription]
+|変更のタイプの文字列説明を返します。 
+
+このメソッドは以下の 2 つのパラメーターを取ります。 
+
+* link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitemtype.html[UndoHistoryItemType] – どの履歴から説明が求められるのかを示す 
+
+* 詳細な説明が必要かどうかを示すブール値。 
+
+|`Merge`
+|`UndoUnit` を結合するためのカスタム サポートを提供するために使用されます。
+
+|====
+
+[[_Ref321150226]]
+
+=== プロパティ参照の概要
+
+以下の表で、`UndoUnit` クラスによって公開されるプロパティの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit~target.html[Target]
+|`UndoUnit` によって影響を受けるオブジェクトを識別します。 
+
+これは、メソッド `ForEach` または `RemoveAll` が使用されるときに主に情報のために使用される読み取り専用プロパティです。
+
+|====
+
+[[_Ref321150232]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:methods-reference-for-adding-undounits-to-the-undo-history.html[UndoUnits を元に戻す履歴に追加するためのメソッド参照]
+|このトピックは、UndoUnit 派生クラス オブジェクトを元に戻す履歴に追加するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-removing-undounits-from-the-history.html[UndoUnits を履歴から削除するためのメソッド参照]
+|このトピックは、UndoUnit インスタンスを元に戻す/やり直し履歴から削除するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-registering-unregistering-objects.html[オブジェクトの登録/登録解除のためのメソッド参照]
+|このトピックは、UndoManager インスタンスに特定のオブジェクトを登録/登録解除するメソッドをリストします。
+
+| link:methods-reference-for-performing-undo-redo-operations.html[元に戻す/やり直し操作を実行するためのメソッド参照]
+|このトピックは、元に戻す/やり直し操作を実行するために使用可能なメソッドをリストします。
+
+| link:methods-and-properties-reference-for-performing-transactions.html[トランザクションを実行するためのメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直しトランザクションを実行するための使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-and-properties-reference-for-merging-undoredo-operations.html[元に戻す/やり直し操作の結合のメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直し操作の結合に関係する使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-reference-for-suspending-and-resuming-saving-history.html[履歴の保存を中断および再開するためのメソッド参照]
+|このトピックは、履歴に元に戻す/やり直し操作を保存することを中断および再開するために使用可能なメソッドをリストします。
+
+|====

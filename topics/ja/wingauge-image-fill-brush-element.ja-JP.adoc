@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-image-fill-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{DEF11911-C10A-4066-8AE7-C42CCE8A4398}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像塗りつぶしブラシ エレメント
+
+ゲージ上のプロパティの背景を画像として表示したい場合には、ブラシ エレメントを [画像の塗りつぶし] に設定します。[画像の塗りつぶし] エレメントを選択すると、選択の画像を指定できます。以下を使用して、[画像の塗りつぶし] エレメントをプロパティに適用することができます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、目盛盤の BrushElement プロパティを画像として設定した状態のラジアル ゲージを示しています。
+
+image::images/Gauge_Image_Fill_01.png[]

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-controlcontainer-tool-now-works-inside-the-ribbon-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{27484DBE-6609-477A-AAB5-EF0CCA3F3578}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:25:13Z"
+}
+|metadata|
+////
+
+= ControlContainer がリボン内で機能する
+
+2006 Volume 3 リリースでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool.html[ControlContainerTool]"]  は、リボンがサポートしていなかった複数のツールのひとつでした。ControlContainer ツールは、ツールバーの非常に重要な部分です。このツールは .NET コントロールをホストでき、ツールバーで完全な互換性を提供します。これで ControlContainer ツールは RibbonGroup で使用することができ、リボンで Windows Forms コントロールをホストすることができます。
+
+デザインタイムとランタイムの両方のサポートで、ControlContainer ツールの追加は、他のツールをリボンに追加するのと同様に簡単です。Windows Forms コントロールのひとつまたはそれに対して .NET コントロールをインスタンス化すれば、そのコントロールに対して ControlContainer の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool~control.html[Control]"]  プロパティを設定する必要があります。
+
+image::images/WinToolbarsManager_ControlContainer_Tool_Now_Works_Inside_the_Ribbon_Whats_New_20071_01.png[]
+
+== 関連トピック
+
+link:wintoolbarsmanager-controlcontainer.html[ControlContainer ツール]
+
+link:wintoolbarsmanager-add-a-tool-to-a-ribbon-group.html[リボン グループにツールを追加]

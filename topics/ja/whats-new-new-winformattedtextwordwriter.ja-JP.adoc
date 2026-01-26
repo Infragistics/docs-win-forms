@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new winformattedtextwordwriter",
+    "controlName": [],
+    "tags": ["Exporting","Formatting"],
+    "guid": "d5736e50-5c97-480b-a571-133ce3674a14",  
+    "buildFlags": [],
+    "createdOn": "2011-05-13T15:11:21.6596752Z"
+}
+|metadata|
+////
+
+= 新しい WinFormattedTextWordWriter
+
+今回の {ProductName} 2011 Volume 1 のリリースでは、WinFormattedTextWordWriter™ という新しいコンポーネントが採用されました。このコンポーネントによって、WinFormattedTextEditor™ と WinFormattedLinkLabel™ のコンテンツを新しい Word ドキュメントに書き込むことができます。Infragistics.Documents.IO アセンブリの新しい link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] オブジェクトを使用すれば、フォント スタイル、フォント サイズ、テキストの配置、画像、ハイパーリンク、特殊文字、WinFormattedTextEditor コントロールと WinFormattedLinkLabel コントロールによってサポートされるその他の書式設定されたテキストと一緒にテキストがエクスポートされます。(図 1)。
+
+image::images/Whats_New_WinFormattedTextWordWriter_01.png[]
+
+図 1: WinFormattedTextEditor から Word ドキュメントにエクスポートされた時の書式設定されたテキスト
+
+== 関連トピック
+
+* link:winformattedtextwordwriter-about-winformattedtextwordwriter.html[WinFormattedTextWordWriter について]
+* link:winformattedtextwordwriter-export-formattedtexteditor-text-to-word.html[FormattedTextEditor テキストを Word にエクスポート]

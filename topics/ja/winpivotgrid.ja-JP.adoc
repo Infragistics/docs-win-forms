@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid",
+    "controlName": [],
+    "tags": [],
+    "guid": "5cb5135a-4cb0-4059-8c78-bbe1eb79cd0b",  
+    "buildFlags": [],
+    "createdOn": "2014-03-13T21:15:03.795181Z"
+}
+|metadata|
+////
+
+= WinPivotGrid
+
+== このグループのトピックについて
+
+=== はじめに
+
+このセクションは、Infragistics® Windows Forms® の  _WinPivotGrid_™ コントロールについてのトピックを含みます。
+
+link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}~infragistics.win.ultrawinpivotgrid.ultrapivotgrid_members.html[UltraPivotGrid] コントロールは、多次元データ (行と列) をエンド ユーザーに表示する機能を提供します。
+
+Visual Studio でコントロールのデザイナー ビュー。
+
+image::images/WinPivotGrid_1.png[]
+
+データにバインドされるコントロールのランタイム ビュー。
+
+image::images/WinPivotGrid_2.png[]
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-winpivotgrid-overview.html[WinPivotGrid の概要]
+|このトピックでは、 _WinPivotGrid_™ コントロールとその主な機能の概要を提供します。
+
+| link:winpivotgrid-using-winpivotgrid.html[WinPivotGrid の使用]
+|このセクションのトピックは、 _WinPivotGrid_™ コントロールの使用方法を説明します。
+
+| link:winpivotgrid-glossary.html[用語集]
+|このセクションは、ピボット グリッドのトピックでよく使用される用語を説明します。
+
+| link:winpivotgrid-api-overview.html[API の概要]
+|このセクションは、 _WinPivotGrid_™ コントロールの名前空間とキー クラスをリストします。
+
+|====

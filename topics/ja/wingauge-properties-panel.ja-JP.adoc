@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-properties-panel",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{C978732F-609A-4791-9A7B-F6FEA71D208E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プロパティ パネル
+
+ゲージ デザイナの [プロパティ] パネルは、現在選択されているゲージのプロパティを表示します。[プロパティ] パネルの詳細は、 link:wingauge-about-properties-panel.html[「プロパティ パネルについて」]を参照してください。
+
+[プロパティ] パネルはタブを使用してデザインされています。これらのタブによって、ゲージのプロパティを編集できます。タブは以下のカテゴリーに分られます。
+
+* link:wingauge-changing-the-layout-of-your-gauge.html[ゲージのレイアウトの変更]
+* link:wingauge-changing-the-appearance-of-your-gauge.html[ゲージの外観の変更]
+* link:wingauge-changing-the-annotations-on-your-gauge.html[ゲージ上の注釈の変更]
+* link:wingauge-applying-effects-to-your-gauge.html[効果をゲージに適用]

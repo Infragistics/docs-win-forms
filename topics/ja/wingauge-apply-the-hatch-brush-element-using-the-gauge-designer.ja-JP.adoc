@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-hatch-brush-element-using-the-gauge-designer",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{32519197-48DB-4E43-90F5-9B4CFF6C5FD8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ デザイナを使用してハッチ ブラシ エレメントを適用
+
+ゲージの外観にハッチ ブラシ エレメントを適用すると、そのエレメントは 2 色のパターン化された外観が提供されます。
+
+*ゲージ デザイナを使用して、ハッチ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラまたはインタラクティブなプレビュー領域で、ハッチ ブラシ エレメントを適用したいプロパティを選択します。
+[start=2]
+. [プロパティ] パネルの [外観] タブで、[タイプ] ドロップダウン リストから [ハッチ] を選択します。
+[start=3]
+. [詳細] ドロップダウン矢印をクリックします。
+[start=4]
+. 表示した小さいウィンドウで、以下のプロパティを設定します。
+
+** 背景色 - ドロップダウン矢印をクリックします。カラー ピッカーが表示します。左側で、[Web] をクリックし、次に [DimGray] を選択します。
+** 前景色 - ドロップダウン矢印をクリックします。カラー ピッカーが表示します。左側で、[Web] をクリックし、次に [シルバー] を選択します。
+** ハッチ スタイル - ドロップダウン リストから、[BackwardDiagonal] を選択します。
+
+image::images/Gauge_Apply_Hatch_Using_Gauge_Designer_01.png[]
+
+[start=5]
+. プロパティの指定が終了したら、[ブラシ] ペインの任意の場所をクリックします。
+[start=6]
+. インタラクティブなプレビュー領域で選択したプロパティに適用されたハッチ ブラシ エレメントを確認できます。
+
+== 関連トピック
+
+link:wingauge-hatch-brush-element.html[ハッチ ブラシ エレメント]
+
+link:wingauge-apply-the-hatch-brush-element-at-design-time.html[デザインタイムにハッチ ブラシ エレメントを適用]
+
+link:wingauge-apply-the-hatch-brush-element-at-run-time.html[ランタイムにハッチ ブラシ エレメントを適用]

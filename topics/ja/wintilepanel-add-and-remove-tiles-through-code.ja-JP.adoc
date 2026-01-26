@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-add-and-remove-tiles-through-code",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I"],
+    "guid": "{3D33C572-8D0F-4D45-A2D0-2E08740ED9AF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードでタイルを追加および削除
+
+WinTilePanel™ によって、任意の数のタイルをコントロール内に配置できます。
+
+UltraTile は 2 つの方法のいずれかで TilePanel に追加できます。ひとつは UltraTile コントロール インスタンスを作成し、次にそれを pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~tiles.html[UltraTilePanel.Tiles]"]  コレクションに追加する方法です。後で、コンテンツとしての役割を果たすコントロールを pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~control.html[Control]"]  プロパティを使用してタイルに配置できます。あるいは、デザイン タイムにコンテンツ コントロールを UltraTilePanel に直接追加できます。パネルは、それが追加される UltraTile でないことを認識し、コンテンツ コントロールをホストするためにデフォルトの UltraTile インスタンスを作成します。
+
+[NOTE]
+====
+*注：* UltraTile は UltraTilePanel のコントロール コレクションに直接追加できません。これは InvalidOperationException の原因になります。
+====
+
+以下のコードは、UltraTilePanel コントロール、UltraCalculator、UltraGrid、UltraDayView および UltraMonthViewSingle コントロールがフォームにドロップされていることを前提とします。このトピックでは、UltraGrid コントロールは Northwind データベースの Products テーブルにバインドされます。
+
+*Visual Basic の場合：*
+
+----
+Dim tile1 As New Infragistics.Win.Misc.UltraTile()
+tile1.Settings.Appearance.BackColor = Color.PaleTurquoise 
+Dim tile2 As New Infragistics.Win.Misc.UltraTile()
+tile2.Settings.Appearance.BackColor = Color.Olive 
+Dim tile3 As New Infragistics.Win.Misc.UltraTile()
+tile3.Settings.Appearance.BackColor = Color.Plum 
+Dim tile4 As New Infragistics.Win.Misc.UltraTile()
+tile4.Settings.Appearance.BackColor = Color.LightGray 
+Me.ultraTilePanel1.Tiles.Add(tile1) 
+Me.ultraTilePanel1.Tiles.Add(tile2) 
+Me.ultraTilePanel1.Tiles.Add(tile3) 
+Me.ultraTilePanel1.Tiles.Add(tile4)
+----
+
+----
+' TilePanel に追加された各タイルは、任意のコンテンツがその中に配置される場合に限って表示されます。
+tile1.Control = Me.ultraCalculator1
+tile2.Control = Me.ultraGrid1
+tile3.Control = Me. ultraDayView1
+tile4.Control = Me.ultraMonthViewSingle1
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.Misc.UltraTile tile1 = new Infragistics.Win.Misc.UltraTile();
+tile1.Settings.Appearance.BackColor = Color.PaleTurquoise;
+Infragistics.Win.Misc.UltraTile tile2 = new Infragistics.Win.Misc.UltraTile();
+tile2.Settings.Appearance.BackColor = Color.Olive;
+Infragistics.Win.Misc.UltraTile tile3 = new Infragistics.Win.Misc.UltraTile();
+tile3.Settings.Appearance.BackColor = Color.Plum;
+Infragistics.Win.Misc.UltraTile tile4 = new Infragistics.Win.Misc.UltraTile();
+tile4.Settings.Appearance.BackColor = Color.LightGray;
+this.ultraTilePanel1.Tiles.Add(tile1);
+this.ultraTilePanel1.Tiles.Add(tile2);
+this.ultraTilePanel1.Tiles.Add(tile3);
+this.ultraTilePanel1.Tiles.Add(tile4);
+----
+
+----
+// TilePanel で表示できる各タイルは、任意のコンテンツがその中に配置される場合に限って表示されます。
+tile1.Control = this.ultraCalculator1;
+tile2.Control = this.ultraGrid1;
+tile3.Control = this. ultraDayView1;
+tile4.Control = this.ultraMonthViewSingle1;
+----
+
+image::Images/WinTilePanel_Add_and_Remove_Tiles_through_Code_01.png[]
+
+*TilePanel からタイルを削除*
+
+UltraTile は pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.tilecollection~remove.html[Remove]"]  メソッドを使用して UltraTilePanel.Tiles コレクションから削除できます。コンテンツ コントロールを非表示にする場合、タイルは残ったままで、UltraTilePanel 内に表示されます。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraTilePanel1.Tiles.Remove(tile3)
+----
+
+*C# の場合：*
+
+----
+this.ultraTilePanel1.Tiles.Remove(tile3);
+----
+
+== 関連トピック
+
+* link:wintilepanel-add-and-remove-tiles-at-design-time.html[デザイン タイムにタイルを追加および削除]
+* link:wintilepanel-adding-multiple-controls-to-a-tile-in-wintilepanel.html[WinTilePanel でタイルに複数のコントロールを追加]

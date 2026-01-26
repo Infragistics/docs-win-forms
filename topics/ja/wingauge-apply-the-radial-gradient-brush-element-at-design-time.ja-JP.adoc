@@ -1,0 +1,41 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-radial-gradient-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{1E36EED9-0091-4F31-8C6D-38F65A843AAF}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 放射型グラデーションのブラシ エレメントの作成
+
+ゲージのプロパティの 2 色を円形に相互に混ぜたい場合には、放射型グラデーション ブラシ エレメントをプロパティに適用します。
+
+*デザインタイムに放射型グラデーション ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[放射型グラデーション] を選択します。これによって、新しい放射型グラデーションのブラシ エレメントが作成されます。
+[start=5]
+. 新しく作成された BrushElement プロパティを展開して、以下のプロパティを設定します。
+
+** 中央の色 - ドロップダウン矢印をクリックします。カラー ピッカーが表示します。一番上で、[Web] をクリックして次に [PeachPuff] を選択します。
+** 周囲の色 - ドロップダウン矢印をクリックします。カラー ピッカーが表示します。一番上で、[Web] をクリックして次に [SandyBrown] を選択します。
+** 中心点 - 25, 25。
+** フォーカス スケール - 0,0。
+
+== 関連トピック
+
+link:wingauge-radial-gradient-brush-element.html[放射型グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-radial-gradient-brush-element-at-run-time.html[ランタイムに放射型グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-radial-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用して放射型グラデーション ブラシ エレメントを適用]

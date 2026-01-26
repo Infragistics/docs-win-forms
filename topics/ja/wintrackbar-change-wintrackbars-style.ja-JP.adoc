@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintrackbar-change-wintrackbars-style",
+    "controlName": ["WinTrackBar"],
+    "tags": ["How Do I","Navigation","Styling"],
+    "guid": "{731DDC94-CC93-4502-9B88-7A858A72026F}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-01T16:56:33Z"
+}
+|metadata|
+////
+
+= WinTrackBar のスタイルの変更
+
+WinTrackBar には、個別の Microsoft® のルック アンド フィールに倣ってモデル化された 3 つのスタイル（ link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar~viewstyle.html[ViewStyle] プロパティで設定される）が含まれます。
+
+* *標準* – 標準スタイルは基本機能をユーザーに提供し、標準の .NET インボックス TrackBar のように見えます。
+
+image::images/WinTrackBar_Change_WinTrackBars_Style_01.png[]
+
+* *Office2007* – Office2007 スタイルは Microsoft Office 2007 製品の下側にあるズーム TrackBar に似ています。このスタイルはデフォルトで [最小] ボタンと [最大] ボタンを表示します。
+
+image::images/WinTrackBar_Change_WinTrackBars_Style_02.png[]
+
+* Vista – Vista スタイルは、Windows Vista オペレーティング システムの TrackBar のルック アンド フィールをエミュレートします。
+
+image::images/WinTrackBar_Change_WinTrackBars_Style_03.png[]
+
+以下のコード例で WinTrackBar のスタイルを Office2007 に変更します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTrackBar1.ViewStyle =_ 
+	Infragistics.Win.UltraWinEditors.TrackBarViewStyle.Office2007
+----
+
+*C# の場合：*
+
+----
+this.ultraTrackBar1.ViewStyle = 
+	Infragistics.Win.UltraWinEditors.TrackBarViewStyle.Office2007;
+----

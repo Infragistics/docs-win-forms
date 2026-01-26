@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmisc-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C7613E12-5C65-4759-B2B6-48DC466E5B46}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMisc 2005.1
+
+== UltraGroupBox と UltraExpandableGroupBox
+
+新規の GroupBox コントロールはいずれも、キャプション、画像、および展開インジケータ（UltraExpandableGroupBox のみ）からなるヘッダを表示できます。UltraExpandableGroupBox は折りたたみ可能で、その中身を非表示にできます。コントロールが折りたたまれると、その子コントロールがすべて非表示になり、コントロールのサイズが小さくなってヘッダのサイズと同じになります。
+
+image::images/Whats_New_UltraWinMisc_2005_1_01.png[]
+
+次の図は、展開状態、折りたたみ状態の両方における Office2003 の表示スタイルを使用した UltraExpandableGroupBox を示しています。詳細については、 link:wngroupbox-changing-the-style-and-appearance-of-wingroupbox.html[「WinGroupBox のスタイルと外観の変更」]と link:winexpandablegroupbox-changing-the-style-and-appearance-of-winexpandablegroupbox.html[「WinExpandableGroupBox のスタイルと外観の変更」]を参照してください。
+
+image::images/Whats_New_UltraWinMisc_2005_1_02.png[]
+
+== UltraPrintPreview と UltraPrintPreviewThumbnail
+
+UltraPrintPreviewControl には、.Net の  _PrintPreviewControl_  が持つ機能のスーパーセットが含まれています。UltraPrintPreviewThumbnail コントロールを  _UltraPrintPreviewControl_  と連携して使うことで、Ｍｉｃｒｏｓｏｆｔ Word や Adobe Acrobat と同様に、生成されたページのサムネール表示が可能になります。
+
+image::images/Whats_New_UltraWinMisc_2005_1_03.png[]
+
+== UltraPrintPreviewDialog
+
+UltraPrintPreviewDialog は、新しい UltraPrintPreviewControl コントロールと UltraPrintPreviewThumbnail コントロールを UltraToolbarsManager および UltraStatusBar とともに使用して、Microsoft Office と同様の印刷プレビュー ダイアログを表示するコンポーネントです。このコンポーネントは別のアセンブリ（ _Infragistics.Win.UltraWinPrintPreviewDialog.v5.1_ ）にあります。
+
+image::images/Whats_New_UltraWinMisc_2005_1_04.png[]
+
+== 関連トピック
+
+link:winprintpreviewdialog-winscheduleprintdocument-using-winprintpreviewdialog-with-winscheduleprintdocument.html[WinSchedulePrintDocument での WinPrintPreviewDialog の使用]
+
+link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[WinGridPrintDocument での WinPrintPreviewDialog の使用]

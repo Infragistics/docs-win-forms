@@ -1,0 +1,49 @@
+﻿////
+|metadata|
+{
+    "name": "win-whats-new-wingrid",
+    "controlName": [],
+    "tags": [],
+    "guid": "{77B48C23-DE63-44D6-A6FF-2CAFA3B622F8}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid
+
+=== 兄弟子バンドの順序を設定
+
+このリリースで、WinGrid™ にバンドを表示するための順序を設定することが可能となりました。以前は WinGrid は BindingManager によって提供された順序で兄弟子バンドを表示しました。そしてこの順序を変更する方法はありませんでした。今回、UltraGridBand の新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~visibleposition.html[VisiblePostion]"]  プロパティによって、最低から最高へと VisiblePosition に基づいて兄弟バンドをソートできます。
+
+=== 行レイアウトのグループ化
+
+RowLayout モードで列のグループ化機能が追加され、その他のグループ内にグループをネストすることも可能となりました。これは列またはグループが別のグループの子となることを意味します。この新機能により、グループを単位として移動する、またはグループ内で列移動を制限する、RowLayout モードですべてを移動することが可能となります。
+
+=== 拡張フィルタリング UI
+
+この機能は、Excel® で使用されているフィルタリング パラダイムと整合する WinGrid でのフィルタリングのための新しいメカニズムを導入します。拡張フィルタリングは、既存のヘッダーフィルタリングからの変更を表すスタイルで、高度なグループのフィルタリング機能を提供します。これらは、文字列演算（begins-with、contains など）、日付演算(日付の間、今日の日付の前など）のようなデータ型固有です。または列に表示する複数の値を選択することによってフィルタリングを実行する機能を提供します。
+
+新しいコンポーネント、UltraGridFilterUIProvider が {ApiPlatform}Win.SupportDialog アセンブリに追加されており、Excel® によって提供される機能により近い機能を提供するために高度なフィルタリング UI を提供します。
+
+=== 右の固定ヘッダー
+
+WinGrid によって列を列コレクションの左側にピン固定、または固定することが可能です。今回のリリースで、右側にピン固定する機能も列に提供されます。各列にこれまで通りにひとつのピン ボタンが付きますが、列のプロパティ 設定に基づいて、ピン ボタンを押すと左または右にピン固定します。
+
+=== 列ヘッダーのチェックボックス
+
+この新しい機能は、チェックボックスを WinGrid の列ヘッダーに追加する機能を提供します。これにより列内のすべてのセルの値と自動的に同期することが可能となります。この機能は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクトに追加された機能を介して、列、バンド、またはグリッド レベルで使用できます。
+
+=== ページ総数を印刷
+
+この新機能によって、WinGrid コントロールは追加の置き換え文字列 ("<$$##$$>") を使用することで印刷される物理的なページ総数を印刷することが可能となります（たとえば "Page<#>/<$$##$$>"）。以前は現在の物理的なページ番号しか印刷できませんでした (例、"Page<#>")。
+
+== 関連トピック
+
+* link:wingrid-setting-the-order-for-sibling-child-bands.html[兄弟子バンドの順序の設定]
+* link:wingrid-grouping-columns-in-row-layout-mode-using-the-designer.html[デザイナーを使用して行レイアウト モードで列をグループ化]
+* link:wingridfilteruiprovider-enabling-enhanced-filtering-on-wingrid.html[WinGrid で拡張フィルタリングを有効にする]
+* link:wingrid-right-fixed-headers.html[右の固定ヘッダー]
+* link:wingrid-displaying-checkbox-in-column-header.html[列ヘッダーにチェックボックスを表示]
+* link:win-whats-new-printing-total-number-of-pages.html[ページ総数を印刷]

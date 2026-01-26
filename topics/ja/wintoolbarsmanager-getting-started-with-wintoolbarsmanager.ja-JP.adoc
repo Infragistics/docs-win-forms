@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-getting-started-with-wintoolbarsmanager",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{302E0E5B-57A8-4BE8-A72E-4B192832CA56}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager で作業を開始
+
+以下のリンクをクリックすると、WinToolbarsManager コンポーネントをすばやく起動して実行する方法についての説明を読むことができます。
+
+* link:wintoolbarsmanager-adding-wintoolbarsmanager-to-a-form.html[フォームへの WinToolbarsManager の追加] -- WinToolbarsManager コンポーネントの追加方法、およびデザインタイムに簡単なツールバーを作成する方法を説明しています。
+* link:wintoolbarsmanager-change-the-style-of-wintoolbarsmanager.html[WinToolbarsManager のスタイルの変更] -- WinToolbarsManager コンポーネントの一般的な外観を変更する方法を説明しています。
+* link:wintoolbarsmanager-define-the-appearance-of-toolbars-and-tools.html[ツールバーとツールの外観の定義] -- ツールバーおよびツールの特定の外観設定（たとえば、ドックおよびフローティング ツールバーの外観）を変更する方法を説明しています。
+* link:wintoolbarsmanager-load-and-save-the-configuration-layout-of-wintoolbarsmanager.html[構成レイアウトの WinToolbarsManager へのロードと保存] -- WinToolbarsManager の構成レイアウトの操作方法を説明しています。
+* link:wintoolbarsmanager-using-the-notification-badge.html[通知バッジの使用] -- WinToolbarsManager での通知バッジの使用方法を紹介します。

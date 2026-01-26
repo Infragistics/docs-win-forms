@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-brush-elements-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{298EFF03-EAEF-4385-B5A5-7C05C8BC9287}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムにブラシ エレメントを適用
+
+デザインタイムに各ブラシ エレメントをプロパティに適用する方法についての情報は、以下のリンクをクリックしてください。
+
+* link:wingauge-apply-the-hatch-brush-element-at-design-time.html[デザインタイムにハッチ ブラシ エレメントを適用]
+* link:wingauge-apply-the-image-brush-element-at-design-time.html[デザインタイムに画像ブラシ エレメントを適用]
+* link:wingauge-apply-the-multi-stop-linear-gradient-brush-element-at-design-time.html[デザインタイムにマルチストップ線形グラデーション ブラシ エレメントを適用]
+* link:wingauge-apply-the-multi-stop-radial-gradient-brush-element-at-design-time.html[デザインタイムにマルチストップ放射型グラデーション ブラシ エレメントを適用]
+* link:wingauge-apply-the-radial-gradient-brush-element-at-design-time.html[デザインタイムに放射型グラデーション ブラシ エレメントを適用]
+* link:wingauge-apply-the-simple-gradient-brush-element-at-design-time.html[デザインタイムにシンプル グラデーション ブラシ エレメントを適用]
+* link:wingauge-apply-the-solid-fill-brush-element-at-design-time.html[デザインタイムに単色塗りつぶしブラシ エレメントを適用]
+* link:wingauge-apply-the-texture-brush-element-at-design-time.html[デザインタイムにテクスチャ ブラシ エレメントを適用]

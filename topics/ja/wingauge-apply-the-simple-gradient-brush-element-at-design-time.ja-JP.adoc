@@ -1,0 +1,41 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-simple-gradient-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{8FA03ECE-8534-4638-BC11-38F1CD5E8D16}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= シンプル グラデーションのブラシ エレメントの作成
+
+ゲージのプロパティを特定の方法でひとつの色で開始して別の色にフェードインするようにしたい場合には、シンプル グラデーション ブラシ エレメントをプロパティに適用します。
+
+*デザインタイムにシンプル グラデーション ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[シンプル グラデーション] を選択します。これによって、新しいシンプル グラデーションのブラシ エレメントが作成されます。
+[start=5]
+. 新しく作成された BrushElement プロパティを展開して、以下のプロパティを設定します。
+
+** 開始色 - ドロップダウン矢印をクリックします。カラー ピッカーが表示します。一番上で、[Web] をクリックして次に [Firebrick] を選択します。
+** 終了色 - ドロップダウン矢印をクリックします。カラー ピッカーが表示します。一番上で、[Web] をクリックして次に [黒] を選択します。
+** グラデーション スタイル - ドロップダウン リストから、[Backward Diagonal] を選択します。
+
+== 関連トピック
+
+link:wingauge-simple-gradient-brush-element.html[シンプル グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-simple-gradient-brush-element-at-run-time.html[ランタイムにシンプル グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-simple-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してシンプル グラデーション ブラシ エレメントを適用]

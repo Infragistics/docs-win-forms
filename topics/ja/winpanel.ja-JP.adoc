@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpanel",
+    "controlName": ["WinPanel"],
+    "tags": ["Getting Started"],
+    "guid": "{656060CD-94AA-414A-B961-56C70CA3B290}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPanel
+
+以下のリンクをクリックすると、WinPanel™ コントロールに関する説明を読むことができます。
+
+* link:winpanel-about-winpanel.html[WinPanel について] -- WinPanel コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winpanel-api-overview.html[API の概要] -- WinPanel コントロールを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。

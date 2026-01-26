@@ -1,0 +1,43 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-limiting-band-indentation",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{6524EF2D-2855-43D9-A3CA-179CDA27FABC}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= バンド間のインデント幅の制限
+
+画面スペースを節約するために、子バンドのインデントの幅を制限することができます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~indentation.html[Indentation]"]  プロパティを使用して、インデント時の幅（スペース）を制御できます。
+
+WinGrid の全体の外観を制御するコードは、通常 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"] イベントに配置されます。以下のコードをコントロールの InitializeLayout イベント ハンドラに追加してください。
+
+指定された Bands オブジェクトの Indentation プロパティを設定します。
+
+.注:
+[NOTE]
+この値を 0 に設定した場合、子バンドのインデント設定が無効になります。
+
+
+*Visual Basic の場合：*
+
+----
+Private Sub LimitingBandIndentation_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Bands(1).Indentation = 100
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void LimitingBandIndentation_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[1].Indentation = 100;
+}
+----

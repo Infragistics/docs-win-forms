@@ -1,0 +1,111 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformmanager-about-winformmanager",
+    "controlName": ["WinFormManager"],
+    "tags": ["Getting Started","Styling"],
+    "guid": "6c4a660b-a192-4b88-9333-bb4182ab058c",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T22:04:10.9976119Z"
+}
+|metadata|
+////
+
+= WinFormManager について
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WinFormManager_™ コンポーネントの概要を提供します。
+
+== 概要
+
+=== WinFormManager の概要
+
+新しい  _WinFormManager_   コンポーネントによって、キャプション領域、フォーム境界線などのフレームの領域と閉じる、元のサイズに戻す、最大化、最小化、コンテキスト ヘルプ ボタンをスタイルできます。プロパティ ウィンドウでフォームのスタイルの設定が可能ですが、Infragistics AppStylist でスタイルを設定することもできます。このコンポーネントで提供されているスタイルは  _WinToolbarsManager™_   で使用可能なスタイルに似ています ( link:wintoolbarsmanager-change-the-style-of-wintoolbarsmanager.html[WinToolbarsManager のスタイルの変更] を参照してください)。
+
+スタイル設定を使用すると、 _Aero_   およびオペレーティング システムのテーマを特定のフォームで無効にし、フォームのクライアント以外の領域に色を適用できます。
+
+_WinToolbarsManager_   コンポーネントと同様、デザイン タイムにフォームにドロップした時に、クライアント領域内にコントロールを適切に配置するために  _WinFormManager_   もパネルをフォームに追加するようにプロンプトします。 _WinPanel_™ (広範なスタイリング機能) でフォームをうめるのか、それとも標準のパネル (軽量) を使用するのかを選択するオプションがあります。 _WinFormManager_   は `Infragistics.Win` アセンブリで定義され、`Infragistics.Win.UltraComponentBase` から派生されます。
+
+_UltraWinToolbars_   と異なり、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~formdisplaystyle.html[FormDisplayStyle] および link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~isglasssupported.html[IsGlassSupported] プロパティはデフォルトで  _Aero_   テーマを無効にし、サイズ変更する機能を持つ link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintoolbars.formdisplaystyle.html[RoundedSizable] 境界線を表示します。
+
+例：
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|デフォルト値
+
+| link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~formdisplaystyle.html[FormDisplayStyle]
+|_Default_ ( _Standard_ と同じ) 
+
+.注: 
+
+[NOTE] 
+
+==== 
+
+このプロパティは _WinToolbarsManager_ がフォームにない場合のみに影響します。 
+
+====
+
+| link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~isglasssupported.html[IsGlassSupported]
+| _False_ 
+
+|====
+
+.注:
+[NOTE]
+====
+同じフォームで  _WinFormManager_   および  _WinToolbarsManager_   コンポーネントを使用することを推薦しません。両方のコンポーネントがフォームにドックできません。
+====
+
+両方のコンポーネントが別のコンテナー コントロールにドックされる場合、同じフォームで両方のコンポーネントを使用できます。 _WinToolbarsManager_   コンポーネントの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~dockwithincontainer.html[DockWithinContainer] プロパティを  *Form*  に設定する場合、 _WinFormManager_   はフォームの管理で無効にされ、 _WinToolbarsManager_   に優先があります。
+
+_WinFormManager_   コンポーネントの追加の機能は以下です。
+
+* アプリケーションのすべてのフォームに同じ外観を提供します。
+* MDI 子メニュー バーとボタンにスタイルを設定します。これは最大化された MDI 子フォームが MDI 親の上に存在する時に表示されます。
+* グラデーションのような Infragistics 外観オブジェクトを使用してフォームのキャプションをスタイルします。
+
+=== WinToolbarsManager および WinFormManager
+
+以下の表は、フォームのクライアント領域をカスタマイズするために両方のコンポーネントで使用されるプロパティを表示します。
+
+[options="header", cols="a,a"]
+|====
+|_WinToolbarsManager_|_WinFormManager_
+
+|`ultraToolbarsManager1.Ribbon.Caption`
+|`ultraFormManager1.FormStyleSettings.Caption`
+
+|`ultraToolbarsManager1.Ribbon.CaptionAreaAppearance.BackColor`
+|`ultraFormManager1.FormStyleSettings.CaptionAreaAppearance.BackColor`
+
+|`ultraToolbarsManager1.FormDisplayStyle`
+|`ultraFormManager1.FormStyleSettings.FormDisplayStyle`
+
+|`ultraToolbarsManager1.Style`
+|`ultraFormManager1.FormStyleSettings.Style`
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winformmanager-customize-a-form-with-winformmanager.html[WinFormManager でフォームをカスタマイズ]
+|このトピックは、 _WinFormManager_ コンポーネントでフォームを設定し、キャプション領域、フォーム境界線などのフレームの異なる領域と閉じる、元のサイズに戻す、最大化、最小化、コンテキスト ヘルプ ボタンなどのスタイルをカスタマイズする方法について説明します。
+
+| link:wintoolbarsmanager-customizing-non-client-area-with-wintoolbarsmanager.html[WinToolbarsManager のクライアント以外の領域をカスタマイズ]
+|このトピックは、 _WinToolbarsManager_ コンポーネントのクライアント以外の領域をカスタマイズする方法を紹介します。
+
+|====

@@ -1,0 +1,125 @@
+﻿////
+
+|metadata|
+{
+    "name": "the-chartlayout-class",
+    "controlName": [],
+    "tags": ["Application Scenarios","Charting"],
+    "guid": "{9E2C3874-FE3E-42FC-BBA5-9170078384B3}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-10T13:57:10Z"
+}
+|metadata|
+////
+
+= ChartLayout クラス
+
+ChartLayout クラスは、グラフの状態を保持するクラスとして考えることができます。このアプリケーションでは、多くのグラフが使用されるように見える方法でひとつの Chart コントロールだけを使用します。これはアクティブである WinGrid セル内に Chart コントロールを配置し、WinGrid セルに関連する ChartLayout に保存される値から Chart プロパティを設定することで可能となっています。
+
+ChartLayout クラスは、アプリケーションでグラフの要件を表すより多くのプロパティ設定を含むために拡張および詳細説明できますが、この例では ChartLayout は以下を保持します：
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.win.ultrawinchart.ultrachart~charttype.html[ChartType]"] （たとえば、PieChart、BarChart、ColumnChart）
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.win.ultrawinchart.ultrachart~datasource.html[DataSource]"] （たとえば、DataTable、Collection、IEnumerable リスト）
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.win.ultrawinchart.ultrachart~image.html[Image]"]  – これは最後のアクティブ状態でのグラフの画像表示またはスナップショットです。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.colorappearance.html[ColorAppearance]"]  - これはグラフ データ エレメントを生成するために使用されるカラー スキームを表します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.win.ultrawinchart.ultrachart~titletop.html[TitleTop]"]  – これは、グラフのタイトルまたは説明のキャプションを含みます（たとえば、Customer XYZ の注文）
+
+*Visual Basic の場合：*
+
+----
+Public Class ChartLayout
+	Public X As Single
+	Public Y As Single
+	Public Z As Single
+	Public Scale As Single
+	Private _ChartType As ChartType
+	Public Property ChartType() As ChartType
+		Get
+			Return _ChartType
+		End Get
+		Set(ByVal value As ChartType)
+			_ChartType = value
+		End Set
+	End Property
+	Private _DataSource As Object
+	Public Property DataSource() As Object
+		Get
+			Return _DataSource
+		End Get
+		Set(ByVal value As Object)
+			_DataSource = value
+		End Set
+	End Property
+	Private _Image As Image
+	Public Property Image() As Image
+		Get
+			Return _Image
+		End Get
+		Set(ByVal value As Image)
+			_Image = value
+		End Set
+	End Property
+	Private _ColorAppearance As ColorAppearance
+	Public Property ColorModel() As ColorAppearance
+		Get
+			Return _ColorAppearance
+		End Get
+		Set(ByVal value As ColorAppearance)
+			_ColorAppearance = value
+		End Set
+	End Property
+	Private _TitleTop As String
+	Public Property TitleTop() As String
+		Get
+			Return _TitleTop
+		End Get
+		Set(ByVal value As String)
+			_TitleTop = value
+		End Set
+	End Property
+End Class
+----
+
+*C# の場合：*
+
+----
+public class ChartLayout
+{
+	public float X;
+	public float Y;
+	public float Z;
+	public float Scale;
+	ChartType _ChartType;
+	public ChartType ChartType
+	{
+		get { return _ChartType; }
+		set { _ChartType = value; }
+	}
+	object _DataSource;
+	public object DataSource
+	{
+		get { return _DataSource; }
+		set { _DataSource = value; }
+	}
+	Image _Image;
+      public Image Image
+	{
+		get { return _Image; }
+		set { _Image = value; }
+	}
+	ColorAppearance _ColorAppearance;
+	public ColorAppearance ColorModel
+	{
+		get { return _ColorAppearance; }
+		set { _ColorAppearance = value; }
+	}
+	string _TitleTop;
+	public string TitleTop
+	{
+		get { return _TitleTop; }
+		set { _TitleTop = value; }
+	}
+}
+----
+
+以下のトピックは、グラフ状態を ChartLayout オブジェクトに保持および保存するためのサポートを提供するクラスを説明します： link:helper-functions.html[ヘルパー関数]

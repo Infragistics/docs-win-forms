@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "waw-chart",
+    "controlName": ["WinChart"],
+    "tags": ["Charting","Getting Started","How Do I"],
+    "guid": "{97EE3E00-5335-464D-9B98-FA1C872D4E38}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinChart
+
+WinChart コントロールに関する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールの機能からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinChart についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinChart コントロールについての情報にアクセスします。
+
+== link:chart-understanding-chart.html[チャートの概要]
+
+このセクションでは、アプリケーションをビルドする機能の一部として使用したくなる理由だけでなく、WinChart コントロールの機能をより深く理解するために役に立つ情報を提供しています。
+
+== link:chart-chart-types.html[チャート タイプ]
+
+この重要なセクションには、すべての平面および立体のチャート タイプの包括的なリストと、チャート タイプの簡単な概要、チャート タイプを生成するために必要となるデータ タイプの情報、チャート タイプ固有のプロパティのリストが含まれます。
+
+== link:chart-getting-started-with-chart.html[チャートで開始]
+
+WinChart コントロールでできる限り素早く起動して実行するために、コントロールを使用して開始する方法（たとえば、フォームに WinChart を追加）についての情報を提供します。
+
+== link:chart-using-chart.html[チャートの使用]
+
+このセクションには、WinChart コントロールで提供される主要な特徴および機能についての情報が含まれています。
+
+== link:chart-deploying-winchart.html[WinChart の配備]
+
+アプリケーションで WinChart コントロールを使用する場合、アプリケーションの一部として再配布する必要がある Infragistics .NET のリストについてはこのトピックを参照してください。
+
+== link:chart-winchart-api-overview.html[API 概要]
+
+このトピックは、WinChart コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

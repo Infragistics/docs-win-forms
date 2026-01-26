@@ -1,0 +1,119 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-synchronizer-pair-strategy",
+    "controlName": [],
+    "tags": [],
+    "guid": "31867182-5782-4308-98fb-6d47f31eacd6",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0778527Z"
+}
+|metadata|
+////
+
+= シンクロナイザー ペア方法
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、シンクロナイザーのペアによるエラー処理方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-syntax-errors.html[構文エラー]
+|このグループのトピックでは、Syntax Parsing Engine が検出した構文エラーについて説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349636863, シンクロナイザー ペア方法 >>
+* <<_Ref349636866, 概要 >>
+* <<_Ref349579066, 関連コンテンツ >>
+
+[[_Ref349636863]]
+== シンクロナイザー ペア方法
+
+[[_Ref349636866]]
+
+=== 概要
+
+シンクロナイザー ペア方法は、パーサーをトークン ストリームに同期するために 1 つの記号を使用する代わりに記号のペアを使用しますが、シンクロナイザー記号方法に似ています。1 つの記号の次に別の記号が続き、構築中の生産における次の位置があいまいさなく決まるときにいつでも使用されます。その例が Visual Basic です。Visual Basic 内の多くのブロック構造は「End <X>」で終わり、このとき <X> は終了される構造です。たとえば、この単純な Visual Basic プログラムを考えてみましょう。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Class X
+    ReadOnly Property A
+        Get
+            Return Nothing
+        End Get
+    End Property
+End Class
+----
+
+ここに終了ブロックがいくつかあります。これらは、End Get」、「End Property」および「End Class」で終わります。これらのいずれかが偶然省略されると、パーサーはどの構造が別のエンディングにより終了するのかを把握しなければなりません。このため、ユーザーが「End Get」を入力し忘れた、またはまだ入力していないとします。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Class X
+    ReadOnly Property A
+        Get
+            Return Nothing
+    End Property
+End Class
+----
+
+シンクロナイザー記号エラー処理方法がこのエラーを処理すると、5 行目のキーワード「Property」で検出します。この時点では、2 つのエラーをレポートします。
+
+* 「Get」が期待されます
+* 「End」が期待されます
+
+最初のエラーは、ユーザーが「End」キーワードの後ろに「Get」を入力し忘れて get アクセサーを閉じてしまったことを示しています。2 つめのエラーは、「End Property」が期待されていたのに「End」がないことを示しています (実際の「End」キーワードは get アクセサ－を閉じるために使用するため)。直感的に、理想的ではないことは明らかです。「End Property」は、真に論理装置として取り扱われるべきです。
+
+シンクロナイザー ペアーのエラー処理方法を使用できます。この方法を有効にするには、「End」キーワードを表す終端記号上で link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol~isstartoferrorrecoverypair.html[Symbol.IsStartOfErrorRecoveryPair] プロパティを True に設定します。エラーが発生し、構文ツリー用に最後に作成されたノードが「End」キーワードに関連づけられた場合、パーサーは、エラー時に構築中であった生産が「End」の後ろに「Property」が続くことを予想していたかどうか判断します。プロパティ宣言を表す生産は、そうであったと示し、そのため get アクセサ－は記述されていない「End Get」構造を書き込むことにより自動的に完成し、「End Get が期待される」と示す単一のエラーメッセージがレポートされます。
+
+[[_Ref349579066]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[cols="a,a"]
+|====
+| link:ig-spe-synchronizer-symbol-strategy.html[シンクロナイザー記号方法]
+|このトピックは、シンクロナイザー記号によるエラー処理方法について説明します。
+
+| link:ig-spe-error-production-strategy.html[エラー生産方法]
+|このトピックは、エラー生産によるエラー処理方法について説明します。
+
+| link:ig-spe-backtracking-strategy.html[バックトラッキング方法]
+|このトピックは、バックトラッキングによるエラー処理方法について説明します。
+
+|====

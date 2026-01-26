@@ -1,0 +1,42 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-changing-the-style-of-column-headers-row-selectors",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{32F5A692-5E09-4B6A-A7F8-FE354D1D130E}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列ヘッダと行セレクタのスタイルの変更
+
+WinGrid コントロールにより、列ヘッダおよび行セレクタの視覚的外観を簡単に指定することができます。行セレクタは、デフォルトで列ヘッダのスタイルを取得します。ただし必要に応じ、行セレクタを列ヘッダとは異なるスタイルに割り当てるために、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectorstyle.html[RowSelectorStyle]"]  プロパティを変更することができます。
+
+== ヘッドスタイル プロパティと RowSelectorStyle プロパティにアクセスするには:
+
+[start=1]
+. WinGrid を右クリックして、コンテキスト メニューから [UltraWinGridデザイナ] を選択します。
+[start=2]
+. デザイナの右側で、[コントロール設定] オプションを選択します。
+[start=3]
+. 下にスクロールして pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~override.html[Override]"]  プロパティが表示するまで下にスクロールして、プロパテイを展開します。
+[start=5]
+. Override プロパティでは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~headerstyle.html[HeaderStyle]"]  プロパティまたは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectorstyle.html[RowSelectorStyle]"]  プロパティが表示するまで下にスクロールします。いずれのプロパティにも次の 4 つの設定があります。
+
+* *Default* - デフォルト設定。
+
+**  _HeaderStyle_  - 「標準」スタイルを取ります。
+**  _RowSelectorStyle_  - "XPThemed" スタイルを取ります。
+
+* *Standard* - フラットな "Office 2000" の外観で、ホットトラッキング機能付き。
+* *WindowsXPCommand* - WindowsXP のコマンドボタンのルック アンド フィールで、エレメントの 4 つすべての側面がオレンジのホットトラッキングが付いています。
+* *XPThemed* - Windows XP オペレーティング システムが使用するテーマ付き外観。
+
+下のイメージ例にある WinGrid の HeaderStyle は "WindowsXPCommand" に設定され、RowSelectorStyle は "Standard" に設定されています。これらの設定でアプリケーションを実行すれば、列ヘッダにマウスを移動するとオレンジホットトラッキングが起こり、行セレクタはホットトラッキングしないという同じ結果を得ます。
+
+image::Images/WinGrid_Header_Style_and_Row_Selector_Style_01.png[]

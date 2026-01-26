@@ -1,0 +1,91 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-navigation-toolbar-reset-or-remove-items-from-the-navigation-history",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Navigation"],
+    "guid": "{ADCFF9CD-AC0D-4FA3-A717-5C326C8CBCD9}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-09T12:11:27Z"
+}
+|metadata|
+////
+
+= ナビゲーション履歴から項目をリセットまたは削除
+
+インターネットまたはファイル システムを数時間閲覧した後で、特にナビゲーション履歴のサイズを制限していなかった場合には、ナビゲーション履歴は極端に膨らむ場合があります。 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~resetnavigationhistory.html[ResetNavigationHistory] メソッドを呼び出すだけで、ナビゲーション履歴全体からすべての項目を完全に削除することができます。インターネット ブラウズ アプリケーションを作成している場合、インターネット閲覧履歴を消去するための方法として、この機能をエンド ユーザーに公開したい場合もあります。
+
+ナビゲーション履歴全体を破棄することに夢中になっていなければ、ナビゲーション履歴を反復し、個々の項目または項目の配列を削除するメソッドを作成することができます。文字列または文字列の配列をメソッドに渡すことでこれを実行できます。これらの文字列は link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem.html[NavigationHistoryItem] の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem~text.html[Text] プロパティと一致します。文字列が一致する場合、その項目を削除したい場合があります。
+
+NavigationHistoryItems の配列を返し、文字列を引数として受け付けるメソッドを作成します。NavigationHistoryItems の新しい配列をインスタンス化します。それぞれの項目を NavigationHistoryItems の配列に追加して、ナビゲーション履歴を繰り返します。これらの項目のひとつの Text プロパティが削除される項目に一致する場合には、NavigationHistoryItems の配列に追加しないでください。NavigationHistoryItems の配列を返します。
+
+*Visual Basic の場合：*
+
+----
+Private Function RemoveItem(ByVal itemToRemove As String) As NavigationHistoryItem()
+' ナビゲーション履歴が存在するかどうかを確認し、
+' 存在しなければ、Nothing を返します。
+    If Me.UltraToolbarsManager1.NavigationToolbar.BackHistoryCount > 0 Then
+' BackHistory と同じサイズの NavigationHistoryItems
+' の配列を作成します。
+        Dim newHistory(Me.ultraToolbarsManager1.NavigationToolbar.BackHistoryCount) _
+          As NavigationHistoryItem
+' カウンタを初期化します。
+        Dim count As Integer = 0
+' BackHistory コレクションでそれぞれの項目を繰り返します。
+        For Each item As NavigationHistoryItem In _
+          Me.UltraToolbarsManager1.NavigationToolbar.BackHistory
+' 現在の項目のテキストが削除したい
+' 文字列と一致しない場合、それを新しい履歴に
+' 追加してください。
+            If item.Text <> itemToRemove Then
+' 項目を配列に追加します。
+                newHistory(count) = item
+                count += 1
+            End If
+        Next
+' 履歴を返します。
+        Return newHistory
+    End If
+    Return Nothing
+End Function
+----
+
+*C# の場合：*
+
+----
+private NavigationHistoryItem[] RemoveItem(string itemToRemove)
+{
+	// ナビゲーション履歴が存在するかどうかを確認し、
+	// 存在しなければ、Nothing を返します。
+	if (this.ultraToolbarsManager1.NavigationToolbar.BackHistoryCount > 0)
+	{
+		// BackHistory と同じサイズの NavigationHistoryItems
+		// の配列を作成します。
+		NavigationHistoryItem[] newHistory =
+			new NavigationHistoryItem[
+			this.ultraToolbarsManager1.NavigationToolbar.BackHistoryCount];
+		// カウンタを初期化します。
+		int count = 0;
+		// BackHistory コレクションでそれぞれの項目を繰り返します。
+		foreach (NavigationHistoryItem item 
+		  in this.ultraToolbarsManager1.NavigationToolbar.BackHistory)
+		{
+			// 現在の項目のテキストが削除したい
+			// 文字列と一致しない場合、それを新しい履歴に
+			// 追加してください。
+			if (item.Text != itemToRemove)
+			{
+				// 項目を配列に追加します。
+				newHistory[count] = item;
+				// カウンタを増分します。
+				count++;
+			}
+		}
+		// 履歴を返します。
+		return newHistory;
+	}
+	return null;
+}
+----

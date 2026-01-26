@@ -1,0 +1,24 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-cellclickaction-property-added-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{924B5912-D5B3-4F64-B2D1-A8AFB31B91E6}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CellClickAction プロパティの追加
+
+このリリース以前は、 CellClickAction プロパティが存在するのは UltraGridOverride クラスのみでした。今回、CellClickAction が UltraGridColumn クラスに追加されました。このプロパティによって、ユーザーがセルをクリックしたときに発生する動作（列ごとの）を制御できます。たとえば、特定の列にあるセルをユーザーがクリックすると、セルが選択され強調表示されるように指定できます。
+
+image::Images/WinGrid_How_To_Use_the_CellClickAction_Property_02.png[]
+
+_EditAndSelectText に設定された CellClickAction_ 
+
+== 関連トピック
+
+link:wingrid-specifying-the-cell-behavior-on-cell-click.html[セル クリック時のセル動作の指定]

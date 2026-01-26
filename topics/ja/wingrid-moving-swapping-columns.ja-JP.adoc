@@ -1,0 +1,111 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-moving-swapping-columns",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{5F1AEDCB-169E-41BA-9EE4-C54C45C24480}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列の移動と交換
+
+toc::[]
+
+WinGrid には、列を移動、交換できる組み込み機能があります。デフォルトで、列の移動は行レイアウト モード以外では有効です。行レイアウト モードでは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowcolmoving.html[AllowColMoving]"]  を WithinBand に設定して明示的に列の移動を有効にする必要があります。列の交換はデフォルトで有効ではありません。これを有効にするには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowcolswapping.html[AllowColSwapping]"]  を WithinBand に設定しなければなりません。
+
+.注：
+[NOTE]
+====
+ここでは少なくとも 1 行のデータを含むバウンド グリッドがフォーム上にあるものとします。必要であれば、上記のプロパティも設定してください。
+====
+
+ランタイムに列を移動するには、列を選択し、クリックして新しい場所へドラッグします。
+
+== 列を移動するには:
+
+
+. プログラムを実行します。
+
+. 列を選択するために列ヘッダをクリックします。列ヘッダをクリックしてドラッグすると、複数の列を選択できます。
+
+. ひとつ以上の列を選択した後、再度列ヘッダをクリックしてマウスをドラッグします。マウスを列ヘッダの上で動かしていくと、マウスボタンを離したときに列が配置される場所を赤色の矢印が示します。
+
+. マウス ボタンを離して列を新しい場所にドロップします。
+
+. 次のスナップショットは列が移動している動作を示しています。
++ 
+image::images/WinGrid_Move_And_Swap_Columns_And_Groups_02.png[]
+
+== 列を交換するには:
+
+列の交換機能によって 2 つの列の位置を交換できます。デフォルトで、列の交換は無効になっています。
+
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
++
+*Visual Basic の場合：*
+[source, vb]
+Imports Infragistics.Win.UltraWinGrid
+
++
+*C# の場合：*
+[source, csharp]
+using Infragistics.Win.UltraWinGrid;
+
+
+. 列の交換を有効にするには、まず override オブジェクトの AllowColSwapping プロパティを設定する必要があります。これは通常 InitializeLayout イベントで行います。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.UltraGrid1.DisplayLayout.Override.AllowColSwapping = _
+    AllowColSwapping.WithinBand
++
+*C# の場合：*
+this.ultraGrid1.DisplayLayout.Override.AllowColSwapping = 
+    AllowColSwapping.WithinBand;
+
+
+. プログラムが実行されると、各行の列ヘッダがドロップダウン矢印を表示します。列を交換するには、ドロップダウン矢印をドロップし、交換対象の列を選択します。
+. リストから項目が選択されるとすぐに、2 つの列がその位置を交換します。
+. 次のスナップショットは交換ドロップダウンを示しています。どの列ヘッダにも右側に小さなドロップダウン矢印があるので、注意してください。
++
+image::images/WinGrid_Move_and_Swap_Columns_01.png[]
+
+== グループの移動および交換
+
+グリッド内で列グループを定義していた場合、列グループは列とまったく同じ方法で移動および交換できます。AllowGroupMoving プロパティと AllowGroupSwapping プロパティを適切に設定する必要があります。次いで、列のヘッダではなく、グループのヘッダを選択して上記と同じように進めます。なお、グループを選択すると、自動的にそのグループ内の列はすべて選択されます。
+
+image::Images/WinGrid_Specify_Fixed_Columns_01.png[]
+
+== ColPosChanged イベント
+UI を使用して列を移動または交換すると、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforecolposchanged_ev.html[BeforeColPosChanged]
+および
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~aftercolposchanged_ev.html[AfterColPosChanged]
+イベントが発生します。同様に、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroup.html[UltraGridGroup] を移動/交換すると、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforegroupposchanged_ev.html[BeforeGroupPosChanged]
+および
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~aftergroupposchanged_ev.html[AfterGroupPosChanged] イベントが発生します。
+
+この相互作用をリッスンするには、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.beforecolposchangedeventargs~ColumnPosChangedType.html[ColumnPosChangedType]  が  link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.poschangedtype.html[PosChangedType] になることをトラップします。次のコードに示すように、イベント引数に Moved または Swapped を追加します。
+
+*C# の場合:*
+[source, csharp]
+private void UltraGrid1_AfterColPosChanged(object sender, AfterColPosChangedEventArgs e)
+{
+    bool hasMovedChanged = (e.ColumnPosChangedType & PosChangedType.Moved) == PosChangedType.Moved;
+    if(hasMovedChanged)
+    {
+        //コードを追加
+    }
+}
+    
+*Visual Basic の場合:*
+[source, vb]
+Private Sub UltraGrid1_AfterColPosChanged(sender As Object, e As AfterColPosChangedEventArgs)
+    Dim hasMovedChanged As Boolean = (e.ColumnPosChangedType And PosChangedType.Moved) = PosChangedType.Moved
+    If hasMovedChanged Then
+        'コードを追加
+    End If
+End Sub

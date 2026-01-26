@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-group-styles",
+    "controlName": ["WinDockManager"],
+    "tags": ["Styling"],
+    "guid": "{1198341E-CC35-4C17-B1AA-4056739654E7}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グループ スタイル
+
+WinDockManager コントロールの *DockableGroupPanes* クラスは 4 種類のスタイルでその子ペインを構成および表示できます。子ペインの表示に使用されるスタイルは、グループの pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.childpanestyle.html[ChildPaneStyle]"]  プロパティに基づきます。
+
+== 水平分割
+
+水平分割バーは、子ペインを水平分割グループに分割するために使用されます。2 つのペイン間にある分割バーを動かすと、それらのペインのサイズが変わるだけで、兄弟ペイン（同じ Parent を持つ他の子ペイン）のサイズは変わりません。ペインのサイズが最小サイズよりも小さくなるように、または最大サイズよりも大きくなるように、分割バーを動かすことはできません。水平スタイルのグループの子ペインは、最大化または最小化できます。ペインを最大化すると、グループ内の他のペインはそのキャプションだけが表示されます。ペインを最小化すると、そのキャプションだけが表示されます。
+
+== 垂直分割
+
+垂直分割グループの動作は水平分割グループと同じです。ただひとつ違う点は、分割バーで分割される子ペインが垂直に表示されることです。
+
+== タブ グループ
+
+タブ グループの各子ペインはタブ項目として表示されます。一度に表示できるのは、グループ内のひとつのタブ項目の内容だけです。項目の IsSelectedTab プロパティを設定すると、項目をプログラムから選択できます。デフォルトでは、ペインの TextTab がまだ設定されていない場合、タブ項目のキャプションとして Text プロパティが使用されます。
+
+グループの GroupSettings プロパティのうち、いくつかのプロパティは特にタブ グループに適用されます。これらのプロパティにはすべて、その名前の前に「Tab」という語が付いています（TabStyle、TabLocation など）。これ以外に、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.closebuttonbehavior.html[CloseButtonBehavior]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.pinbuttonbehavior.html[PinButtonBehavior]"]  という 2 つのプロパティもまた、タブ項目の動作に作用します。これらは、関連付けられたボタンが、現在表示されているタブに対して動作するのか、またはグループ内のすべてのタブに対して動作するのかを示します。デフォルトでは、CloseButtonBehavior は CloseActiveTab に、PinButtonBehavior は PinTabGroup にそれぞれ設定されています。これらは Visual Studio のデフォルト設定と同じです。これらの設定の場合、[閉じる] ボタンが押されるとアクティブなタブだけが閉じますが、[ピン] ボタンが押されるとすべてのペインがピン解除されます。
+
+== スライド グループ
+
+スライド グループの各子ペインには、選択されている項目を除いて、その項目を表すボタンが表示されます。ボタンが押されると、そのボタンに関連付けられたペインが表示され、現在選択されている項目が縮小します。
+
+スライド グループは、常にひとつの項目しか表示されないという点でタブ グループに似ています。また、PinButtonBehavior および CloseButtonBehavior が、グループ内の子項目の動作に作用します。
+
+image::Images/WinDockManager_Group_Styles_01.png[]

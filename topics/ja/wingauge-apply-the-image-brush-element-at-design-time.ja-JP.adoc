@@ -1,0 +1,37 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-image-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{A0F2B977-6D1A-428E-8319-A9831F9E25DB}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像のブラシ エレメントの作成
+
+画像塗りつぶしブラシ エレメントをゲージのプロパティに適用すると、プロパティを画像として描画します。たとえば、ラジアル ゲージを作成しており、背景をユーザー企業のロゴにしたい場合、*Dial* プロパティを画像ブラシ エレメントとして設定できます。
+
+*デザインタイムに画像塗りつぶしブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[画像塗りつぶし] を選択します。これによって新しい画像塗りつぶしブラシ エレメントが作成されます。
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.imagebrushelement.html[Image]"]  プロパティをクリックし、次に省略記号（...）ボタンをクリックします。
+[start=6]
+. [リソースの選択] ダイアログ ボックスを使用して、選択したプロパティを塗りつぶすために使用したい画像をインポートします。
+
+== 関連トピック
+
+link:wingauge-image-fill-brush-element.html[画像塗りつぶしブラシ エレメント]
+
+link:wingauge-apply-the-image-fill-brush-element-at-run-time.html[ランタイムに画像塗りつぶしブラシ エレメントを適用]

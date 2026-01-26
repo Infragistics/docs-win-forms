@@ -1,0 +1,197 @@
+﻿////
+|metadata|
+{
+    "name": "styling-guide-create-a-user-control-to-apply-stylesets-at-runtime",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{0367ECFB-DE49-4DC8-AB06-6276F65A8A22}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムでスタイルセットを適用するためにユーザー コントロールを作成
+
+*始める前に*
+
+ランタイムにエンド ユーザーがスタイルを選択することを可能にするためにこれまでに自分でコードを記述したことがある場合には、Infragistics™ の機能を装備した Windows Forms アプリケーションでコードを繰り返してきたことに気づいているかもしれません。ユーザー コントロール内にこのロジックをカプセル化することによって、アプリケーションの構成画面のいずれかの中にコントロールを配置して直ちにエンド ユーザーにスタイル機能を提供することが可能となります。
+
+*達成すること*
+
+このトピックでは、エンド ユーザーが動的にさまざまな AppStylist™ StyleSets を選択し、以前に保持したスタイルを適用することも可能にするためのユーザー コントロールを作成します。このユーザー コントロールをアプリケーションに追加することによって、エンド ユーザーはアプリケーションのスタイルを変更できます。
+
+*次の手順を実行します*
+
+. Visual Studio でインストールされた Templates の下で Windows Forms Control Library を選択することによって、Visual Studio® で AppStylingLib という名前のプロジェクトを作成します。
+. より明確にするために、デフォルトで作成されたクラス UserControl1 の名前を AppStyleUserControl に変更します。
+. Visual Studio® Toolbox から、1 つの UltraComboEditor、2 つの UltraLabel コントロール、1 つの UltraButton コントロールをフォームにドラッグ アンド ドロップします。
+. UltraComboEditor の名前を cboStyles に設定します。
+. 最初の UltraLabel の Text プロパティを "Style Your Application" に、2 番目の UltraLabel を "Select Style" に、UltraButton を "Apply" に設定します。
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
++
+*Visual Basic の場合：*
+[source, vb]
+Imports System.IO
+Imports Infragistics.Win.AppStyling
++
+*C# の場合：*
+[source, csharp]
+using System.IO;
+using Infragistics.Win.AppStyling;
+
+. タイプ文字列の StylePath という静的/共有プロパティを定義します。
++
+*Visual Basic の場合：*
+[source, vb]
+Private Shared _StylePath As String = String.Empty
+'これは静的です。したがってユーザー コントロール インスタンスをロードする前でさえこのプロパティを設定できます。たとえばこのプロパティを Main( ) メソッドから設定します。 
+Public Shared Property StylePath() As String
+    Get
+        Return _StylePath
+    End Get
+    Set(ByVal value As String)
+        _StylePath = value
+    End Set
+End Property
++
+*C# の場合：*
+[source, csharp]
+private static string _StylePath = string.Empty;
+//これは静的です。したがってユーザー コントロール インスタンスをロードする前でさえこのプロパティを設定できます。たとえばこのプロパティを Main( ) メソッドから設定します。
+        public static string StylePath
+        {
+            get { return _StylePath; }
+            set { _StylePath = value; }
+        }  
+
+
+. LoadUI () というメソッドを作成し、フォームでコントロールをロードまたは更新するコードを記述します。指定したディレクトリを WinComboEditor がスキャンしてフォーム自体がロードする間に任意のスタイル ファイル ($$*$$.isl ファイル) で移植するようにプロジェクトの Load イベントからこのメソッドを呼び出します。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.cboStyles.Items.Clear() 
+If Directory.Exists(StylePath) Then 
+  Dim theFiles As String() = Directory.GetFiles(StylePath, "*.isl")
+    If theFiles.Length > 0 Then 
+        For Each theFile As String In theFiles 
+            Me.cboStyles.Items.Add(theFile, Path.GetFileNameWithoutExtension(theFile)) 
+        Next 
+    End If 
+'保持したスタイルを持っているかどうかを確認するためにチェックします。 
+  Dim theStyle As String = AppStylingLibSettings.[Default].AppStyle.Trim()
+    If Me.cboStyles.Items.Count > 0 AndAlso theStyle.Length > 0 Then 
+'実行する場合、どのスタイルが現在適用されているかがわかるように、 
+'Combo 内でスタイルを事前に選択します。 
+        Me.cboStyles.Value = Path.Combine(StylePath, theStyle) 
+    End If 
+End If
++
+*C# の場合：*
+[source, csharp]
+this.cboStyles.Items.Clear();
+            if (Directory.Exists(StylePath))
+            {
+                string[] theFiles = Directory.GetFiles(StylePath, "*.isl");
+                if (theFiles.Length > 0)
+                {
+                    foreach (string theFile in theFiles)
+                    {
+                        this.cboStyles.Items.Add(theFile, Path.GetFileNameWithoutExtension(theFile));
+                    }
+                }
+		//保持したスタイルを持っているかどうかを確認するためにチェックします。
+		string theStyle = AppStylingLibSettings.Default.AppStyle.Trim();
+                if (this.cboStyles.Items.Count > 0 && theStyle.Length > 0)
+                {
+//実行する場合、どのスタイルが現在適用されているかがわかるように、Combo 内でスタイルを事前に選択します。 
+                    this.cboStyles.Value = Path.Combine(StylePath, theStyle);
+                }
+            }
+
+
+. ボタン クリック イベントで以下のコードを記述して、スタイルをロードし、現在適用されているスタイルを保持します。
++
+ランタイムにスタイルを保存および取得するには、プロジェクトの Application 設定で AppStyle プロパティを指定します。Application 設定のページのフィールドを構成することによって、AppStyle プロパティを動的に取得することができます。
++
+このためには、Application 設定のページで Name フィールドを AppStyle に、type フィールドを文字列に、Scope フィールドを User にそれぞれ設定します。
++
+.注：
+[NOTE]
+====
+プロジェクトの Application 設定のページを起動するには、ソリューション エクスプローラでプロジェクト ノードを選択し、次に [プロジェクト] メニューでプロパティをクリックします。プロジェクト デザイナーが表示したら、[設定] タブをクリックします。
+====
++
+*Visual Basic の場合：*
+[source, vb]
+If Me.cboStyles.SelectedIndex <> -1 Then 
+    Dim theStyleFile As String = Me.cboStyles.SelectedItem.DataValue.ToString()
+    StyleManager.Load(theStyleFile) 
+    AppStylingLibSettings.[Default].AppStyle = Path.GetFileName(theStyleFile) 
+    AppStylingLibSettings.[Default].Save() 
+End If
++
+*C# の場合：*
+[source, csharp]
+if (this.cboStyles.SelectedIndex != -1)
+             {
+		    string theStyleFile = this.cboStyles.SelectedItem.DataValue.ToString();
+		    StyleManager.Load(theStyleFile);
+	            AppStylingLibSettings.Default.AppStyle = Path.GetFileName(theStyleFile);
+	            AppStylingLibSettings.Default.Save();
+             }
+
+. LoadPersistedStyle と呼ばれるメソッドを作成し、以下のコードを記述して保持したスタイルをロードします。
++
+*Visual Basic の場合：*
+[source, vb]
+Dim theStyle As String = AppStylingLibSettings.[Default].AppStyle.Trim()
+If theStyle.Length > 0 Then 
+    StyleManager.Load(Path.Combine(StylePath, theStyle)) 
+End If
++
+*C# の場合：*
+[source, csharp]
+string theStyle = AppStylingLibSettings.Default.AppStyle.Trim();
+            if (theStyle.Length > 0)
+            {
+                StyleManager.Load(Path.Combine(StylePath, theStyle));
+             }
+
+
+== Windows Forms アプリケーションでユーザー コントロールを使用
+
+[start=11]
+. Main() メソッドで以下のコードを記述して、Path プロパティ（スタイルを見つけることができる場所）を設定します。また、LoadPersistedStyle メソッドを呼び出してアプリケーションがロードされた時に以前に適用されたスタイルをロードします。
++
+*Visual Basic の場合：*
+[source, vb]
+ '静的メンバーを使用して設定します: 
+AppStylingLib.AppStyleUserControl.StylePath = Application.StartupPath & "\Styles"
+AppStylingLib. AppStyleUserControl.LoadPersistedStyle()
++
+*C# の場合：*
+[source, csharp]
+ // 静的メンバーを使用して設定します:
+AppStylingLib.AppStyleUserControl.StylePath = Application.StartupPath + @"\Styles";
+AppStylingLib.AppStyleUserControl.LoadPersistedStyle();
+
+. スタイル ライブラリをアプリケーションに追加します。
+
+.. Styles という名前のフォルダーを追加し、そのフォルダーに $$*$$.isl ファイルを追加します。
++
+.注：
+[NOTE]
+====
+StyleSets が配置されている場所は、 link:getting-started-where-files-are-placed-on-your-file-system-during-installation.html[インストール時のシステム上のファイルの配置場所] トピックを参照してください。
+====
+
+.. すべての $$*$$.isl ファイルをクリックして選択し、CopyToOutputDirectory プロパティを "Copy always" に設定します。
+
+. クライアント アプリケーションで AppStylingLib User コントロールをドラッグ アンド ドロップします。
+
+. アプリケーションを保存して実行します。ユーザー コントロールを含むフォームをロードします。コンボからスタイルを選択し、[適用] ボタンを押します。異なるスタイルを選択し適用すると、Infragistics を装備したアプリケーションがどのように変わるかがわかります。
+
+以下のスクリーンショットは、ユーザー コントロール内に配置された WinComboEditor コントロールから選択された AppStylist™ StyleSet によってスタイルされた 2 つの UltraGrid コントロールが付いた Windows Forms を示します。
+
+image::Images/AppStyling_User_Control_to_apply_StyleSets_at_Run_time.png[]

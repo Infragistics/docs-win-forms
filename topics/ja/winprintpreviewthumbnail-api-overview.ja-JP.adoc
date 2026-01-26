@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintpreviewthumbnail-api-overview",
+    "controlName": ["WinPrintPreviewThumbnail"],
+    "tags": ["API","Getting Started"],
+    "guid": "{41347B05-7D71-49A1-8467-3EEA1579AA61}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== Printing 名前空間
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.printing_namespace.html[Infragistics.Win.Printing]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.printing.ultraprintpreviewthumbnail.html[UltraPrintPreviewThumbnail]"]

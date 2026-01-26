@@ -1,0 +1,106 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-exposing-openalert-windows",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I","Scheduling"],
+    "guid": "d3652c8b-5fd6-40f6-b9c2-d93dd85c5e57",  
+    "buildFlags": [],
+    "createdOn": "2013-02-20T21:03:19.7760275Z"
+}
+|metadata|
+////
+
+= オープン アラーム ウィンドウの公開
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、オープン ウィンドウ デスクトップ アラームを公開、移動する  _WinDesktopAlert_™ 機能の概要を提供します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:windesktopalert-understanding-windesktopalert.html[WinDesktopAlert の理解]
+|このセクションのトピックを読むと、アプリケーションで _WinDesktopAlert_™ コントロールを使用する利点を理解できます。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref348021830,オープン ウィンドウ公開の概要>>
+
+** <<_Ref341518673,はじめに>>
+** <<_Ref348350555,コード例>>
+
+* <<_Ref341518687,関連コンテンツ>>
+
+[[_Ref348021830]]
+== オープン ウィンドウ公開の概要
+
+[[_Ref341518673]]
+
+=== はじめに
+
+以前のバージョンでは、 _UltraDesktopAlert_   がオープン ウィンドウのコレクションを公開しませんでした。オープン ウィンドウに移動するには、Key または以前に保存した link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertwindowinfo_members.html[UltraDesktopAlertWindowInfo] インスタンスを渡して `IsOpen` メソッドを呼び出す必要があります。
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~openwindows.html[OpenWindows] プロパティの拡張機能は、オープン ウィンドウのコレクションの読み取り専用バージョンを公開します。
+
+表示されている各の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertwindowinfo_members.html[UltraDesktopAlertWindowInfo] オブジェクトのコレクションに移動し、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~openwindows.html[OpenWindows] プロパティから返された `ReadOnlyCollection` オブジェクトによってコレクションのカウントを取得できます。
+
+.注:
+[NOTE]
+====
+コレクションに新しいウィンドウを追加し、コレクションのウィンドウを表示するには、以前のアーキテクチャを使用する必要があります。
+====
+
+[[_Ref348021859]]
+
+=== コード例
+
+以下の画像はコード例を表示します。ボタン クリック イベントで link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~openwindows.html[OpenWindows] コレクションからオープン アラーム ウィンドウの数を取得します。IntelliSense ドロップダウンに他のプロパティおよびメソッドもあります。
+
+image::images/WinDesktopAlert_Exposing_Open_Alert_Windows_1.png[]
+
+オープン ウィンドウ コレクションを使用する場合、以下の設定を推薦します。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~autoclose.html[AutoClose] プロパティを _false_   に設定し、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~multiplewindowdisplaystyle.html[MultipleWindowDisplayStyle] を  _Default_   または  _None_   以外の値に設定します。それ以外の場合、常に 1 つのアラーム ウィンドウを含みます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraDesktopAlert1.AutoClose = Infragistics.Win.DefaultableBoolean.False;
+ultraDesktopAlert1.MultipleWindowDisplayStyle = MultipleWindowDisplayStyle.Tiled;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraDesktopAlert1.AutoClose = Infragistics.Win.DefaultableBoolean.[False]
+ultraDesktopAlert1.MultipleWindowDisplayStyle = MultipleWindowDisplayStyle.Tiled
+----
+
+[[_Ref341518687]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:win-windesktopalert-using-windesktopalert.html[WinDesktopAlert の使用]
+|このセクションには、 _WinDesktopAlert_ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+|====

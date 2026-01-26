@@ -1,0 +1,37 @@
+﻿////
+|metadata|
+{
+    "name": "winoptionset-apply-the-office-2007-style-to-winoptionset",
+    "controlName": ["WinOptionSet"],
+    "tags": ["Grouping","How Do I","Styling"],
+    "guid": "{D5CDC60D-0DDF-45EC-B742-604ADF890572}",
+    "buildFlags": [],
+    "createdOn": "2006-10-10T11:31:11Z"
+}
+|metadata|
+////
+
+= Office 2007 スタイルを WinOptionSet に適用
+
+2006 volume 3 リリースでは、弊社のコントロールの一部に Office 2007 のルック アンド フィールを追加しました。WinOptionSet は新しいルック アンド フィールを取得したこれらのコントロールのひとつです。ただし、そのルック アンド フィールは他のコントロールと若干異なる方法で達成されます。他のコントロールにはルック アンド フィールを変更する ViewStyle プロパティがあり、WinOptionSet には GlyphInfo プロパティがあります。さらに、Office 2007 のルック アンド フィールを確認するには、OS テーマをオフにする必要があります。
+
+[NOTE]
+====
+*注：* Office 2007 スタイルの WinGrid、WinTree、WinListView などの中にある UltraOptionSet のインスタンスを表示したい場合（組み込み可能のエディタとしてではなく）、代わりに pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams.html[Infragistics.Win.UIElementDrawParams]"]  の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams~radiobuttonglyphinfo.html[RadioButtonGlyphInfo]"]  プロパティをオフに設定する必要があります。これはアプリケーション全体の設定で、前述のコントロールで表示されるすべての WinCheckEditors および WinOptionSets に影響を及ぼします。組み込み可能なエディタとして使用されている場合、WinOptionSet コントロールの GlyphStyle プロパティを設定できます。
+====
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraoptionset~glyphinfo.html[GlyphInfo]"]  プロパティを Office2007 に、UseOsThemes を False に設定することによって Office 2007 のルック アンド フィールで View WinOptionSet を表示します。
+
+image::images/WinOptionSet_Apply_the_Office_2007_Style_to_WinOptionSet_01.png[]
+
+*Visual Basic の場合：*
+[source, vb]
+----
+Me.UltraOptionSet1.UseOsThemes = _    Infragistics.Win.DefaultableBoolean.FalseMe.UltraOptionSet1.GlyphInfo = _    Infragistics.Win.UIElementDrawParams.Office2007RadioButtonGlyphInfo
+----
+
+*C# の場合：*
+[source,  sharp]
+----
+this.ultraOptionSet1.UseOsThemes =     Infragistics.Win.DefaultableBoolean.False;this.ultraOptionSet1.GlyphInfo =     Infragistics.Win.UIElementDrawParams.Office2007RadioButtonGlyphInfo;
+----

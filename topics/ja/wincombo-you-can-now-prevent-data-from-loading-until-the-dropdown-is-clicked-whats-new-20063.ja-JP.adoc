@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-you-can-now-prevent-data-from-loading-until-the-dropdown-is-clicked-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A758C619-F2E5-4E91-A8A5-7C880718D4A4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウンがクリックされるまでデータのロードを防止できる
+
+以前のリリースでは、WinCombo コントロールは、DataSource が設定された時または初期化プロセスが完了した時にデータをロードしました。今は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~setinitialvalue.html[SetInitialValue]"]  メソッドを起動してこれを回避できます。SetInitialValue は以下の 2 つのパラメータを取得します。
+
+* dataValue -- WinCombo コントロールの実際の値。
+* displayText -- WinCombo のテキストボックス部分に表示される内容。
+
+FormLoad イベントで SetInitialValue メソッドを起動できます。DataSource に設定する前にメソッドを起動してください。そうしないとデータは DataSource が設定された時にロードされます。

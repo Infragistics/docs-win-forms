@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winsplitter-using-winsplitter",
+    "controlName": ["WinSplitter"],
+    "tags": [],
+    "guid": "{E3B582FE-3727-44B3-926A-7892F62D1D2E}",  
+    "buildFlags": [],
+    "createdOn": "2009-10-12T16:21:00Z"
+}
+|metadata|
+////
+
+= WinSplitter の使用
+
+このセクションでは、WinSplitter™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:winsplitter-collapse-restore-button-on-winsplitter.html[WinSplitter の縮小/復元ボタン]
+* link:winsplitter-styling-winsplitter-and-collapse-restore-button.html[WinSplitter および縮小/復元ボタンのスタイル]

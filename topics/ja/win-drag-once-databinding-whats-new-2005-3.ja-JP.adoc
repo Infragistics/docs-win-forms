@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-drag-once-databinding-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{624C4D72-688E-402E-876E-618D340EB37E}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Drag Once データバインド
+
+Visual Studio 2005（.NET Framework 2.0）では、Infragistics のデータ主導コントロールに Drag-Once Databinding が実装されました。以下はこれによって影響を受けるコントロールのリストです。
+
+* UltraLabel - DefaultBindingProperty("Text")
+* TextEditorControlBase - DefaultBindingProperty("Text")
+* UltraCheckEditor - DefaultBindingProperty("CheckedValue")
+* UltraComboEditor - LookupBindingPropertiesAttribute("DataSource", "DisplayMember", "ValueMember", "Value") & DefaultBindingProperty("Value")
+* UltraCurrencyEditor - DefaultBindingProperty("Value")
+* UltraDateTimeEditor - DefaultBindingProperty("Value")
+* UltraNumericEditor - DefaultBindingProperty("Value")
+* UltraOptionSet - LookupBindingPropertiesAttribute("DataSource", "DisplayMember", "ValueMember", "Value") & DefaultBindingProperty("Value")
+* UltraPictureBox - DefaultBindingProperty("Image")
+* UltraTextEditor - DefaultBindingProperty("Value")
+* UltraCombo – LookupBindingPropertiesAttribute("DataSource", "DisplayMember", "ValueMember", "Value") & DefaultBindingProperty("Value")
+* UltraDropdown – ComplexBindingAttribute("DataSource", "DataMember")
+* UltraGrid – ComplexBindingAttribute("DataSource", "DataMember")
+* UltraMaskedEdit - DefaultBindingProperty("Value")
+* UltraCalendarCombo - DefaultBindingProperty("Value")
+
+For general information on how to use Drag-Once Databinding, as well as its benefits, read the following two articles.
+
+* link:http://www.code-magazine.com/Article.aspx?quickid=0409051[Drag-Once Databinding (英語)]
+* link:http://www.code-magazine.com/Article.aspx?quickid=0411071[カスタム コントロールを使用した Drag Once DataBinding (英語)]
+
+[データ ソース] ウィンドウにアクセスするには、Visual Studio 2005 の [データ] メニューから [データソースの表示] を選択します。[データ ソース] ウィンドウの例を以下に示します。
+
+[NOTE]
+====
+*注：* このウィンドウは、プロジェクトですでにデータソースを定義しているかどうかによって表示が異なる場合があります。
+====
+
+image::images\Win_Whats_New_VS2005_Drag_Once_Databinding_01.png[]

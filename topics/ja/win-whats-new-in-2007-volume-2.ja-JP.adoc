@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2007-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1BD3772E-B017-4A37-BD10-DC5299655365}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2007 Volume 2 の新機能
+
+{ProductName} 2007 Volume 2 のリリースには、Windows Formsのコントロールとコンポーネントをこれまで以上に活用することができるいくつかの強力な新しい特性と機能が含まれています。
+
+以下に、2007 Volume 2 リリースで追加または強化されたコントロール/コンポーネントをリストアップします。リンクをクリックして提供されている機能のリストを確認してください。
+
+* link:win-application-styling-whats-new-20072.html[アプリケーション スタイリング]
+* link:win-excel-enhancements-whats-new-20072.html[Excel の拡張機能]
+* link:win-infragistics-document-engine-whats-new-20072.html[Infragistics Document Engine]
+* link:win-windesktopalert-whats-new-20072.html[WinDesktopAlert]
+* link:win-wingauge-whats-new-20072.html[WinGauge]
+* link:win-wingridbaglayoutpanel-whats-new-20072.html[WinGridBagLayoutPanel]
+* link:win-wingriddocumentexporter-whats-new-20072.html[WinGridDocumentExporter]

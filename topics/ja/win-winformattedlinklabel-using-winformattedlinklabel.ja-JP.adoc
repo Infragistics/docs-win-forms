@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-winformattedlinklabel-using-winformattedlinklabel",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["Application Scenarios","Getting Started"],
+    "guid": "{7A3A1EE3-AE03-408C-ABED-29961F6396BF}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:21:44Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel の使用
+
+このセクションには、WinFormattedLinkLabel™ コントロールに関連する特定のタスクを実行する方法を紹介するトピックが含まれています。
+
+以下のリンクをクリックすると、さまざまなタスクの実行方法について読むことができます。
+
+* link:winformattedlinklabel-adding-a-hyperlink-to-a-cell-in-wingrid.html[WinGrid でセルにハイパーリンクを追加]
+* link:winformattedlinklabel-adding-a-hyperlink-as-an-item-in-winexplorerbar.html[WinExplorerBar で項目としてハイパーリンクを追加]
+* link:winformattedlinklabel-create-a-link-using-winformattedlinklabel.html[WinFormattedLinkLabel を使用してリンクを作成]
+* link:winformattedlinklabel-handle-an-error-while-parsing-formatted-text.html[フォーマットされたテキストを解析中にエラーを処理]
+* link:formattedtexteditor-using-subscript-and-superscript.html[下付き文字と上付き文字の使用]

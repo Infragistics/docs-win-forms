@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-rotating-text-in-wingrids-column-headers",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{60959449-D3EC-4AC6-9304-74763B57D90F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid の列ヘッダーのテキストを回転
+
+WinGrid™ 列ヘッダーは、エンド ユーザーが見ているものが何であるのかを正確に識別する手助けをします。列ヘッダーは非常に説明的で長文である場合があります。場合によっては、列ヘッダーのテキストは実際の列のテキストよりも長くなる場合があります（特に数値データを使用する場合）。長い列ヘッダーにも関わらず列の幅を短くするには、列がより適切な幅になるまで列ヘッダーを回転できます。
+
+WinGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[Band]、および link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Column] レベルだけでなく、グループ ヘッダーで列ヘッダーを回転できます。ほとんどの場合、固有のオブジェクトにテキスト回転を設定することは、TextOrientation プロパティを link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo.html[TextOrientationInfo] オブジェクトのインスタンスに設定することに関わります。TextOrientationInfo オブジェクトは、事前に定義された TextOrientationInfo オブジェクトを返すいくつかのプロパティを公開します。これらの事前に定義されたオブジェクトは、一般的な回転で列ヘッダー テキストを回転し、ユーザーの利便性のために提供されます。以下の事前に定義された TextOrientationInfo オブジェクトで列ヘッダーを回転できます：
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo~horizontal45degrees.html[Horizontal45Degrees] – 列ヘッダーを水平方向に 45 度回転します。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo~horizontal90degrees.html[Horizontal90Degrees] -- 列ヘッダーを水平方向に 90 度回転します。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo~horizontalnegative45degrees.html[HorizontalNegative45Degrees] -- 列ヘッダーを水平方向に -45 度回転します。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo~horizontalnegative90degrees.html[HorizontalNegative90Degrees] -- 列ヘッダーを水平方向に -90 度回転します。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo~vertical.html[Vertical] -- 列ヘッダーを水平方向に 90 度回転します。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textorientationinfo~horizontal.html[Horizontal] -- 回転しません。
+
+*Visual Basic の場合：*
+
+----
+'WinGrid のすべてのヘッダーを水平方向に 45 度回転します。
+Me.CustomersUltraGrid.DisplayLayout.Override.ColumnHeaderTextOrientation = _
+	Infragistics.Win.TextOrientationInfo.Horizontal45Degrees
+----
+
+*C# の場合：*
+
+----
+//WinGrid のすべてのヘッダーを水平方向に 45 度回転します。
+this.customersUltraGrid.DisplayLayout.Override.ColumnHeaderTextOrientation =
+	Infragistics.Win.TextOrientationInfo.Horizontal45Degrees;
+----
+
+もちろん、これらの事前に定義された回転が機能しない場合、ユーザー自身の回転で新しい TextOrientationInfo オブジェクトを常にインスタンス化できます。唯一の約束事は、ヘッダー テキストを垂直方向に回転できないことです。
+
+*Visual Basic の場合：*
+
+----
+'WinGrid のすべてのヘッダーを 75 度回転します。
+Me.CustomersUltraGrid.DisplayLayout.Override.ColumnHeaderTextOrientation = _
+	New Infragistics.Win.TextOrientationInfo _
+	(75, Infragistics.Win.TextFlowDirection.Horizontal)
+----
+
+*C# の場合：*
+
+----
+//WinGrid のすべてのヘッダーを 75 度回転します。
+this.customersUltraGrid.DisplayLayout.Override.ColumnHeaderTextOrientation =
+	new Infragistics.Win.TextOrientationInfo
+	(75, Infragistics.Win.TextFlowDirection.Horizontal);
+----
+
+image::images/WinGrid_Rotating_Text_in_WinGrids_Column_Headers_01.png[]
+
+ヘッダー テキストをどのように回転したいかが確認できれば、ヘッダー テキストを回転したいレベルを指定する必要があります。適切なヘッダー テキストを回転するには、以下の表を参照して TextOrientationInfo のインスタンスに設定する必要があるプロパティを確認します。
+
+[options="header", cols="a,a"]
+|====
+|回転したい...|設定すべき...
+
+|WinGrid のすべての列ヘッダー。
+|Override オブジェクトの ColumnHeaderTextOrientation プロパティ。
+
+|個々の Band ヘッダー。
+|回転したい Band の Header オブジェクトの TextOrientation プロパティ。WinGrid Band ヘッダーはデフォルトでは非表示で、Band の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~headervisible.html[HeaderVisible] プロパティが True に設定されている場合は、表示可能にできます。
+
+|ひとつの列の列ヘッダー。
+|回転したい固有の列の Header オブジェクトの TextOrientation プロパティ。
+
+|列ヘッダーのグループまたはレベル。
+|回転したいヘッダーのグループの Header オブジェクトの TextOrientation プロパティ。これは関連する列の上に表示されるグループ見出しを回転します。グループおよびレベルについての詳細は、 link:wingrid-creating-multiple-row-layout-use-levels.html[「レベルを使用した複数行レイアウトを作成」]を参照してください。
+
+|====

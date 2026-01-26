@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-styling-owner-headers",
+    "controlName": ["WinTimelineView"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{EB0B3132-62B1-4B3F-B469-15D7B702ACD3}",  
+    "buildFlags": [],
+    "createdOn": "2009-09-06T10:09:56Z"
+}
+|metadata|
+////
+
+= オーナー ヘッダーのスタイル
+
+このトピックは、WinTimelineView™ で行ヘッダーをスタイルする方法について示します。 行ヘッダーはオーナー（たとえば、人物、部署または事業体）を表します。 オーナー ヘッダー テキストの方向を修正、ヘッダー外観を変更、さらにオーナーのスクロールバーを表示することができます。 WinTimelineView コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~ownerheadertextorientation.html[OwnerHeaderTextOrientation]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~ownerheaderappearance.html[OwnerHeaderAppearance]"]  プロパティを使用して、オーナー ヘッダー テキストの方向およびヘッダー外観設定を適用できます。
+
+このトピックは、オーナーおよびタイムスロットに関連付けられた ultraTimeLineView コントロールがフォームにドロップされていることを前提とします。 オーナーおよびタイムスロットでの WinTimelineView コントロールの作成についての詳細は、 link:wintimelineview-assign-multiple-owners-for-wintimelineview.html[「WinTimelineView に複数オーナーを指定」]および link:wintimelineview-set-time-and-date-intervals-for-wintimelineview.html[「WinTimelineView に時間/日の間隔を設定」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+' オーナーのヘッダー テキストの方向を設定します 
+Me.ultraTimelineView1.OwnerHeaderTextOrientation = TextOrientationInfo.Horizontal45Degrees 
+' オーナー ヘッダーの背景色を設定します 
+Me.ultraTimelineView1.OwnerHeaderAppearance.BackColor = Color.Yellow 
+Me.ultraTimelineView1.OwnerScrollBarVisibility = TimelineViewOwnerScrollBarVisibility.ShowOnlyWhenNeeded
+----
+
+*C# の場合：*
+
+----
+// オーナーのヘッダー テキストの方向を設定します
+this.ultraTimelineView1.OwnerHeaderTextOrientation = TextOrientationInfo.Horizontal45Degrees;
+//　オーナー ヘッダーの背景色を設定します
+this.ultraTimelineView1.OwnerHeaderAppearance.BackColor = Color.Yellow;
+this.ultraTimelineView1.OwnerScrollBarVisibility = TimelineViewOwnerScrollBarVisibility.ShowOnlyWhenNeeded;
+----
+
+image::Images/WinTimelineView_Styling_Owner_Headers.png[]

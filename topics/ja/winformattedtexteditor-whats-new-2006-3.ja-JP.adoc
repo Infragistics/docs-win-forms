@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E2BDFCF4-0D95-4F9C-B141-858E4E25A13A}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:17:54Z"
+}
+|metadata|
+////
+
+= WinFormattedTextEditor 2006.3
+
+以下のリンクをクリックすると、Infragistics 2006 Volume 3 リリースのコントロールとコンポーネントのスイートに新しく追加された WinFormattedTextEditor™ コントロールの説明を読むことができます。
+
+* link:winformattedtexteditor-new-winformattedtexteditor-control-whats-new-20063.html[新しい WinFormattedTextEditor コントロール]

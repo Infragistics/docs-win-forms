@@ -1,0 +1,57 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-collapsing-column-groups",
+    "controlName": [],
+    "tags": [],
+    "guid": "3ebd5c8d-553b-49d4-a3dd-cb1156e68f1a",
+    "buildFlags": [],
+    "createdOn": "2016-03-11T22:27:30.6013683Z"
+}
+|metadata|
+////
+
+= 列グループの縮小
+
+UltraGridGroups コレクションでは、グループに割り当てられたすべての列の非表示が可能です。重要な情報にすばやく優先順位をつけ、グリッドの読みやすさを向上します。
+
+以下のスクリーンショットでは、列グループの展開インジケーターをもつ UltraGrid コントロールを表示しています。
+
+image::images/Collapsible_Columns_1.png[]
+
+以下のスクリーンショットでは、UnitsSold グループが縮小されている UltraGrid コントロールを表示しています。
+
+image::images/Collapsible_Columns_2.png[]
+
+== 展開インジケーターの有効化
+
+.注:
+[NOTE]
+====
+はじめにグリッドでグループ化を有効にします。詳細は  link:wingrid-enabling-grouping.html[グループ化の有効化] トピックを参照してください。
+====
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout] イベント ハンドラーでグリッドの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowgroupcollapsing.html[AllowGroupCollapsing] プロパティを True に設定します。下記のコードで用例を示しています。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub ultraGrid1_InitializeLayout(sender As Object, e As InitializeLayoutEventArgs) e.Layout.Override.AllowGroupCollapsing = Win.DefaultableBoolean.[True] End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void ultraGrid1_InitializeLayout(object sender, InitializeLayoutEventArgs e) { e.Layout.Override.AllowGroupCollapsing = Win.DefaultableBoolean.True; }
+----
+
+以下のスクリーンショットでは、列グループの左に表示されている展開インジケーターをもつ UltraGrid コントロールを示しています。
+
+image::images/Collapsible_Columns_3.png[] 
+
+== 関連トピック
+
+* link:wingrid-grouping-columns-in-row-layout-using-code.html[コードを使用して行レイアウトで列をグループ化]
+* link:wingrid-grouping-columns-in-row-layout-mode-using-the-designer.html[デザイナを使用して行レイアウト モードで列をグループ化]

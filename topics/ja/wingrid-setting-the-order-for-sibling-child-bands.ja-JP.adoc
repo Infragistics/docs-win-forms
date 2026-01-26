@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-the-order-for-sibling-child-bands",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{CA74B3A8-E251-49CB-B114-64D3DF4630C1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 兄弟子バンドの順序の設定
+
+WinGrid™ は、BindingManager によって提供される順序で兄弟子バンドを表示します。この順序を変更するための方法は以前はありませんでした。しかし今回、新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~visibleposition.html[VisiblePosition]"]  プロパティが UltraGridBand に追加されました。この新しいプロパティはすべてのバンドで 0 にデフォルト設定されます。WinGrid が兄弟バンドを表示する場合、VisiblePosition に基づいて最小から最大の順で兄弟バンドをソートします。したがって、最小の VisibilePosition の兄弟バンドが最初に表示され、最大の VisiblePosition が最後に表示されます。
+
+[NOTE]
+====
+*注：* 2 つのバンドが同じ VisiblePosition（すべてがデフォルトである時）を持つ時には、グリッドはバインディング マネージャによって提供された順序で表示するという以前の動作に戻り、バンドのインデックスを使用します。これによって最小のインデックスが最初に表示されます。 
+====
+
+Northwind データベースからの Customers データ テーブルのインスタンスにバインドされる WinGrid コントロールを検討してみましょう。Customers データ テーブルは、親バンド（band[0]）になります。2 つの兄弟子バンドを Northwind データベースからの Order データ テーブルおよび CustomerCustomerDemo データ テーブルとします。以下のコードは兄弟子バンドの順序を変更するので、CustomerCustomerDemo テーブルが最初に表示され、Order テーブルが続きます。これはデフォルト表示の逆となります。
+
+*Visual Basic の場合：*
+
+----
+'Customers の親バンドの最初の兄弟子バンドとして CustomerCustomerDemo データ テーブルを表示します
+Me.ultraGrid1.DisplayLayout.Bands(2).VisiblePosition = 0
+'Customers の親バンドの 2 番目の兄弟子バンドとして Orders データ テーブルを表示します
+Me.ultraGrid1.DisplayLayout.Bands(1).VisiblePosition = 1
+----
+
+*C# の場合：*
+
+----
+//Customers の親バンドの最初の兄弟子バンドとして CustomerCustomerDemo データ テーブルを表示します
+this.ultraGrid1.DisplayLayout.Bands[2].VisiblePosition = 0;
+//Customers の親バンドの 2 番目の兄弟子バンドとして Orders データ テーブルを表示します
+this.ultraGrid1.DisplayLayout.Bands[1].VisiblePosition = 1;
+----
+
+WinGrid コントロールは、最初の子バンドとして CustomerCustomerDemo テーブルを表示し、2 番目の子バンドとして Orders テーブルを表示します。
+
+image::Images/WinGrid_Setting_the_Order_for_Sibling_child_bands.png[]

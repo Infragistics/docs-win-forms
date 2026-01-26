@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarcombo-change-the-increments-of-spin-button-elements",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["How Do I"],
+    "guid": "{1BAA552F-D431-413F-B1A3-D64B34BD09A1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= スピン ボタン エレメントの増分の変更
+
+WinCalendarCombo 上にあるスピンボタンコントロールの増分値のタイプとサイズを変更できます。以下のコードは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarcombo~spinbuttonincrement.html[SpinButtonIncrement]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarcombo~spinbuttonincrementvalue.html[SpinButtonIncrementValue]"]  プロパティを使用して 4 週で増分するスピンを説明します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+...
+Private Sub SpinButtonElements_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 週が増えると値を変更します
+	Me.UltraCalendarCombo1.SpinButtonIncrement = SpinIncrementUnit.Weeks
+	' 増分値を 4 に変更します。この事例では 4 週間になります。
+	Me.UltraCalendarCombo1.SpinButtonIncrementValue = 4
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+...
+private void SpinButtonElements_Load(object sender, System.EventArgs e)
+{
+	// 週が増えると値を変更します
+	this.ultraCalendarCombo1.SpinButtonIncrement = SpinIncrementUnit.Weeks;
+	// 増分値を 4 に変更します。この事例では 4 週間になります。
+	this.ultraCalendarCombo1.SpinButtonIncrementValue = 4;
+}
+----

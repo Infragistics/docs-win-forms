@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E88895DF-1842-4067-A75C-56873A744217}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel 2006.1
+
+以下のリンクをクリックすると、Infragistics 2006 Volume 1 リリースのコントロールとコンポーネントのスイートに新しく追加された WinFormattedLinkLabel コントロールの説明を読むことができます。
+
+* link:winformattedlinklabel-new-winformattedlinklabel-control-whats-new-2006-1.html[新しい WinFormattedLinkLabel コントロール]

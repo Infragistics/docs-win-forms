@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarlook-assign-saved-appearances-to-holidays",
+    "controlName": ["WinCalendarLook"],
+    "tags": ["Scheduling","Styling"],
+    "guid": "{9EF30B7D-0F16-4FD6-9D94-4ED2690CDB0A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 休日への保存された外観の割り当て
+
+WinCalendarLook を使用して、以前に保存した外観を日付に割り当てることができます。UltraCalendarLook に関連づけられた WinSchedule エレメントは、その日付が表示されるときの外観を使用します。以下のコードの外観参照は、「休日の外観の作成」の説明に従って、作成できます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+...
+Private Sub AssignAppearancestoHolidays_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	CreateAppearances()
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.January, 1).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("New Year's Day")
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.February, 14).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("St. Valentine's Day")
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.March, 17).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("St. Patrick's Day")
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.July, 4).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("Independence Day")
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.October, 31).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("Halloween")
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.December, 25).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("Christmas")
+	Me.UltraCalendarLook1.DaysOfYearLook(YearMonthEnum.December, 31).Appearance = _
+	  Me.UltraCalendarLook1.Appearances("New Year's Eve")
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+...
+private void AssignAppearancestoHolidays_Load(object sender, System.EventArgs e)
+{	
+	this.CreateAppearances();
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.January, 1].Appearance =
+	  this.ultraCalendarLook1.Appearances["New Year's Day"];
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.February, 14].Appearance =
+	  this.ultraCalendarLook1.Appearances["St. Valentine's Day"];
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.March, 17].Appearance =
+	  this.ultraCalendarLook1.Appearances["St. Patrick's Day"];
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.July, 4].Appearance =
+	  this.ultraCalendarLook1.Appearances["Independence Day"];
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.October, 31].Appearance =
+	  this.ultraCalendarLook1.Appearances["Halloween"];
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.December, 25].Appearance =
+	  this.ultraCalendarLook1.Appearances["Christmas"];
+	this.ultraCalendarLook1.DaysOfYearLook
+	  [(int)YearMonthEnum.December, 31].Appearance =
+	  this.ultraCalendarLook1.Appearances["New Year's Eve"];
+}
+----

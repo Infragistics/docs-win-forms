@@ -1,0 +1,84 @@
+﻿////
+|metadata|
+{
+    "name": "wincalcmanager-summing-two-controls-at-design-time",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{F1ED6502-1138-4709-A8A2-5420860482D5}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムに 2 つのコントロールの値を合計する
+
+== 始める前に
+
+WinCalcManager は pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings.html[CalcSettings]"]  というエクステンダ プロパティをコントロールに追加します。CalcSettings プロパティは、コントロールを計算ネットワークに組み込むために使用します。これにより、ほとんどすべてのコントロールを計算のソースまたはターゲットとして計算を実行できます。
+
+この詳細なガイドでは 2 つの TextBox の値をとってラベルに結果値を追加および配置する方法を示します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. 始めに、フォームに TextBox コントロールを 2 つ配置します。これらのコントロールを sum 計算のソース値として使用します。
+[start=2]
+. Label をフォームに追加します。この Label に数式の計算結果を表示します。Label を使用するのは、ユーザーが数式のターゲットを編集できなくてもよいためです。
+[start=3]
+. Button をフォームに追加します。このボタンはサーバへのポストバックに使用します。このボタンをクリックすると、CalcManager によって再計算が実行されます。
+[start=4]
+. UltraCalcManager コンポーネントを WebForm に配置します。この時点で、フォームは次のようになります。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_01.png[]
+
+[start=5]
+. 数式の中でコントロールを使用するためには、コントロールのどのプロパティをコントロールの値として使用するかを WinCalcManager に知らせる必要があります。これは、pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~propertyname.html[PropertyName]"]  プロパティを使用して指定されます。
+
+フォーム上の 1 つ目の TextBox（TextBox1）で CalcSettings プロパティを探します。次に CalcSettings プロパティを展開して PropertyName プロパティを探します。ドロップダウン矢印をクリックすると、値として使用するプロパティの候補リストが表示されます。このリストはあくまでも候補であり、コントロールの任意のプロパティを使用できます。リストから [Text] を選択します。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_02.png[]
+
+同じ操作を TextBox2 と Label1 に対して繰り返します。
+[start=6]
+. PropertyNames を設定すると、コントロールが [フォーミュラ ビルダー] ダイアログ ボックスに表示されます。Label の CalcSettings プロパティに移動して、pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~formula.html[Formula]"]  プロパティを見つけます。省略ボタンをクリックして フォーミュラ ビルダーを起動します。
+
+このダイアログの左側はオペランド リストです。オペランド リストは、数式で使用できるオブジェクトがツリーです。Controls ノードを展開すると、Label と 2 つの TextBox があります。各項目の後には ".Text" が付いていますが、これはそのコントロールの Text プロパティが使用されることを示します。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_03.png[]
+
+UltraLabel1 ノードは無効になっている点に注意してください。これは、UltraLabel1 が現在数式を作成している対象のコントロールであるためです。自分自身を参照すると循環参照になるため、 フォーミュラ ビルダーでは数式作成中のノードは選択できないようになっています。
+
+右上は数式ウィンドウです。ここには、作成中の数式が表示されます。数式ウィンドウの下には +、-、/、$$*$$ などの便利なボタンが並んでいます。
+
+ボタンの下にあるのが数式ステータス ウィンドウです。このウィンドウには数式のステータスが表示され、数式にエラーがあるかどうかがわかります。現在 "数式はありません " と表示されていますが、これは数式がない（数式ウィンドウが空白である）ことを示します。
+[start=7]
+. UltraTextEditor1.Text ノードをダブルクリックします。このコントロールへの参照が右側の数式ウィンドウに表示されます。これは参照を示すため、"[//UltraTextEditor1]"のように角カッコと二重のスラッシュが付いています。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_04.png[]
+
+右下の数式ステータスウィンドウが "数式はありません" から "数式の構文チェックが成功しました" に変わります。参照が 1 つだけであっても、これは完全に有効な数式です。
+
+次にプラス（+）ボタンをクリックするか、キーボードのプラス（+）キーを押します。
+
+この時点で、数式ステータス ウィンドウの表示が再び変わり、"行:1 列:15 でファイルの想定外の終わりです " というメッセージが表示します。これは数式が + 記号で終わっていて、加算する数値や参照などが後に続いていないためです。
+
+オペランド ツリーの TextBox2.Text ノードをダブルクリックして、数式を完成させます。数式ステータス ウィンドウが再び "数式の構文チェックが成功しました" に変わります。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_05.png[]
+
+[start=8]
+. [OK] をクリックして数式を適用します。フォーミュラ ビルダーが閉じ、数式が Label1 の CalcSettings の Formula プロパティにコピーされます。
+[start=9]
+. ここでアプリケーションを実行します。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_06.png[]
+
+[start=10]
+. Label1 には 0 と表示されます。TextBox1 と TextBox2 の Text を数値に変更します。各 TextBox コントロールに有効な数値を入力すると、2 つの数値の合計が Label に表示されます。
+
+image::Images/WinCalcManager_Summing_Two_Controls_at_Design_Time_07.png[]
+
+== まとめ
+
+この詳細なガイドでは編集可能なコントロールで計算を実行するために WinCalcManager を使用することがいかに簡単であるかを示しました。

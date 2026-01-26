@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-understanding-wincalcmanager",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Getting Started"],
+    "guid": "{0CEE6B57-A0E5-44E7-888D-692116FF02A7}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalcManager の理解
+
+WinCalcManager コンポーネントおよび、その主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinCalcManager コントロールを使用することの利点を理解できます。
+
+WinCalcManager コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wincalcmanager-about-wincalcmanager.html[WinCalcManager について] -- WinCalcManager コンポーネントの概要を説明しています。
+* link:wincalcmanager-smart-tag.html[WinCalcManager スマート タグ] -- WinCalcManager コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:wincalcmanager-excel-style-functions.html[Excel® スタイルの関数] -- WinCalcManager コンポーネントで提供されているさまざまな Excel スタイルの関数について説明したトピックのリストです。

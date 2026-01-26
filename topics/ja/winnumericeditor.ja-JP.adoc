@@ -1,0 +1,25 @@
+﻿////
+|metadata|
+{
+    "name": "winnumericeditor",
+    "controlName": ["WinNumericEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{25B906FF-2309-459F-AE0F-AE465E90B23A}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNumericEditor
+
+以下のリンクをクリックして、WinNumericEditor コントロールについての情報にアクセスします。
+
+* WinNumericEditor の理解
+** link:winnumericeditor-about-winnumericeditor.html[WinNumericEditor について]
+** link:winmaskededitorbase-spinning.html[スピン動作]
+** link:winnumericeditor-smart-tag.html[WinNumericEditor スマート タグ]
+* WinNumericEditor の使用
+** link:winnumericeditor-custom-buttons-and-events.html[カスタム ボタンおよびイベント]
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してエディターを増分]
+* link:winnumericeditor-api-overview.html[API 概要]

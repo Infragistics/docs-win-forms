@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-understanding-wingriddocumentexporter",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": [],
+    "guid": "{053BC93D-182D-4FD5-A9F4-9E7B290143FC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridDocumentExporter の理解
+
+WinGridDocumentExporter コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinGridDocumentExporter コントロールを使用することの利点を理解できます。
+
+WinGridDocumentExporter コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wingriddocumentexporter-about-wingriddocumentexporter.html[WinGridDocumentExporter について]
+* link:wingriddocumentexporter-smart-tag.html[WinGridDocumentExporter スマート タグ]

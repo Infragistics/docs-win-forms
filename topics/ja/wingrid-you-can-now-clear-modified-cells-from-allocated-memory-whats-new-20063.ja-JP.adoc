@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-you-can-now-clear-modified-cells-from-allocated-memory-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{04AE1CD7-BFB2-48F7-8183-B70893406232}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T13:41:59Z"
+}
+|metadata|
+////
+
+= 割り当てられたメモリから修正したセルをクリアできるようになった
+
+エンド ユーザーがセルに修正を加えると（外観の変更など）、その修正はメモリに保存されます。以前はこれらの修正がメモリにどのように割り当てられるかを操作する方法はありませんでした。現在は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[UltraGridRow]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscollection.html[RowsCollection]"]  の新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~deallocatecells.html[DeallocateCells]"]  メソッドを使用して、メモリに割り当てられたセルの修正をクリアすることができます。そうすることで、以前のセル修正が無効になります。

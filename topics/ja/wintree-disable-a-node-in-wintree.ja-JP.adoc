@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-disable-a-node-in-wintree",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{DA2AD3FF-977C-4BB7-AF25-B55BAF4780E9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree でノードを無効にする
+
+このトピックは、WinTree™ でノードを無効にできる方法を示します。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode.html[UltraTreeNode]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~enabled.html[Enabled]"]  プロパティを False に設定する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraTree1.Nodes(0).Nodes(1).Enabled = False
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.Nodes[0].Nodes[1].Enabled = false;
+----
+
+以下のスクリーンショットは、子ノード（Printers）を無効にした WinTree を示します。
+
+image::Images/WinTree_Disable_a_Node_in_WinTree.png[]

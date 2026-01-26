@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmaskededit-about-winmaskededit",
+    "controlName": ["WinMaskedEdit"],
+    "tags": ["Getting Started"],
+    "guid": "{19038547-8C2F-48A9-AFBF-2DFD75C522C1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMaskedEdit について
+
+WinMaskedEdit は、Windows Formsのコントロールのひとつで、Windows Formsで強力な、カスタマイズ可能な入力マスクを提供します。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、完全な外観がサポートされます。
+* 入力マスク -- 入力マスクをカスタマイズして使用すると、エンド ユーザーがフォームに入力するデータに割り当てられるフォーマットを制御できます。
+
+image::images/WinMaskEdit_About_WinMaskEdit_01.png[]

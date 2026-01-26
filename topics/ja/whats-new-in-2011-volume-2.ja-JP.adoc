@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2011-volume-2",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "d23ebff3-e2ff-487e-843a-3897f8a9ecd2",  
+    "buildFlags": [],
+    "createdOn": "2011-08-04T13:31:38.9498662Z"
+}
+|metadata|
+////
+
+= 2011 Volume 2 の新機能
+
+{ProductName} 2011 Volume 2 のリリースには、Windows Forms のコントロールおよびコンポーネントの機能をこれまで以上に活用することができる新しいコンポーネント、特性および機能が含まれています。
+
+以下はリリースの新しい機能のリストです。
+
+* link:whats-new-new-clr4-builds-of-winforms-assemblies.html[WinForms アセンブリの新しい CLR4 ビルド]
+* link:whats-new-infragistics-math-library.html[Infragistics Math ライブラリ]
+* link:whats-new-restyled-wingrid-conditional-formatting-dialog.html[スタイルが変更された WinGrid 条件付き書式ダイアログ]
+* link:whats-new-new-excel-additions-data-validations-print-areas-page-breaks-print-titles-and-shapes-support.html[新しい Excel の追加機能: データの検証、印刷範囲、改ページ、印刷タイトルおよび図形のサポート]
+* link:whats-new-winganttview-custom-columns.html[WinGanttView カスタム列]
+* link:whats-new-new-office-2010-black-and-silver-style-libraries.html[新しい Office 2010 Black および Silver スタイル ライブラリ]
+* link:whats-new-wingrid-asynchronous-exporting-for-exporters.html[エクスポーターのための WinGrid 非同期エクスポート]
+* link:whats-new-automatic-repetitive-paste-in-grids.html[グリッドで自動繰り返し貼り付け]
+* link:whats-new-excel-style-filtering.html[WinGridFilterUIProvider Excel スタイル フィルタリング]

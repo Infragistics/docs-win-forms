@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-version-free-assembly-names",
+    "controlName": [],
+    "tags": [],
+    "guid": "c98d023f-d114-4861-b455-7c53a5ae27e6",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T15:41:46.2523415Z"
+}
+|metadata|
+////
+
+= バージョンフリー アセンブリ名
+
+2010 Volume 2 の本リリースから、製品インストールとともに zip フォーマットで使用できるバージョンフリー アセンブリを提供します。バージョンフリー アセンブリには、名前に末尾バージョン番号および CLR 識別番号はありません。たとえば、{ApiPlatform}Shared.v10.2.dll は Infragistics.Shared.dll として読み込みます。CLR2 と CLR 3 の両バージョン（{ApiPlatform}Documents.Excel.v10.2 と Infragistics3.Documents.Excel.v10.2 のような）を持つアセンブリの場合、バージョンフリー アセンブリは最新の CLR バージョンと一致します。したがって、バージョンフリーの Excel アセンブリは Infragistics.Documents.Excel.dll であり、CLR3 バージョンのためにビルドされたアセンブリです。バージョンフリー アセンブリを使用すれば、アセンブリ バインディング リダイレクトを使用して、アプリケーションを再ビルドすることなく、ひとつのバージョンから別のバージョンに簡単にアップグレードできます。
+
+== *関連トピック*
+
+link:introduction-version-free-assemblies.html[バージョンフリー アセンブリ]
+

@@ -1,0 +1,174 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-combining-multiple-conditions",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids"],
+    "guid": "{947DC884-0520-4F1D-BD0B-7814E364C451}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数の条件を結合
+
+== 始める前に
+
+ほとんどの部分で、ひとつの条件に対してセルの値を比較するすれば、ほとんどの状況で十分です。ただし、ひとつの条件に対して複数のセルをテストし、他の個別の条件に対して他のセルをテストする必要がある場合、これらの条件を結合する必要があります。たとえば、高低に対して WinGrid 列をテストとする必要があります。数値が 0 未満の場合、ForeColor を赤に変更します。数値が 5 以上の場合、ForeColor を青に変更します。
+
+== 達成すること
+
+上記のシナリオを達成するためには、2 つの条件を作成する必要があります。このトピックでは、カスタマイズする必要がなければ Operator 条件を使用します。いったん条件を作成したら（ひとつは低い範囲をテストし、もうひとつは高い範囲をテスト）、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.conditionvalueappearance.html[ConditionValueAppearance]"]  オブジェクトを作成し、一致する外観の両方の条件を ConditionValueAppearance オブジェクトに追加します。あとは、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~valuebasedappearance.html[ValueBasedAppearance]"]  プロパティに ConditionValueAppearance オブジェクトを設定することです。
+
+== 以下の手順を実行します。
+
+[start=1]
+. *フォームを設定します。*
+
+.. ツールボックスから WinGrid コントロールをフォームにドラッグします。
+.. その Dock プロパティを Fill に設定します。
+.. ツールバーで WinCalcManager コンポーネントを検索してダブルクリックします。WinCalcManager コンポーネントがコンポーネント トレイに追加されます。
+
+image::images/Win_Combining_Multiple_Conditions_01.png[]
+
+[start=2]
+. コードを記述する前にコードビハインド内に使用/インポートのディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+[start=3]
+. *WinGrid のデータを作成します。*
+
+以下のコードは、使用するために WinGrid のデータ列をひとつ作成します。フォームの Load イベントに、以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(sender As Object, e As System.EventArgs)
+	Dim dataTable1 As New DataTable("DataTable1")
+	Dim dataColumn1 As New DataColumn("DataColumn1", GetType(Integer))
+	dataTable1.Columns.Add(dataColumn1)
+	Dim i As Integer
+	For i = - 5 To 10
+		dataTable1.Rows.Add(New Object() {i})
+	Next i
+	Me.ultraGrid1.DataSource = dataTable1
+End Sub 'Form1_Load
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	DataTable dataTable1 = new DataTable("DataTable1");
+	DataColumn dataColumn1 = new DataColumn("DataColumn1", typeof(int));
+	dataTable1.Columns.Add(dataColumn1);
+	for(int i=-5; i $$<=$$ 10; i++)
+	{
+		dataTable1.Rows.Add(new object[] { i });
+	}
+	this.ultraGrid1.DataSource = dataTable1;
+}
+----
+
+[start=4]
+. *演算子の条件を作成します。*
+
+2 つの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition.html[OperatorCondition]"]  オブジェクトをインスタンス化します。最初は、セルの値が 0 未満であるかどうかをテストし、2 番目は 5 より大きいかどうかをテストします。コンストラクタに渡される最初のパラメータは pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition~conditionoperator.html[ConditionOperator]"]  です。選択する組み込み演算子がいくつかあります。2 番目のパラメータは、セル値をテストしたい値になります。
+
+*Visual Basic の場合：*
+
+----
+Dim condition1 As New OperatorCondition(ConditionOperator.LessThan, 0)
+Dim condition2 As New OperatorCondition(ConditionOperator.GreaterThan, 5)
+----
+
+*C# の場合：*
+
+----
+OperatorCondition condition1 =
+  new OperatorCondition(ConditionOperator.LessThan, 0);
+OperatorCondition condition2 =
+  new OperatorCondition(ConditionOperator.GreaterThan, 5);
+----
+
+[start=5]
+. *Appearance オブジェクトを作成します。*
+
+これで条件を作成できたので、条件が満たされた場合にセルに適用される Appearance オブジェクトを作成する必要があります。2 つの Appearance オブジェクトを作成し、ひとつの外観は青の前景色で、他の外観は赤の前景色です。
+
+*Visual Basic の場合：*
+
+----
+Dim appearance1 as Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+appearance1.ForeColor = Color.Red
+Dim appearance2 as Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+appearance2.ForeColor = Color.Blue
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+appearance1.ForeColor = Color.Red;
+Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+appearance2.ForeColor = Color.Blue;
+----
+
+[start=6]
+. *ConditionValueAppearance オブジェクトに追加することで条件と外観を結びつけます。*
+
+ConditionValueAppearance オブジェクトは条件と外観のコレクションです。最初のパラメータとして BuiltInCondition オブジェクトを受け入れる Add メソッドを使用でき、2 番目として Appearance オブジェクトを使用できます。これらは 2 つのオブジェクトをリンクします。ConditionValueAppearance オブジェクトに希望するだけの条件/外観グループを追加することができます。このトピックでは、2 つの外観だけを追加します。
+
+*Visual Basic の場合：*
+
+----
+Dim valAppearance1 As New ConditionValueAppearance()
+valAppearance1.Add(condition1, appearance1)
+valAppearance1.Add(condition2, appearance2)
+----
+
+*C# の場合：*
+
+----
+ConditionValueAppearance valAppearance1 = new ConditionValueAppearance();
+valAppearance1.Add(condition1, appearance1);
+valAppearance1.Add(condition2, appearance2);
+----
+
+[start=7]
+. *条件フォーマッティングに WinGrid 列を設定します。*
+
+WinGrid の列で条件フォーマッティングの利点を得るためには、列の ValueBasedAppearance プロパティを ConditionValueAppearance オブジェクトに設定する必要があるだけです。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.Bands(0).Columns(0).ValueBasedAppearance = valAppearance1
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].ValueBasedAppearance = valAppearance1;
+----
+
+[start=8]
+. *アプリケーションを実行します。*
+
+0 未満の列のすべてのセルが赤で、5 より大きいセルすべてが青になります。
+
+image::images/Win_Combining_Multiple_Conditions_02.png[]

@@ -1,0 +1,577 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-enabling-external-filtering",
+    "controlName": ["WinGrid"],
+    "tags": ["Filtering","How Do I"],
+    "guid": "7938de02-e99f-4ddd-977b-06fdb65598f4",  
+    "buildFlags": [],
+    "createdOn": "2012-03-12T15:29:42.1206151Z"
+}
+|metadata|
+////
+
+= 外部フィルタリングを有効にする
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 WinGrid™ コントロールの外部フィルタリング機能を有効化および実装する方法を、コード例を交えながら説明します。
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Ref320622912,WinGrid 内の外部フィルタリング - 概念的概要>>
+** <<_Ref320622922,概要>>
+** <<_Ref320622934,外部フィルタリングを有効にする>>
+
+* <<_Ref320622946,WinGrid における外部フィルタリング- コード例>>
+** <<_Ref320622640,概要>>
+** <<_Ref320622582,プレビュー>>
+** <<_Ref320622990,前提条件>>
+** <<_Ref320623001,概要>>
+** <<_Ref320623006,手順>>
+
+* <<_Ref320623014,関連コンテンツ>>
+
+[[_External_Filtering_in]]
+[[_Ref320622912]]
+== WinGrid 内の外部フィルタリング - 概念的概要
+
+[[_Introduction_1]]
+
+=== 概要
+
+外部フィルタリング を有効にし、、 UltraGrid™ コントロールの 組み込みフィルタリング ユーザー インターフェイス (UI) が保持されます, が、 内部フィルタリング ロジックがバイパスされ、すべての行を同時に読み込む必要がありません。これは WinGrid を、 提供されたカスタム フィルタリング コードと共にデータをフィルタし 、 `LoadOnDemand` 機能を利用するよう有効にします。*。*
+
+[[_Enabling_external_filtering]]
+
+=== 外部フィルタリングを有効にする
+
+外部フィルタリングを有効にするには、デフォルトのフィルタリング アクションを無効化した上で、いくつかのイベントを追加してカスタム フィルタリング ロジックを操作し、フィルター値リストにカスタム フィルタリング値を投入してください。(グリッドは、フィルター値リストへのフィルター値投入は行いません。ただし、デフォルトのオプションである  _Custom_ 、 _Blanks_ 、 _NonBlanks_  _、_ および  _All_  は、フィルターのドロップダウン リストから利用可能です。)
+
+以下の表は、外部フィルタリングを有効にするためのステップを示しています。
+
+=== 1.デフォルトのフィルタリング アクションを無効にします。
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowfilteraction.html[RowFilterAction] プロパティを  _None_  に設定します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.UltraGrid1.DisplayLayout.Override.RowFilterAction = RowFilterAction.None
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraGrid1.DisplayLayout.Override.RowFilterAction = RowFilterAction.None;
+----
+
+=== 2.ドロップダウン リストにカスタム フィルタリング値を投入します。
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforerowfilterdropdownpopulate_ev.html[BeforeRowFilterDropDownPopulate] イベントを処理します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub UltraGrid1_BeforeRowFilterDropDownPopulate(ByVal sender As System.Object, _
+ ByVal e As Infragistics.Win.UltraWinGrid.BeforeRowFilterDropDownPopulateEventArgs) Handles UltraGrid1.BeforeRowFilterDropDownPopulate
+End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void ultraGrid1_BeforeRowFilterDropDownPopulate(object sender, BeforeRowFilterDropDownPopulateEventArgs e)
+{
+}
+----
+
+=== 3.カスタム フィルタリング ロジックを追加します。
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~afterrowfilterchanged_ev.html[AfterRowFilterChanged] イベントを処理します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub UltraGrid1_AfterRowFilterChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.AfterRowFilterChangedEventArgs) Handles UltraGrid1.AfterRowFilterChanged
+End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void ultraGrid1_AfterRowFilterChanged(object sender, AfterRowFilterChangedEventArgs e)
+{
+}
+----
+
+[[_External_Filtering_in_1]]
+[[_Ref320622946]]
+== WinGrid における外部フィルタリング- コード例
+
+[[_Introduction]]
+
+=== 概要
+
+以下の例では、WinGrid の Text 列から  _A_ 、 _B_ 、 _C_ 、 _D_  で始まる値を表示およびフィルタリングするカスタム フィルタリングの実装方法を説明します。これは、 _Text_  列のフィルター ドロップダウン リストに英字  _A_ 、 _B_ 、 _C_ 、 _D_  を表示するカスタム フィルタリング ロジックを追加し、ドロップダウン リストの選択値に応じてグリッドのフィルタリングを行うことによって実現できます。
+
+この例では、WinGrid コントロールは WinDataSource™ コンポーネントにバインドされています。デモ目的の場合、データセットは、WinDataSource™ コンポーネントのためにデータを供給するバックエンド データ ストレージとして使用されます。
+
+[[_Preview]]
+
+=== プレビュー
+
+以下のスクリーンショットは、最終結果のプレビューです。WinGrid には、内蔵フィルタリング UI でカスタム フィルタリング ロジックを使用してフィルターで除外されたレコードを示しています。
+
+image::images/Enabling_External_Filtering_1.png[]
+
+[[_Prerequisites]]
+
+=== 前提条件
+
+手順を完了するには、以下が必要です:
+
+* UltraGrid コントロールと UltraDataSource コンポーネントが追加されたフォーム
+
+[[_Overview]]
+
+=== 概要
+
+以下はプロセスの概念的概要です。
+
+[start=1]
+. プライベート メンバーを定義します
+[start=2]
+. バックエンド データ ストレージを構成します
+[start=3]
+. ランダム データを生成します
+[start=4]
+. データ ソース コンポーネントの行列スキーマを定義します
+[start=5]
+. グリッドの読み込み方式を定義します
+[start=6]
+. デフォルトのフィルタリング アクションを無効にします
+[start=7]
+. データを提供します
+[start=8]
+. ドロップダウン リストにカスタム フィルタ値を投入します
+[start=9]
+. カスタム フィルタリング ロジックを追加します
+
+[[_Steps]]
+
+=== 手順
+
+以下の手順では、WinGrid で外部フィルタリングを有効にし、<<_Ref320622640,概要>>で紹介したカスタム フィルタリング ロジックを適用する方法を示します。
+
+=== 1.プライベート メンバーを定義します。
+
+データセットおよびデータ行を定義します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+Private ds As DataSet
+Private rows As DataRow()
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+private DataSet ds;
+private DataRow[] rows;
+----
+
+=== 2.バックエンド データ ストレージを構成します。
+
+2 つの列と 100 万の行を含むデータセットが定義されます。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim dt As New DataTable()
+Dim dc As New DataColumn("ID")
+dc.DataType = System.Type.[GetType]("System.Int32")
+dt.Columns.Add(dc)
+dc = New DataColumn("Text")
+dc.DataType = System.Type.[GetType]("System.String")
+dt.Columns.Add(dc)
+Dim dr As DataRow
+For i As Integer = 0 To 999999
+Dim record As New Record(Me.GetRandomString(10))
+dr = dt.NewRow()
+dr(0) = record.id
+dr(1) = record.textField
+dt.Rows.Add(dr)
+Next
+ds = New DataSet()
+ds.Tables.Add(dt)
+rows = dt.[Select]()
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+DataTable dt = new DataTable();
+DataColumn dc = new DataColumn("ID");
+dc.DataType = System.Type.GetType("System.Int32");
+dt.Columns.Add(dc);
+dc = new DataColumn("Text");
+dc.DataType = System.Type.GetType("System.String");
+dt.Columns.Add(dc);
+DataRow dr;
+for (int i = 0; i < 1000000; i++)
+{
+Record record = new Record(this.GetRandomString(10));
+dr = dt.NewRow();
+dr[0] = record.id;
+dr[1] = record.textField;
+dt.Rows.Add(dr);
+}
+ds = new DataSet();
+ds.Tables.Add(dt);
+rows = dt.Select();
+----
+
+=== 3.ランダム データを生成します。
+
+以下のコードで生成されるランダム データは、 _CellDataRequested_  イベント内の UltraDataSouce コンポーネントに提供されます。 _Text_  列にはランダム文字列が提供されます。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Class Record
+Friend Shared ID_COUNTER As Integer = 0
+Friend id As Integer
+Friend textField As String
+Friend Sub New(ByVal textField As String)
+Me.id = ID_COUNTER
+ID_COUNTER += 1
+Me.textField = textField
+End Sub
+End Class
+Private random As New Random()
+Private Function GetRandomString(ByVal len As Integer) As String
+Dim sb As System.Text.StringBuilder = New System.Text.StringBuilder(len)
+Dim i As Integer
+For i = 0 To len - 1
+Dim a As Char = "A"
+Dim z As Char = "Z"
+sb.Append(Chr(Asc(a) + Me.random.Next(Asc(z) - Asc(a))))
+Next
+Return sb.ToString()
+End Function
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+private class Record
+{
+internal static int ID_COUNTER = 0;
+internal int id;
+internal string textField;
+internal Record(string textField)
+{
+this.id = ID_COUNTER;
+ID_COUNTER++;
+this.textField = textField;
+}
+}
+private Random random = new Random();
+private string GetRandomString(int len)
+{
+System.Text.StringBuilder sb = new System.Text.StringBuilder(len);
+for (int i = 0; i < len; i++)
+sb.Append((char)('A' + this.random.Next('Z' - 'A')));
+return sb.ToString();
+}
+----
+
+=== 4.データ ソース コンポーネントの行/列スキーマを定義します。
+
+このコードを  _Form_  ロード イベントに追加することによって、UltraDataSource™ コンポーネントの列と行を定義します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 追加する 2 列のうち 1 つは整数型の ID 列で、もう 1 つはテキスト列で
+' 文字列型です。
+Me.UltraDataSource1.Band.Columns.Add("ID", GetType(Integer))
+' id 列を読み取り専用にします。
+Me.UltraDataSource1.Band.Columns("ID").[ReadOnly] = DefaultableBoolean.[True]
+Me.UltraDataSource1.Band.Columns.Add("Text", GetType(String))
+' 行数を設定します。これは何行あるかを示します。
+Me.UltraDataSource1.Rows.SetCount(Me.ds.Tables(0).Rows.Count)
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 追加する 2 列は、整数型の ID 列と、2 つ目のテキスト列は文字列型です。
+this.ultraDataSource1.Band.Columns.Add("ID", typeof(int));
+// id 列を読み取り専用にします。
+this.ultraDataSource1.Band.Columns["ID"].ReadOnly = DefaultableBoolean.True;
+this.ultraDataSource1.Band.Columns.Add("Text", typeof(string));
+// 行数を設定します。これは何行あるかを示します。
+this.ultraDataSource1.Rows.SetCount(this.ds.Tables[0].Rows.Count);
+----
+
+=== 5.グリッドの読み込み方式を定義します。
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~loadstyle.html[LoadStyle] を `LoadOnDemand` に設定し、グリッドが必要に応じてデータを読み込めるようにします。フォームの Load イベントでこのコードを追加します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' LoadStyle を LoadOnDemand に設定し、UltraGrid がすべての行をプリロードしないようにします。LoadOnDemand ロード スタイルは、必要に応じて行を作ります（たとえば、ビューにスクロールされていく時など）。これは、UltraGrid の DataSource プロパティを設定する前に行う必要があります。
+Me.UltraGrid1.DisplayLayout.LoadStyle = LoadStyle.LoadOnDemand
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+// LoadStyle を LoadOnDemand に設定し、UltraGrid がすべての行をプリロードしないようにします。LoadOnDemand ロード スタイルは、//必要に応じて行を作ります（たとえば、//ビューにスクロールされていく時など）。これは、UltraGrid の //DataSource プロパティを設定する前に行う必要があります。
+this.ultraGrid1.DisplayLayout.LoadStyle = LoadStyle.LoadOnDemand;
+----
+
+=== 6.デフォルトのフィルタリング アクションを無効にします。
+
+WinGrid コントロールの内蔵フィルタリング UI を、内部フィルタリング ロジックを使用せずに表示するために、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowfilteraction.html[RowFilterAction] プロパティを `None` に設定します。内部フィルタリング ロジックをバイパスすることにより、グリッドがデータをオンデマンドで読み込めるようになります。
+
+フォームの Load イベントにこのコードを追加します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.UltraGrid1.DataSource = Me.UltraDataSource1
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Text").AllowRowFiltering = DefaultableBoolean.[True]
+' フィルタリング アクションをせずに UltraGrid のフィルタリング UI だけを有効化します
+Me.UltraGrid1.DisplayLayout.Override.RowFilterAction = RowFilterAction.None
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraGrid1.DataSource = this.ultraDataSource1;
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Text"].AllowRowFiltering = DefaultableBoolean.True;
+// フィルタリング アクションをせずに UltraGrid のフィルタリング UI だけを有効化します
+this.ultraGrid1.DisplayLayout.Override.RowFilterAction = RowFilterAction.None;
+----
+
+=== 7.データを提供します。
+
+UltraDataSource コンポーネントが必要とするデータは、 link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~celldatarequested_ev.html[CellDataRequested] イベント内から提供します。このイベントは、UltraDataSource コンポーネントにバインドされた UltraGrid がセルの値を要求したとき、および UltraDataSource コンポーネントがセル値を持っていない場合に発生します。以下のコードは、UltraDataSouce コンポーネントの  _CellDataRequested_  イベント内に組み込みます。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim columnKey As String = e.Column.Key
+If rows.Length > e.Row.Index Then
+If "ID" = columnKey Then
+e.Data = CInt(rows(e.Row.Index)(0))
+ElseIf "Text" = columnKey Then
+e.Data = DirectCast(rows(e.Row.Index)(1), String)
+End If
+End If
+' デフォルトでは、UltraDataSource は与えられたセル値をキャッシュし、
+' 次に必要になった時に尋ねません。CacheData を False に設定し、UltraDataSource が
+' それを行うのを防止します。
+e.CacheData = False
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+string columnKey = e.Column.Key;
+if (rows.Length > e.Row.Index)
+{
+if ("ID" == columnKey)
+{
+e.Data = (int)rows[e.Row.Index][0];
+}
+else if ("Text" == columnKey)
+{
+e.Data = (string)rows[e.Row.Index][1];
+}
+}
+// デフォルトでは、UltraDataSource は与えられたセル値をキャッシュし、
+// 次に必要になった時に尋ねません。CacheData を False に設定し、UltraDataSource が
+// それを行うのを防止します。
+e.CacheData = false;
+----
+
+=== 8.ドロップダウン リストにカスタム フィルタリング値を投入します。
+
+UltraGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforerowfilterdropdownpopulate_ev.html[BeforeRowFilterDropDownPopulate] イベントを編集し、フィルター ドロップダウン リスト項目を手動で追加します。ここではリスト項目として英字の「A」、「B」、「C」、および「D」をフィルタードロップダウンに追加します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' フィルター ドロップ ダウンを手動で投入するためにコードをここに追加します
+If "Text" = e.Column.Key Then
+' 次のコードは、デフォルト値リスト項目のフィルター ドロップ ダウンからの削除について説明します
+For i As Integer = e.ValueList.ValueListItems.Count - 1 To 0 Step -1
+' 「Custom」オプションをフィルター ドロップ ダウンから削除します。
+If e.ValueList.ValueListItems(i).DisplayText.Equals("(Custom)") Then
+e.ValueList.ValueListItems.RemoveAt(i)
+' 「Blanks」オプションをフィルター ドロップ ダウンから削除します。
+ElseIf e.ValueList.ValueListItems(i).DisplayText.Equals("(Blanks)") Then
+e.ValueList.ValueListItems.RemoveAt(i)
+' 「NonBlanks」オプションをフィルター ドロップ ダウンから削除します。
+ElseIf e.ValueList.ValueListItems(i).DisplayText.Equals("(NonBlanks)") Then
+e.ValueList.ValueListItems.RemoveAt(i)
+End If
+Next
+' フィルター ドロップ ダウンに、セル値の先頭文字でフィルターする 4 項目を追加します。
+e.ValueList.ValueListItems.Add("A")
+e.ValueList.ValueListItems.Add("B")
+e.ValueList.ValueListItems.Add("C")
+e.ValueList.ValueListItems.Add("D")
+End If
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+// フィルター ドロップ ダウンを手動で投入するためにコードをここに追加します
+if ("Text" == e.Column.Key)
+{
+// 次のコードは、デフォルト値リスト項目のフィルター ドロップ ダウンからの削除について説明します
+for (int i = e.ValueList.ValueListItems.Count - 1; i >= 0; i--)
+{
+// 「Custom」オプションをフィルター ドロップ ダウンから削除します。
+if (e.ValueList.ValueListItems[i].DisplayText.Equals("(Custom)"))
+e.ValueList.ValueListItems.RemoveAt(i);
+// 「Blanks」オプションをフィルター ドロップ ダウンから削除します。
+else if (e.ValueList.ValueListItems[i].DisplayText.Equals("(Blanks)"))
+e.ValueList.ValueListItems.RemoveAt(i);
+// 「NonBlanks」オプションをフィルター ドロップ ダウンから削除します。
+else if (e.ValueList.ValueListItems[i].DisplayText.Equals("(NonBlanks)"))
+e.ValueList.ValueListItems.RemoveAt(i);
+}
+// フィルター ドロップ ダウンに、セル値の先頭文字でフィルターする 4 項目を追加します。
+e.ValueList.ValueListItems.Add("A");
+e.ValueList.ValueListItems.Add("B");
+e.ValueList.ValueListItems.Add("C");
+e.ValueList.ValueListItems.Add("D");
+----
+
+=== 9.カスタム フィルタリング ロジックを追加します。
+
+UltraGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~afterrowfilterchanged_ev.html[AfterRowFilterChanged] イベントを編集し、カスタム フィルタリング ロジックを追加します。この例では、 _Text_  列のフィルター ドロップダウン リストで選択した英字で始まるレコードをすべてフィルターします。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+If e.NewColumnFilter.FilterConditions.Count > 0 Then
+' フィルター操作が完了するまでには時間がかかる場合があるため、カーソルを待機に設定します。
+Cursor.Current = Cursors.WaitCursor
+If (e.NewColumnFilter.FilterConditions(0).CompareValue).ToString() = "A" Then
+rows = ds.Tables(0).[Select]("Text LIKE 'A%'")
+ElseIf (e.NewColumnFilter.FilterConditions(0).CompareValue).ToString() = "B" Then
+rows = ds.Tables(0).[Select]("Text LIKE 'B%'")
+ElseIf (e.NewColumnFilter.FilterConditions(0).CompareValue).ToString() = "C" Then
+rows = ds.Tables(0).[Select]("Text LIKE 'C%'")
+ElseIf (e.NewColumnFilter.FilterConditions(0).CompareValue).ToString() = "D" Then
+rows = ds.Tables(0).[Select]("Text LIKE 'D%'")
+End If
+Else
+rows = ds.Tables(0).[Select]()
+End If
+Cursor.Current = Cursors.[Default]
+' キャッシュされたセル値をすべてクリアします
+Me.UltraDataSource1.Rows.ResetCachedValues()
+Me.UltraDataSource1.Rows.SetCount(rows.Length)
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+if (e.NewColumnFilter.FilterConditions.Count > 0)
+{
+// フィルター操作が完了するまでには時間がかかる場合があるため、カーソルを待機に設定します。
+Cursor.Current = Cursors.WaitCursor;
+if ((e.NewColumnFilter.FilterConditions[0].CompareValue).ToString() == "A")
+{
+rows = ds.Tables[0].Select("Text LIKE 'A%'");
+}
+else if ((e.NewColumnFilter.FilterConditions[0].CompareValue).ToString() == "B")
+{
+rows = ds.Tables[0].Select("Text LIKE 'B%'");
+}
+else if ((e.NewColumnFilter.FilterConditions[0].CompareValue).ToString() == "C")
+{
+rows = ds.Tables[0].Select("Text LIKE 'C%'");
+}
+else if ((e.NewColumnFilter.FilterConditions[0].CompareValue).ToString() == "D")
+{
+rows = ds.Tables[0].Select("Text LIKE 'D%'");
+}
+}
+else
+{
+rows = ds.Tables[0].Select();
+}
+Cursor.Current = Cursors.Default;
+// キャッシュされたセル値をすべてクリアします
+this.ultraDataSource1.Rows.ResetCachedValues();
+this.ultraDataSource1.Rows.SetCount(rows.Length);
+----
+
+=== 10.結果を検証します。
+
+結果を検証するには、グリッドの Text 列に表示されているフィルター アイコンをクリックします。外部フィルタリングが正しく実装されている場合、上に示した<<_Ref320622582,プレビュー>>のように、ドロップダウン リストにフィルター条件が表示されます。
+
+[[_Related_Content]]
+[[_Ref320623014]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-using-the-filter-row-feature.html[フィルター行機能の使用]
+|このトピックでは、行フィルタリングとフィルター行機能の利用を有効にする方法について、コード例を交えながら説明します。
+
+| link:windatasource-load-data-on-demand.html[オンデマンドでのデータのロード]
+|このトピックは、必要に応じてデータをロードする方法をコード例とともに説明します。
+
+|====

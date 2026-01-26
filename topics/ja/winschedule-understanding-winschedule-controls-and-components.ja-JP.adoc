@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-understanding-winschedule-controls-and-components",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{3F4EB693-20E2-4ED0-BA16-F7EA1742616C}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule コントロールとコンポーネントの理解
+
+これは、WinSchedule コントロールおよびコンポーネント、ならびにその主要な特性と機能についての学習を開始するために絶好の場所です。
+
+* link:winschedule-about-winschedule-controls-and-components.html[WinSchedule コントロールとコンポーネントについて] -- WinSchedule コントロールとコンポーネント、その主要な機能、およびそれぞれがどのように関連しているかについて説明しています。
+* link:winschedule-appointment-grouping.html[予定のグループ化] -- WinDayView、WinMonthViewSingle、および WinWeekView の各コントロールで複数のオーナーのカレンダーを並べて表示する方法を説明しています。
+* link:winschedule-data-binding-support-for-appointments-and-owners.html[予定とオーナーのデータ バインドのサポート] -- AppointmentsDataBinding オブジェクトと OwnersDataBinding オブジェクトについて説明しています。
+* link:winschedule-printing-support-in-winschedule.html[WinSchedule での印刷サポート] -- カレンダーの印刷で使用可能な 7 種類のスタイルについて説明しています。また、このトピックでは、印刷されたスケジュール ページのヘッダとフッタに使用する置換可能なエスケープ タグについても説明しています。また、WinSchedule での印刷処理についても説明しています。
+* link:winschedule-recurring-appointments.html[繰り返し予定] -- WinSchedule の繰り返し予定のサポートについて詳細な全容を説明しています。
+* link:winschedule-working-with-the-outlook-2007-color-scheme.html[Outlook 2007 カラー スキームでの操作] -- WinSchedule で Outlook 2007 の色を使用する方法を学習します。

@@ -1,0 +1,114 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= Selection
+
+This topic provides information for enabling and using the selection feature in the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] control. 
+
+The topic contains the following sections:
+
+* <<Requirements,Requirements>>
+* <<Overview,Overview>>
+* <<SelectionBehaviors, Selection Behaviors>>
+* <<SelectionModes,Selection Modes>>
+* <<SelectionEvents,Selection Events>>
+* <<RelatedTopics,Related Content>>
+
+[[Requirements]]
+== Requirements
+
+This article assumes you have already read the link:data-pie-chart-data-binding.html[Data Binding] topic, and uses the code within it as a starting point.
+
+[[Overview]]
+== Selection Overview
+
+The {DataPieChartName} supports slice selection by mouse click on the slices plotted in the chart. The different facets of the selection feature in the chart are described below:
+
+[[SelectionBehaviors]]
+=== Selection Behaviors
+
+The main two options of the `SelectionBehavior` are `PerDataItemSingleSelect` and `PerDataItemMultiSelect`, which will enable single and multiple selection, respectively.
+
+[[SelectionModes]]
+=== Selection Modes
+
+The `SelectionMode` property determines how the pie chart slices respond to being selected. This property is defined by the `SeriesSelectionMode` enumeration. The following are the options of that enumeration and what they do:
+
+- `Brighten`: The selected slices will be highlighted.
+- `FadeOthers`: The selected slices will remain their same color and others will fade.
+- `FocusColorFill`: The selected slices will change their background to the `FocusBrush` of the {DataPieChartName} control.
+- `FocusColorOutline`: The selected slices will have an outline with the color defined by the `FocusBrush` of the {DataPieChartName} control.
+- `FocusColorThickOutline`: The selected slices will have an outline with the color defined by the `FocusBrush` of the {DataPieChartName} control. The thickness of this outline can be configured via the `Thickness` property of the control as well.
+- `GrayscaleOthers`: The unselected slices will have a gray color filter applied to them.
+- `None`: There is no effect on the selected slices.
+- `SelectionColorFill`: The selected slices will change their background to the `SelectionBrush` of the {DataPieChartName} control.
+- `SelectionColorOutline`: The selected slices will have an outline with the color defined by the `SelectionBrush` of the {DataPieChartName} control.
+- `SelectionColorThickOutline`: The selected slices will have an outline with the color defined by the `FocusBrush` of the {DataPieChartName} control. The thickness of this outline can be configured via the `Thickness` property of the control as well.
+- `ThickOutline`: The selected slices will apply an outline with the thickness dependent on the `Thickness` property of the {DataPieChartName} control.
+
+[[SelectionEvents]]
+=== Selection Events
+
+When a slice is selected, it's underlying data item will be added to the `SelectedSeriesItems` collection of the chart. As such, the {DataPieChartName} exposes the `SelectedSeriesItemsChanged` event to detect when a slice has been selected and this collection is changed.
+
+[[CodeExample]]
+
+== Code Example
+
+ifdef::wpf[]
+
+*In XAML:*
+
+[source,xaml]
+----
+TODO
+----
+
+*In C#:*
+
+[source, csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    SelectionBehavior = SeriesSelectionBehavior.PerDataItemMultiSelect,
+    SelectionMode = SeriesSelectionMode.SelectionColorFill,
+    SelectionBrush = Brushes.DodgerBlue
+};
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*In C#:*
+
+[source,csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    Dock = DockStyle.Fill,
+    SelectionBehavior = SeriesSelectionBehavior.PerDataItemMultiSelect,
+    SelectionMode = SeriesSelectionMode.SelectionColorFill,
+    SelectionBrush = Brushes.DodgerBlue
+};
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== Related Content
+
+* link:data-pie-chart-data-binding.html[Data Binding]
+* link:data-pie-chart-others-category.html[Others Category]

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winribboncustomizationprovider",
+    "controlName": ["WinRibbonCustomizationProvider"],
+    "tags": ["Editing","Extending"],
+    "guid": "d309d98d-5bf5-471f-8fc6-0fe0a2b930d8",  
+    "buildFlags": [],
+    "createdOn": "2011-04-26T18:53:34.2231705Z"
+}
+|metadata|
+////
+
+= WinRibbonCustomizationProvider
+
+以下のリンクをクリックすると、WinRibbonCustomizationProvider™ コンポーネントに関する説明を読むことができます。
+
+* link:winribbboncustomizationprovider-understanding-winribbboncustomizationprovider.html[WinRibbbonCustomizationProvider の理解] -- WinRibbonCustomizationProvider コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winribboncustomizationprovider-using-winribboncustomizationprovider.html[WinRibbonCustomizationProvider の使用] - このセクションでは、WinRibbonCustomizationProvider コンポーネントを使用して特定のタスクを実現するための短い、有益なトピックがコード例のスニペットとともに紹介されています。
+* link:winribboncustomizationprovider-api-overview.html[API の概要] -- WinRibbonCustomizationProvider コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

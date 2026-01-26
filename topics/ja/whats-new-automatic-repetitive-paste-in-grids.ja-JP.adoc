@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-automatic-repetitive-paste-in-grids",
+    "controlName": [],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "5994eb2c-47bf-4c2f-bb3b-55d6421bb76d",  
+    "buildFlags": [],
+    "createdOn": "2011-08-31T20:08:21.8851259Z"
+}
+|metadata|
+////
+
+= グリッドで自動繰り返し貼り付け
+
+{ProductName} の 2011 Volume 2 以降、ユーザーは 1 回の貼り付け操作でセルの選択の貼り付けを複数回実行できます。これは、コピーされた領域の正確な倍数であるコピー先領域を選択することで実行できます。このように、ユーザーの貼り付け機能は、WinGrid™ コントロールで提供されたように、Microsoft Excel® での貼り付けの時とまったく同じです。
+
+== 関連トピック
+
+* link:wingrid-automatic-repetitive-paste-in-grids.html[グリッドで自動繰り返し貼り付け]

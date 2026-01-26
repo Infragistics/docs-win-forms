@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-menu-tooltips-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F3D2B780-DE7D-4CD6-AFB0-3066727214BD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= メニュー ツールチップ
+
+ToolbarSettings クラスと MenuSettingsクラスに ShowToolTips プロパティが追加され、ツールバーおよびメニューに表示された個々のツールに対してツールチップを表示できるようになりました。
+
+== 関連トピック
+
+link:wintoolbarsmanager-hide-tooltips-in-a-specific-toolbar.html[特定のツールバーでのツールチップの非表示化]

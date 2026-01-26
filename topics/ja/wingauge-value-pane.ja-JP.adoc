@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-value-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{7BB950A5-B1CC-48FE-9413-335ADDDDBE14}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 値ペイン
+
+[値] ペインによって、スケール上のレンジの開始点と終了点を指定できます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~startvalue.html[開始]"]  -- この値を 0 から 360 の整数に設定します。この値は、スケール上のレンジの開始点を設定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~endvalue.html[終了]"]  -- この値を 0 から 360 の整数に設定します。この値は、スケール上のレンジの終了点を設定します。
+
+image::images/Range_Value_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-range-layout-tab.html[レンジ レイアウト タブ]

@@ -1,0 +1,84 @@
+﻿////
+|metadata|
+{
+    "name": "winactivityindicator-styling-winactivityindicator",
+    "controlName": ["WinActivityIndicator"],
+    "tags": ["How Do I","Performance","Styling","Theming"],
+    "guid": "{14D0C6A5-77D4-49B0-8A59-E9CA716ED501}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinActivityIndicator のスタイリング
+
+Appearance オブジェクトと Infragistics 固有の AppStyling を使用してさまざまな色とグラデーションで WinActivityIndicator™ コントロールをスタイルできます。アプリケーションのスタイリングで AppStylist® を推奨します。
+
+
+WinActivityIndicator は OS テーマが無効の時に（デフォルト）、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~viewstyle.html[ViewStyle]"]  プロパティによって 2 つのビュー スタイルをサポートします。 テーマ化をサポートするオペレーティング システムで、ViewStyle プロパティは Aero に解決されます。 テーマがオペレーティング システムでサポートされていない場合、ViewStyle は Standard に解決されます。
+
+以下の例のコードは、いくつかのスタイリング オプションを示しています。
+
+このトピックはコントロールのアニメーションが pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~animationenabled.html[AnimationEnabled]"]  プロパティを使用して有効になっていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraActivityIndicator
+Imports Infragistics.Win.AppStyling
+' Border のスタイルを設定します。 
+Me.ultraActivityIndicator1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4Thick 
+' Theming が無効の場合、ViewStyle を Aero に設定します。 
+Me.ultraActivityIndicator1.ViewStyle = Infragistics.Win.UltraActivityIndicator.ActivityIndicatorViewStyle.Aero
+' Theming が無効の場合、ViewStyle を Standard に設定します。 
+' Me.ultraActivityIndicator1.ViewStyle = Infragistics.Win.UltraActivityIndicator.ActivityIndicatorViewStyle. Standard
+' Appearance オブジェクトを設定します。 
+' Me.ultraActivityIndicator1.Appearance.BackColor = Color.LightGoldenrodYellow 
+' Infragistics AppStyling を適用します。 
+'StyleManager.Load("LucidDream.isl")
+' Theming を有効にします。
+' Me.ultraActivityIndicator1.UseOsThemes = Infragistics.Win.DefaultableBoolean.True
+' Theming が有効化されたときに ViewStyle を Standard に設定します 
+' Me.ultraActivityIndicator1.ViewStyle = Infragistics.Win.UltraActivityIndicator.ActivityIndicatorViewStyle.Standard
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraActivityIndicator;
+using Infragistics.Win.AppStyling;
+// Border のスタイルを設定します。
+this.ultraActivityIndicator1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4Thick;
+// Theming が無効の場合、ViewStyle を Aero に設定します。
+this.ultraActivityIndicator1.ViewStyle = Infragistics.Win.UltraActivityIndicator.ActivityIndicatorViewStyle.Aero;
+// Theming が無効の場合、ViewStyle を Standard に設定します。
+// this.ultraActivityIndicator1.ViewStyle = Infragistics.Win.UltraActivityIndicator.ActivityIndicatorViewStyle.Standard;
+// Appearance オブジェクトを設定します。
+// this.ultraActivityIndicator1.Appearance.BackColor = Color.LightGoldenrodYellow;
+// Infragistics AppStyling を適用します。
+//StyleManager.Load("LucidDream.isl");
+// Theming を有効にします。
+//this.ultraActivityIndicator1.UseOsThemes = Infragistics.Win.DefaultableBoolean.True;
+// Theming が有効化されたときに ViewStyle を Standard に設定します 
+//this.ultraActivityIndicator1.ViewStyle = Infragistics.Win.UltraActivityIndicator.ActivityIndicatorViewStyle.Standard;
+----
+
+=== OS テーマが無効の時に Aero View スタイルが設定された WinActivityIndicator
+
+image::images/WinActivityIndicator_Styling_WinActivityIndicator_03.png[]
+
+=== OS テーマが無効の時に Standard View スタイルが設定された WinActivityIndicator
+
+image::images/WinActivityIndicator_Styling_WinActivityIndicator_01.png[]
+
+=== OS テーマが有効の時に Standard View スタイルが設定された WinActivityIndicator
+
+image::images/WinActivityIndicator_Styling_WinActivityIndicator_02.png[]
+
+== 関連トピック
+
+* link:winactivityindicator-winactivityindicator-animation.html[WinActivityIndicator アニメーション]
+* link:winactivityindicator-marquee-animation-style-settings.html[マーキー アニメーション スタイルの設定]

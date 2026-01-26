@@ -1,0 +1,164 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-add-a-scale-to-a-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{059E97D3-F0CA-48E8-B002-303C46ED7712}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スケールをゲージに追加
+
+*Scales* プロパティはゲージ上の値のレンジを表示します。
+
+[NOTE]
+====
+*注:* このトピックは、目盛盤の付いたラジアル ゲージを作成済みであることを前提としています。目盛盤の作成方法については、 link:wingauge-create-a-dial.html[「目盛盤の作成」]を参照してください。
+====
+
+スケールをゲージに追加した後の次の手順は、 link:wingauge-add-tick-marks-to-a-scale-on-a-gauge.html[「ゲージ上のスケールに目盛を追加」]です。
+
+以下でスケールをゲージに追加できます。
+
+* <<gaugeDesigner,ゲージ デザイナを使用して>>
+* <<designTime,デザインタイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、ゲージは以下のゲージのようになります。ゲージ上のスケールは目盛を追加されるまで表示されません。
+
+image::images/Gauge_Add_Dial_01.png[]
+
+[[gaugeDesigner]]
+*ゲージ デザイナを使用してスケールをゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラで、[*スケール* ] プロパティを展開します。
+[start=2]
+. [スケールの追加] をクリックして、[新しいスケール] を選択します。
+[start=3]
+. link:wingauge-properties-panel.html[[プロパティ] パネル]で、 link:wingauge-sweep-angle-pane.html[[スイープ角度] ペイン]で、以下のプロパティを設定します。
+
+** 開始 -- 135
+** 終了 -- 405
+
+[start=4]
+. [スイープ角度] ペインの [軸] ペインで、[終了値] を 100.00 に設定します。
+
+[[designTime]]
+*デザインタイムにスケールをゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ コレクション エディタ ウィンドウで、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティをクリックします。次に省略記号（...）ボタンをクリックして、スケール エディタを開きます。
+[start=2]
+. エディタで、[追加] をクリックして、新しいスケールを追加します。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~endangle.html[EndAngle]"]  プロパティを 405 に設定します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~startangle.html[EndAngle]"]  プロパティを 135 に設定します。
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.axis.html[Axis]"]  プロパティをクリックします。次にドロップダウン リストから、[数値軸] を選択します。
+[start=6]
+. Axis プロパティを展開して、StartValue プロパティを 0 に設定します。
+[start=7]
+. EndValue を 100 に設定します。
+
+[[runTime]]
+*ランタイムにスケールをゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. 以下の手順を Load イベントに追加します。
+[start=2]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myScale As New RadialGaugeScale()
+Dim numericAxis1 As New NumericAxis()
+----
+
+*C# の場合：*
+
+----
+RadialGaugeScale myScale = new RadialGaugeScale();
+NumericAxis numericAxis1 = new NumericAxis();
+----
+
+[start=3]
+. 以下のプロパティを設定します。
+
+** Margin -- (10, 10, 10, Pixels)
+
+*Visual Basic の場合：*
+
+----
+myRadialGauge.Margin = New Margin(10, 10, 10, 10, Measure.Pixels)
+----
+
+*C# の場合：*
+
+----
+myRadialGauge.Margin = new Margin(10, 10, 10, 10, Pixels);
+----
+
+[start=4]
+. 以下の Axis プロパティを設定して、数値軸をスケールに追加します。
+
+** EndValue = 100
+
+*Visual Basic の場合：*
+
+----
+numericAxis1.EndValue = 100
+myScale.Axes.Add(numericAxis1)
+----
+
+*C# の場合：*
+
+----
+numericAxis1.EndValue = 100;
+myScale.Axes.Add(numericAxis1);
+----
+
+[start=5]
+. 以下のプロパティを設定します。
+
+** EndAngle -- 405
+** StartAngle -- 135
+
+*Visual Basic の場合：*
+
+----
+myScale.EndAngle = 405
+myScale.StartAngle = 135
+----
+
+*C# の場合：*
+
+----
+myScale.EndAngle = 405;
+myScale.StartAngle = 135;
+----
+
+[start=6]
+. スケールを Scales コレクションに追加します。
+
+*Visual Basic の場合：*
+
+----
+myRadialGauge.Scales.Add(myScale)
+----
+
+*C# の場合：*
+
+----
+myRadialGauge.Scales.Add.(myScale);
+----
+
+== 関連トピック
+
+link:wingauge-add-tick-marks-to-a-scale-on-a-gauge.html[ゲージ上のスケールに目盛を追加]

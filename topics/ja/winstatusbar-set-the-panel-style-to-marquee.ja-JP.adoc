@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-marquee",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{FD512178-A026-4338-8F42-17FEAEECE64F}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを Marquee に設定
+
+Marquee スタイルのパネルを使用すると、スクロール、スライド、フラッシュ、タイピング、バウンドなどのさまざまな方法によってステータス バーにテキストをスクロールできます。
+
+Marquee スタイルのパネルをデザインタイムに設定するには：
+
+[start=1]
+. WinStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+. パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  を "Marquee" に設定します。MarqueeInfo プロパティを開きます。希望する marquee スタイルを選択し、pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.marqueeinfo~isactive.html[IsActive]"]  を True に設定します。
+[start=5]
+. [OK] をクリックしてプロジェクトを実行します。デフォルトのテキスト移動で marquee パネルが表示されます。
+
+ランタイムの場合
+
+ランタイムにパネルを追加してそのタイプを "Marquee" に設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub WinStatusBarQuickTourMarqueePanel_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraStatusBar1.Panels.Add("Marquee", PanelStyle.Marquee)
+	Me.UltraStatusBar1.Panels("Marquee").Text = "Infragistics rocks!"
+	Me.UltraStatusBar1.Panels("Marquee").MarqueeInfo.MarqueeStyle = MarqueeStyle.Scrolling
+	Me.UltraStatusBar1.Panels("Marquee").MarqueeInfo.IsActive = True
+	Me.UltraStatusBar1.Panels("Marquee").MarqueeInfo.Start()
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void WinStatusBarQuickTourMarqueePanel_Load(object sender, System.EventArgs e)
+{
+	this.ultraStatusBar1.Panels.Add("Marquee", PanelStyle.Marquee);
+	this.ultraStatusBar1.Panels["Marquee"].Text = "Infragistics rocks!";
+	this.ultraStatusBar1.Panels["Marquee"].MarqueeInfo.MarqueeStyle = MarqueeStyle.Scrolling;
+	this.ultraStatusBar1.Panels["Marquee"].MarqueeInfo.IsActive = true;
+	this.ultraStatusBar1.Panels["Marquee"].MarqueeInfo.Start();
+}
+----
+
+[NOTE]
+====
+スクロールを開始するときに Start メソッドを呼び出す必要があるコードでこのパネルを追加する場合に注意してください。Stop メソッドを呼び出し、スクロールを停止します。
+====

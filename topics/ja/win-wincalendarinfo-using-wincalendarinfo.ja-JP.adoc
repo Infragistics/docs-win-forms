@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wincalendarinfo-using-wincalendarinfo",
+    "controlName": ["WinCalendarInfo"],
+    "tags": ["Application Scenarios"],
+    "guid": "{90707D55-568D-4136-B51A-D794F4959DD9}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T13:59:11Z"
+}
+|metadata|
+////
+
+= WinCalendarInfo の使用
+
+このセクションには、WinCalendarInfo™ コンポーネントの機能を使用する方法を説明する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wincalendarinfo-data-binding-support-for-the-notes-collection.html[Notes コレクションのデータ バインド サポート]
+* link:wincalendarinfo-disable-the-current-day-week-month-or-year.html[現在の日、週、月、または年の無効化]
+* link:wincalendarinfo-hide-a-day-of-the-week.html[週の曜日の非表示化]
+* link:wincalendarinfo-list-all-days-in-the-selected-date-ranges.html[選択した日付範囲のすべての日のリスト]
+* link:wincalendarinfo-populate-a-combo-box-with-the-days-of-the-week.html[コンボ ボックスへの週の曜日の移植]
+* link:wincalendarinfo-save-and-load-appointments.html[予約の保存とロード]
+* link:wincalendarinfo-set-the-active-day.html[アクティブ日の設定]
+* link:windayview-set-specific-working-hours.html[特定の就業時間の設定]
+* link:wincalendarinfo-set-the-appointment-dialog-box-to-the-current-active-day.html[予約ダイアログ ボックスを現在のアクティブ日に設定]
+* link:windayview-setting-different-working-hours-for-different-owners.html[オーナーごとに異なる就業時間を設定]
+* link:windayview-showing-multiple-owners-on-windayview.html[WinDayView で複数のオーナーを表示]
+* link:wincalendarinfo-suppress-events-from-being-raised.html[イベントのトリガーの起動の抑制]

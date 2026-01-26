@@ -1,0 +1,1482 @@
+﻿////
+|metadata|
+{
+    "name": "winschedule-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings","Scheduling"],
+    "guid": "{4D630273-1B62-475F-829E-BA5756A73624}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|Accessible_DefaultAction_ScrollNext
+|押す
+
+|Accessible_DefaultAction_ScrollPrevious
+|押す
+
+|Accessible_Name_ScrollNext
+|次へスクロール
+
+|Accessible_Name_ScrollPrevious
+|前へスクロール
+
+|Accessible_Name_Week
+|週
+
+|Accessible_Name_WeekOf
+|週
+
+|ActivitiesDataBindingBase_P_DateMembersDeserializationMode
+|DateTime メンバーの逆シリアライズ モードを設定または取得します。
+
+|ActivityScrollButtonAccessibleObject_DefaultAction
+|{0} をスクロール
+
+|ActivityScrollButtonAccessibleObject_Description
+|アクティビティ (予定および休日) を表示領域にスクロールします。
+
+|ActivityScrollButtonAccessibleObject_Name
+|アクティビティ スクロール ボタン
+
+|ActivityScrollButtonUIElement_ToolTipText
+|アクティビティの表示を増やすにはクリックしてください。
+
+|AdditionalIntervalsTypeConverter_DefaultText
+|(コレクション)
+
+|AllDayEventAreaDayUIElementAccessibleObject_DisplayName
+|全日イベント エリア
+
+|AllDayEventUIElementAccessibleObject_Appointment_DisplayName
+|予定
+
+|AllDayEventUIElementAccessibleObject_Holiday_DisplayName
+|休日
+
+|AppointmentAccessibleObject_DefaultAction
+|予定ダイアログを表示する
+
+|AppointmentDialog_ValidateAppointment_Message_InvalidTime
+|予定の開始および終了時間は論理日外に設定することはできません。
+
+|AppointmentDialog_ValidateAppointment_Message_LogicalDayDuration
+|予定の終了時間は、論理日外に設定することはできません。
+
+|AppointmentDialog_ValidateAppointment_Message_LogicalDayOffset
+|予定の開始時間は、論理日外に設定することはできません。
+
+|AppointmentDialog_ValidateAppointment_Title
+|予定エラー
+
+|AppointmentDialogActionFileDialogDefaultExt
+|exe
+
+|AppointmentDialogActionFileDialogFilter
+|実行ファイル ($$*$$.exe,$$*$$.com)\|$$*$$.exe;$$*$$.com\|HTML ファイル ($$*$$.htm,$$*$$.html)\|$$*$$.htm;$$*$$.html\|すべてのファイル ($$*$$.$$*$$)\|$$*$$.$$*$$
+
+|AppointmentDialogActionFileDialogTitle
+|予定のアクション
+
+|AppointmentDialogBeforeDeleteChangedItem
+|この項目は変更されました。削除しますか？
+
+|AppointmentDialogContentsHaveChanged
+|このダイアログ外で予定内容が変更されました。更新値を反映するためにダイアログを更新しますか？
+
+|AppointmentDialogEndTimeBeforeStartTimeError
+|終了時刻が開始時刻の前になっています。
+
+|AppointmentDialogInvalidTimeError
+|有効な時刻を指定してください。
+
+|AppointmentDialogMessageTitle
+|予定
+
+|AppointmentDialogReminderTimeInvalid
+|指定されたアラームの時刻は無効です。
+
+|AppointmentDialogReminderTimePastError
+|{0} に指定したアラームの時刻は既に過ぎているので設定できません。よろしいですか？
+
+|AppointmentDialogSaveChangesPrompt
+|変更を保存しますか？
+
+|AppointmentDialogTitleAllDayEvent
+|{0} - イベント
+
+|AppointmentDialogTitleAllDayEventLocked
+|{0} - イベント [ロック中]
+
+|AppointmentDialogTitleAllDayEventUntitled
+|無題 - イベント
+
+|AppointmentDialogTitleAllDayEventUntitledLocked
+|無題 - イベント [ロック中]
+
+|AppointmentDialogTitleAppointment
+|{0} - 予定
+
+|AppointmentDialogTitleAppointmentLocked
+|{0} - 予定 [ロック中]
+
+|AppointmentDialogTitleAppointmentUntitled
+|無題 - 予定
+
+|AppointmentDialogTitleAppointmentUntitledLocked
+|無題 - 予定 [ロック中]
+
+|AppointmentDialogWarningAdjacentAppointment
+|予定表には、この時間帯の前後に別の予定が入っています。
+
+|AppointmentDialogWarningAdjacentRecurrence_Multiple
+|この定期的な予定の {0} つのインスタンスは、カレンダーにあるその他の予定に隣接しています。
+
+|AppointmentDialogWarningAdjacentRecurrence_Single
+|この定期的な予定の 1 つのインスタンスは、カレンダーにあるもう 1 つの予定に隣接しています。
+
+|AppointmentDialogWarningAdjacentRecurrence_Unknown
+|この定期的な予定のいくつかのインスタンスは、カレンダーにあるその他の予定に隣接しています。
+
+|AppointmentDialogWarningAllOccurrencesInPast
+|この定期的な予定に含まれている予定はすべて開始時刻を既に過ぎています。
+
+|AppointmentDialogWarningConflict
+|カレンダーにある既存の予定と競合しています。
+
+|AppointmentDialogWarningConflictingRecurrence_Multiple
+|この定期的な予定 {0} は、カレンダーにある既存の予定と競合しています。
+
+|AppointmentDialogWarningConflictingRecurrence_Single
+|この定期的な予定に含まれている 1 つの予定が、カレンダーにある既存の予定と競合しています。
+
+|AppointmentDialogWarningConflictingRecurrence_Unknown
+|この定期的な予定に含まれている複数の予定が、カレンダーにある既存の予定と競合しています。
+
+|AppointmentDialogWarningPastAppointment
+|予定の時刻は既に過ぎています。
+
+|AppointmentRecurrence_Exception_CannotDeserializeEmptyByteArray
+|AppointmentRecurrence インスタンスは、Null または空のバイト配列からは作成することができません。
+
+|AppointmentUIElementAccessibleObject_DisplayName
+|予定
+
+|ClickToAddAppointment_Text
+|クリックして予定を追加してください。
+
+|ClickToAddEvent_Text
+|クリックしてイベントを追加してください。
+
+|ColumnHeaderAccessibleObject_DefaultAction
+|AutoSize を実行する
+
+|DateContinuationUIElement_FromStartDate
+|{0} から
+
+|DateContinuationUIElement_ToEndDate
+|{0} まで
+
+|DateNavigationButtonAccessibleObject_Backward_Name
+|逆方向へ移動する
+
+|DateNavigationButtonAccessibleObject_DefaultAction
+|移動する
+
+|DateNavigationButtonAccessibleObject_Description_Prefix
+|{0} へ移動する
+
+|DateNavigationButtonAccessibleObject_Forward_Name
+|前に移動する
+
+|DateTimeContinuationUIElement_ToolTipTextFormat_End_DateAndTime
+|{1} の {0} で終了します
+
+|DateTimeContinuationUIElement_ToolTipTextFormat_End_DateOnly
+|{0} で終了します
+
+|DateTimeContinuationUIElement_ToolTipTextFormat_Start_DateAndTime
+|{1} の {0} で開始します
+
+|DateTimeContinuationUIElement_ToolTipTextFormat_Start_DateOnly
+|{0} で開始します
+
+|DateTimeInterval_HeaderTextFormat_Exception
+|パターン '{0}' は有効な日付形式ではありません。
+
+|DateTimeIntervalLabelUIElement_ToolTipText_Prefix
+|ここにスクロール
+
+|DayHeaderUIElementAccessibleObject_DisplayName
+|日のヘッダー
+
+|DayUIElementAccessibleObject_DisplayName
+|日
+
+|DayView_DesignTime_Grouping_Prompt
+|[所有者別に予定を表示させるには GroupingStyle プロパティを設定してください]
+
+|DayViewAccessibleObject_DisplayName
+|Infragistics UltraDayView コントロール
+
+|DefaultAction_Press
+|押す
+
+|DefaultAction_Select
+|選択
+
+|DefaultAppointmentSubject
+|新規予定
+
+|DeleteSelectedDay
+|現在、{0} の予定が選択されています。選択された予定を削除しますか？予定を削除するには [はい] をクリックしてください。終了するには [いいえ] をクリックしてください。
+
+|GroupUIElementAccessibleObject_DisplayName_Date
+|Date
+
+|GroupUIElementAccessibleObject_DisplayName_Owner
+|オーナー
+
+|LDR_AppointmentDialog_AccessibleDescription
+|予定を編集
+
+|LDR_AppointmentDialog_Action
+|アクション
+
+|LDR_AppointmentDialog_ActionEnabled
+|アクションを有効にする(&A)
+
+|LDR_AppointmentDialog_ActionEnabled_AccessibleDescription
+|予定が発生した時のアクションを実施
+
+|LDR_AppointmentDialog_AllDayEvent
+|終日イベント(&Y)
+
+|LDR_AppointmentDialog_AllDayEvent_AccessibleDescription
+|予定は終日イベントです。
+
+|LDR_AppointmentDialog_Appointment
+|予定
+
+|LDR_AppointmentDialog_BarColor
+|バーの色(&B):
+
+|LDR_AppointmentDialog_BarColor_AccessibleDescription
+|予定のバーの色を変更
+
+|LDR_AppointmentDialog_Close
+|閉じる(&C)
+
+|LDR_AppointmentDialog_Close_AccessibleDescription
+|予定ダイアログを閉じて下さい。
+
+|LDR_AppointmentDialog_colSubject_Text
+|件名：
+
+|LDR_AppointmentDialog_Copy
+|コピー(&C)
+
+|LDR_AppointmentDialog_Copy_AccessibleDescription
+|選択領域をコピーしてクリップボードに配置します。
+
+|LDR_AppointmentDialog_Custom
+|
+
+|LDR_AppointmentDialog_Cut
+|切り取り
+
+|LDR_AppointmentDialog_Cut_AccessibleDescription
+|選択領域を切り取ってクリップボードに配置します。
+
+|LDR_AppointmentDialog_Delete
+|削除(&D)
+
+|LDR_AppointmentDialog_Delete_AccessibleDescription
+|この予定を削除
+
+|LDR_AppointmentDialog_Description
+|説明
+
+|LDR_AppointmentDialog_Edit
+|編集(&E)
+
+|LDR_AppointmentDialog_Edit_AccessibleDescription
+|編集メニュー
+
+|LDR_AppointmentDialog_EndTime
+|終了時刻(&M):
+
+|LDR_AppointmentDialog_EndTime_AccessibleDescription
+|予定が終了する時間
+
+|LDR_AppointmentDialog_File
+|ファイル(&F)
+
+|LDR_AppointmentDialog_File_AccessibleDescription
+|ファイル メニュー。
+
+|LDR_AppointmentDialog_Location
+|場所(&L):
+
+|LDR_AppointmentDialog_Location_AccessibleDescription
+|予定が行われる場所
+
+|LDR_AppointmentDialog_Parameters
+|パラメーター:
+
+|LDR_AppointmentDialog_Parameters_AccessibleDescription
+|予定が発生した時に開始するプログラムへ引き渡す引数
+
+|LDR_AppointmentDialog_Paste
+|貼り付け(&P)
+
+|LDR_AppointmentDialog_Paste_AccessibleDescription
+|クリップボードの内容を貼り付けます。
+
+|LDR_AppointmentDialog_Program
+|プログラム:
+
+|LDR_AppointmentDialog_Program_AccessibleDescription
+|予定が発生した時に開始するプログラム
+
+|LDR_AppointmentDialog_Recurrence
+|繰り返し
+
+|LDR_AppointmentDialog_Recurrence_AccessibleDescription
+|指定間隔で予定を反復
+
+|LDR_AppointmentDialog_Refresh
+|更新
+
+|LDR_AppointmentDialog_Refresh_AccessibleDescription
+|予定情報を更新
+
+|LDR_AppointmentDialog_Reminder
+|アラーム(&R):
+
+|LDR_AppointmentDialog_Reminder_AccessibleDescription
+|この予定が発生する前にアラームを受信
+
+|LDR_AppointmentDialog_Save
+|保存(&S)
+
+|LDR_AppointmentDialog_Save_AccessibleDescription
+|予定を保存
+
+|LDR_AppointmentDialog_SaveAndClose
+|保存して閉じる
+
+|LDR_AppointmentDialog_SaveAndClose_AccessibleDescription
+|予定を保存してダイアログを閉じる
+
+|LDR_AppointmentDialog_SelectAll
+|すべて選択
+
+|LDR_AppointmentDialog_SelectAll_AccessibleDescription
+|すべてのテキストを選択します。
+
+|LDR_AppointmentDialog_StartTime
+|開始時刻(&S):
+
+|LDR_AppointmentDialog_StartTime_AccessibleDescription
+|予定が開始する時間
+
+|LDR_AppointmentDialog_Subject
+|件名(&J):
+
+|LDR_AppointmentDialog_Subject_AccessibleDescription
+|予定を表している件名
+
+|LDR_AppointmentDialog_toolBarButtonDelete_Text
+|削除
+
+|LDR_AppointmentDialog_Undo
+|元に戻す(&U)
+
+|LDR_AppointmentDialog_Undo_AccessibleDescription
+|実行した最後の処理を取り消します。
+
+|LDR_DateButton_DefCaption_Active
+|アクティブ
+
+|LDR_DateButton_DefCaption_Custom
+|カスタム
+
+|LDR_DateButton_DefCaption_Max
+|最大
+
+|LDR_DateButton_DefCaption_Min
+|最小
+
+|LDR_DateButton_DefCaption_None
+|なし
+
+|LDR_DateButton_DefCaption_Today
+|今日
+
+|LDR_P_AppointmentEditorComponent
+|予定の編集で使用される EmbeddableEditorBase の派生エディターを提供するコンポーネントを取得または設定します。
+
+|LDR_P_AppointmentEditorControl
+|予定の編集で使用される EmbeddableEditorBase の派生エディターを提供するコントロールを設定します。
+
+|LDR_P_NoteEditorControl
+|メモの編集で使用される EmbeddableEditorBase の派生エディターを提供するコントロールを設定します。
+
+|LDR_P_ShowEditorButtons
+|埋め込みエディターを使用するときに編集ボタンを表示するかどうかを示す値を設定します。
+
+|LDR_TimeSlotRange_EndDateTime_Error
+|'EndDateTime' プロパティの値は、CalendarInfo オブジェクトの MaxDate プロパティの値以内でなければなりません。
+
+|LDR_TimeSlotRange_SetRange_EndDateTime_Error
+|'endDateTime' 引数の値は、CalendarInfo オブジェクトの MaxDate プロパティの値以内でなければなりません。
+
+|LDR_TimeSlotRange_SetRange_StartDateTime_Error
+|'startDateTime' 引数の値は、CalendarInfo オブジェクトの MinDate プロパティの値以上でなければなりません。
+
+|LDR_TimeSlotRange_StartDateTime_Error
+|'StartDateTime' プロパティの値は、CalendarInfo オブジェクトの MinDate プロパティの値以上でなければなりません。
+
+|LDR_UltraDayView_DeleteAppointmentsCaption
+|予定の削除
+
+|LDR_UltraMonthViewSingle_DeleteActivitiesCaption
+|アクティビティの削除
+
+|LDR_UltraMonthViewSingle_DeleteActivitiesMsg
+|選択されているアクティビティを削除しますか？削除する場合は「はい」を、キャンセルする場合は「いいえ」を選択してください。
+
+|LOC_Day
+|{0} 日
+
+|LOC_Days
+|{0} 日間
+
+|LOC_DaysOfWeekCombo_Day
+|日
+
+|LOC_DaysOfWeekCombo_Weekday
+|平日
+
+|LOC_DaysOfWeekCombo_WeekendDay
+|週末
+
+|LOC_First
+|第 1
+
+|LOC_Fourth
+|第 4
+
+|LOC_Hour
+|{0} 時間
+
+|LOC_Hours
+|{0} 時間
+
+|LOC_Last
+|最後
+
+|LOC_Minute
+|{0} 分間
+
+|LOC_Minutes
+|{0} 分
+
+|LOC_Month
+|{0} か月
+
+|LOC_Months
+|{0} か月
+
+|LOC_Second
+|second
+
+|LOC_Third
+|第 3
+
+|LOC_Week
+|{0} 週間
+
+|LOC_Weeks
+|{0} 週間
+
+|LOC_Year
+|{0} 年
+
+|LOC_Years
+|{0} 年
+
+|LOC_ZeroMinutes
+|{0} 分
+
+|LogicalDayDuration_TypeConverter_DefaultValueToken
+|(1 日)
+
+|LogicalDayOffset_TypeConverter_DefaultValueToken
+|(オフセットなし)
+
+|MaxSelectedDaysExceededError
+|選択された日数が多すぎます。
+
+|MaxSelectedDaysExceededError_MessageBoxCaption
+|エラー
+
+|MonthScrollButtonUIElement_Accessibility_DisplayName
+|月スクロール ボタン
+
+|MoreActivityIndicator_ToolTip_Text
+|他の予定へはクリックしてください。
+
+|NotesDataBinding_P_AllPropertiesMember
+|メモの初期化に使用するフィールドをシリアル化されたデータから設定または取得します。
+
+|NotesDataBinding_P_AllPropertiesMemberSerializationMode
+|AllPropertiesMember の日付のデータ シリアライズ モードを設定または取得します。
+
+|NotesDataBinding_P_DataKeyMember
+|データ バインド時に、メモの 'DataKeyMember' プロパティの初期化に使用するフィールドを設定または取得します。
+
+|NotesDataBinding_P_DateMember
+|データ バインド時に、メモの 'Date' プロパティの初期化に使用するフィールドを設定または取得します。
+
+|NotesDataBinding_P_DateMembersSerializationMode
+|'Date' プロパティのシリアライズ モードを設定または取得します。
+
+|NotesDataBinding_P_DateTimeFormatString
+|DateTime のシリアル化に使用する書式文字列を取得または設定します。
+
+|NotesDataBinding_P_DescriptionMember
+|データ バインド時に、メモの 'Description' プロパティの初期化に使用するフィールドを設定または取得します。
+
+|NotesDataBinding_P_OwnerKeyMember
+|データ バインド時に、メモの 'OwnerKeyMember' プロパティの初期化に使用するフィールドを設定または取得します。
+
+|Office2007MoreItemsIndicatorAccessibleObject_DefaultAction
+|Click
+
+|Office2007MoreItemsIndicatorAccessibleObject_DisplayName
+|その他の項目
+
+|Office2007MoreItemsIndicatorAccessibleObject_Down
+|下
+
+|Office2007MoreItemsIndicatorAccessibleObject_Up
+|上
+
+|Outlook2007COlorSchemeCollection_BaseColorNotFound
+|コレクションには {0} のベースカラーのカラー スキーマは含まれていません。
+
+|OwnerHeaderUIElementAccessibleObject_DisplayName
+|オーナー ヘッダー
+
+|PrintCalendarDetailsApptDescriptionRepeated
+|上記を参照してください。
+
+|PrintCalendarDetailsApptSubjectLocationCombined
+|{0} - - {1}
+
+|PrintCalendarDetailsApptTimeRange
+|{0:t} - {1:t}
+
+|PrintCalendarDetailsApptTimeRangeAllDay
+|全ての日
+
+|PrintCalendarDetailsContinuedDateHeader
+|{0} 続き
+
+|PrintCalendarInfoNotesAreaHeader
+|メモ
+
+|PrintMemo_NoRecurrenceInformation
+|(なし)
+
+|PrintMemo_RecurrenceDaily
+|日
+
+|PrintMemo_RecurrenceMonthly
+|月
+
+|PrintMemo_RecurrenceWeekly
+|週
+
+|PrintMemo_RecurrenceYearly
+|年
+
+|PrintMemoLabel_End
+|終了日：
+
+|PrintMemoLabel_Location
+|場所:
+
+|PrintMemoLabel_Recurrence
+|定期的なパターンの種類：
+
+|PrintMemoLabel_RecurrencePattern
+|定期的な予定：
+
+|PrintMemoLabel_Start
+|開始日：
+
+|PrintMemoLabel_Subject
+|件名：
+
+|PrintNotesAreaHeader
+|メモ
+
+|Project_DefaultName
+|新しいプロジェクト
+
+|ProjectsCollection_Exception_CannotAddUnassignedProject
+|コレクションに UnassignedProject を追加できません。Projects コレクションはすでに (デフォルトで) UnassignedProject インスタンスを含んでおり、1 つの UnassignedProject インスタンスしか含むことができません。
+
+|Recurrence_Daily
+|{0}
+
+|Recurrence_Daily_WithTime
+|{0} {1}
+
+|Recurrence_Day
+|日
+
+|Recurrence_DayNumber
+|日 {0}
+
+|Recurrence_DayOfWeek2
+|{0} と {1}
+
+|Recurrence_DayOfWeek3
+|{0}, {1}, と {2}
+
+|Recurrence_DayOfWeek4
+|{0}, {1}, {2}, と {3}
+
+|Recurrence_DayOfWeek5
+|{0}, {1}, {2}, {3}, と {4}
+
+|Recurrence_DayOfWeek6
+|{0}, {1}, {2}, {3}, {4}, と {5}
+
+|Recurrence_DayOfWeek7
+|{0}, {1}, {2}, {3}, {4}, {5}, と {6}
+
+|Recurrence_Every_Day
+|毎日
+
+|Recurrence_Every_Quantifier
+|{0} ごと
+
+|Recurrence_Every_Weekday
+|月曜日から金曜日
+
+|Recurrence_Monthly_Calculated
+|{0} {1} / {2}
+
+|Recurrence_Monthly_Calculated_WithTime
+|{0} {1} / {2} {3}
+
+|Recurrence_Monthly_Explicit
+|{0} / {1}
+
+|Recurrence_Monthly_Explicit_WithTime
+|{0} / {1} {2}
+
+|Recurrence_Time_At
+|{0:t} に
+
+|Recurrence_Time_From_For
+|{0:t} ～ {1}
+
+|Recurrence_Time_From_To
+|{0:t} ～ {1:t}
+
+|Recurrence_WeekDay
+|平日
+
+|Recurrence_Weekend_Day
+|週末
+
+|Recurrence_Weekly_n_Weeks
+|{1} / {0}
+
+|Recurrence_Weekly_n_Weeks_WithTime
+|{1} {2} / {0}
+
+|Recurrence_Weekly_One_Week
+|{0}
+
+|Recurrence_Weekly_One_Week_WithTime
+|{0} {1} ごと
+
+|Recurrence_Yearly_Calculated
+|{0} {1} / {2}
+
+|Recurrence_Yearly_Calculated_WithTime
+|{0} {1} / {2} {3}
+
+|Recurrence_Yearly_Explicit
+|{0} {1} ごと
+
+|Recurrence_Yearly_Explicit_WithTime
+|{0} {1} {2} ごと
+
+|RecurrenceDialog_Appointment_Duration_AccessibleDescription
+|予定の期間
+
+|RecurrenceDialog_Appointment_End_AccessibleDescription
+|予定が終了する時間
+
+|RecurrenceDialog_Appointment_Start_AccessibleDescription
+|予定が開始する時間
+
+|RecurrenceDialog_cmdCancel_Text
+|キャンセル
+
+|RecurrenceDialog_cmdOk_Text
+|OK
+
+|RecurrenceDialog_cmdRemoveRecurrence_Text
+|定期的な設定の削除(&R)
+
+|RecurrenceDialog_Daily_AllDays_AccessibleDescription
+|予定は常に繰り返す
+
+|RecurrenceDialog_Daily_AllDays_AccessibleName
+|X 日ごと
+
+|RecurrenceDialog_Daily_Weekdays_AccessibleDescription
+|月曜日から金曜日に予定を繰り返す
+
+|RecurrenceDialog_Error_DurationCannotExceedFrequency
+|予定の期間は反復回数より短くなければなりません。期間を短くするか、定期的な予定のダイアログボックスから定期的な予定パターンを変更してください。
+
+|RecurrenceDialog_Error_MessageBox_Caption
+|定期的な予定
+
+|RecurrenceDialog_Error_RecurrencePatterIsInvalid
+|定期的な予定パターンは有効ではありません。
+
+|RecurrenceDialog_fraAppointmentTime_Text
+|時間の設定
+
+|RecurrenceDialog_fraRecurrencePattern_Text
+|パターンの設定
+
+|RecurrenceDialog_fraRecurrenceRange_Text
+|期間
+
+|RecurrenceDialog_lblCalculatedYearly_Text
+|/
+
+|RecurrenceDialog_lblEndTime_Text
+|終了(&N):
+
+|RecurrenceDialog_lblOccurrenceDuration_Text
+|時間(&U):
+
+|RecurrenceDialog_lblOccurrenceStartTime_Text
+|開始(&T):
+
+|RecurrenceDialog_lblPatternInterval1_Weekly_Text
+|間隔(&C)
+
+|RecurrenceDialog_lblPatternInterval1Monthly_Text
+|か月ごとの
+
+|RecurrenceDialog_lblPatternInterval2Monthly_Text
+|に設定
+
+|RecurrenceDialog_lblPatternInterval2Weekly_Text
+|週ごと
+
+|RecurrenceDialog_lblPatternInterval3Monthly_Text
+|か月ごとの
+
+|RecurrenceDialog_lblPatternInterval4Monthly_Text
+|に設定
+
+|RecurrenceDialog_lblPatternIntervalDaily_Text
+|日ごと
+
+|RecurrenceDialog_lblRangeEndDate_Text
+|終了日：
+
+|RecurrenceDialog_lblRangeMaxOccurrences_Text
+|回
+
+|RecurrenceDialog_lblRangeStartDate_Text
+|開始日(&S):
+
+|RecurrenceDialog_lblYearlyExplicitLabel_Text
+|
+
+|RecurrenceDialog_MessageBox_Caption_DateRecurrence
+|日ごとの繰り返し
+
+|RecurrenceDialog_Monthly_DayOfWeek_AccessibleDescription
+|週の選択日に指定月数ごとに予定を繰り返す
+
+|RecurrenceDialog_Monthly_DayOfWeek_AccessibleName
+|週の指定日にX月間隔で繰り返す
+
+|RecurrenceDialog_Monthly_Interval_AccessibleDescription
+|月の選択日に指定月数ごとに予定を繰り返す
+
+|RecurrenceDialog_Monthly_Interval_AccessibleName
+|指定日に X 月間隔で繰り返す
+
+|RecurrenceDialog_optAllDays_Text
+|間隔(&V)
+
+|RecurrenceDialog_optAllWeekdays_Text
+|すべての平日(&K)
+
+|RecurrenceDialog_optCalculatedMonthly_Text
+|曜日(&E)
+
+|RecurrenceDialog_optCalculatedYearly_Text
+|曜日(&E)
+
+|RecurrenceDialog_optDaily_Text
+|日(&D)
+
+|RecurrenceDialog_optExplicitMonthly_Text
+|日(&A)
+
+|RecurrenceDialog_optExplicitYearly_Text
+|間隔(&V)
+
+|RecurrenceDialog_optLimitByDate_Text
+|終了日(&B):
+
+|RecurrenceDialog_optLimitByNumberOfOccurrences_Text
+|反復回数(&F):
+
+|RecurrenceDialog_optMonthly_Text
+|月(&M)
+
+|RecurrenceDialog_optNoLimit_Text
+|終了日未定(&O)
+
+|RecurrenceDialog_optWeekly_Text
+|週(&W)
+
+|RecurrenceDialog_optYearly_Text
+|年(&Y)
+
+|RecurrenceDialog_Pattern_Daily_AccessibleDescription
+|毎日予定を繰り返す
+
+|RecurrenceDialog_Pattern_Monthly_AccessibleDescription
+|毎月予定を繰り返す
+
+|RecurrenceDialog_Pattern_Weekly_AccessibleDescription
+|毎週予定を繰り返す
+
+|RecurrenceDialog_Pattern_Yearly_AccessibleDescription
+|毎年予定を繰り返す
+
+|RecurrenceDialog_Prompt_MessageBox_Caption
+|定期的な予定
+
+|RecurrenceDialog_Prompt_OkToRemoveVariances
+|この定期的な予定に関連する例外が失われます。よろしいですか？
+
+|RecurrenceDialog_Range_EndAfterOccurrences_AccessibleDescription
+|指定回数後は予定の繰り返しを停止
+
+|RecurrenceDialog_Range_EndByDate_AccessibleDescription
+|指定日後は予定の繰り返しを停止
+
+|RecurrenceDialog_Range_NoEnd_AccessibleDescription
+|予定を常に繰り返す
+
+|RecurrenceDialog_Range_Start_AccessibleDescription
+|定期的な予定範囲の開始日
+
+|RecurrenceDialog_RemoveRecurrence_AccessibleDescription
+|この予定の繰り返しを削除
+
+|RecurrenceDialog_Title
+|定期的な予定
+
+|RecurrenceDialog_Title_DateRecurrence
+|日ごとの繰り返し
+
+|RecurrenceDialog_ValidateAppointmentRecurrence_Message_InvalidTime
+|定期的な予定の開始および終了時間は論理以外の値に設定できません。
+
+|RecurrenceDialog_ValidateAppointmentRecurrence_Message_LogicalDayDuration
+|定期的な予定の終了時間は、論理日外の値に設定できません。
+
+|RecurrenceDialog_ValidateAppointmentRecurrence_Message_LogicalDayOffset
+|定期的な予定の開始時間は、論理日外の値に設定できません。
+
+|RecurrenceDialog_ValidateAppointmentRecurrence_Title
+|定期的な予定のエラー
+
+|RecurrenceDialog_Warning_MessageBox_Caption
+|定期的な予定
+
+|RecurrenceDialog_Weekly_Interval_AccessibleDescription
+|選択日範囲で指定週数ごとに予定を繰り返す
+
+|RecurrenceDialog_Weekly_Interval_AccessibleName
+|指定日に X 週間隔で繰り返す
+
+|RecurrenceDialog_Yearly_DayOfMonth_AccessibleDescription
+|指定月の週の指定日に毎年予定を繰り返す
+
+|RecurrenceDialog_Yearly_DayOfMonth_AccessibleName
+|月の指定日に毎年繰り返す
+
+|RecurrenceDialog_Yearly_Explicit_AccessibleDescription
+|指定日に毎年予定を繰り返す
+
+|RecurrenceDialog_Yearly_Explicit_AccessibleName
+|ある日に毎年繰り返す
+
+|RecurrenceEditTypeDialog_cmdCancel_Text
+|キャンセル
+
+|RecurrenceEditTypeDialog_cmdOk_Text
+|OK
+
+|RecurrenceEditTypeDialog_DeleteDescription
+|定期的な予定 {0} をすべて削除しますか? または、この回だけを削除しますか?
+
+|RecurrenceEditTypeDialog_DeleteTitle
+|削除の確認
+
+|RecurrenceEditTypeDialog_Exception_InvalidAppointment
+|指定された予定は null であるか定期的な予定のメンバーではありません。
+
+|RecurrenceEditTypeDialog_OpenDescription
+|{0} は定期的な予定です。この予定のみ、もしくはこれを定期予定として開きますか?
+
+|RecurrenceEditTypeDialog_OpenTitle
+|定期的な項目を開く
+
+|RecurrenceEditTypeDialog_optOccurrence_DeleteText
+|この項目のみを削除(&O)
+
+|RecurrenceEditTypeDialog_optOccurrence_OpenText
+|この項目のみを開く(&O)
+
+|RecurrenceEditTypeDialog_optSeries_DeleteText
+|全ての定期的な予定を削除する(&S)
+
+|RecurrenceEditTypeDialog_optSeries_OpenText
+|定期的な項目として開く(&S)
+
+|Reminder_ToString_Prefix
+|期限は {0} の {1} です
+
+|ReminderClickSnooze
+|[再通知]をクリックしてアラームを再表示します(&C):
+
+|ReminderDialogItemMultipleDaysBefore
+|{0:F0} 日間
+
+|ReminderDialogItemMultipleDaysOverdue
+|{0:F0} 日間が既に過ぎています
+
+|ReminderDialogItemMultipleHoursBefore
+|{0:F0} 時間
+
+|ReminderDialogItemMultipleHoursOverdue
+|{0:F0} 時間が既に過ぎています
+
+|ReminderDialogItemMultipleMinutesBefore
+|{0:F0} 分
+
+|ReminderDialogItemMultipleMinutesOverdue
+|{0:F0} 分が既に過ぎています
+
+|ReminderDialogItemMultipleMonthsBefore
+|{0:F0} か月
+
+|ReminderDialogItemMultipleMonthsOverdue
+|{0:F0} か月間が既に過ぎています
+
+|ReminderDialogItemMultipleWeeksBefore
+|{0:F0} 週間
+
+|ReminderDialogItemMultipleWeeksOverdue
+|{0:F0} 週間が既に過ぎています
+
+|ReminderDialogItemOneHourBefore
+|1 時間
+
+|ReminderDialogItemOneHourOverdue
+|1 時間が既に過ぎています
+
+|ReminderDialogItemOneMinuteBefore
+|1 分間
+
+|ReminderDialogItemOneMinuteOverdue
+|1 分間が既に過ぎています
+
+|ReminderDialogItemOneMonthBefore
+|1 か月
+
+|ReminderDialogItemOneMonthOverdue
+|1 か月間が既に過ぎています
+
+|ReminderDialogItemOneWeekBefore
+|1 週間
+
+|ReminderDialogItemOneWeekOverdue
+|1 週間が既に過ぎています
+
+|ReminderDialogItemZeroDaysBefore
+|0 日間
+
+|ReminderDialogItemZeroDaysOverdue
+|0 日間が既に過ぎています
+
+|ReminderDialogItemZeroHoursBefore
+|0 時間
+
+|ReminderDialogItemZeroHoursOverdue
+|0 時間が既に過ぎています
+
+|ReminderDialogItemZeroMinutesBefore
+|{0} 分
+
+|ReminderDialogItemZeroMinutesOverdue
+|0 分が既に過ぎています
+
+|ReminderDialogItemZeroMonthsBefore
+|0 月
+
+|ReminderDialogItemZeroMonthsOverdue
+|0 か月間が既に過ぎています
+
+|ReminderDialogItemZeroWeeksBefore
+|0 週間
+
+|ReminderDialogItemZeroWeeksOverdue
+|0 週間が既に過ぎています
+
+|ReminderDialogMessageTitle
+|アラーム
+
+|ReminderDialogMultipleItemsSelectedLocation
+|
+
+|ReminderDialogMultipleItemsSelectedStartTime
+|{0} 個のアラームが選択されています
+
+|ReminderDialogMultipleItemsSelectedSubject
+|
+
+|ReminderDialogSingleItemSelectedLocation
+|場所: {0}
+
+|ReminderDialogSingleItemSelectedStartTime
+|開始時刻: {0:f}
+
+|ReminderDialogSingleItemSelectedSubject
+|{0}
+
+|ReminderDialogSnoozeTimeInvalid
+|指定された再通知時刻は有効ではありません。
+
+|ReminderDialogTitleMultipleReminders
+|{0:F0} 個のアラームがあります
+
+|ReminderDialogTitleSingleReminder
+|1 個のアラームがあります
+
+|ReminderDismiss
+|アラームを消す(&D)
+
+|ReminderDismiss_AccessibleDescription
+|選択の予定を消す
+
+|ReminderDismissAll
+|すべてのアラームを消す(&A)
+
+|ReminderDismissAll_AccessibleDescription
+|全ての予定を消す
+
+|ReminderDueIn
+|期限
+
+|ReminderOpenItem
+|項目を開く(&O)
+
+|ReminderOpenItem_AccessibleDescription
+|予定の詳細を見る
+
+|ReminderSnooze
+|再通知(&S)
+
+|ReminderSnooze_AccessibleDescription
+|指定時間に再度通知
+
+|ReminderSnoozeTimeBeforeAppointmentIndicator
+|前
+
+|ReminderSnoozeTimeDayAfterStart
+|{0} 日
+
+|ReminderSnoozeTimeDayBeforeStart
+|開始する {0} 日前
+
+|ReminderSnoozeTimeDaysAfterStart
+|{0} 日間
+
+|ReminderSnoozeTimeDaysBeforeStart
+|開始する {0} 日前
+
+|ReminderSnoozeTimeDayUnit
+|日
+
+|ReminderSnoozeTimeHourAfterStart
+|{0} 時間
+
+|ReminderSnoozeTimeHourBeforeStart
+|開始する {0} 時間前
+
+|ReminderSnoozeTimeHoursAfterStart
+|{0} 時間
+
+|ReminderSnoozeTimeHoursBeforeStart
+|開始する {0} 時間前
+
+|ReminderSnoozeTimeHourUnit
+|hour
+
+|ReminderSnoozeTimeMinuteAfterStart
+|{0} 分間
+
+|ReminderSnoozeTimeMinuteBeforeStart
+|開始する {0} 分前
+
+|ReminderSnoozeTimeMinutesAfterStart
+|{0} 分
+
+|ReminderSnoozeTimeMinutesBeforeStart
+|開始する {0} 分前
+
+|ReminderSnoozeTimeMinuteUnit
+|minute
+
+|ReminderSnoozeTimeMonthAfterStart
+|{0} か月
+
+|ReminderSnoozeTimeMonthBeforeStart
+|開始する {0} か月前
+
+|ReminderSnoozeTimeMonthsAfterStart
+|{0} か月
+
+|ReminderSnoozeTimeMonthsBeforeStart
+|開始する {0} か月前
+
+|ReminderSnoozeTimeMonthUnit
+|月
+
+|ReminderSnoozeTimeWeekAfterStart
+|{0} 週間
+
+|ReminderSnoozeTimeWeekBeforeStart
+|開始する {0} 週間前
+
+|ReminderSnoozeTimeWeeksAfterStart
+|{0} 週間
+
+|ReminderSnoozeTimeWeeksBeforeStart
+|開始する {0} 週間前
+
+|ReminderSnoozeTimeWeekUnit
+|週
+
+|ResourcesCollection_Exception_ParseFailed
+|文字列 '{0}' を正常に解析できませんでした。
+
+|SelectedAppointmentsDeletingEventArgs_Default_Message_Caption
+|予定の削除
+
+|SelectedAppointmentsDeletingEventArgs_Default_Message_Text
+|選択された予定を削除してよろしいですか？
+
+|SelectedDayRangeCollectionEmpty
+|コレクションが Empty です。
+
+|SummaryTaskException_CannotChangeTime
+|サマリー タスクの時間と期間を変更できません。サマリー タスクの時間と期間はサブタスクに基づいて決定します。
+
+|SummaryTaskException_CannotSetPercentComplete
+|サマリー タスクに達成率を設定できません。サマリー タスクの達成率がサブタスクによって決定されます。
+
+|SummaryTaskException_ConstraintInvalidForSummary
+|サマリー タスクの Constraint プロパティを {0}、{1}、または {2} のみに設定できます。
+
+|Task_Exception_DurationCannotBeNegative
+|タスクの期間は負の値に設定できません。
+
+|Task_Exception_PercentCompleteOutOfRange
+|タスクの達成率は 0 から 100 までの値に設定する必要があります。
+
+|TaskConstraint_AsLateAsPossible_DisplayText
+|できるだけ遅く
+
+|TaskConstraint_AsSoonAsPossible_DisplayText
+|できるだけ早く
+
+|TaskConstraint_FinishNoEarlierThan_DisplayText
+|指定日以後に終了
+
+|TaskConstraint_FinishNoLaterThan_DisplayText
+|指定日までに終了
+
+|TaskConstraint_MustFinishOn_DisplayText
+|指定日に終了
+
+|TaskConstraint_MustStartOn_DisplayText
+|指定日に開始
+
+|TaskConstraint_StartNoEarlierThan_DisplayText
+|指定日以後に開始
+
+|TaskConstraint_StartNoLaterThan_DisplayText
+|指定日までに開始
+
+|TaskConstraintViolation_DependencyConflict_Constraint
+|タスクに {0} 制約を設定するとタスクがリンクされるため、スケジュール競合を発生します。制約を設定してよろしいですか？
+
+|TaskConstraintViolation_DependencyConflict_Dependency
+|タスク {0} は {1} 制約があります。このタスクをリンクするとスケジュールの競合を発生することがあります。タスクをリンクしてもよろしいですか？
+
+|TaskConstraintViolation_DependencyConflict_Summary
+|タスク {0} には {1} 依存関係があります。サマリー タスクとして設定できません。依存関係を削除してよろしいですか？
+
+|TaskConstraintViolation_MessageBoxTitle
+|タスク制約の違反
+
+|TaskConstraintViolation_StartDateTimeConflict
+|'{1}' 制約があるため、タスクの日付/時刻を {0} 変更できません。制約を解除しますか？
+
+|TaskConstraintViolation_StartDateTimePrecedesProjectStartDate
+|タスクの新しい日付/時刻 ('{0}') はプロジェクトの開始日付 ('{1}') の前です。タスクの開始日付を '{0}' に設定しますか？
+
+|TaskConstraintViolation_SubTaskConflict
+|サブタスクが既存の制約と競合を発生するため、サマリー タスクの制約を {0} に変更できません。サマリー タスクの制約を削除してよろしいですか？
+
+|TaskConstraintViolation_SummaryConflict
+|親タスクには競合する制約があります。タスクの制約を {0} に変更できません。このタスクの制約を削除してよろしいですか？
+
+|TaskDependenciesCollection_Exception_Duplicate
+|このタスクは既に {0} にリンクされています。タスクに 1 回以上リンクできません。
+
+|TaskDependenciesCollection_Exception_ParseFailed
+|値 '{0}' を正常に解析できませんでした。
+
+|TaskDependencyException_CannotIndent
+|循環依存関係を作成するため、タスクをインデントできません。
+
+|TaskDependencyException_CannotLinkSelf
+|タスクを同じタスクにリンクできません。
+
+|TaskDependencyException_CannotLinkSubTask
+|サマリー タスクはそのサブタスクにリンクできません。
+
+|TaskDependencyException_CannotOutdent
+|循環依存関係を作成するため、タスクをアウトデントできません。
+
+|TaskDependencyException_CircularReference
+|循環依存関係を作成するため、タスクをリンクできません。
+
+|TaskDependencyException_InvalidForSummary
+|サマリー タスクで {0} 依存関係は無効です。サマリー タスクは「開始-開始」または「終了-開始」依存関係のみにリンクできます。 依存関係のみにリンクできます。
+
+|TaskDependencyException_ParseError
+|値 '{0}' を有効な行数に解析できませんでした。
+
+|TaskDependencyType_FinishToFinish_DisplayText_Long
+|終了-終了
+
+|TaskDependencyType_FinishToFinish_DisplayText_Short
+|FF
+
+|TaskDependencyType_FinishToStart_DisplayText_Long
+|終了-開始
+
+|TaskDependencyType_FinishToStart_DisplayText_Short
+|FS
+
+|TaskDependencyType_StartToFinish_DisplayText_Long
+|開始-終了
+
+|TaskDependencyType_StartToFinish_DisplayText_Short
+|SF
+
+|TaskDependencyType_StartToStart_DisplayText_Long
+|開始-開始
+
+|TaskDependencyType_StartToStart_DisplayText_Short
+|SS
+
+|TaskDialog_ErrorTitle
+|エラー
+
+|TaskDialog_InvalidRowNumberError
+|有効な行番号を入力してください。
+
+|TaskDialog_InvalidTaskDependencyTypeError
+|有効なタスク依存タイプを入力してください。
+
+|TaskDialog_InvalidTaskNameError
+|有効なタスク名を入力してください。
+
+|TaskDialog_InvalidTaskNameOrRowNumber
+|無効な行番号とタスク名のペアが見つかりました。有効なタスク名と行数字を使用してください。
+
+|TaskDialog_UpdateFailedTitle
+|更新に失敗しました
+
+|TaskException_OutsideMinMaxRange
+|指定された日付/時刻は最小/最大範囲外にあります。
+
+|TaskException_StartDateTimeConflictsWithDependency
+|親タスクで依存関係があるため、タスクの日付/時刻を {0} に変更できません。
+
+|TasksCollection_Exception_ParentingTaskToItself
+|タスク '{0}' は追加されている Tasks コレクションのオーナーです。タスクは自分の親として設定できません。
+
+|TasksCollection_Exception_TaskAlreadyParented
+|追加しているタスクは、別のタスク コレクションに属します。タスクは 1 つ以上のコレクションに所有できません。
+
+|TasksDataBinding_TaskDataError_DialogMessage
+|データソースで 1 つ以上の値が無効なため、タスクを更新することはできませんでした。StartDate、Duration 及び Name プロパティの値を持つフィールドが DBNull でないことを確認してください。
+
+|TasksDataBinding_TaskDataError_DialogTitle
+|タスクのデータ バインディング エラー
+
+|TaskWorkingHourViolation_MessageBoxText_AddedToCollection_NonWorkDay
+|'{0}' は非稼働日 ({1}) に開始するよう設定されます。次の稼働日 ({2}) に開始するようタスクを移動しますか？
+
+|TaskWorkingHourViolation_MessageBoxText_AddedToCollection_NonWorkingHour
+|'{0}' は稼働時間範囲外 ({1}) に開始するよう設定されます。次の稼働時間 ({2}) に開始するようタスクを移動しますか？
+
+|TaskWorkingHourViolation_MessageBoxText_EndDateTime_NonWorkDay
+|'{0}' を非稼働日 ({1}) の最後に移動しました。一番近い稼働日 ({2}) に終了するようタスクを移動しますか？
+
+|TaskWorkingHourViolation_MessageBoxText_EndDateTime_NonWorkingHour
+|'{0}' を稼働時間範囲外 ({1}) に移動しました。一番近い稼働日 ({2}) に終了するようタスクを移動しますか？
+
+|TaskWorkingHourViolation_MessageBoxText_StartDateTime_NonWorkDay
+|'{0}' の開始を非稼働日 ({1}) に移動しました。次の稼働日 ({2}) に開始するようタスクを移動しますか？
+
+|TaskWorkingHourViolation_MessageBoxText_StartDateTime_NonWorkingHour
+|'{0}' の開始を稼働時間範囲外 ({1}) に移動しました。次の稼働時間 ({2}) に開始するようタスクを移動しますか？
+
+|TaskWorkingHourViolation_MessageBoxTitle
+|タスクの稼働時間違反
+
+|TimeSlotUIElementAccessibleObject_DisplayName
+|タイム スロット
+
+|TimeSpanEditor_cmdCancel_Text
+|キャンセル
+
+|TimeSpanEditor_cmdOk_Text
+|OK
+
+|TimeSpanEditor_lblDays_Text
+|日
+
+|TimeSpanEditor_lblHours_Text
+|時間
+
+|TimeSpanEditor_lblMinutes_Text
+|分
+
+|TimeSpanTypeConverter_Days
+|{0} 日間
+
+|TimeSpanTypeConverter_Hours
+|{0} 時間
+
+|TimeSpanTypeConverter_Minutes
+|{0} 分
+
+|TimeSpanTypeConverter_NoValue
+|(なし)
+
+|TimeSpanTypeConverter_Weeks
+|{0} 週間
+
+|TimeSpanUITypeConverter_ValueString
+|{0}{1} 時間, {2} 分
+
+|UltraCalendarInfo
+|UltraCalendarInfo
+
+|UltraCalendarInfo_Exception_InvalidLogicalDayDuration
+|LogicalDayDurationプロパティは、1 分以上 24 時間以下の値に設定しなくてはなりません。
+
+|UltraCalendarInfo_Exception_InvalidLogicalDayOffset
+|LogicalDayOffsetプロパティは、23 時間 59 分を超える値を設定することはできません。
+
+|UltraCalendarInfo_P_DataBindingsForNotes
+|コンポーネントの Notes コレクションのデータ バインドに関するプロパティを公開します。
+
+|UltraCalendarInfo_TaskNonWorkingHourThreshold_Exception_ArgumentOutOfRange
+|TaskNonWorkingHourThreshold プロパティは、負の値または 24 時間を超える値に設定できません。
+
+|UltraMonthViewSingle_E_WeekHeaderClicked
+|週のヘッダーがクリックされた時に発生
+
+|UltraMonthViewSingle_P_WeekHeaderDisplayStyle
+|週番号または日付情報が週ヘッダーにどのように表示されるのかを取得または設定します。
+
+|UltraMonthViewSingleBase_P_ShowClickToAddIndicator
+|カーソルが日領域にマウスオーバーした時に "予定/イベント追加にはクリックしてください" のインジケーターを表示するかどうかを取得/設定します。
+
+|UltraTimelineView_E_DateTimeIntervalAssociatedWithOtherControl
+|指定された DateTimeInterval インスタンスは別の UltraTimeLineView コントロールと関連付けられているので、この UltraTimeLineView インスタンスと一緒に使用できません。
+
+|UltraTimelineView_E_EnsureOwnerVisible
+|オーナー '{0}' は関連付けられた UltraCalendarInfo の VisibleOwners コレクションに属しません。オーナーは別の UltraCalendarInfo と関連付けられたか、その Visible プロパティが False に設定されている可能性があります。
+
+|UltraTimelineView_Exception_BeginAppointmentEdit
+|予定 {0} はこのコントロールの UltraCalendarInfo インスタンスと別のインスタンスに関連付けられます。
+
+|UltraTimelineView_Exception_MinimumActivityDuration
+|MinimumActivityDuration プロパティは負の値に設定できません。
+
+|UltraTimelineView_Exception_MinimumAppointmentResizeDuration
+|MinimumAppointmentResizeDuration プロパティは負の値に設定できません。
+
+|UnassignedOwner_DefaultName
+|(なし)
+
+|UnassignedProject_DefaultName
+|(なし)
+
+|WinScheduleAccessibleObject_DefaultAction_DoubleClick
+|ダブルクリック
+
+|YearScrollButtonUIElement_Accessibility_DisplayName
+|年スクロール ボタン
+
+|YearScrollButtonUIElement_ToolTipText
+|{0} 分 スクロール
+
+|====

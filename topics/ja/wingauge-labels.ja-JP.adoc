@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-labels",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{E9DD461B-EBEC-4F04-AB85-91B45C27BAFD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベル
+
+このセクションは、ラベルをスケールに追加する方法に関するタスクベースの手順だけでなく、WinGauge コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance.html[Labels]"]  プロパティについて役に立つ情報を提供します。
+
+* link:wingauge-about-gauge-labels.html[ゲージ ラベルについて]
+* link:wingauge-add-labels-to-a-gauge.html[ラベルをゲージに追加]

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "new-wingauge-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{30595AEE-3474-4011-BD1F-5195FC3E773F}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-12T14:10:03Z"
+}
+|metadata|
+////
+
+= 新しい WinGauge コントロール
+
+2007 Volume 1 リリースで追加された新しいコントロールである WinGauge は、グラフィックスを使用して範囲を例示する視覚的なコンポーネントです。針、マーカー、およびテキストで表現される値を表示します。
+
+WinGauge コントロールは、以下の 3 つのタイプのゲージで表現されます。
+
+* link:wingauge-linear-gauges.html[リニア ゲージ] -- 四角形、水平、または垂直に配置された値の範囲を表します。このコントロールには通常、特定の範囲を表すひとつまたは複数のセクションが含まれます。針または棒マーカーが軸に沿って移動して、現在の値を指し示します。水平方向のゲージはガソリン ゲージに似ており、垂直のゲージは温度計に似ています。
+
+image::images/Gauge_Whats_New_For_WinGauge_01.png[]
+
+* link:wingauge-radial-gauges.html[ラジアル ゲージ] -- 円形でデータを表示します。ラジアル ゲージは四角形である場合もありますが、現在の値を表す針および棒マーカーは時計の針のように回転します。
+
+image::images/Gauge_Whats_New_For_WinGauge_02.png[]
+
+* link:wingauge-digital-gauges.html[デジタル ゲージ] -- デジタル腕時計や目覚まし時計に似た値を表します。値内の各数字は、さまざまな「セクション」を配置することによって描画されます。デジタル ゲージは既存のゲージにオドメータのような表示を提供することができます。または単体としても使用できます。また WinGauge では、英数字がデジタル ゲージ機能でサポートされます。
+
+image::images/Gauge_Whats_New_For_WinGauge_03.png[]
+
+さらに、ゲージ タイプを組み合わせて、以下に示すように複数のスタイルのゲージを表示する複数面のコントロールを作成することができます。本質的には、WinGauge のすべてのオブジェクトは、ゲージの 3 つのタイプを使用して完全にカスタマイズできます。
+
+image::images/Gauge_Whats_New_For_WinGauge_04.png[]

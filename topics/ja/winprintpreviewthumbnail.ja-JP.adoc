@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintpreviewthumbnail",
+    "controlName": ["WinPrintPreviewThumbnail"],
+    "tags": ["Getting Started"],
+    "guid": "{9C7028DE-7F3C-4836-9D05-7763AAEA60B8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPrintPreviewThumbnail
+
+以下のリンクをクリックすると、WinPrintPreviewThumbnail コントロールに関する説明を読むことができます。
+
+* link:winprintpreviewthumbnail-about-winprintpreviewthumbnail.html[WinPrintPreviewThumbnail について] -- WinPrintPreviewThumbnail コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winprintpreviewthumbnail-smart-tag.html[WinPrintPreviewThumbnail スマート タグ] -- WinPrintPreviewThumbnail コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winprintpreviewthumbnail-api-overview.html[API の概要] -- WinPrintPreviewThumbnail コントロールを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

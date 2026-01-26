@@ -1,0 +1,46 @@
+﻿////
+|metadata|
+{
+    "name": "wineditors-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{CC56C053-4707-4299-99EC-71DBF4B58DB4}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditors 2005.1
+
+== 日本の日付区切り記号（UltraDateTimeEditor）
+
+Windows の地域設定が日本に指定されているとき、UltraDateTimeEditor コントロールは、年、月、日の各エレメント間に日本の文字区切り記号を自動的に表示するようになりました。区切り記号が表示されるのは、コントロールの MaskInput プロパティが未割り当てのままか、{LOC} 文字シーケンスで始まるマスクを割り当てられているときです。
+
+次のスクリーンショットは、日本の領域設定が有効なときのコントロールの表示を示しています。
+
+image::images/Whats_New_UltraWinEditors_2005_1_01.png[]
+
+== LimitToList機能（UltraComboEditor）
+
+LimitToList プロパティ、ItemNotInList イベント、および IsItemInList のオーバーロード メソッド群が、UltraComboEditor コントロールに追加されました。LimitToList プロパティは、入力された値がコントロールの Items コレクション内の項目に対応しないときはいつでもコントロールが検証に対してフォーカスを維持するかどうかを示す値を取得または設定します。コントロールのエディタ部分に入力されたテキスト値がコントロールの Items コレクション内の項目と対応しないときは常に、コントロールの検証イベントの前に ItemNotInList イベントが発生します。このイベントは ValidationErrorEventArgs オブジェクトを引き渡します。このオブジェクトは InvalidText プロパティと LastValidValue プロパティ、さらにはコントロールがフォーカスを維持すべきか、または聴覚的なキューを与えるためにビープ音を鳴らすべきかを指定するプロパティも含んでいます。IsItemInList のオーバーロード メソッドは、コントロールの Text プロパティまたは指定された文字列が、コントロールの Items コレクション内の項目と対応するかどうかを示すブール値を返します。たとえば、LimitToList 機能を使用して、コントロールの編集部分の内容を検証し、以下のスクリーンショットに示すように、入力された値がリスト内の項目と一致していないときにエンド ユーザーに警告することができます。LimitToList 機能についての詳細は、 link:wineditors-limiting-the-number-of-items-added-to-the-mru-list.html[「MRU リストに追加される項目の数を制限する」]を参照してください。
+
+image::images/Whats_New_UltraWinEditors_2005_1_02.png[]
+
+== 項目テキストのワードの折り返し（UltraOptionSet）
+
+UltraOptionSet コントロールと関連付けられた埋め込みエディタ、OptionSetEditor は、MinColumnWidth プロパティと MaxColumnWidth プロパティを公開するようになりました。ある項目の幅が列の  _MaxColumnWidth_  を超えた場合、その項目のテキストは、以下のスクリーンショットで示すように自動的に折り返されます（すなわち項目は複数行になる）。
+
+image::images/Whats_New_UltraWinEditors_2005_1_03.png[]
+
+== EditorWithMask ベース コントロールのスピン ボタン ラッピング
+
+SpinWrap プロパティが、 pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase.html[UltraWinEditorMaskedControlBase]"] クラス（ _UltraNumericEditor、UltraCurrencyEditor、UltraDateTimeEditor_ ）、および UltraMaskedEdit コントロール、UltraCalendarCombo コントロールに追加されました。SpinWrap プロパティは、コントロールの値が最小値または最大値に達したとき、そのコントロールのスピン ボタンの値を最大値の場合は最小値へ、最小値の場合は最大値へと循環させるかどうかを示す値を取得または設定します。True に設定した場合、スピン ボタンを使用すると、値は MinValue プロパティ/MaxValue プロパティの範囲で循環します。次の図は SpinWrap プロパティが True に設定されていて、コントロールの値が最大値または最小値に達したときにスピン ボタンがクリックされた場合のコントロールの動作を示しています。
+
+image::images/Whats_New_UltraWinEditors_2005_1_04.png[]
+
+== EditorWithText ベースのコントロールの視覚的オーバーフロー インジケータ（省略記号）
+
+OverflowIndicatorImage プロパティが TextEditorControlBase 派生コントロールに追加されました。ShowOverflowIndicator が True に設定されている場合、かつコントロールが編集モードにないときにコントロールのテキストが完全には表示できなくなると、省略記号と機能的に類似するオーバーフロー インジケータ画像がテキスト領域の右端に表示されます。マウス カーソルを画像の上に置くと、テキスト全体を示すツールチップが表示されます。OverflowIndicatorImage プロパティによって、デフォルト画像の代わりにカスタマイズ画像を表示できます。次のスクリーンショットは視覚的オーバーフロー インジケータ機能を示しています。
+
+image::images/Whats_New_UltraWinEditors_2005_1_05.png[]

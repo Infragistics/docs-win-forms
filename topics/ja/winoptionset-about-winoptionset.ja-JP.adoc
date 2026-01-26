@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winoptionset-about-winoptionset",
+    "controlName": ["WinOptionSet"],
+    "tags": ["Getting Started","Grouping"],
+    "guid": "{CBE8E11D-7C40-4A02-9C1A-3BFA43CC1E23}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinOptionSet について
+
+WinOptionSet コントロールは、ラジオ ボタン セットのような相互排他的な選択肢を提供する場合に役立ちます。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* ItemAppearance のサポート - コントロールの Items コレクションの各項目はそれぞれ独自の Appearance オブジェクトを持ちます。
+* 自動テキスト折り返し - MinColumnWidth プロパティと MaxColumnWidth プロパティにより、テキストが自動的に複数行に折り返されます。
+* DataBinding - 2005 Volume 3 から組み込まれた WinOptionSet では、DataSource プロパティを使用して DataSet または DataTable にバインドすることができます。
+
+image::Images/WinEditors_Control_Overview_08.png[]

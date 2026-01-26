@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2E6009E3-5799-4099-87D7-240FDB569E13}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T12:38:10Z"
+}
+|metadata|
+////
+
+= WinDockManager 2006.3
+
+2006 Volume 3 リリースで追加された新しい WinDockManager™ 機能を学習してください。
+
+* link:windockmanager-new-panedisplayed-and-panehidden-events-whats-new-20063.html[新しい PaneDisplayed および PaneHidden イベント]

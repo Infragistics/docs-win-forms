@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-inboxcontrolstyler",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0BF85BEC-0A34-4B6A-AD15-9445774281A6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= InboxControlStyler
+
+InboxControlStyler コンポーネントに特有の情報を見つけるためには以下のリンクをクリックしてください。
+
+* link:win-inboxcontrolstyler-about-inboxcontrolstyler.html[InboxControlStyler コンポーネントについて] -- InboxControlStyler コンポーネントが行うこと、アプリケーションで使用したい理由についての情報を提供します。
+* link:win-inboxcontrolstyler-api-overview.html[API 概要] – InboxControlStyler コンポーネントでプログラミング中に取り扱う名前空間とクラスをリストします。

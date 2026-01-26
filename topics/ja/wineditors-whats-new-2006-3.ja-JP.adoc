@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{8EA0BE17-00C5-49C4-883D-D1D20A36A4F1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditors 2006.3
+
+2006 Volume 3 リリースで追加された新しい WinEditors™ 機能を学習してください。
+
+* link:wineditors-display-a-currency-mask-without-the-currency-symbol-whats-new-20063.html[通貨記号なしで通貨マスクを表示]
+* link:wincombo-automatically-fill-an-empty-date-when-leaving-an-editor-whats-new-20063.html[エディタの終了時に自動的に空の日付を埋める]

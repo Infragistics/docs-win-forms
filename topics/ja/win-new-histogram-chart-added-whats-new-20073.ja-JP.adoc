@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-new-histogram-chart-added-whats-new-20073",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5D795C9B-90B8-45B4-A1F4-A9F635684018}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 追加された新しいヒストグラム チャート
+
+{ProductName} 2007 Volume 3 リリースから開始しましたが、新しいヒストグラム チャートが WinChart™ コンポーネントに追加されました。
+
+ヒストグラム チャートは結果がどういう割合で各カテゴリーに分類されるのかを示す表のグラフ表示です。ヒストグラム チャートはデータの通常の分布曲線も表示できます。
+
+以下のスクリーンショットは、表示される通常の分布曲線のあるヒストグラム チャートを示しています。
+
+image::Images/Chart_About_Histogram_Chart_02.png[]
+
+== 関連トピック
+
+link:chart-histogram-chart.html[ヒストグラム チャート]

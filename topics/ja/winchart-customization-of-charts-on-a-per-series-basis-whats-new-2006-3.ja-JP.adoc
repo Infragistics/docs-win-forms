@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-customization-of-charts-on-a-per-series-basis-whats-new-2006-3",
+    "controlName": [],
+    "tags": ["Charting"],
+    "guid": "{57FDC5E5-37B9-41FF-B4EA-6D4AD4638586}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-08T18:03:58Z"
+}
+|metadata|
+////
+
+= シリーズごとのチャートのカスタマイズ
+
+折れ線グラフやエリア グラフの表現力と情報力を持たせるため、チャートのシリーズごとに個別に有効にできる新しい設定を提供しています。これらの設定は以下のタイムの平面折れ線グラフとスプライン グラフに適用可能です。
+
+* link:chart-area-chart-2d.html[エリア]
+* link:chart-stacked-area-chart.html[積層型エリア]
+* link:chart-line-chart-2d.html[折れ線]
+* link:chart-stacked-line-chart.html[積層型折れ線]
+* link:chart-spline-chart-2d.html[スプライン]
+* link:chart-spline-area-chart-2d.html[スプライン エリア]
+* link:chart-stacked-spline-chart.html[積層型スプライン]
+* link:chart-stacked-spline-area-chart.html[積層型スプライン エリア]
+
+== 描画スタイル
+
+これまで、pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.axisappearance~linedrawstyle.html[LineDrawStyle]"] （実線、破線、点線など）が折れ線グラフに提供されると、グラフ全体に適用されました。2006 Volume 3 リリースから開始しましたが、折れ線グラフまたはスプライン グラフのシリーズごとにスタイルを設定できます。これによって各シリーズを視覚的に独自にすることができます。たとえば、1 カ月間の 4 都市の降水量を 2D 積層型折れ線グラフに表示したい場合、グラフのシリーズごとにさまざまな描画スタイルを設定できます。
+
+image::Images/WinChart_Customization_of_Charts_on_a_Per_Series_Basis_Whats_New_2006_3_01.png[]
+
+== スプライン テンション
+
+スプライン曲線がチャートのデータ ポイントを通過するきつさを変更するために、pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.splinechartappearance~splinetension.html[SplineChartAppearance.SplineTension]"]  プロパティを設定する必要があります。2006 Volume 3 リリースでは、新しい pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.lineappearance~splinetension.html[LineAppearance.SplineTension]"]  プロパティを設定することによって、グラフのシリーズごとにスプライン テンションを設定できます。たとば、スプライン グラフが一定期間のさまざまな会社の株価の上昇および下降を表示する場合、シリーズごとにスプライン テンションを増やしたり減らしたりすることによって、株価のシリーズ間を区別することができます。
+
+image::Images/WinChart_Customization_of_Charts_on_a_Per_Series_Basis_Whats_New_2006_3_02.png[]
+
+== アンカー ポイントのアイコン
+
+これまで、折れ線グループとスプライン グラフは、線の各頂点に設置することができるのは小さい中間点のアンカーのみでした。2006 Volume 2 リリースから開始しましたが、グラフの各線のアンカー ポイントに異なるアイコンを指定できます。さらに、グラフの各シリーズを一意に識別するカスタムのアイコンを使用することさえできます。グラフの線ポイントのアイコンの外観をカスタマイズすることによって、エンド ユーザーのデータの見やすさを向上することができます。
+
+image::Images/WinChart_Customization_of_Charts_on_a_Per_Series_Basis_Whats_New_2006_3_03.png[]
+
+== 関連トピック
+
+link:chart-customize-the-appearance-of-lines-in-line-and-area-charts.html[折れ線グラフとエリア グラフで線の外観をカスタマイズ]
+
+link:chart-line-appearances.html[折れ線の外観]

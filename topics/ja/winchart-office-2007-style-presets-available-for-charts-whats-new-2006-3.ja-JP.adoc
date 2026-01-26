@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-office-2007-style-presets-available-for-charts-whats-new-2006-3",
+    "controlName": [],
+    "tags": ["Charting","Styling"],
+    "guid": "{781C9668-E2EE-4C94-93C6-BBDB5605BD83}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Office 2007 スタイルのプリセットをチャートで使用可能
+
+2006 Volume 3 リリースでは、WinChart コントロールに多くの Office 2007 プリセットが導入されています。これらの新しいプリセットを使用すれば、プロが作ったモダンなルック アンド フィールのチャートを短時間で作成できます。チャートの視覚的な外観に影響を及ぼすプリセット、チャートの動作に影響を及ぼすプリセット、そしてグラフの外観と動作の両方に影響を及ぼすプリセットがあります。
+
+[プリセットをロード] ダイアログ ボックスでは、簡単にプリセットを選択してチャートに適用することができます。
+
+image::Images/WinChart_Office_2007_Presets_Available_for_Charts_Whats_New_2006_3_01.png[]
+
+以下の平面棒グラフでは、Office 2007 スタイルのプリセットのひとつが適用され、いかに洗練された視覚的に魅力的なチャートが表示されるかに注意してください。
+
+image::Images/WinChart_Office_2007_Presets_Available_for_Charts_Whats_New_2006_3_02.png[]
+
+== 関連トピック
+
+link:chart-appearance.html[外観]

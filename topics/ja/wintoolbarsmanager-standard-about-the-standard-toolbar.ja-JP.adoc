@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-standard-about-the-standard-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{86759F98-E9CF-42FC-93FE-57F07E21282E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 標準ツールバーについて
+
+ツールバーは、0 個以上のツールを格納できる「ツール コンテナ」です。これらのデフォルトの視覚表現と動作は、Microsoft Office のツールバーと同じです。ツールがツールバーにあるとき、それらのツールはボタンとして描画され、ツールバーの方向によって水平または垂直に配置されます。ツールの DisplayStyle プロパティは、ツールが画像、テキストの両方のいずれか一方で表示されるかを決定します。
+
+WinToolbarsManager の内部では、ツールバーは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[UltraToolbar]"]  クラスによって描画されます。
+
+== ツールバーのドッキング
+
+ツールバーは、UltraToolbarsManager が割り当てられた link:wintoolbarsmanager-terms-and-concepts.html[コンテナ]の上、左、右、または下にドッキングできます。ドッキングされたツールバーは、コンテナの link:wintoolbarsmanager-terms-and-concepts.html[ドッキング領域]の内側に配置されます。ツールバーは、ドラッグ アンド ドロップによって、ドッキング領域の内部または異なるドッキング領域の間で移動できます。
+
+image::Images/UltraToolbarsManager_About_Toolbars_05.png[]
+
+== フローティング ツールバー
+
+ツールバーは、 link:wintoolbarsmanager-terms-and-concepts.html[DockArea]からドラッグして固有のウィンドウでフローティングすることができます。ツールバーがフローティングしている時に、キャプション領域をダブルクリックすると元のドック領域に戻ります。フローティング ツールバーのウィンドウはサイズ変更が可能で、サイズ変更の範囲はツールバー上のツールのレイアウトによって決定します。
+
+image::Images/UltraToolbarsManager_About_Toolbars_06.png[]
+
+== ツールバーへのツールの追加
+
+UltraToolbar オブジェクトは、ToolBase 派生オブジェクト（つまり Tools）のコレクションである Tools プロパティを持っています。このコレクション内に存在するツールはインスタンス ツールです（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルートツールとインスタンス ツール」]の説明を参照してください）。ツールバーにツールを表示するには、それらのツールをツールバーの Tools コレクションに追加する必要があります。Tools コレクションへのツールの追加は、開発者またはエンド ユーザーが実行できます。開発者は次の方法でツールをツールバーに追加できます。
+
+* デザイン タイム カスタマイザを使用してドラッグ アンド ドロップする。
+* ランタイムにプログラムで Tools コレクションの Add メソッドを呼び出す。
+
+エンド ユーザーは次の方法でツールをツールバーに追加できます。
+
+* デザイン タイム カスタマイザを使用してドラッグ アンド ドロップする。
+
+== ツールバーのプロパティの設定
+
+Settings プロパティは、ツールバーの外観と動作に影響を与える各種のプロパティを格納した ToolbarSettings オブジェクトを返します。UltraToolBarsManager には ToolbarSettings と呼ばれるプロパティがあり、このプロパティも ToolbarSettings オブジェクトを返します。この ToolbarSettings オブジェクトはすべてのツールバーに対するデフォルトとして機能します。一方、Toolbar.Settings プロパティによって返される ToolbarSettings オブジェクトは、そのツールバーのみに影響を与えます。ツールバーは、SettingsResolved プロパティも持っています。このプロパティは、Toolbar.Settings オブジェクトと UltraToolbarsManager.ToolbarSettings オブジェクトの組み合わせによって特定のツールバーの設定を解決する ToolbarSettingsResolved オブジェクトを返します。これらを利用することで、すべてのツールバーで設定をグローバルに適用できると同時に、特定のツールバーに対する選択した設定を柔軟にオーバーライドできます。

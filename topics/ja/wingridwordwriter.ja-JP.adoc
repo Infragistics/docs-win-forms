@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridwordwriter",
+    "controlName": ["WinGridWordWriter"],
+    "tags": ["Exporting"],
+    "guid": "d4133ccc-5111-47ee-bb69-6f99e04d9437",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T15:18:54.288043Z"
+}
+|metadata|
+////
+
+= WinGridWordWriter
+
+以下のリンクをクリックすると、WinGridWordWriter™ コントロールに関する説明を読むことができます。
+
+* link:wingridwordwriter-about-wingridwordwriter.html[WinGridWordWriter について] -- WinGridWordWriter コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wingridwordwriter-export-wingrid-with-paragraphs-to-word.html[段落がある WinGrid を Word にエクスポート] -- 段落があるグリッドを Word にエクスポートする方法を示します。
+* link:wingridwordwriter-export-multiple-wingrid-to-word.html[複数の WinGrids を Word にエクスポート] -- 複数のグリッドを Word にエクスポートする方法を示します。
+* link:wingridwordwriter-api-overview.html[API の概要] -- このトピックでは、WinGridWordWriter コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「Infragistics Windowsフォームヘルプ」の「API参照ガイド」セクションへリンクしていて便利です。

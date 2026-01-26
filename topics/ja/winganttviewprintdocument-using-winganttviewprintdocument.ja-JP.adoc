@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttviewprintdocument-using-winganttviewprintdocument",
+    "controlName": ["WinGanttView"],
+    "tags": ["Printing"],
+    "guid": "855e7602-0b95-4459-b8cf-d5421040c48a",  
+    "buildFlags": [],
+    "createdOn": "2012-02-09T15:23:46.0903016Z"
+}
+|metadata|
+////
+
+= WinGanttViewPrintDocument の使用
+
+このセクションでは、WinGanttViewPrintDocument™ コントロールに関連する特定のタスクを実行する方法を説明する、簡単なタスクベースのトピックについて記述されています。
+
+各タスクの実行方法については、以下のリンクをクリックしてください。
+
+* link:winganttviewprintdocument-configuring-the-legend.html[凡例の構成]
+* link:winganttviewprintdocument-customizing-the-print-version-of-the-winganttview-control.html[WinGanttView コントロールの印刷版をカスタマイズする]
+* link:winganttviewprintdocument-print-preview-with-winganttviewprintdocument.html[WinGanttViewPrintDocument を使用した印刷プレビュー]  
+* link:winganttviewprintdocument-winganttviewprintdocument-features.html[WinGanttViewPrintDocument 機能]

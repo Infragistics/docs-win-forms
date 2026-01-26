@@ -1,0 +1,24 @@
+﻿= WinZoomPanel について
+
+== WinZoomPanel
+WinZoomPanel™ は、コンテンツをズームインし、ズームされたコンテンツをスクロールするコントロール コンテナです。link:winpanel.html[WinPanel] と同じ機能を提供しますが、パネル全体をスクロールするため link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapanel~autoscroll.html[AutoScroll] プロパティを true に既定しています。
+
+image:images\zoom-panel-screen.png[alt=""]
+
+== ズーム
+WinZoomPanel のズーム機能は link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.zoomproperties.html[ZoomProperties] でアクセスします: 
+
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.zoomproperties~allowpanningwithmouse.html[AllowPanningWithMouse] でズームされた WinZoomPanel を Ctrl + マウス ドラッグでパンします。ズームでオフスクリーン WinZoomPanel の領域を簡単にアクセスできます。
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.zoomproperties~allowpanningwithmouse.html[AllowZoomingWithMouseWheel] で Ctrl + マウス ホイールを使用して WinZoomPanel をズームします。Ctrl + マウス ホイールのメッセージをすべての WinZoomPanel の子コントロールが受け、WinZoomPanel のどこでも一貫性のあるズーム エクスペリエンスを提供します。
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.zoomproperties~zoomfactor.html[ZoomFactor] が WinZoomPanel の子コントロールが拡大される倍数を設定します。デザインされたサイズが 1 です。
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.zoomproperties~maxzoomfactor.html[MaxZoomFactor] が WinZoomPanel がズームインする最大の倍数を設定します。
+
+コントロールでのズーム機能の実装に際して、ズームに関連する 2 つのプロパティを link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase.html[ControlBase] に追加しました。
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~supportszooming.html[SupportsZooming] がコントロールが WinZoomPanel のズームを許可するかどうかを切り替えます。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~zoomfactor.html[ZoomFactor] がコントロールがズームされている量を取得します。
+
+== 関連トピック
+
+* link:winzoompanel-known-limitations.html[既知の問題と制限]
+* link:winzoompanel-zoom-supported-controls.html[サポートされるコントロール]

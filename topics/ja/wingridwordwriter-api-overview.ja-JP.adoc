@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridwordwriter-api-overview",
+    "controlName": ["WinGridWordWriter"],
+    "tags": ["API"],
+    "guid": "e4af293a-1901-4068-a502-219d75fca8a0",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T17:06:49.8993388Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinGridWordWriter 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter_namespace.html[Infragistics.Win.UltraWinGrid.WordWriter Namespace]"]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter.html[UltraGridWordWriter]

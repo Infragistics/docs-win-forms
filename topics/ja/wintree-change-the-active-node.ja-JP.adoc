@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-change-the-active-node",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{615AC12E-A99A-4777-AD27-1AC2FA909290}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブなノードを変更する
+
+このトピックでは、プログラムで pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~activenode.html[ActiveNode]"]  を変更する方法について説明します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+----
+
+[start=2]
+. まず、アクティブ化するノードへの参照が必要です。そのノードのキーがわかっていれば、ツリーの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~getnodebykey.html[GetNodeByKey]"]  メソッドを使用してノードへの参照を取得できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ChangetheActiveNode_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim aNode As UltraTreeNode
+	aNode = Me.UltraTree1.GetNodeByKey("Add Unbound Columns to WinGrid")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ChangetheActiveNode_Load(object sender, System.EventArgs e)
+{
+	UltraTreeNode aNode;
+	aNode = this.ultraTree1.GetNodeByKey("Add Unbound Columns to WinGrid");
+}
+----
+
+[start=3]
+. ノードへの参照が取得できれば、そのノードへのツリーの ActiveNode プロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTree1.ActiveNode = aNode
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.ActiveNode = aNode;
+----

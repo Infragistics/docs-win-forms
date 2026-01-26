@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-an-image-in-a-cell-button",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{D680917A-5EBF-495D-B9B7-495E50DB05D0}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= セル ボタンでの画像の表示
+
+次のコードはセル ボタンに画像を表示する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub DisplayinganImageinaCellButton_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Style = ColumnStyle.Button
+	Me.UltraGrid1.DisplayLayout.Override.CellButtonAppearance.Image = _
+	  Image.FromFile(System.IO.Path.Combine( _
+	    Application.StartupPath, "..\ExtraFiles\Find in Field.bmp"))
+End Sub
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void DisplayinganImageinaCellButton_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Style = ColumnStyle.Button;
+	this.ultraGrid1.DisplayLayout.Override.CellButtonAppearance.Image = 
+	  Image.FromFile(System.IO.Path.Combine(
+	    Application.StartupPath, @"..\..\ExtraFiles\Find in Field.bmp"));
+}
+----

@@ -1,0 +1,20 @@
+﻿////
+|metadata|
+{
+    "name": "wincomboeditor",
+    "controlName": ["WinComboEditor"],
+    "tags": ["API","Getting Started","How Do I"],
+    "guid": "{E035722E-BE2B-47A7-AAED-BEF19217AB35}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinComboEditor
+
+以下のリンクで、WinComboEditor コントロールについての説明を参照します。
+
+* link:wincomboeditor-understanding-wincomboeditor.html[WinComboEditor の理解] -- このセクションには WinComboEditor コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+* link:wincomboeditor-using-wincomboeditor.html[WInComboEditor の使用方法] -- このセクションは、WinComboEditor コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:wincomboeditor-api-overview.html[API 概要] -- このトピックでは、WinComboEditor コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

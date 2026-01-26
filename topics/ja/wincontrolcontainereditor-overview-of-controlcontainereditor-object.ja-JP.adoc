@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-overview-of-controlcontainereditor-object",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{585DEBC5-EEBF-40D1-9F66-B1B1E4F34CA4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ControlContainerEditor オブジェクトの概要
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor.html[ControlContainerEditor]"]  オブジェクトは、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iprovidesembeddableeditor.html[IProvidesEmbeddableEditor]"]  を実装しない任意のコントロールを埋め込みエディターをサポートする任意の Infragistics™ コントロールにプラグ インする方法を提供します。IProvidesEmbeddableEditor インターフェイスの実装は簡単な作業ではありませんが、WinGrid™、WinTree™ または埋め込みエディターをサポートする任意のコントロールを組み込むために必要です。IProvidesEmbeddableEditor インターフェイスの実装を回避するために、ControlContainerEditor オブジェクトを使用できるのでその結果としてより簡単でよりメンテナンスのしやすい実装となります。
+
+ControlContainerEditor は pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase.html[EmbeddableEditorBase]"]  クラス (すべての埋め込みエディターの親クラス) から派生する埋め込みエディターです。エディター オブジェクトは 2 つの大事なプロパティを公開します: pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~renderingcontrol.html[RenderingControl]"]  およびpick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~editingcontrol.html[EditingControl]"] 。このプロパティによって、WinGrid などのコントロールに組み込みされる必要があるレンダリングおよび編集のコントロールを指定できます。
+
+[NOTE]
+====
+*注:* レンダリング コントロールはビットマップに描画されます。したがって、レンダリング コントロールとして使用されるコントロールは DrawToBitmap メソッドをサポートする必要があります。
+====
+
+WinGrid でカスタムのエディター コントロールをセルに組み込みたいとします。RenderingControl は編集モードでない WinGrid でセルを描画し、EditingControl によってエンドユーザーは編集モードのセルを編集することができます。EditingControl を指定しない場合、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  は編集できず基本的にはエディターではなくレンダラーのままです。
+
+WinGrid と使用する時に、指定するレンダリング コントロールと編集コントロールは UltraGridCell で値を表すプロパティを持つ必要があります。また、指定されたプロパティの値が変わるときに必ずイベントを発生させることができる PropertyNameChanged イベント（たとえば ValueChanged、TextChanged など）を持つ必要があります。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~renderingcontrolpropertyname.html[RenderingControlPropertyName]"]  および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~editingcontrolpropertyname.html[EditingControlPropertyName]"]  プロパティ設定を使用して、レンダリング コントロールと編集コントロールの単一のプロパティを ControlContainerEditor に割り当てることができます。これらのプロパティが明示的に設定されていない場合、ControlContainerEditor は使用する Value プロパティまたは Text プロパティを探します。
+
+*ControlContainerEditor オブジェクトと UltraControlContainerEditor コンポーネント*
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.ultracontrolcontainereditor.html[UltraControlContainerEditor]"]  はデザイン タイムに使用可能なコンポーネントで、IProvidesEmbeddableEditor インターフェイスを実装します。ControlContainerEditor オブジェクトの重要なプロパティをすべて公開します。
+
+最も簡単の場合、デザイン タイムまたはコードによって UltraControlContainerEditor コンポーネントを簡単に設定できます。コンポーネントの設定方法の詳細は、 link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-ultracontrolcontainereditor-component.html[UltraControlContainerEditor コンポーネントを使用して WinGrid セル内に任意のコントロールを組み込む]を参照してください。
+
+同様に、ControlContainerEditor オブジェクトはそのインスタンスを作成しコントロールをポイントするようにすべてのプロパティを設定することによって使用できます。WinGrid の場合に列またはセルに割り当てることができます。複雑な事例で、ControlContainerEditor オブジェクトを最も有効に利用できます。ControlContainerEditor オブジェクトから任意のクラスを派生してより高度な状況を処理するためにプロパティおよびメソッドをオーバーライドできます。

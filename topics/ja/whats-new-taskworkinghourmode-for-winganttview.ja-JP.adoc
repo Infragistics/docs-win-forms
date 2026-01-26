@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-taskworkinghourmode-for-winganttview",
+    "controlName": [],
+    "tags": [],
+    "guid": "784dbdc3-5128-43f3-98a1-c2409dd6c194",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T16:30:56.9945377Z"
+}
+|metadata|
+////
+
+= WinGanttView の TaskWorkingHourMode
+
+タスクの期間の非稼働日および非稼働時間を計算するために link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~taskworkinghourmode.html[TaskWorkingHourMode] プロパティが link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo.html[UltraCalendarInfo] オブジェクトに追加されました。TaskWorkingHourMode プロパティのデフォルト設定では、タスクの link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~startdatetime.html[StartDateTime] および link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~enddatetime.html[EndDateTime] は非稼働時間および非稼働日をスキップしません。「AutoAdjust」列挙値に設定すると、タスク プロパティは自動的に調整され、非稼働時間および非稼働日をスキップします。たとえば、金曜日に開始し、期間が 2 日間の「AutoAdjust」で設定されたタスクは、土曜日の代わりに月曜日に終了します（土曜日と日曜日の両日が非稼動日として設定されることが前提です）。
+
+終了日付時刻の調整は、期間に指定された時間単位によって異なります。Task オブジェクトの link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~setduration(timespan,timespanformat).html[SetDuration] メソッドは、時間単位（日、時間、分、週）を設定するために使用できる TimeSpanFormat パラメーターを受け付けます。Task オブジェクトの期間が解析またはフォーマットされる場合、稼働日の稼働時間の実際の量は UltraCalendarInfo オブジェクトの link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~taskdurationworkingtimeperday.html[TaskDurationWorkingTimePerDay] プロパティから解決されます。
+
+この機能の一部として、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendardatesettings.html[CalendarDateSettings] コレクションオブジェクトが追加されました。このオブジェクトは、特定の日付の稼働日のステータスおよび稼働時間をカスタマイズするためのオプションを提供します。
+
+== *関連トピック*
+
+link:winganttview-task-duration-adjustment.html[タスク期間の調整]

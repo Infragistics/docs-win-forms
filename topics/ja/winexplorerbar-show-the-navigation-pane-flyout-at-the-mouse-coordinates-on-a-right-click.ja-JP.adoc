@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-show-the-navigation-pane-flyout-at-the-mouse-coordinates-on-a-right-click",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{D990BF5A-1321-4E80-B537-FD182B82E96E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 右クリックでマウス座標でナビゲーション ペイン フライアウトを表示
+
+縮小されたナビゲーション ペインのすぐ側にナビゲーション ペイン フライアウトを表示する代わりに、右クリックでコンテキスト メニューを表示するように、好みの場所で表示できます。実行しなければならないのは、マウス座標にマウスを置いている時に MouseUp イベントで pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~shownavigationpaneflyout.html[ShowNavigationPaneFlyout]"]  メソッドを起動するだけです。
+
+以下のコードは、マウス座標を取得し、右クリックでナビゲーション ペイン フライアウトを表示します。
+
+[NOTE]
+====
+*注：* ナビゲーション ペイン フライアウトは、ナビゲーション ペインが展開されている間は表示できません。表示しようとすると、例外がスローされます。if/else 文を使用して、フライアウトを表示する前にナビゲーション ペインが確実に縮小されることを検討してください。pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~isnavigationpaneflyoutvisible.html[IsNavigationPaneFlyoutVisible]"]  プロパティを使用してこれを決定します。
+====
+
+image::images/WinExplorerBar_Show_the_Navigation_Pane_Flyout_at_the_Mouse_Coordinates_on_a_Right_Click_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub ultraButton1_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs)
+' e はボタンに関する座標を与えます。
+' フォーム全体ではありません。したがって、フォーム上のボタンの
+' 場所も追加する必要があります。
+   Dim point1 As Integer = e.X + Me.ultraButton1.Location.X
+   Dim point2 As Integer = e.Y + Me.ultraButton1.Location.Y
+   If e.Button = MouseButtons.Right Then
+' これは上記で確立した座標にナビゲーション
+' ペイン フライアウトを表示します。
+      Me.ultraExplorerBar1.ShowNavigationPaneFlyout(New Point(point1, point2))
+   End If
+End Sub 'ultraButton1_MouseUp
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// e はボタンに関する座標を与えます。
+	// フォーム全体ではありません。したがって、フォーム上のボタンの
+	// 場所も追加する必要があります。
+	int point1 = e.X + this.ultraButton1.Location.X;
+	int point2 = e.Y + this.ultraButton1.Location.Y;
+	if (e.Button == MouseButtons.Right)
+	{
+		// これは上記で確立した座標にナビゲーション
+		// ペイン フライアウトを表示します。
+		this.ultraExplorerBar1.ShowNavigationPaneFlyout(new Point(point1,point2));
+	}
+}
+----

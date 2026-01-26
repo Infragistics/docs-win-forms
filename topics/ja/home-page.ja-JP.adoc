@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-windows-forms",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{458C978B-11D6-4D0A-A7F6-9C2B82B0A77A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= {ProductName} {ProductVersion}
+
+image::images/IG_Windows_Forms.png[]
+
+{ProductName} ツールキットは広範的なツールで、50 以上の link:win-controls.html[コントロールとコンポーネント]で構成されています。これらのコントロールおよびコンポーネントはご使用の Windows Forms アプリケーションに最先端のユーザー インターフェイスを提供するように設計されています。
+
+Windows Forms ヘルプの link:win-developers-guide.html[開発者ガイド]セクションを参照すれば、各種のコントロールやコンポーネントをどうすれば利用できるかがわかります。たとえば、任意のデータ ソースにバインドできる視覚的に魅力的なデータ グリッドを素早く作成することができるコントロール、 link:wingrid.html[WinGrid]™ を使用することができます。また、 link:winschedule.html[WinSchedule]™ コントロールおよびコンポーネントで作業することができます。これにより一般的な Microsoft® Outlook カレンダー ビューを構築できます ( link:windayview.html[WinDayView]™、 link:winweekview.html[WinWeekView]™ および link:winmonthviewmulti.html[WinMonthViewMulti]™)。
+
+{ProductName} の各ボリューム リリースでは、基本的な link:whats-new.html[新機能と改良点]を Windows Formsのコントロールやコンポーネントに追加し、お客様が常にビジネス ニーズに対応できるようにしています。
+
+Windows Forms ツールセットは link:win-plf-overview.html[Presentation Layer Framework™ (PLF)] に構築されます。この真のフレームワークによって、ユーザーは一貫した開発作業が可能になり、最終的にエンド ユーザーもユーザーの Windows Forms アプリケーションのプレゼンテーション層によって一貫した作業ができるようになります。PLF によって、弊社の Windows Forms コントロールのいくつかを学習すれば、最小限の努力で残りのコントロールも理解できることが保証されます。
+
+Windows Forms のコントロールとコンポーネントを利用することにより、さまざまな link:styling-guide.html[スタイルとプリセット]を介してその動作と外観のあらゆる面を完全にカスタマイズすることも可能です。
+
+既存の Windows Forms プロジェクトのバージョンを最新リリースにアップグレードしなければならない場合には、すばやく簡単に行う方法があります (https://github.com/Infragistics/winforms-resources[GitHub Win-Forms Resources]、または NuGet パッケージを使用している場合は NuGet フィード (.NET Core のみ) link:nuget-feeds.html[NuGet フィード] を使用)。
+
+Windows Forms のコントロールとコンポーネントを使用するアプリケーションを配備する準備が整ったときは、さまざまな配備オプションを利用できます ( link:win-using-xcopy-deployment.html[XCOPY]、 link:win-using-global-assembly-cache-gac-deployment.html[グローバルアセンブリキャッシュ]および link:win-using-no-touch-deployment.html[ノータッチ])。
+
+[NOTE]
+====
+*注:* 2007 Volume 2 リリース以降、{ProductName} 製品がコンパイルされるのは .NET Framework 2.0 (CLR 2.0) に対してのみです。2007 Volume 1 リリースは、{ProductName} 製品が .NET Frameworks 1.0 および 1.1(CLR 1.x)に対してコンパイルされる最終リリースです。詳細は、 link:win-final-release-of-clr-1-x-version-of-infragistics-whats-new-20071.html[Infragistics のバージョン CLR1.x の最終リリース]を参照してください。
+====
+
+== *関連トピック*
+
+link:win-getting-started.html[はじめに]
+
+link:whats-new.html[新機能]
+
+link:win-known-issues-and-breaking-changes.html[既知の問題と重大な変更]
+
+link:win-developers-guide.html[開発者ガイド]
+
+link:win-api-reference-guide.html[API 参照ガイド]

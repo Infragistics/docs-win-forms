@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-microsoft-office-2007-ui-capabilities",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{36ECC34A-109B-4AA7-A6E5-97F5F980B26E}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-10T16:16:13Z"
+}
+|metadata|
+////
+
+= Microsoft Office 2007 UI 機能を使用する
+
+Microsoft® Office 2007 ではアプリケーションを構成およびナビゲートするための新しい UI 機能が追加されています。これらの革新は、アプリケーション開発のユーザービリティのニューウェーブです。
+
+Office2007UICompatibility プロパティ（デフォルトでは True に設定されている）によって、WinToolbarsManager コンポーネントを使用して開発するアプリケーションが Office 2007 UI のルック アンド フィールに一致することを保証する手助けとなります。
+
+[NOTE]
+====
+*注:* WinToolbarsManager は高度にカスタマイズ可能なコンポーネントなので、Office2007UICompatibility プロパティで影響を受けない一部のプロパティ設定（例、配置、サイズ、表示）によって、ご使用のアプリケーションの UI は標準の Office 2007 のルック アンド フィールに一致しなくなる場合があります。
+====
+
+True に設定されている場合、Office2007UICompatibility プロパティは、デザイン タイムまたはラン タイムでどのように設定されているかにかかわらず、特定のプロパティをデフォルト値に解決することによって、アプリケーションの Office 2007 UI 互換性を維持するために役立ちます。したがって、以下のリストは、Office2007UICompatibility プロパティが True に設定されている間は変更できないことを理解する上で役立ちます。
+
+== WinToolbarsManager
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarscollection.html[Toolbars]"]  コレクションのすべての pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[UltraToolbar]"]  インスタンス（pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbars]"]  を除く）は非表示です。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolbarsManager]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~style.html[Style]"]  プロパティは Office2007 に解決されます。
+
+== PopupGalleryTool
+
+* ギャラリー ドロップ ダウンの高さは、画面の高さの 2/3 を超えません。
+* リボンのギャラリー プレビューでは、ギャラリーの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool~activationinitialactiondelay.html[ActivationInitialActionDelay]"]  は 250ms に決定され、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool~activationactiondelay.html[ActivationActionDelay]"]  は 0ms に決定されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbongroup.html[RibbonGroup]"]  内にプレビューを表示するギャラリー ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool~mindropdowncolumns.html[MinDropDownColumns]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool~maxdropdowncolumns.html[MaxDropDownColumns]"]  は、ドロップダウン リスト メニューが表示されるときに表示されるプレビュー列数より少ない値には決定されません（注：プレビューが複数のモニタをスパンする場合、値は低くなる場合があります）。
+
+== アプリケーション メニュー
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.applicationmenu.html[ApplicationMenu]"]  ドロップダウン メニューの幅は、固定されます。
+* アプリケーション メニューのポップアップ ツール上をホバリングするためのオープン遅延は 100ms に決定されます。
+* アプリケーション メニューのセグメントされたドロップダウン メニュー上をホバリングするためのオープン遅延は 200ms に決定されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~beforetooldropdown_ev.html[BeforeToolDropdown]"]  イベントの Cancel プロパティは、アプリケーション メニュー内にあるポップアップ ツールでは無視されます。（例、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"] , pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcontrolcontainertool.html[PopupControlContainerTool]"]  など）。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~beforeapplicationmenudropdown_ev.html[BeforeApplicationMenuDropdown]"]  イベントの Cancel プロパティは無視されます。このイベントはキャンセルできません。
+
+== クイック アクセス ツールバー
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.quickaccesstoolbar.html[QuickAccessToolbar]"]  内に表示されるツールの ImageSize は、16x16 に決定されます。
+* QuickAccessToolbar の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.quickaccesstoolbar~location.html[Location]"]  プロパティは、デザイン タイムにシリアライズされません。
+
+== リボン
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~dockwithincontainer.html[DockWithinContainer]"]  プロパティがトップ レベルのフォームに設定されていない場合（つまり親を持たないフォーム）、リボンは非表示になります。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbon.html[Ribbon]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbon~autocollapsethresholdvertical.html[AutoCollapseThresholdVertical]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbon~autocollapsethresholdhorizontal.html[AutoCollapseThresholdHorizontal]"]  は、それぞれ 250 と 300 に決定されます。
+* RibbonGroup 内のツールの決定されたキャプションの終了楕円形 ("…")は削除されます。
+* PopupMenuTools は、有効なメニュー項目がない場合、その Enabled プロパティは False に決定されます。
+* RibbonGroup のすべてのツールの Visible 状態は、True に決定されます。非表示にされている必要があるツールの Enabled 状態は False に決定されます。
+* リボンの IsMinimized プロパティは、デザイン タイムにシリアライズされません。
+* RibbonTabs の TextHAlign/TextVAlign は、それぞれ中央/中間に決定されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~beforeribbongroupdropdown_ev.html[BeforeRibbonGroupDropDown]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~beforeribbontabselected_ev.html[BeforeRibbonTabSelected]"]  イベントの Cancel プロパティは無視されます。これらのイベントはキャンセルできません。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~beforetoolbarlistdropdown_ev.html[BeforeToolbarListDropdown]"]  イベントの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.beforetoolbarlistdropdowneventargs~showquickaccesstoolbaraddremovemenuitem.html[ShowQuickAccessToolbarAddRemoveMenuItem]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.beforetoolbarlistdropdowneventargs~showquickaccesstoolbarpositionmenuitem.html[ShowQuickAccessToolbarPositionMenuItem]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.beforetoolbarlistdropdowneventargs~showminimizeribbonmenuitem.html[ShowMinimizeRibbonMenuItem]"]  は無視され、これらの項目は右クリックして表示されるメニューに常に表示されます。
+* BeforeToolbarListDropdown イベント引数の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.beforetoolbarlistdropdowneventargs~showcustomizemenuitem.html[ShowCustomizeMenuItem]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.beforetoolbarlistdropdowneventargs~showlocktoolbarsmenuitem.html[ShowLockToolbarsMenuItem]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.beforetoolbarlistdropdowneventargs~showtoolbarmenuitems.html[ShowToolbarMenuItems]"]  プロパティは無視され、これらの項目はメニューの右クリックでは表示されません。
+
+== コンテキスト タブ
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.contextualtabgroup.html[ContextualTabGroup]"]  キャプションの Image プロパティは無視されます。ContextualTabGroups は画像を表示しません。
+* ContextualTabGroup キャプションの TextHAlign/TextVAlign は、それぞれ左/中間に決定されます。

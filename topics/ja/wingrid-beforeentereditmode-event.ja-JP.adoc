@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-beforeentereditmode-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{C076E553-E54E-4CB6-898D-6C58EF64A2C1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= BeforeEnterEditMode イベント
+
+WinGrid™ セルがフォーカスを受け取って編集が有効の時には必ず、セルが編集モードになる直前に BeforeEnterEditMode イベントが発生します。このイベントは、特定の条件が満たされなければキャンセルできます。たとえば、このイベントでは、兄弟セル内でバックエンドのその他の情報ストアから特別な条件をチェックすることができ、これらの条件が満たされない場合、イベント引数を e.Cancel = true に設定することでイベントの発生をキャンセルできます。Cell がこのイベントを完了しなければ、セルにデータを入力することはできません。
+
+以下の例は、Employee がボーナスを受け取るに値するかどうかを確認するために BeforeEnterEditMode イベントを処理する方法を示します。Active Grid Row で参照される Employee オブジェクトを受け付ける Business Logic Class を使用してチェックが行われます。False を返してチェックが失敗する場合、イベントをキャンセルするので、エンド ユーザーは Bonus Column に値を入力したり変更できません。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_BeforeEnterEditMode( _
+   ByVal sender As System.Object, _
+   ByVal e As System.ComponentModel.CancelEventArgs) _
+   Handles UltraGrid1.BeforeEnterEditMode
+   If Me.UltraGrid1.ActiveCell Is Nothing Then Return
+   'Perform this action only on the "Bonus" column:
+   If Me.UltraGrid1.ActiveCell.Column.Key <> "Bonus" Then Return
+   'Extract the Employee object from the Current Row:
+   Dim theEmployee As Employee = _
+      DirectCast(Me.UltraGrid1.ActiveCell.Row.ListObject, Employee)
+   'Using custom business logic, determine if we should
+   'allow the "Bonus" column to allow editing:
+   If BusinessLogicManager.EmpDeservesBonus(theEmployee) = False Then
+      e.Cancel = True
+   End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_BeforeEnterEditMode( 
+   object sender, CancelEventArgs e)
+{
+   if (this.ultraGrid1.ActiveCell == null) return;
+   //Perform this action only on the "Bonus" column:
+   if (this.ultraGrid1.ActiveCell.Column.Key != "Bonus") return;
+   //Extract the Employee object from the Current Row:
+   Employee theEmployee =
+      this.ultraGrid1.ActiveCell.Row.ListObject as Employee;
+   //Using custom business logic, determine if we should
+   //allow the "Bonus" column to allow editing:
+   if (BusinessLogicManager.EmpDeservesBonus(theEmployee) == false)
+   {
+      e.Cancel = true;
+   }
+}
+----

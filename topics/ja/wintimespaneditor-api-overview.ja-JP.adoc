@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimespaneditor-api-overview",
+    "controlName": ["WinTimeSpanEditor"],
+    "tags": ["API"],
+    "guid": "5ac44a0a-3db6-41a6-b66f-1ea5a059fb67",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T21:05:33.6005707Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinEditors 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinForm 名前空間]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimespaneditor.html[UltraTimeSpanEditor]"]

@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-indenting-grouped-records",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{72F83EC6-725A-4B16-88E7-E342F5DD038B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グループ化された行のインデントの構成 (WinGrid, GroupBy)
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~indentationgroupbyrow.html[IndentationGroupByRow]"]  プロパティを設定すると、 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[Band]"]  の GroupBy 行のインデントを指定できます。このプロパティの値は、バンドのグループ行の、そのバンドの左端からのオフセット量 (ピクセル数) を表す数値です。
+
+== IndentationGroupByRow プロパティにアクセスするには:
+
+[start=1]
+. デザイン時に WinGrid™ を右クリックして、コンテキスト メニューから [UltraWinGrid デザイナー] を選択します。
+[start=2]
+. UltraWinGrid デザイナーで [バンドおよび列の設定] ノードを展開し、バンドを選択します。
+[start=3]
+. バンドを選択したら、右側のペインにバンドのプロパティが表示されます。IndentationGroupByRow プロパティが表示されるまで下へスクロールします。
+
+次の図は、デフォルトのグループ行インデントを使用した場合です。
+
+image::Images/WinGrid_GroupBy_Row_Indentation_01.png[ultragrid の groupby 行をインデントする]
+
+IndentationGroupByRow を 21 に設定すると、グループ行のインデントがデフォルトより大きくなります。
+
+この場合は WinGrid は次のようになります。
+
+image::Images/WinGrid_GroupBy_Row_Indentation_02.png[ultragrid の groupby 行をインデントする]
+
+IndentationGroupByRow プロパティを０ (ゼロ) に設定すると、すべてのグループ行が、それぞれの属するバンドの左端に揃います。 この場合は、グループ行のネストされた関係を何らかの方法で視覚的に表す必要があります。これを実現するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~indentationgroupbyrowexpansionindicator.html[IndentationGroupByRowExpansionIndicator]"]  プロパティを、ネストされた各グループ行を「累積」する値に設定します。展開インジケーターのインデントが累積されるのは、グループ行のインデントが0に設定されている場合のみです。次のスクリーンショットでは、Band の IndentationGroupByRow プロパティを 0、IndentationGroupByRowExpansionIndicator プロパティを 16 に設定しています。
+
+image::Images/WinGrid_GroupBy_Row_Indentation_03.png[ultragrid の groupby 行をインデントする]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~indentationgroupbyrowexpansionindicator.html[IndentationGroupByRowExpansionIndicator]"]  プロパティを使用すると、グループ行の展開インジケーターのインデントを指定できます。このプロパティは、バンドのグループ行の展開インジケーターのピクセル オフセットを表します。
+
+== IndentationGroupByRowExpansionIndicatorプロパティにアクセスするには:
+
+[start=1]
+. デザイン時に WinGrid™ を右クリックして、コンテキスト メニューから [UltraWinGrid デザイナー] を選択します。
+[start=2]
+. WinGrid デザイナーで [バンドおよび列の設定] ノードを展開し、バンドを選択します。
+[start=3]
+. バンドを選択したら、右側のペインにバンドのプロパティが表示されます。IndentationGroupByRowExpansionIndicator プロパティが表示されるまでスクロールします。このプロパティを設定すると、バンドのグループ行がインデントされます。
+
+次の図は、WinGrid の初期外観の例です。
+
+image::Images/WinGrid_GroupBy_Row_Expansion_Indicators_Indentation_01.png[ultragrid の groupby 行展開インジケーターをインデントする]
+
+IndentationGroupByRowExpansionIndicator を 16 に設定すると、次の図のようになります。
+
+image::Images/WinGrid_GroupBy_Row_Expansion_Indicators_Indentation_02.png[ultragrid の groupby 行展開インジケーターをインデントする]
+
+*注* : pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowexpansionstyle.html[GroupByRowExpansionStyle]"]  プロパティを DoubleClick または Disabled に設定している場合は、グループ行に展開インジケーターが表示されないため、このプロパティを設定しても効果はありません。

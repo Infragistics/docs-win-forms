@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-configuring-the-width-of-the-drop-down-menu",
+    "controlName": ["WinEditors"],
+    "tags": ["How Do I"],
+    "guid": "{F8070EFA-3E87-4E90-86A2-7F73920CEF54}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウン メニューの幅の構成
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinComboEditor
+* WinFontNameEditor
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~dropdownlistwidth.html[DropDownListWidth]"]  プロパティを使用すると、ドロップダウン ボタンをクリックしたときに表示されるドロップダウン リストの幅を明示的に設定できます。
+
+UltraComboEditor エレメントと UltraFontNameEditor エレメントはそれぞれ、このプロパティに対して異なるデフォルト値を持っています。UltraComboEditor エレメントのデフォルト値は 0 で、これはドロップダウン リストの幅がエレメント自体の幅と同じになることを意味します。UltraFontNameEditor エレメントのデフォルト値は -1 で、これはドロップダウン リストの幅がリスト内の最長項目の幅と同じになることを意味します。また、幅をピクセル単位の特定の値（200 など）に設定することもできます。
+
+次のコードは、ドロップダウン リストの幅をリスト内の最長項目の幅にあわせて自動的に調整します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UsingtheDropDownListWidthProperty_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraComboEditor1.Items.Add("This item's text is especially long to demonstrate" & _
+	  "the usefulness of the DropDownListWidth property")
+	Me.UltraComboEditor1.DropDownListWidth = -1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void UsingtheDropDownWidthProperty_Load(object sender, System.EventArgs e)
+{
+	this.ultraComboEditor1.Items.Add( "This item's text is especially long to demonstrate" + 
+	  "the usefulness of the DropDownListWidth property" );
+	this.ultraComboEditor1.DropDownListWidth = -1;
+}
+----
+
+image::images\WinEditors_Use_the_DropDownListWidth_Property_01.png[]

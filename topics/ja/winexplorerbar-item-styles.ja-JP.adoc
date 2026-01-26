@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-item-styles",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Styling"],
+    "guid": "{D167B9AA-65BF-4B1D-A456-2F66675F182E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 項目スタイル
+
+WinExplorerBar インタフェースを構成する項目を作成するときは、いくつかの異なるタイプから選択できます。各タイプは、ポイント アンド クリック インタフェースの基本機能を提供します。ユーザーによる項目の操作方法は、項目の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~style.html[Style]"]  プロパティによって決まります。
+
+Style プロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[UltraExplorerBarItem]"]  オブジェクトに直接配置されるのではなく、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[UltraExplorerBarItemSettings]"]  オブジェクトに存在します。これにより、項目の書式設定と動作がカプセル化されます。詳細については、 link:winexplorerbar-control-the-appearance-of-groups-and-items.html[「グループおよび項目の外観の制御」]を参照してください。以下に説明するその他のプロパティも、特に注記されていないかぎり、UltraExplorerBarItemSettings オブジェクトに存在します。
+
+[NOTE]
+====
+*注:* グループの Style プロパティを ControlContainer に設定すると、項目の代わりに WinForms コントロールを使用できます。この場合は任意の WinForms コントロールを使用して UltraWinExplorerBar インタフェースを設計できます。ただし、WinForms コントロールはひとつのグループ内で項目と混在させることはできません。
+====
+
+使用可能な項目の 4 つのスタイルは次のとおりです。
+
+[start=1]
+. Button - 項目はボタンのように動作し、クリックすると視覚的に押し下げられて元に戻ります。項目をクリックすると、コードで指定したアクションが実行されます。
+[start=2]
+. State Button - この項目のスタイルはボタンに似ていますが、クリックしたときに項目が「押された状態」と「押されていない状態」の間で切り替わる点が異なります。
+
+State Button スタイルを使用する項目は、UltraExplorerBar の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~statebuttoncheckstyle.html[StateButtonCheckStyle]"]  プロパティの管理下にあります。このプロパティは状態ボタンの排他性を制御します。デフォルトでは、このエレメントはエレメントのスタイルに整合して状態ボタンの排他性を設定しますが、グループ内またはエレメント全体（複数グループ間）で排他的になるように状態ボタンを設定することもできます。
+[start=3]
+. Label - このスタイルの項目はグループのラベルとして動作します。これは情報を表示することを目的とします。
+[start=4]
+. Separator - このスタイルは、項目の間に視覚的なセパレータを挿入することで項目をグループ化する場合に使用します。分割線を使用して機能ごとにボタンをグループ化するのと似ています。項目がセパレータとして機能しているときには、そのテキストとアイコンは表示されず、1 本の線として描画されます。
+
+このスタイルの項目は SeparatorStyle プロパティによって制御されます。このプロパティは、セパレータがどのように描画されるかを指定します。
+
+== デフォルト値
+
+項目のStyleプロパティのデフォルト設定は、コントロールに使用される Style 設定によって異なります。エレメント スタイルが ExplorerBar、Listbar、および OutlookNavigationPane の場合、項目のデフォルトは Button 項目スタイルになります。エレメント スタイルが Toolbox および VisualStudio2005Toolbox の場合、項目のデフォルトは State Button 項目スタイルになります。

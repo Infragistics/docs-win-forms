@@ -1,0 +1,112 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-apply-tab-styles",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{109320BB-2177-48AB-9ED1-472ED9781F3F}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブ スタイルを適用
+
+WinTab エレメントは、タブに適用できるさまざまなスタイルを提供します。スタイルによって、タブの形状や色、境界線の表示、選択が変更されたときのタブの外観の変化などの属性が決まります。
+
+次の図に示すように、13 種類の異なるスタイルを使用できます。
+
+[cols="a,a"]
+|====
+|image::Images/WinTab_Apply_Tab_Styles_01.png[]
+|image::Images/WinTab_Apply_Tab_Styles_02.png[]
+
+|Property Page
+|Property Page (themed)
+
+|image::Images/WinTab_Apply_Tab_Styles_03.png[]
+|image::Images/WinTab_Apply_Tab_Styles_04.png[]
+
+|Property Page Selected
+|Property Page Selected (themed)
+
+|image::Images/WinTab_Apply_Tab_Styles_05.png[]
+|image::Images/WinTab_Apply_Tab_Styles_06.png[]
+
+|Property Page Flat
+|Property Page 2003
+
+|image::Images/WinTab_Apply_Tab_Styles_07.png[]
+|image::Images/WinTab_Apply_Tab_Styles_08.png[]
+
+|State Buttons
+|Visual Studio
+
+|image::Images/WinTab_Apply_Tab_Styles_09.png[]
+|image::Images/WinTab_Apply_Tab_Styles_10.png[]
+
+|Flat
+|Excel
+
+|image::Images/WinTab_Apply_Tab_Styles_11.png[]
+|image::Images/WinTab_Apply_Tab_Styles_12.png[]
+
+|Note Page
+|Note Page Flat
+
+|image::Images/WinTab_Apply_Tab_Styles_13.png[]
+|image::Images/WinTab_Apply_Tab_Styles_14.png[]
+
+|Wizard (no UI)
+|Visual Studio 2005
+
+|image::Images/WinTab_Apply_Tab_Styles_15.png[]
+
+|Office 2007 Ribbon
+
+|====
+
+どのスタイルを選択するかは、アプリケーションの全般的な外観によって異なります。選択したスタイルは、デザインタイムまたはランタイムに適用できます。
+
+== レイアウトをデザインタイムに適用するには
+
+[start=1]
+. フォームに置かれた UltraWinTab エレメントで、エレメントをクリックして選択します。次にエレメントの Visual Stuido プロパティ シートを表示します。
+
+[NOTE]
+====
+*注* エレメントのアクティブ領域の大きな部分は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabsharedcontrolspage.html[UltraTabSharedControlsPage]"]  サブコントロールによって使用されます。これは Visual Studio プロパティ シートでそれ自体のコントロールとして表示されます。Tab エレメント自体を実際に選択したことを確認してください。エレメントのタブ ヘッダ領域をクリックしてこれを実行することができます。このプロパティ シートは "UltraTabControl1" またはフォーム上にあるエレメントの名前を示します。プロパティ シート ドロップダウンで "UltraTabSharedControlsPage1"（または類似するもの）を確認する場合、Tab エレメントは選択されません。
+====
+
+[start=2]
+. プロパティ シートで pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~style.html[Style]"]  プロパティを選択します。このプロパティのドロップダウンは、使用できるスタイルすべてをリストします。適用したいスタイルを選択します。
+
+== レイアウトをランタイムに適用するには
+
+以下のコードを使用して、適用したいスタイルの実際の名前を置き換えます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTabControl
+...
+Private Sub UsingDifferentTabStyles_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraTabControl1.Style = UltraTabControlStyle.NotePage
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTabControl;
+...
+private void UsingDifferentTabStyles_Load(object sender, System.EventArgs e)
+{
+	this.ultraTabControl1.Style = UltraTabControlStyle.NotePage;
+}
+----
+
+image::images\WinTab_Apply_Tab_Styles_16.png[]

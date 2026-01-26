@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator-api-overview",
+    "controlName": ["WinActivityIndicator"],
+    "tags": ["API"],
+    "guid": "{990E0DD0-BBC9-425C-930B-0E78CCDC81F2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。 このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。 このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinActivityIndicator 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator_namespace.html[Infragistics.Win.UltraActivityIndicator]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator.html[UltraActivityIndicator]"]

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Extending"],
+    "guid": "{DE23BAF1-90B2-4168-A62C-4302FE3FC695}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalcManager
+
+WinCalcManager コンポーネントに関連した概要/タスクベースの情報をすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、WinCalcManager コンポーネントに関する貴重な情報が含まれています。WinCalcManager コンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコンポーネントを使って共通タスクを実行する際のステップごとの手順に至るまで豊富な情報が含まれています。
+
+== link:wincalcmanager-understanding-wincalcmanager.html[WinCalcManager の理解]
+
+このセクションでは、WinCalcManager コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。
+
+== link:win-wincalcmanager-using-wincalcmanager.html[WinCalcManager の使用]
+
+このセクションは、WinCalcManager コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:wincalcmanager-api-overview.html[API 概要]
+
+このトピックでは、WinCalcManager コンポーネントを使ってプログラミングする際に操作する名前空間とクラスをリストします。このトピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

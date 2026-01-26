@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-new-3d-chart-rendering-engine-whats-new-2006-1",
+    "controlName": [],
+    "tags": ["Charting"],
+    "guid": "{5948FC03-6A2D-4B70-9C86-B62798C46B44}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい立体グラフ描画エンジン
+
+Infragistics 2006 volume 1 リリースで提供されている立体グラフは、これまでの当社の製品とはかけ離れた画期的な機能です。この 3D グラフ描画エンジンは、強い印象を与える深みのあるグラフを簡単に作成できるように改良されました。
+
+Infragistics の新しい 3D エンジンは、完全に GDI+ とマネージコードに準拠し、クライアントやサーバーに OpenGL® や DirectX® などの 3D エンジンをインストールしなくても部分的に信頼されたコンテキストで実行することができます。
+
+立体チャートの外観が目覚ましく改良された大きな理由は、3D 描画エンジンにチャートを描画するための透視投影法を採用しているためです。透視投影では、視点をベースとして対象物を投影します。たとえば、線路の平行線は、実際には決して交わることはありませんが、水平の遠い地点でひとつになるように知覚されます。Infragistics の立体チャートでは、これと同様の自然な視点を感じさせる投影法が採用されています。
+
+Infragistics の立体チャートでは、透視投影法のほかにも、照明効果を採用し、立体チャートの描画に深さと質感を与えることができます。
+
+image::Images/WinChart_New_3D_Chart_Rendering_Engine_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:winchart-new-and-improved-3d-charts-whats-new-2006-1.html[立体チャート機能の新規追加と強化]

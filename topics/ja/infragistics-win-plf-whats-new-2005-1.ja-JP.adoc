@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-win-plf-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A27E5B0F-60CE-4EBE-9534-4FF569B82357}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics.Win (PLF) 2005.1
+
+== 個別の垂直/水平のスクロールバーの外観
+
+個別の垂直および水平スクロールバーの外観が ScrollbarLook オブジェクトに追加されました。
+
+以下の外観オブジェクトは、スクロールバーだけでなく、スクロールバーのボタン、つまみ、トラックの各領域の垂直および水平のルック アンド フィールに対する詳細な制御を可能にします。
+
+[options="header", cols="a,a"]
+|====
+|オブジェクト|説明
+
+|AppearanceHorizontal
+|水平のスクロールバーの外観
+
+|AppearanceVertical
+|垂直のスクロールバーの外観
+
+|ButtonAppearanceHorizontal
+|水平のスクロールバー ボタンの外観
+
+|ButtonAppearanceVertical
+|垂直のスクロールバー ボタンの外観
+
+|ThumbAppearanceHorizontal
+|水平のスクロールバーつまみの外観
+
+|ThumbAppearanceVertical
+|垂直のスクロールバーつまみの外観
+
+|TrackAppearanceHorizontal
+|水平のスクロールバー トラック領域の外観
+
+|TrackAppearanceVertical
+|垂直のスクロールバー トラック領域の外観
+
+|====

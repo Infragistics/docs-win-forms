@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-displaying-spin-buttons",
+    "controlName": ["WinEditors"],
+    "tags": ["How Do I"],
+    "guid": "{71F5825B-B100-41EE-8C56-4482550D6CFD}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= スピン ボタンの表示
+
+このトピックはすべての WinEditor コントロールに適用されます。
+
+デフォルトで、WinEditors はスピン ボタンを表示しません。ただし、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.spinbuttondisplaystyle.html[SpinButtonDisplayStyle]"]  プロパティを設定することによって、スピン ボタンを表示できます。これによってエンド ユーザーはマウスを使用して、スピン可能なセクションの現在の値を増やしたり減らしたりすることができます。pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditorbase~spinbuttonalignment.html[SpinButtonAlignment]"]  プロパティはスピン ボタンがコントロールの左と左のいずれに表示するのかを決定します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithmask~spinwrap.html[SpinWrap]"]  プロパティは、スピン　ボタンが最小値/最大値に基づいてスピン可能なセクションの値をラップするかどうかを決定します。

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-new-3d-spline-charts-whats-new-2006-3",
+    "controlName": [],
+    "tags": ["Charting"],
+    "guid": "{B421C36F-FA96-4F75-A698-7538DF44EB64}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい立体スプライン グラフ
+
+link:chart-spline-chart-2d.html[平面スプライン]および link:chart-spline-area-chart-2d.html[平面スプライン エリア] グラフを補完するために、 link:chart-spline-chart-3d.html[立体スプライン]および link:chart-spline-area-chart-3d.html[立体スプライン エリア] グラフをそれぞれ提供しています。これらの新しい立体チャートは、もうひとつの次元（z 軸）を既存の平面チャートに追加し、その結果より視覚的に魅力的なチャートを作成することができます。
+
+image::Images/WinChart_New_3D_Spline_Charts_Whats_New_2006_3_01.png[]
+
+image::Images/WinChart_New_3D_Spline_Charts_Whats_New_2006_3_02.png[]

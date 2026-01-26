@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimespaneditor",
+    "controlName": ["WinTimeSpanEditor"],
+    "tags": [],
+    "guid": "5a73999a-f6af-4f34-ba67-1bba1c025c05",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T20:19:04.501785Z"
+}
+|metadata|
+////
+
+= WinTimeSpanEditor
+
+WinTimeSpanEditor™ コントロールに関連する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinTimeSpanEditor についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinTimeSpanEditor コントロールについての情報にアクセスします。
+
+== link:wintimespaneditor-understanding-wintimespaneditor.html[WinTimeSpanEditor の理解]
+
+このセクションには WinTimeSpanEditor コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:wintimespaneditor-api-overview.html[API の概要]
+
+このトピックでは、WinTimeSpanEditor コンポーネントを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API リファレンス ガイド」セクションへリンクしていて便利です。

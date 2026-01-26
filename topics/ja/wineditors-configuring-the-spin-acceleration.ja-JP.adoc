@@ -1,0 +1,187 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-configuring-the-spin-acceleration",
+    "controlName": [],
+    "tags": [],
+    "guid": "03e275bc-d5f6-48de-8822-93b05d014e23",  
+    "buildFlags": [],
+    "createdOn": "2014-01-28T16:04:21.935346Z"
+}
+|metadata|
+////
+
+= スピン アクセラレーションの構成
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、エディター コントロールのスピン ボタンのアクセラレーションを紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref371956987,スピン ボタンのアクセラレーション>>
+
+** <<_Ref370929747,はじめに>>
+** <<_Ref371956998,定義済みのスピン ボタン プロパティ>>
+** <<_Ref370929768,SpinEditorButton>>
+** <<_Ref370929756,AutoRepeatEditorButton>>
+
+* <<_Ref371957010,サポートされるエディター コントロール>>
+* <<_Ref370929790,関連コンテンツ>>
+
+[[_Ref371956987]]
+== スピン ボタンのアクセラレーション
+
+[[_Ref370929747]]
+
+=== はじめに
+
+スピン ボタンは、値がエディターで表示されるスピードを増加するか、減少する機能を提供します。スピン ボタン アクセラレーションは、スピン ボタンを長押しする場合、エディターの数値または日時値のスピン スピードを早くなることが可能です。5 つの繰り返しの後に、スピンが早くなります。
+
+この機能は Infragistics エディター コントロールで実装し、スピン ボタン アクセラレーションを可能になります。エディター コントロールは、アクセラレーションを開始するためのスピン ボタンで必要なスピンの数を示すしきい値プロパティを公開します。
+
+たとえば、しきい値を 10 に設定すると、10 つのスピン繰り返しの後にアクセラレーションを開始します。デフォルトのしきい値は 5 つのスピン繰り返しです。
+
+`ultraNumericEditor.SpinButtonIntervalSettings.AccelerationThreshold = 10;`
+
+[[_Ref371956998]]
+
+=== 定義済みのスピン ボタン プロパティ
+
+定義済みスピン ボタンを含むエディター コントロールは、以下の 5 つのプロパティを含む link:{ApiPlatform}win{ApiVersion}~infragistics.win.spinbuttonintervalsettings.html[SpinButtonIntervalSettings] と呼ばれる新しい機能を公開します。
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~interval.html[Interval]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~initialdelay.html[InitialDelay]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationenabled.html[AccelerationEnabled]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~acceleratedinterval.html[AcceleratedInterval]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationthreshold.html[AccelerationThreshold]
+
+スピン ボタン アクセラレーションを有効にするためには link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationenabled.html[AccelerationEnabled] プロパティを  _True_   に設定する必要があります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraNumericEditor.SpinButtonIntervalSettings.AccelerationEnabled = true;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraNumericEditor.SpinButtonIntervalSettings.AccelerationEnabled = True
+----
+
+[[_Ref370929768]]
+
+=== SpinEditorButton
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton] ボタンはスタンドアロン ボタン要素です。定義済みのスピン ボタンのように、スピン ボタン アクセラレーションをサポートするために 5 つの追加のプロパティを公開します。
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~interval.html[Interval]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~initialdelay.html[InitialDelay]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationenabled.html[AccelerationEnabled]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~acceleratedinterval.html[AcceleratedInterval]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationthreshold.html[AccelerationThreshold]
+
+[[_Ref370929756]]
+
+=== AutoRepeatEditorButton
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton_members.html[AutoRepeatEditorButton] ボタンは、スピン ボタンのような機能を提供するスタンドアロン ボタン要素です。`AutoRepeatEditorButton` は link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~interval.html[Interval] および link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~initialdelay.html[InitialDelay] プロパティをサポートします。以下の 3 つのプロパティを追加したため、スピン ボタン アクセラレーションをサポートします。
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationenabled.html[AccelerationEnabled]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~acceleratedinterval.html[AcceleratedInterval]
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.autorepeateditorbutton~accelerationthreshold.html[AccelerationThreshold]
+
+[[_Ref371957010]]
+== サポートされるエディター コントロール
+
+=== 概要
+
+複数のエディター コントロールには定義済みスピン ボタンがあります。したがって、スピン ボタンのアクセラレーションの有効化は単一のプロパティ設定が必要です。定義済みスピン ボタンがないエディター コントロールの場合、`ButtonLeft` または `ButtonRight` を構成する必要があります。スピン ボタン アクセラレーションを有効にするためのプロパティを含む link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton] を `ButtonLeft` または `ButtonRight` コレクションに追加する必要があります。
+
+以下の表は、スピン ボタン アクセラレーション機能をサポートするエディター コントロールを表示します。
+
+[options="header", cols="a,a,a"]
+|====
+|エディター コントロール|定義済みのスピン ボタンのサポート|スピン ボタン アクセラレーションをサポートする方法
+
+|_WinCalculatorDropDown_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinCalendarCombo_™
+|はい
+|定義済みのスピン ボタン プロパティ
+
+|_WinColorPicker_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinCombo_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinComboEditor_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinCurrencyEditor_™
+|はい
+|定義済みのスピン ボタン プロパティ link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinDateTimeEditor_™
+|はい
+|定義済みのスピン ボタン プロパティ link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinFontNameEditor_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinFormattedTextEditor_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinMaskedEdit_™
+|はい
+|定義済みのスピン ボタン プロパティ link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinNumericEditor_™
+|はい
+|定義済みのスピン ボタン プロパティ link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinTextEditor_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinTimeSpanEditor_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|_WinTimeZoneEditor_™
+|いいえ
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.spineditorbutton_members.html[SpinEditorButton]
+
+|====
+
+[[_Ref370929790]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wineditors-displaying-spin-buttons.html[スピン ボタンの表示]
+|このトピックはすべての _WinEditor_™ コントロールに適用されます。
+
+|====

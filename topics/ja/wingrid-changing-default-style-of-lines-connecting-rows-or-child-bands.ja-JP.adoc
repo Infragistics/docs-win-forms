@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-default-style-of-lines-connecting-rows-or-child-bands",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{DF4BCDF0-616A-4D53-90B5-BD7F79D220C8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 行または子バンドを結合する線のデフォルト スタイルを変更
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~rowconnectorstyle.html[RowConnectorStyle]"]  RowConnectorStyle プロパティは、兄弟行、子行、また子バンドを親バンドに接続するために使用される線のタイプを決定するために使用されます。RowConnectorStyle および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~rowconnectorcolor.html[RowConnectorColor]"]  プロパティを使用すると、行コネクターの外観を修正できます。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.RowConnectorStyle = RowConnectorStyle.Raised
+Me.ultraGrid1.DisplayLayout.RowConnectorColor = Color.HotPink
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.RowConnectorStyle = RowConnectorStyle.Raised;
+this.ultraGrid1.DisplayLayout.RowConnectorColor = Color.HotPink;
+----
+
+*高くなったピンク色の行コネクターの付いた WinGrid:*
+
+image::Images/WinGrid_Changing_Default_Style_of_Lines_connecting_rows_or_child_bands_to_their_parent_bands_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.RowConnectorStyle = RowConnectorStyle.None
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.RowConnectorStyle = RowConnectorStyle.None;
+----
+
+*行コネクターのない WinGrid:*
+
+image::Images/WinGrid_Changing_Default_Style_of_Lines_connecting_rows_or_child_bands_to_their_parent_bands_02.png[]

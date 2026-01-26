@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker",
+    "controlName": ["WinSpellChecker"],
+    "tags": [],
+    "guid": "{0730ECD4-D120-4B46-96FA-A688CC2E597B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker
+
+WinSpellChecker コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、このコンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順に至るまで、WinSpellChecker に関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、WinSpellChecker コンポーネントに関する重要な説明を読むことができます。
+
+== link:winspellchecker-understanding-winspellchecker.html[WinSpellChecker の理解]
+
+このセクションの説明を読むと、WinSpellChecker コンポーネントの機能性と、それをアプリケーション構築の一部として使用することの利点についてよく理解できます。
+
+== link:winspellchecker-getting-started-with-winspellchecker.html[WinSpellChecker で作業を開始]
+
+WinSpellChecker コンポーネントをすばやく起動して実行できるように、このコンポーネントの使用を開始する（フォームに WinSpellChecker を追加する）方法について説明します。
+
+== link:win-winspellchecker-using-winspellchecker.html[WinSpellChecker の使用]
+
+このセクションは、WinSpellChecker コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:winspellchecker-api-overview.html[API 概要]
+
+このトピックでは、WinSpellChecker コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」にリンクしています。

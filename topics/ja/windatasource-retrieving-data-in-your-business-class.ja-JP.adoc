@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-retrieving-data-in-your-business-class",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios","Getting Started"],
+    "guid": "{F3857F44-61B4-494C-A657-CDBCD3BF711E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ビジネス クラスでのデータの取得
+
+このヘルプ トピックは、 link:windatasource-getting-started.html[「WinDataSource のサブクラス化によるビジネス クラスの作成（パート 1）」]から始まる 5 つのパートから構成されるチュートリアルの続きです。
+
+== 例（続き）
+
+重要かつ必要なエレメントの設定が済んだので、次にデータの取得、削除、作成、および更新機能の実装に移ります。
+
+データを取得するために、FillData() というメソッドを追加します。このメソッドの役割は、この特定のテーブルのレコードをすべて取得することです。この実装では、すべてのレコードを無条件に取得します。より高度で豊富な機能を持つオブジェクト モデルでは、ひとつ以上のフィールドによるフィルタリングや並べ替えを可能にするため、このメソッドのオーバーロード バージョンをいくつか提供します。
+
+*Visual Basic の場合：*
+
+----
+' SQL Server からのデータで WinDataSource を埋めるメソッド。このメソッドを 
+' 拡張して、キー、検索条件、並べ替え順序などを引数にとるオーバーロードを作成できます。
+Public Sub FillData()
+	Dim cn As New SqlConnection(_cn)
+	Dim cm As SqlCommand = cn.CreateCommand()
+	cm.CommandText = "SELECT CategoryID,CategoryName,Description," + _
+	  "Picture FROM Categories ORDER BY CategoryName ASC"
+	cm.CommandType = CommandType.Text
+	cn.Open()
+	Dim dr As SqlDataReader = cm.ExecuteReader(CommandBehavior.Default)
+	Dim rowCount As Integer
+	While dr.Read = True
+		rowCount += 1
+		MyBase.Rows.Add(New Object() {dr("CategoryID"), _
+		  dr("CategoryName"), _
+		  dr("Description"), _
+		  dr("Picture")})
+	End While
+	MyBase.Rows.SetCount(rowCount)
+	dr.Close()
+	cn.Dispose()
+End Sub
+----
+
+*C# の場合：*
+
+----
+// SQL Server からのデータで WinDataSource を埋めるメソッド。このメソッドを 
+// 拡張して、キー、検索条件、並べ替え順序などを引数にとるオーバーロードを作成できます。
+public void FillData()
+{
+	SqlConnection cn = new SqlConnection(_cn);
+	SqlCommand cm = cn.CreateCommand();
+	cm.CommandText = "SELECT CategoryID,CategoryName,Description," +
+	  "Picture FROM Categories ORDER BY CategoryName ASC";
+	cm.CommandType = CommandType.Text;
+	cn.Open();
+	SqlDataReader dr = cm.ExecuteReader(CommandBehavior.Default);
+	int rowCount = 0;
+	while(dr.Read())
+	{
+		rowCount++;
+		base.Rows.Add(new object[] { dr["CategoryID"], dr["CategoryName"],  
+		  dr["Description"],dr["Picture"] }); 
+	}
+	base.Rows.SetCount(rowCount);
+	dr.Close();
+	cn.Dispose();
+}
+----
+
+このメソッドは、SqlDataReader を使用して WDS の行を内部でロードしているだけです。パフォーマンスは非常良好で、アドホック クエリーの代わりにストアド プロシージャを使用するとさらに高速になります。
+
+これは 5 つのパートから構成されるチュートリアルの 2 番目のパートで、次のパートを見たい場合にはリンクをクリックしてください。 link:windatasource-inserting-and-updating-data-in-your-business-class.html[WinDataSource のサブクラス化によるビジネス クラスの作成（パート 3）]

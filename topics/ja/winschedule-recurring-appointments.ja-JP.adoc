@@ -1,0 +1,157 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-recurring-appointments",
+    "controlName": ["WinSchedule"],
+    "tags": ["Recurrences"],
+    "guid": "{0F5AE660-66E0-4D57-B22D-4D9619C5D0C3}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 繰り返し予定
+
+WinSchedule の {ProductName} 2004 Volume 2 リリースには、繰り返し予定のサポートが含まれます。既存の Appointment は、繰り返しの概念をサポートするように修正されています。これにより、関連づけられている AppointmentRecurrence オブジェクトで指定されたパターンに基づいて、予定が周期的に発生するように設定できます。また、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentrecurrence.html[AppointmentRecurrence]"]  オブジェクトが NAS2004 Volume 2 リリースに新しく追加されました。このオブジェクトを（Appointment の Recurrence プロパティに割り当てることによって）Appointment に関連付けると、その Appointment が繰り返し予定の各回を生成する「テンプレート」となります。
+
+繰り返し予定の作成を有効にするには、関連付けられた WinCalendarInfo コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~allowrecurringappointments.html[AllowRecurringAppointments]"]  プロパティを True に設定します。このプロパティは、下位互換性を維持するため、デフォルトでは False に設定されています。
+
+== AppointmentRecurrence オブジェクト
+
+繰り返し予定機能をサポートするため、AppointmentRecurrence という新しいオブジェクトが UltraWinSchedule アセンブリに追加されました。AppointmentRecurrence オブジェクトは、Appointment が発生する頻度と、繰り返しによって生成されるアクティビティを含む日付範囲を定義します。Appointment を繰り返し予定にするためには、AppointmentRecurrence オブジェクトのインスタンスを作成し、それを Appointment の Recurrence プロパティに割り当てます。AppointmentRecurrence が Appointment に割り当てられると、AppointmentRecurrence の明示的に設定されていないすべてのプロパティの値は自動的に Appointment から取得されます。たとえば、AppointmentRecurrence オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentrecurrence~rangestartdate.html[RangeStartDate]"]  プロパティが設定されていない場合、このプロパティの値は Appointment の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment~startdatetime.html[StartDateTime]"]  プロパティから取得されます。
+
+AppointmentRecurrence オブジェクトのインスタンスがその Recurrence プロパティに設定されている Appointment のことを、「繰り返し予定のルート」と呼びます。繰り返し予定のルートの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.afterrecurringappointmentdeletedeventargs~isrecurringappointmentroot.html[IsRecurringAppointmentRoot]"]  プロパティは True を返し、AppointmentRecurrence オブジェクトの RootAppointment プロパティはその Appointment への参照を返します。繰り返し予定のルートは、関連付けられた UltraCalendarInfo エレメントの Appointments コレクションに属しますが、生成される繰り返し予定の各回はこのコレクションに _属しません_ 。これらの予定のことを「未変更回」と呼びます。未変更回のひとつに何らかの変更を加えると、それは「バリアンス」と呼ばれるものになります。未変更回とは異なり、バリアンスは関連する UltraCalendarInfo エレメントの Appointments コレクションに追加されます。繰り返し予定のルートを Appointments コレクションから削除すると、その繰り返し予定に関連するすべての予定が、変更されているかどうかにかかわらず、同時に削除されます。
+
+次の表に、AppointmentRecurrence オブジェクトのプロパティと、各プロパティの動作に関する簡単な説明を示します。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ|タイプ|説明
+
+|Id
+|System.Guid
+|このインスタンスを識別するグローバルに一意の識別子を返します。このインスタンスに関連するバリアンスはすべて、それぞれのpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment~recurrenceid.html[RecurrenceId]"] プロパティにこの ID が割り当てられます。これにより、AppointmentRecurrence と変更された繰り返し予定の回がリンクされます。このリンク メカニズムは、シリアル化とデータ バインディングにおいて、バリアンスとそれらを生成した AppointmentRecurrence を関連付けるために使用されます。
+
+|説明
+|文字列
+|このインスタンスの、人が読むことができる説明を返します。繰り返しの頻度、開始日時と終了日時に関する情報を含みます。例：2006 年 1 月 1 日に開始して日常的に繰り返し、発生が 10 回に制限され、範囲が 8AM から 8:30AM までの繰り返しの場合、Description プロパティは以下の文字列を返します: " _Occurs every day effective 1/1/2004 until 1/10/2006 from 8AM to 8:30AM。_ "
+
+|OccurrenceDuration
+|TimeSpan
+|繰り返しの各発生の期間を取得または設定します。繰り返しの重複を生じさせるように OccurrenceDuration プロパティが設定されている場合、例外がスローされます。たとえば、PatternFrequency が「Daily」に設定されていて、OccurrenceDuration に 24.0 時間より大きい TimeSpan を設定した場合がこれに該当します。
+
+|OccurrenceStartTime
+|DateTime
+|繰り返し予定の未変更回の開始時刻を取得または設定します。デフォルト値は DateTime.MinValue です。特に設定しなければ、RootAppointment プロパティによって参照される Appointment オブジェクトから実際の値が取得されます。
+
+|PatternDayOfMonth
+|Integer
+|各回が発生するそれぞれの月の日数を取得または設定します。PatternFrequency プロパティが「Monthly」または「Yearly」に設定されている場合のみ適用されます。 
+
+デフォルト値は 0 です。特に設定しなければ、RootAppointment プロパティによって参照される Appointment オブジェクトから実際の値が取得されます。 
+
+*注:* PatternDayOfMonth プロパティが、繰り返し予定に含まれるいずれかの月の日数を超える値に設定されている場合、その月の回は月の最後の日になります。
+
+|PatternDaysOfWeek
+|RecurrencePatternDaysOfWeek
+|各回が発生する曜日を取得または設定します。デフォルト値は None です。特に設定しなければ、RootAppointment プロパティによって参照される Appointment オブジェクトから実際の値が取得されます。 
+
+*注:* DaysOfWeek プロパティの値はビットフラグで表されるため、複数の曜日をこのプロパティで表すことができます。 
+
+*例：* 火曜と木曜に繰り返し予定を作成する場合は、(4 OR 16 ) = 20 を指定します。
+
+|PatternFrequency
+|RecurrencePatternFrequency
+|繰り返し予定が発生する頻度（つまり、日単位、週単位、月単位、または年単位）を取得または設定します。
+
+|PatternInterval
+|Integer
+|繰り返しの発生する間隔を取得または設定します。PatternFrequency プロパティと組み合わせて使用します。PatternFrequency プロパティが「Yearly」に設定されている場合は適用されません。 
+
+*例：* PatternFrequency プロパティを「Weekly」に設定し、PatternInterval プロパティを 2 に設定すると、隔週で予定が繰り返されます。
+
+|PatternMonthOfYear
+|Integer
+|繰り返し予定が発生する月を取得または設定します。PatternFrequency プロパティが「Yearly」に設定されている場合のみ適用されます。デフォルト値は、RangeStartDate プロパティの月に基づいて決まります。
+
+|PatternOccurrenceOfDayInMonth
+|RecurrencePatternDayInMonth
+|その月の 1 週目、2 週目、3 週目、4 週目、または最後の週のうち、どの週の曜日（PatternDaysOfWeek プロパティの値に対応）に繰り返し予定が発生するかを取得または設定します。PatternType プロパティが「Calculated」に設定されている場合のみ適用されます（「Calculated」は PatternFrequency プロパティが「Monthly」または「Yearly」に設定されている場合のみ適用されます）。デフォルト値は None です。特に設定しなければ、RangeStartDate プロパティから実際の値が取得されます。
+
+|PatternType
+|RecurrencePatternType
+|繰り返しパターンが月の特定の日または年の特定の月日に基づくか、あるいは他の条件に従って計算されるかを取得または設定します。PatternFrequency プロパティが「Monthly」または「Yearly」に設定されている場合のみ適用されます。PatternFrequency プロパティを「Monthly」に設定し、PatternType プロパティを「Explicit」に設定した場合は、PatternDayOfMonth プロパティと PatternInterval プロパティを使用して繰り返しパターンが決定されます。PatternFrequency プロパティを「Monthly」に設定し、PatternType プロパティを「Calculated」に設定した場合は、OccurrenceOfDayInMonth、PatternDaysOfWeek、PatternInterval の各プロパティを使用して繰り返しパターンが決定されます。PatternFrequency プロパティを「Yearly」に設定し、PatternType プロパティを「Explicit」に設定した場合、繰り返し予定は 1 年に 1 回、PatternMonthOfYear プロパティで指定された月の、PatternDayOfMonth プロパティで指定された日に発生します。PatternFrequency プロパティを「Yearly」に設定し、PatternType プロパティを「Calculated」に設定した場合、繰り返し予定は 1 年に 1 回、PatternOccurrenceOfDayInMonth、PatternDaysOfWeek、PatternMonthOfYear の各プロパティの組み合わせによって決定された日に発生します。
+
+|RangeEndDate
+|DateTime
+|繰り返し予定の未変更回の開始時刻を取得または設定します。デフォルト値は DateTime.MinValue です。特に設定しなければ、RootAppointment プロパティによって参照される Appointment オブジェクトから実際の値が取得されます。
+
+|RangeLimit
+|RecurrenceRangeLimit
+|繰り返し予定の制限要因（つまり、終了しないか、一定の回数繰り返してから終了するか、または特定の日付以前に終了するか）を取得または設定します。
+
+|RangeMaxOccurrences
+|Integer
+|繰り返し予定の最大回数を取得または設定します。RangeLimit プロパティが「LimitByNumberOfOccurrences」に設定されている場合のみ適用されます。
+
+|RangeStartDate
+|DateTime
+|定期的な予定の開始日を取得または設定します。*注:* 繰り返し予定の最初の回は必ずしもこの日と一致するとは限りませんが、この日より早く繰り返し予定が起こることはありません。
+
+|RootAppointment
+|予定
+|「未変更回」のすべての回を完全に定義する（ただし、日付と開始/終了時刻は除く）Appointment オブジェクトを取得または設定します。この Appointment は、繰り返し予定の各メンバの件名や場所などを定義するテンプレートになります。*注:* AppointmentRecurrence の RootAppointment プロパティに割り当てられた Appointment オブジェクトの StartDateTime プロパティまたは EndDateTime プロパティを設定すると、例外がスローされます。
+
+|Variances
+|VariancesCollection
+|この繰り返し予定に属してはいるものの、何らかの点で繰り返し予定の定義とは異なる Appointment のコレクションを返します。このコレクションは、実際には関連する UltraCalendarInfo コンポーネントの Appointments コレクションのサブセットを返す抽象コレクションです。このサブセットには、この AppointmentRecurrence インスタンスの Guid プロパティと一致する RecurrenceGuid プロパティを持つ Appointment オブジェクトが含まれます。
+
+|====
+
+== Appointment オブジェクトの変更点
+
+前のセクションで述べたように、繰り返し予定をサポートするため、既存の Appointment オブジェクトにいくつかのプロパティが追加されました。次の表に、追加された新しいプロパティと、各プロパティの動作に関する簡単な説明を示します。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ|タイプ|説明
+
+|IsRecurringAppointmentRoot
+|ブール値
+|この Appointment が繰り返し予定を表すかどうかを返します。このプロパティは、Appointment の Recurrence プロパティが AppointmentRecurrence オブジェクトのインスタンスを返す場合に True を返します。「繰り返し予定のルート」である Appointment は、関連する UltraCalendarInfo コンポーネントの Appointments コレクションに属しますが、ユーザー インターフェイスでは認識されません。この種の予定は、繰り返し予定のルートに関連する AppointmentRecurrence オブジェクトによって指定された頻度で繰り返し予定の各回を生成する「テンプレート」とみなすことができます。特に変更しなければ、これらの各回は繰り返し予定のルートから件名、場所、説明などを取得します。
+
+|IsVariance
+|ブール値
+|この Appointment が繰り返し予定のメンバであり、繰り返し予定のルートとは異なるプロパティ値を持つかどうか（StartDateTime と EndDateTime は除く）を返します。
+
+|IsRecurringAppointmentRoot
+|ブール値
+|この Appointment が繰り返し予定を表すかどうかを返します。このプロパティは、Appointment の Recurrence プロパティが AppointmentRecurrence オブジェクトのインスタンスを返す場合に True を返します。「繰り返し予定のルート」である Appointment は、関連する UltraCalendarInfo コンポーネントの Appointments コレクションに属しますが、ユーザー インターフェイスでは認識されません。この種の予定は、繰り返し予定のルートに関連する AppointmentRecurrence オブジェクトによって指定された頻度で繰り返し予定の各回を生成する「テンプレート」とみなすことができます。特に変更しなければ、これらの各回は繰り返し予定のルートから件名、場所、説明などを取得します。
+
+|OriginalStartDateTime
+|DateTime
+|Recurrence エンジンによって生成された、Appointment の StartDateTime プロパティの値を表す DateTime を返します。StartDateTime プロパティの値が変更されていなければ、OriginalStartDateTime プロパティは StartDateTime プロパティと同じ値を返します。OriginalStartDateTime プロパティは、繰り返し予定のシリーズのメンバーがひとつ削除されたときに発生する「隙間」に対応するために必要となります。AppointmentRecurrence オブジェクトは繰り返し予定の各回を生成する際、その Variances コレクションをチェックして OriginalStartDateTime が繰り返し回の日付と一致するメンバを探します。そのようなメンバが存在する場合、その回は省略されます。
+
+|繰り返し
+|AppointmentRecurrence
+|予定の発生頻度を示す繰り返しパターンを定義する AppointmentRecurrence オブジェクトを取得または設定します。このプロパティから null 以外の値を返すのは、AppointmentRecurrence の RootAppointment である Appointment オブジェクトのみです。*注:* 他の AppointmentRecurrence の回である Appointment の Recurrence プロパティを設定しようとすると、例外がスローされます。つまり、ある繰り返し予定のメンバ自体を繰り返し予定のルートにすることはできません。同様に、すでに割り当てられている AppointmentRecurrence オブジェクトを他の Appointment の Recurrence プロパティに割り当てようとすると、例外がスローされます。つまり、ある AppointmentRecurrence を同時に複数の予定に関連付けることはできません。
+
+|RecurrenceId
+|System.Guid
+|この Appointment が関連付けられている AppointmentRecurrence オブジェクトを参照するグローバルに一意の識別子を返します。*注:* Appointment が繰り返し予定のメンバでない場合、このプロパティは Guid.Empty を返します。
+
+|RecurringAppointmentRoot
+|予定
+|この Appointment の繰り返し条件を定義する AppointmentRecurrence オブジェクトが関連付けられた Appointment オブジェクトを返します。Appointment が「単独の」予定またはルート予定の場合、このプロパティは null を返します。
+
+|====
+
+== 繰り返し予定ダイアログ
+
+UltraWinSchedule の前バージョンのユーザーは、外観と動作が MS Outlook の予定ダイアログとよく似た 予定ダイアログに慣れているかもしれません。繰り返し予定を作成および編集するためのフロントエンドを提供するため、 _NAS2004 Vol 2_  には繰り返し予定ダイアログが含まれています。このダイアログも MS Outlook のダイアログと非常によく似ており、予定ダイアログから直接呼び出すことができます。このダイアログを使用すれば、MS Outlook ユーザーが慣れ親しんでいるのと同じインタフェースをエンド ユーザーに提供できます。
+
+image::Images/WinSchedule_Recurring_Appointments_01.png[]
+
+エンド ユーザーに柔軟性を提供するために、繰り返し予定ダイアログが表示される前に、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~beforedisplayappointmentrecurrencedialog_ev.html[BeforeDisplayAppointmentRecurrenceDialog]"]  イベントが発生します。このイベントをキャンセルすると、デフォルトのダイアログは表示されません。代わりにカスタムのダイアログが表示されるか、ダイアログが全く表示されません。

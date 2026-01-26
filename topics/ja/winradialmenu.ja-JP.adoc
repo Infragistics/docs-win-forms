@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "winradialmenu",
+    "controlName": [],
+    "tags": [],
+    "guid": "24539910-6768-4def-887a-15318e9cf8b2",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T21:46:29.5208711Z"
+}
+|metadata|
+////
+
+= WinRadialMenu
+
+=== はじめに
+
+このトピックには、 _WinRadialMenu_™ コンポーネントについてのヘルプ トピックが含まれています。
+
+各トピックの情報は、以下の各リンクを参照してください。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winradialmenu-winradialmenu-component.html[WinRadialMenu コンポーネント]
+|このトピックは、Microsoft の OneNote MX 2013 ラジアル メニューと同様のタッチ操作を完全にサポートする、Windows Forms 用の 2013 Infragistics _WinRadialMenu_ コンポーネントを紹介します。
+
+| link:winradialmenu-winradialmenu-tools.html[WinRadialMenu のツール]
+|このトピックは、 _WinRadialMenu_ コンポーネントのツール タイプの概要について紹介します。
+
+| link:winradialmenu-winradialmenu-events.html[WinRadialMenu のイベント]
+|このトピックでは、 _WinRadialMenu_ コンポーネントの一般的なイベントの概要を説明します。
+
+| link:winradialmenu-using-winradialmenu.html[WinRadialMenu の使用]
+|このセクションには、 _WinRadialMenu_ コンポーネントを使用する方法についての特定のヘルプ トピックのリストが含まれています。
+
+| link:winradialmenu-styling-considerations.html[スタイル設定に関する考慮事項]
+|このトピックでは、WinRadialMenu コンポーネントの視覚要素を示し、Infragistics _AppStyling_ Framework を使用して別の要素をスタイル設定する方法を説明します。
+
+| link:winradialmenu-resource-strings-reference.html[リソース文字列]
+|このトピックでは、WinRadialMenu コントロールで使用されるテキスト要素をカスタマイズするためにアセンブリ リソース文字列のリストを提供します。
+
+|====

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-disable-and-hide-tabs-in-wintab",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{CA52BE5D-FE67-4E68-9179-99E99FE12B23}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab でタブを無効または非表示
+
+このトピックは、WinTab™ でタブを無効または非表示にする方法を示します。タブを無効にするには、その pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~enabled.html[Enabled]"]  プロパティを False に設定し、同様に特定のタブを非表示にするには、その pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~visible.html[Visible]"]  プロパティを False に設定します。
+
+*Visual Basic の場合：*
+
+----
+' タブを無効にします
+   Me.ultraTabControl2.Tabs[1].Enabled = false
+' タブを非表示にします
+   Me.ultraTabControl2.Tabs[2].Visible = false
+----
+
+*C# の場合：*
+
+----
+// タブを無効にします
+   this.ultraTabControl2.Tabs[1].Enabled = false;
+// タブを非表示にします
+   this.ultraTabControl2.Tabs[2].Visible = false;
+----

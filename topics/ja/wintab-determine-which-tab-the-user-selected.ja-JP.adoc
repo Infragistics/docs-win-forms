@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-determine-which-tab-the-user-selected",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{34A6C43A-ABF6-4175-9971-9FC04C4CABF9}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ユーザがどのタブを選択したのかを判断
+
+ユーザーが新しいタブを選択すると、そのたびに pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~selectedtabchanging_ev.html[SelectedTabChanging]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~selectedtabchanged_ev.html[SelectedTabChanged]"]  イベントが発生します。これらのイベントを使用して、ユーザーがどのタブを選択したのかを調べ、必要なアクションを実行できます。
+
+SelectedTabChanging イベントに渡される e パラメータは、現在のタブへのアクセスを提供し、タブの変更を事前にキャンセルできます。SelectedTabChanged イベントに渡される e パラメータは、それまで選択されていたタブと、新しく選択されたタブの、両方のタブへのアクセスを提供します。
+
+次の例は、SelectedTabChanging イベントの使用方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraTabControl1_SelectedTabChanging(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangingEventArgs) _
+  Handles UltraTabControl1.SelectedTabChanging
+	MessageBox.Show("You have selected tab " + e.Tab.Text.ToString)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraTabControl1_SelectedTabChanging(object sender, 
+  Infragistics.Win.UltraWinTabControl.SelectedTabChangingEventArgs e)
+{
+	MessageBox.Show("You have selected tab " + e.Tab.Text.ToString());
+}
+----
+
+次の例は、SelectedTabChanged イベントの使用方法を示します。このコードは、フォーム上に StatusBar も持つと想定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraTabControl1_SelectedTabChanged(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) _
+  Handles UltraTabControl1.SelectedTabChanged
+	Me.StatusBar1.Text = "Now viewing " + e.Tab.Text + " options.  "
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraTabControl1_SelectedTabChanged(object sender, 
+  Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs e)
+{
+	this.statusBar1.Text = "Now viewing " + e.Tab.Text + " options.  ";
+}
+----

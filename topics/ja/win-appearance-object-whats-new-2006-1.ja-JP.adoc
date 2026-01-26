@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-appearance-object-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E8D28C69-2D07-416B-BF3C-036159BB01A5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Appearance オブジェクト 2006.1
+
+Appearance オブジェクトは、Infragistics の link:win-plf-overview.html[プレゼンテーション層フレームワーク™]の重要なコンポーネントで、エレメントの外観を設定するプロパティを提供します。
+
+以下のトピックでは、Infragistics 2006 Volume 1 リリースに新たに追加された Appearance オブジェクトの機能について説明しています。
+
+* link:win-appearance-object-nine-slice-scaling-whats-new-2006-1.html[9分割スケール]
+* link:win-appearance-object-gdi-gdi-text-rendering-property-added-whats-new-2006-1.html[新たに追加された GDI/GDI+ テキスト レンダリング プロパティ]

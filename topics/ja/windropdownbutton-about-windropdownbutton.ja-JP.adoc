@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "windropdownbutton-about-windropdownbutton",
+    "controlName": ["WinDropDownButton"],
+    "tags": ["Extending","Getting Started","Grids"],
+    "guid": "{0694AEB3-50D7-4642-975C-28D929A3135F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDropDownButton について
+
+WinDropDownButton コントロールは、ドロップダウン ウィンドウを表示する機能を持つボタン タイプのコントロールです。UltraDropDownButton は、フォームの AcceptButton または CancelButton として使用できます。WinDropDownButton には、次のような機能があります。
+
+* PopupItem - ドロップダウン ボタンが押されたときに、どのドロップダウン ウィンドウが表示されるかを決定します。これは UltraPopupControlContainer、または UltraToolbarsManager 内の PopupToolBase 派生クラス（PopupMenu、PopupColorPicker、PopupControlContainer ツールなど）です。
+* AutoSize - ボタンがその内容に基づいて自動的にサイズ調整されるかどうかを決定します。
+* Windows XP テーマのサポート - Windows XP で実行するときに、XP テーマを使用して描画します。
+* HotTracking - マウスがボタンの上に来たときにボタンの外観を自動的に変更します。
+* PressedAppearance - ボタンが押されたときのボタンの表示を制御する、追加の外観。
+* ImageSize - ボタンに表示される画像のサイズを制御します。
+* AcceptsFocus - ボタンがフォーカスを受け取らないようにします。
+* ShowFocusRect - エレメントにフォーカスがあるときに表示されるフォーカス四角形を非表示にします。
+* UseMnemonic - ボタンのテキスト内のアンパサンドに続く文字がニーモニック文字として解釈されるかどうかを決定します。
+* WrapText - エレメントがテキスト全体を表示するのに十分でない場合にテキストを折り返すかどうかを決定します。
+* ShowOutline - ボタンがフォームのデフォルト ボタンである場合に、そのボタンの周囲に追加の境界線を描画するかどうかを決定します。
+
+image::Images/WinMisc_Overview_17.png[]

@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-configuring-editors",
+    "controlName": [],
+    "tags": [],
+    "guid": "adc3dfca-8070-46b3-9ae5-c0acff2afcc1",  
+    "buildFlags": [],
+    "createdOn": "2014-01-28T20:10:42.5024493Z"
+}
+|metadata|
+////
+
+= エディターの構成
+
+=== はじめに
+
+以下のリンクをクリックすると、そのトピックに移動します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wineditors-configuring-spin-buttons.html[スピン ボタンの構成]
+|複数のスピン ボタンの構成トピックを含むセクションです。
+
+| link:wineditors-configuring-the-drop-down.html[ドロップダウンの構成]
+|複数のドロップダウンの構成トピックを含むセクションです。
+
+|====

@@ -1,0 +1,195 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-doubleclick-events",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{87B1D7B4-9318-472E-AD06-8A20D112E6C6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DoubleClick イベント
+
+多くの場合、エンティティのダブルクリックが求められ（グリッドの行、ツリーのノード）、詳細情報を持ったフォームをロードするなどのアクションが発生します。
+
+== DoubleClickRow
+
+レコードと共にロードされる WinGrid を想像してください。エンド ユーザーが行をダブルクリックすると、Form はデータ エントリに対してすべての関連する Form フィールドと一緒に現在のレコードと共にロードします。この種のメタフォを達成する支援をするため、WinGrid の DoubleClickRow イベントを簡単に処理できます。イベント引数は、ダブルクリックされた実際の行だけでなく、そして行のどの部分（Cell 領域、Preview 領域など）がダブルクリックされたかを説明する列挙体をユーザーに示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_DoubleClickRow( _
+ByVal sender As System.Object, _
+ByVal e As DoubleClickRowEventArgs) _
+Handles UltraGrid1.DoubleClickRow
+   Dim theCust As Customer
+   theCust = DirectCast(e.Row.ListObject, Customer)
+   Dim d As New CustDetailsForm(theCust)
+   d.ShowDialog()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_DoubleClickRow(
+   object sender, 
+   DoubleClickRowEventArgs e)
+{
+   Customer theCust = null;
+   theCust = e.Row.ListObject as Customer;
+   CustDetailsForm d = new CustDetailsForm(theCust);
+   d.ShowDialog();
+}
+----
+
+この例は、タイプ Customer のコレクション タイプにバインドされることを想定します。Row の DoubleClick で、イベント引数 e.Row.ListObject を使用して、この Row が表す実際の Customer オブジェクトへの参照を取得します。次に Customer Details (CustDetailsForm) を表示し、Customer オブジェクトをコンストラクタに渡すために使用される Form をインスタンス化します。次に Form の ShowDialog メソッドを使用して Form を示します。
+
+以下の例は、Row のどの部分がダブルクリックされたかを正確にチェックすることでロジックをさらに強化する方法も示します。Cell または CellArea がダブルクリックされた場合、Customer Details Form を示すことに注意してください。RowSelectorArea をダブルクリックする場合、他のロジックを実行したい場合があります。いずれの方法でも、イベント引数を使用することで簡単に実装されます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_DoubleClickRow( _
+   ByVal sender As System.Object, _
+   ByVal e As DoubleClickRowEventArgs) _
+   Handles UltraGrid1.DoubleClickRow
+      Select Case e.RowArea
+         Case RowArea.Cell, RowArea.CellArea
+            Dim theCust As Customer
+            theCust = DirectCast(e.Row.ListObject, Customer)
+            Dim d As New CustDetailsForm(theCust)
+            d.ShowDialog()
+Return
+         Case RowSelectorArea
+            'do something else
+Return
+      End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_DoubleClickRow(
+   object sender, 
+   DoubleClickRowEventArgs e)
+{
+   switch (e.RowArea)
+   {
+      case RowArea.Cell:
+      case RowArea.CellArea:
+         Customer theCust = null;
+         theCust = e.Row.ListObject as Customer;
+         CustDetailsForm d = new CustDetailsForm(theCust);
+         d.ShowDialog();
+         break;
+      case RowArea.RowSelectorArea:
+         //do something else
+         break;
+   }
+}
+----
+
+== DoubleClickCell および DoubleClickHeader
+
+DoubleClickCell および DoubleClickHeader イベントは同様に役立ちます。これらのイベントを使用して、個々のセル値で他の Form 要素を移植するなどの個々のセル（DoubleClickCell）を対象とするロジックを実行できます。列レベルのロジックは、DoubleClickHeader イベントを処理することで簡単に実行することもできます。以下の例は、処理されるこれらのイベントを示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_DoubleClickCell( _
+   ByVal sender As System.Object, _
+   ByVal e As DoubleClickCellEventArgs) _
+   Handles UltraGrid1.DoubleClickCell
+      lblValue.Text = e.Cell.Value.ToString()
+End Sub
+Private Sub UltraGrid1_DoubleClickHeader( _
+   ByVal sender As System.Object, _
+   ByVal e As DoubleClickHeaderEventArgs) _
+   Handles UltraGrid1.DoubleClickHeader
+      Select Case e.Header.Column.Key
+         Case "CustomerID"
+            'do something
+Return
+         Case "CompanyName"
+            'do something else
+Return
+      End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_DoubleClickCell(
+   object sender, 
+   DoubleClickCellEventArgs e)
+{
+   lblValue.Text = e.Cell.Value.ToString();
+}
+private void ultraGrid1_DoubleClickHeader(
+   object sender, 
+   DoubleClickHeaderEventArgs e)
+{
+   switch (e.Header.Column.Key)
+   {
+      case "CustomerID":
+         //do something
+         break;
+      case "CustomerName":
+         //do something else
+         break;
+   }
+}
+----
+
+DoubleClickCell イベントのもうひとつの優れた使用事例は、Employee を表す Image または Bitmap を持った Employee エンティティを持つ場合です。WinGrid は Cells 内に画像を表示します。エンド ユーザーにこの画像を更新する機能を提供したい場合、DoubleClickCell イベントを処理できます。このイベントでは、Employee Image を表す Cell がダブルクリックされることを確認するためにテストし、確認できた場合には、エンド ユーザーが画像をナビゲートおよび選択できるようにファイル参照ダイアログを表示できます。選択したら、選択したファイルから Image を作成し、Employee で Image プロパティに直接指定できます。次のコードはこの処理を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_DoubleClickCell( _
+   ByVal sender As System.Object, _
+   ByVal e As DoubleClickCellEventArgs) _
+   Handles UltraGrid1.DoubleClickCell
+   Select Case e.Cell.Column.Key
+      Case "EmployeeImage"
+         If Me.OpenFileDialog1.ShowDialog() _
+            = Windows.Forms.DialogResult.OK Then
+            Dim theEmployee As Employee = _
+            DirectCast(e.Cell.Row.ListObject, Employee)
+            theEmployee.EmployeeImage = _
+            Image.FromFile(Me.OpenFileDialog1.FileName)
+         End If
+      End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_DoubleClickCell(
+   object sender, 
+   DoubleClickCellEventArgs e)
+{
+   switch (e.Cell.Column.Key)
+   {
+      case "EmployeeImage":
+         if (this.openFileDialog1.ShowDialog() 
+            == DialogResult.OK)
+         {
+            Employee theEmployee = 
+               e.Cell.Row.ListObject as Employee;
+            theEmployee.EmployeeImage =
+               Image.FromFile(this.openFileDialog1.FileName);
+         }
+         break;
+      }
+}
+----

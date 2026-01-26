@@ -1,0 +1,108 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-create-groups-of-mutually-exclusive-statebuttons",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{F1F0B0AA-7D6B-47E0-9F28-027C30E887D4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 相互に排他的な StateButton のグループの作成
+
+状態のボタンのグループは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.optionset.html[OptionSet]"]  を作成することで相互排他的に指定できます。OptionSet 内で、一度にチェックできる StateButton ツールはひとつだけです。OptionSet には pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.optionset~allowallup.html[AllowAllUp]"]  プロパティがあり、グループ内のひとつの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool.html[StateButton]"]  ツールが常にチェックされる必要があるかどうかを決定します。
+
+== デザインタイムの場合
+
+新しい OptionSetは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolBarsManager]"]  エレメントのプロパティ ウィンドウで OptionSets コレクションを選択して作成することができます。次に [新しい OptionSet] ボタンを選択して、新しい OptionSet のキーを入力し、AllowAllUp プロパティの値を指定します。OptionSet を作成後、それが含む StateButton ツールのグループを指定する必要があります。UltraToolBarsManager エレメントを右クリックして ［ユーザー設定］ を選択します。[ツール] タブに移動し、グループに必要となる各 StateButton ツールで、作成した OptionSet のキーに OptionSet プロパティを設定します。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub CreatingGroupsofMutuallyExclusiveStateButtons_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' PopupMenuTool を作成します。
+	Dim menu1 As New PopupMenuTool("menu1")
+	menu1.SharedProps.Caption = "Layout"
+	' 新しい OptionSet を作成します。
+	' AllowAllUp を True に設定すると、すべての状態ボタンを同時にチェック解除できます。
+	Me.UltraToolbarsManager1.OptionSets.Add(True, "option1")
+	' 3 つの新しい状態ボタン ツールを作成します。
+	Dim Left As New StateButtonTool("Left")
+	Left.SharedProps.Caption = "Left"
+	Dim Center As New StateButtonTool("Center")
+	Center.SharedProps.Caption = "Center"
+	Dim Right As New StateButtonTool("Right")
+	Right.SharedProps.Caption = "Right"
+	' ツールを Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(Left)
+	Me.UltraToolbarsManager1.Tools.Add(Center)
+	Me.UltraToolbarsManager1.Tools.Add(Right)
+	' 同じ OptionSet に必要となる 3 つの状態ボタン ツールを設定します。
+	Left.OptionSet = Me.UltraToolbarsManager1.OptionSets("option1")
+	Center.OptionSet = Me.UltraToolbarsManager1.OptionSets("option1")
+	Right.OptionSet = Me.UltraToolbarsManager1.OptionSets("option1")
+	' ツールをメニューに追加します。
+	menu1.Tools.Add(Left)
+	menu1.Tools.Add(Center)
+	menu1.Tools.Add(Right)
+	' チェックマークがメニューの状態ボタン ツールの隣りに表示されます。
+	Left.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark
+	Center.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark
+	Right.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark
+	' PopupMenuTool を Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(menu1)
+	' PopupMenuTool をツールバーの Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(menu1)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void CreatingGroupsofMutuallyExclusiveStateButtons_Load(object sender, System.EventArgs e)
+{
+	PopupMenuTool menu1 = new PopupMenuTool("menu1");
+	menu1.SharedProps.Caption = "Layout";
+	// 新しい OptionSet を作成します。
+	// AllowAllUp を True に設定すると、すべての状態ボタンを同時にチェック解除できます。
+	this.ultraToolbarsManager1.OptionSets.Add(true, "option1");
+	// 3 つの新しい状態ボタン ツールを作成します。
+	StateButtonTool Left = new StateButtonTool("Left");
+	Left.SharedProps.Caption = "Left";
+	StateButtonTool Center = new StateButtonTool("Center");
+	Center.SharedProps.Caption = "Center";
+	StateButtonTool Right = new StateButtonTool("Right");
+	Right.SharedProps.Caption = "Right";
+	// ツールを Tools コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(Left);
+	this.ultraToolbarsManager1.Tools.Add(Center);
+	this.ultraToolbarsManager1.Tools.Add(Right);
+	// 同じ OptionSet に必要となる 3 つの状態ボタン ツールを設定します。
+	Left.OptionSet = this.ultraToolbarsManager1.OptionSets["option1"];
+	Center.OptionSet = this.ultraToolbarsManager1.OptionSets["option1"];
+	Right.OptionSet = this.ultraToolbarsManager1.OptionSets["option1"];
+	// ツールをメニューに追加します。
+	menu1.Tools.Add(Left);
+	menu1.Tools.Add(Center);
+	menu1.Tools.Add(Right);
+	// チェックマークがメニューの状態ボタン ツールの隣りに表示されます。
+	Left.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark;
+	Center.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark;
+	Right.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark;
+	// PopupMenuTool を Tools コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(menu1);
+	// PopupMenuTool をツールバーの Tools コレクションに追加します。
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(menu1);
+}
+----

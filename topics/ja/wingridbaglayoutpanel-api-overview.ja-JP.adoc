@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridbaglayoutpanel-api-overview",
+    "controlName": ["WinGridBagLayoutPanel"],
+    "tags": ["API"],
+    "guid": "{9D149956-1C2F-4124-ABBB-DB03E3104D3D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== その他の名前空間：
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[Infragistics.Win.Misc]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragridbaglayoutpanel.html[UltraGridBagLayoutPanel]

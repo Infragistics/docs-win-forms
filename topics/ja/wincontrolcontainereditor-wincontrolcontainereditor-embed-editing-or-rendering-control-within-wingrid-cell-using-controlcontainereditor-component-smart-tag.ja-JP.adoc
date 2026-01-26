@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-wincontrolcontainereditor-embed-editing-or-rendering-control-within-wingrid-cell-using-controlcontainereditor-component-smart-tag",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["Application Scenarios"],
+    "guid": "{61E659F6-AD1F-40F0-BE9E-5C398564E982}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinControlContainerEditor スマートタグ
+
+Visual Studio 2005/2008（.NET Framework 2.0/3.5）では、{ProductName} の個々のコントロール/コンポーネントにはスマートタグがあります。コントロールやコンポーネントを選択するだけで、スマートタグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WinControlContainerEditor™ スマートタグには、コンポーネントの名前と次の項目があります。
+
+* 外観 - コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* 動作 - フォーム上でのコントロールの動作を制御するプロパティに簡単にアクセスできます。
+
+前述の項目の説明と、プロパティ グリッドの項目が対応するプロパティについては、以下の表を参照してください。
+
+image::Images/WinControlContainerEditor_Smart_Tag.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|編集コントロールにオーナーの外観を適用する
+|チェックボックスがチェックされている場合、オーナーまたは親コントロールの外観設定は編集コントロールに設定されます。
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~applyownerappearancetoeditingcontrol.html[ApplyOwnerAppearanceToEditingControl]"] 
+
+|レンダリング コントロールにオーナーの外観を適用する
+|チェックボックスがチェックされている場合、オーナーまたは親コントロールの外観設定はレンダリング コントロールに設定されます。
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~applyownerappearancetorenderingcontrol.html[ApplyOwnerAppearanceToRenderingControl]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|動作|説明|対応するプロパティ
+
+|編集コントロール プロパティの名前
+|オーナー コントロールに値を提供する編集コントロールによって公開されるプロパティの名前
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~editingcontrolpropertyname.html[EditingControlPropertyName]"] 
+
+|レンダリング コントロール プロパティの名前
+|オーナー コントロールに値を提供するレンダリング コントロールによって公開されるプロパティの名前
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~renderingcontrolpropertyname.html[RenderingControlPropertyName]"] 
+
+|編集コントロール
+|編集に使用されるコントロールの名前。
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~editingcontrol.html[EditingControl]"] 
+
+|レンダリング コントロール
+|レンダリングに使用されるコントロールの名前。
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~renderingcontrol.html[RenderingControl]"] 
+
+|====

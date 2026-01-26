@@ -1,0 +1,71 @@
+﻿= WinOfficeNavBar について
+
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar.html[WinOfficeNavBar]™
+では、ビュー間を簡単にナビゲートし、ポップアップ
+ウィンドウでビューのサブセットにすばやくアクセスできます。
+
+== 主要機能
+
+[cols="a,a"]
+|===
+|*機能*
+|*説明*
+
+|プレビュー ウィンドウ
+|プレビュー
+ウィンドウは、項目がホバーされたときに項目のサブセットを表示するポップアップ
+ウィンドウです。詳細は link:winofficenavbar-peek-window.html[プレビュー
+ウィンドウ] を参照してください。
+
+|項目の表示
+|デフォルトで項目はテキストで表示されます。この設定は、
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings.html[ItemSettings]
+の
+ link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings~displaystyle.html[DisplayStyle]
+プロパティを使用してコントロール レベルおよび項目ごとに変更できます。
+
+|項目のスタイル
+|外観は項目ごと、またはコントロール全体でカスタム設定できます。
+
+|外観の解決
+|項目、またはプレビュー
+ウィンドウの解決されたスタイルは、link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.navbaritem~resolveappearance.html[ResolveAppearance()] メソッドを使用して決定します。
+
+|コントロールの方向
+|デフォルトでは、WinOfficeNavBar の方向はコントロールの DockStyle
+により決定されます。WinOfficeNavBar
+が左、または右にドッキングされた場合、ナビゲーション
+バーは垂直方向に描画されます。そうでない場合、水平方向に描画されます。ナビゲーション
+バーの方向は 
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar~orientation.html[Orientation]
+ プロパティで変更します。
+
+|項目の配置
+|link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar~itemalignment.html[ItemAlignment]
+ がコントロールの方向により項目の相対的配置を決定します。
+
+|カスタマイズ オプション
+|ナビゲーション
+バーでは、エンドユーザーが項目の表示方法を変更できます。カスタマイズ
+オプションには、項目の順序変更
+(リストボックスまたはドラッグアンドドロップ)、表示される最大項目数の変更、優先される
+ link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings~displaystyle.html[DisplayStyle]
+ (Image、Text、ImageAndText) があります。カスタマイズ
+オプションはオーバーフロー メニューでアクセスできるナビゲーション
+オプション ダイアログに公開しています。
+
+デベロッパーが CustomizationSettings プロパティでカスタマイズ
+オプションを有効化/無効化します。
+
+|オーバーフロー項目の表示/非表示
+|デフォルトでオーバーフローの項目は、ナビゲーション
+バーに収まらない項目がある場合、またはエンドユーザーのカスタマイズ
+オプションが有効化された場合にのみ表示されます。デベロッパーが
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar~overflowvisibility.html[OverflowVisibility]
+プロパティでオーバーフロー項目を強制的に表示/非表示できます。
+
+
+|===
+
+== 関連コンテンツ
+* link:winofficenavbar-peek-window.html[プレビュー ウィンドウ]

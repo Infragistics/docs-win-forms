@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-suggest-mode-for-wincomboeditor",
+    "controlName": [],
+    "tags": [],
+    "guid": "{CB202042-5A51-45A8-9468-C00661514FBB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= UltraComboEditor の Suggest モード
+
+Google™ Labs は、Web アプリケーション用の新しくエキサイティングなツールを開発します。これらの革新のひとつが、ユーザーが入力した時にリアルタイムで検索用語の候補を提案するためにドロップダウン リストを使用するコンボ ボックスである Google Suggest です。値を実現することでこの機能は Windows forms アプリケーションに追加され、弊社は、WinComboEditor™ のために独自の提案機能を実装しました。
+
+新しい pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~autocompletemode.html[AutoCompleteMode]"]  プロパティを使用すれば、3 タイプの提案モードの中から選択できます。
+
+* *Append* – AutoCompleteMode を Append に設定すると、入力された文字列の終わりに最も可能性が高い候補文字列の残りを追加します。残りは強調表示されるので、エンド ユーザーは次の文字を使用して入力ができます。
+
+image::images/Win_Google_Suggest_for_WinComboEditor_01.png[suggest mode for ultracomboeditor]
+
+* *Suggest* – エンド ユーザーが入力すると WinComboEditor のドロップダウン ボックスに最も可能性が高い候補項目が移植されて表示します。
+
+image::images/Win_Google_Suggest_for_WinComboEditor_02.png[suggest mode for ultracomboeditor]
+
+* *SuggestAppend* – AutoCompleteMode を SuggestAppend に設定すると、Suggest および Append 機能が結合されるだけです。
+
+image::images/Win_Google_Suggest_for_WinComboEditor_03.png[UltraComboEditor の suggest モード]
+
+WinComboEditor の関連付けられた埋め込みエディタ、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithcombo.html[EditorWithCombo]"] 、にもこの機能を実装しました。これによって、WinCombo™ だけでなく WinGrid™ 列で提案機能を使用できます。これにより、より洗練されたドロップダウン リストを作成することが可能になります。 
+
+== 関連トピック
+
+link:wincomboeditor-suggest-possible-values-with-wincomboeditor.html[WinComboEditor で可能な値を提案]

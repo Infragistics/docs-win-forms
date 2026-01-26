@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-expanding-all-rows-in-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{C40462B9-AB99-4ADC-BD88-B18519ED80B9}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid ですべての行を展開
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~expandall.html[ExpandAll]"]  メソッドを使用して、グリッド内のすべての行を展開することができます。WinGrid を OutlookGroupBy モードに設定し、それを定義済み列でソートした場合にはこれは役に立ちます。ExpandAll を使用すると、各グループ内の行をすべて展開できます。次のコードはこの概念を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub ExpandingAllRowsintheWinGrid_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.OutlookGroupBy
+	Me.UltraGrid1.DisplayLayout.Bands(0).SortedColumns.Add("Country", False, True)
+	Me.UltraGrid1.DisplayLayout.Bands(0).SortedColumns.Add("City", False, True)
+	Me.UltraGrid1.Rows.ExpandAll(True)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ExpandingAllRowsintheWinGrid_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.OutlookGroupBy;
+	this.ultraGrid1.DisplayLayout.Bands[0].SortedColumns.Add("Country", false, true);
+	this.ultraGrid1.DisplayLayout.Bands[0].SortedColumns.Add("City", false, true);
+	this.ultraGrid1.Rows.ExpandAll(true);
+}
+----
+
+image::images/WinGrid_Expand_All_Rows_in_WinGrid_01.png[]

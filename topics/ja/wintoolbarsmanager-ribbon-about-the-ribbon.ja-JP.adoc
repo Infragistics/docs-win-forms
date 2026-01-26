@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-ribbon-about-the-ribbon",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{FEC2706A-49D4-45A7-BFEA-EA4097D62614}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リボンについて
+
+リボンはユニークなユーザー インターフェイス コンポーネントで、非常に直感的でマウスを 2 度クリックするだけでリボンに関連付けられたタスクを実行できます。 最初のクリックは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbontab.html[RibbonTab]"]  に関係します。 これらのタブには、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbongroup.html[RibbonGroups]"]  が含まれます。これはツールを含みます。 WinToolbarsManager™ で使用されている同じツールなので、これらのツールには既に馴染みがあると思います。 エンドユーザーが適切なタブをクリックすると、タブのグループで使用したいツールをクリックする必要があるだけです。 リボンは、すべてのツールバーとツールがタブをクリックすることで使用できる点で、標準のツールバーとは異なります。 標準のツールバーにおける敏速性の規格を満たすため、同時にすべてのツールを表示可能なツールバーにする必要があります。 これによって非常に散らかったユーザー インターフェイスとなります。 リボンはツールをグループに分類したり、グループをタブに分類することで、この散らかった状態を整理します。
+
+リボンを形成するための異なるコンポーネントについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-scenic-ribbon-look-and-feel.html[Scenic Ribbon のルック アンド フィール]
+* link:wintoolbarsmanager-ribbon-tabs.html[リボン タブ]
+* link:wintoolbarsmanager-ribbon-groups.html[リボン グループ]
+* link:wintoolbarsmanager-the-ribbon-application-menu.html[リボン アプリケーション メニュー]
+* link:wintoolbarsmanager-quick-access-toolbar.html[クイック アクセス ツールバー]

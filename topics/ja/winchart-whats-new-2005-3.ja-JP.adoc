@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{05D9FDCA-A6AA-44B8-AB83-942E0058021D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinChart 2005.3
+
+2005 Volume 3 の WinChart コントロールに追加された新機能と拡張を確認するには、以下のリンクをクリックしてください。
+
+* link:winchart-anti-collision-pie-chart-labels-whats-new-2005-3.html[衝突防止円グラフのラベル]
+* link:winchart-composite-chart-whats-new-2005-3.html[合成チャート]
+* link:winchart-title-text-property-defaults-to-empty-string-whats-new-2005-3.html[Title Text プロパティのデフォルトは空の文字列]
+* link:winchart-updated-chart-wizard-whats-new-2005-3.html[チャート ウィザードの更新]

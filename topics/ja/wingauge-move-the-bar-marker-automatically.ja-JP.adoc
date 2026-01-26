@@ -1,0 +1,63 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-move-the-bar-marker-automatically",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{76A914ED-E536-4B0A-9F3F-8D7B82B6BDE3}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= バー マーカーを自動的に移動
+
+このトピックは、リニア ゲージ上のバー マーカーを自動的に移動できるように構成する方法を説明します。たとえば、温度計を表すためにリニア ゲージを作成した場合、本物の温度計をまねて水銀レベルが上下するように構成することができます。
+
+このトピックは、リニア ゲージを作成済みであることを前提としています。ゲージを作成する方法については、pick:[win-forms="link:wingauge-getting-started-with-wingauge.html[WinGauge で作業を開始]"] を参照してください。
+
+*ゲージで針を自動的に移動するには、次の手順に従ってください。*
+
+[start=1]
+. ツールボックスの [コンポーネント] タブから、タイマー コンポーネントをフォームにドラッグします。
+[start=2]
+. [プロパティ] ウィンドウで、Enabled プロパティを True に設定します。
+[start=3]
+. コンポーネント トレイで、タイマー コンポーネントをダブルクリックします。
+[start=4]
+. 以下の例のコードは、リニア ゲージ上のバー マーカーにアクセスして、値を 5 ずつ増やします。 timer1_Tick メソッドにコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Dim myLinearGauge As LinearGauge = Me.ultraGauge1.Gauges(0)' Access Bar marker
+Dim myMarker As LinearGaugeMarker = myLinearGauge.Scales(0).Markers(0)
+Dim currentValue As Double = CInt(myMarker.Value)
+' Increases needle by 5
+myMarker.Value = currentValue + 5
+----
+
+*C# の場合：*
+
+----
+LinearGauge myLinearGauge = this.ultraGauge1.Gauges[0] as LinearGauge;
+// Access Bar marker
+LinearGaugeMarker myMarker = myLinearGauge.Scales[0].Markers[0];
+int currentValue = (int)myMarker.Value;
+// Increase needle by 5
+myMarker.Value = currentValue + 5;
+----
+
+[start=5]
+. [プロパティ] ウィンドウで、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge.html[Gauges]"]  プロパティをクリックします。次に省略記号（...）ボタンをクリックして、ゲージ コレクション エディタを開きます。
+[start=6]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティを指定して、省略記号（...）をクリックして、スケール コレクション エディタを起動します。
+[start=7]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~markers.html[Markers]"]  プロパティを指定して、省略記号（...）をクリックして、マーカー コレクション エディタを起動します。
+[start=8]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugemarker~response.html[Response]"]  プロパティを展開します。
+[start=9]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugemarkerresponse~enabled.html[Enabled]"]  プロパティを True に設定します。pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugemarkerresponse~refreshrate.html[RefreshRate]"]  プロパティは、ゲージの各更新間の時間の量です。RefreshRate プロパティを 00:00:00.1000000 に設定します。ResponseRate プロパティは、ゲージのスケール全体を横切るためにマーカーが要する時間です。pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugemarkerresponse~responsetime.html[ResponseTime]"]  プロパティを 00:00:01 に設定します。Response プロパティを設定すると、スケールに沿って増えた時にバーによりなめらかな外観を提供します。バー マーカーは値から値にジャンプするかのように表示されません。
+[start=10]
+. アプリケーションを保存して実行します。

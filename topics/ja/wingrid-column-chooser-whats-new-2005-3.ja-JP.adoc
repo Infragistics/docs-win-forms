@@ -1,0 +1,110 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-column-chooser-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C69BEDAF-E8D9-4CE8-BCF9-B74C761D4228}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列チューザ
+
+列の選択機能を使用すると、ダイアログ ボックスが表示され、WinGrid コントロール内に表示する列を選択できます。この機能は Microsoft Outlook の[フィールドの選択] ダイアログ ボックスをエミュレートします。
+
+列の選択機能は以下に示す 2 つの主要コンポーネントから構成されます。
+
+* UltraGridColumnChooser －このコンポーネントは .NET コントロール クラスから派生しています。利用可能な列のリストを表示します。列ヘッダを描画するため内側に UltraGrid を埋め込んでいます。WinGrid の DisplayLayout は UltraGridColumnChooser の DisplayLayout プロパティを介して公開されています。DisplayLayout プロパティを使うと、列選択コントロールの外観面を制御できます。
+* ColumnChooserDialog －このコンポーネントは .NET フォーム クラスから派生しています。これは、UltraGridBase の ShowColumnChooser メソッドが呼び出されたとき WinGrid コントロールが表示するダイアログ ボックスです。
+
+UltraGridColumnChooser をカスタム フォームに埋め込んで、カスタムの [列の選択]ダイアログ ボックスを作成できます。
+
+ユーザー インターフェイスを利用して、[列の選択] ダイアログ ボックスを表示できます。このダイアログ ボックスを有効にするには、Override オブジェクトの既存の RowSelectorHeaderStyle プロパティに新規の列挙体メンバ ColumnChooserButton を設定します。この設定で、行セレクタ ヘッダ領域内にボタンが公開されます。このボタンがクリックされると、[列の選択] ダイアログ ボックスが表示されます。
+
+[NOTE]
+====
+*注:* ユーザー インターフェイスを利用できるのは、行セレクタが表示されているときだけです。
+====
+
+UltraGridColumnChooser のプロパティを次に挙げます。
+
+* SourceGrid
+* CurrentBand
+* MultipleBandSupport
+* Style
+
+=== SourceGrid プロパティ
+
+このプロパティを使用して、UltraGridBase を UltraGridColumnChooser に関連付けることができます。UltraGridColumnChooser はこの UltraGridBase の列を表示します。
+
+[NOTE]
+====
+*注:* UltraGridBase は UltraGrid、UltraDropDown、UltraCombo 各クラスの基本クラスです。したがって、UltraGridColumnChooser はこれら 3 つのクラスすべてと一緒に使用できます。
+====
+
+=== CurrentBand プロパティ
+
+このプロパティで、[列の選択] ダイアログ ボックスでバンド列を表示するときのバンドを指定できます。ユーザーによる別のバンドの選択を可能にするコンボ ボックスを有効にして（MultipleBandSupport プロパティを ShowBandSelectionUI に設定することによって）、次に別のバンドを選択すると、このプロパティは新たに選択したバンドに反映されます。
+
+=== MultipleBandSupport プロパティ
+
+このプロパティを使用して、ユーザーによる別のバンドの選択を可能にするコンボ ボックスを表示するかどうかを指定できます。このプロパティはまた、あらゆるバンドの列を一度に表示するかどうかを決定します。オプションは以下のとおりです。
+
+* ShowBandSelectionUI -- すべてのバンドの列が列リストに、バンド別にグループ化されて表示されます。これがプロパティのデフォルト値です。
+* DisplayColumnsFromAllBands -- ユーザーによる別のバンドの選択を可能にするコンボ ボックスは利用できませんが、すべてのバンドの列が [列の選択] ダイアログ ボックスに表示されます。
+* SingleBandOnly -- ひとつのバンドの列だけが表示されます。別のバンドを選択できるコンボ ボックスは利用できません。
+
+=== Style プロパティ
+
+このプロパティで、[列の選択]ダイアログ ボックスのスタイルを指定できます。オプションは以下のとおりです。
+
+* HiddenColumnsOnly -- 非表示の列のみを表示します。列をダブルクリックすると、非表示が解除されます。列が表示されると、[列の選択] ダイアログ ボックスにはもう表示されません。したがって、列の非表示が解除された場合に、非表示にする唯一の方法は、その列を [列の選択] ダイアログ ボックスにドラッグして戻すことです。
+* AllColumnsWithCheckBoxes -- 非表示/表示にかかわらずすべての列を表示します。各列で、チェックボックスが開き、それぞれ列の非表示解除/非表示を選択したり選択除外したりできます。列の非表示状態を切り替えるには列をダブルクリックします。列をグリッド内にドラッグ アンド ドロップしてその列の非表示を解除したり、列を [列の選択] ダイアログ ボックスにドラッグ アンド ドロップしてその列を非表示にしたりすることもできます。
+* AllColumnsAndChildBandsWithCheckBoxes -- このオプションの機能は AllColumnsWithCheckBoxes（上記）と同じで、異なるのはこのオプションでは子バンドを非表示にできる点です。これがプロパティのデフォルト値です。
+
+リスト内の列はキャプション別にソートされます。列のキャプションを決定するには、列の新規の ColumnChooserCaption プロパティを設定します。
+
+ある列またはあるバンド全体を強制的に列の選択コントロールから除外するには、その列またはバンドの ExcludeFromColumnChooser プロパティを True に設定します。こうすると、もうその列を非表示にできないことになります。
+
+=== 列の表示解除
+
+下記のいずれかの方法で列の非表示を解除できます。
+
+* 列の選択でコントロール列をダブルクリックします。これは列の Hidden プロパティを False に設定するのと同じ効果があります。
+* Column Chooser コントロールから列をドラッグし、それを WinGrid コントロールにドロップします。列は WinGrid コントロールのどこにでもドロップできますが、列ヘッダにドロップすると現在の組み込みドラッグ アンド ドロップ機能の後にドロップ動作が続きます。すなわち、列にドロップする場所はドラッグ アンド ドロップ インジケータの矢印が表示されているところです。列を列ヘッダにドロップしない場合、Hidden プロパティを False に設定すると、列は表示されます。この場合の動作は、列の Hdden プロパティがコード内で False に設定されている場合に発生するのとなんら変わりはありません。
+
+=== 列の非表示
+
+列を非表示にするには、列を WinGrid コントロールからドラッグし、Comun Chooser コントロール内の任意の場所にドロップします。ドロップされた列は WinGrid コントロールから隠され、Column Chooser コントロール内に表示されます。列は、非表示状態が解除されると、WinGrid コントロール内の元の場所に戻ります。これもまた、コードを通じて列を非表示/非表示解除した場合と同じ動作です。
+
+列は WnGrid の外にドラッグ アンド ドロップすることで非表示状態にできます。この動作は Microsoft Outlook に従います。[列の選択] ダイアログ ボックスのユーザー インターフェイスを使用可能であると判断できる場合に限り、WinGrid でユーザーはこの操作を実行できることに注意してください。以下の条件のいずれかが True の場合に、[列の選択] ダイアログ ボックスを使用可能であると判断します。
+
+* Override の RowSelectorHeaderStyle は ColumnChooserButton に設定されている。
+* UltraGridLayout の ColumnChooserEnabled プロパティは True に設定されている。このプロパティを使用することによって、列の非表示状態を解除できる外部的手段をアプリケーションが提供すると、WinGrid に通知できる。
+* [列の選択] ダイアログ ボックスがこれまで少なくとも一度表示されたことがある。
+
+[NOTE]
+====
+*注:* 列の非表示/非表示解除に関して、UltraGridColumnChooser の Style プロパティが AllColumnsWithCheckBoxes または AllColumnsAndChildBandsWithCheckBoxes（デフォルト）に設定されている場合、Column Chooser 内の各列にはその横にチェックボックスがあります。このチェックボックスでは列の可視性に関する現在の状態が表示されます。列が表示状態にある場合、チェックボックスは選択されていて、非表示状態にある場合、チェックボックスは選択解除されています。非表示状態にある列を表示するには、該当するチェックボックスをそれぞれ選択/選択解除できます。
+====
+
+=== GroupByBox
+
+Column Chooser コントロールにある列をグループ化ボックスへドラッグできます。列はグループ化されますが、列は GroupByColumnsHidden の設定に関わらず非表示状態を保持します。この動作は Microsoft Outlook に従います。
+
+[NOTE]
+====
+*注:* 列の GroupByColumnsHidden プロパティを操作してこの動作をエミュレートします。
+====
+
+列をグループ化ボックスから Column Chooser コントロールへドラッグできます。この場合、列のグループ解除と同じ効果です。再び、Microsoft Outlook と同じ動作に従います。
+
+image::Images/WinGrid_Walk_Through_Using_the_Column_Chooser_Feature_01.png[]
+
+== 関連トピック:
+
+link:wingrid-using-the-column-chooser-feature.html[列の選択機能の使い方]

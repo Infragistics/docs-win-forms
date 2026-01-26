@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-export-wingrid-to-an-existing-report",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": ["Exporting"],
+    "guid": "{5851B033-7595-4323-9A01-E9A42CEDABAB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid を既存のレポートにエクスポート
+
+WinGridDocumentExporter™ コンポーネントを使用すると、WinGrid™ を PDF または XML Paper Specification（XPS）ドキュメントにエクスポートすることができます。まだメモリにありますが、Report として知られているこのドキュメントはいくつかの link:{ApiPlatform}documents.reports{ApiVersion}~infragistics.documents.reports.report.section.isection.html[Sections] で構成することができ、Infragistics Document Engine™ によってランタイムにすべて作成されます。 link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter.html[UltraGridDocumentExporter] オブジェクトの link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~export.html[Export] メソッドを呼び出すことによって、Report 全体のサポート資料として Report のセクションに WinGrid を挿入することができます。Export メソッドには、5 つのオーバーロードが含まれています。このトピックは 3 番目のオーバーロードについて検討します。
+
+Export メソッドの 3 番目のオーバーロードは、2 つのパラメータを受け入れます。
+
+* エクスポートする WinGrid（Infragistics.Win.UltraWinGrid.UltraGrid）
+* WinGrid がエクスポートされる Report のセクション（Infragistics.Documents.Reports.Report.Section.ISection）
+
+WinGrid をレポートに挿入するには、レポートを作成し、セクションを追加して、レポートをパブリッシュする必要があります。セクションを作成したら、WinGrid をエクスポートできます。このトピックは、フォーム上にデータ バインドされた WinGrid コンポーネントおよび WinGridDocumentExporter コンポーネントがあることが前提となっています。WinGrid のデータ ソースへのバインディングの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+
+以下のコードは Report オブジェクトをインスタンス化して、レポート内にセクションを作成し、WinGrid をそのセクションにエクスポートして、最後にレポートを PDF ドキュメントとして C:\Report フォルダにパブリッシュします。
+
+*Visual Basic の場合：*
+
+----
+' レポートを作成します。
+Dim report As New Infragistics.Documents.Reports.Report.Report()
+' セクションをレポートに追加します。
+Dim section As ISection = report.AddSection()
+' WinGrid をセクションにエクスポートします。
+Me.UltraGridDocumentExporter1.Export(Me.ultraGrid1, section)
+' レポートから PDF ファイルを作成して
+' "WinGrid_Report.pdf" という名前を指定します。 
+report.Publish("C:\Report\WinGrid_Report.pdf", _
+	Infragistics.Documents.Reports.Report.FileFormat.PDF)
+----
+
+*C# の場合：*
+
+----
+// レポートを作成します。
+Infragistics.Documents.Reports.Report.Report report =
+new Infragistics.Documents.Reports.Report.Report();
+// セクションをレポートに追加します。
+ISection section = report.AddSection();
+// WinGrid をセクションにエクスポートします。
+this.ultraGridDocumentExporter1.Export(this.ultraGrid1, section);
+// レポートから PDF ファイルを作成して
+// "WinGrid_Report.pdf" という名前を指定します。 
+report.Publish("C:\\Report\\WinGrid_Report.pdf",
+	Infragistics.Documents.Reports.Report.FileFormat.PDF);
+----

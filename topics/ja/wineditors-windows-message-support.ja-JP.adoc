@@ -1,0 +1,253 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-windows-message-support",
+    "controlName": ["WinEditors"],
+    "tags": ["Extending"],
+    "guid": "2f5cb4c0-4777-4891-9eee-9145ae6c2def",  
+    "buildFlags": [],
+    "createdOn": "2010-09-16T21:02:05.6001087Z"
+}
+|metadata|
+////
+
+= Windows メッセージのサポート
+
+Infragistics® WinEditoｒ™ コントロールはネーティブの Windows メッセージのサブセットのサポートを提供します。
+
+以下の表は、WinEditor コントロールによってサポートされるメッセージをリストします。この表で、コントロールは TextEditorControlBase、UltraWinEditorMaskedControlBase および UltraFormattedTextEditor といういくつかの基本的なカテゴリーに分類されます。これらの特定のカテゴリーに分類されるエディター コントロールについては、 link:wineditors-editor-controls-classification.html[「エディター コントロールの分類」]を参照してください。
+
+[options="header", cols="a,a,a,a"]
+|====
+|メッセージ|TEXTEDITORCONTROLBASE コントロールによってサポートされる|ULTRAWINEDITORMASKEDCONTROLBASE コントロールによってサポートされる|ULTRAFORMATTEDTEXTEDITORによってサポートされる
+
+|WM_CLEAR
+|編集モードにない時 UltraTimeSpanEditor 以外でサポートされます。
+|編集モードの時に限りサポートされます。
+|はい
+
+|WM_GETTEXT
+|はい
+|はい
+|はい
+
+|WM_GETTEXTLENGTH
+|はい
+|はい
+|はい
+
+|EM_GETSEL
+|はい
+|はい
+|はい
+
+|EM_SETSEL
+|はい
+|はい
+|はい
+
+|EM_REPLACESEL
+|編集モードにない時 UltraTimeSpanEditor 以外でサポートされます。 
+
+編集モードに限り wParam（fCanUndo）はサポートされます。
+|編集モードの時に限りサポートされます。 
+
+wParam（fCanUndo）はサポートされません。
+|いいえ
+
+|EM_LINEFROMCHAR
+|はい
+|はい$$*$$
+|はい
+
+|EM_LINEINDEX
+|はい
+|はい$$*$$$$* $$
+|はい
+
+|EM_LINELENGTH
+|はい
+|はい
+|はい
+
+|EM_GETFIRSTVISIBLELINE
+|はい #
+|はい$$*$$
+|はい
+
+|EM_GETLINECOUNT
+|はい
+|はい$$*$$$$*$$$$* $$
+|はい
+
+|EM_GETCHARFORMAT
+|いいえ
+|いいえ
+|はい
+
+|====
+
+EM_GETCHARFORMAT メッセージには多数のオプションがあります。CHARFORMAT 構造または CHARFORMAT2 構造を lParam としてこのメッセージに渡すことができます。CHARFORMAT 構造によってサポートされるフィールドがいくつかあります。CHARFORMAT2 には CHARFORMAT と同じフィールドすべてとさらにいくつかのフィールドが含まれます。以下の表は、CHARFORMAT フィールドと CHARFORMAT2 フィールドのリスト、ならびに UltraFormattedTextEditor コントロールによってサポートされるかどうかを提供します。
+
+== CHARFORMAT フィールドのサポート
+
+[options="header", cols="a,a"]
+|====
+|CHARFORMAT フィールド|サポート
+
+|cbSize
+|はい
+
+|dwMask
+|はい 
+
+このフィールドは、その他のフィールドの中どれが有効かを示します。その他のフィールドの説明に例外が記述されます。
+
+|dwEffects
+|以下の表を参照してください。
+
+|yHeight
+|はい
+
+|yOffset
+|yOffset は SuperScript 文字または SubScript 文字に適用されます。UltraFormattedTextEditor はこれらの文字をサポートせずに、常に 0 を返します。
+
+|crTextColor
+|はい
+
+|bCharSet
+|はい
+
+|bPitchAndFamily
+|はい
+
+|sZFacename
+|はい
+
+|CHARFORMAT2 フィールド
+|
+
+|wWeight
+|はい
+
+|sSpacing
+|いいえ
+
+|crBackColor
+|はい
+
+|lcid
+|いいえ
+
+|dwReserved
+|はい
+
+|sStyle
+|はい
+
+|wKerning
+|いいえ
+
+|bUnderlineType
+|UltraFormattedTextEditor はいくつかの Underline タイプをサポートしないため、これは常に CFU_UNDERLINE または CFU_UNDERLINENONE を返します。
+
+|bAnimation
+|UltraFormattedTextEditor はアニメーションをサポートしないため、これは常に 0 を返します。
+
+|bRevAuthor
+|UltraFormattedTextEditor は改訂の追跡をサポートしないため、これは常に 0 を返します。
+
+|bReserved1
+|はい
+
+|====
+
+dwEffects フィールドは、基本的にどの効果がテキストに適用されるのかを示す一連のフラグです。CHARFORMAT2 構造を使用する時に限りフラグの一部が考慮されます。
+
+== CHARFORMAT dwEffects のサポート
+
+[options="header", cols="a,a"]
+|====
+|CHARFORMAT の効果|サポート
+
+|CFE_AUTOCOLOR
+|はい
+
+|CFE_BOLD
+|はい
+
+|CFE_DISABLED
+|はい
+
+|CFE_ITALIC
+|はい
+
+|CFE_STRIKEOUT
+|はい
+
+|CFE_UNDERLINE
+|はい
+
+|CFE_PROTECTED
+|はい
+
+|CHARFORMAT2 EFFECTS
+|
+
+|CFE_ALLCAPS
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_AUTOBACKCOLOR
+|はい
+
+|CFE_EMBOSS
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_HIDDEN
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_IMPRINT
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_LINK
+|いいえ
+
+|CFE_OUTLINE
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_REVISED
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_SHADOW
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_SMALLCAPS
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_SUBSCRIPT
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|CFE_SUPERSCRIPT
+|UltraFormattedTextEditor はこれをサポートしないため、このフラグは決して設定されません。
+
+|====
+
+[NOTE]
+====
+*注：* 特定の機能が UltraFormattedTextEditor によってサポートされない場合、dwMask は CHARFORMAT のフィールドが有効であることを示すフラグを返しますが、dwEffects はそのフラグを決して含みません。たとえば、UltraFormattedTextEditor には保護されたテキストに対するサポートがありません。このため、dwMask には常に CFM_PROTECTED が含まれ、dwEffects の CFE_PROTECTED フラグが有効であることを示します。しかし、CFE_PROTECTED フラグはもちろん、dwEffects フィールドで決して設定されません。影響はテキストが保護されないことが常に示されることです。
+====
+
+*関連トピック:*
+
+link:wineditors-editor-controls-classification.html[エディター コントロールの分類]
+
+link:win-known-issues-in-2012-volume-2.html[既知の問題 - WinEditors（Windows メッセージのサポートに対する制限）]
+
+$$*$$ これらのコントロールは複数行テキストをサポートしないため、このメッセージは常に 0 を返します。
+
+$$*$$$$* $$ これらのコントロールは複数行テキストをサポートしないため、このメッセージは 0（LineIndex 0 または -1 に対して）または -1（その他任意のインデックスに対して）を返します。
+
+$$*$$$$*$$$$* $$ これらのコントロールは複数行テキストをサポートしないため、このメッセージは常に 1 を返します。
+
+# 編集モードでない時にスクロールはサポートされません。したがって、編集モードでない時これは常に 0 を返します。

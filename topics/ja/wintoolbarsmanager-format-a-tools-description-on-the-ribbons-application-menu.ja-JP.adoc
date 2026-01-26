@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-format-a-tools-description-on-the-ribbons-application-menu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{D22466D8-BB08-4032-A938-B8E5A43B3FB7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リボンのアプリケーション メニューでツールの説明をフォーマット
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.comにお問い合わせください。
+====
+
+link:wintoolbarsmanager-add-a-tool-to-the-tool-area-of-the-ribbons-application-menu.html[「リボンのアプリケーション メニューのツール領域にツールを追加」]のトピックで、アプリケーション メニューにツールを追加する方法を説明しましたが、そのツールの説明のフォーマット方法については触れませんでした。各ツールには、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~descriptiononmenu.html[DescriptionOnMenu]"]  と呼ばれる pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  オブジェクトにプロパティがあります。このプロパティは文字列で設定されます。文字列は正規テキストまたはフォーマットされたテキストが可能です。キャプションの直下にこの文字列は表示され、SharedProps オブジェクトの Caption プロパティを使用して設定できます。DescriptionOnMenu プロパティは、FormattedLinkEditor の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor~value.html[Value]"]  プロパティがサポートする機能すべてをサポートします。DescriptionOnMenu プロパティでテキストをフォーマットする方法の詳細は、 link:winformattedlinklabel-formatting-text-and-hyperlinks.html[「テキストとハイパーリンクのフォーマッティング」]および link:winformattedtexteditor-style-attribute.html[「スタイル属性」]を参照してください。
+
+以下のコードは、リボンのアプリケーション メニューで表示する場合のツールの説明をフォーマットする方法を示します。
+
+[NOTE]
+====
+*注：* この例は、 link:wintoolbarsmanager-add-a-tool-to-the-tool-area-of-the-ribbons-application-menu.html[「リボンのアプリケーション メニューのツール領域にツールを追加」] を読み、同じ例を使用していることを想定しています。
+====
+
+image::images/WinToolbarsManager_Format_a_Tools_Description_on_the_Ribbons_Application_Menu_01.png[アプリケーション メニュー項目のフォーマットされたテキストの画像]
+
+*Visual Basic の場合：*
+
+----
+NewMenuItem.SharedProps.DescriptionOnMenu = 
+  "<p style='text-smoothing-mode:AntiAlias'>Create a new document.</p>"
+----
+
+*C# の場合：*
+
+----
+newMenuItem.SharedProps.DescriptionOnMenu = 
+  "<p style='text-smoothing-mode:AntiAlias'>Create a new document.</p>";
+----

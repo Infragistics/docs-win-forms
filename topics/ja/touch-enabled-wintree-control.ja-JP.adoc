@@ -1,0 +1,144 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-wintree-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "a1b9879b-8484-483a-93c5-705f7d382582",  
+    "buildFlags": [],
+    "createdOn": "2013-01-10T21:58:35.2280459Z"
+}
+|metadata|
+////
+
+= タッチ対応の WinTree コントロール
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _Infragistics_   のタッチ有効な  _WinTree™_   コントロール要素について説明します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref344991627, _WinTree_   コントロール要素をタッチ有効にする>>
+
+** <<_Ref344991635,概要>>
+** <<_Ref344991643,デフォルト ビュー>>
+** <<_Ref344991650,展開インジケーター>>
+** <<_Ref344991662,チェックボックスのある標準ビュー>>
+** <<_Ref344991673,オプション ボタンのある標準ビュー>>
+
+* <<_Ref342757647,関連コンテンツ>>
+
+[[_Ref344991627]]
+== _WinTree_   コントロール要素をタッチ有効にする
+
+[[_Ref344991635]]
+
+=== 概要
+
+以下のセクションは、コントロールのビューでタッチ可能な要素 (概説) について説明します。
+
+.注:
+[NOTE]
+====
+*Standard*  ビューでは、チェックボックスおよびオプション ボタンのみを有効にできます。
+====
+
+[[_Ref344991643]]
+
+=== デフォルト ビュー
+
+_Default_   ビューはフリーフォームで、グリッドビューに似ています。データのグリッド構造を列ヘッダーで表示します。 _Standard_   ビューは、1 列の階層構造で構成されます。階層の最上位レベルのヘッダー 1 列のみを表示します。
+
+image::images/Touch_WinTree_Control_1.png[]
+
+[[_Ref344991650]]
+
+=== 展開インジケーター
+
+展開インジケーターがサイズを変更しないため、その周りのタッチ可能な領域は多少大きくなり、ユーザーインタラクションが簡単に実行できるよう示します。
+
+image::images/Touch_WinTree_Control_2.png[]
+
+image::images/Touch_WinTree_Control_3.png[]
+
+[[_Ref344991662]]
+
+=== チェックボックスのある標準ビュー
+
+`ViewStyle = Standard` を設定してチェックボックスを有効にします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraTree1.ViewStyle = ViewStyle.Standard;
+ultraTree1.Override.NodeStyle = NodeStyle.CheckBox;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraTree1.ViewStyle = ViewStyle.Standard
+ultraTree1.Override.NodeStyle = NodeStyle.CheckBox
+----
+
+image::images/Touch_WinTree_Control_4.png[]
+
+[[_Ref344991673]]
+
+=== オプション ボタンのある標準ビュー
+
+`ViewStyle = Standard` を設定してオプション ボタンを有効にします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraTree1.ViewStyle = ViewStyle.Standard;
+ultraTree1.Override.NodeStyle = NodeStyle.OptionButton;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraTree1.ViewStyle = ViewStyle.Standard
+ultraTree1.Override.NodeStyle = NodeStyle.OptionButton
+----
+
+image::images/Touch_WinTree_Control_5.png[]
+
+[[_Ref342757647]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider-overview.html[タッチ サポートの概要]
+|このトピックでは、 _Infragistics_ のタッチ有効なコントロールおよびコンポーネントについての概念を提供します。
+
+| link:touch-enabled-editor-controls.html[タッチ エディター コントロールおよび要素]
+|このトピックでは、 _Infragistics_ のタッチ有効なエディターコントロールおよび要素について説明します。
+
+| link:touch-enabled-wingrid-control-elements.html[タッチ WinGrid コントロール要素]
+|このトピックでは、 _Infragistics_ のタッチ有効な _WinGrid_ コントロール要素について説明します。
+
+| link:touch-enabled-tab-controls.html[タッチ タブ コントロールおよびコンポーネント]
+|このトピックでは、 _WinTab_ および _WinTabStrip_ 、 _WinTabbedMdiManager_ を含む、 _Infragistics_ タッチ有効な Tab コントロールおよびコンポーネントについて説明します。
+
+| link:touch-enabled-winlistview-control.html[タッチ WinListView コントロール]
+|このトピックでは、 _Infragistics_ のタッチ有効な _WinListView_ コントロール要素について説明します。
+
+|====

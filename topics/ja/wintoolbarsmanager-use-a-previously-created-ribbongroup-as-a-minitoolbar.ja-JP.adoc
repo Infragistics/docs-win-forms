@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-use-a-previously-created-ribbongroup-as-a-minitoolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{B5548002-4DB5-49E7-98AD-7F1C65F346F9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MiniToolbar として以前に作成した RibbonGroup を使用
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.com にお問い合わせください。
+====
+
+標準ツールバー、RibbonGroups、および MiniToolbar はすべて同じオブジェクト モデルを共有するので、RibbonGroup の同じコンテンツで MiniToolbar を作成することは非常にシンプルです。RibbonGroup を作成する場合、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolscollection~addtool.html[AddTool]"]  メソッドではなく pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolscollection~addtoolrange.html[AddToolRange]"]  メソッドを使用してツールを追加することを確認してください。AddToolRange メソッドを使用する場合、RibbonGroup に追加されるツールの各キーを持つ文字列の配列を作成します。したがって、MiniToolbar に対して再びその配列を使用できます。
+
+5 つのボタン ツールを持つと想定します。各ツールは WinToolbarsManager pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolscollection.html[Tools]"]  コレクションに追加されました。ひとつのツール キーを表す各文字列で文字列配列を作成します。同時に 5 つのツールすべてを追加するために RibbonGroup の AddToolRange メソッドを使用できます。以下のサンプルコードを使用してこれを行えます。
+
+*Visual Basic の場合：*
+
+----
+Dim toolKeys As String() =  {"tool1", "tool2", "tool3", "tool4", "tool5"}
+Dim group As New RibbonGroup("Group1", "Group1")
+group.Tools.AddToolRange(toolKeys)
+----
+
+*C# の場合：*
+
+----
+string[] toolKeys = {"tool1", "tool2", "tool3", "tool4", "tool5"};
+RibbonGroup group = new RibbonGroup("Group1", "Group1");
+group.Tools.AddToolRange(toolKeys);
+----
+
+RibbonGroup と同一のツールを持つ MiniToolbar の作成は、MiniToolbar の AddToolRange メソッドを使用する事に限られます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraToolbarsManager1.MiniToolbar.Tools.AddToolRange(toolKeys)
+----
+
+*C# の場合：*
+
+----
+this.ultraToolbarsManager1.MiniToolbar.Tools.AddToolRange(toolKeys);
+----
+
+非常に役立つひとつのシナリオは、アプリケーションへの WinFormattedTextEditor コントロールの実装です。現在のマウスの位置でフォントを変更するリボン上のフォント グループを持ちます。ワードを右クリックしてフォント グループがマウスに表示されれば、エンド ユーザーは簡単（敏速）に作業できます。次のステップに進み、エンド ユーザーが画像をクリックした場合、同じ AddToolRange メソッドを使用して画像グループが動的に MiniToolbar にロードされます。

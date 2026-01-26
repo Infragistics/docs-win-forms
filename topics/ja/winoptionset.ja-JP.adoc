@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winoptionset",
+    "controlName": ["WinOptionSet"],
+    "tags": [],
+    "guid": "{EAB38313-225F-440F-BCF8-955F9D817B74}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinOptionSet
+
+以下のリンクをクリックすると、WinOptionSet コントロールに関する説明を読むことができます。
+
+* link:winoptionset-understanding-winoptionset.html[WinOptionSet の理解] -- このセクションには WinOptionSet コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+* link:winoptionset-using-winoptionset.html[WinOptionSet の使用] -- このセクションは、WinOptionSet コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:winoptionset-api-overview.html[API 概要] -- このトピックでは、WinOptionSet コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

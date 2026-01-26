@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-using-the-windatasource-designer",
+    "controlName": ["WinDataSource"],
+    "tags": ["Getting Started","Persistence"],
+    "guid": "{4D09A9DE-ED9D-4AF2-8EC9-6BCCB75920BF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource デザイナを使用
+
+データ スキーマの定義とスキーマへのデータ行の追加は、デザインタイムに WinDataSource デザイナを使用して行うことができます。
+
+非表示の UltraDataSource エレメントをフォームにドラッグしたら、そのコンポーネントを右クリックしてコンテキスト メニューから [UltraDataSource デザイナ] を選択します。
+
+image::Images/WinDataSource_Using_Windatasource_Designer_01.png[]
+
+UltraDataSource デザイナが表示します。このデザイナには左側に次の 3 つのオプションがあります。
+
+* スキーマ
+* データ入力
+* 保存/読込み
+
+スキーマ デザイナでは、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradataband.html[バンド]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatacolumn.html[列]"] をデータ ソースに追加し、デザインタイムまたはランタイムにデータを追加するときの元となるスキーマを定義します。新しいバンドをスキーマに追加してから、そのバンドに列を追加します。データ ソース エレメントは、追加するフラットな階層データを完全に認識します。
+
+image::Images/WinDataSource_Using_Windatasource_Designer_02.png[]
+
+データ入力デザイナでは、デザインタイムにデータのpick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatarow.html[行]"] を手動で追加できます。スキーマは上記のスキーマ デザイナで定義されます。 デザインタイムにデザイナを使用してデータを追加したら、次のセクションで説明する保存/読込みデザイナを使用してデータおよびスキーマをpick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~saveasbinary.html[バイナリ]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~saveasxml.html[XML]"]  形式で保存できます。
+
+image::Images/WinDataSource_Using_Windatasource_Designer_03.png[]
+
+保存/読込みデザイナでは、上記のデータ入力デザイナを使用してデータ ソースに手動で入力したデータを、バイナリまたは XML 形式でディスクに保存できます。また、以前に保存したデータをデータ ソースにロードして、既存のスキーマ定義を上書きすることもできます。[データを含める] チェックボックスの選択を解除すると、スキーマのみが保存されます。
+
+image::Images/WinDataSource_Using_Windatasource_Designer_04.png[]

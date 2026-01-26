@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlayoutmanagers-about-winlayoutmanager components",
+    "controlName": ["WinLayoutManagers"],
+    "tags": ["Getting Started","Layouts"],
+    "guid": "{749FE363-7919-40D9-88AB-F7C2087AB60D}",  
+    "buildFlags": [],
+    "createdOn": "2006-05-09T11:33:28Z"
+}
+|metadata|
+////
+
+= WinLayoutManager コンポーネントについて
+
+このグループ化の一部である 2 つのコンポーネントは次のとおりです。
+
+* link:winflowlayoutmanager.html[WinFlowLayoutManager] -- コントロールを配置するためのコンポーネントです。これを使用すると、フォーム上にコントロールを配置するためのコードを記述する必要がありません。
+* link:wingridbaglayoutmanager.html[WinGridBagLayoutManager] -- このコンポーネントは、コンテナ（たとえばフォーム）内のコントロールの柔軟な自動位置およびサイズ変更を提供します。このコンポーネントは、論理列と論理行の概念を使用して、管理対象のさまざまなコントロールの相対的な配置およびサイズ変更を簡単に指定する簡単な方法を提供します。

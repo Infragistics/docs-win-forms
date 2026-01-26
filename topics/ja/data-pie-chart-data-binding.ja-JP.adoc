@@ -1,0 +1,203 @@
+﻿////
+|metadata|
+{
+    "name": "data-pie-chart-data-binding",
+    "controlName": ["{DataDataPieChartName}"],
+    "tags": ["Data Binding"],
+    "guid": "",
+    "buildFlags": ["WPF","WINFORMS"]
+}
+|metadata|
+////
+
+= データ バインディング
+
+このトピックでは、link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] コントロールにデータをバインドする方法を説明します。トピックの最後で、完全なコード例を提供します。
+
+トピックは以下のとおりです。
+
+* <<Introduction,はじめに>>
+* <<Requirements,要件>>
+* <<BindingData, データへのバインディング>>
+* <<CodeExample,コード例>>
+* <<RelatedTopics,関連コンテンツ>>
+
+[[Introduction]]
+== はじめに
+
+以下の手順は、{DataPieChartName} コントロールをデータ コレクションにバインドする方法を示します。
+
+[[Requirements]]
+=== 要件
+
+ifdef::wpf[]
+
+以下の NuGet パッケージをメイン プロジェクトに追加します。
+
+** Infragistics.WPF.Charts
+
+NuGet フィードのセットアップと NuGet パッケージの追加の詳細については、link:nuget-feeds.html[NuGet フィード] ドキュメントを参照してください。
+
+endif::wpf[]
+
+ifdef::win-forms[]
+以下の Infragistics アセンブリをメイン プロジェクトに追加します。
+
+** {ApiPlatform}{DataPieChartAssembly}.{DllVersion}dll 
+** {ApiPlatform}{DataVizAssembly}.{DllVersion}dll
+** {ApiPlatform}Win.Portable.Core.{DllVersion}dll 
+endif::win-forms[]
+
+
+また、次の Infragistics 名前空間を追加します。
+
+ifdef::wpf[]
+
+*XAML の場合:*
+[source,xaml]
+----
+xmlns:ig="http://schemas.infragistics.com/xaml"
+---- 
+*C# の場合:*
+[source,csharp]
+----
+using {DataPieChartNamespace};
+----
+
+*VB の場合:* 
+[source,vb]
+----
+Imports {DataPieChartNamespace}
+---- 
+
+endif::wpf[]
+ 
+ifdef::win-forms[] 
+
+*C# の場合:* 
+[source,csharp]
+----
+using {DataPieChartNamespace}; 
+using Infragistics.Win.DataVisualization.Shared; 
+using Infragistics.Win.Portable.Core;
+---- 
+
+*VB の場合:* 
+[source,vb]
+----
+Imports {DataPieChartNamespace} 
+Imports Infragistics.Win.DataVisualization.Shared 
+Imports Infragistics.Win.Portable.Core
+---- 
+
+endif::win-forms[]
+
+[[BindingData]]
+
+== データへのバインディング
+
+{DataPieChartName} には、少なくとも 2 つのプロパティを定義するデータ項目のコレクションが必要です。1 つはラベルとして使用するプロパティ、もう 1 つは各スライスの値として使用する数値プロパティです。データ項目がこれらの最小プロパティのみを定義していると仮定すると、コントロールの DataSource プロパティを設定するだけで、自動的にこれらのプロパティを認識します。
+
+基礎となるデータ項目に 2 つ以上のプロパティがある場合、使用するプロパティを定義する別の方法があります。最初の方法は、`LabelMemberPath` および `ValueMemberPath` プロパティを使用し、それぞれラベルと値に使用するプロパティ名を指定することです。
+
+また、チャートの `IncludedProperties` または `ExcludedProperties` コレクションを利用することもできます。これらのコレクションは、{DataPieChartName} のプロットに含めるまたは除外するプロパティ名の文字列配列を受け取ります。
+
+[[CodeExample]]
+== コード例
+
+以下のコードは、シンプルな値-ラベルペアを表す DataItem クラスと、`ExcludedProperties` コレクションを示すために使用する 3 番目の文字列プロパティを作成します。また、これらの DataItem のコレクションを表す Data クラスもあります:
+
+*C# の場合:*
+
+----
+    public class DataItem
+    {
+        public string UnusedLabel { get; set; }
+        public string Label { get; set; }
+        public double Value { get; set; }
+    }
+    public class Data : ObservableCollection<DataItem>
+    {
+        public Data()
+        {
+            Add(new DataItem { UnusedLabel = "Unused 1", Label = "Item 1", Value = 5 });
+            Add(new DataItem { UnusedLabel = "Unused 2", Label = "Item 2", Value = 6 });
+            Add(new DataItem { UnusedLabel = "Unused 3", Label = "Item 3", Value = 3 });
+            Add(new DataItem { UnusedLabel = "Unused 4", Label = "Item 4", Value = 7 });
+            Add(new DataItem { UnusedLabel = "Unused 5", Label = "Item 5", Value = 5 });
+        }
+    }
+----
+
+以下のコードは、{DataPieChartName} を追加し、`IncludedProperties` と `ExcludedProperties`、および `LabelMemberPath` と `ValueMemberPath` のコード スニペットとともにデータにバインドする方法を示しています。
+
+ifdef::wpf[]
+
+*XAML の場合:*
+
+----
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Resources>
+            <local:Data x:Key="data" />
+        </Grid.Resources>
+        <ig:{DataPieChartName} Name="DataPieChart"
+                       DataSource="{StaticResource data}"
+                       ExcludedProperties="UnusedLabel"
+                       IncludedProperties="Label, Value" />
+    </Grid>
+----
+
+その他の方法:
+
+----
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Resources>
+            <local:Data x:Key="data" />
+        </Grid.Resources>
+        <ig:{DataPieChartName} Name="DataPieChart"
+                       DataSource="{StaticResource data}"
+                       LabelMemberPath="Label"
+                       ValueMemberPath="Value" />
+    </Grid>
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*C# の場合:*
+
+[source,csharp]
+----
+UltraDataPieChart dataPieChart = new UltraDataPieChart()
+{
+    Dock = DockStyle.Fill,
+    DataSource = new Data(),
+    ExcludedProperties = new string[] { "UnusedLabel" },
+    IncludedProperties = new string[] { "Label", "Value" }
+};
+
+this.Controls.Add(dataPieChart);
+----
+
+その他の方法:
+
+[source,csharp]
+----
+UltraDataPieChart dataPieChart = new UltraDataPieChart()
+{
+    Dock = DockStyle.Fill,
+    DataSource = new Data(),
+    ValueMemberPath = "Value",
+    LabelMemberPath = "Label"
+};
+
+this.Controls.Add(dataPieChart);
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== 関連コンテンツ
+
+* link:DataPieChart-others-category.html[その他カテゴリ]

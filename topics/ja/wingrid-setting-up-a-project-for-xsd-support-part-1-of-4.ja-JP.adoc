@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-up-a-project-for-xsd-support-part-1-of-4",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{4EE19EB4-FE2F-4F47-8796-85E07F219C0D}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= プロジェクトをXSDサポート用に設定（パート1/4）
+
+== プロジェクトの設定
+
+[start=1]
+. 新しい C# または VB.NET WinForms アプリケーションを作成します。
+[start=2]
+. WinGrid といくつかのボタンが配置するための十分な領域が確保できるようにフォームのサイズを拡大します。
+[start=3]
+. 次にツールボックスから UltraGrid をフォームにドラッグします。数行のデータを表示できるようにグリッドのサイズを拡大します。UltraGrid をフォームに追加したときに次の 3 つの参照がプロジェクトに追加されたことを確認します。
+
+** {ApiPlatform}Shared.v{ProductVersion}
+** {ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+** {ApiPlatform}Win.v{ProductVersion}
+
+[start=4]
+. フォームの下部にボタンを 3 つ追加し、それぞれのラベルを [データのロード]、[XSD 制約の実施]、[XSD 制約の解除] にします。
+[start=5]
+. アプリケーションをビルドして実行すると、次のスクリーンショットのようなフォームが表示されます。
+
+image::Images/WinGrid_Working_with_XSD_Schema_01.png[]
+
+[start=6]
+. フォームのコード ファイルに移動して、次の 2 つの名前空間を追加します。
+
+** Infragistics.Win
+** Infragistics.Win.UltraWinGrid
+
+[start=7]
+. 次のセクションでは、XSD スキーマを作成します。 link:wingrid-generating-the-xsd-schema-part-2-of-4.html[XSD スキーマの生成]

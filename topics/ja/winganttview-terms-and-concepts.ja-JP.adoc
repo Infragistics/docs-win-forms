@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-terms-and-concepts",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{987F70BC-0BA6-4A8B-86B6-5C5819F0DE6E}",  
+    "buildFlags": [],
+    "createdOn": "2010-05-01T11:03:45Z"
+}
+|metadata|
+////
+
+= 用語と概念
+
+このトピックは、WinGanttView™ コントロールと使用されるさまざまな用語と概念の概要を説明します。
+
+== タスク:
+
+プロジェクトを構成する個々の作業単位が集まって形成する個々の作業項目はpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task.html[タスク]"] と呼ばれます。 タスクはプロジェクト作業を細分化するために作成されます。 一般的なタスクには名前、開始および終了日時、期間があります。 タスクは本来階層になっています。タスクはサブタスクを含むことができます。
+
+== プロジェクト:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.project.html[プロジェクト]"] はタスクを論理的に整理するために使用できます。 プロジェクトの link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.project~startdate.html[StartDate] はそのプロジェクトと関連づけられたすべてのタスクによって参照日付として使用されます。
+
+== サマリー タスク:
+
+子タスクを含むタスクはサマリー タスクと呼ばれます。 サマリー タスクは GanttView コントロールのチャート ユーザー インターフェイスにサマリーバーとして描画されます。 サマリー タスクの開始時間と終了時間は読み取り専用です。開始時間と終了時間はサブタスクに依存するからです。
+
+== マイルストーン:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~milestone.html[マイルストーン]"] はプロジェクトの大きなイベントをマークする参照ポイントで、プロジェクトの進捗状況を監視するために使用されます。 ゼロ期間のタスクは自動的にマイルストーンとして表示されます。 任意の期間のその他任意のタスクをマイルストーンとしてマークすることも可能です。
+
+== 期限:
+
+各タスクにはpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~deadline.html[期限]"] を指定でき、タスクに記号で表示します。
+
+== 依存関係:
+
+ひとつのタスクの完了が別のタスクの開始または終了に依存するというように、ひとつのタスクは別のタスクにリンクできます。 完了が別のタスクの状態に関連するタスクはpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~dependencies.html[依存関係]"] があると言います。
+
+== 制約:
+
+開始日または終了日がプロジェクトのタスクに設定されると、タスクがその日付よりも前に開始または終了すべきでないことを意味します。 pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~constraint.html[制約]"] はタスクの開始日または終了日が計算される方法に制約を課すためにタスクに適用できます。
+
+== 関連トピック
+
+* link:winganttview-about-winganttview.html[WinGanttView について]
+* link:winganttview-using-winganttview.html[WinGanttView の使用]

@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-new-wintrackbar-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6196935A-938C-40AC-BC35-4A8FDC7F1237}",  
+    "buildFlags": [],
+    "createdOn": "2008-08-01T12:34:26Z"
+}
+|metadata|
+////
+
+= 新しい WinTrackBar コントロール
+
+in-box TrackBar コントロールを使用して、Infragistics TrackBar コントロールで見つけるとは思っていなかった精度の欠落に気づいたことはありませんか？これは複数のインボックス コントロールに当てはまりますが、本リリースでは当てはまりません。WinTrackBar™ コントロールが満を持して登場します。
+
+image::images/Win_New_WinTrackBar_Control_01.png[新しい UltraTrackBar コントロール]
+
+WinTrackBar コントロールは単純なエディタで、値のひとつの範囲ではなく、アプリケーションが求めるだけの多くの範囲から複数の値をエンド ユーザーが選択する支援をします。WinTrackBar が表示する値の各範囲はユーザーによってカスタマイズ可能で、必要に応じてその範囲に目盛りを付けることができます。
+
+WinTrackBar のルック アンド フィールは完全にカスタマイズ可能です。WinTrackBar を水平方向に配置するか（デフォルトの向き）、垂直方向に立てることができます。目盛りが TrackBar に置かれる場所もカスタマイズ可能で、WinTrackBar が水平方向に配置される場合は上または下、WinTrackBar が垂直方向に配置される場合は左または右に表示されます。
+
+WinTrackBar はルック アンド フィールの完全な配列も装備しています。WinToolbarsManager link:wintoolbarsmanager-working-with-the-ribbon.html[リボン]および WinExplorerBar の折り畳み可能な Outlook ペインを含む link:styling-guide-office-2007-look-and-feel.html[Office 2007] テーマを使用している場合、Microsoft® Word™ と同様に Office 2007 TrackBar でテーマを完全なものにすることができます。
+
+image::images/Win_New_WinTrackBar_Control_02.png[新しい UltraTrackBar コントロール]
+
+2007 Volume 3 では、WinToolbarsManager 用の Microsoft® Windows® Vista™ テーマを提供しました。本リリースは、 link:win-wintree-windows-vista-style.html[WinTree Vista 拡張]と共に、 WinTrackBar には Vista Windows Explorer の [表示] ドロップダウン ボックスで見られる Vista TrackBar の実装を支援するための Vista テーマが含まれています。
+
+image::images/Win_New_WinTrackBar_Control_03.png[新しい UltraTrackBar コントロール]
+
+== 関連トピック
+
+link:wintrackbar-about-wintrackbar.html[WinTrackBar について]
+
+link:wintrackbar-change-the-orientation-of-wintrackbar.html[WinTrackBar の方向の変更]
+
+link:wintrackbar-change-wintrackbars-style.html[WinTrackBar のスタイルの変更]
+
+link:wintrackbar-changing-the-look-location-and-frequency-of-tickmarks.html[目盛りのルック、場所、および頻度の変更]
+
+link:wintrackbar-synchronizing-two-wintrackbar-controls.html[2 つの WinTrackBar コントロールを同期]

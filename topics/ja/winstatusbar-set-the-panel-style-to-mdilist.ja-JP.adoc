@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-mdilist",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{92CFB5AE-4802-4890-B5B9-FCB95DA565F0}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを MDIList に設定
+
+MDIList パネルには、MDI アプリケーションの中で開いているすべての MDI 子ウィンドウが一覧表示されます。
+
+MDIList スタイルのパネルをデザインタイムに設定するには：
+
+[start=1]
+. WinStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+. パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  を "MDIList" に設定します。[OK] をクリックします。
+[start=5]
+. MDIList のデモを実行するため、このアプリケーションを MDI アプリケーションにします。フォームをクリックして選択し、プロパティ シートで IsMdiContainer を True に変更します。
+[start=6]
+. ソリューション エクスプローラで、"Form2" と呼ばれるもうひとつのフォームを追加します。以下のコードビハインドでボタンを追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.IsMdiContainer = True
+Dim frm2 As New Form2()
+frm2.MdiParent = Me
+frm2.Show()
+----
+
+*C# の場合：*
+
+----
+this.IsMdiContainer = true;
+Form2 frm2 = new Form2();
+frm2.MdiParent = this;
+frm2.Show();
+----
+
+[start=7]
+. プロジェクトを実行します。ボタンをクリックするたびに、新しいウィンドウが追加されます。アプリケーション内の各子ウィンドウに対応するアイコンが、ステータス バーのパネルに表示されます。このアイコンをクリックすると、対応する MDI 子ウィンドウが最前面に表示されてアクティブになります。この簡単な例では、すべてのウィンドウが同じ名前とイメージを持っていますが、実際のアプリケーションではこのような細かい点をさまざまに変更できます。
+
+ランタイムの場合
+
+ランタイムにパネルを追加してそのタイプを「MDIList」に設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+UltraStatusBar1.Panels.Add("MDIList", PanelStyle.MDIList)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+UltraStatusBar1.Panels.Add("MDIList", PanelStyle.MDIList);
+----

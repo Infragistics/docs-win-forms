@@ -1,0 +1,206 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-handling-a-validation-error",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{0A4C7FD2-67E8-40F1-9CAB-F906277FF692}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 検証エラーを処理
+
+== 始める前に
+
+コントロールを検証すると、途中でいくつかの検証エラーを取得します。そうでなければ、検証は必要ありません。WinValidator™ およびそのデフォルト設定にこれらの検証エラーの処理を任せるか、WinValidator の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~validationerror_ev.html[ValidationError] イベントでエラーを自分で処理できます。
+
+ValidationError イベントが公開する重要な引数は以下のとおりです：
+
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationerroreventargs~control.html[Control] – 検証されたコントロールへの参照
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationerroreventargs~editor.html[Editor] – 検証された組み込みエディタへの参照
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationerroreventargs~notificationsettings.html[NotificationSettings] – 失敗した検証をエンド ユーザーに通知する方法を定義するオブジェクト
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationerroreventargs~validation.html[Validation] – 失敗した検証を含む、すべての検証のコレクション
+
+これらの引数はそれぞれ、関連付けられた検証結果と共に検証された個々のコントロールの特定に非常に役立ちます。異なるコントロールごとに異なる方法でエンド ユーザーに通知することもできます。たとえば、各コントロールに基づいて通知を特徴付けるためにコントロールの名前に基づきエンド ユーザーに通知したり、コントロールが検証される条件に基づきエンド ユーザーに通知することができます。
+
+== 達成すること
+
+新しい Windows Forms プロジェクトを作成し、WinTextEditor™ コントロール、WinNumericEditor™ コントロールを検証します。そして、検証されたコントロールごとに ValidationError イベントを通して失敗した検証をエンド ユーザーに通知する方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. *必要なコントロールでフォームを設定します* 。
+
+.. 新しい Windows Forms プロジェクトを作成します。
+.. Microsoft® Visual Studio® ツールボックスで UltraTextEditor をダブルクリックします。WinTextEditor コントロールがフォームに表示されます。
+.. ツールボックスで UltraNumericEditor をダブルクリックします。WinNumericEditor コントロールがフォームに表示されます。
+.. ツールボックスで UltraValidator をダブルクリックします。WinValidator コンポーネントがコンポーネント トレイ内に表示されます。
+.. WinTextEditor および WinNumericEditor を配列すると、フォームは以下のスクリーンショットのようになります。
+
+image::images/WinValidator_Handling_a_Validation_Error_01.png[]
+
+[start=2]
+. *WinTextEditor を検証するために演算子の条件を作成します* 。
+
+検証する必要がある可能性があるシナリオは、パスワード入力ボックスです。したがって、特定の基準が満たされることを確認する必要があり、たとえば、パスワードには文字と数値のみを含み、長さが指定されます。パスワードを検証するには、エンド ユーザーのパスワードが指定された正規表現に一致しない場合に検証が失敗する演算子の条件を作成する必要があります。
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings.html[ValidationSettings] オブジェクトを返すメソッドを作成します。このメソッドでは、ユーザーが渡すコントロールの ValidationSettings オブジェクトを取得します（このケースでは、テキストボックス）。ユーザーがコントロールの ValidationSettings オブジェクトへの参照を持ったら、テキストボックスを検証するための条件を作成できます。このトピックの後で、テキストボックスの ValidationSettings オブジェクトを設定する時にこのメソッドを呼び出します。
+
+*Visual Basic の場合：*
+
+----
+Private Function CreateOperatorCondition(theControl As Control) _
+  As ValidationSettings
+    Dim thePasswordSettings As ValidationSettings = _
+      Me.ultraValidator1.GetValidationSettings(theControl)
+    thePasswordSettings.Condition = _
+      New OperatorCondition(ConditionOperator.Match, _
+      "^[a-z,A-Z,1-9]{8,20}$")
+   thePasswordSettings.DataType = GetType(String)
+   Return thePasswordSettings
+End Function 'CreateOperatorCondition
+----
+
+*C# の場合：*
+
+----
+private ValidationSettings CreateOperatorCondition(Control theControl)
+{
+	ValidationSettings thePasswordSettings =
+		this.ultraValidator1.GetValidationSettings(theControl);
+	thePasswordSettings.Condition =
+		new OperatorCondition(ConditionOperator.Match, "^[a-z,A-Z,1-9]{8,20}$");
+	thePasswordSettings.DataType = typeof(string);
+	return thePasswordSettings;
+}
+----
+
+[start=3]
+. *WinNumericEditor を検証するために範囲条件を作成します* 。
+
+ユーザーが遭遇する可能性のあるもうひとつのシナリオは、特定の数が指定された範囲内にあることを保証することです。WinNumericEditor などのいくつかのコントロールは、最小数および最大数をユーザーに提供する組み込みプロパティを持ちます。ただし、常にこれが便利であるとは限りません。したがって、特定の数（または、そのことについては任意のオブジェクト）が指定範囲内にあるかどうかをテストするための範囲条件を使用できます。RGB 値を選択する必要がある場合、範囲のこのタイプの例は写真編集アプリケーションになります。RGB 値は 0 から 255 までしか有効ではないので、エンド ユーザーが範囲外の値を入力すると検証が失敗する範囲条件を作成できます。
+
+ValidationSettings オブジェクトを返す別のメソッドを作成します。このメソッドでは、ユーザーが渡すコントロールの ValidationSettings オブジェクトを取得します（このケースでは、WinNumericEditor）。ユーザーがコントロールの ValidationSettings オブジェクトへの参照を持ったら、WinNumericEditor を検証するための条件を作成できます。このトピックの後半で、WinNumericEditor の ValidationSettings オブジェクトを設定する時にこのメソッドを呼び出します。
+
+*Visual Basic の場合：*
+
+----
+Private Function CreateRangeCondition(theControl As Control) _
+  As ValidationSettings
+    Dim theRGBSettings As ValidationSettings = _
+      Me.ultraValidator1.GetValidationSettings(theControl)
+    theRGBSettings.Condition = _
+      New RangeCondition(0, 255, GetType(Integer))
+   Return theRGBSettings
+End Function 'CreateRangeCondition
+----
+
+*C# の場合：*
+
+----
+private ValidationSettings CreateRangeCondition(Control theControl)
+{
+	ValidationSettings theRGBSettings =
+		this.ultraValidator1.GetValidationSettings(theControl);
+	theRGBSettings.Condition =
+		new RangeCondition(0, 255, typeof(int));
+	return theRGBSettings;
+}
+----
+
+[start=4]
+. *WinTextEditor および WinNumericEditor の固有の検証エラーを処理します* 。
+
+WinValidator は、すべての失敗した検証へのアクセスを提供する ValidationError イベントを公開します。このイベントでは、SWITCH（Visual Basic では SELECT）文または IF/ELSE 文を使用して、異なるコントロールを選択してエラー メッセージをカスタマイズすることができます。ValidationError イベントでは、SWITCH 文を使用して各コントロールの名前に基づき異なるロジックを適用します。各ケースでは、異なる方法でエンド ユーザーに通知するために link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.notificationsettings.html[NotificationSettings] オブジェクトを変更します。
+
+フォームのデザイナでは、ultraValidator1 コンポーネントを選択します。プロパティ ウィンドウで、光っているボルトをクリックして使用できる WinValidator イベントを表示します。ValidationError イベントをダブルクリックし、Visual Studio は ValidationError イベント ハンドラを作成します。ユーザーは今度はコード ビューです。ValidationError イベント ハンドラに次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Select Case e.Control.Name
+   Case "UltraTextEditor1"
+      e.NotificationSettings.Action = _
+         NotificationAction.Image
+      e.NotificationSettings.Text = _
+         "Password must by 8-20 characters long"
+   Case "UltraNumericEditor1"
+      Dim theRangeCondition As RangeCondition = _
+         e.Validation.Errors(0).ValidationSettings.Condition
+      e.NotificationSettings.Action = NotificationAction.MessageBox
+      Dim theString As New System.Text.StringBuilder([String].Empty)
+      theString.Append("The value ")
+      theString.Append(e.Validation.Errors(0).Value)
+      theString.Append(" is invalid. Please select a value between ")
+      theString.Append(theRangeCondition.MinimumValue)
+      theString.Append(" and ")
+      theString.Append(theRangeCondition.MaximumValue)
+      e.NotificationSettings.Text = theString.ToString()
+End Select
+----
+
+*C# の場合：*
+
+----
+switch (e.Control.Name)
+{
+	case "ultraTextEditor1":
+		e.NotificationSettings.Action =
+			NotificationAction.Image;
+		e.NotificationSettings.Text = 
+			"Password must by 8-20 characters long";
+		break;
+	case "ultraNumericEditor1":
+		RangeCondition theRangeCondition =
+			e.Validation.Errors[0].ValidationSettings.Condition as
+			RangeCondition;
+		e.NotificationSettings.Action =
+			NotificationAction.MessageBox;
+		StringBuilder theString = new StringBuilder(String.Empty);
+		theString.Append("The value ");
+		theString.Append(e.Validation.Errors[0].Value);
+		theString.Append(" is invalid. Please select a value between ");
+		theString.Append(theRangeCondition.MinimumValue);
+		theString.Append(" and ");
+		theString.Append(theRangeCondition.MaximumValue);
+		e.NotificationSettings.Text = theString.ToString();
+		break;
+}
+----
+
+[start=5]
+. *以前に定義したメソッドを呼び出して WinTextEditor および WinNumericEditor の ValidationSettings を設定します* 。
+
+WinValidator によってユーザーは link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~setvalidationsettings.html[SetValidationSettings] または link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~getvalidationsettings.html[GetValidationSettings] メソッドのいずれかを通してコントロールの ValidationSettings オブジェクトを設定できます。SetValidationSettings を呼び出すことでコントロールおよび ValidationSettings オブジェクトを渡し、指定したコントロールの ValidationSettings オブジェクトを素早く設定できます。GetValidationSettings メソッドの呼び出しは、新しい ValidationSettings オブジェクトを作成し、指定したコントロールの ValidationSettings プロパティをそのオブジェクトに設定し、その ValidationSettings オブジェクトを返すので、それを変更できます。
+
+フォームの Load イベントでは、WinTextEditor および WinNumericEditor の ValidationSettings プロパティの両方を設定するために以下のコードを追加します。以前に定義したメソッドは ValidationSettings オブジェクトを返すことを思い出してください。したがって、SetValidationSettings メソッドの第二のパラメータとして、このメソッドを渡すことができます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraValidator1.SetValidationSettings( _
+	Me.UltraTextEditor1, _
+	Me.CreateOperatorCondition(Me.UltraTextEditor1))
+Me.UltraValidator1.SetValidationSettings( _
+	Me.UltraNumericEditor1, _
+	Me.CreateRangeCondition(Me.UltraNumericEditor1))
+----
+
+*C# の場合：*
+
+----
+this.ultraValidator1.SetValidationSettings(
+	this.ultraTextEditor1,
+	this.CreateOperatorCondition(this.ultraTextEditor1));
+this.ultraValidator1.SetValidationSettings(
+	this.ultraNumericEditor1,
+	this.CreateRangeCondition(this.ultraNumericEditor1));
+----
+
+[start=6]
+. *アプリケーションを実行します。*

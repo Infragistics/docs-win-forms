@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-configuring-the-drop-down",
+    "controlName": [],
+    "tags": [],
+    "guid": "43e581e0-39d4-4e57-ab6b-e18b365b8fd3",  
+    "buildFlags": [],
+    "createdOn": "2014-01-28T20:15:50.7032663Z"
+}
+|metadata|
+////
+
+= ドロップダウンの構成
+
+=== はじめに
+
+このグループのトピックはエディター コントロールのドロップダウンの構成を紹介します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wineditors-configuring-the-width-of-the-drop-down-menu.html[ドロップダウン メニューの幅の構成]
+|このトピックでは、ドロップダウン ボタンをクリックした後に表示するドロップダウン リストの幅を設定する方法を紹介します。
+
+| link:wineditors-sort-items-in-the-drop-down-list.html[ドロップダウン リストの項目を並べ替える]
+|このトピックは、ドロップダウン項目の並べ替え機能を紹介します。
+
+| link:wineditors-hiding-the-drop-down-button.html[ドロップダウン ボタンを非表示にする]
+|このトピックでは、ドロップダウン ボタンを表示しないための構成を紹介します。
+
+| link:wineditors-preventing-drop-down-menu-from-displaying.html[ドロップダウン メニューの表示を回避する]
+|このトピックでは、ドロップダウン メニューを表示しないための構成を紹介します。
+
+|====

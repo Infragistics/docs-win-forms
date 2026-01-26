@@ -1,0 +1,166 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-the-column-chooser-feature",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{58D71CB8-E925-4828-A82F-607FDA4BA21E}",  
+    "buildFlags": [],
+    "createdOn": "2005-12-09T00:00:00Z"
+}
+|metadata|
+////
+
+= 列の選択機能の使い方
+
+[列の選択] 機能を使用すると、Microsoft Outlook のフィールドの選択によく似たダイアログが表示され、そこで WinGrid に表示する列を選択できます。[列の選択] 機能の詳細については、を参照してください。このドキュメントでは、この機能を有効にする方法を示します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. WinGrid は、ユーザーが WinGrid の内部から [列の選択] を表示できるようにするための組み込みの UI エレメントを公開しています。Override の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectorheaderstyle.html[RowSelectorHeaderStyle]"]  プロパティを ColumnChooserButton に設定します。こうすると、行セレクタの上の領域に次のスナップショットのようなボタンが表示されます。
+
+[NOTE]
+====
+*注:* [列の選択] ボタンを表示するためには、行セレクタを有効にする必要があります。次のコードは、行セレクタと [列の選択] ボタンを有効にします。
+====
+
+*Visual Basic の場合：*
+
+----
+' RowSelectorHeaderStyle を ColumnChooserButton に設定します。
+Me.UltraGrid1.DisplayLayout.Override.RowSelectorHeaderStyle = _
+  RowSelectorHeaderStyle.ColumnChooserButton
+' RowSelectors を有効にします。[列の選択] ボタンを行セレクタの上の
+' 列ヘッダ領域に表示するためには、これが必要となります。
+Me.UltraGrid1.DisplayLayout.Override.RowSelectors = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+// RowSelectorHeaderStyle を ColumnChooserButton に設定します。
+this.ultraGrid1.DisplayLayout.Override.RowSelectorHeaderStyle = 
+  RowSelectorHeaderStyle.ColumnChooserButton;
+// RowSelectors を有効にします。[列の選択] ボタンを行セレクタの上の
+// 列ヘッダ領域に表示するためには、これが必要となります。
+this.ultraGrid1.DisplayLayout.Override.RowSelectors = DefaultableBoolean.True;
+----
+
+[start=3]
+. 次のスナップショットでは、[列の選択] ボタンは列ヘッダの左端（行セレクタの上）に位置しています。
+
+image::Images/WinGrid_Using_the_Column_Chooser_Feature_01.png[]
+
+[start=4]
+. ボタンの外観（ボタンに表示される画像など）を変更するには、Override の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectorheaderappearance.html[RowSelectorHeaderAppearance]"]  プロパティを使用します。
+
+*Visual Basic の場合：*
+
+----
+' ボタンの BackColor を変更しようとする場合には、 
+' ThemedElementAlpha を Transparent に設定しなければなりません。そうでない場合には BackColor 設定は認識されません。
+' これは、ボタンの描画に通常はテーマが使用されるためです。
+Me.UltraGrid1.DisplayLayout.Override.RowSelectorHeaderAppearance.ThemedElementAlpha = _
+  Alpha.Transparent
+Me.UltraGrid1.DisplayLayout.Override.RowSelectorHeaderAppearance.BackColor = Color.Blue
+----
+
+*C# の場合：*
+
+----
+// ボタンの BackColor を変更しようとする場合には、 
+// ThemedElementAlpha を Transparent に設定しなければなりません。そうでない場合には BackColor 設定は認識されません。
+// これは、ボタンの描画に通常はテーマが使用されるためです。
+this.ultraGrid1.DisplayLayout.Override.RowSelectorHeaderAppearance.ThemedElementAlpha = 
+  Alpha.Transparent;
+this.ultraGrid1.DisplayLayout.Override.RowSelectorHeaderAppearance.BackColor = Color.Blue;
+----
+
+[start=5]
+. また、[列の選択] を表示する独自のユーザー インターフェイスを公開することもできます。たとえば、行セレクタ ヘッダ領域の位置に別のものを表示したり、行セレクタを表示しないようにすることが可能です。WinGrid ではこのために、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnchooserdialog.html[ColumnChooserDialog]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumnchooser.html[UltraGridColumnChooser]"]  の 2 つのオブジェクトが公開されています。UltraGridColumnChooser は、.NET Control クラスから派生しています。これは列のリストを表示し、ドラッグ アンド ドロップ機能を実装します。これにより、ユーザーは UltraGridColumnChooser と WinGrid の間で列を相互にドラッグ アンド ドロップできます。ColumnChooserDialog は、.NET Form クラスから派生しています。これは UltragridColumnChooser を内部に埋め込みます。通常は、ColumnChooserDialog のインスタンスを作成して表示するだけです。ただし、独自のカスタム ダイアログを作成して、その中に UltragridColumnChooser を埋め込むことができます。この方法をとる例としては、[列の選択] ダイアログに列を作成するボタンなどの他のユーザー インターフェイスを表示する場合があります。
+
+次のコードは、[列の選択] ダイアログの表示方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' ColumnChooserDialog のインスタンスを作成します。
+Dim dlg As ColumnChooserDialog = New ColumnChooserDialog()
+' ダイアログの Owner を WinGrid が配置されているフォームに設定します。
+dlg.Owner = Me
+' ColumnChooserControl プロパティは埋め込まれた UltraGridColumnChooser コントロール 
+' を返します。
+Dim cc As UltraGridColumnChooser = dlg.ColumnChooserControl
+' WinGrid を [列の選択] に関連付けます。これにより、[列の選択] にこのグリッドの
+' 列が表示されるようになります。
+cc.SourceGrid = Me.UltraGrid1
+' バンドを [列の選択] に関連付けます。WinGrid に複数のバンドがあり、 
+' すべてのバンドの列ではなく特定のバンドの列を表示したい場合には
+' これは役に立ちます。
+cc.CurrentBand = Me.UltraGrid1.DisplayLayout.Bands(0)
+' Style および MultipleBandSupport プロパティは [列の選択] が動作する方法についての重要な側面を 
+' 制御します。
+cc.Style = ColumnChooserStyle.AllColumnsWithCheckBoxes
+cc.MultipleBandSupport = MultipleBandSupport.SingleBandOnly
+' 位置やサイズなどを設定します。
+dlg.Size = New Size(150, 300)
+' 設定が終わったので、[列の選択] ダイアログを表示します。
+dlg.Show()
+----
+
+*C# の場合：*
+
+----
+// ColumnChooserDialog のインスタンスを作成します。
+ColumnChooserDialog dlg = new ColumnChooserDialog( );
+// ダイアログの Owner を WinGrid が配置されているフォームに設定します。
+dlg.Owner = this;
+// ColumnChooserControl プロパティは埋め込まれた UltraGridColumnChooser コントロール 
+// を返します。
+UltraGridColumnChooser cc = dlg.ColumnChooserControl;
+// WinGrid を [列の選択] に関連付けます。これにより、[列の選択] にこのグリッドの
+// 列が表示されるようになります。
+cc.SourceGrid = this.ultraGrid1;
+// バンドを [列の選択] に関連付けます。WinGrid に複数のバンドがあり、 
+// すべてのバンドの列ではなく特定のバンドの列を表示したい場合には
+// これは役に立ちます。
+cc.CurrentBand = this.ultraGrid1.DisplayLayout.Bands[0];
+// Style および MultipleBandSupport プロパティは [列の選択] が動作する方法についての重要な側面を 
+// 制御します。
+cc.Style = ColumnChooserStyle.AllColumnsAndChildBandsWithCheckBoxes;
+cc.MultipleBandSupport = MultipleBandSupport.SingleBandOnly;
+// 位置やサイズなどを設定します。
+dlg.Size = new Size( 150, 300 );
+// 設定が終わったので、[列の選択] ダイアログを表示します。
+dlg.Show( );
+----
+
+[start=6]
+. 次のスナップショットは、[列の選択] というタイトルの [列の選択] ダイアログを示します。
+
+image::Images/WinGrid_Using_the_Column_Chooser_Feature_02.png[]
+
+[start=7]
+. [列の選択] 機能には次のプロパティが関連します。
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~excludefromcolumnchooser.html[ExcludeFromColumnChooser]"]  - このプロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  オブジェクトで公開されています。このプロパティを使用すると、特定の列およびバンドが [列の選択] に表示されないようにすることができます。これはまた、ユーザーがこれらの列およびバンドを非表示にすることも非表示解除することもできないことを意味します。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~columnchoosercaption.html[ColumnChooserCaption]"]  - このプロパティは、[列の選択] に表示されるときの列のキャプションを制御します。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~columnchooserenabled.html[ColumnChooserEnabled]"]  - WinGrid では、列をドラッグして WinGrid の外側にドロップすることで列を非表示にできます。ただしこれができるのは、ユーザーが列の非表示を解除するための手段がアプリケーションに装備されていることを WinGrid が認識している場合に限られます。そのようなユーザー インターフェイスを公開する場合や、ユーザーが WinGrid の外側に列をドラッグして非表示にするのを許可する場合には、ColumnChooserEnabled を True に設定します。WinGrid の組み込み [列の選択] ボタン ユーザー インターフェイスを有効にしている場合は、このプロパティを設定する必要はありません。これは、ユーザーが [列の選択] を使用して列の非表示を解除できることを WinGrid がすでに認識しているためです。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.headerbase~tooltiptext.html[ToolTipText]"]  - このプロパティでは、列およびバンドのツールチップを指定できます。このツールチップはユーザーがヘッダの上にマウスを置いたときに表示されます。ツールチップは WinGrid と [列の選択] のどちらにも表示されます。これにより、列に関する詳細な情報をユーザーに知らせることができます。

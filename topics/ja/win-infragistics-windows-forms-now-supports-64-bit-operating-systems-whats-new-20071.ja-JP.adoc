@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-infragistics-windows-forms-now-supports-64-bit-operating-systems-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4544A5E4-E634-4D32-A68E-C3D60EC01B0A}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:10:09Z"
+}
+|metadata|
+////
+
+= {ProductName} は 64 ビット オペレーティング システムをサポートする
+
+これまでは、{ProductName} はすべての Microsoft® 32 ビット オペレーティング システムをサポートしていました。Windows® Vista™ の発売および 64 ビット オペレーションをサポートするデュアルおよびクアッド コア プロセッサの出現によって、広範なプロセッサおよびオペレーティング システムをサポートする能力をユーザーに提供することが急務となりました。
+
+弊社は、Windows XP 64 ビット、Windows Vista 64 ビット、Windows Server 2003 64 ビット、および 64 ビット .NET 2.0 アーキテクチャで機能するすべてのオペレーティング システムを含むためにサポートされる範囲のオペレーティング システムを拡張しました。

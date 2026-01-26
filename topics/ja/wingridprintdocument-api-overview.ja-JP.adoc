@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridprintdocument-api-overview",
+    "controlName": ["WinGridPrintDocument"],
+    "tags": ["API","Grids"],
+    "guid": "{0AADADC1-57E2-4441-A4D2-098DA59391FA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinGrid名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid_namespace.html[Infragistics.Win.UltraWinGrid]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridprintdocument.html[UltraGridPrintDocument]"]

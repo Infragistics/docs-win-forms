@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridprintdocument-understanding-wingridprintdocument",
+    "controlName": ["WinGridPrintDocument"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{63814A4E-5653-4214-B977-B8E764AC872D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridPrintDocument の理解
+
+WinGridPrintDocument™ コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinGridPrintDocument コントロールを使用することの利点を理解できます。
+
+WinGridPrintDocument コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wingridprintdocument-about-wingridprintdocument.html[WinGridPrintDocument について]
+* link:wingridprintdocument-smart-tag.html[WinGridPrintDocument スマート タグ]

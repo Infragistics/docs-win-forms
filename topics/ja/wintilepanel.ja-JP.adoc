@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel",
+    "controlName": ["WinTilePanel"],
+    "tags": [],
+    "guid": "{6291639F-8485-45E6-9434-A9AFE67C6232}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTilePanel
+
+WinTilePanel™ コントロールに関する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、コントロールの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順まで、WinTilePanel コントロールに関する貴重な情報が含まれています。
+
+以下のリンクをクリックして、WinTilePanel コントロールについての情報にアクセスします。
+
+== link:wintilepanel-understanding-wintilepanel.html[WinTilePanel の理解]
+
+WinTilePanel コントロールの機能、およびアプリケーション内でこのコントロールを使いたくなる理由について記述します。
+
+== link:wintilepanel-using-wintilepanel.html[WinTilePanel の使用]
+
+このセクションには役に立つ短いトピックがあり、WinTilePanel コントロールを使って特定の作業を実行する方法を示すサンプルコードが付いています。
+
+== link:wintilepanel-api-overview.html[API の概要]
+
+このトピックでは、WinTilePanel コントロールを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API参照ガイド」セクションへリンクしていて便利です。   

@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-cut-copy-paste-and-delete-formatted-text",
+    "controlName": [],
+    "tags": ["How Do I"],
+    "guid": "{1144D11C-A257-46A6-8C1C-9B549E364D3F}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:27:51Z"
+}
+|metadata|
+////
+
+= フォーマットされたテキストを切り取り、コピー、貼り付け、および削除
+
+ワープロ アプリケーションを開発する場合、ひとつの場所から他の場所にワードまたはテキストのブロックをエンド ユーザーが簡単に移動できるようにする必要があります。ワードとテキストのブロックを削除する方法も同様に提供する必要があります。WinFormattedTextEditor がデフォルトでこれらすべての動作を行います。WinFormattedTextEditor コントロールに入力する場合、エンド ユーザーは、切り取り、コピー、貼り付け、削除の動作をそれぞれ実行するために Ctrl+X、Ctrl+C、Ctrl+V、および Delete キーを使用できます。ボタンのクリックやツールバーでこれらの操作の実行するオプションをエンド ユーザーに提供することもできます。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo.html[EditInfo]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~cut.html[Cut]"] 、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~copy().html[Copy]"] 、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~paste().html[Paste]"] 、および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~delete().html[Delete]"]  メソッドを使用することで、これを実行できます。
+
+以下のコードは、テキスト行をコピー、貼り付け、および削除する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+' 現在選択しているテキストをクリップボードにコピーします。
+Me.UltraFormattedTextEditor1.EditInfo.Copy()
+' クリップボードのコンテンツを現在のカーソル位置に 
+' 貼り付けます。
+Me.UltraFormattedTextEditor1.EditInfo.Paste()
+' 現在選択しているテキストを削除します。
+Me.UltraFormattedTextEditor1.EditInfo.Delete()
+----
+
+*C# の場合：*
+
+----
+// 現在選択しているテキストをクリップボードにコピーします。
+this.ultraFormattedTextEditor1.EditInfo.Copy();
+// クリップボードのコンテンツを現在のカーソル位置に 
+// 貼り付けます。
+this.ultraFormattedTextEditor1.EditInfo.Paste();
+// 現在選択しているテキストを削除します。
+this.ultraFormattedTextEditor1.EditInfo.Delete();
+----

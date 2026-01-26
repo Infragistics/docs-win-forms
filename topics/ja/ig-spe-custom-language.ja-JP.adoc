@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-custom-language",
+    "controlName": [],
+    "tags": [],
+    "guid": "51e9b5d8-4951-4c11-8c54-76966bf62e9a",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0178467Z"
+}
+|metadata|
+////
+
+= カスタム言語
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックでは、Syntax Parsing Engine 用のカスタム言語作成方法について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-create-custom-language.html[カスタム言語の作成]
+|このトピックは、カスタム言語を作成するプロセスを説明します。
+
+| link:ig-spe-customize-error-messages.html[エラー メッセージのカスタマイズ]
+|このトピックでは、Syntax Parsing Engine により生成されたエラー メッセージのカスタマイズ方法を説明します。
+
+| link:ig-spe-create-a-textdocument.html[TextDocument の作成]
+|このトピックでは TextDocument を紹介し、TextDocument 上で言語を設定する方法について説明します。
+
+| link:ig-spe-working-with-the-syntax-tree.html[構文ツリーでの作業]
+|このグループ内のトピックは、構文ツリーでの作業方法を詳細に説明します。
+
+|====

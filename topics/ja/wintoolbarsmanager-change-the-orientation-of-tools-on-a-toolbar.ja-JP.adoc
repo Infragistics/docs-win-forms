@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-change-the-orientation-of-tools-on-a-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Layouts"],
+    "guid": "{777D8630-79CC-47CF-8AE9-DE189F8D8969}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバー上のツールの方向の変更
+
+ツールバー上のツールは、ツールバーが上または下でドックされているときには水平に、左または右でドックされているときには垂直に表示されます。このデフォルトの動作は pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~toolorientation.html[ToolOrientation]"]  プロパティを使用して変更できます。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings.html[ToolbarSettings]"]  クラスの ToolOrientation プロパティを "horizontal" に設定すると、ツールバーを左または右でドックしても、その上のツールは水平に表示されます。このプロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolorientation.html[BaseOnToolbarOrientation]"]  に設定すると、ツールは垂直にドックされているツールバーでは垂直方向に表示され、水平にドックされているツールバーでは水平に表示されます。次のコードは、ツールを水平に表示するものです。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Me.UltraToolbarsManager1.Toolbars(0).Settings.ToolOrientation = ToolOrientation.Horizontal
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+this.ultraToolbarsManager1.Toolbars[0].Settings.ToolOrientation = ToolOrientation.Horizontal;
+----

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-can-customize-the-appearance-of-the-charts-background-whats-new-2006-3",
+    "controlName": [],
+    "tags": ["Charting"],
+    "guid": "{AFCF6DFC-33F1-45F9-B2A4-847AD577F2B0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= チャートの背景の外観をカスタマイズできる
+
+2006 Volume 3 リリースから開始しましたが、チャートのその他のレイヤー（境界線、タイトル、グリッド、チャートなど）に影響を及ぼすことなく、WinChart コントロールの背景レイヤの外観を変えることができるようになりました。新しいプロパティ、pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.chartarea~gridpe.html[Axis.PE]"] （非合成チャート用）とpick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.chartgridappearance~pe.html[ChartArea.GridPE]"] （合成チャート用）を使用すると、背景画像、グラデーション効果、ハッチ スタイル、テクスチャ効果などを指定することによって、チャートの背景レイヤをカスタマイズできます。
+
+以下の（左）の例のスクリーンショットでは、背景の PE プロパティがデフォルト設定に設定されています。以下の（右）の例のスクリーンショットでは、グラデーション効果が背景 PE のみに適用されており、チャートにより洗練されたルック アンド フィールを提供します。
+
+image::Images/WinChart_Can_Customize_the_Appearance_of_Charts_Background_Whats_New_2006_3_01.png[]
+
+image::Images/WinChart_Can_Customize_the_Appearance_of_Charts_Background_Whats_New_2006_3_02.png[]
+
+== 関連トピック
+
+link:chart-layers.html[レイヤ]
+
+link:chart-customize-the-appearance-of-a-charts-background.html[チャートの背景の外観をカスタマイズ]

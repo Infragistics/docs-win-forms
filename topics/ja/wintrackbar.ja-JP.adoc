@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintrackbar",
+    "controlName": ["WinTrackBar"],
+    "tags": [],
+    "guid": "{1B570F46-B858-4849-9A7F-C7DCF3EDF532}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-01T15:45:10Z"
+}
+|metadata|
+////
+
+= WinTrackBar
+
+WinTrackBar™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinTrackBar についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinTrackBar コントロールについての情報にアクセスします。
+
+== link:wintrackbar-understanding-wintrackbar.html[WinTrackBar の理解]
+
+このセクションには WinTrackBar コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:wintrackbar-using-wintrackbar.html[WinTrackBar の使用]
+
+このセクションには、WinTrackBar コントロールで固有のタスクを実行する方法のデモを行うサンプル コード例を示す役立つトピックがあります。
+
+== link:wintrackbar-api-overview.html[API 概要]
+
+このトピックは、WinTrackBar コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

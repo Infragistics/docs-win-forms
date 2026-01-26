@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-working-with-xsd-schema",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{0E0DD8DD-C056-4A9D-8C57-493D0678A763}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= XSD スキーマの操作
+
+XMLスキーマ定義（XSD）は、アプリケーションのデータ モデルの構造と制約を記述する手段として急速に普及しています。XSD スキーマは XML ベースの言語によって定義されているため、プラットフォームに依存せず、高い可読性が得られます。WinGrid コントロールは、XSD スキーマによって課せられる制約の実行を強力にサポートします。この機能の最大の利点は、データ検証に関する負荷の大部分が WinGrid によって処理され、開発者がその重荷から解放される点です。これはアプリケーションの寿命全体で XSD スキーマが変更するというような状況下において特に重要です。WinGrid はスキーマをランタイムに読み込むため、アプリケーションの実行間でスキーマが変更された場合でも、新しい検証要件を処理するためにアプリケーションを修正して再コンパイルする必要はありません。この観点から見ると、XSD ファイルは WinGrid の設定ファイルと見なすことができます。
+
+このセクションには、WinGrid コントロールによって提供される XSD サポートの使用方法を説明する複数部から構成されるチュートリアルが含まれています。
+
+* link:wingrid-setting-up-a-project-for-xsd-support-part-1-of-4.html[XSD サポート用にプロジェクトを設定（パート 1/4）] -- このチュートリアルでは、WinGrid コントロールをホストするプロジェクトを作成および設定します。
+* link:wingrid-generating-the-xsd-schema-part-2-of-4.html[XSD スキーマの生成（パート 2/4）] --   このチュートリアルでは、WinGrid コントロールによって実行されるデータ モデルと制約を記述する XSD スキーマを作成します。
+* link:wingrid-defining-dataset-schema-and-generating-test-data-part-3-of-4.html[データ セット スキーマの定義とテスト データの生成（パート 3/4）] -- このチュートリアルは、XSD スキーマによって定義される構造に従うデータ ソースの作成方法、および WinGrid コントロールをそのデータにバインドする方法を示します。
+* link:wingrid-enforcing-constraints-defined-in-an-xsd-schema-part-4-of-4.html[XSD スキーマで定義された制約の実施（パート 4/4）] -- このチュートリアルでは、XSD ファイルに定義されている制約を WinGrid コントロールを実行させる方法を説明し、制約がグリッドによってランタイムに実行される方法を観察します。

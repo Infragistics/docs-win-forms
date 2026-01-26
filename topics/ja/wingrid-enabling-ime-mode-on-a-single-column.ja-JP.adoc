@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-enabling-ime-mode-on-a-single-column",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Localization"],
+    "guid": "{CEDE5485-532F-4FA1-B3A8-15617C281DB5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ひとつの列で IME モードを有効にする
+
+Input Method Editors (IME) によって、エンド ユーザーは標準キーボードを使用して中国語、韓国語、または日本語でデータを入力できます。複数の異なる言語でアプリケーションをローカライズする場合にこれは極めて重要です。WinGrid は IME モードを列レベルまで完全にサポートします。
+
+IME モードを使用すると、WinGrid ですべての link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Column] を設定して IME 入力を受け付け、次にそれを受け付けないようにひとつの列をオーバーライドできます。または、たとえば 1 列だけ日本語を使用する必要がある場合、その 1 列に link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~imemode.html[ImeMode] プロパティを単に設定するだけです。
+
+以下のコード例は、WinGrid の最初のバンドの最初の列で IME モードをオンにする方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).ImeMode = ImeMode.On
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].ImeMode = ImeMode.On;
+----

@@ -1,0 +1,131 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-determining-which-cell-the-user-clicked",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{7A4C8C3F-CE44-4BF0-8533-ABB03574BF8F}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ユーザがクリックしたセルを決定する
+
+== バックグラウンド
+
+WinGrid コントロールを使用する多くのプロジェクトで、ユーザーがクリックしたセルを、アクティブにもせず、選択もせずに確定する方法が必要になります。これは通常、MouseUp イベントで必要になります。
+
+== 質問
+
+* MouseUp イベントでクリックされたセルがどのセルかを知るにはどうすればいいですか?
+
+== 解決策
+
+DisplayLayout.UIElement.ElementFromPoint メソッドを使用し、セルへのオブジェクト参照を取得するために UIElement および UIElement.GetContext を取得します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、階層 DataSet を表示し、ユーザーがさまざまなセルをクリックするとクリックされたセルのバンドおよび列名を表示します。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Determining_Which_Cell_the_User_Clicked_01.png[]
+
+UltraGrid1.MouseUp -- MouseUp イベントで、マウス位置から UIElement とセルへの参照を取得し、セル参照が Nothing でない場合はバンドと列のキーを表示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_MouseUp(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) _
+  Handles UltraGrid1.MouseUp
+	' UIElement への参照を宣言して取得します。
+	Dim aUIElement As UIElement = Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint( _
+	  New Point(e.X, e.Y))
+	' Cell への参照を宣言して取得します。
+	Dim aCell As UltraGridCell = aUIElement.GetContext(GetType(UltraGridCell))
+	' セルが見つかった場合、バンドと列キーを表示します。
+	If Not aCell Is Nothing Then
+		Me.txtBand.Text = aCell.Band.Index.ToString
+		Me.txtColumn.Text = aCell.Column.Key
+	Else
+		Me.txtBand.Text = ""
+		Me.txtColumn.Text = ""
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// UIElement への参照を宣言して取得します。
+	UIElement aUIElement = this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(
+	  new Point(e.X, e.Y));
+	// Cell への参照を宣言して取得します。
+	UltraGridCell aCell = (UltraGridCell)aUIElement.GetContext(typeof(UltraGridCell));
+	// セルが見つかった場合、バンドと列キーを表示します。
+	if(aCell != null)
+	{
+		this.txtBand.Text = aCell.Band.Index.ToString();
+		this.txtColumn.Text = aCell.Column.ToString();
+	}
+	else
+	{
+		this.txtBand.Text = "";
+		this.txtColumn.Text = "";
+	}
+}
+----
+
+UltraGrid1.InitializeLayout -- InitializeLayout イベントは、フォーム上で初めてエレメントがインスタンス化されたとき、グリッドの設定を行うために使います。この場合、セルがクリックによって編集モードに入るのではなく選択された状態になるように、グリッドのレイアウトの CellClickAction を設定します。これが必要なのは、セルが編集モードに入ると（デフォルトのクリック アクション）、MouseDown イベントがグリッドではなくセルの埋め込みエディタによって処理されてしまうからです。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+ Handles UltraGrid1.InitializeLayout
+	' セルが編集モードに入らないようにします。
+	' セルが編集モードに入ると、グリッドは 
+	' MouseDown イベントを受け取りません。
+	' MouseDown イベントが埋め込みエディタに行くためです。
+	e.Layout.Override.CellClickAction = CellClickAction.CellSelect
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// セルが編集モードに入らないようにします。
+	// セルが編集モードに入ると、グリッドは 
+	// MouseDownイベントを受け取りません。
+	// MouseDown イベントが埋め込みエディタに行くためです。
+	e.Layout.Override.CellClickAction = CellClickAction.CellSelect;
+}
+----
+
+== まとめ
+
+この単純なプロジェクトはマウスをクリックした点からセルを見つける方法を示しています。これは大きなプロジェクトでも複雑なプロジェクトでもありませんが、この方法を使って開発者はセルをアクティブにも選択もしないで発見できます。

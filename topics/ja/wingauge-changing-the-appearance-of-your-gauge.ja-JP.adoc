@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-changing-the-appearance-of-your-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{32EE716B-1E13-4DA7-8B35-6B563327E316}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージの外観の変更
+
+[プロパティ] パネルには、各プロパティの外観のカスタマイズを可能にする使用可能な[外観] タブが多数あります。たとえば、[ラベル外観] タブを使用してラベル上のフォントの色を指定できます。
+
+以下のリンクをクリックして、[プロパティ] パネルで使用できる各 [注釈] タブについての情報を確認してください。
+
+* link:wingauge-appearance-tab.html[外観タブ]
+* link:wingauge-digit-appearance-tab.html[数字外観タブ]
+* link:wingauge-labels-appearance-tab.html[ラベル外観タブ]

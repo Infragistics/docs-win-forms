@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-winpanel-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C4ADF56A-EF02-49E5-96E2-4443293AC944}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinPanel コントロール
+
+WinPanel™ コントロールは Infragistics® Windows Forms コントロールのリストへの追加機能です。WinPanel コントロールは、スクロールや自動サイズなどの .Net Panel コントロールの機能だけでなく、Presentation Layer Framework™ によって導入されたスタイリングの柔軟性を備えています。今まで、InboxControlStyler™ を .Net Panel コントロールと併用することは制限されており、それによりパネルの外観を制御する能力が制限されました。
+
+WinPanel は UltraControl から派生するため、スタイリングに基づいた pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  を背景だけでなくスクロールバーにも適用できます。
+
+*関連トピック*
+
+link:winpanel-about-winpanel.html[WinPanel について]

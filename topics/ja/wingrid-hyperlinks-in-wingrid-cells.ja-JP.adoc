@@ -1,0 +1,114 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-hyperlinks-in-wingrid-cells",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Navigation"],
+    "guid": "{E71380F1-6F92-4627-8F5D-F5D1CE2C23F9}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid セルのハイパーリンク
+
+== 始める前に
+
+WinGrid™ のセルは、クリック イベントが処理される必要があるハイパーリンクを持つことができます。たとえば、WinGrid 列はデータ モデルのプライマリ キーを表し、ハイパーリンクとして設定されます。これらのハイパーリンクをエンド ユーザーにクリックさせたい場合や、ブラウザを起動したりクリックしたレコードに関連する特定のページにナビゲートしたい場合があります。
+
+== 達成すること
+
+このトピックは、ひとつの列がハイパーリンクの列となるように WinGrid の設定方法を示します。ハイパーリンクの列は、データ モデルのプライマリ キーになります。ハイパーリンクのひとつをクリックすると、デフォルト ブラウザがクエリ文字列内のプライマリ キー値を含む URL で起動されます。URL は基本的に Google® 検索エンジンで実行される検索です。
+
+== 以下の手順を実行します
+
+
+. このトピックは、WinGrid が Northwind データベースの Customers テーブルで移植されていることを前提としています。WinGrid へのデータ バインドについての詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+. CustomerID 列にハイパーリンクを追加します。
+
+.. WinGrid コントロールをクリックし、プロパティ ウィンドウで、DisplayLayout プロパティを指定および展開します。DisplayLayout で Bands プロパティを指定および展開します。これはフラット グリッドなので、Band はひとつしかありません。そのプロパティを展開して Columns プロパティを指定します。Column プロパティの省略記号 (…) ボタンをクリックして、列コレクション エディタを起動します。
+
+.. CustomerId 列を指定および選択します。Style プロパティを URL に設定します。[OK] ボタンをクリックしてエディタを閉じます。
+
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常にタイプする必要がなくなります。
++
+*Visual Basic の場合：*
++
+----
+Imports Infragistics.Win.UltraWinGrid; 
+Imports Infragistics.Win.FormattedLinkLabel;
+----
++ 
+*C# の場合：*
++
+----
+using Infragistics.Win.UltraWinGrid;	
+using Infragistics.Win.FormattedLinkLabel;
+----
+
+. WinGrid の Click イベントを処理し、イベント ハンドラで以下のコードを使用します：
++
+*Visual Basic の場合：*
++
+----
+'これを再使用可能にし、Sender イベント引数からグリッドを取得します    
+Dim g As UltraGrid = TryCast(sender, UltraGrid)
+'以下のテクニックを使用してクリックされた UIElement を取得しようとします 
+Dim u As UIElement = g.DisplayLayout.UIElement.ElementFromPoint _
+    (g.PointToClient(Form.MousePosition))
+'可能である NULL を必ずテストします。 
+If u Is Nothing Then
+Return
+End If
+'クリックできるさまざまなタイプを観察します（異なるタイプを確認するために 
+'出力ウィンドウを表示します
+System.Diagnostics.Debug.WriteLine(u.[GetType]().ToString())
+'クリックされる LinkLabel についてのみ注意するので、 
+'以下のタイプを調べます。それがこのエレメントである場合、何かを実行したいです   
+If TypeOf u Is Infragistics.Win.FormattedLinkLabel.TextSectionUIElement Then
+'GetContext メソッドを使用してそれと関連付けられたセルを提供するように UIElement に '求めます"             
+Dim c As UltraGridCell = TryCast(u.GetContext(GetType(UltraGridCell)), UltraGridCell)
+'宣言したセルは NULL の場合があります 
+If c Is Nothing Then
+Return
+End If
+'これで、クリックした UIElement によって表される本当の元となるセルを持ちます。
+'セルの値にアクセスし、このケースで行いたいすべてのことを実行し、                 
+'Google へのブラウザを起動するので、セル値を使用して検索します。
+System.Diagnostics.Process.Start(String.Format("http://www.google.com/search?hl=en&q= {0}_&aq=f&oq=", c.Value.ToString()))
+End If
+----
++
+*C# の場合：*
++
+----
+//これを再使用可能にし、Sender イベント引数からグリッドを取得します
+UltraGrid g = sender as UltraGrid;
+//以下のテクニックを使用してクリックされた UIElement を取得しようとします
+UIElement u = g.DisplayLayout.UIElement.ElementFromPoint(g.PointToClient(Form.MousePosition));
+//可能である NULL を必ずテストします。 
+if (null == u) return;
+//クリックできるさまざまなタイプを観察します（異なるタイプを確認するために 
+// 出力ウィンドウを表示します）
+System.Diagnostics.Debug.WriteLine(u.GetType().ToString());
+//クリックされる LinkLabel について知る必要があるので、 
+//以下のタイプを調べます。それがこのエレメントの場合、何かを行います。 
+if (u is Infragistics.Win.FormattedLinkLabel.TextSectionUIElement)
+{
+    //GetContext メソッドを使用してそれと関連付けられたセルを提供するように UIElement に 
+    //求めます"                                             
+    UltraGridCell c = u.GetContext(typeof(UltraGridCell)) as UltraGridCell;
+    //宣言したセルは NULL の場合があります
+    if (null == c) return;
+    //これで、クリックした UIElement によって表される本当の元となるセルを持ちます。
+    //セルの値にアクセスし、このケースで行いたいすべてのことを実行し、                 
+    //Google へのブラウザを起動するので、セル値を使用して検索します。 
+    System.Diagnostics.Process.Start(string.Format
+    ("http://www.google.com/search?hl=en&q={0}&aq=f&oq=", c.Value.ToString()));
+}
+----
+
+. アプリケーションを実行します。CustomerID 列のハイパーリンクをクリックすると、対応する customerID の結果を示す Google 検索ページへのデフォルト ブラウザを起動します。
++
+image::Images/WinGrid_HyperLink_Cell_Click_Event.png[ultragrid セルのハイパーリンク]

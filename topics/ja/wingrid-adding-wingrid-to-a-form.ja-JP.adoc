@@ -1,0 +1,156 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-adding-wingrid-to-a-form",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{5D7B04AB-740E-4201-B25B-7DB28090069F}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid をフォームに追加
+
+== バックグラウンド
+
+このクイック スタート チュートリアルでは、WinGrid を Windows Application Project で稼動する方法を示します。このチュートリアルを開始する前に、Visual Studio .NET の使い方に慣れておく必要があります。
+
+== UltraWinGrid をフォームに追加
+
+UltraGrid のインスタンスを Form1 に追加します。
+
+[start=1]
+. Form1 のデザイン ビューを選択します。
+[start=2]
+. ツールボックスで UltraGrid をクリックし、次に FormDesigner をクリックします。
+
+image::Images/WinGrid_Adding_WinGrid_to_a_Form_01.png[]
+
+== データの作成とデータのグリッドへのバインド
+
+次にプロジェクトはグリッドにバインドするための数種のデータ コンテナが必要になります。数字、文字列、日付をを含む 3 列の DataTable を作成し、UltraGrid にバインドします。
+
+[start=1]
+. FormLoad イベント メソッドをプロジェクトに追加して、このメソッドに次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub GettingStarted_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim Keys(1) As DataColumn
+	' データ テーブルを作成します
+	Dim dt As New DataTable("TableTest")
+	' 数字列を作成します
+	Dim dcNumber As New DataColumn("NumberColumn", GetType(Int32))
+	dt.Columns.Add(dcNumber)
+	' キー配列に列を追加し、プライマリ キーとして設定します
+	Keys(0) = dcNumber
+	dt.PrimaryKey = Keys
+	' 文字列を作成します
+	Dim dcString As New DataColumn("StringColumn", GetType(String))
+	dcString.MaxLength = 50
+	dt.Columns.Add(dcString)
+	' 日付列を作成します
+	Dim dcDate As New DataColumn("DateColumn", GetType(Date))
+	dt.Columns.Add(dcDate)
+	' 行を追加します   
+	Dim row As DataRow = dt.NewRow()
+	row("NumberColumn") = 1
+	row("StringColumn") = "Test on row 1"
+	row("DateColumn") = Now
+	dt.Rows.Add(row)
+	' 2 行目を追加します
+	row = dt.NewRow()
+	row("NumberColumn") = 2
+	row("StringColumn") = "Test on row 2"
+	row("DateColumn") = Now.AddDays(1)
+	dt.Rows.Add(row)
+	' 表をグリッドにバインドします
+	Me.UltraGrid1.DataSource = dt
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void WinGridGettingStarted_Load(object sender, System.EventArgs e)
+{
+	DataColumn[] Keys = new DataColumn[2];
+	// データ テーブルを作成します
+	DataTable dt = new DataTable("TableTest");
+	// 数字列を作成します
+	DataColumn dcNumber = new DataColumn("NumberColumn", System.Type.GetType("System.Int32"));
+	dt.Columns.Add(dcNumber);
+	// キー配列に列を追加し、プライマリ キーとして設定します
+	Keys[0] = dcNumber;
+	dt.PrimaryKey = Keys;
+	// 文字列を作成します
+	DataColumn dcString = new DataColumn("StringColumn", System.Type.GetType("System.String"));
+	dcString.MaxLength = 50;
+	dt.Columns.Add(dcString);
+	// 日付列を作成します
+	DataColumn dcDate = new DataColumn("DateColumn", System.Type.GetType("System.DateTime"));
+	dt.Columns.Add(dcDate);
+	// 行を追加します
+	DataRow row = dt.NewRow();
+	row["NumberColumn"] = 1;
+	row["StringColumn"] = "Test on row 1";
+	row["DateColumn"] = System.DateTime.Now;
+	dt.Rows.Add(row);
+	// 2 行目を追加します
+	row = dt.NewRow();
+	row["NumberColumn"] = 2;
+	row["StringColumn"] = "Test on row 2";
+	row["DateColumn"] = System.DateTime.Now.AddDays(1);
+	dt.Rows.Add(row);
+	// 表をグリッドにバインドします
+	this.ultraGrid1.DataSource = dt;
+}
+----
+
+[start=2]
+. プロジェクトを開始すると Form1 が次のようになります。
+
+image::Images/WinGrid_Adding_WinGrid_to_a_Form_02.png[]
+
+== 新規追加をオンにする
+
+オプションの手順としては、UltraGrid Layout イベントを使ってグリッド キャプションを変更し、[新規追加] ボタンをオンにします。
+
+[start=1]
+. UltraGrid1 InitializeLayout イベント メソッドをプロジェクトに追加して次のコードを挿入します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' キャプションを設定します
+	Me.UltraGrid1.Text = "UltraWinGrid Quick Start"
+	' [新規追加] ボタンをオンにします
+	e.Layout.AddNewBox.Hidden = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// キャプションを設定します
+	this.ultraGrid1.Text = "UltraWinGrid Quick Start";
+	// [新規追加] ボタンをオンにします
+	e.Layout.AddNewBox.Hidden = false;
+}
+----
+
+[start=2]
+. プロジェクトを開始すると Form1 がこのようになります。
+
+image::Images/WinGrid_Adding_WinGrid_to_a_Form_03.png[]

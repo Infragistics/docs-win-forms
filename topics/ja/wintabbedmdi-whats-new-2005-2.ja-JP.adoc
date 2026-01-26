@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdi-whats-new-2005-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B4EF6155-00FE-4AB6-BF61-3292F9B2F7A0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTabbedMDI 2005.2
+
+== Tab グループのネスト
+
+WinTabbedMdiManager レイアウト機能が拡張され、ネスト グループを作成できるようになりました。各 MdiTabGroup には内部のフォームを表す MdiTab 項目か、他の MdiTabGroup を格納できるので、ネスト構造が可能になります。この機能は AllowNestedTabGroups プロパティを True に設定することで有効にできます。
+
+image::images/Whats_New_UltraWinTabbedMDI_2005_2_01.png[]
+
+== MdiTabGroup の最大化
+
+レイアウトによっては（エンド ユーザー、プログラマのいずれが決定するにしても）、MDI 子フォームにはその子コントロールを表示するだけの十分なスペースがないことがあります。IsActiveTabGroupMaximized プロパティが WinTabbedMdiManager に追加されました。True に設定されると、アクティブ タブを含む MdiTabGroup が最大化します。最大化すると、最大化したタブ グループの内容だけが表示されます。MaximizedTabGroupDisplayStyle プロパティによって、最小化されたタブ グループの表示方法を決定します。このプロパティが ShowMaximizedGroupOnly に設定されると、他の MdiTabGroups が存在するという視覚的兆候がまったくなくなります。このプロパティが CompressUnmaximizedGroups に設定されると（下の画像に見られるように）、いくつかのペインの分割バーだけが表示されます。
+
+AllowMaximize プロパティが追加され、ユーザーが IsActiveTabGroupMaximized プロパティを変更できるかどうかを決定します。True に設定されると、グループ内のタブのコンテキスト メニューには追加のチェック可能なメニュー オプション － 最大化が含まれることになります。
+
+image::images/Whats_New_UltraWinTabbedMDI_2005_2_02.png[]
+
+== TabActivated イベント
+
+新規のイベント、TabActivated が WinTabbedMdiManager に追加されました。このイベントは、アクティブ タブ（アクティブな MDI 子フォームを表すタブ）が変更されたときは常に呼び出されます。

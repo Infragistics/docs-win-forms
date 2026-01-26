@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{F2CD8B08-CFFC-4330-85F2-3672470860D5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGauge
+
+このセクションでは、WinGauge コントロールに関連した概要/タスクベースの情報すべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinGauge についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinGauge コントロールについての情報にアクセスします。
+
+== link:wingauge-understanding-wingauge.html[Gauge の理解]
+
+このセクションには WinGauge コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:wingauge-gauge-types.html[Gauge タイプ]
+
+この重要なセクションには、すべての gauge タイプの包括的なリストと、gauge タイプの簡単な概要、gauge タイプを生成するために必要となるデータ タイプの情報、guage タイプに特有のプロパティのリストが含まれます。
+
+== link:wingauge-designer.html[ゲージ デザイナ]
+
+このセクションには、ゲージ デザイナで提供される主要な特徴および機能についての情報が含まれています。
+
+== link:wingauge-getting-started-with-wingauge.html[WinGauge で作業を開始]
+
+WinGauge コントロールで出来る限り素早く起動して実行するために、コントロール（たとえば、フォームに WinGauge を追加）を使用する方法についての情報を提供します。
+
+== link:wingauge-using-gauge.html[Gauge を使用]
+
+このセクションには、WinGauge コントロールで提供される主要な特徴および機能についての情報が含まれています。
+
+== link:wingauge-deploying-wingauge.html[WinGauge を配備]
+
+アプリケーションに WinGauge コントロールが含まれている場合、アプリケーションの一部として再配布する必要がある Infragistics .NET のリストのトピックを参照してください。
+
+== link:wingauge-api-overview.html[API 概要]
+
+このトピックは、WinGauge コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

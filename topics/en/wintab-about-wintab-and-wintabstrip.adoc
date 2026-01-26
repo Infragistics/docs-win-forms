@@ -1,0 +1,30 @@
+﻿////
+|metadata|
+{
+    "name": "wintab-about-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started"],
+    "guid": "{20970BFE-F20C-4CE9-9CF5-B9036FBD2ED3}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= About WinTab and WinTabStrip
+
+The Infragistics.Win.UltraWinTabControl assembly contains the following Windows Forms elements:
+                         
+* *pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrol.html[UltraTabControl]"]* -- this element provides a superset of the functionality of the TabControl provided by Microsoft. Just like the Microsoft TabControl each tab creates a tab page control that is used to contain child controls that are unique to that tab. In addition to the basic functionality, a special 'shared controls' page is exposed to contain child controls that are shared among some or all of the tabs. When a tab is selected the appropriate 'shared controls' are re-parented to the tab's tab page automatically. The UltraTabControl's pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tabs.html[Tabs]"] property returns a collection of pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab.html[UltraTab]"] objects that represent each tab. The UltraTab object exposes properties that relate to the tab like pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~tabpage.html[TabPage]"], pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~visible.html[Visible]"], pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~enabled.html[Enabled]"], pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~text.html[Text]"], pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~tooltiptext.html[ToolTipText]"], pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~appearance.html[Appearance]"] etc. In addition, the UltraTabControl exposes properties to specify tab style, tab layout, tab orientation, text orientation as well as various tab scrolling options.
+* *pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabstripcontrol.html[UltraTabStripControl]"]* -- this element exposes all of the functionality of the UltraTabControl except that each tab does not create its own tab page control. Child controls are contained only by the 'shared controls' page. This element is useful in situations where all tabs display primarily the same child controls. It can also be easily bound to a data source.
+
+*Note* The Microsoft TabControl exposes a DrawItem event to support owner-drawing of the tabs. The UltraTabControl and UltraTabStripControl do not expose this event since the DrawFilter interface exposes more powerful capabilities.
+
+The following topics will give you a comprehensive overview of the capabilities of the WinTab™ and WinTabStrip™ controls:
+
+* pick:[win-forms="link:WinTab-WinTab-and-WinTabStrip-Terms-and-Concepts.html[WinTab and WinTabStrip Terms and Concepts]"]
+* pick:[win-forms="link:WinTab-Differences-WinTab-and-WinTabStrip.html[Differences Between WinTab and WinTabStrip]"]
+* pick:[win-forms="link:WinTab-Working-With-Tabs.html[Working With Tabs]"]
+* pick:[win-forms="link:WinTab-Sharing-Controls-Among-WinTabs.html[Sharing Controls Among WinTabs]"]
+* pick:[win-forms="link:WinTab-Layout-and-Appearance-of-WinTab-and-WinTabStrip.html[Layout and Appearance of WinTab and WinTabStrip]"]
+* pick:[win-forms="link:WinTab-Convert-a-Tab-Control-to-WinTab.html[Convert a Tab Control to WinTab]"]

@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarcombo-create-additional-date-buttons",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["How Do I"],
+    "guid": "{C109B7B8-9D26-4F6D-AA9B-96FA0B1B861C}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 追加の日付ボタンの作成
+
+WinCalendarCombo の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.datebuttonscollection.html[DateButtons]"]  コレクションを使用して、複数の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.datebutton.html[DateButton]"]  を表示します。

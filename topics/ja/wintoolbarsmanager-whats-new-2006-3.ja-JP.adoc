@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2C286899-BD9C-49B1-B1D5-E063546B79AF}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:24:03Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager 2006.3
+
+2006 Volume 3 リリースで追加されたすべての強力な新しい WinToolbarsManager™ 機能および改善を学習してください。
+
+* link:wintoolbarsmanager-ribbon-whats-new-20063.html[リボン]
+* link:wintoolbarsmanager-new-popupgallery-tool-whats-new-20063.html[新しい PopupGallery ツール]

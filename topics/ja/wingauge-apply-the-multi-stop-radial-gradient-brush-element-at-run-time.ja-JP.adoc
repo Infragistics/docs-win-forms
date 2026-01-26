@@ -1,0 +1,124 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-multi-stop-radial-gradient-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{7CEAB685-27A1-4692-8F20-F45D10A7ED5F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにマルチストップ放射型グラデーション ブラシ エレメントを適用
+
+ゲージのプロパティの 3 色以上を円形に相互に混ぜたい場合には、マルチストップ放射型グラデーション ブラシ エレメントをプロパティに適用します。
+
+*コードを使用してマルチストップ放射型グラデーション ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim multiStopRadialGradientBrushElement1 As New MultiStopRadialGradientBrushElement()
+Dim colorStop1 As NewColorStop()
+Dim colorStop2 As New ColorStop()
+Dim colorStop3 As NewColorStop()
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+Dim centerPoint As New System.Drawing.PointF()
+Dim focusScales As New System.Drawing.PointF()
+----
+
+*C# の場合：*
+
+----
+MultiStopRadialGradientBrushElement multiStopRadialGradientBrushElement1 = new MultiStopRadialGradientBrushElement();
+ColorStop colorStop1 = new ColorStop();
+ColorStop colorStop2 = new ColorStop();
+ColorStop colorStop3 = new ColorStop();
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+System.Drawing.PointF centerPoint = new System.Drawing.PointF();
+System.Drawing.PointF focusScales = new System.Drawing.PointF();
+----
+
+[start=4]
+. 以下のプロパティを設定します。
+
+** 開始色 -- Black
+** 終了色 -- 254, 127, 0
+** ワン カラー ストップ (ストップ:0.264; 色: 186, 0 ,0)
+** フォーカス スケール -- 0, 0
+** 中心点 -- 75, 25
+
+*Visual Basic の場合：*
+
+----
+centerPoint.X = 75
+centerPoint.Y = 25
+focusScales.X = 0
+focusScales.Y = 0
+multiStopRadialGradientBrushElement1.CenterPoint = centerPoint
+colorStop1.Color = System.Drawing.Color.Black
+colorStop2.Color = System.Drawing.Color.FromArgb(CInt(CByte(186)), CInt(CByte(0)), CInt(CByte(0)))
+colorStop2.Stop = 0.2647059F
+colorStop3.Color = System.Drawing.Color.FromArgb(CInt(CByte(254)), CInt(CByte(127)), CInt(CByte(0)))
+colorStop3.Stop = 1.0F
+multiStopRadialGradientBrushElement1.ColorStops.Add(colorStop1)
+multiStopRadialGradientBrushElement1.ColorStops.Add(colorStop2)
+multiStopRadialGradientBrushElement1.ColorStops.Add(colorStop3)
+multiStopRadialGradientBrushElement1.FocusScales = focusScales
+multiStopRadialGradientBrushElement1.RelativeBounds = New System.Drawing.Rectangle(11, 11, 78, 78)
+multiStopRadialGradientBrushElement1.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent
+myRadialGauge.Dial.BrushElement = multiStopRadialGradientBrushElement1
+----
+
+*C# の場合：*
+
+----
+centerPoint.X = 75;
+centerPoint.Y = 25;
+focusScales.X = 0;
+focusScales.Y = 0;
+multiStopRadialGradientBrushElement1.CenterPoint = centerPoint;
+colorStop1.Color = System.Drawing.Color.Black;
+colorStop2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+colorStop2.Stop = 0.2647059F;
+colorStop3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(127)))), ((int)(((byte)(0)))));
+colorStop3.Stop = 1F;
+multiStopRadialGradientBrushElement1.ColorStops.Add(colorStop1);
+multiStopRadialGradientBrushElement1.ColorStops.Add(colorStop2);
+multiStopRadialGradientBrushElement1.ColorStops.Add(colorStop3);
+multiStopRadialGradientBrushElement1.FocusScales = focusScales;
+multiStopRadialGradientBrushElement1.RelativeBounds = new System.Drawing.Rectangle(11, 11, 78, 78);
+multiStopRadialGradientBrushElement1.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent;
+myRadialGauge.Dial.BrushElement = multiStopRadialGradientBrushElement1;
+----
+
+== 関連トピック
+
+link:wingauge-multi-stop-radial-gradient-brush-element.html[マルチストップ放射型グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-multi-stop-radial-gradient-brush-element-at-design-time.html[デザインタイムにマルチストップ放射型グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-multi-stop-radial-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してマルチストップ放射型グラデーション ブラシ エレメントを適用]

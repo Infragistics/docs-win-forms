@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-improved-accessibility-support-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{415F7C6F-74B7-4C27-98A9-05047751C579}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:18:36Z"
+}
+|metadata|
+////
+
+= アクセシビリティのサポートの改善
+
+リハビリテーション法の第 508 条に基づいて、すべての政府アプリケーションは障害を持つ個人に適応するための規格に準拠する必要があります。Windows Forms コントロールのほとんどは、複数のリリースでアクセス可能です。
+
+WinListView および WinWeekView は完全にアクセス可能なものとしてコントロールの残りに加わっています。これらのコントロールは AccessibilityObject を持ち、エンド ユーザーが必要とするアクセシビリティ サポートを得ることができます。
+
+== 関連トピック
+
+link:win-accessibility-overview.html[アクセシビリティ概要]

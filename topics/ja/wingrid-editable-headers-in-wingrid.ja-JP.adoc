@@ -1,0 +1,28 @@
+﻿= WinGrid でヘッダーの編集
+
+== 概要
+編集可能なヘッダー機能を有効にすると、`UltraGrid` の列ヘッダー、グループ ヘッダーおよびバンド ヘッダーを変更できます。
+
+*C# の場合:*
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Bands[0].Columns[0].Header.AllowEditing = AllowHeaderEditing.OnDoubleClick;
+----
+*Visual Basic の場合:*
+[source,vb]
+----
+UltraGrid1.DisplayLayout.Bands(0).Columns(0).Header.AllowEditing = AllowHeaderEditing.OnDoubleClick
+----
+
+== AllowHeaderEditing
+`AllowHeaderEditing` 列挙型には、次の値を設定できます。
+
+[options="header", cols="a,a"]
+|====
+|値	|説明
+|Default	|ヘッダーはデフォルトで編集できません。
+|None	|ヘッダーは編集できません。
+|OnDoubleClick	|ヘッダーをダブルクリックして編集モードに入ります。この設定では、シングルクリックとダブルクリックが区別されるために、ヘッダーをシングルクリックすると遅延が発生します。
+|Manual	|ヘッダーの編集は許可されますが、既定のユーザー インターフェイスは編集を開始しません。ヘッダーを編集モードにするには、Infragistics.Win.UltraWinGrid.UltraGrid.EditHeader(Infragistics.Win.UltraWinGrid.HeaderBase) メソッドを呼び出します。
+
+

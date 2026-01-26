@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-change-the-vertical-scrolling-behavior-of-a-scrollbar",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{9DD272BF-7630-403E-B27C-76A9012E37B9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スクロールバーの垂直スクロール動作の変更
+
+WinTree の垂直スクロールの動作を制御する 2 つの設定があります。これらの設定は pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~scrollbounds.html[ScrollBounds]"] プロパティによって決定されます。ScrollBounds プロパティを ScrollToLastItem（デフォルト設定）に設定すると、最後のノードのみが表示された状態になるまでツリーが下にスクロールされます。ScrollBounds プロパティを ScrollToFill に設定すると、最後のノードがコントロールの表示可能領域の下に表示されるようにツリーをスクロールします。
+
+次のコードは、ScrollBounds プロパティを ScrollToFill に設定する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+Private Sub HowtoChangetheVerticalScrollingBehavioroftheScrollbar_Load(ByVal sender As _
+  System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraTree1.ScrollBounds = ScrollBounds.ScrollToFill
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+private void HowtoChangetheVerticalScrollingBehavioroftheScrollbar_Load(
+  object sender, System.EventArgs e)
+{
+	this.ultraTree1.ScrollBounds = ScrollBounds.ScrollToFill;
+}
+----
+
+== ScrollToLastItem
+
+image::images/WinTree_Change_the_Vertical_Scrolling_Behavior_of_a_Scrollbar_01.png[]
+
+== ScrollToFill
+
+image::images/WinTree_Change_the_Vertical_Scrolling_Behavior_of_a_Scrollbar_02.png[]

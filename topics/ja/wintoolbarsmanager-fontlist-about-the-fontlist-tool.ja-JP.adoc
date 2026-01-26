@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-fontlist-about-the-fontlist-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{13C6C7FA-CD5A-44F9-AF8E-8E02B953554D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= FontList ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== FontList
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.fontlisttool.html[FontListTool]"]
+
+派生元：Toolbase $$->$$ TextBoxTool $$->$$ ComboBoxTool
+
+説明：FontList ツールは、システムで使用可能なすべてのフォントのドロップダウン リストを、エントリごとに実際のフォントを使用して表示します。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_05.png[]

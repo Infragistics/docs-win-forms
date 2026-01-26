@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingrid-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5174504D-D7B6-4B1F-88A3-8F423D4AFBED}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:30:29Z"
+}
+|metadata|
+////
+
+= WinGrid 2007.1
+
+以下のリンクをクリックして、2007 Volume 1 リリースの Presentation Layer Framework™ に追加された WinGrid の新しい拡張を学習してください。
+
+* link:wingrid-you-can-now-conditionally-format-cells-in-a-wingrid-column-whats-new-20071.html[WinGrid 列のセルを条件フォーマットできる]

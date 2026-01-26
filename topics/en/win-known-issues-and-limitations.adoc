@@ -1,0 +1,19 @@
+﻿////
+|metadata|
+{
+    "name": "win-known-issues-and-limitations",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "b4715e01-ca8d-4ce3-ac08-1669ac48d47c",
+    "buildFlags": [],
+    "createdOn": "2020-05-12T19:06:40.2523103Z"
+}
+|metadata|
+////
+
+= Known Issues and Limitations
+
+This topic provides a list of information on the currently known issues and limitations related to the {ProductName} product. We will be working to address the known issues in future releases of the product.
+
+
+As of the 2021.2 release, there are no known issues or limitations.

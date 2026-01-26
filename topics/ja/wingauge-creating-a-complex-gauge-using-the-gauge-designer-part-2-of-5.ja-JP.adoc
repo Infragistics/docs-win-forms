@@ -1,0 +1,72 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-2-of-5",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{43331E92-4E3F-4ED2-848B-4C224C0AAB70}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ デザイナを使用して複雑なゲージを作成（2/5）
+
+このトピックは、 link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-1-of-5.html[「ゲージ デザイナを使用して複雑なゲージを作成（1/5）」]の続きです。この手順は、新しいスケールとレンジを既存のラジアル ゲージに追加するプロセスを説明します。
+
+[start=1]
+. ゲージ エクスプローラで、[スケール] を展開します。
+[start=2]
+. [スケールの追加...] をクリックして、[新しいスケール] を選択します。
+[start=3]
+. [プロパティ] パネルで、 link:wingauge-scale-layout-tab.html[[スケール レイアウト] タブ]をクリックします。 link:wingauge-sweep-angle-pane.html[[スイープ角度] ペイン]で、以下のプロパティを設定します。
+
+** 開始 -- 160
+** 終了 -- 380
+
+[start=4]
+. [スケール レイアウト] タブの link:wingauge-axis-pane.html[[軸] ペイン]で、以下のプロパティを設定します。
+
+** 終了値 -- 300.00
+** 開始値 -- 30.00
+** 目盛間隔 -- 1.0
+
+[start=5]
+. ゲージ エクスプローラで、[レンジ] を展開します。
+[start=6]
+. [レンジの追加...] をクリックして、[新しいレンジ] を選択します。
+[start=7]
+. [レンジ レイアウト] タブの [値] ペインで、以下のプロパティを設定します。
+
+** 開始 -- 30.00
+** 終了 -- 180.00
+
+[start=8]
+. [レンジ レイアウト] タブの [範囲] ペインで、以下のプロパティを設定します。
+
+** 内側の開始 -- 68
+** 内側の終了 -- 68
+** 外側 -- 78
+
+[start=9]
+. [プロパティ] パネルで、[外観] タブをクリックします。[ブラシ] ペインで、プロパティを以下のとおり指定したブラシ エレメントを追加します。
+
+** シンプル グラデーション ブラシ エレメント
+
+*** 開始色 -- Color = Color.FromArgb(212, 254, 0)
+*** 終了色 -- Color = Transparent
+*** グラデーション スタイル -- BackwardDiagonal
+
+[start=10]
+. [外観] タブの [ストローク] ペインで、以下のプロパティを設定します。
+
+** タイプ -- 単色
+** 色 -- Color.FromArgb(79, 185, 255, 45)
+
+image::images/Gauge_Creating_a_Complex_Gauge_Walkthrough_Using_the_Gauge_Designer_06.png[]
+
+== 関連トピック
+
+link:wingauge-creating-a-complex-gauge-using-the-gauge-designer-part-3-of-5.html[ゲージ デザイナを使用して複雑なゲージを作成（3/5）]

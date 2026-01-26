@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-set-shortcut-mnemonic-keys-for-a-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{7A28335B-6566-43BF-9B6F-6A148FF070EA}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールのショートカット（ニーモニック）キーの設定
+
+ショートカット キーやニーモニック キーを使用すると、ツールをマウスでクリックする代わりに、キーボードを通じてツールにアクセスできます。ショートカット キーは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  のドロップダウンに表示されます。
+
+== デザインタイムの場合
+
+[ツール] タブのカスタマイズ エディタで、ツールのひとつを選択して、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  オブジェクトの下に pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~shortcut.html[Shortcut]"]  と呼ばれるプロパティがあり、そのツールのショートカットまたはニーモニック キーを設定できます。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Private Sub Set_Shortcut_Mnemonic_Keys_for_a_Tool_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.Tools("Bold").SharedProps.Shortcut = Shortcut.F1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Set_Shortcut_Mnemonic_Keys_for_a_Tool_Load(object sender, EventArgs e)
+{
+	this.ultraToolbarsManager1.Tools["Bold"].SharedProps.Shortcut = Shortcut.F1;
+}
+----

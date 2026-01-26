@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingroupbox-add-a-control-to-the-wingroupbox",
+    "controlName": ["WinGroupBox"],
+    "tags": ["Design Environment","Grouping","How Do I"],
+    "guid": "{4358149B-9977-476B-9DCC-06D1232684C6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールを WinGroupBox に追加
+
+[start=1]
+. WinGroupBox™ の目的は、コントロールのレイアウトを指定した状態に維持することです。そのため、グループボックスを移動しても、その中のコントロールの位置は変わりません。
+[start=2]
+. コントロールを UltraGroupBox に追加する方法は非常に簡単で、ツールボックスからコントロールをグループボックスの中にドラッグするだけです。
+
+image::Images/WinMisc_Introduction_to_the_WinGroupBox_06.png[]
+
+[start=3]
+. また、必要であれば、UltraGroupBox の中に別の UltraGroupBox のインスタンスを格納できます。たとえば次のスクリーンショットでは、グループボックスの中に別のグループボックスを格納し、それをさらに別のグループボックスに格納し、そのすべてをさらに別のグループボックスに格納しています。
+
+image::Images/WinMisc_Introduction_to_the_WinGroupBox_07.png[]

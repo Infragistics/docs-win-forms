@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-bar-marker",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{DA518F0E-23F5-441D-9D9F-A810609FBE59}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= バー マーカー
+
+バー マーカーは、ラジアル ゲージとリニア ゲージのスケールで開始点と終了点を持つバーとして表示されます。
+
+たとえば、温度計を表すリニア ゲージを作成している場合には、水銀レベルを表示するためにバー マーカーを使用します。
+
+image::images/Gauge_Add_Bar_Marker_01.png[]
+
+== 関連トピック
+
+link:wingauge-add-a-bar-marker-to-a-gauge.html[バー マーカーをゲージに追加]

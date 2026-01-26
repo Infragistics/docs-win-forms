@@ -1,0 +1,403 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2007-volume-1",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{8491E011-FB52-44F8-A6EC-1E8C1F2A8468}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2007 Volume 1 の重大な変更
+
+== Win アセンブリ
+
+=== アクセス修飾子が private に変更
+
+protected（Visual Basic .NET で Friend）または public のアクセス修飾子をこれまで持っていた一部のメソッドが private に変更されました。これは、メソッドが開発者によってアクセスできなくなったことを意味します。これらの変更は、意図しない情報がコントロールに渡されることを防止するために行われました。
+
+以下のメソッドのアクセス修飾子は、private に変更され、クラスごとにリストされています。
+
+* AppearanceEnumStyleEditor クラス：
+
+** OnDrawItem
+
+* SelectionStrategyBase クラス：
+
+** HorizontalScrollTimer_Tick
+** VerticalScrollTimer_Tick
+
+* ControlUIElementBase クラス：
+
+** ProcessClick
+** ProcessDoubleClick
+** ProcessLostFocus
+** ProcessVisibleChanged
+** ProcessResize
+** ProcessMouseMove
+** ProcessMouseHover
+** ProcessParentChanged
+** ProcessMouseEnter
+** ProcessMouseLeave
+
+* UIElement クラス：
+
+** OnVertTimerTick
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* TabDragManager クラス：
+
+** OnScrollTimerTick()
+
+* UltraControlDesigner クラス：
+
+** OnControlDoubleClick()
+
+* UltraParentControlDesigner クラス：
+
+** OnControlDoubleClick()
+
+* ControlUIElementBase クラス：
+
+** OnGotFocus()
+** OnLostFocus()
+** ProcessKeyDown()
+** ProcessMouseDown()
+** ProcessMouseUp()
+
+* CustomColorBoxUIElement クラス：
+
+** OnGotFocus()
+** OnLostFocus()
+
+* FontNameEditor クラス：
+
+** OnInstalledFontsChange()
+** OnApplicationIdle()
+
+* EmbeddableEditorBase クラス：
+
+** OnOwnerKeyUp()
+** OnOwnerKeyDown()
+** OnOwnerKeyPress()
+
+* EditorWithMask クラス：
+
+** OnOwnerKeyUp()
+** OnOwnerKeyDown()
+** OnOwnerKeyPress()
+
+* EditorWithCombo クラス：
+
+** OnOwnerKeyUp()
+** OnOwnerKeyDown()
+** OnOwnerKeyPress()
+
+* EditorWithTextAndDropDownBase クラス：
+
+** OnOwnerKeyUp()
+** OnOwnerKeyDown()
+
+* CheckEditor クラス：
+
+** OnOwnerKeyUp()
+
+* OptionSetEditor クラス：
+
+** OnOwnerKeyDown()
+
+* DateTimeEditor クラス：
+
+** OnOwnerKeyDown()
+
+* SplitterIntersectionUIElement クラス：
+
+** OnElementAdjusted()
+
+* TrackBarEditor クラス：
+
+** OnEditCancelled()
+** OnValueChange()
+** OnPaintPreview()
+
+== WinEditors
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* UltraWinCalc.CalculatorEngine クラス：
+
+** OnAfterActionButtonPressed
+** OnAfterCalculateImmediate
+** OnAfterCalculatePending
+** OnAfterCalculationComplete
+** OnBeforeActionButtonPressed
+** OnBeforeButtonClicked
+** OnBeforeCalculateImmediate
+** OnBeforeCalculatePending
+** OnDefaultCalculationFail
+
+* EditorWithTextDropDownControlBase クラス：
+
+** OnAfterCloseUp
+** OnAfterDropDown
+** OnBeforeDropDown
+** OnEditorKeyDown
+** OnSelectionChangeCommitted
+** OnSelectionChanged
+** OnValueChanged
+
+* TextEditorControlBase クラス：
+
+** OnAfterEnterEditMode
+** OnAfterExitEditMode
+** OnBeforeEnterEditMode
+** OnBeforeExitEditMode
+** OnEditorKeyDown
+** OnEditorKeyPress
+** OnEditorKeyUp
+** OnFormActivate
+** OnFormDeactivate
+** OnPropChanged
+** OnValueChanged
+
+* UltraColorPicker クラス：
+
+** OnAfterEnterEditMode
+** OnColorChanged
+** OnColorHtmlChanged
+** OnColorOleChanged
+** OnColorWin32Changed
+** OnValueChanged
+
+* UltraComboEditor クラス：
+
+** OnAfterCloseUp
+** OnAfterDropDown
+** OnAfterEnterEditMode
+** OnBeforeDropDown
+** OnBeforeExitEditMode
+** OnEditorKeyDown
+** OnSelectionChangeCommitted
+** OnSelectionChanged
+** OnValueChanged
+
+* UltraCurrencyEditor クラス：
+
+** OnValueChanged
+
+* UltraDateTimeEditor クラス：
+
+** OnAfterCloseUp
+** OnAfterDropDown
+** OnAfterEnterEditMode
+** OnAfterExitEditMode
+** OnBeforeDropDown
+** OnBeforeEnterEditMode
+** OnBeforeExitEditMode
+** OnEditorKeyDown
+** OnEditorKeyPress
+** OnEditorKeyUp
+** OnFormActivate
+** OnFormDeactivate
+** OnPropChanged
+** OnValueChanged
+
+* UltraNumericEditorBase クラス：
+
+** OnAfterEnterEditMode
+** OnAfterExitEditMode
+** OnBeforeEnterEditMode
+** OnBeforeExitEditMode
+** OnFormActivate
+** OnFormDeactivate
+** OnPropChanged
+** OnValueChanged
+
+* UltraCalculator クラス：
+
+** OnAfterActionButtonPressed
+** OnAfterCalculateImmediate
+** OnAfterCalculatePending
+** OnAfterCalculationComplete
+** OnBeforeActionButtonPressed
+** OnBeforeButtonClicked
+** OnBeforeCalculateImmediate
+** OnBeforeCalculatePending
+** OnDefaultCalculationFail
+
+* UltraCalculatorDropDown クラス：
+
+** OnAfterCalculationComplete
+** OnBeforeButtonClicked
+** OnBeforeCalculatePending
+** OnAfterCalculatePending
+** OnBeforeCalculateImmediate
+** OnAfterCalculateImmediate
+** OnBeforeActionButtonPressed
+** OnAfterActionButtonPressed
+** OnDefaultCalculationFail
+** OnBeforeDropDown
+
+== WinExplorerBar
+
+=== アクセス修飾子が private に変更
+
+protected（Visual Basic .NET で Friend）または public のアクセス修飾子をこれまで持っていた一部のメソッドが private に変更されました。これは、メソッドが開発者によってアクセスできなくなったことを意味します。これらの変更は、意図しない情報がコントロールに渡されることを防止するために行われました。
+
+以下のメソッドのアクセス修飾子は、private に変更され、クラスごとにリストされています。
+
+* UltraExplorerBar クラス：
+
+** OnContextMenuAddGroup
+** OnContextMenuAddItem
+** OnContextMenuLargeImages
+** OnContextMenuLargeImagesWithText
+** OnContextMenuLargeImagesWithTextBelow
+** OnContextMenuRemoveGroup
+** OnContextMenuRemoveItem
+** OnContextMenuRenameGroup
+** OnContextMenuRenameItem
+** OnContextMenuSmallImages
+** OnContextMenuSmallImagesWithText
+** OnNavigationContextMenuNavigationPaneOptions
+** OnNavigationContextMenuOpenInNewWindow
+** OnQuickCustomizeBumpedGroupClicked
+** OnQuickCustomizeGroupClicked
+** OnQuickCustomizeNavigationPaneOptions
+** OnQuickCustomizeShowFewerButtons
+** OnQuickCustomizeShowMoreButtons
+** OnScroll
+** OnScrollValueChanged
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* UltraExplorerBarDesigner クラス：
+
+** OnControlDoubleClick
+
+== WinGrid
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* UltraGridUIElement クラス：
+
+** ProcessKeyDown
+
+== WinSchedule
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* SelectedDateRanges クラス：
+
+** OnCalendarInfoChanged
+
+* UltraCalendarCombo クラス：
+
+** OnEditorKeyDown
+** OnEditorKeyPress
+** OnEditorKeyUp
+
+* UltraDayView クラス：
+
+** OnScrollValueChanged
+** OnScroll
+** OnColumnGroupScrollValueChanged
+** OnColumnGroupScroll
+** OnColumnGroupScroll
+
+* UltraMonthViewMultiBase クラス：
+
+** CalendarInfoChanged
+** CalendarLookChanged
+
+* UltraMonthViewSingleBase クラス：
+
+** OnEditTimerTick
+** OnCalendarInfoChanged
+** OnScrollValueChanged
+** OnInternalScroll
+** OnControlSizeChanged
+** OnHorizontalScroll
+** OnHorizontalScrollValueChanged
+
+* UltraScheduleControlBase クラス：
+
+** OnCalendarLookChanged
+
+* CalendarComboEditor クラス：
+
+** OnOwnerKeyDown
+
+== WinTab
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* UltraTabControlBaseDesigner クラス：
+
+** OnControlDoubleClick()
+
+== WinTabbedMdiManager
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* MdiTabDragManager クラス：
+
+** OnScrollTimerTick
+
+== WinToolbarsManager
+
+=== メソッド シグネチャが変更
+
+一部のメソッドではメソッド シグネチャが変更されました。このため、パラメータのリストは何らかの方法で変更されました。メソッドは依然として使用できますが、これらのメソッドを呼び出したり無効にするコードは、これらの変更を考慮して更新する必要があります。
+
+以下のメソッドは、シグネチャが変更され、クラスごとにリストされています。
+
+* FloatingToolbarUIElement クラス：
+
+** OnLostFocus
+
+== WinTree
+
+=== アクセス修飾子が private に変更
+
+protected（Visual Basic .NET で Friend）または public のアクセス修飾子をこれまで持っていた一部のメソッドが private に変更されました。これは、メソッドが開発者によってアクセスできなくなったことを意味します。これらの変更は、意図しない情報がコントロールに渡されることを防止するために行われました。
+
+以下のメソッドのアクセス修飾子は、private に変更され、クラスごとにリストされています。
+
+* UltraTree クラス：
+
+** OnDragHoverTimerTick
+** OnKeyboardTimerTick

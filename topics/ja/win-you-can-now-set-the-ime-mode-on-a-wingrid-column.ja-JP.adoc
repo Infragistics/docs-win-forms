@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-set-the-ime-mode-on-a-wingrid-column",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EE48DECC-8724-42F2-91F4-42817442EDA0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 列で IME モードを設定できる
+
+WinGrid™ には Input Method Editor (IME) が含まれており、標準のキーボードを使用して、エンド ユーザーは日本語の漢字などの複雑な文字や記号を入力できます。この機能は非常に役立ちますが、WinGrid 全体に適用されるため、編集モードの現在の列のセルに基づきプログラムで IME 設定を変更することが強制されます。
+
+本リリースでは、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn] オブジェクトに link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~imemode.html[ImeMode] プロパティを追加しています。このプロパティを列に公開することで、WinGrid 全体ではなく列に基づいて異なる IME 設定を指定することができます。
+
+== 関連トピック
+
+link:wingrid-enabling-ime-mode-on-a-single-column.html[ひとつの列で IME モードを有効にする]

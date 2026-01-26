@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-using-embeddable-editors-in-the-datagridview-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{36D05113-832E-46DC-A85C-034E6032EBB5}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DataGridView での埋め込みエディタの使用
+
+Visual Studio 2005（.NET Framework 2.0）の DataGridView コントロールではカスタムの派生列を作成できます。Infragisticsでは、Infragistics の埋め込みエディタをホストする派生列が用意されています。エディタのタイプごとに個別の列クラスがあり、それぞれが（EmbeddableEditorBase から派生した）既存の埋め込みエディタ クラスに対応します。列はエディタ コントロールごとではなくエディタごとに存在します。たとえば、CurrencyEditor と NumericEditor はどちらも EditorWithMask を使用するので、これらのコントロール用の列タイプはありません。派生列はランタイムにもデザイン時にもグリッドに追加でき、バインドされていてもされていなくてもかまいません。
+
+== 関連トピック
+
+link:wineditors-using-wineditors-in-the-datagridview-control.html[DataGridView コントロールでの WinEditors の使用]
+
+link:http://msdn.microsoft.com/smartclient/understanding/windowsforms/2.0/features/datagridview.aspx[DataGridView]

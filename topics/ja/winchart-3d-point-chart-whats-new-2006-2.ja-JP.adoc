@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-3d-point-chart-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E3A8B64C-B838-48BA-B161-7316461B98A6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 立体ポイント チャート
+
+立体ポイント チャートは既存の link:chart-scatter-chart.html[散布図]に基づいており、全く別個のデータ シリーズの数値間の関係を本質的に示すので、科学的分析および予測解析のための有用な情報を提供します。立体ポイント チャートは、チャートにもうひとつの次元（z 軸）を追加することで散布図よりもさらに一歩先んじています。これによって、チャートを表示するアイコンに目をひくような深さが与えられます。
+
+image::Images/WinChart_3D_Point_Chart_Whats_New_2006_2.png[]
+
+== 関連トピック
+
+link:chart-about-3d-point-charts.html[立体ポイント チャートについて]
+
+link:chart-working-with-3d-point-chart-data.html[立体ポイント チャート データでの作業]

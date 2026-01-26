@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-add-and-remove-tiles-at-design-time",
+    "controlName": ["WinTilePanel"],
+    "tags": [],
+    "guid": "{1976674C-2678-412A-B763-DF44B59EAD26}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン タイムにタイルを追加および削除
+
+このトピックは、デザイン タイムにタイルを WinTilePanel™ コントロールに追加する方法を示します。以下に示すように UltraTile を追加するために UltraTilePanel を右クリックしてデザイナーの動詞を起動するか、コントロールのスマートタグによってタイルをパネルに追加できます。これはコンテンツ コントロールのないデフォルトの UltraTile インスタンスを UltraTilePanel に追加します。
+
+image::Images/WinTilePanel_Add_and_Remove_Tiles_at_Design_Time_01.png[]
+
+image::Images/WinTilePanel_Add_and_Remove_Tiles_at_Design_Time_02.png[]
+
+あるいは、コンテンツ コントロールを UltraTilePanel に直接ドロップする時に、UltraTilePanel コントロールはこれが追加される UltraTile でないことを認識するので、コンテンツ コントロールをホストするために UltraTile インスタンスを自動的に作成します。したがって、UltraTile はスマートタグまたはコードによって手動で追加せずに、TilePanel によって自動的に作成されます。
+
+したがって、任意の数のタイルを TilePanel に追加できます。タイルが追加されれば、コンテンツ コントロールをデザイン タイムまたはコードによってタイルにドロップできます。
+
+*タイルの削除*
+
+デザイン タイムに追加されたタイルを削除することもできます。以下に示すように UltraTile を削除するために UltraTile を右クリックしてデザイナーの動詞を起動するか、タイルのスマートタグによってタイルをパネルから削除できます。
+
+image::Images/WinTilePanel_Add_and_Remove_Tiles_at_Design_Time_03.png[]
+
+image::Images/WinTilePanel_Add_and_Remove_Tiles_at_Design_Time_04.png[]
+
+== 関連トピック
+* link:wintilepanel-add-and-remove-tiles-through-code.html[コードでタイルを追加および削除] 

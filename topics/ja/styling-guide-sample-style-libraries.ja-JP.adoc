@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-sample-style-libraries",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{BDA3C202-BE4D-423D-BCDE-77891FB0B37C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= サンプルのスタイル ライブラリ
+
+AppStylist for Windows は 10 のカスタム スタイル ライブラリとともに出荷されます。これらのスタイル ライブラリはそれぞれ Infragistics の Visual Design チームによって設計されました。これらのスタイル ライブラリは、さまざまなシナリオで AppStylist の完全なスタイリング機能を示すために作成されました。
+
+サンプルのスタイル ライブラリを使用するためには、[ファイル] メニューから新しいスタイル ライブラリを開き、これらのスタイル ライブラリが保管されている  _InstallPath_ \AppStylist\Styles フォルダを指定します。
+
+[NOTE]
+====
+*注:* これらのスタイル ライブラリのいずれかの修正を選択した場合、新しい名前で .isl ファイルを保存します。そうしないと、製品をアンインストールしたときに修正したスタイル ライブラリが削除されます。
+====

@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-using-wincalcmanager-with-the-datagridview-control",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{909D1202-E3B5-49E6-9DC3-C2EBE10CB89E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DataGridView コントロールで WinCalcManager を使用する
+
+このトピックは、次の 2 つの記事で構成されています。
+
+* link:wincalcmanager-creating-a-calculated-column-in-the-datagridview-control.html[DataGridView コントロールでの計算列の作成]
+* link:wincalcmanager-creating-a-running-total-in-the-datagridview-control.html[DataGridView コントロールでの現在高の作成]

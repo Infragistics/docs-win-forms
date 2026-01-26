@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-wingrid-asynchronous-exporting-for-exporters",
+    "controlName": [],
+    "tags": ["Exporting","Grids"],
+    "guid": "ece861fa-70aa-4b37-83c2-e84ba862dd1c",  
+    "buildFlags": [],
+    "createdOn": "2011-08-31T19:00:43.5013281Z"
+}
+|metadata|
+////
+
+= エクスポーターのための WinGrid 非同期エクスポート
+
+{ProductName} の 2011 Volume 2 以降、エクスポート プロセスが実行中にユーザーはアプリケーションのユーザー インターフェイス (UI) を操作できます。この機能はすべての WinGrid™ エクスポートコンポーネント (WinGridDocumentExporter™、WinGridExcelExporter™ および WinGridWordWriter™) によってサポートされており、非同期でグリッドをエクスポートすることによって実行されます。
+
+非同期エクスポートをサポートすると、エクスポート中にアプリケーションを応答可能にでき、ユーザーの生産性を更に向上できることを意味します。
+
+== 関連トピック
+
+* link:wingriddocumentexporter-export-wingrid-asynchronously.html[WinGrid を非同期でエクスポート] (WinGridDocumentExporter)
+* link:wingridexcelexporter-export-wingrid-asynchronously.html[WinGrid を非同期でエクスポート] (WinGridExcelExporter)
+* link:wingridwordwriter-export-wingrid-asynchronously.html[WinGrid を非同期でエクスポート] (WinGridWordWriter)

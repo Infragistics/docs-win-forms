@@ -1,0 +1,98 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-winganttview-sorting",
+    "controlName": ["WinGanttView"],
+    "tags": ["Sorting"],
+    "guid": "{F4001556-BE85-4691-AF36-8AC8DB17306C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGanttView の並べ替え
+
+WinGanttView™ コントロールによって、コントロールのグリッド セクションで単一および複数のタスク フィールドを並べ替えることができます。 コントロールのグリッド領域の列ヘッダーを Shift キーを押しながらクリックすることによって、タスクはユーザーインターフェイスで複数フィールドの基準で並べ替えることができます。 タスク フィールドを link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.roottaskscollection~sortedfields.html[SortedFields] コレクションに追加することによってコードで並べ替えを実行することも可能です。 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.sortedtaskfieldscollection~comparer.html[Comparer] プロパティを使用してカスタムの並べ替えを実行することも可能です。
+
+[NOTE]
+====
+*注：* 並べ替えはすべての Task プロパティでサポートされるわけではありません。たとえば pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~dependencies.html[Dependencies]"]  コレクションでの並べ替えはサポートされません。
+====
+
+以下の例のコードは、タスクとタスク詳細を表示するフォームに UltraGanttView コントロールをドロップしてあることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraCalendarInfo1.Tasks.SortedFields.Add(SortableTaskField.Name, SortOrder.Ascending) 
+Me.ultraCalendarInfo1.Tasks.SortedFields.Add(SortableTaskField.Duration, SortOrder.Descending) 
+Me.ultraCalendarInfo1.Tasks.SortedFields.Add
+(SortableTaskField.PercentComplete, SortOrder.Descending)
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.Tasks.SortedFields.Add(SortableTaskField.Name, SortOrder.Ascending);
+----
+
+----
+this.ultraCalendarInfo1.Tasks.SortedFields.Add(SortableTaskField.Duration, SortOrder.Descending);
+----
+
+----
+this.ultraCalendarInfo1.Tasks.SortedFields.
+Add(SortableTaskField.PercentComplete, SortOrder.Descending);
+----
+
+== カスタムの並べ替え
+
+*Visual Basic の場合：*
+
+----
+' カスタム並べ替え 
+Me.ultraGanttView1.CalendarInfo.Tasks.SortedFields.Comparer = New MySortComparer ()
+Public Class MySortComparer
+    Implements System.Collections.Generic.IComparer(Of Task)
+    #Region "IComparer Members"
+    Public Function Compare(ByVal x As Task, ByVal y As Task) As Integer
+        Dim xTask As Task = DirectCast(x, Task)
+        Dim yTask As Task = DirectCast(y, Task)
+        'TODO: Task フィールドを比較するためのロジック。例： 
+         Return xTask.Deadline.CompareTo(yTask.Deadline)
+    End Function
+    #End Region "IComparer Members"
+End Class
+----
+
+*C# の場合：*
+
+----
+// カスタム並べ替え
+this.ultraGanttView1.CalendarInfo.Tasks.SortedFields.Comparer = new MySortComparer();
+public class MySortComparer : System.Collections.Generic.IComparer<Task>
+    {
+        #region IComparer Members
+        public int Compare(Task x, Task y)
+        {
+            Task xTask = (Task)x;
+            Task yTask = (Task)y;
+            //TODO: Task フィールドを比較するためのロジック。例： 
+            return xTask.Deadline.CompareTo(yTask.Deadline);
+        }
+        #endregion IComparer Members
+    }
+----
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView のチャート領域でタイムライン間隔を設定]

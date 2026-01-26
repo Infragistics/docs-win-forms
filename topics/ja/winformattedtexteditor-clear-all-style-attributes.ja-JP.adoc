@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-clear-all-style-attributes",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{4F144E39-5086-4775-99EF-ACF04915C799}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:02:39Z"
+}
+|metadata|
+////
+
+= すべてのスタイル属性をクリア
+
+テキストにスタイルを追加することで雲泥の相違が生じます。ただし、テキストをスタイルするときにミスを犯する場合があります。エンド ユーザーがフォーマットされたテキストからスタイルを削除する必要がある場合はどうすれば良いでしょう。フォーマットされたテキストのスタイルを解除するにはどうすれば良いでしょう。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~clearallstyleattributes.html[ClearAllStyleAttributes]"]  メソッドがこれを処理します。このメソッドには引数はありません。選択したテキストに現在適用されているスタイル属性を削除するだけです。エンド ユーザー用の「消去」タイプの一種としてこのメソッドを使用するか、プレーン テキスト ドキュメントとして XML ドキュメントを保存する前にフォーマッティングを解析して削除する必要がある場合に使用します。
+
+以下のコードは、現在選択されているテキストからすべてのスタイル属性を削除する方法を示しています。ボタン クリックまたはコンテキスト メニュー項目からこのコードを実行します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraFormattedTextEditor1.EditInfo.ClearAllStyleAttributes()
+----
+
+*C# の場合：*
+
+----
+this.ultraFormattedTextEditor1.EditInfo.ClearAllStyleAttributes();
+----

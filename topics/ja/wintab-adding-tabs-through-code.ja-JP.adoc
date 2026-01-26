@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-adding-tabs-through-code",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{E4276B6B-B230-4482-B6B2-3AE5E6C36653}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードによるタブの追加
+
+タブはデザイナーを使用するか、コードを通して WinTab™ に追加できます。このトピックでは、コードを通してタブを追加する方法を学習します。
+
+このトピックは、UltraTabControl がフォームにドロップされていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+' BeginUpdate を呼び出して個々のタブを追加する時にディスプレイが更新されないようにします 
+' 注：これは以下の EndUpdate への呼び出しのたびに実行する必要があります。 
+Me.ultraTabControl1.BeginUpdate() 
+Dim tabsCollection As UltraTabsCollection = ultraTabControl1.Tabs
+' タブを Tabs コレクションに追加します 
+Dim nameTab As UltraTab = tabsCollection.Add("tab1", "Name")
+Dim addressTab As UltraTab = tabsCollection.Add("tab2", "Address")
+' タブに追加されるコントロールを作成し、そのプロパティを設定します 
+Dim txtName1 As New TextBox()
+Dim lblName1 As New Label()
+lblName1.Location = New Point(20, 40) 
+lblName1.Size = New Size(80, 20) 
+lblName1.Text = "NAME:" 
+txtName1.Location = New Point(110, 40) 
+txtName1.Size = New Size(100, 20) 
+' コントロールをタブに追加します 
+nameTab.TabPage.Controls.Add(txtName1) 
+nameTab.TabPage.Controls.Add(lblName1) 
+' EndUpdate を呼び出してディスプレイの更新を許可します 
+Me.ultraTabControl1.EndUpdate()
+----
+
+*C# の場合：*
+
+----
+// BeginUpdate を呼び出して個々のタブを追加する時にディスプレイが更新されないようにします
+// 注：これは以下の EndUpdate への呼び出しのたびに実行する必要があります。
+this.ultraTabControl1.BeginUpdate();
+UltraTabsCollection tabsCollection = ultraTabControl1.Tabs;
+// タブを Tabs コレクションに追加します
+UltraTab nameTab = tabsCollection.Add("tab1","Name");
+UltraTab addressTab = tabsCollection.Add("tab2","Address");
+// タブに追加されるコントロールを作成し、そのプロパティを設定します 
+ TextBox txtName1 = new TextBox();
+ Label lblName1   = new Label();
+ lblName1.Location = new Point(20, 40);
+ lblName1.Size = new Size(80, 20);
+ lblName1.Text = "NAME:";
+ txtName1.Location = new Point(110, 40);
+ txtName1.Size = new Size(100, 20);
+ // コントロールをタブに追加します
+ nameTab.TabPage.Controls.Add(txtName1);
+ nameTab.TabPage.Controls.Add(lblName1);
+// EndUpdate を呼び出してディスプレイの更新を許可します
+this.ultraTabControl1.EndUpdate();
+----
+
+以下のスクリーンショットは、Name と Address と名前が付けられた 2 つのタブが追加された WinTab を示します。
+
+image::Images/WinTab_Adding_Tabs_to_Wintab_through_Code.png[]

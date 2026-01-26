@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-mainmenu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{340E0BB9-8EFC-4B38-BCAA-AAA56A3400BF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MainMenu
+
+MainMenu ツールバーについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-mainmenu-about-the-mainmenu-toolbar.html[MainMenu ツールバーについて] -- MainMenu ツールバーを紹介します。
+* link:wintoolbarsmanager-working-with-menus.html[メニュー操作] -- メニューへのツールの追加方法、およびトップレベル メニューとサブメニューの違いを説明しています。
+* link:wintoolbarsmanager-creating-and-managing-toolbars-and-tools.html[ツールバーとメニューの作成と管理] -- ツールバーとメニューで作業するために使用できるデザイン タイムのサポート情報を提供します。
+* link:wintoolbarsmanager-using-the-mainmenu-toolbar.html[MainMenu ツールバーの使用] -- どのように MainMenu ツールバーで作業するのかを示すサンプル コードを含む役立つトピックへのアクセスを提供します。

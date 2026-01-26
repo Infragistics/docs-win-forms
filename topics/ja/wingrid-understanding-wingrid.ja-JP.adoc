@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-understanding-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{998E4A98-AB5C-4773-B8B5-D1947EB38778}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid の理解
+
+WinGrid コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinGrid コントロールを使用することの利点を理解できます。
+
+WinGrid コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wingrid-about-wingrid.html[WinGrid について] -- WinGrid コントロールの概要を説明しています。
+* link:wingrid-appearance-and-override-hierarchies.html[外観および階層のオーバーライド] -- Appearance オブジェクトと Override オブジェクトについて詳しく全容を説明しています。
+* link:wingrid-bands-and-hierarchical-data.html[バンドと階層データ] -- WinGrid コントロールで「バンド」を使用して階層データを表示する仕組みを説明しています。
+* link:wingrid-default-design-time-look.html[デフォルトのデザイン タイムの外観] -- WinGrid コントロールのデザインタイムの新しいデフォルトの外観を示します。
+* link:wingrid-groupby-break-behavior.html[グループ化動作] -- Outlook GroupBy モードを説明します.
+* link:wingrid-groupby-view.html[GroupBy ビュー] -- WinGrid コントロールで GroupBy ビューを使用して、ユーザーがデータのカスタム グループを作成できるようにする方法を説明しています。
+* link:wingrid-creating-an-embeddable-editor-with-richtexteditor.html[RichTextEditor による埋め込みエディタの作成] -- WinGrid コントロールでリッチ テキスト エディタとして使用できる埋め込みエディタの機能について説明しています。
+* link:wingrid-format-strings.html[書式文字列] -- WinGrid コントロールで使用できる各種の数値、日付、時刻書式文字列の概要を説明しています。
+* link:wingrid-smart-tag.html[WinGrid スマート タグ] -- WinGrid コントロールのスマート タグで表示されるプロパティと設定について説明しています。

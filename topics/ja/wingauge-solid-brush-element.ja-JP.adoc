@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-solid-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{C14A67FA-13EF-4577-B84B-91910F7B7FE2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 単色ブラシ エレメント
+
+ゲージのプロパティが単色になるようにしたい場合には、ブラシ エレメントを [単色] に設定します。単色ブラシ エレメントを選択すると、使用可能な多数の色から色を選択することができます。以下を使用して、ゲージのプロパティに単色ブラシ エレメントを適用できます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、以下の設定で目盛盤の BrushElement プロパティを SolidFillBrushElement に設定した状態のラジアル ゲージを表示します。
+
+* 単色 -- 黒
+
+image::images/Gauge_Solid_02.png[]

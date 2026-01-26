@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincurrencyeditor-about-wincurrencyeditor",
+    "controlName": ["WinCurrencyEditor"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "{0F8EC44D-20EE-4D3A-B72D-6ECCA4FEFFB4}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCurrencyEditor について
+
+WinCurrencyEditor コントロールは柔軟性の高い通貨エディタで、国際化をサポートし、マスク表示モードを持ちます。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* 入力のマスク -  入力マスクを指定すると、ユーザーが入力するデータのフォーマットを指定することができます。
+* インク対応 - ユーザーはインクを使用してテキストを編集でき、マスクを使用できます。表示されるリテラル文字と入力ボックスには、入力マスクが適用されます。
+* 国際化 - FormatProvider プロパティにより、特定のカルチャを簡単に割り当てることができます。
+* ユーザー選択の制限 - 必要に応じて、コントロールの Min 値と Max 値を設定できます。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+* スピン ボタン - オプションで、編集フィールドの値を増やすスピン ボタンを使用できます。 コントロールの Min/Max 値に基づいて値を折り返すかどうかを指定できます。
+
+image::Images/WinEditors_Control_Overview_03.png[]

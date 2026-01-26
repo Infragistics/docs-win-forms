@@ -1,0 +1,253 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-schedule-controls",
+    "controlName": [],
+    "tags": [],
+    "guid": "a8012f6c-84f7-4a79-9d20-3bc10c147e3c",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T23:58:33.6572807Z"
+}
+|metadata|
+////
+
+= タッチ対応の WinSchedule コントロール
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _Infragistics_   のタッチ対応  _WinSchedule_™ コントロール要素を紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref366599891,タッチ対応の  _WinSchedule_   コントロール>>
+
+** <<_Ref366599899,DayView のタッチ対応要素>>
+** <<_Ref366599907,DayView のジェスチャ サポート>>
+** <<_Ref366599923,WeekView のタッチ対応要素>>
+** <<_Ref366599935,WeekView のジェスチャ サポート>>
+** <<_Ref366599947,MonthViewSingle のタッチ対応要素>>
+** <<_Ref366599959,MonthViewSingle のジェスチャ サポート>>
+** <<_Ref366599969,MonthViewMulti のタッチ対応要素>>
+** <<_Ref366599977,MonthViewMulti のジェスチャ サポート>>
+** <<_Ref366600008,CalendarCombo のタッチ対応要素>>
+
+* <<_Ref366600017,関連コンテンツ>>
+
+[[_Ref366599891]]
+== タッチ対応の  _WinSchedule_   コントロール
+
+[[_Ref366599899]]
+
+=== DayView のタッチ対応要素
+
+以下のスクリーンショットは、 _WinDayView™_   コントロールのタッチ対応要素を示します。タッチ要素は、ユーザー操作を簡単にするタッチ対応モードでは若干大きく表示されます。
+
+[options="header", cols="a,a"]
+|====
+|要素名|画像
+
+|AllDayViewEventArea
+|image::images/Touch_WinSchedule_1.png[]
+
+|AllDayViewEvent
+|image::images/Touch_WinSchedule_2.png[]
+
+|TimeSlots
+|image::images/Touch_WinSchedule_3.png[]
+
+|AllDayEventAreaScrollButton
+|image::images/Touch_WinSchedule_4.png[]
+
+|====
+
+[[_Ref366599907]]
+
+=== DayView のジェスチャ サポート
+
+_WinDayView_   コントロールのジェスチャ サポートは、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~timeslots.html[TimeSlots] 領域と link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment~alldayevent.html[AllDayEvent] 領域のおよび *水平* 方向パン ( link:touch-gestures-overview.html#_Ref349131108[パンニング ジェスチャ]を参照) で構成されています。実装には、タイムスロットのドラッグ選択や予定のドラッグ操作も含まれます。
+
+パンやドラッグ選択ジェスチャを使用する場合は、以下の要件を考慮してください:
+
+* 水平方向のみ移動する場合は、ドラッグ選択操作から開始してください。
+
+* 水平方向へのパンによる移動は、最初にわずかに垂直方向に動かします。この動作により、ドラッグ選択操作ではなく水平方向のパン動作と認識され、以降も継続して水平にパンできます。
+
+[[_Ref366599923]]
+
+=== WeekView のタッチ対応要素
+
+以下のスクリーンショットは、 _WinWeekView™_   コントロールのタッチ対応要素を示します。タッチ要素は、ユーザー操作を簡単にするタッチ対応モードでは若干大きく表示されます。
+
+.注:
+[NOTE]
+====
+日のヘッダー要素の高さ ( link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofmonth~daynumber.html[DayNumber]) は変更されません。
+====
+
+[options="header", cols="a,a"]
+|====
+|要素名|画像
+
+|SingleDayAppointment
+|image::images/Touch_WinSchedule_5.png[]
+
+|OwnerHeaderDropDownButton
+|image::images/Touch_WinSchedule_6.png[] 
+
+オーナー ヘッダーのドロップダウン ボタンを有効にするコード例 
+
+*C# の場合:*
+
+[source,csharp]
+---- 
+ultraWeekView1.OwnerNavigationStyle = OwnerNavigationStyle.DropDown; // または ultraWeekView1.OwnerNavigationStyle = OwnerNavigationStyle.DropDownAndScrollbar; ---- 
+
+*Visual Basic の場合:*
+
+[source,vb]
+---- 
+ultraWeekView1.OwnerNavigationStyle = OwnerNavigationStyle.DropDown ' または ultraWeekView1.OwnerNavigationStyle = OwnerNavigationStyle.DropDownAndScrollbar ---- 
+
+|OwnerHeaderScrollButton
+|image::images/Touch_WinSchedule_7.png[] 
+
+オーナー ヘッダーのスクロール ボタンを有効にするコード例 
+
+*C# の場合:*
+
+[source,csharp]
+---- 
+ultraWeekView1.OwnerNavigationStyle = OwnerNavigationStyle.ScrollButtons; ---- 
+
+*Visual Basic の場合:*
+
+[source,vb]
+---- 
+ultraWeekView1.OwnerNavigationStyle = OwnerNavigationStyle.ScrollButtons ---- 
+
+|====
+
+[[_Ref366599935]]
+
+=== WeekView のジェスチャ サポート
+
+_WinWeekView_   コントロールのジェスチャ サポートは、 *垂直* および *水平* パン ( link:touch-gestures-overview.html#_Ref349131108[パンニング ジェスチャ]を参照) で構成されています。実装には、日のドラッグ選択やアクティビティのドラッグ操作も含まれます。
+
+パンやドラッグ選択ジェスチャを使用する場合は、以下の要件を考慮してください:
+
+* 水平方向のみ移動する場合は、ドラッグ選択操作から開始してください。
+
+* 水平方向へのパンによる移動は、最初にわずかに垂直方向に動かします。この動作により、ドラッグ選択操作ではなく水平方向のパン動作と認識され、以降も継続して水平にパンできます。
+
+[[_Ref366599947]]
+
+=== MonthViewSingle のタッチ対応要素
+
+以下のスクリーンショットは、 _WinMonthViewSingle™_   コントロールのタッチ対応要素を示します。タッチ要素は、ユーザー操作を簡単にするタッチ対応モードでは若干大きく表示されます。
+
+.注:
+[NOTE]
+====
+日のヘッダー要素の高さ ( link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofmonth~daynumber.html[DayNumber]) は変更されません。
+====
+
+[options="header", cols="a,a"]
+|====
+|要素名|画像
+
+|SingleDayAppointment
+|image::images/Touch_WinSchedule_8.png[]
+
+|====
+
+[[_Ref366599959]]
+
+=== MonthViewSingle のジェスチャ サポート
+
+_WinMonthViewSingle_   コントロールのジェスチャ サポートは、 *垂直* パン ( link:touch-gestures-overview.html#_Ref349131108[パンニング ジェスチャ]を参照) で構成されています。実装には、日のドラッグ選択やアクティビティのドラッグ操作も含まれます。
+
+水平パンニング ジェスチャは  _WinMonthViewSingle_   コントロールでサポートされていないため、アクティビティで水平方向に移動する場合は、ドラッグ選択から開始してください。
+
+[[_Ref366599969]]
+
+=== MonthViewMulti のタッチ対応要素
+
+以下のスクリーンショットは、 _WinMonthViewMulti™_   コントロールのタッチ対応要素を示します。タッチ要素は、ユーザー操作を簡単にするタッチ対応モードでは若干大きく表示されます。
+
+[options="header", cols="a,a"]
+|====
+|要素名|画像
+
+|MonthHeader
+|image::images/Touch_WinSchedule_9.png[]
+
+|MonthScrollButton
+|image::images/Touch_WinSchedule_10.png[]
+
+|YearScrollButton
+|image::images/Touch_WinSchedule_11.png[]
+
+|DayOfWeekHeader
+|image::images/Touch_WinSchedule_12.png[]
+
+|WeekNumber
+|image::images/Touch_WinSchedule_13.png[]
+
+|Day
+|image::images/Touch_WinSchedule_14.png[]
+
+|MonthPopupItem
+|image::images/Touch_WinSchedule_15.png[]
+
+|====
+
+[[_Ref366599977]]
+
+=== MonthViewMulti のジェスチャ サポート
+
+_WinMonthViewMulti_   コントロールのジェスチャ サポートは、 *垂直* および *水平* パン ( link:touch-gestures-overview.html#_Ref349131108[パンニング ジェスチャ]を参照) で構成されています。
+
+_WinMonthViewMulti_   コントロールは、ドラッグ選択操作をサポートしていません。
+
+[[_Ref366600008]]
+
+=== CalendarCombo のタッチ対応要素
+
+次のスクリーンショットは、 _WinCalendarCombo™_   コントロールのタッチ対応要素を示します。タッチ要素は、ユーザー操作を簡単にするタッチ対応モードでは若干大きく表示されます。
+
+link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.datebutton_members.html[DateButton] 要素を除き、上図に示す  _WinMonthViewMulti_   と同じ要素が  _WinCalendarCombo_   により公開されています。
+
+_WinCalendarCombo_   コントロールは、ジェスチャをサポートしていません。
+
+[options="header", cols="a,a"]
+|====
+|要素名|画像
+
+|DateButton
+|image::images/Touch_WinSchedule_16.png[]
+
+|====
+
+[[_Ref366600017]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider.html[タッチ サポート]
+|このセクションには、Infragistics のコントロールとコンポーネントを使用して、タッチ対応アプリケーションを開発するための機能について説明する特定のトピックへのリンクが含まれています。
+
+| link:touch-gestures.html[タッチ ジェスチャ]
+|このグループのトピックは、 _Infragistics_ タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+|====

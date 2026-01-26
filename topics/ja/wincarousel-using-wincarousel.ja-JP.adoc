@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincarousel-using-wincarousel",
+    "controlName": [],
+    "tags": [],
+    "guid": "335533b1-a32a-4e7d-ab4b-a3ab22a00289",  
+    "buildFlags": [],
+    "createdOn": "2014-09-12T20:56:43.1142004Z"
+}
+|metadata|
+////
+
+= WinCarousel の使用
+
+=== 概要
+
+このグループのトピックでは、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel_members.html[UltraCarousel] コントロールを Visual Studio デザイナー インターフェイスを使用してコードで作成および設定する方法について手順を含めて紹介します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincarousel-adding-carousel-items-in-code.html[コードでのカルーセル項目の追加]
+|このトピックでは、コードで WinCarousel コントロールを追加および構成する方法を紹介します。
+
+| link:wincarousel-adding-carousel-items-using-the-designer.html[デザイナーを使用したカルーセル項目の追加]
+|このトピックでは、コントロールのデザイン時のインターフェイスを使用して UltraCarousel 項目を追加および構成する方法を紹介します。
+
+| link:wincarousel-binding-data-to-carousel-in-code.html[コードでのデータのカルーセルへのバインド]
+|このトピックでは、コードビハインドでデータを UltraCarousel にバインドする方法を紹介します。
+
+| link:wincarousel-binding-data-to-carousel-using-the-designer.html[デザイナーを使用したカルーセルへのデータのバインド]
+|このトピックでは、デザイン時にデータ ソースをセットアップする方法、およびそれを UltraCarousel コントロールにバインドする方法を手順とともに紹介します。
+
+| link:wincarousel-save-load-carousel-layout.html[カルーセル構成の保存と読み込み]
+|このトピックでは、コントロールがデータにバインドされていない場合に、カルーセル項目を含む UltraCarousel レイアウトを保存する方法と読み込む方法を紹介します。バインドされている場合、保存されたレイアウトを読み込んだ後でコントロールを再度バインドする必要があります。
+
+|====

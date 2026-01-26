@@ -1,0 +1,165 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-ambiguities",
+    "controlName": [],
+    "tags": [],
+    "guid": "ce30e0f5-86fd-483e-b200-a34a21bf694b",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0348484Z"
+}
+|metadata|
+////
+
+= あいまいさ
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、ドキュメントの解析中に発生しうる曖昧さおよびその取扱方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349309785, はじめに >>
+* <<_Ref349309790, あいまいさの概要 >>
+* <<_Ref349309794, ローカルのあいまいさ >>
+* <<_Ref349309797, グローバルのあいまいさ >>
+* <<_Ref349309800, 関連コンテンツ >>
+
+[[_Ref349309785]]
+== はじめに
+
+[[_Ref349309790]]
+
+=== あいまいさのサマリー
+
+Syntax Parsing Engine は、ボトムアップ式のパーサーであり、構文ツリーが構文解析中に作成される方向を参照します。左から右へ処理するときにレクサーからトークンに対するノードを作成して開始します。次に、ツリーの各種ブランチをグループ化し、非終端記号を表す親ノードを渡します。この操作は、文章校正の開始記号を表す親ノードをブランチのグループが渡されるまで継続します。各「ブランチのグループ化」には、本文内で定義される順序で生産の本文から記号を表すすべてのノードを発見し、生産からヘッドの非終端記号に関連づけられる親ノードを渡すことが含まれます。この操作は  _リダクション_   と呼ばれます。パーサーは生産の本体をヘッド記号に軽減するためです。このプロセスは、パーサーが次のトークンを読み取るかリダクションを実行するために 1 つの作業のみを行う限り非常に高速です。しかしパーサーが実施できる作業が複数あると、あいまいさが起こります。
+
+Syntax Parsing Engine は、あいまいさを処理できますが、それらを渡すとパフォーマンスが影響を受けます。文章校正の定義であいまいさを最小限に維持すると、構文アナライザーはできる限り高速になります。
+
+以下の 2 タイプのあいまいさがあります:
+
+* <<_Ref349309794,ローカルのあいまいさ>>
+* <<_Ref349309797,グローバルのあいまいさ>>
+
+[[_Ref349309794]]
+
+=== ローカルのあいまいさ
+
+ローカルのあいまいさは、十分なテキストを読み取り後に結果としてパーサーが十分に回復するものです。
+
+たとえば、パーサーが C# ドキュメントを読み取っており、以下で始まるステートメントになると、
+
+*C# の場合:*
+
+[source,csharp]
+----
+var a = X<Y
+----
+
+パーサーは、以下であるかどうか把握しません。
+
+* 「X」はジェネリック型の名前であり、「Y」はジェネリック型の名前のパラメータである、たとえば、
+
+*C# の場合:*
+
+[source,csharp]
+----
+var a = X<Y>.CreateNew();
+----
+
+* または「X」および「Y」は変数またはプロパティであり、より小記号 (<) と比較される、たとえば
+
+*C# の場合:*
+
+[source,csharp]
+----
+var a = X<Y;
+----
+
+しかし、どのような場合でも、パーサーは「Y」を超えて読み取り続けると見当をつけます。このため、あいまいさは一時的なものでありパーサーは結果としてそこから回復します。
+
+[[_Ref349309797]]
+
+=== グローバルのあいまいさ
+
+グローバルなあいまいさにおいて、1 つのテキストがいくつかの異なる方法に解釈できます。一部の言語では、解釈は使用しなければならないと文章校正ライターがパーサーに伝える限り有効です。
+
+あいまいな C# ステートメントの例
+
+*C# の場合:*
+
+[source,csharp]
+----
+A(B<C,D>(E+F));
+----
+
+「A」という名前のメソッドが起動されることは明白ですが、メソッドに何が渡されるかはあいまいです。2 つのブール値引数 (“B<C” and “D>(E+F)”) またはジェネリック メソッド呼び出し (“B<C,D>(E+F)”) の戻り値である 1 つの引数のどちらかです。
+
+この問題を解決するには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~haspriority.html[NonTerminalSymbol.HasPriority] プロパティを使用できます。コンテンツのいずれかの解釈のためのサブツリーにこのプロパティセットを持つ記号がある場合、その解釈はその他に対して選択されます。どちらのサブツリーにも優先順位がある場合、サブツリー内で非終端記号ノードの優先順位が高い方が優先順位を得ます。上記の例では、文章校正ライターはジェネリック型メソッド呼び出しとして解釈されると、ジェネリック型メソッド呼び出しとして解釈しなければならないと指定します。ジェネリック型引数を表す記号上で `HasPriority` プロパティを `True` に設定すると、あいまいさが取り除かれます。
+
+以下の 2 つの図は、パーサーがこのステートメントのフルコンテンツを読み取ったときに2 つのサブツリーがどのように見えるかについて示しています。
+
+2 つの引数の解釈:
+
+image::images/SPE_Ambiguities01.png[]
+
+サブツリー内の優先ノードを持つ 1 つの引数解釈
+
+image::images/SPE_Ambiguities02.png[]
+
+注:
+
+[NOTE]
+====
+「TypeArgumentList」非終端ノードは優先順位を持つとマーク付けされます。2 つのツリーのうち優先順位のもっとも高い (そして唯一の) ノードがあるため、2 つめのツリーは使用され 1 つめはパーサーによって破棄されます。
+====
+
+グローバルなあいまいさを解決するもう 1 つの方法は、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase.html[LanguageBase] 派生クラス上で  _OnGlobalAmbiguityDetected_   を上書きすること、または link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.customlanguage.html[CustomLanguage] クラス上で link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.customlanguage~globalambiguitydetected_ev.html[GlobalAmbiguityDetected] イベントを取り扱うことです。これらは、ドキュメントの同じコンテンツを表すことができ、開発者がどちらを使用すべきかを選択できる 2 つのサブツリー候補と共に起動されます。解釈の可能性が 2 通り以上ある場合は、これらのメンバーは 1 つのサブツリーのみになるまで複数回起動されます。
+
+グローバルなあいまいさが解決されない場合、つまりグローバルあいまいさメソッド/イベントが処理されない、またはコンテキストオブジェクトの link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.globalambiguitycontext~preferredsubtreeroot.html[PreferredSubTreeRoot] 値が設定されない場合、パーサーはいずれかのサブツリーを任意に選択して使用します。
+
+[[_Ref349309800]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-restrictions.html[制約]
+|このトピックでは、文章校正の定義に関する制限を説明します。
+
+|====

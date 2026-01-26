@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-adding-a-hyperlink-to-a-cell-in-wingrid",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{020FCFD2-4949-4153-B590-34EAF769BDF1}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 内のセルへのハイパーリンクの追加
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"]  クラスを使用すると、埋め込みエディタを使用するすべての {ProductName} コントロールにハイパーリンクを追加することができます。FormattedLinkEditor は、{ProductName} コントロールにこの機能を提供するために、埋め込みエディタ基本クラスから派生します。このトピックでは、 WinDataSource コンポーネントを使用してフォーマットされていないテキストを保存する WinGrid コントロールを設定する操作手順について説明します。次に、WinFormattedLinkLabel コントロールを使用してこのテキストをフォーマットし、ハイパーリンクを表示する方法について説明します。
+
+[start=1]
+. *WinDataSource と WinGrid を設定します。*
+
+.. UltraDataSource コンポーネントをフォームにドラッグします。ultraDataSource1 コンポーネントがコンポーネント トレイ内に表示されます。
+.. ツールボックスから UltraGrid コントロールをフォームにドラッグします。
+.. [プロパティ] ウィンドウにある pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~datasource.html[DataSource]"]  プロパティを ultraDataSource1 に設定します。
+
+[start=2]
+. *データ ソースを設定します。*
+
+.. コンポーネント トレイにある ultraDataSource1 を右クリックして ［UltraDataSource デザイナ］ を選択します。UltraDataSource デザイナが表示されます。
+.. DataColumns の下で [新しい列の追加] ボタンをクリックします。
+.. [適用] をクリックします。
+.. 左側のツリーにある [データ入力] をクリックします。
+.. 最初のセルに "<a href="www.infragistics.com">Infragistics</a>" と入力し、Enter キーを押します。
+.. 2 番目のセルに "<a href="www.microsoft.com">Microsoft</a>" と入力し、Enter キーを押します。
+.. 3 番目のセルに "<a href="www.google.com">Google</a>" と入力し、Enter キーを押します。
+.. [適用]、そして [OK] をクリックします。
+
+[start=3]
+. *WinFormattedLinkLabel コントロールを設定して列の EditorControl として設定します。*
+
+.. UltraFormattedLinkLabel コントロールをフォームにドラッグします。
+.. グリッドを右クリックして [UltraGrid デザイナ...] を選択します。
+.. [バンドと列の設定] の下にある Band [0] を展開します。
+.. "Band [0]" の下にある [列] をクリックします。
+.. [プロパティ] ウィンドウで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~editorcomponent.html[EditorComponent]"]  プロパティを探し、ultraFormattedLinkLabel1 に設定します。
+.. [適用]、そして [OK] をクリックします。
+
+[start=4]
+. *アプリケーションを実行します。*
+
+いずれかのリンクをクリックすると、Microsoft® Internet Explorer のウィンドウに適当なリンクが開きます。
+
+[NOTE]
+====
+*注:*  WinFormattedLinkLabel コントロールは、必ず .NET Process クラスを使用して新しいリンクを開きます。したがって、開いたリンクをどのように処理するかは WinFormattedLinkLabel ではなくシステムによって決まります。
+====

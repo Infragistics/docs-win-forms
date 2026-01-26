@@ -1,0 +1,137 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-custom-columns",
+    "controlName": ["WinGanttView"],
+    "tags": ["Application Scenarios","Grids","Layouts","Scheduling"],
+    "guid": "d59ef0c1-a62b-4161-a1c1-5ee8c899c979",  
+    "buildFlags": [],
+    "createdOn": "2011-09-26T12:27:44.0239439Z"
+}
+|metadata|
+////
+
+= カスタム列
+
+このトピックは、WinGanttView™ コントロールのカスタム列のサポートを概略し、使用シナリオを説明するコード例を提供します。
+
+トピックは以下のとおりです。
+
+* <<One,はじめに>>
+* <<Two,カスタム列の追加>>
+
+** <<TwoOne,プレビュー>>
+** <<TwoTwo,Add メソッドに対するオーバーロード>>
+** <<TwoThree,カスタム列のコードの追加>>
+
+* <<Three,カスタム列のセル値を取得および設定>>
+
+** <<ThreeOne,カスタム列のセル値コードを取得および設定 >>
+
+* <<Four,関連トピック>>
+
+[[One]]
+== はじめに
+
+WinGanttView コントロールは Microsoft® Project™ のデフォルトを複製する標準的な列セット (TaskFields) をサポートします。これらのデフォルト列に加えて、コントロールは、WinGanttView に表示するように自身のプロジェクト固有のデータ フィールドをカスタマイズできるカスタム列もサポートします。
+
+[[Two]]
+== カスタム列の追加
+
+カスタム列を WinGanttView に追加するには、WinCalendarInfo コンポーネントの * link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~customtaskcolumns.html[CustomTaskColumns]* プロパティにある * link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.taskcolumnscollection~add.html[Add]* メソッドを使用します。WinGanttView の構成と使用の詳細については、 link:winganttview-using-winganttview.html[「WinGanttView の使用」]に含まれるトピックを参照してください。
+
+[[TwoOne]]
+== プレビュー
+
+image::images/WinGanttView_Custom_Columns_01.png[]
+
+図 1: サンプルのブラウザーからの WinGanttView カスタム列のサンプル
+
+[[TwoTwo]]
+== Add メソッドに対するオーバーロード
+
+以下の表は、WinCalendarInfo コンポーネントの *CustomTaskColumns* プロパティにある Add メソッドのために使用可能なオーバーロードをリストします。
+
+[options="header", cols="a,a"]
+|====
+|メソッド返却型|オーバーロードの定義
+
+|int
+|Add(TaskColumn taskColumn)
+
+|TaskColumn
+|Add(string key, Type type, bool isPersisted)
+
+|TaskColumn
+|Add(string key, Type type, bool isPersisted, object defaultValue) 
+
+[NOTE] 
+
+==== 
+
+*注:* この定義はカスタム列コードの追加とサンプルのブラウザーにある WinGanttView カスタム列のサンプルで使用されます。 
+
+====
+
+|====
+
+[[TwoThree]]
+== カスタム列のコードの追加
+
+以下のコードは、 link:http://www.infragistics.com/products/windows-forms/gantt-view/[Infragistics サンプル ブラウザー]にある WinGanttView カスタム列のサンプルからのコードで、WinCalendarInfo コンポーネント インスタンスを使用してカスタム列を WinGanttView に追加します。コード リストに取り上げられた例はデータソースから保持されない文字列型の 3 つの列を作成します。このコードで作成されたカスタム列のプレビューについては、*図 1* を参照してください。
+
+*C# の場合：*
+
+----
+//カスタム列の追加
+calendarInfoShipping.CustomTaskColumns.Add("Truck", typeof(String), false, "Truck 123");
+calendarInfoShipping.CustomTaskColumns.Add("Weight", typeof(String), false, "13000");
+calendarInfoShipping.CustomTaskColumns.Add("Door", typeof(String), false, "Door 123");
+----
+
+*Visual Basic の場合:*
+
+----
+'カスタム列の追加
+calendarInfoShipping.CustomTaskColumns.Add("Truck", GetType([String]), False, "Truck 123")
+calendarInfoShipping.CustomTaskColumns.Add("Weight", GetType([String]), False, "13000")
+calendarInfoShipping.CustomTaskColumns.Add("Door", GetType([String]), False, "Door 123")
+----
+
+[[Three]]
+== カスタム列のセル値を取得および設定
+
+カスタム列内でセル値を取得または設定するには、関連付けられたタスクにある * link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~getcustomproperty.html[GetCustomProperty]* メソッドと * link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~setcustomproperty.html[SetCustomProperty]* メソッドを使用します。
+
+[[ThreeOne]]
+== カスタム列のセル値コードを取得および設定
+
+以下のコードは、最初の WinGanttView タスク内の Truck という名前のカスタム列のセル値を “Big Truck 113” に設定することで開始します。これで値が取得されて、セル値のデータ タイプにキャストされ、truckName という名前の文字列変数に配置されます。
+
+*C# の場合：*
+
+----
+// カスタム列にプロパティを設定します
+ganttViewShipping.CalendarInfo.Tasks[0].SetCustomProperty("Truck", "Big Truck 113");
+// カスタム列からプロパティを取得します
+// GetCustomProperty はオブジェクトを返すため、適切なデータ型にキャストされます
+String truckName = (String)ganttViewShipping.CalendarInfo.Tasks[0].GetCustomProperty("Truck");
+----
+
+*Visual Basic の場合:*
+
+----
+' カスタム列にプロパティを設定します
+ganttViewShipping.CalendarInfo.Tasks(0).SetCustomProperty("Truck", "Big Truck 113")
+' カスタム列からプロパティを取得します
+' GetCustomProperty はオブジェクトを返すため、適切なデータ型にキャストされます
+Dim truckName As [String] = DirectCast(ganttViewShipping.CalendarInfo.Tasks(0).GetCustomProperty("Truck"), [String])
+----
+
+[[Four]]
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[WinGanttView にタスクを追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView のデータバインディング サポート]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]

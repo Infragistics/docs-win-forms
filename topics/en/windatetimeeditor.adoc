@@ -1,0 +1,27 @@
+﻿////
+|metadata|
+{
+    "name": "windatetimeeditor",
+    "controlName": ["WinDateTimeEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{F4B378A8-D636-4450-99F7-B692183F5F31}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDateTimeEditor
+
+Click the links below to find information specific to the WinDateTimeEditor™ control.
+
+* Understanding WinDateTimeEditor
+** link:windatetimeeditor-about-windatetimeeditor.html[About WinDateTimeEditor]
+** link:winmaskededitorbase-spinning.html[Spinning Behavior]
+** link:windatetimeeditor-smart-tag.html[WinDateTimeEditor Smart Tag]
+* Using WinDateTimeEditor
+** link:windatetimeeditor-adding-selected-dates-to-wintree.html[Adding Selected Dates to WinTree]
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[Increment an Editor Using Custom Input]
+** link:windatetimeeditor-preventing-from-typing-into-windatetimeeditor.html[Prevent From Typing Into DropDown Calendar]
+** link:windatetimeeditor-restricting-the-range-of-dates-accepted-by-the-datetimeeditor.html[Restrict the Range of Dates Accepted by the DateTimeEditor]
+* link:windatatimeeditor-api-overview.html[API Overview]

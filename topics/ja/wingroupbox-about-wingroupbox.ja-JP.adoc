@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingroupbox-about-wingroupbox",
+    "controlName": ["WinGroupBox"],
+    "tags": ["Getting Started","Grouping"],
+    "guid": "{2DFE7BB2-A8A6-481C-9A03-D4A0F255018F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGroupBox について
+
+WinGroupBox エレメントは、基本的なグループボックス コントロールに機能を追加したものです。このコントロールには、Office 2003 や Visual Studio 2005 などの人気のある Windows アプリケーションで使用されているビジュアル スタイルをシミュレートした ViewStyle がいくつかあります。提供されている ViewStyle に満足できない場合は、追加の Appearance オブジェクトを使用してコントロールのルック アンド フィールの調整を行うことができます。さらに、コントロールの四方にヘッダ（キャプションとオプションの画像が含まれる）を配置できます。以下に、WinGroupBox コントロールの主な機能を示します。
+
+* 外観のサポート - アルファ ブレンディングやグラデーションなどを含め、外観が完全にサポートされます。
+* BorderStyle - このコントロールでは、多くのニーズを満たせるように豊富な境界線スタイルが提供されています。
+* CaptionAlignment - ヘッダ内のキャプションの位置を決定します。
+* HeaderBorderStyle - ヘッダの周囲に描画される境界線の種類を指定できます。
+* HeaderPosition - ヘッダ（キャプションのテキストを含めて）を垂直方向または水平方向に配置します。
+* UseMnemonic - テキスト内のアンパサンドがニーモニック文字として解釈されるかどうかを決定します。
+* WrapText - キャプションを 1 行で表示するスペースがコントロールにない場合に、キャプションは複数行になります。
+
+image::Images/WinMisc_Overview_02.png[]

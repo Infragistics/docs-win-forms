@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpopupcontrolcontainer-smart-tag",
+    "controlName": ["WinPopupControlContainer"],
+    "tags": ["Getting Started"],
+    "guid": "{859BF82F-307C-48CD-9858-A8F30D2908B0}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-11T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPopupControlContainer スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、それぞれの {ProductName} コントロール/コンポーネントが固有のスマート タグを備えています。 コントロール/コンポーネントを単に選択すると、Smart Tag のアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WinPopupControlContainer スマート タグには、コンポーネントの名前と次のセクションがあります。
+
+* 外観 -- コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+
+各セクションの項目（たとえば、フィールド、ドロップダウン リスト、チェックボックス）およびプロパティ グリッドの項目の対応するプロパティの説明については以下を参照してください。
+
+image::images/WinMisc_The_WinPopupControlContainer_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|ポップアップ コントロール
+|現在フォーム上にある使用可能なコントロールのひとつをドロップダウン リストから選択します。コントロールの Show メソッドが呼び出されたとき、このコントロールがポップアップ ウィンドウに表示されます。
+| link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapopupcontrolcontainer~popupcontrol.html[PopupControl]
+
+|====

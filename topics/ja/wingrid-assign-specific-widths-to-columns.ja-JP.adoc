@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-assign-specific-widths-to-columns",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{6CD6FEFD-2ED3-42BB-853D-AA40AC6DBED3}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列に特定の幅を指定
+
+場合によっては、 WinGrid 列に特定の幅を割り当てたい場合があります。これを実行するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Column]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~width.html[Width]"]  プロパティを使用できます。次のコードを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	Dim oCol As UltraGridColumn
+	For Each oCol In e.Layout.Bands(0).Columns
+		oCol.Width = 100
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	foreach ( UltraGridColumn column in e.Layout.Bands[0].Columns )
+	{
+		column.Width = 100;
+	}
+}
+----

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-setting-the-image-for-an-item-at-run-time",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{61CD140F-9E6B-4628-9E7D-5C2318E7EFDA}",  
+    "buildFlags": [],
+    "createdOn": "2009-02-02T11:35:56Z"
+}
+|metadata|
+////
+
+= ランタイムで項目の画像を設定
+
+このトピックはランタイムにグループ内の項目に画像を追加する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' 画像を保持するために新しいビットマップ オブジェクトを作成します 
+Dim img As New System.Drawing.Bitmap("C:\sampleImage.bmp")
+' 画像を image プロパティに割り当てます 
+ultraExplorerBar1.Groups(0).Items(0).Settings.AppearancesSmall.Appearance.Image = img
+----
+
+*C# の場合：*
+
+----
+// 画像を保持するために新しいビットマップ オブジェクトを作成します
+System.Drawing.Bitmap img = new  System.Drawing.Bitmap("C:\\sampleImage.bmp");
+// 画像を image プロパティに割り当てます
+ultraExplorerBar1.Groups[0].Items[0].Settings.AppearancesSmall.Appearance.Image = img;
+----

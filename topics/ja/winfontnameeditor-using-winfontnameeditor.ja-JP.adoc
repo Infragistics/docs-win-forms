@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winfontnameeditor-using-winfontnameeditor",
+    "controlName": ["WinFontNameEditor"],
+    "tags": [],
+    "guid": "{6E73BB88-60BA-47B2-9A71-C12E3DEA3D65}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-11T14:56:02Z"
+}
+|metadata|
+////
+
+= WinFontNameEditor の使用
+
+このセクションでは、WinFontNameEditor™ コンポーネント関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winfontnameeditor-changing-the-font-of-text-of-the-selectedrows.html[SelectedRows のテキストのフォントを変更する]
+* link:winfontnameeditor-displaying-the-list-of-fonts-in-a-standard-font.html[標準フォントでフォントのリストを表示する]

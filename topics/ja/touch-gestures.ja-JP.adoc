@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-gestures",
+    "controlName": [],
+    "tags": [],
+    "guid": "9caf56f0-686d-4772-aece-63cb8490afdb",  
+    "buildFlags": [],
+    "createdOn": "2013-02-25T18:57:37.0129859Z"
+}
+|metadata|
+////
+
+= タッチ ジェスチャ
+
+=== はじめに
+
+このグループのトピックは Infragistics タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+.注:
+[NOTE]
+====
+この機能は完全な信頼環境のみで利用可能です。
+====
+
+タッチ ジェスチャは Infragistics link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase_members.html[UltraControlBase] クラスの新しい link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturesenabled.html[GesturesEnabled] プロパティをサポートします。これはアプリケーションにジェスチャのサポートを有効にするブール値プロパティです。デフォルト値は `True` です。各ジェスチャをサポートするコントロールは自身の link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturesenabled.html[GesturesEnabled] プロパティを含みます。アプリケーション レベルの代わりにコントロールで特定のジェスチャを有効または無効に設定できます。
+
+.注:
+[NOTE]
+====
+コントロールの明示的な設定は、アプリケーションの設定より優先されます。
+====
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:touch-gestures-overview.html[タッチ ジェスチャの概要]
+|このトピックでは、Infragistics のタッチ対応コントロールのタッチ ジェスチャ機能と使用を説明します。
+
+| link:touch-gestures-events.html[タッチ ジェスチャのイベント]
+|このトピックは Infragistics のタッチ対応コントロールのジェスチャおよびイベントを紹介します。
+
+| link:http://msdn.microsoft.com/ja-jp/library/windows/desktop/dd940543(v=vs.85).aspx[Windows Touch のジェスチャ]
+|この MSDN セクションは Windows Touch にサポートされるジェスチャを説明します。
+
+|====

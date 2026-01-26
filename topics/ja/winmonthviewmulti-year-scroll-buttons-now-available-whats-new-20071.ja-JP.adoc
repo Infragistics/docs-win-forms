@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmonthviewmulti-year-scroll-buttons-now-available-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B27281DC-554E-4C20-99A7-831D039BBB03}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 年スクロール ボタンを使用できる
+
+本リリース以前は、WinMonthViewMulti はカレンダーの月ヘッダで月のスクロールだけをサポートしました。ただし、一度に月全体を表示することは可能だったので、年をスクロールすることができれば便利でした。それができるようになりました。新しい pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewmultibase~yearscrollbuttonsvisible.html[YearScrollButtonsVisible]"]  プロパティによって、月スクロール ボタンのすぐ側に年スクロール ボタンを表示できます。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewmultibase~yearscrollchange.html[YearScrollChange]"]  プロパティでスクロールする年数を変更することができます。これらの年スクロール ボタンは、OfficeXP または Office2007 などの ViewStyles すべてもサポートします。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewmultibase~yearscrollbuttonappearance.html[YearScrollButtonAppearance]"]  オブジェクトを忘れないでください。これは AppStylist でこれらのボタンをスタイルできます。
+
+image::images/Win_WinMonthViewMulti_Whats_New_20071_01.png[]
+
+== 関連トピック
+
+link:winmonthviewmulti-display-the-year-scroll-buttons.html[年スクロール ボタンを表示]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-annotations-corners-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{94DD81C6-ECA2-4053-B060-685C8271A778}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 角ペイン
+
+[角] ペインは、注釈の角の形状を決定するために使用されます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.boxannotation~cornerextent.html[範囲]"]  -- この値を 0 から 100 の整数に設定します。範囲の値は、注釈の角の丸みを決定します。
+
+image::images/Linear_Corners_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-annotations-tab.html[注釈タブ]

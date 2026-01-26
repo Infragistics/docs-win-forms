@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridbaglayoutpanel-arranging-controls-in-wingridbaglayoutpanel",
+    "controlName": ["WinGridBagLayoutPanel"],
+    "tags": ["Design Environment","How Do I","Layouts"],
+    "guid": "{85B393D7-296B-4E59-A884-BEC572697153}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールを WinGridBagLayoutPanel に配置
+
+WinGridBagLayoutPanel™ コントロールは、WinGridBagLayoutManager™ コンポーネントの鏡像です。主な違いはパネルがデザインタイム編集をサポートすることです。グリッド バッグの概念は WinGridBagLayoutPanel で完全に実現されています。その他のデザインタイム コントロールのように、仮想グリッドを実際に見て操作することができるからです。コントロールをパネルに追加して、仮想列と行のサイズを操作する方法の詳細については、このトピックを読み進んでください。
+
+== ドラッグ アンド ドロップ
+
+コントロールを WinGridBagLayoutPanel の仮想グリッドに追加するための最も簡単な方法は、Microsoft® Visual Studio® ツールボックスから仮想グリッドにドラッグすることです。コントロールを仮想グリッドにドラッグすると、赤いアウトラインがグリッド領域に表示されます。このアウトラインは、ドロップした時にコントロールがグリッド バッグ レイアウトのどこに配置されるのかを示しています。
+
+image::images/WinGridBagLayoutPanel_Arranging_Controls_in_WinGridBagLayoutPanel_01.png[]
+
+== 仮想行と列のサイズを変更
+
+WinGridBagLayoutPanel コントロールには、仮想行と列で構成される仮想グリッドが含まれています。列/行を表す点線をクリックして、列/行のサイズが希望どおりになるまでドラッグすることによって、これらの列と行のサイズを修正できます。ただし、上と下の点線のサイズは変更できません。上/下および左/右の端のサイズを変更するには下と右の点線をそれぞれ使用します。
+
+image::images/WinGridBagLayoutPanel_Arranging_Controls_in_WinGridBagLayoutPanel_02.png[]
+
+== 行と列のスパニング
+
+WinGridBagLayoutPanel コントロールの内のコントロールは、一度に配置できるのが 1 列または 1 行のみに制限されていません。コントロールは、2 列または 3 列、またはグリッド バッグ レイアウト内にある列または行だけスパンできます。レイアウト内に含まれる各コントロールには、右側と下側に 2 つの小さい白い菱形の記号があります。これらの記号をクリック アンド ドラッグすると、複数行（右の記号をクリック アンド ドラッグする場合）と複数列（下の記号をクリック アンド ドラッグする場合）をスパンすることができます。赤いアウトラインが表示して、どの列または行がスパンされるのかを正確に知ることができます。
+
+image::images/WinGridBagLayoutPanel_Arranging_Controls_in_WinGridBagLayoutPanel_03.png[]
+
+== 個々のコントロールを調整
+
+列と行のサイズの変更とスパンが必要な量のコントロールを提供しない場合、WinGridBagLayoutPanel コントロールによって管理されている各コントロールは、WinGridBagLayoutPanel からのプロパティで拡張されます。これらのプロパティによって、仮想グリッド内で個々のコントロールがどのように動作するかを調整できます。
+
+以下の拡張プロパティは、WinGridBagLayoutPanel によって管理されるコントロールに使用できます。
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint.html[GridBagConstraint] – スパンする仮想行または列の数だけでなく、コントロールがグリッド バッグ レイアウト内のどこに配置されるのかを管理するためのいくつかの有用なプロパティが含まれています。
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutitem~includeinlayout.html[IncludeInLayout] – グリッド バッグ レイアウトにコントロールが含まれるかどうかを決定します（つまり、コントロールが WinGridBagLayoutPanel によって管理されるかどうか）。
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutitem~preferredsize.html[PreferredSize] – WinGridBagLayoutPanel はこの値に基づいてコントロールのサイズを変更しようとします。GridBagConstraint.Fill プロパティが設定されると、PreferredSize プロパティは無視されます。

@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-working-with-menus",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{DC54EECE-1C36-4A77-A918-D1C285A4C1BB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= メニュー操作
+
+WinToolbarsManager のメニューは、概念的には .NET の標準的なメニューや Microsoft Office のメニューと同じです。.NET のメニュー アーキテクチャでは、メニューは他の MenuItem のコレクションを格納する特別な MenuItem です。同様に、UltraToolbarsManager のメニューは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  クラスで表現される特別なツールで、UltraToolbarsManager がサポートしている 12 個の基本ツールタイプの 1 つになります。PopupMenuTool には他のツール（他の PopupMenuTool を含む）を格納する機能があります。
+
+PopupMenu ツールはツールバーまたはメニューに配置できます。この場合、ツールをクリックすると、メニューに対して定義されたツールで構成されるポップアップ メニューが表示されます。PopupMenu ツールはまた、UltraToolbarsManager エレメントの ShowPopup メソッドを使用して、デスクトップ上のどこにでもコンテキスト メニューとして「ポップアップ」できます。
+
+== メニューへのツールの追加
+
+PopupMenu ツールは、ToolBase 派生オブジェクト（つまり Tools）のコレクションである Tools プロパティを持っています。このコレクション内に存在するツールはインスタンス ツールです（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルートツールとインスタンスツール」]の説明を参照してください）。メニューにツールを表示するには、それらのツールをメニューの Tools コレクションに追加する必要があります。Tools コレクションへのツールの追加は、開発者またはエンド ユーザーが実行できます。開発者は次の方法でツールをメニューに追加できます。
+
+* デザイン タイム カスタマイザを使用してドラッグ アンド ドロップする。
+* ランタイムにプログラムで Tools コレクションの Add メソッドを呼び出す。
+
+エンド ユーザーは次の方法でツールをメニューに追加できます。
+
+* デザイン タイム カスタマイザを使用してドラッグ アンド ドロップする。
+
+== トップレベル メニュー対サブメニュー
+
+トップレベル メニューとは、ツールバーに追加された PopupMenuTool、またはコンテキスト メニューとしてポップアップされる PopupMenuTool のことです。サブメニューとは、別の PopupMenuTool に追加された PopupMenuTool のことです。エンド ユーザーがクリックすると、親メニューからサブメニューが「カスケード表示」されます。トップレベル メニュー（親メニューとも呼ばれます）とサブメニューは、場所が違うだけでどちらも同じ型を持つオブジェクトです。
+
+image::Images/UltraToolbarsManager_About_Menus_01.png[]

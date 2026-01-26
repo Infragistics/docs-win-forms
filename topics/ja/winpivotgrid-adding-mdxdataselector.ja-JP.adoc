@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-adding-mdxdataselector",
+    "controlName": [],
+    "tags": [],
+    "guid": "8d07e979-7113-4249-b865-f04523329223",  
+    "buildFlags": [],
+    "createdOn": "2014-09-12T03:40:43.55059Z"
+}
+|metadata|
+////
+
+= MdxDataSelector の追加
+
+=== 概要
+
+データ セレクター ( link:http://help.infragistics.com/Help/Doc/WinForms/2014.1/CLR4.0/html/Infragistics4.Win.UltraWinPivotGrid.v14.1~Infragistics.Win.UltraWinPivotGrid.DataSelector.MdxDataSelector.html[MdxDataSelector]) は独立したコントロールですが、 _WinPivotGrid_  コントロールに欠かせないメカニズムです。データ セレクターはピボット グリッドと同じデータ ソースにバインドする必要があります。 _WinPivotGrid_  は、ユーザーがランタイムでピボット グリッドに追加できるディメンションおよびメジャーのリストを表示します。
+
+.注:
+[NOTE]
+====
+データ セレクターがランタイムに表示されない場合、ディメンションは追加できません。その場合、ピボット グリッドからのディメンションの削除のみが可能です。
+====
+
+以下のコード例では、データ セレクターをピボット グリッドのデータ ソースにバインドする方法を紹介します。以前のコード例のデータ ソース オブジェクトを使用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+mdxDataSelector1.DataSource = xmlaDs;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+mdxDataSelector1.DataSource = xmlaDs
+----
+
+以下のスクリーンショットは、XMLA データ ソースにバインドされるピボット グリッドおよびデータ セレクターを表示しています。同じ方法で ADOMD データ ソースにバインドできます。
+
+image::images/Adding_MdxDataSelector_1.png[]

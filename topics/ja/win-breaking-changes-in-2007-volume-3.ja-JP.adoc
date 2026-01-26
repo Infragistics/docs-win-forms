@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2007-volume-3",
+    "controlName": [],
+    "tags": ["Grids","Known Issues"],
+    "guid": "{DB301D9C-1164-43E8-B633-ABC3F10AE52A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2007 Volume 3 の重大な変更
+
+== WinGridExcelExporter/ Excel エンジン
+
+廃止された Workbook.ActiveWorksheet プロパティの代わりに link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.windowoptions~selectedworksheet.html[Workbook.WindowOptions.SelectedWorksheet] プロパティを使用します。

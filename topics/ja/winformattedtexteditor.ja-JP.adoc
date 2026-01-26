@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{041274F2-D771-45AA-A6E3-78E5AC99DB98}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedTextEditor
+
+WinFormattedTextEditor コントロールに関連する概要/タスク ベースの情報すべてが収められている領域を探しているのであれば、このページをご覧ください。本セクションには、WinFormattedTextEditor についての役立つ情報が含まれています。その範囲は、コントロールが行うこと、アプリケーションでそれを使用したい理由から、コントロールを使用して一般的なタスクをどのように達成するかについての手順です。
+
+以下のリンクをクリックして WinFormattedTextEditor コントロールについての重要情報にアクセスしてください。
+
+== link:winformattedtexteditor-understanding-winformattedtexteditor.html[WinFormattedTextEditor の理解]
+
+本セクションでは、WinFormattedTextEditor コントロールの機能をより良く理解する支援をする情報、そしてアプリケーションをビルドする一部としてそれを使用したい理由が見つかります。
+
+== link:win-winformattedtexteditor-using-winformattedtexteditor.html[WinFormattedTextEditor の使用]
+
+このセクションは、WinFormattedTextEditor コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:winformattedtexteditor-api-overview.html[API 概要]
+
+本トピックは、WinFormattedTextEditor コントロールでプログラミング中に取り扱う名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

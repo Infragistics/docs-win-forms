@@ -1,0 +1,174 @@
+﻿////
+|metadata|
+{
+    "name": "wincarousel-properties",
+    "controlName": [],
+    "tags": [],
+    "guid": "e2d66431-0996-46a9-9275-dad027757db5",
+    "buildFlags": [],
+    "createdOn": "2014-09-12T21:11:05.0549347Z"
+}
+|metadata|
+////
+
+= WinCarousel プロパティ
+
+=== 概要
+
+このトピックでは、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel_members.html[UltraCarousel] コントロールのプロパティと一般的に使用されるオブジェクトのリストを提供します。
+
+=== WinCarousel （プロパティ）参照チャート
+
+以下の表は、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel_members.html[UltraCarousel] コントロールの主なプロパティの目的と機能の概要を説明しています。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|タイプ|説明
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~activeitem.html[ActiveItem]
+|`CarouselItem`
+|単一の選択された項目。項目のコレクションで表示されるどの link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitem_members.html[CarouselItem] でも可能です。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~items.html[Items]
+|`CarouselItemsCollection`
+|コントロールが描画できる link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitem_members.html[CarouselItem] オブジェクトのコレクションです。データ バインディングで使用した場合、コレクションは自動的に生成され、手動で変更することはできません。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~itemsize.html[ItemSize]
+|`Size`
+|項目のディメンションを指定します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~datasource.html[DataSource]
+|`object`
+|コレクション、リスト、または配列にすることができるデータ バインディングで使用されます。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~path.html[Path]
+|`Path`
+|カルーセル項目が描画される 2 次元平面上のパスウェイを指定します。
+
+| link:http://msdn.microsoft.com/ja-jp/library/system.windows.forms.control.visible(v=vs.110).aspx[Visible]
+|`Boolean`
+|_System.WindowsForms.Control_ から継承され、アプリケーション実行時にカルーセル コントロールを描画できるか、非表示にできるかを示します。
+
+|====
+
+=== CarouselItem（プロパティ）参照チャート
+
+以下の表は、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitem_members.html[CarouselItem] オブジェクトの主なプロパティの目的と機能の概要を説明しています。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|タイプ|説明
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitem~isactive.html[IsActive]
+|`Boolean`
+|項目が現在のカルーセルの link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~activeitem.html[ActiveItem] であることを調べるために使用されます。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitem~isselected.html[IsSelected]
+|`Boolean`
+|項目がユーザー操作により選択されていることを調べるために使用されます。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitem~settings.html[Settings]
+|`ItemSettings`
+|この特定のカルーセル項目に影響するさまざまな項目関係の設定を含みます。
+
+| link:http://msdn.microsoft.com/ja-jp/library/system.windows.forms.control.visible(v=vs.110).aspx[Visible]
+|`Boolean`
+|_System.WindowsForms.Control_ は、項目をパス上に描画できるかどうかを示します。
+
+|====
+
+=== CarouselPath（プロパティ）参照チャート
+
+以下の表は、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath_members.html[CarouselPath] オブジェクトの主なプロパティの目的と機能の概要を説明しています。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|タイプ|説明
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~animationframes.html[AnimationFrames]
+|`int`
+|パス上のある位置から別の位置に移動するためにアニメーションのフレームを何個割り当てるかを指定します。フレーム数が増加するほど、2 つの位置の間を項目が移動する速度が増加します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~itemslots.html[ItemSlots]
+|`int`
+|項目に割り当てるスロット数を指定します ( _Default=5_ )。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~opacitystops.html[OpacityStops]
+|`float`
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.pathopacitystop_members.html[PathOpacityStop] オブジェクトのコレクションで、パス上の位置に基づいて不透明な項目の描画する方法を定義するために使用されます。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~scalingstops.html[ScalingStops]
+|`float`
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.pathscalingstop_members.html[PathScalingStop] オブジェクトのコレクションで、パス上の位置に基づいて項目の拡大縮小する方法を定義するために使用されます。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~itemrenderingorder.html[ItemRenderingOrder]
+|`ItemRenderingOrder`
+|以下のファクターに基づき、項目の描画順序を示します。 
+
+*Linear* – 項目は項目コレクションでの順序に基づき描画されます。 
+
+*Opacity* – 項目は描画前の解決済み不透明度に基づきソートされます。 
+
+*Scaling* – 項目は描画前の解決済みスケーリングに基づきソートされます。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~itemwrapping.html[ItemWrapping]
+|`ItemWrappingMode`
+|以下のファクターに基づき、項目のラッピングを示します。 
+
+*Standard* – 項目をラップし、使用可能な項目スロットの塗りつぶしを示します。 
+
+カルーセル項目数より項目スロット数が多い場合、残りの項目は塗りつぶされません。 
+
+*RepeatItems* – 項目をラップし、使用可能な項目スロットの塗りつぶしを示します。 
+
+カルーセル項目数より項目スロット数が多い場合、パスで項目が繰り返されます。 
+
+*None* – 項目をラップせず、使用可能な項目スロットの塗りつぶしを示します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~pathmargin.html[PathMargin]
+|`int`
+|パスの 4 つの辺で、パスの端と境界線との間の余白を指定します ( _Left、Top、Right_ _、Bottom_ )。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselpath~snaptoposition.html[SnapToPosition]
+|`Boolean`
+|アニメーションの後に、項目を固定された項目スロットにスナップするかどうかを示します。`Default=True`
+
+|====
+
+=== ItemSettings（プロパティ）参照チャート
+
+以下の表は、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~itemsettings.html[ItemSettings] オブジェクトの主なプロパティの目的と機能の概要を説明しています。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|タイプ|説明
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~appearance.html[Appearance]
+|`AppearanceBase`
+|標準状態での項目スタイル設定を指定します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~activeappearance.html[ActiveAppearance]
+|`AppearanceBase`
+|アクティブ項目である場合の項目のスタイル設定を指定します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~hottrackingappearance.html[HotTrackingAppearance]
+|`AppearanceBase`
+|マウスが項目の上に移動した場合の項目のスタイル設定を指定します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~borderstyle.html[BorderStyle]
+|`UIElementBorderStyle`
+|描画時の項目の境界線外観を指定します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~pressedappearance.html[PressedAppearance]
+|`AppearanceBase`
+|カルーセル項目が押されたときの各種外観プロパティを公開します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~selectedappearance.html[SelectedAppearance]
+|`AppearanceBase`
+|カルーセル項目が選択されたときの各種外観プロパティを公開します。
+
+| link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.carouselitemsettings~imagesize.html[ImageSize]
+|`Size`
+|項目の画像サイズを指定します。
+
+|====

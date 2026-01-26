@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-getting-started",
+    "controlName": [],
+    "tags": [],
+    "guid": "{840FCFE1-EB21-40E1-92F2-253ABA142F50}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= はじめに
+
+このセクションは、ユーザーのアプリケーションを瞬時にスタイルするための短いトピックを提供します。これらのトピックをクイック リファレンスとして使用するか、ユーザー固有のスタイル ライブラリを作成するための基礎を学習するためにひとつずつ読み進んでください。
+
+* link:styling-guide-creating-a-style-library.html[スタイル ライブラリの作成]
+* link:styling-guide-creating-a-styleset.html[スタイルセットの作成]
+* link:styling-guide-saving-your-work.html[作業の保存]
+* link:styling-guide-opening-a-saved-style-library.html[保存されたスタイル ライブラリを開く]
+* link:styling-guide-infragistics-appstylist-for-windows-forms-options.html[Infragistics AppStylist for Windows Forms オプション ダイアログ ボックス]

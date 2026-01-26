@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-column-tabindex-property-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{853FDEDF-60CE-4330-9CE6-87DE974A723B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列の TabIndex プロパティ
+
+デフォルトで、WinGrid はセルの位置に基づいてセルのタブ順序を決定します。UltraGridColumn の TabIndex プロパティを使用して、タブ キーが使用されている時に WinGrid が行のセルをトラバースする順序を制御することができます。プロパティのデフォルト値は *-1* です。これは列がデフォルトのタブ順序に従うことを意味します。これらの列のタブの順序がデフォルトのタブの順序に従う場合に、2 つ以上の列の TabIndex を同じ値に設定できます。一部の列だけに TabIndex を指定し、他の列では TabIndex をデフォルト値にしておくこともできます。このようなシナリオでは、TabIndex をデフォルト値以外に設定している列は、TabIndex を設定していない列よりも優先されます。
+
+== 関連トピック
+
+link:wingrid-controlling-the-tab-order-of-cells.html[セルのタブ順序を制御]

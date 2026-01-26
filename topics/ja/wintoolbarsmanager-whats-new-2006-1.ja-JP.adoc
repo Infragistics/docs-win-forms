@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F6DAFD86-7F27-423D-97DE-9BB3B8D84497}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager 2006.1
+
+Infragistics 2006 Volume 1 リリースに新たに追加された強力な WinToolbarsManager™ 機能について説明しています。
+
+* link:wintoolbarsmanager-editmode-events-whats-new-2006-1.html[EditMode イベント] -- UltraToolbarsManager クラスと ToolBase クラスに、エディタ ツールに関連した新しいイベントが 5 つ追加されました。
+* link:wintoolbarsmanager-initializechecked-whats-new-2006-1.html[InitializeChecked] -- ToolClick イベントをトリガーせずに Checked プロパティの値を変更できます。
+* link:wintoolbarsmanager-maskededit-tool-whats-new-2006-1.html[MaskedEdit ツール] -- このエディタ ツールを使用すると、エンド ユーザーが入力するテキストを制限するマスクを指定できます。
+* link:wintoolbarsmanager-menu-tooltips-whats-new-2006-1.html[メニュー ツールチップ] -- ツールバーまたはメニューに対し、そこに含まれているツールのツールチップを表示するかどうかを指定できます。
+* link:wintoolbarsmanager-popuptool-dropdown-whats-new-2006-1.html[PopupToolドロップダウン] -- プログラミングにより、特定のツールバーまたはメニューにポップアップ ツールのドロップダウン リストを表示できます。
+* link:wintoolbarsmanager-progressbar-tool-whats-new-2006-1.html[ProgressBar ツール] -- ツールバーまたはメニューにプログレス バーを表示するためのエディタ ツールです。
+* link:wintoolbarsmanager-tool-orientation-whats-new-2006-1.html[ツールの配置方向] -- ツールバーがドッキングされている位置にかかわらず、ツールを水平に配置するか垂直に配置するかを指定できます。
+* link:wintoolbarsmanager-tool-statustext-whats-new-2006-1.html[ツールの StatusText] -- ツールをアクティブ化すると、WinToolbarsManager コンポーネントと同じコンテナにある WinStatusBar の AutoStatusText タイプのパネルに、テキストが自動的に表示されます。
+* link:wintoolbarsmanager-uselargeimages-whats-new-2006-1.html[UseLargeImages] -- この新しいプロパティを使用すると、特定のツールバーまたはメニューを大きなイメージで表示するかどうかを指定できます。

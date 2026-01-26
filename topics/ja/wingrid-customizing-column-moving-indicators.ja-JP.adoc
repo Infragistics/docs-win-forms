@@ -1,0 +1,66 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-customizing-column-moving-indicators",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{2E2CB330-6550-4118-9CD2-7A42A1EEE9E6}",
+    "buildFlags": [],
+    "createdOn": "2009-08-06T16:57:35Z"
+}
+|metadata|
+////
+
+= 列移動インジケーターのカスタマイズ
+
+WinGrid™ の列ヘッダーをドラッグすると、矢印が表示してマウスを現在の位置で放すと列がどこに配置されるのかを示します。インジケーターの色を変更する、またはインジケーターに使用される矢印画像を変更することによって、これらのデフォルト列の移動インジケーターをカスタマイズできます。矢印がポイントしている方向を変更することも可能です。これらすべてのカスタマイズは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~dragdropindicatorsettings.html[DragDropIndicatorSettings]"]  プロパティによって実行できます。
+
+同様に、RowLayout モードで WinGrid の列ヘッダーを空のスペースにドラッグした時に表示される矩形の色を変更できます。
+
+WinGrid コントロールのプロパティ ウィンドウまたはコードによって前述のカスタマイズを実行できます。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+' 矢印画像の色を変更します。
+Me.ultraGrid1.DisplayLayout.Override.DragDropIndicatorSettings.Color = Color.Green
+----
+
+*C# の場合：*
+[source,csharp]
+----
+// 矢印画像の色を変更します。
+this.ultraGrid1.DisplayLayout.Override.DragDropIndicatorSettings.Color = Color.Green;
+----
+
+image::Images/WinGrid_Customize_Column_Moving_Indicators_01.png[]
+
+*RowLayout モードの WinGrid - Color プロパティが緑に設定される時に矩形の色も設定されます。*
+
+image::Images/WinGrid_Customize_Column_Moving_Indicators_02.png[]
+
+*RowLayout モードの WinGrid – 矢印のさまざまな方向にカスタム画像を割り当てます。*
+
+*Visual Basic の場合：*
+[source,vb]
+----
+' 上矢印画像を設定します。上矢印画像を180度回転することによって下矢印画像が解決されます。
+  Me.ultraGrid1.DisplayLayout.Override.DragDropIndicatorSettings.ImageTop = Image.FromFile("C:\Images\arrow-blue.gif") 
+' 左矢印画像を設定します。左矢印画像を180度回転することによって右矢印画像が解決されます。
+  Me.ultraGrid1.DisplayLayout.Override.DragDropIndicatorSettings.ImageLeft = Image.FromFile("C:\Images\arrow-Pink.gif")
+----
+
+*C# の場合：*
+[source,csharp]
+----
+// 上矢印画像を設定します。上矢印画像を180度回転することによって下矢印画像が解決されます。
+   this.ultraGrid1.DisplayLayout.Override.DragDropIndicatorSettings.ImageTop = Image.FromFile(@"C:\Images\arrow-blue.gif");
+// 左矢印画像を設定します。左矢印画像を180度回転することによって右矢印画像が解決されます。
+   this.ultraGrid1.DisplayLayout.Override.DragDropIndicatorSettings.ImageLeft =Image.FromFile(@"C:\Images\arrow-Pink.gif");
+----
+
+*列ヘッダーをドラッグする場所に基づいて異なりますが、矢印画像は上から下または左から右のいずれかに配置されます。*
+
+image::Images/WinGrid_Customize_Column_Moving_Indicators_03.png[]
+
+image::Images/WinGrid_Customize_Column_Moving_Indicators_04.png[]

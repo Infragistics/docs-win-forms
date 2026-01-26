@@ -1,0 +1,41 @@
+﻿////
+|metadata|
+{
+    "name": "win-known-issues-and-breaking-changes",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{C6A758EA-BB43-4453-985A-3B662C12B956}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 既知の問題と重大な変更
+
+このトピックは、{ProductName} 製品全体に影響を及ぼす既知の問題および制限についての情報を提供します。{ProductName} を使用する場合には、これらの問題や制限に注意してください。コントロール/コンポーネントに特有の問題については、既知の問題および制限のリストのコントロール/コンポーネントの理解のセクションを参照してください。ボリューム リリース後に問題が発生または見つかった場合の最新の重大な変更および既知の問題については link:https://jp.infragistics.com/support/online-documentation/revision-history[改訂履歴]または link:http://www.infragistics.com/latebreaking/WindowsForms[フォーラム] (英語) をご覧ください。 
+
+* link:win-breaking-changes-in-2021-volume-2.html[2021 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2021-volume-1.html[2021 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2017-volume-2.html[2017 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2017-volume-1.html[2017 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2016-volume-2.html[2016 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2015-volume-1.html[2015 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2014-volume-2.html[2014 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2013-volume-2.html[2013 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2012-volume-2.html[2012 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2012-volume-1.html[2012 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2011-volume-2.html[2011 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2011-volume-1.html[2011 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2010-volume-3.html[2010 Volume 3 の重大な変更]
+* link:win-breaking-changes-in-2010-volume-2.html[2010 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2010-volume-1.html[2010 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2009-volume-2.html[2009 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2009-volume-1.html[2009 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2008-volume-3.html[2008 Volume 3 の重大な変更]
+* link:win-breaking-changes-in-2008-volume-2.html[2008 Volume 2 の重大な変更]
+* link:win-breaking-changes-in-2007-volume-3.html[2007 Volume 3 の重大な変更]
+* link:win-breaking-changes-in-2007-volume-1.html[2007 Volume 1 の重大な変更]
+* link:win-breaking-changes-in-2006-volume-3.html[2006 Volume 3 の重大な変更]
+* link:win-known-issues-in-2013-volume-1.html[2013 Volume 1 の既知の問題]
+* link:win-known-issues-in-2012-volume-2.html[2012 Volume 2 の既知の問題]

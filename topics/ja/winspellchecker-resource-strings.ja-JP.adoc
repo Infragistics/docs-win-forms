@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-resource-strings",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{7421E669-5CDB-4DC5-9FD8-3B895AC1DB1C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|LS_SpellCheckForm
+|スペル
+
+|LS_SpellCheckForm_AccessibleDescription
+|テキストをスペルチェックする
+
+|LS_SpellCheckForm_btAddToDictionary
+|辞書に追加する
+
+|LS_SpellCheckForm_btAddToDictionary_AccessibleDescription
+|現在のエラーを辞書に追加する
+
+|LS_SpellCheckForm_btChange
+|変更
+
+|LS_SpellCheckForm_btChange_AccessibleDescription
+|現在のエラーを新しいテキストに変更する
+
+|LS_SpellCheckForm_btChangeAll
+|すべて変更
+
+|LS_SpellCheckForm_btChangeAll_AccessibleDescription
+|現在のエラーのすべてのインスタンスを新しいテキストに変更する
+
+|LS_SpellCheckForm_btClose_1
+|キャンセル
+
+|LS_SpellCheckForm_btClose_1_AccessibleDescription
+|エラーを修正する時に行った変更をキャンセルする
+
+|LS_SpellCheckForm_btClose_2
+|閉じる
+
+|LS_SpellCheckForm_btClose_2_AccessibleDescription
+|スペルチェック ダイアログを閉じる
+
+|LS_SpellCheckForm_btIgnoreAll
+|すべて無視
+
+|LS_SpellCheckForm_btIgnoreAll_AccessibleDescription
+|現在のエラーのすべてのインスタンスを無視する
+
+|LS_SpellCheckForm_btIgnoreOnce_1
+|一度無視する
+
+|LS_SpellCheckForm_btIgnoreOnce_1_AccessibleDescription
+|現在のエラーを一度無視する
+
+|LS_SpellCheckForm_btIgnoreOnce_2
+|再開する
+
+|LS_SpellCheckForm_btIgnoreOnce_2_AccessibleDescription
+|テキストのスペルチェックを再開する
+
+|LS_SpellCheckForm_btUndo
+|元に戻す
+
+|LS_SpellCheckForm_btUndo_AccessibleDescription
+|テキストに行った最後の変更を元に戻す
+
+|LS_SpellCheckForm_Ellipsis
+|...
+
+|LS_SpellCheckForm_lbChangeTo
+|変更
+
+|LS_SpellCheckForm_lbChangeTo_AccessibleDescription
+|現在のエラーをこのテキストに変更する
+
+|LS_SpellCheckForm_lbErrorsFound
+|スペルエラーが見つかりました
+
+|LS_SpellCheckForm_lbSuggestions
+|修正候補:
+
+|SpellCheckerContextSubMenuItem_MoreSuggestions
+|他の修正候補
+
+|SpellCheckerSettingsToStringLiteral
+|有効 = {0}
+
+|SpellOptionsToStringLiteral_1
+|1 プロパティが修正されました
+
+|SpellOptionsToStringLiteral_2
+|{0} プロパティは変更されました。
+
+|UnderlinedErrorToStringLiteral
+|Word: {0}, StartIndex: {1}
+
+|====

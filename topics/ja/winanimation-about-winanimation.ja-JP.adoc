@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winanimation-about-winanimation",
+    "controlName": [],
+    "tags": ["Getting Started","Summaries"],
+    "guid": "{07B6A021-06AE-41C3-8738-86A67BD9E2E2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinAnimation コントロールについて
+
+AnimationControl は、Microsoft Common Controls のアニメーション クラスのラッパーです。このコントロールは、AVI ファイル、またはストック AVI ファイルの 1 つを再生する機能を提供します。
+
+[NOTE]
+====
+*注:* Animation Control には、アンマネージ コード権限が必要です。フォームに要素のインスタンスが含まれていて、アセンブリにアンマネージ コードの権限がない場合は、.NET Framework によってセキュリティ例外が生成され、このフォームは表示されません。
+====
+
+image::Images/WinMisc_Overview_20.png[]

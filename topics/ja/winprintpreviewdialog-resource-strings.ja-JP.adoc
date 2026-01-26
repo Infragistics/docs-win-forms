@@ -1,0 +1,316 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintpreviewdialog-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{99FF4A0F-4180-4CB1-956B-E9B298E8B139}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPrintPreviewDialog リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleDescription_Preview
+|プレビュー領域
+
+|AccessibleDescription_StatusBar
+|ステータス バー
+
+|AccessibleDescription_Thumbnail
+|サムネイル領域
+
+|AccessibleName_Preview
+|プレビュー
+
+|AccessibleName_StatusBar
+|ステータスバー
+
+|AccessibleName_Thumbnail
+|サムネイル
+
+|CustomizeImg_ToolBar_MenuBar
+|メニューバー
+
+|CustomizeImg_ToolBar_Standard
+|標準
+
+|CustomizeImg_ToolBar_View
+|表示
+
+|PreviewRowColSelection_Cancel
+|キャンセル
+
+|PreviewRowColSelection_SelectedPages
+|{0} x {1} ページ
+
+|PrintPreview_DialogCaption
+|印刷プレビュー
+
+|PrintPreview_Tool_ClosePreview
+|閉じる(&C)
+
+|PrintPreview_Tool_ClosePreview_AccessibleDescription
+|[印刷プレビュー] ダイアログを閉じます。
+
+|PrintPreview_Tool_ContextMenuPreviewHand
+|ContextMenuPreviewHand
+
+|PrintPreview_Tool_ContextMenuPreviewZoom
+|ContextMenuPreviewZoom
+
+|PrintPreview_Tool_ContextMenuThumbnail
+|ContextMenuThumbnail
+
+|PrintPreview_Tool_Continuous
+|連続
+
+|PrintPreview_Tool_Continuous_AccessibleDescription
+|スクロールすると連続してページを表示します。
+
+|PrintPreview_Tool_Current_Page
+|現在のページ
+
+|PrintPreview_Tool_Current_Page_AccessibleDescription
+|[印刷プレビュー] に表示されている現在のページ。
+
+|PrintPreview_Tool_Dynamic_Zoom_Tool
+|ダイナミック ズーム ツール(&D)
+
+|PrintPreview_Tool_Dynamic_Zoom_Tool_AccessibleDescription
+|マウスを使用してズームインまたはズームアウト。
+
+|PrintPreview_Tool_Enlarge_Page_Thumbnails
+|ページのサムネイルを拡大する
+
+|PrintPreview_Tool_Enlarge_Page_Thumbnails_AccessibleDescription
+|ページのサムネイルを拡大します。
+
+|PrintPreview_Tool_Exit
+|終了(&X)
+
+|PrintPreview_Tool_Exit_AccessibleDescription
+|[印刷プレビュー] ダイアログを閉じます。
+
+|PrintPreview_Tool_File
+|ファイル(&F)
+
+|PrintPreview_Tool_File_AccessibleDescription
+|ファイル メニュー。
+
+|PrintPreview_Tool_First_Page
+|先頭ページ
+
+|PrintPreview_Tool_First_Page_AccessibleDescription
+|[印刷プレビュー] に先頭ページを表示します。
+
+|PrintPreview_Tool_Go_To
+|移動
+
+|PrintPreview_Tool_Go_To_AccessibleDescription
+|[印刷プレビュー] で別のページに移動します。
+
+|PrintPreview_Tool_Hand_Tool
+|ハンド ツール(&H)
+
+|PrintPreview_Tool_Hand_Tool_AccessibleDescription
+|マウスを使用して [印刷プレビュー] でスクロールします。
+
+|PrintPreview_Tool_Last_Page
+|最終ページ
+
+|PrintPreview_Tool_Last_Page_AccessibleDescription
+|[印刷プレビュー] に最終ページを表示します。
+
+|PrintPreview_Tool_Margin_Width
+|余白幅
+
+|PrintPreview_Tool_Margin_Width_AccessibleDescription
+|ページをズームして、ページの最も広いマージンをプレビューに合わせます。
+
+|PrintPreview_Tool_Next_Page
+|次ページ
+
+|PrintPreview_Tool_Next_Page_AccessibleDescription
+|[印刷プレビュー] に次ページを表示します。
+
+|PrintPreview_Tool_Next_View
+|次のビュー(&N)
+
+|PrintPreview_Tool_Next_View_AccessibleDescription
+|表示履歴に次のビューを表示します。
+
+|PrintPreview_Tool_Page_Layout
+|ページ レイアウト
+
+|PrintPreview_Tool_Page_Layout_AccessibleDescription
+|[印刷プレビュー] のページ レイアウトを変更します。
+
+|PrintPreview_Tool_Page_Setup
+|ページ設定(&T)...
+
+|PrintPreview_Tool_Page_Setup_AccessibleDescription
+|ページ設定ダイアログを表示します。
+
+|PrintPreview_Tool_Page_Width
+|ページ幅
+
+|PrintPreview_Tool_Page_Width_AccessibleDescription
+|ページをズームして、ページの幅をプレビューに合わせます。
+
+|PrintPreview_Tool_Previous_Page
+|前のページ
+
+|PrintPreview_Tool_Previous_Page_AccessibleDescription
+|[印刷プレビュー] に前ページを表示します。
+
+|PrintPreview_Tool_Previous_View
+|前のビュー(&P)
+
+|PrintPreview_Tool_Previous_View_AccessibleDescription
+|表示履歴に前のビューを表示します。
+
+|PrintPreview_Tool_Print
+|印刷(&P)
+
+|PrintPreview_Tool_Print_AccessibleDescription
+|ドキュメントを印刷します。
+
+|PrintPreview_Tool_Reduce_Page_Thumbnails
+|ページのサムネイルを縮小する
+
+|PrintPreview_Tool_Reduce_Page_Thumbnails_AccessibleDescription
+|ページのサムネイルを縮小します。
+
+|PrintPreview_Tool_Show_Page_Numbers
+|サムネイルのページ番号を表示する
+
+|PrintPreview_Tool_Show_Page_Numbers_AccessibleDescription
+|サムネイルのページ番号を表示する
+
+|PrintPreview_Tool_Snapshot_Tool
+|スナップショット ツール(&S)
+
+|PrintPreview_Tool_Snapshot_Tool_AccessibleDescription
+|プレビューのスナップショットを取り、クリップボードにコピーします。
+
+|PrintPreview_Tool_Thumbnails
+|サムネイル
+
+|PrintPreview_Tool_Thumbnails_AccessibleDescription
+|各ページのサムネイルを表示します。
+
+|PrintPreview_Tool_Tools
+|ツール(&T)
+
+|PrintPreview_Tool_Tools_AccessibleDescription
+|ツール メニュー。
+
+|PrintPreview_Tool_View
+|表示(&V)
+
+|PrintPreview_Tool_View_AccessibleDescription
+|表示メニュー。
+
+|PrintPreview_Tool_Whole_Page
+|全体表示
+
+|PrintPreview_Tool_Whole_Page_AccessibleDescription
+|ページをズームして、プレビュー全体に合わせます。
+
+|PrintPreview_Tool_Zoom
+|ズーム(&Z):
+
+|PrintPreview_Tool_Zoom_AccessibleDescription
+|プレビューのズーム レベルを設定します。
+
+|PrintPreview_Tool_Zoom_In
+|ズームイン
+
+|PrintPreview_Tool_Zoom_In_AccessibleDescription
+|プレビューにズームインします。
+
+|PrintPreview_Tool_Zoom_In_Tool
+|ズームイン ツール(&I)
+
+|PrintPreview_Tool_Zoom_In_Tool_AccessibleDescription
+|マウスを使用して、プレビューにズームインします。
+
+|PrintPreview_Tool_Zoom_Increments
+|ズーム率をアップ
+
+|PrintPreview_Tool_Zoom_Out
+|ズームアウト
+
+|PrintPreview_Tool_Zoom_Out_AccessibleDescription
+|プレビューからズームアウトします。
+
+|PrintPreview_Tool_Zoom_Out_Tool
+|ズームアウト ツール(&O)
+
+|PrintPreview_Tool_Zoom_Out_Tool_AccessibleDescription
+|マウスを使用して、プレビューからズームアウトします。
+
+|PrintPreview_ToolCategory_Context_Menus
+|コンテキスト メニュー
+
+|PrintPreview_ToolCategory_File
+|ファイル
+
+|PrintPreview_ToolCategory_Menus
+|メニュー
+
+|PrintPreview_ToolCategory_Tools
+|ツール
+
+|PrintPreview_ToolCategory_View
+|表示
+
+|PrintPreview_ToolCategory_Zoom_Mode
+|ズーム モード
+
+|PrintPreview_ToolTip_ClosePreview
+|プレビューを閉じる
+
+|PrintPreview_ToolTip_Zoom
+|ズーム
+
+|PrintPreview_ZoomListItem_MarginWidth
+|余白幅
+
+|PrintPreview_ZoomListItem_PageWidth
+|ページ幅
+
+|PrintPreview_ZoomListItem_WholePage
+|全体表示
+
+|StatusBar_DynamicZoom_Instructions
+|クリックして、ドラッグアップでズームイン、ドラッグダウンでズームアウトします。
+
+|StatusBar_Hand_Instructions
+|クリック アンド ドラッグしてページ内容をスクロールする
+
+|StatusBar_Page_X_OF_X
+|ページ: {0} / {1}
+
+|StatusBar_SnapShot_Instructions
+|四角形をクリック アンド ドラッグしてクリップボードにコピーする、またはクリックだけして領域全体をコピーします。
+
+|StatusBar_ZoomIn_Instructions
+|四角形をクリック アンド ドラッグして特定の範囲をズームインする、またはクリックだけして一定量ずつズームインします。
+
+|StatusBar_ZoomOut_Instructions
+|四角形をクリック アンド ドラッグして特定の範囲をズームアウトする、またはクリックだけして一定量ずつズームアウトします。
+
+|====

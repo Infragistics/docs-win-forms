@@ -1,0 +1,179 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-controlcontainereditor-object",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["How Do I"],
+    "guid": "{B39384FF-D1FA-412E-BC55-4AF9413D3821}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ControlContainerEditor オブジェクトを使用して WinGrid セル内に任意のコントロールを組み込む
+
+*始める前に*
+
+WinControlContainerEditor™ によって、埋め込みエディターをサポートする {ProductName} コントロール内に任意のコントロールを組み込むことが可能となります。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~renderingcontrol.html[RenderingControl]"]  および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor~editingcontrol.html[EditingControl]"]  プロパティ設定を使用することによって描画に使用されるコントロールと、編集に使用されるコントロールの 2 つのコントロールを組み込むことができます。レンダリング コントロールは添付されるオブジェクトの元となる値またはテキストを描画します（たとえば WinGrid™ セル、WinTree™ ノードなど）。編集コントロールは添付されるオブジェクトの編集機能を提供します。
+
+[NOTE]
+====
+*注：* レンダリング コントロールはビットマップに描画されます。したがって、レンダリング コントロールとして使用されるコントロールは DrawToBitmap メソッドをサポートする必要があります。
+====
+
+*達成すること*
+
+このトピックは、ControlContainerEditor オブジェクトを使用することによって、標準的な Microsoft® .NET NumericUpDown コントロールと WinGauge™ コントロールが編集コントロールおよびレンダリング コントロールとして WinGrid セル内に組み込まれる方法を示します。レンダリング コントロールと編集コントロールは両方とも UltraGridCell オブジェクトの値に使用できる単一のプロパティ（たとえば Text プロパティまたは Value プロパティ）を持つ必要があります。ControlContainerEditor の使用についての詳細および要件については、 link:wincontrolcontainereditor-overview-of-controlcontainereditor-object.html[ControlContainerEditor オブジェクトの概要]を参照してください。WinGauge コントロールには Value プロパティまたは Text プロパティがないため、WinGauge コントロール間でどのような値でもパスできるように ControlContainerEditor クラスから継承されるクラスを作成し、 RendererValue プロパティをオーバーライドする必要があります。
+
+*以下の手順を実行します。*
+
+[start=1]
+. UltraGrid コントロール、UltraGauge コントロールおよび. NET NumericUpDown コントロールを Visual Studio® Toolbox から Form にドラッグ アンド ドロップします。
+[start=2]
+. UltraGrid コントロールを Northwind データベースの Products DataTable にバインドします。
+[start=3]
+. ControlContainerEditor クラスから継承する Editor という名前のクラスを作成します。ControlContainerEditor クラスは Infragistics.Win.UltraWinEditors 名前空間で見つけることができます。
+[start=4]
+. Form オブジェクトのコード ビハインドおよび Editor クラス コード ファイル内に以下の using/imports のディレクティブを配置します。これによって、完全修飾名を常に入力する必要はありません。
+
+*Visual Basic の場合：*
+
+----
+Imports System.Windows.Forms
+Imports Infragistics.Win.UltraWinEditors
+Imports Infragistics.UltraGauge.Resources
+Imports Infragistics.Win.UltraWinGauge
+----
+
+*C# の場合：*
+
+----
+using System.Windows.Forms;
+using Infragistics.Win.UltraWinEditors;
+using Infragistics.UltraGauge.Resources;
+using Infragistics.Win.UltraWinGauge;
+----
+
+[start=5]
+. 以下のメンバーを Editor クラスに追加します。
+
+*Visual Basic の場合：*
+
+----
+#Region "Private Members"
+Private gauge As UltraGauge
+Private numericUpDown As NumericUpDown
+Private marker As LinearGaugeBarMarker
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Private Members
+private UltraGauge gauge;
+private NumericUpDown numericUpDown;
+LinearGaugeBarMarker marker;
+#endregion
+----
+
+[start=6]
+. Editor クラスからデフォルトのコンストラクターを削除して以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+#Region "Constructor"
+Public Sub New(ByVal gauge As UltraGauge, ByVal numericUpDown As NumericUpDown)
+    Me.gauge = gauge
+    Me.numericUpDown = numericUpDown
+    ' Gauge コントロールをレンダリング コントロールとして設定します    
+    Me.RenderingControl = gauge
+    '  NumericUpDown コントロールを編集コントロールとして設定します
+    Me.EditingControl = numericUpDown
+    ' ゲージ コントロールのマーカーへの参照を取得します。これによりその値を簡単に設定できます。 
+    Dim linearGauge As LinearGauge = DirectCast(gauge.Gauges(0), LinearGauge)
+    Dim scale As LinearGaugeScale = DirectCast(linearGauge.Scales(0), LinearGaugeScale)
+    Me.marker = DirectCast(scale.Markers(0), LinearGaugeBarMarker)
+End Sub
+#End Region
+----
+
+*C# の場合：*
+
+----
+        #region Constructor
+        public Editor(UltraGauge gauge, NumericUpDown numericUpDown)
+        {
+            this.gauge = gauge;
+            this.numericUpDown = numericUpDown;
+            // Gauge コントロールをレンダリング コントロールとして設定します
+            this.RenderingControl = gauge;
+            // NumericUpDown コントロールを編集コントロールとして設定します
+            this.EditingControl = numericUpDown;
+           // ゲージ コントロールのマーカーへの参照を取得します。これによりその値を簡単に設定できます。
+            LinearGauge linearGauge = (LinearGauge)gauge.Gauges[0];
+            LinearGaugeScale scale = (LinearGaugeScale)linearGauge.Scales[0];
+            this.marker = (LinearGaugeBarMarker)scale.Markers[0];
+        }
+        #endregion
+----
+
+[start=7]
+. ControlContainerEditor クラスの RendererValue プロパティをオーバーライドして、LinearGaugeBarMarker オブジェクト値を取得および設定します。
+
+*Visual Basic の場合：*
+
+----
+#Region "override RendererValue"
+Protected Overloads Overrides Property RendererValue() As Object
+    Get
+        Return Me.marker.Value
+    End Get
+    Set(ByVal value As Object)
+        Me.marker.Value = value
+    End Set
+End Property
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region override RendererValue
+        protected override object RendererValue
+        {
+            get
+            {
+                return this.marker.Value;
+            }
+            set
+            {
+                this.marker.Value = value;
+            }
+        }
+        #endregion
+----
+
+[start=8]
+. 以下のコードは、レンダリング コントロールと編集コントロールを指定する Editor クラスを UltraGrid の UnitsInStock 列に割り当てます。UltraGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[IntializeLayout]"]  イベントにコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+Dim editor As New Editor(Me.ultraGauge1, Me.numericUpDown1)
+e.Layout.Bands(0).Columns("UnitsInStock").Editor = editor
+----
+
+*C# の場合：*
+
+----
+Editor editor = new Editor(this.ultraGauge1, this.numericUpDown1);
+e.Layout.Bands[0].Columns["UnitsInStock"].Editor = editor;
+----
+
+*以下のスクリーンショットは、レンダリング コントロールとして WinGauge を組み込み、編集コントロールとして NumericUpDown コントロールを組み込んだ WinGrid を示します。*
+
+image::Images/WinControlContainerEditor_Embed_Any_Control_Within_WinGrid_cell_using_ControlContainerEditor_Object_01.png[]

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-specifying-the-cell-behavior-on-cell-click",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{DF658084-2522-4066-A2A2-6F72FC4AE45E}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= セル クリック時のセル動作の指定
+
+2005 Volume 2から、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~cellclickaction.html[CellClickAction]"]  プロパティに pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.cellclickaction.html[EditAndSelectText]"] というオプションが追加されました。このオプションを指定すると、クリック時にセルが編集モードになり、セルのテキストが選択されます。
+
+このオプションを使用するには、UltraGridOverride オブジェクトの CellClickAction プロパティを設定します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~override.html[Override]"]  プロパティを設定することによって、グリッドのすべてのバンドに対してこの設定を指定することができます。あるいは、任意のバンドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~override.html[Override]"]  プロパティでこのプロパティを設定することもできます。

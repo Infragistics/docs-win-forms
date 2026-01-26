@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-new-minitoolbar-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2B57D1D4-88AB-468D-B326-580329C65B92}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:24:15Z"
+}
+|metadata|
+////
+
+= 新しい MiniToolbar
+
+Microsoft® Word 2007 は、現在選択しているテキストの近くにツールバーをフロートし、ツールのフォーマッティング タイプを提供する新しいタイプを導入しています。2007 Volume 1 リリースでは、Infragistics は MiniToolbar も提供しています。
+
+MiniToolbar は、コンテキスト メニュー付きまたはなしでマウス ポインタの上に表示できる別のタイプのツールバーです。MiniToolbar にツールを追加するのは、他のツールバーと同じ手順です。ツールを作成し（または既存のツールを使用）、それを pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.minitoolbar~tools.html[Tools]"]  コレクションに追加し、MiniToolbar の Tools コレクションに追加します。MiniToolbar を表示したいツールの行数の制御も行います。
+
+MiniToolbar が完全に不透明になるポイントにマウスを移動するまで右クリックで MiniToolbar は半透明で表示されます。マウスを MiniToolbar から遠ざけると、より透明になります。MiniToolbar から一定の距離まで移動すると完全に消えます。
+
+image::images/WinToolbarsManager_New_MiniToolbar_Whats_New_20071_01.png[]
+
+== 関連トピック
+
+link:wintoolbarsmanager-show-the-minitoolbar-programmatically.html[プログラミングによる MiniToolbar の表示]
+
+link:wintoolbarsmanager-show-the-minitoolbar-with-a-context-menu.html[コンテキスト メニューで MiniToolbar を表示]
+
+link:wintoolbarsmanager-creating-a-minitoolbar.html[MiniToolbar を作成]
+
+link:wintoolbarsmanager-use-a-previously-created-ribbongroup-as-a-minitoolbar.html[MiniToolbar として以前に作成した RibbonGroup を使用]

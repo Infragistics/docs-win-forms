@@ -1,0 +1,87 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-generate-grammar-from-an-ebnf-file",
+    "controlName": [],
+    "tags": [],
+    "guid": "6bc59cbd-1079-4af6-9f70-47d1cc8fa456",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0918541Z"
+}
+|metadata|
+////
+
+= EBNF ファイルからの文章校正の生成
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、EBNF コンテンツから文章校正を作成するプロセスを説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-ebnf-file-format-overview.html[EBNF ファイル形式の概要]
+|このトピックは、文章校正を定義するために使用する EBNF ファイル形式の概要を説明します。
+
+|====
+
+== プロセスの概要
+
+=== 概要
+
+`Grammar` クラスの静的メソッドを使用して EBNF ファイルから link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar] インスタンスを作成できます。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~loadebnf(stream,encoding).html[Grammar.LoadEbnf] - EBNF を含むストリームから文章校正を作成
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~loadebnf(string).html[Grammar.LoadEbnf] - EBNF を含む文字列から文章校正を作成
+
+これらの両方のメソッドが、以下のプロパティを有する link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ebnfloadresult.html[EbnfLoadResult] インスタンスを返します。
+
+[options="header", cols="a,a"]
+|====
+|*プロパティ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ebnfloadresult~errors.html[エラー]
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ebnfloaderror.html[EbnfLoadError] インスタンスのコレクション。`Success` が `true` の場合は空で、`Success` が `false` の場合は空ではありません。各 `EbnfLoadError` は、EBNF ファイルで異なるエラーを説明します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ebnfloadresult~grammar.html[Grammar]
+|`Grammar` インスタンス。Success が `true` である場合に作成されました。これは、`Null` で、`Success` は `false` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ebnfloadresult~success.html[成功]
+|EBNF ファイルのロードに成功したかどうかが示されます。`true` の場合、`Grammar` プロパティは、そのファイルから作成された `Grammar` インスタンスになります。`false` の場合、`Errors` には、ドキュメントで問題を説明する 1 つ以上のエラーが含まれます。
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-special-sequence-format.html[特殊なシーケンス形式]
+|このトピックは、文章校正を構成するために必要な EBNF ファイル内の特殊なシーケンス セクションの形式について説明します。
+
+| link:ig-spe-ebnf-specification-deviations.html[EBNF 仕様の逸脱]
+|このトピックは、Syntax Parsing Engine が使用する EBNF 形式での ISO 14977 仕様からの逸脱について説明します。
+
+| link:ig-spe-generate-ebnf-file-from-a-grammar.html[文章校正からの EBNF ファイルの生成]
+|このトピックでは、文章校正から EBNF コンテンツを作成するプロセスを説明します。
+
+|====

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-bands-and-hierarchical-data",
+    "controlName": ["WinGrid"],
+    "tags": ["Data Presentation","Grids","Layouts"],
+    "guid": "{36ACCB1B-76F5-4019-BF14-D3B3445AB8F5}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= バンドと階層データ
+
+WinGrid は階層的にデータを表示するよう設計されているため、すべてのレベルにおいてデータ バンドのコンセプトがグリッドに組み込まれています。データのバンドは、同一のレコードセットから引き出されるすべての行、またはデータ階層の同一のレベルに表示されるすべての行に相当するものです。フラットな（階層でない）レコードセットを表示する際にも、WinGrid はバンド構造（フラットなレコードセットは単一のバンドで表示される）を使用します。
+
+行を含む各バンドは、階層式レコードセットの 1 階層になります。グリッドの表示されている部分（列やヘッダなど）に対応するオブジェクトの多くは、コントロール レベルから直接ではなく、バンド レベルからアクセスされます。そのため、存在すると思われるオブジェクト、プロパティ、またはメソッドを探したもののエレメント レベルに見つからない場合は、そのアイテムを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  オブジェクトやその pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクト（Override プロパティによって提供される）のサブオブジェクト、プロパティまたはメソッドとして探してみてください。
+
+次のスナップショットでは、階層式 データを含む WinGrid を示します。
+
+image::Images/WinGrid_Bands_and_Hierarchical_Data_01.png[]

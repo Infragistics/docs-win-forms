@@ -1,0 +1,34 @@
+﻿////
+|metadata|
+{
+    "name": "win-winstatusbar-using-winstatusbar",
+    "controlName": ["WinStatusBar"],
+    "tags": [],
+    "guid": "{D49619C3-99A3-456D-86E5-A2009E70E314}","buildFlags": [],
+    "createdOn": "2007-07-11T15:15:54Z"
+}
+|metadata|
+////
+
+= WinStatusBar の使用
+
+このセクションでは、WinStatusBar™ コントロールに関連する特定のタスクを実行する方法を説明する、簡単なタスクベースのトピックについて記述されています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winstatusbar-resize-the-status-bar-and-panels.html[ステータス バーとパネルのサイズ変更]
+* link:winstatusbar-set-the-panel-style-to-autostatustext.html[パネル スタイルを AutoStatusText に設定]
+* link:winstatusbar-set-the-panel-style-to-button.html[パネル スタイルを Button に設定]
+* link:winstatusbar-set-the-panel-style-to-characterposition.html[パネル スタイルを CharacterPosition に設定]
+* link:winstatusbar-set-the-panel-style-to-controlcontainer.html[パネル スタイルを ControlContainer に設定]
+* link:winstatusbar-set-the-panel-style-to-cursorposition.html[パネル スタイルを CursorPosition に設定]
+* link:winstatusbar-set-the-panel-style-to-date.html[パネル スタイルを Date に設定]
+* link:winstatusbar-set-the-panel-style-to-keystate.html[パネル スタイルを KeyState に設定]
+* link:winstatusbar-set-the-panel-style-to-marquee.html[パネル スタイルを Marquee に設定]
+* link:winstatusbar-set-the-panel-style-to-mdilist.html[パネル スタイルを MDIList に設定]
+* link:winstatusbar-set-the-panel-style-to-progress.html[パネル スタイルを Progress に設定]
+* link:winstatusbar-set-the-panel-style-to-statebutton.html[パネル スタイルを StateButton に設定]
+* link:winstatusbar-set-the-panel-style-to-text.html[パネル スタイルを Text に設定]
+* link:winstatusbar-set-the-panel-style-to-time.html[パネル スタイルを Time に設定]
+* link:winstatusbar-set-the-sizing-mode-of-winstatusbar-panels.html[WinStatusBar パネルのサイズ変更モードの設定]
+* link:winstatusbar-using-the-notification-badge.html[通知バッジが使用されている WinStatusBar]

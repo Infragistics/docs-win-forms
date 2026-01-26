@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-sort-items-in-the-drop-down-list",
+    "controlName": ["WinEditors"],
+    "tags": ["Extending","How Do I","Sorting"],
+    "guid": "{681CE6CA-0385-4EBD-9E9B-67FFE3AFA9DE}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウンリストの項目をソート
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinComboEditor
+* WinFontNameEditor
+
+デフォルトでは、WinEditor コントロールはドロップダウン リストの項目を並べ替えません。ただし、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~sortstyle.html[SortStyle]"]  プロパティを設定すれば、リストの項目を昇順または降順に並べ替えることができます。ドロップダウン リストの項目は、それが表示するテキストとは別の値を設定できるため、SortStyle プロパティは項目の値またはテキストのいずれかによる並べ替えをサポートします。

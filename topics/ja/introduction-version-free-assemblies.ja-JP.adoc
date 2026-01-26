@@ -1,0 +1,57 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= バージョンフリー アセンブリ
+
+toc::[]
+
+
+== バージョンフリーアセンブリについて
+
+バージョンフリー アセンブリは、アセンブリ名にバージョン番号またはフレームワーク バージョン識別子を持たないライブラリです。たとえば、{ApiPlatform} Shared.v {ProductVersion} .dll のような Infragistics アセンブリ名は、Infragistics.Shared.dll として使用します。バージョンフリーのアセンブリを使用すると、アプリケーションを再構築する必要なく、.Net でサポートされているアセンブリ バインディング リダイレクトを使用して、Infragistics のバージョンを別のバージョンに容易にアップグレードできます。
+
+.注:
+[NOTE]
+====
+バージョンフリー アセンブリを使用する場合は、アプリケーションで完全な回帰テストを実行し、アップグレード前のボリューム リリースから、ヘルプの重大な変更のセクションを確認する必要があります。
+====
+
+アセンブリ バインディング リダイレクトを使用すると、.NET ランタイムに、アセンブリのバージョンへのバインディングが別のバージョンにリダイレクトされるように指示できます。アプリケーション構成ファイル (app.config) 内の bindingRedirect 要素は、バージョン リダイレクトを可能にする属性 oldVersion および newVersion を受け入れます。 assemblyIdentity 要素は、アセンブリの名前を必要とする name 属性を受け入れます。バージョン管理されたアセンブリ名では、アセンブリ名はリリースごとに変更されます (たとえば、{ApiPlatform} Shared.v12.1.dll、{ApiPlatform} Shared.v12.2.dll)、したがって assemblyIdentity 要素に指定することはできません。バージョンフリー アセンブリ名では、アセンブリ名はすべての Infragistics ボリューム リリースで同じになるため、アプリケーションを再構築する必要はなく、bindingRedirect を使用してあるバージョンから別のバージョンにアップグレードできます。
+
+次に、app.config ファイルで bindingRedirect を使用してアプリケーションを新しいバージョンにリダイレクトする例を示します。
+
+[source, xml]
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+<runtime>
+<assemblyBinding xmlns = "urn:schemas-microsoft-com:asm.v1">
+<dependentAssembly>
+<assemblyIdentity name = "Infragistics.Shared" publicKeyToken = "7dd5c3163f2cd0cb" culture = "neutral" />
+<bindingRedirect oldVersion = "12.1.20101.0" newVersion = "12.2.20102.50" />
+</dependentAssembly>
+<dependentAssembly>
+<assemblyIdentity name = "Infragistics.Win" publicKeyToken [source] = "7dd5c3163f2cd0cb" culture = "neutral" />
+<bindingRedirect oldVersion = "12.1.20101.0" newVersion = "12.2.20102.50" />
+</dependentAssembly>
+</assemblyBinding>
+</runtime>
+</configuration>
+
+
+== バージョンフリー アセンブリの使用
+
+バージョンフリー アセンブリは、Zip 形式で製品とともに次の場所にインストールされます: `{InstallPath}`
+
+バージョンフリー アセンブリを使用するには、手動で以下を実行する必要があります。
+
+. すでに Bin (`{InstallPath}\CLR4.0\Bin`) フォルダにあるアセンブリをバックアップします。
+. `{InstallPath}\Version-Free` にある `WinForms_{ProductVersionFull}_VersionFree.zip` フォルダを解凍します。
+. 抽出されたフォルダから Bin フォルダにバージョンフリー アセンブリをコピーします。
+. Bin フォルダにあるバージョンフリー アセンブリをグローバル アセンブリ キャッシュ (GAC) に追加します。link:http://msdn.microsoft.com/en-us/library/ex0ss12c.aspx[Gacutil.exe] を使用して、GAC にアセンブリを追加できます。.NET Framework 4 以降、グローバル アセンブリ キャッシュの既定の場所は次のとおりです: `%windir%\Microsoft.NET\assembly`。
+.  Visual Studio でツールボックス タブを作成し、Bin フォルダのバージョンフリー アセンブリのコントロールを追加します。

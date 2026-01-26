@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-display-images-in-winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{04BD362D-C36D-49B9-BB68-C1639FB633AB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView で画像を表示
+
+このトピックは WinListView™ で項目のテキストの隣に画像をどのように表示できるかを示します。
+
+このトピックでは、サンプル画像が含まれるフォームに ImageList コントロールがドロップされていることを前提とします。pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsettingsbase~imagelist.html[ImageList]"]  プロパティによって、ImageList コントロールを WinListView に指定します。ImageList プロパティはビュー固有の設定オブジェクトごとに公開されています。以下のサンプル コードで、WinListView コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティは List に設定されているため、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewlistsettings_members.html[ViewSettingsList]"]  オブジェクトによって ImageList プロパティが適用されます。
+
+*Visual Basic の場合：*
+
+----
+' ImageList コントロールを WinListView に指定します 
+Me.ultraListView1.ViewSettingsList.ImageList = Me.imageList1
+' ImageList コントロールで画像のインデックスを設定することにより、画像を WinListView に追加します
+Me.ultraListView1.Groups[0].Items[0].Appearance.Image = 1
+Me.ultraListView1.Groups[0].Items[1].Appearance.Image = 2
+...
+...
+----
+
+*C# の場合：*
+
+----
+// ImageList コントロールを WinListView に指定します
+this.ultraListView1.ViewSettingsList.ImageList = this.imageList1;
+// ImageList コントロールで画像のインデックスを設定することにより、画像を WinListView に追加します
+this.ultraListView1.Groups[0].Items[0].Appearance.Image = 1;
+this.ultraListView1.Groups[0].Items[1].Appearance.Image = 2;
+...
+...
+----
+
+image::Images/WinListView_Displaying_Images_in_WinListView.png[]

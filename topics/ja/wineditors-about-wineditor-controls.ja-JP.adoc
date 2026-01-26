@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-about-wineditor-controls",
+    "controlName": ["WinEditors"],
+    "tags": ["Data Presentation","Getting Started","Validation"],
+    "guid": "{B0944F7F-7FEB-49A4-929E-15DFE54B3BFB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditor コントロールについて
+
+WinEditor コントロールのグループは、13 のコントロールから構成されます。
+
+* link:wincalculator.html[WinCalculator] - Appearance のサポート、組み込みテーマ、カスタマイズ可能なアクションなどの機能を持ったカスタマイズ可能な計算機。
+* link:wincalculatordropdown.html[WinCalculatorDropDown] -- Appearance のサポート、オーバーフロー インジケータ、Null テキストなどの機能を持ったドロップダウンのカスタマイズ可能な計算機。
+* link:wincheckeditor.html[WinCheckEditor] -- .NET framework で提供されるチェックボックスに似ていますが、自動テキスト折り返しや複数のチェック スタイルなどの追加機能を持っています。
+* link:wincolorpicker.html[WinColorPicker] -- Visual Studio のカラー ピッカーをエミュレートし、システム カラー、Web カラー、およびカスタマイズされたパレットを表示します。
+* link:wincomboeditor.html[WinComboEditor] -- .NET framework で提供されるチェックボックスに似ていますが、リストの並べ替えやリストへの制限の検証などの追加機能を持っています。
+* link:wincurrencyeditor.html[WinCurrencyEditor] -- 柔軟性の高い通貨エディタで、国際化をサポートし、マスク表示モードを持ちます。
+* link:windatetimeeditor.html[WinDateTimeEditor] -- .NET framework で提供されるチェックボックスに似ていますが、ユーザー選択の制限やスピン ボタンなどの追加機能を持っています。
+* link:winfontnameeditor.html[WinFontNameEditor] -- 単語の自動補完やリストの並べ替えなどの追加機能を持つコンボボックスのようなコントロール。
+* link:winnumericeditor.html[WinNumericEditor] -- 柔軟性の高い数値エディタで、整数型と倍精度型をサポートし、マスク表示モードを持ちます。
+* link:winoptionset.html[WinOptionSet] -- ラジオ ボタンのセットに似た相互排他的な選択肢を提供します。
+* link:winpicturebox.html[WinPictureBox] -- .NET framework で提供される画像に似た単一の画像を表示しますが、バインド可能な画像や画像のスケーリングなどの追加機能を持っています。
+* link:wintexteditor.html[WinTextEditor] -- .NET framework で提供されるテキスト エディタと似たテキスト エディタを提供しますが、Appearance のサポートや組み込みテーマなどの追加機能を持っています。
+* link:wintimezoneeditor.html[WinTimeZoneEditor] -- Appearance のサポートやリストの並べ替えなどの追加機能を持つコンボボックスのようなコントロールを提供します。
+
+強力な Infragistics™ link:win-plf-overview.html[Presentation Layer Framework™] を使用すると、ほとんどのスタンドアロン Windows Forms エディタを Infragistics WinGrid、WinTree、WinExplorerBar、および WinSchedule コントロール内に組み込むことも可能で、ホストコントロールに組み込みパーツとして表示できます。WinEditor コントロールは EmbeddableEditor オブジェクト モデルを使用するため、EmbeddableEditors をサポートする任意の {ProductName} エレメントで使用可能な、高度にカスタマイズされたエディタを開発者がデザインできます。埋め込みエディタをサポートすることにより、編集機能の改善と追加が可能となるだけでなく、タブレット PC プラットフォームでのインク性能の自動サポートなどの利点も得られます。
+
+Infragistics 埋め込みエディタは、アプリケーションのデータ入力機能をデザインする際に幅広いオプションを提供します。埋め込みエディタは、スタンドアローン コントロールとしてまたは他のコントロールの組み込みのパーツとして実装されます。一般的に、別のコントロール内で機能する組み込みエディタはデータ入力とデータエントリを実行するコントロールのオブジェクトと関連付けられます。たとえば、そのオブジェクトが編集されるデータのタイプを決定するため、UltraWinGrid ではエディタはUltraGridColumn オブジェクトと関連付けられます。
+
+== エディタの詳細
+
+エディタ ボタン:エディタ ボタンは、テキスト領域の左と右の両方またはいずれか一方にあるエディタコントロール内に表示されます。エディタ ボタンによってイベントが生成される、これを使用して、カスタムの編集インタフェースを呼び出す、またはエディタに含まれる値を変更するなどのアクションを実行できます。使用可能なエディタ ボタンには、標準ボタン、リピート ボタン、状態ボタン、スピン ボタン、ドロップダウン ボタンの 5 種類があります。
+
+外観:エディタは Infragistics のプレゼンテーション層フレームワークの Appearance オブジェクトを使用して、色、フォント、イメージ、テキストの配置などを適用します。
+
+選択可能なテキスト:SelectionStart プロパティと SelectionLength プロパティが提供されています。
+
+イベント リスニング:エディタは標準の KeyDown、KeyPress、KeyUp、ValueChanged の各イベントを使用します。
+
+自動リセット メソッド:エディタを指定されたデフォルト値にリセットし、シリアル化されないようにします。

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "appstylistruntime-api-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "{322275BB-38D9-4898-BD40-9E52929E322F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。また、このコントロールでプログラミングするときに使用する主なクラスを紹介します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== AppStyling Namespace:
+
+pick:[win-forms="link:{ApiPlatform}win.appstylistsupport{ApiVersion}~infragistics.win.appstyling.runtime_namespace.html[Infragistics.Win.AppStyling.Runtime]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.appstylistsupport{ApiVersion}~infragistics.win.appstyling.runtime.appstylistruntime.html[AppStylistRuntime]"]

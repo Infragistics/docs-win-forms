@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-use-formulas-in-excel-worksheets-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C76FED12-46F9-40C0-89E1-560C3BDDF2DD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Excel ワークシートで数式を使用できるようになった
+
+数式は、支出と収入を合計する、データのセットの平均を求める、複利や減価償却などのより高度な計算を行うことができる非常に優れたスプレッドシート支援機能です。2007 Volume 2 リリースでは、Excel オブジェクト モデルで構築された Microsoft® Excel® ワークシートに数式を追加する機能を提供します。
+
+数式で成功するは、以下の 2 つの要素が必要です。
+
+* 数式を計算するために使用されるセル、またはセルの範囲
+* 結果を配置するセルまたはセルのグループ
+
+pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formula.html[Formula]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formula~parse.html[Parse]"]  メソッドと pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formula~tryparse.html[TryParse]"]  メソッドが最初の要素を処理して、数式とセル参照モードをそのメソッドに渡します。数式には数式の計算に使用されるセル、またはセルの範囲が含まれます。Formula オブジェクトにもある pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formula~applyto.html[ApplyTo]"]  メソッドは 2 番目の要素を処理します。数式の計算結果を配置したいセルまたはセル領域を渡します。
+
+数式は必要に応じてシンプルにすることも複雑にすることも可能です。TryParse メソッドを含めたのもそのためです。これによって、数式を使用する前に正しく解析されることを保証できます。標準の Excel の数式を解析できます（サポートされる数式の詳細は Excel のマニュアルを参照してください）。
+
+== 関連トピック
+
+link:excelengine-calculating-order-totals.html[注文合計を計算]

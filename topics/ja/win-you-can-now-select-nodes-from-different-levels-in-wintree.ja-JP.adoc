@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-select-nodes-from-different-levels-in-wintree",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A854A2D8-5F7E-4525-A390-FBC3D6E078C9}",  
+    "buildFlags": [],
+    "createdOn": "2008-08-01T16:25:57Z"
+}
+|metadata|
+////
+
+= WinTree で異なるレベルから複数のノードを選択できる
+
+これまでのリリースでは、WinTree™ で同時にノードの選択は同じツリー レベルに限定されていました。今回のリリースではレベルの制限がなくなり、ツリーの複数レベルで必要なノードを選択できます。この機能を使用するために追加作業を行う必要はありません。ただし、異なるレベルのノードに基づいて pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.selectednodescollection.html[SelectedNodes]"]  コレクションを操作したい場合、コレクションを介して並べ替えてpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~level.html[Level]"] に属すpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode.html[Node]"]  を識別する必要があります。
+
+== 関連トピック
+
+link:wintree-select-nodes-in-different-levels-of-the-tree.html[ツリーの異なるレベルでノードを選択]

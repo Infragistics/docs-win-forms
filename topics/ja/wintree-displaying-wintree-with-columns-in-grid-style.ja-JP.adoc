@@ -1,0 +1,131 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-displaying-wintree-with-columns-in-grid-style",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{A9ED092B-2566-4ECB-B383-BD10CB36E37F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Grid スタイルで列を持つ WinTree を表示
+
+*始める前に*
+
+Grid スタイルでは、WinTree は列ヘッダーを各ノード コレクションの一番上に表示します。このスタイルは、各ノード コレクションが固有の一意のデータ スキーマを持っているときに採用できます。非再帰的な階層データもこのモードで表すことができます。
+
+*達成すること*
+
+このトピックは、WinTree が Grid スタイルで階層データを表示する方法を示します。このトピックでは、WinTree コントロールは Northwind データベースのさまざまな DataTables にバインドされています。DataTables には、Employees、Customers、Orders、Order Details、Products および Categories が含まれています。各エンティティは対応する列ヘッダーとともに個別のノードとして表示されます。
+
+*次の手順を実行します。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports System.Data.SqlClient
+Imports Infragistics.Win.UltraWinTree
+----
+
+*C# の場合：*
+
+----
+using System.Data.SqlClient;
+using Infragistics.Win.UltraWinTree;
+----
+
+[start=2]
+. 参照を Northwind データベースに追加します。
+
+a. プロジェクト名を右クリックします。コンテキスト メニューから、[追加] > [既存の項目] を選択します。
+
+b. ローカル フォルダーで使用可能な Northwind データベースにナビゲートします。
+
+c. NORTHWND.MDF ファイルを選択して [追加] をクリックします。
+
+image::Images/WinTree_Displaying_WinTree_with_columns_in_Grid_Style.png[]
+
+[start=3]
+. NORTHWND.MDF ファイルをプロジェクトに追加したら、DataSet のテーブルの選択を可能にする [データ ソース構成] ウィザードが表示します。[テーブル] カテゴリーから、Employees、Customers、Orders、Order Details、Products および Categories テーブルを選択して、[完了] をクリックします。
+[start=4]
+. Form Load イベント内に以下のコードを記述して、ADO.NET クラスを使用して Northwind Database からデータを取得します。また DataTables 間の関係を構築します。
+
+*Visual Basic の場合：*
+
+----
+string connectionstring = @"Data Source=.\SQLEXPRESS;AttachDbFilename= |DataDirectory|Northwind.mdf;Integrated Security=True;User Instance=True"
+SqlConnection conn = new SqlConnection(connectionstring)
+SqlDataAdapter empadapter = new SqlDataAdapter("SELECT * from Employees", conn)
+SqlDataAdapter custadapter = new SqlDataAdapter("SELECT * from Customers", conn)
+SqlDataAdapter orderadapter = new SqlDataAdapter("SELECT * from Orders", conn)
+SqlDataAdapter orderdetailsadapter = new SqlDataAdapter("SELECT * from [Order Details]", conn)
+SqlDataAdapter productsadapter = new SqlDataAdapter("SELECT * from Products", conn)
+SqlDataAdapter categoriesadapter = new SqlDataAdapter("SELECT * from Categories", conn)
+DataSet ds = new DataSet()
+empadapter.Fill(ds, "Employees")
+custadapter.Fill(ds, "Customers")
+orderadapter.Fill(ds, "Orders")
+orderdetailsadapter.Fill(ds, "Order_Details")
+productsadapter.Fill(ds, "Products")
+categoriesadapter.Fill(ds, "Categories")
+Dim relation1 As New DataRelation("CustOrders", ds.Tables("Customers").Columns("CustomerID"), ds.Tables("Orders").Columns("CustomerID"))
+Dim relation2 As New DataRelation("EmpOrders", ds.Tables("Employees").Columns("EmployeeID"), ds.Tables("Orders").Columns("EmployeeID"))
+Dim relation3 As New DataRelation("OrdersOrderDetails", ds.Tables("Orders").Columns("OrderID"), ds.Tables("Order_Details").Columns("OrderID"))
+Dim relation4 As New DataRelation("CategoriesProducts", ds.Tables("Categories").Columns("CategoryID"), ds.Tables("Products").Columns("CategoryID"))
+Dim relation5 As New DataRelation("ProductsOrderDetails", ds.Tables("Products").Columns("ProductID"), ds.Tables("Order_Details").Columns("ProductID"))
+ds.Relations.Add(relation1) 
+ds.Relations.Add(relation2) 
+ds.Relations.Add(relation3) 
+ds.Relations.Add(relation4) 
+ds.Relations.Add(relation5)
+this.ultraTree1.DataSource = ds
+----
+
+*C# の場合：*
+
+----
+string connectionstring = @"Data Source=.\SQLEXPRESS;AttachDbFilename= |DataDirectory|Northwind.mdf;Integrated Security=True;User Instance=True";
+SqlConnection conn = new SqlConnection(connectionstring);
+SqlDataAdapter empadapter = new SqlDataAdapter("SELECT * from Employees", conn);
+SqlDataAdapter custadapter = new SqlDataAdapter("SELECT * from Customers", conn);
+SqlDataAdapter orderadapter = new SqlDataAdapter("SELECT * from Orders", conn);
+SqlDataAdapter orderdetailsadapter = new SqlDataAdapter("SELECT * from [Order Details]", conn);
+SqlDataAdapter productsadapter = new SqlDataAdapter("SELECT * from Products", conn);
+SqlDataAdapter categoriesadapter = new SqlDataAdapter("SELECT * from Categories", conn);
+DataSet ds = new DataSet();
+empadapter.Fill(ds, "Employees");
+custadapter.Fill(ds, "Customers");
+orderadapter.Fill(ds, "Orders");
+orderdetailsadapter.Fill(ds, "Order_Details");
+productsadapter.Fill(ds, "Products");
+categoriesadapter.Fill(ds, "Categories");
+DataRelation relation1 = new DataRelation("CustOrders", ds.Tables["Customers"].Columns["CustomerID"], ds.Tables["Orders"].Columns["CustomerID"]);
+DataRelation relation2 = new DataRelation("EmpOrders", ds.Tables["Employees"].Columns["EmployeeID"], ds.Tables["Orders"].Columns["EmployeeID"]);
+DataRelation relation3 = new DataRelation("OrdersOrderDetails", ds.Tables["Orders"].Columns["OrderID"], ds.Tables["Order_Details"].Columns["OrderID"]);
+DataRelation relation4 = new DataRelation("CategoriesProducts", ds.Tables["Categories"].Columns["CategoryID"], ds.Tables["Products"].Columns["CategoryID"]);
+DataRelation relation5 = new DataRelation("ProductsOrderDetails", ds.Tables["Products"].Columns["ProductID"], ds.Tables["Order_Details"].Columns["ProductID"]);
+ds.Relations.Add(relation1);
+ds.Relations.Add(relation2);
+ds.Relations.Add(relation3);
+ds.Relations.Add(relation4);
+ds.Relations.Add(relation5);
+this.ultraTree1.DataSource = ds;
+----
+
+[start=5]
+. アプリケーションを実行します。WinTree は Grid スタイルで階層データを表示し、各ノードは異なるデータ エンティティを表し、スキーマに対応する個別の列ヘッダーを表示します。
+
+image::Images/WinTree_Displaying_WinTree_with_columns_in_Grid_Style_02.png[]
+
+== 関連トピック
+
+* link:wintree-columns.html[列]
+* link:wintree-adding-columns-using-outlook-express-style.html[Outlook Express スタイルを使用して列を追加]
+* link:wintree-adding-columns-using-freeform-style.html[Freeform スタイルを使用して列を追加]

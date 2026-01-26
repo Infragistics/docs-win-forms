@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-autosuggestfiltermode-for-wincombo-and-wincomboeditor",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0CB8D06D-A152-495D-BA6A-C3BDE404F00F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCombo および WinComboEditor の AutoSuggestFilterMode
+
+WinCombo™ および WinComboEditor™ コントロールの link:{ApiPlatform}win{ApiVersion}~infragistics.win.autocompletemode.html[AutoCompleteMode] によって、エンドユーザーがコントロールのテキスト ボックスに入力する時に値の候補リストを有効にすることができます。 エンドユーザーがコントロールのエディターに入力するテキストに 'StartsWith' 条件と 'Contains' 条件のいずれが適用されるのか指定するために、2010 Volume 1 の新機能、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.autosuggestfiltermode.html[AutoSuggestFilterMode] プロパティが WinCombo と WinComboEditor に追加されました。 値の候補リスト内で一致するエンドユーザーが入力したテキストを強調表示するために、新しい link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist~formatfiltereditems.html[FormatFilteredItems] プロパティを使用することも可能です。 このプロパティはデフォルトで True に設定されています。
+
+== 関連トピック
+
+* link:wincombo-filter-options-to-filter-suggested-values-of-a-column.html[列の候補値をフィルターするフィルター オプション]
+* link:wincomboeditor-filter-options-to-filter-suggested-values.html[候補値をフィルターするフィルター オプション]

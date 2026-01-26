@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-validate-all-controls-associated-with-winvalidator",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{F17B2590-52DB-45B4-9C65-27D429171F7F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinValidator に関連するすべてのコントロールを検証
+
+WinValidator でコントロールを検証するには、WinValidator™ とそのコントロールを関連付ける必要があります。いくつかの方法のひとつでこれを実行することができます。
+
+*デザイン タイムにコントロールを関連付けます*
+
+プロパティ ウィンドウに ValidationSettings エクステンダ プロパティを配置することで、デザイン タイムに WinValidator とフォームのコントロールを関連付けることができます。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings.html[ValidationSettings] オブジェクトは、多くの組み込み条件を使用してコントロールを検証できる多数のオブジェクトおよびプロパティを公開します。WinValidator とコントロールを関連付けるために必要なことは、ひとつのプロパティを設定することです。ValidationSettings オブジェクトでプロパティを設定する時に、WinValidator はオブジェクトを作成し、それ自体と関連付けます。固有の条件を使用してこのコントロールを検証したい場合や WinValidator で以前に作成した ValidationGroup に link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings~validationgroup.html[ValidationGroup] プロパティを設定できる場合、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings~condition.html[Condition]、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings~validationtrigger.html[ValidationTrigger]、または link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings~validationpropertyname.html[ValidationPropertyName] などのプロパティを設定できます。ValidationGroups の詳細は、 link:winvalidator-validate-a-group-of-controls.html[「コントロールのグループを検証」]を参照してください。
+
+*ランタイムにコントロールを関連付けます*
+
+ランタイムに WinValidator とコントロールに関連付けることは、デザイン タイムと非常に似ています。ValidationSettings オブジェクトを作成して、それを WinValidator と関連付ける必要があります。コントロールと ValidationSettings オブジェクトを関連付ける手助けをするために WinValidator は 2 つのメソッドを提供します：
+
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~setvalidationsettings.html[SetValidationSettings] – ValidationSettings オブジェクトが使用できる場合、このメソッドを使用してコントロールとそのオブジェクトを関連付けます。このメソッドは、ValidationSettings オブジェクトを関連付けるためのコントロールとオブジェクト自体の 2 つのパラメータをとります。
+* link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~getvalidationsettings.html[GetValidationSettings] – このメソッドは、固有のコントロールから ValidationSettings オブジェクトを取得します（または存在しなければ作成します）。GetValidationSettings メソッドは、それを変更するために、コントロールの ValidationSettings オブジェクトをインスタンス化されたオブジェクトに指定するために役立ちます。GetValidationSettings メソッドの詳細は、 link:winvalidator-validate-a-single-control.html[「単一のコントロールを検証」]を参照してください。
+
+以下のコードは、現在 WinValidator と関連付けられているすべてのコントロールの検証の簡素化を示します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraValidator1.Validate()
+----
+
+*C# の場合：*
+
+----
+this.ultraValidator1.Validate();
+----

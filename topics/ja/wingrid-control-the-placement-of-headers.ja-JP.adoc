@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-control-the-placement-of-headers",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Layouts"],
+    "guid": "{8F60EB26-A308-4AE7-B61A-95108DA9B80A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ヘッダの配置の制御
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~headerplacement.html[HeaderPlacement]"]  プロパティを使用してヘッダの表示方法を制御できます。
+
+次のリストは使用可能なオプションです。
+
+* *Default* - デフォルトは、親オブジェクトの設定が使用されることを指定します。親オブジェクトにもデフォルトに設定されたプロパティがある場合、RepeatOnBreak が使用されます。
+* *RepeatOnBreak* - バンドの区切りごとにヘッダが繰り返されます。前の行が異なる行コレクションに属する場合、現在の行はヘッダを表示します。これがデフォルトの動作です。次のスナップショットは、このヘッダ配置スタイルを使う WinGrid を示します。ご覧のとおり、前の行が異なるバンドに属する場合ヘッダは行の上で繰り返されます。
+
+image::Images/WinGrid_How_to_Control_Header_Placement_01.png[]
+
+* *FixedOnTop* - すべてのバンドのヘッダは上部に表示されます。これらのヘッダは、そのバンドの行が現在表示されていなくても、常に表示されます。バンドの既存の ColHeadersVisible プロパティを設定することによって、特定のバンドのヘッダを非表示にすることができます。次のスナップショットは、このヘッダ配置スタイルを使う WinGrid を示します。ご覧の通り、すべてのバンドのヘッダは上部に表示されます。それらは繰り返される（複数回表示される）ことはありません。またヘッダは見えなくなるところにスクロールされることはありません。
+
+image::Images/WinGrid_How_to_Control_Header_Placement_02.png[]
+
+* *OncePerRowIsland* - 行アイランドごとにひとつだけヘッダが表示されます。表示される子を持つ行を展開したとき、次の兄弟のヘッダは表示されません。次のスナップショットは、このヘッダ配置スタイルを使う WinGrid を示します。ルート バンドの 2 行目はヘッダを表示しないことに注意してください。これは行コレクションのヘッダが既に 0 番目の行に表示されているからです。
+
+image::Images/WinGrid_How_to_Control_Header_Placement_03.png[]
+
+ 
+* *OncePerGroupedRowIsland* - OncePerRowIsland と同じですが、列がひとつまたは複数の列でグループ化されている場合、ヘッダはグループ行の上に表示されます。ここで、行アイランドは IList に関連付けられた行のコレクションを意味します。次のスナップショットは、このヘッダ配置スタイルを使う WinGrid を示します。ヘッダはグループ化された行の上に表示されることに注意してください。
+
+image::Images/WinGrid_How_to_Control_Header_Placement_04.png[]
+
+ 
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles ultraGrid1.InitializeLayout
+' レイアウトの Override オブジェクトに HeaderPlacement を設定します。これは WinGrid のすべての
+' バンドに影響します。
+    e.Layout.Override.HeaderPlacement = HeaderPlacement.OncePerGroupedRowIsland
+' バンドの Override オブジェクトにプロパティを設定することによって、特定のバンドで
+' それをオーバーライドすることができます。
+    e.Layout.Bands(0).Override.HeaderPlacement = HeaderPlacement.FixedOnTop
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// レイアウトの Override オブジェクトに HeaderPlacement を設定します。これは WinGrid のすべての
+	' バンドに影響します。
+	e.Layout.Override.HeaderPlacement = HeaderPlacement.OncePerGroupedRowIsland;
+	// バンドの Override オブジェクトにプロパティを設定することによって、特定のバンドで
+	// それをオーバーライドすることができます。
+	e.Layout.Bands[0].Override.HeaderPlacement = HeaderPlacement.FixedOnTop;
+}
+----

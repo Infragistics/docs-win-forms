@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "windropdown-about-windropdown",
+    "controlName": ["WinDropDown"],
+    "tags": ["Getting Started","Selection"],
+    "guid": "{8491EEFC-CA56-4511-AFC9-2D2750F3975A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDropDown について
+
+WinDropDown コントロールは、WinGrid と使用可能な Windows Formsのコントロールのひとつで、グリッド セル内に複数列のドロップダウン リストを提供します。WinGrid コントロールは、単一列の単純なドロップダウン リストをサポートしています。WinDropDown は、WinGrid と同じ基本クラスから派生し、そのほとんどの機能を継承しています（ソート、フィルタリング、外観など）。グリッドの列またはセルの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcomboeditor~valuelist.html[ValueList]"]  プロパティを使用して WinDropDown コントロールをグリッドに関連付けることができます。
+
+image::images/WinDropDown_About_WinDropDown.png[]

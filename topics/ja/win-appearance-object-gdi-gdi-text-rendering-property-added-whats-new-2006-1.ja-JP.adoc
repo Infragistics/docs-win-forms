@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-appearance-object-gdi-gdi-text-rendering-property-added-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{538F4353-B04F-4F18-8721-E432CA7BFC88}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 追加された GDI/GDI+ テキスト レンダリング プロパティ
+
+{ProductName} 2005 Volume 3（CLR 2.0）リリースでは、テキストを GDI+ でレンダリングしようとすると、UseGDIPlusTextRenderer を True に設定しなければなりませんでした。True に設定されると、プロジェクト内のすべてのコントロールは GDI+ でレンダリングします。しかし、新しい TextRenderingMode プロパティが基本クラスに追加されたことにより、フォーム上のコントロールを指定して GDI+ レンダリングすることが可能となりました。
+
+== 関連トピック:
+
+link:win-render-gdi-text-in-individual-controls.html[個々のコントロールでの GDI+ でのテキスト レンダリング]

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "appstylistruntime-about-appstylistruntime",
+    "controlName": [],
+    "tags": [],
+    "guid": "{AECC1DE9-B08F-49E4-A186-E1355461CB4E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= AppStylistRuntime コンポーネントについて
+
+AppStylistRuntime コンポーネントによって、ご使用のアプリケーションに直接結びついた AppStylist™ のよりコンパクトなバージョンを実行できます。ShowRuntimeApplicationStyler メソッドを実行すると AppStylist のランタイム バージョンが表示されます。このコンポーネントを使用してオンザフライで UI を変更します。
+
+image::images/Win_AppStylistRuntime_About_the_AppStylistRuntime_Component_01.png[]

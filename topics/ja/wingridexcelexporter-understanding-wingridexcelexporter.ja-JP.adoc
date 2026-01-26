@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter-understanding-wingridexcelexporter",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": [],
+    "guid": "{9C8136C1-1189-4942-A03C-4D0AF609773F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridExcelExporter の理解
+
+WinGridExcelExporter™ コンポーネント、およびその主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinGridExcelExporter コントロールを使用することの利点を理解できます。
+
+WinGridExcelExporter コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wingridexcelexporter-about-wingridexcelexporter.html[WinGridExcelExporter について] 

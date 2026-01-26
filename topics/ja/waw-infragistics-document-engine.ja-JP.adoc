@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "waw-infragistics-document-engine",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4CE11818-F18D-4EE2-8D24-E711D5B11B38}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics Document Engine
+
+Infragistics Document Engine™ に関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コード ライブラリが実行できることとアプリケーションで使用する理由、コード ライブラリを使用して共通タスクを達成するための方法の手順などの Infragistics Document Engine についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、Infragistics Document Engine コントロールについての情報にアクセスします。
+
+== link:documentengine-welcome-to-infragistics-document-engine.html[Infragistics Document Engine にようこそ]
+
+このトピックは、Infragistics Document Engine の非常に高レベルの概要を提供します。レポートに命を吹き込み色を付けるレポート グラフィックスだけでなく、プロフェッショナルのレポートを構築するために連動する多数のレポート エレメントを紹介します。
+
+== link:documentengine-getting-started-with-infragistics-document-engine.html[Infragistics Document Engine で開始]
+
+Infragistics Document Engine を基本的に理解すると、このトピックはコード ライブラリの使用を開始する際に役に立ちます。このトピックは、フル レポートを作成するために作成する必要があるオブジェクトの簡単なガイドです。
+
+== link:documentengine-writing-reports.html[レポートの記述]
+
+このセクションは、Infragistics Document Engine のヘルプ重要な部分です。各レポートおよびグラフィックス要素の詳細を示します。このトピックは概念的なガイドの形になっています。ほとんどの要素は膨大で多くの機能を含んでいるからです。
+
+== link:documentengine-deploying-infragistics-document-engine.html[Infragistics Document Engine の配備]
+
+アプリケーションが Infragistics Document Engine を使用する場合、アプリケーションの一部として再配布する必要がある Infragistics .NET アセンブリのリストのトピックを参照してください。
+
+== link:documentengine-api-overview.html[API 概要]
+
+このトピックは、Infragistics Document Engine でプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

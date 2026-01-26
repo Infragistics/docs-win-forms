@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-specify-orientation-for-tabs-in-wintab",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{29DBDFE9-A885-44C7-BDA7-E1189E08F47B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab でタブの方向を指定
+
+このトピックは、WinTab™ コントロールのタブの方向だけでなく、Tab オブジェクトのテキストの方向を設定する方法を示します。これらの設定は WinTab コントロールのスマートタグから適用できます。また、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~taborientation.html[TabOrientation]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~textorientation.html[TextOrientation]"]  プロパティを使用してコードからも設定可能です。
+
+*Visual Basic の場合：*
+
+----
+'WinTab ですべてのタブの方向を指定します 
+Me.ultraTabControl1.TabOrientation = TabOrientation.BottomRight 
+' タブでテキストの方向を指定します 
+Me.ultraTabControl1.TextOrientation = TextOrientation.Horizontal
+----
+
+*C# の場合：*
+
+----
+//WinTab ですべてのタブの方向を指定します
+this.ultraTabControl1.TabOrientation = TabOrientation.BottomRight;
+// タブでテキストの方向を指定します 
+this.ultraTabControl1.TextOrientation = TextOrientation.Horizontal;
+----
+
+以下のスクリーンショットは、 BottomRight に方向した Tabs および各 Tab の Text を水平に方向した WinTab を表示します。
+
+image::Images/WinTab_Specify_Orientation_for_Tabs_in_WinTab.png[]

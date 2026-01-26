@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-binding-wintree-to-a-hierarchical-data-source",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{D73C398A-5C7E-42D0-AC87-C632F35124BA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree を階層的なデータ ソースにバインド
+
+*始める前に*
+
+WinTree™ コントロールはツリーのような構造で階層データを表すために使用することができます。列のサポートに加えて、データ ソースにバンドする機能があります。データ ソースにバンドされると、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[UltraTreeColumnSet]"]  オブジェクトと pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn.html[UltraTreeNodeColumn]"]  オブジェクトは自動的に生成されます。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~autogeneratecolumnsets.html[AutoGenerateColumnSets]"]  プロパティがデフォルトで True に設定されているからです。
+
+達成すること
+
+WinTree を Northwind データベースの Customers および Orders テーブルにバインドする方法を学習します。
+
+*次の手順を実行します*
+
+[start=1]
+. Microsoft® Visual Studio® Toolbox から、UltraTree をフォームにドラッグ アンド ドロップします。
+[start=2]
+. WinTree コントロールの [プロパティ] ウィンドウで、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~datasource.html[DataSource]"]  プロパティを選択し、ドロップダウン リストを表示します。ドロップダウン リストで、[プロジェクト データ ソースの追加...] リンクをクリックします。
+
+image::Images/WinTree_Binding_WInTree_to_a_Hierarchical_Data_Source_01.png[]
+
+[start=3]
+. [データ ソース構成] ウィザードが表示します。Database を選択して [次へ] をクリックします。
+[start=4]
+. [新しい接続] をクリックして接続文字列を構成します。[接続を追加] ダイアログが表示します。
+[start=5]
+. Data Source の下に Microsoft SQL Server (Sql Client) があることを確認します。この場合、使用しているサーバー、.\SQLEXPRESS にサーバー名を指定します。データベースを Northwind に設定します。
+
+image::Images/WinTree_Binding_WInTree_to_a_Hierarchical_Data_Source_02.png[]
+
+[start=6]
+. [OK] をクリックします。[データ接続を選択] 画面に戻ります。
+[start=7]
+. [次へ] をクリックします。
+[start=8]
+. Tables ノードを展開し、Customers および Orders テーブルの横にあるチェックボックスを選択します。[完了] をクリックします。
+
+image::Images/WinTree_Binding_WInTree_to_a_Hierarchical_Data_Source_03.png[]
+
+[start=9]
+. WinTree コントロールの DataSource プロパティ ウィンドウで、ダイアログをドロップダウンし、[その他のデータ ソース] セクションを展開します。Northwind データセットは Customers および Orders テーブルとともにリストされます。最初にデータセットに関連付けられた Orders テーブルを選択します。これは子テーブルを表すからです。次に親テーブルを表す Customers テーブルを選択します。データセット、BindingSource および TableAdapter が生成され、フォームにコンポーネントとして追加されます。
+[start=10]
+. これで WinTree は描画される時に表示される列を表示します。
+
+image::Images/WinTree_Binding_WInTree_to_a_Hierarchical_Data_Source_04.png[]
+
+[start=11]
+. アプリケーションを保存して実行します。WinTree コントロールが Customers テーブルからのデータで埋められているのを確認します。ノードを展開する場合、関連している Orders テーブルが表示されます。
+
+image::Images/WinTree_Binding_WInTree_to_a_Hierarchical_Data_Source_05.png[]

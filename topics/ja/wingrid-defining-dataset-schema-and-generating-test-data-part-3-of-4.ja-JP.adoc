@@ -1,0 +1,206 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-defining-dataset-schema-and-generating-test-data-part-3-of-4",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{64C90EC3-B520-4DA8-A373-EB0F466BE854}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= DataSet スキーマの定義とテストデータの生成（パート 3/4）
+
+このトピックは link:wingrid-generating-the-xsd-schema-part-2-of-4.html[「XSD スキーマの生成（パート 2/4）」]からの続きです。
+
+== DataSet スキーマの作成
+
+これまでに、スキーマに Customers および Orders という 2 つの基本的なエレメントを作成しました。ここで Customers エレメント/テーブルの CustID エンティティをプライマリ キーとして機能するように指定する必要があります。プライマリ キーを確立したら、Customers と Orders の間の関係を、両方のデータ構造に存在する CustID フィールドに基づいて作成します。このスキーマで DataSet の構造を作成すると、その関係は、それらをテーブルに対して親子関係があるようにできる DataRelation オブジェクトに変換されます。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. XSD デザイン ビューで、左下の [XML] タブ ボタンをクリックして、スキーマの XML ビューに行きます。XML ビューの下部の </xs:schema> タグの前に次のコードを記述します。
+
+[NOTE]
+====
+*注:* 下記の XML マークアップをコピーしたら、Visual Studio XML エディタの右クリック ポップアップ メニューから [HTML としてペーストする] オプションを選択します。これによりタグを HTML 形式でペーストされないようにします。
+====
+
+*XML スキーマ：*
+
+----
+<xs:element name="DataSet" msdata:IsDataSet="true">
+        <xs:annotation>
+                <xs:documentation>
+                1) Declare the Customers and Orders tables.
+                2) Establish the unique constraint on the CustID field in the Customers table.
+                3) Create a foreign key relationship between the CustID field of the Orders 
+                   table to the CustID field of the Customers table.
+                </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+                <xs:choice maxOccurs="unbounded">
+                        <xs:element ref="Customers" maxOccurs="3" minOccurs="0" />
+                        <xs:element ref="Orders" maxOccurs="3" minOccurs="1" />
+                </xs:choice>
+        </xs:complexType>
+        <xs:key name="CustIDKey">
+                <xs:selector xpath="Customers" />
+                <xs:field xpath="@CustID" />
+        </xs:key>
+        <xs:keyref name="CustIDForeignKey" refer="CustIDKey">
+                <xs:selector xpath="Orders" />
+                <xs:field xpath="@CustID" />
+        </xs:keyref>
+</xs:element>
+----
+
+XSD ファイルの上部、<xs:schema> タグの中に、次の名前空間宣言を貼り付けます。
+
+*xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"* いまスキーマに貼り付けた XML マークアップで使用されている msdata:IsDataSet="true" 属性が存在するために、これが必要です。この属性は DataSet に、内部スキーマ/構造を構築する時に、属性を含む要素を「開始点」として扱う必要があることを知らせるために使用されます。その属性は別の名前空間にあるので、スキーマはその名前空間を参照するということを示す必要があります。そうでないと、DataSet の ReadXmlSchema を呼び出す時に例外がスローされます。 
+[start=3]
+. 上記の XSD コードは Customers テーブルのプライマリー キーを確立し、2 つのテーブルの関係を定義し、各タイプの発生可能回数（つまり各バンドに許容される行の数）を指定します。XML の観点から maxOccurs 属性および minOccurs 属性はその要素が何回表示可能かを表します。階層データの観点から、それらの属性がデータ テーブルを表す要素で使用される時、属性はそのテーブルに表示可能な行の数を示します。
+
+上記のようなマークアップで、DataSet は Customers と Orders という 2 つのテーブルを格納していることを宣言します。それらのエレメントで使用される maxOccurs 属性は、それらのテーブルで表示可能な行の最大数を示します。そのような属性設定では、Customers テーブルが 3 件の顧客まで格納できるということを示しています。WinGrid では、3 つの行が既にバンドにある場合、エンド ユーザーはそれより多くの行を追加できません。Orders エレメント上の maxOccurs は、各顧客は注文を最大 3 つ持つことができるということを示します。minOccurs 属性は、各バンドが格納できる行の最小数を示しています。
+
+maxOccurs 属性は UltraGridBand クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~maxrows.html[MaxRows]"]  プロパティに対応しており、minOccurs は pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~minrows.html[MinRows]"]  プロパティに対応しています。
+
+== テスト データの生成
+
+[start=1]
+. まず XSD ファイルへのパスを格納するプライベート変数を宣言する必要があります。次のコードはこの宣言を示しています。
+
+*Visual Basic の場合：*
+
+----
+Private ReadOnly xsdFileName As String = "..\WinGrid\cust-orders.xsd"
+----
+
+*C# の場合：*
+
+----
+private readonly string xsdFileName = @"..\..\cust-orders.xsd";
+----
+
+[start=2]
+. ここで、DataSet を作成する準備ができました。引数をとらず、DataSet を返す CreateDataSet と呼ばれるフォーム派生クラスにメソッド（機能）を宣言します。このメソッド内に次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Function CreateDataSet() As DataSet
+	Dim ds As New DataSet()
+	' XSD スキーマ ファイルに基づく構造を DataSet に与えます
+	ds.ReadXmlSchema(Me.xsdFileName)
+	' DataSet にデータを移植します
+	Dim tbl As DataTable = ds.Tables("Customers")
+	' 顧客（CustID, Title, FirstName, MiddleInitial, LastName）
+	tbl.Rows.Add(New Object() {1, "Mr.", "David", "J", "SilverTone"})
+	tbl.Rows.Add(New Object() {2, "Dr.", "Jessica", "A", "Monet"})
+	tbl.Rows.Add(New Object() {3, "Ms.", "Alberta", "Q", "Mathersly"})
+	tbl = ds.Tables("Orders")
+	' 注文（CustID, OrderID, ProductName, Price, Quantity）
+	tbl.Rows.Add(New Object() {1, "customer", "132E", "Coleman Grape Jelly", 2.39, 14})
+	tbl.Rows.Add(New Object() {1, "customer", "126A", "Merrick Butter Knife", 12.99, 2})
+	tbl.Rows.Add(New Object() {2, "customer", "21E", "Jamesville Powder", 1.79, 34})
+	tbl.Rows.Add(New Object() {3, "customer", "143R", "Coleman Grape Jelly", 2.39, 6})
+	tbl.Rows.Add(New Object() {3, "customer", "144T", "Bill's Mango Passion", 4.49, 2})
+	tbl.Rows.Add(New Object() {3, "customer", "143R", "Helluva Hot Sauce", 3.99, 1})
+	Return ds
+End Function
+----
+
+*C# の場合：*
+
+----
+private DataSet CreateDataSet()
+{
+	DataSet ds = new DataSet();
+	// XSD スキーマ ファイルに基づく構造を DataSet に与えます
+	ds.ReadXmlSchema( this.xsdFileName );
+	// DataSet にデータを移植します
+	DataTable tbl = ds.Tables["Customers"];
+	// 顧客（CustID, Title, FirstName, MiddleInitial, LastName）
+	tbl.Rows.Add( new object[]{ 1, "Mr.", "David",   "J", "Silvertone" } );
+	tbl.Rows.Add( new object[]{ 2, "Dr.", "Jessica", "A", "Monet"      } );
+	tbl.Rows.Add( new object[]{ 3, "Ms.", "Alberta", "Q", "Mathersly"  } );
+	tbl = ds.Tables["Orders"];
+	// 注文（CustID, OrderID, ProductName, Price, Quantity）
+	tbl.Rows.Add( new object[]{ 1, "customer", "132E", "Coleman Grape Jelly",   2.39, 14 } );
+	tbl.Rows.Add( new object[]{ 1, "customer", "126A", "Merrick Butter Knife", 12.99,  2 } );
+	tbl.Rows.Add( new object[]{ 2, "customer",  "21E", "Jamesville Powder",     1.79, 34 } );
+	tbl.Rows.Add( new object[]{ 3, "customer", "143R", "Coleman Grape Jelly",   2.39,  6 } );
+	tbl.Rows.Add( new object[]{ 3, "customer", "144T", "Bill's Mango Passion",  4.49,  2 } );
+	tbl.Rows.Add( new object[]{ 3, "customer", "143R", "Helluva Hot Sauce",     3.99,  1 } );
+	return ds;
+}
+----
+
+[start=3]
+. 上記のコードで、DataSet を定義し、XSD ファイルからスキーマを DataSet に提供し、それから 2 つのテーブル（顧客および注文）にダミー データを移植します。
+[start=4]
+. ここで、チュートリアルの最初のページで追加されたボタンの Click イベント用のハンドラを作成します。[データをロード] ボタン用の Click イベント ハンドラでは、WinGrid を CreateDataSet メソッドによって返された DataSet に結合する必要があります。次のコードをそのボタン用の Click イベント ハンドラに貼り付けます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnLoad_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnLoad.Click
+	Dim ds As DataSet = Me.CreateDataSet()
+	Me.UltraGrid1.SetDataBinding(ds, Nothing)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnLoad_Click(object sender, System.EventArgs e)
+{
+	DataSet ds = this.CreateDataSet();
+	this.ultraGrid1.SetDataBinding( ds, null );
+}
+----
+
+[start=5]
+. 最後に WinGrid の InitializeLayout イベント用のハンドラを作成する必要があります。このメソッドは、Price 列のセルにマスクエディタを使用させ、エンド ユーザーが新しい行をバンドに追加することができるようにします。次のコードをイベント ハンドラに配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Override.AllowAddNew = AllowAddNew.TemplateOnBottom
+	e.Layout.Bands(1).Columns("Price").Editor = New EditorWithMask()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Override.AllowAddNew = AllowAddNew.TemplateOnBottom;
+	e.Layout.Bands[1].Columns["Price"].Editor = new EditorWithMask();
+}
+----

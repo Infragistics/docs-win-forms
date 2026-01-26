@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-hottracking",
+    "controlName": ["WinGrid"],
+    "tags": [],
+    "guid": "72b92da9-68fd-4287-af39-f1b1b6c46cd5",  
+    "buildFlags": [],
+    "createdOn": "2012-12-17T20:23:11.9835018Z"
+}
+|metadata|
+////
+
+= ホット トラッキング (WinGrid)
+
+=== はじめに
+
+このグループのトピックは、 _WinGrid™_   コントロールの _ホット トラッキング_  について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-hottracking-grouped-rows.html[グループ化された行のホット トラッキング]
+|このトピックは、`ホット トラッキング`機能、および `GroupBy` モードの行で`ホット トラッキング`の外観を有効にするコード例を提供します。
+
+| link:wingrid-hottracking-rows-cells-and-headers.html[行、セル、およびヘッダーのホット トラッキング]
+|このトピックでは、現在ホットトラッキングされている行、列またはヘッダーを強調表示する方法を説明します。ホットトラッキングとはマウスが UI 要素の上に移動されたときに、それを視覚的に強調することを指します。
+
+|====

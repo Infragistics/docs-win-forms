@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{97AD2BAA-39CC-4F66-8B39-501BD37A4AE3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource 2005.1
+
+== セル値の配列を使用した行の初期化
+
+Add メソッドと Insert メソッドに対するオーバーロードが、セル値の配列を取り込む UltraDataRowsCollection に追加され、新規の行を初期化できるようになりました。
+
+== 関連トピック
+
+link:windatasource-use-add-and-insert-methods-with-arrays.html[配列を用いる Add/Insert メソッドの使用]

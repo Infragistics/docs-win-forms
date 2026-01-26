@@ -1,0 +1,108 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{DE9AD5FC-0FBB-4A97-9E41-698DA4B1B53C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule 2005.1
+
+== UltraCalendarInfo の論理日プロパティ
+
+UltraWinSchedule の NAS2005 Vol1 リリースは、現実の日とは（開始時期と期間で）異なることがある「論理日」をサポートします。論理日は、UltraCalendarInfo コンポーネントの新しい 2 つのプロパティ（LogicalDayOffset と LogicalDayDuration）によって定義されます。どちらのプロパティも TimeSpan 型です。
+
+=== LogicalDayOffset
+
+LogicalDayOffset プロパティは、現実の日の真夜中を基準とした論理日の開始時期を決定します。LogicalDayOffset プロパティには、正または負の方向で 1 分から 23 時間 59 分の値を設定できます。たとえば、LogicalDayOffset プロパティに - 4 時間の Timespan を設定すると、論理日は _前_ 日の午後 8 時に始まり、+8 時間 30 分を設定すると、論理日は同じ日の午前 8:30 に開始します。LogicalDayOffset プロパティの最大許容設定値は 23 時間 59 分であるため、論理日が翌日に始まることはありえません。現実の日が真夜中に始まるので、このプロパティのデフォルト値は TimeSpan.Zero です。
+
+=== LogicalDayDuration
+
+LogicalDayDuration プロパティは、論理日の長さを決定します。LogicalDayDuration プロパティには 1 分から 24 時間の間で任意の値を設定できます。LogicalDayOffset プロパティとは異なり、正の値だけが有効です。LogicalDayDuration プロパティは、1 日の論理的長さを短縮するのに使えますが、延長することには使えません。たとえば、LogicalDayDuration プロパティに 8 時間の TimeSpan を設定すると、論理日は開始後 8 時間で終わります。1 日の実際の長さは 24 時間であるので、LogicalDayDuration プロパティのデフォルト値は 24 時間です。
+
+=== LogicalDayOffset と LogicalDayDuration との連携使用
+
+LogicalDayOffset プロパティと LogicalDayDuration プロパティは、当然、一緒に使うことが可能で、真夜中以外の時間に始まり、24 時間未満継続する論理日を定義できます。次のコード サンプルは、2 つのプロパティを用いて今日の午前 9 時に開始し、今日の午後 5 時に終了する論理日を定義できることを示しています。
+*Visual Basic の場合：*
+ 
+
+----
+' 次のように LogicalDayOffset プロパティと LogicalDayDuration プロパティを設定します。
+' 論理日が 9AM に始まり、5PM に終了します。
+Me.UltraCalendarInfo1.LogicalDayOffset = TimeSpan.FromHours(9)
+Me.UltraCalendarInfo1.LogicalDayDuration = TimeSpan.FromHours(8)
+----
+
+*C# の場合：*
+
+----
+// 次のように LogicalDayOffset プロパティと LogicalDayDuration プロパティを設定します。
+// 論理日が 9AM に始まり、5PM に終了します。
+this.ultraCalendarInfo1.LogicalDayOffset = TimeSpan.FromHours( 9f );
+this.ultraCalendarInfo1.LogicalDayDuration = TimeSpan.FromHours( 8f );
+----
+
+==== UltraWinSchedule コントロールと論理日プロパティ
+
+次のセクションでは、LogicalDayOffset プロパティと LogicalDayDuration プロパティの該当する UltraWinSchedule コントロールに対する効果と予定ダイアログについて説明します。
+
+==== UltraDayView コントロールと論理日プロパティ
+
+UltraDayView コントロールはユーザー インターフェースが論理日プロパティの影響を受ける唯一の UltraWinSchedule コントロールです。UltraDayView コントロールはタイム スロットを表示します。各タイム スロットは 1 日における特定の時間間隔を表すので、ひとつ以上のタイム スロットが範囲外に落ちるような論理日プロパティ設定が行われると、これらのタイム スロットは表示されません。次のスクリーンショットは、論理日が 9AM に始まり、5PM に終わるように設定されたときの UltraDayView コントロールの表示を示しています。
+
+image::images/Whats_New_UltraWinSchedule_2005_1_01.png[]
+
+真夜中と 9AM の間の時間を表すタイム スロットがなく、また5PMと翌日の真夜中の間の時間を表すタイム スロットもありません。これは論理日プロパティ設定の直接の結果です。
+
+論理日の範囲外となったタイム スロットが見えなくなるのと同様に、完全に論理日外となった予定も表示されません。たとえば、8AM に始まり、9AM に終わる予定が UltraDayView コントロール内に表示されないのは（論理日が 9AM に始まり、5PM に終わるとき）、その予定が完全に論理日の外になるといわれるからです。
+
+同じ論理で、論理日が現実の日の真夜中の前に始まるように論理日プロパティを設定した場合、特定日の予定が UltraDayView コントロールの別の VisibleDay に表示されることがあります。たとえば、論理日が前日の 8PM に始まり、これもその日の 8PM に開始する予定があった場合、UltraDayView コントロールは、次の日が選択されたとき表示される VisibleDay 内にその予定を表示します。次のスクリーンショットはこれを示しています。LogicalDayOffset プロパティが -4 時間に設定された状態で、2005 年 3 月 1 日が選択されると、UltraDayView コントロールの最初のタイム スロットは実際は 2005 年 2 月 28 日（前日）の 8PM に対応します。この条件から、2005 年 2 月 28 日 8PM に始まる予定は、選択された日が 2005 年 3 月 1 日であってもそのタイム スロット内に表示されます。
+
+image::images/Whats_New_UltraWinSchedule_2005_1_02.png[]
+
+ 
+
+論理日プロパティはユーザー インターフェイスにのみ適用されるので、Appointment オブジェクトの各プロパティ値の有効な範囲は論理日プロパティの影響を受けません。Appointment オブジェクトの StartDateTime プロパティと EndDateTime プロパティには、論理日の完全に範囲外に予定を置く値に設定できます（プログラマはこうすることを妨げられません）。一方、ユーザー インターフェイスは、エンド ユーザーが予定の時刻を変更して論理日外になることのないようにしています。予定を論理日外にドラッグすることや、開始/終了時刻が論理日外に移るような予定のサイズ変更はできません。
+
+=== UltraWeekView/UltraMonthViewSingle コントロールと論理日プロパティ
+
+UltraWeekView コントロールの表示と UltraMonthViewSingle コントロールの表示は、論理日プロパティにデフォルト以外の値がセットされているとき、何も変わりません。ただし、予定の開始/終了時刻と論理日の開始/終了との関係に応じて予定の表示が変わることがあります。
+
+たとえば、論理日が前日の 8PM に始まり、StartDateTime が前日の 7PM、EndDatTime が 9PM で予定が作成された場合を想定してみます。予定が複数の論理日にまたがっている（8PM 境界を越えている）ので、その期間がたった 2 時間であっても、UltraWeekView コントロールと UltraMonthViewSingle コントロールでの表示は複数日に入ります。次のスクリーンショットはこれを示しています。
+
+image::images/Whats_New_UltraWinSchedule_2005_1_03.png[]
+
+image::images/Whats_New_UltraWinSchedule_2005_1_04.png[]
+
+[NOTE]
+====
+*注:* Appointment オブジェクトの IsMultiDay プロパティはこれを考慮して、上記の場合には True を返すことに注意してください。
+====
+
+=== UltraMonthViewMulti コントロールと論理日プロパティ
+
+UltraMonthViewMulti コントロールの表示は、論理日プロパティにデフォルト以外の値がセットされているとき、UltraWeekView コントロールおよび UltraMonthViewSingle コントロールと何も変わりません。また UltraWeekView コントロールや UltraMonthViewSingle コントロールと同様に、予定時間が複数の論理日にわたっているとき複数日の活動を表すことができます。次のスクリーンショットは、上記セクションで使用したのと同じ例（論理日が前日の 8PM に始まり、予定が前日の 7PM の StartDateTime と 9PM の EndDateTime で作成）でこれを示しています。
+
+image::images/Whats_New_UltraWinSchedule_2005_1_05.png[]
+
+ 
+
+=== AppointmentDialog と論理日プロパティ
+
+AppointmentDialog が変更されて、論理日プロパティに課される境界内に予定の時刻を制限するようにしました。たとえば、時刻リストを含むドロップダウンには、論理日範囲外の時間が含まれていません。さらに、エンド ユーザーがキーボードから無効な時間を入力することができるので、予定の時刻を保存するときにそれを論理日と比較検証し、エンド ユーザーに境界領域を超える予定の時刻を指定させないようにします。境界領域を超えたというイベントが発生すると、ダイアログがエンド ユーザーに警告し、このダイアログは閉じません。たとえば、論理日が今日の 9AM から 5PM の間で、エンド ユーザーが 6PM の EndDateTime を持つ予定を保存しようとすると、ダイアログはエラーを生成し、ユーザーに通知します。次のスクリーンショットはこれを示しています。
+
+image::images/Whats_New_UltraWinSchedule_2005_1_06.png[]
+
+ 
+
+末端の開発者が論理日の境界領域を超える予定の時刻を選択するような場合もありうるので、デフォルト動作を変更するために ValidateAppointmentEventArgs クラスのプロパティを使用することもできます。
+
+=== UltraCalendarCombo の SpinWrap 機能
+
+SpinWrap プロパティが UltraCalendarCombo コントロールに追加されました。SpinWrap プロパティは、コントロールのスピン ボタンの値を循環させるかどうかを示す値を取得または設定します。True の場合、スピン ボタンを使用すると値が最小値／最大値の範囲で循環します。

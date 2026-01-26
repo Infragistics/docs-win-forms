@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimespaneditor-about-wintimespaneditor ",
+    "controlName": ["WinTimeSpanEditor"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "ef85b606-ad3d-4e9a-b14b-0cef65554309",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T20:15:57.976504Z"
+}
+|metadata|
+////
+
+= WinTimeSpanEditor について
+
+WinTimeSpanEditor™ コントロールは、ユーザーが指定するフォーマットで期間を入力するためのエディターを提供します。最小値および最大値を設定したり、スピン ボタンを使用して時間のスパン値を増減できます。このエディター コントロールは、スタンドアローン コントロールとして使用するか、組み込み可能なエディターをサポートするコントロール内に組み込むことができます（たとえば、WinGrid、WinTree、WinSchedule コントロール）。WinTimeSpanEditor コントロールは WinTextEditor™ から派生します。
+
+以下は WinTimeSpanEditor の追加機能の一部です。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、イメージなどを含め、外観が完全にサポートされます。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマ、WindowsVista、および ScenicRibbon をサポートします。
+* インク対応 -  ユーザーは、FreeForm のインク入力と仮想キーボード入力を切り替えて使用できます。
+* オーバーフローインジケーター - テキスト オーバーフロー インジケーターのイメージはカスタマイズ可能で、テキスト全体を表示するツールヒントをサポートします。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+
+image::images/WinTimeSpanEditor_About_WinTimeSpanEditor_01.png[]
+
+*関連トピック:*
+
+link:wintimespaneditor-wintimespaneditor-smart-tag.html[WinTimeSpanEditor スマートタグ]
+
+link:wintimespaneditor-setting-time-span-values.html[タイム スパン値を設定]

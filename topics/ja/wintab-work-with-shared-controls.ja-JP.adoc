@@ -1,0 +1,134 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-work-with-shared-controls",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{2B87344E-6BC8-438D-AAB7-424DB35902A3}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 共通コントロールの操作
+
+WinTabStrip コントロールを使用するときは、すべてのコントロールがすべてのタブ間で自動的に共有されます。しかし、WinTab コントロールでは通常、コントロールはコントロール コンテナに置かれるため、1 つのタブにのみ表示されます。
+
+タブ ページ上に表示されるコントロールのほとんどはタブによって異なりますが、場合によっては特定のコントロールをすべてのタブに表示しなければならないことがあります。このようなコントロールとしては、ダイアログの [OK] ボタンや [Cancel] ボタン、あるいは単にすべてのタブに関連する設定を表示するコントロールなどが挙げられます。このような理由から、WinTab エレメントではタブ間で 1 つまたは複数のコントロールを共有する手段が提供されています。
+
+また、特定のコントロールを複数のタブに表示するものの、必ずしもすべてのタブに表示する必要はない、という場合もあります。たとえば、アプリケーションでの表示、印刷、または Web 上での表示に使用するグリッド インタフェースの設定を行うためのオプションをユーザーに提供するタブがあるとします。このとき、印刷の設定に対しては [Preview] ボタンを提供し、アプリケーションベースの設定に対しては提供しないとします。このような仕様に対応するため、WinTab では、すべてのタブで共有されるコントロールを特定のタブから除外する手段が提供されています。
+
+コントロールの共有と共有コントロールの除外は、2 種類のコレクションによって処理されます。エレメント レベルでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.sharedcontrolscollection.html[SharedControls]"]  というコレクションがあります。このコレクションに追加されたコントロールはすべて、エレメント内のすべてのタブで共有されます。Tab　レベルでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~excludedsharedcontrols.html[ExcludedSharedControls]"]  というコレクションがあります。SharedControls コレクションに含まれるコントロールのうち、特定の Tab のこのコレクションに追加されたものはすべて、そのタブに表示されなくなります。
+
+== デザインタイムにおけるコントロールの共有
+
+Tab エレメントを初めてフォームに追加し、まだタブが 1 つも含まれていないときは、エレメントの領域全体が共有コントロール コンテナによって占められています。このときにエレメントに配置されたコントロールは、どれもすべてのタブ間で共有されます。
+
+[start=1]
+. 新しい UltraWinTab エレメントをフォームに追加します。
+[start=2]
+. タブ ヘッダ領域の下のコントロール領域をクリックします。Visual Studio のプロパティ シートに、*UltraTabSharedControlsPage* が選択されたことが示されます。
+[start=3]
+. ツールボックスからツールを選択して次のように操作します。
+
+ツールをダブルクリックし、デフォルトのサイズと位置で共有コントロール ページにツールを追加します。
+
+または
+
+共有コントロール ページの領域で、必要なサイズと位置でツールを描画します。
+
+選択したコントロールが共有コントロール ページに表示されます。共有コントロール ページに追加されたコントロールは、後で追加するすべてのタブに自動的に表示されます。
+
+image::images\WinTab_Sharing_Controls_and_Excluding_Shared_Controls_01.png[]
+
+タブをエレメントに追加した後、新しい共有コントロールを追加する必要がある場合は、共有コントロール ページを手動で表示する必要があります。
+
+[start=1]
+. エレメントのコンテキスト メニューを表示し、[共通コントロールを表示] を選択します。
+
+または
+
+Visual Studio のプロパティ シートの下部ペインにある [共通コントロールを表示] リンクをクリックします。
+
+共有コントロール ページがコントロール内に表示され、その中に現在配置されているすべてのコントロールが表示されます。
+[start=2]
+. 必要に応じて、共有コントロールの追加、削除、または位置変更を行います。
+[start=3]
+. タブヘッダ領域にあるタブの 1 つをクリックすると、そのタブに切り替わって共有コントロール ページが再び非表示になります。
+
+== デザインタイムにおける共有コントロールの除外
+
+1 つまたは複数のタブをコントロールに追加した後、共有コントロール ページ上のコントロールを、特定のタブに表示されないように除外できます。
+
+[start=1]
+. UltraWinTab エレメントで、1 つまたは複数の共有コントロールを除外するタブを選択します。
+[start=2]
+. エレメントのコンテキスト メニューを呼び出し、メニューから [共通コントロールの除外...] を選択します。
+
+または
+
+Visual Studio のプロパティ シートの下部ペインにある [共通コントロールの除外...] リンクをクリックします。
+
+[共通コントロールの除外] ダイアログが表示されます。
+
+image::images\WinTab_Sharing_Controls_and_Excluding_Shared_Controls_02.png[]
+
+[start=3]
+. 選択したタブがダイアログの [タブ] ドロップダウンに表示されていることを確認します。必要であれば、このドロップダウンを使用して、共有コントロールを除外する別のタブを選択することもできます。
+[start=4]
+. ドロップダウンの下に、共有コントロールページ上のすべてのコントロールのリストがあります。リスト内のコントロールにはそれぞれチェックボックスが付いています。除外するコントロールを 1 つまたは複数クリックし、チェックボックスにチェックマークを付けます。
+[start=5]
+. 他のタブから共有コントロールを除外する場合は、[適用] ボタンをクリックして変更を適用します。次にドロップダウンから新しいタブを選択できます。そうでない場合は、[OK] をクリックして変更を適用し、ダイアログを閉じます。
+
+== ランタイムにおけるコントロールの共有
+
+次のコードを使用すると、コントロールの SharedControls コレクションにコントロール（この例ではボタン コントロール）を追加できます。このコードは、共有コントロール ページに表示されるコントロールを決定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub SharingControlsandExcludingSharedControls_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	button1.Text = "Hello"
+	Me.UltraTabControl1.SharedControls.Add(Me.button1)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SharingControlsandExcludingSharedControls_Load(object sender, System.EventArgs e)
+{
+	button1 = new Button();
+	button1.Text = "Hello";
+	this.ultraTabControl1.SharedControls.Add(this.button1);
+}
+----
+
+image::images\WinTab_Work_with_Shared_Controls_01.png[]
+
+== ランタイムにおける共有コントロールの除外
+
+次のコードを使用すると、特定のコントロール（すでに SharedControls コレクションのメンバとなっているコントロール）を、指定したタブ上に表示されないように除外できます。このコードでは、Tabs コレクション内の Tab の Index（0）を使用して、コントロールを除外する Tab を指定していますが、Tab の Key の値を指定していればそれを使用することもできます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton2_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton2.Click
+	Me.UltraTabControl1.Tabs(0).ExcludedSharedControls.Add(Me.button1)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton2_Click(object sender, System.EventArgs e)
+{
+	this.ultraTabControl1.Tabs[0].ExcludedSharedControls.Add(this.button1);
+}
+----
+
+image::images\WinTab_Work_with_Shared_Controls_02.png[]

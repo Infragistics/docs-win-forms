@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winsplitter-getting-started-with-winsplitter",
+    "controlName": ["WinSplitter"],
+    "tags": [],
+    "guid": "{9B171EAF-B075-4240-9D73-E0DAFFB7044B}",  
+    "buildFlags": [],
+    "createdOn": "2009-10-12T16:19:49Z"
+}
+|metadata|
+////
+
+= WinSplitter で開始
+
+以下のリンクをクリックすると、WinSplitter™ コントロールをすばやく起動して実行する方法についての説明が表示されます。
+
+* link:winsplitter-adding-winsplitter-to-your-form.html[WinSplitter をフォームに追加] -- WinSplitter コントロールを Windows Formsに追加する方法、およびデータを作成し、WinSplitter コントロールにバインドする方法について説明します。
+
+== 関連トピック
+
+* link:winsplitter-using-winsplitter.html[WinSplitter の使用]

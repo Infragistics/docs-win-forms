@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-mdi-ribbon-merging",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{48A618EC-5F45-4984-AFCC-0CFF628FA597}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MDI リボン結合
+
+WinToolbarsManager には、ツールとツールバーのコンテンツを他の WinToolbarsManager インスタンスと結合する機能が含まれます。結合は MDI タイプのアプリケーションで自動的に行われ、MdiChild の WinToolbarsManager は自動的に MdiParent の WinToolbarsManager に結合されます。両方の WinToolbarsManager インスタンスの MdiMergable プロパティを False に設定し、さらにツールバーとツールが結合される WinToolbarsManager に「子」WinToolbarsManager の MdiParentManager を設定することでプログラム的に結合することもできます（またはツールおよびツールバーが結合される WinToolbarsManager に「親」WinToolbarsManager の ActiveMdiChildManager を設定することで）。
+
+2007 Volume 1 では、リボンのコンテンツを結合できます。これには、アプリケーション メニュー、クイック アクセス ツールバー、および Mini ツールバーの結合が含まれます（2007 Volume 1 では新しい機能）。
+
+== Office2007UICompatibility を True に設定して結合
+
+アプリケーションを Office 2007 準拠に保つために、Office2007UICompatibility を True に設定すると WinToolbarsManager は以下の方法でリボンの結合を実行します。
+
+=== リボン タブの結合
+
+WinToolbarsManager は、MDI 子の各タブの MDI 親に新しいタブを作成します。この新しいタブのコンテンツは、MDI 子のタブから直接取得されます。親の新しいタブは、子のタブに設定されている UnderlyingTab を持ちます。子に ContextualTabGroup が存在しないタブは、親にそれを持ちません。子に ContextualTabGroup を持つタブは、親の一致するタブ グループに結合されます（または親で作成される）。
+
+== Office2007UICompatibility を False に設定して結合
+
+Office2007UICompatibility プロパティを False に設定すると、WinToolbarsManager は以下の方法でリボンの結合を実行します。
+
+=== リボン タブの結合
+
+WinToolbarsManager は、それぞれを反復し、Key プロパティおよび ContextualTabGroupKey プロパティに同じ値を持つ MDI 親のリボン タブを指定することで、MDI 子のリボン タブを結合します。タブが見つからなければ、新しい RibbonTab が MDI 子のキーで作成されます。WinToolbarsManager は新しいリボン タブを UnderlyingTab として MDI 子に与えます。この方法で、タブは子リボン タブのエレメントを使用できます（例、外観およびキャプション）。タブは新しいプロパティである MergeOrder に基づいてリボンの Tabs コレクションに挿入されます。新しいタブは MDI 子タブのグループに基づいてグループを作成し、新しいグループは同様に MDI 子の基本グループへの参照を維持するので、MDI 子で確立された外観を維持できます。タブが見つかれば、新しいタブを作成する必要はなく、WinToolbarsManager は MDI 子タブの Groups コレクションで結合します。子に ContextualTabGroup を持つタブは、親の一致するタブ グループに結合されます（または親で作成される）。
+
+=== リボン グループの結合
+
+WinToolbarsManager は、MDI 子タブの Groups コレクションから反復して一致するキーを持つ MDI 親のリボン タブにリボン グループを指定しようとします。見つからなければ、新しいリボン グループが作成され、MDI 子のリボン グループへの参照を与えます。それが挿入される場所は、新しい MergeOrder プロパティに基づきます。見つかれば、Tools コレクションが MDI 親タブのリボン グループ Tools コレクションの Tools コレクションに結合されます。
+
+さらに、子グループのダイアログ ボックス ランチャーが親グループに結合されます。子にダイアログ ボックス ランチャーが含まれなければ、親のランチャー キーが使用されます。そうでなければ、子のダイアログ ボックス ランチャー キーが常に優先されます。キーが決定されると、ツールは通常に決定されます。たとえば、決定されたキーが ButtonTool1 で、子と親の両方が Replace の結合タイプで ButtonTool1 を含む場合、ダイアログ ボックス ランチャーをクリックすると、子 WinToolbarsManager でToolClick イベントが起動します。
+
+== 通常の結合動作
+
+以下の項目は、Office2007UICompatibility プロパティの設定に関係なく同じように結合されます。
+
+=== ContextualTabGroups の結合
+
+ContextualTabGroup が MDI 親のひとつとして同じキーを持つ MDI 子に存在する場合、新しいものは親に作成されません。その代わり、子のグループのタブが親のグループの Tabs コレクションに結合されます。子のグループのキーが親で一致しない場合、新しいグループが親で作成され、その UnderlyingContextualTabGroup プロパティは子のグループに設定されます。
+
+=== QuickAccessToolbar の結合
+
+MDI 子ツールバーの QuickAccessToolbar (QAT) は親 QAT に結合されます。これを許可するには、QAT は重複キーを持てるようになりますが、MdiMergePlaceholderTool インスタンスのみが他のツールをコピーすることを許可されます。
+
+=== ApplicationMenu の結合
+
+ApplicationMenu および ApplicationMenu の FooterToolbar は、それぞれメニューおよびツールバーのように結合されます。
+
+=== MiniToolbar の結合
+
+MDI 子の MiniToolbar は、ツールバーで発生するのと同じ結合実装を使用して、ApplicationMenu のツールバーで結合されます。
+
+=== ツールの結合
+
+MiniToobar、ApplicationMenu 領域、およびフッター ツールバー の Tools コレクションについては、Tools コレクションは、以前に結合したツールバーおよびメニューとして結合できます。QAT および RibbonGroup Tools コレクションでは、個別の結合実装が必要です。ツールの SharedProps.MergeType が Replace に設定されている場合、WinToolbarsManager は現在ルート ツールを取得し、RibbonGroup にある可能性がある任意のツールを含むすべての置き換えられたツール インスタンスの UnderlyingTool としてそれを使用します。Root ツールは InstanceProps を持たず（PopupMenuTool を除き）、InstanceProps は、PreferredSizeOnRibbon、MinimumSizeOnRibbon、および ButtonGroup を取得するために使用します。これに対処するには、置き換えられたツールのInstanceProps を使用して、この情報を判断します。すべての他の設定は、MDI 子の Root ツールから取得されます。

@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-move-columns-in-wintree",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{462FFEAE-5B54-4ACC-9997-10D9EE1DC011}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree 内で列を移動
+
+{ProductName} 2005 Volume 2 の WinTree では、列サポートに加えて、列の移動機能もサポートされました。列をプログラムから移動するには、各列の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~layoutinfo.html[LayoutInfo]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodelayoutinfo~originx.html[OriginX]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodelayoutinfo~originy.html[OriginY]"]  を変更します。また、エンド ユーザーは列ヘッダをドラッグ アンド ドロップして列を移動できます。
+
+エンド ユーザーが列単位で列を移動できないようにするには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~allowmoving.html[AllowMoving]"]  プロパティを使用します。また、特定の列セットのすべての列を移動できないようにするには UltraTreeColumnSet の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset~allowcolmoving.html[AllowColMoving]"]  プロパティを使用し、すべての列セットの列を移動できないようにするには UltraTreeColumnSetting の AllowColMoving プロパティを使用します。
+
+[NOTE]
+====
+*注：* デザインタイムに link:wintree-columnset-layout-designer.html[ColumnSet レイアウト デザイナ] を使用して、<a style="hs-build-flags: win-forms" href="">UltraTreeColumnSet</a> の列のレイアウトをカスタマイズできます。
+====
+
+変更前の WinTree は次のスクリーンショットのとおりです。
+
+image::Images/WinTree_Moving_Columns_in_the_WinTree_01.png[]
+
+列を移動するには、列ヘッダの上で左ボタンを押したまま、列を新しい位置にドラッグします。列ヘッダをドラッグすると、有効なドロップ位置を示すドロップ インジケータ（列ヘッダを他の列の隣に配置する場合は赤の矢印のペア、空のスロットにドロップする場合は赤の四角形）が表示されます。
+
+たとえば "First Name" 列を "Last Name" 列の前に移動する場合は、"First Name" 列のヘッダをクリックして "Last Name" 列のヘッダの上にドラッグします。"Last Name" 列ヘッダの左端の上に来ると、赤の矢印が"Last Name" 列の左端に表示されます（次のスクリーンショットを参照）。 これは、"First Name" 列が "Last Name" 列の左に配置されることを示します。
+
+image::Images/WinTree_Moving_Columns_in_the_WinTree_02.png[]
+
+マウスを放すと、赤のドロップインジケータの位置に基づいて列が配置されます。
+
+[NOTE]
+====
+*注：* ドロップ インジケータが表示されていないところでマウスを放すと、ドラッグ操作はキャンセルされ、列の位置は変更されません。
+====
+
+image::Images/WinTree_Moving_Columns_in_the_WinTree_03.png[]
+
+[NOTE]
+====
+*注：* WinTree では現在列の選択はサポートされていないため、一度に移動できる列は 1 列のみです。
+====

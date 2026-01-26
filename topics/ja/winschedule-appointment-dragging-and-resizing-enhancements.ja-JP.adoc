@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-appointment-dragging-and-resizing-enhancements",
+    "controlName": ["WinSchedule"],
+    "tags": ["Events"],
+    "guid": "{272D01AF-E1B0-4A33-BF35-3CC44C40EB9E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 予定のドラッグおよびリサイズ機能の拡張
+
+すべての WinSchedule™ コントロールは、予定のドラッグおよびリサイズ動作に対して以下の 4 つの全く新しいイベントを公開します：pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentsdragging_ev.html[AppointmentsDragging]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentsdragdrop_ev.html[AppointmentsDragDrop]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentresizing_ev.html[AppointmentResizing]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentresized_ev.html[AppointmentResized]"] 。
+
+“ing” イベントはキャンセル可能で、それらのイベント引数クラスは、ドラッグ/リサイズ操作のどの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdraggingeventargs~phase.html[phase]"]  を発生が表すのかを定義するプロパティを公開します。つまり、開始しているのか（MouseDown 後の最初のドラッグ）、進行中なのか（MouseMove）、または終了しているのか（MouseUp）です。これらのいずれかの phase 間のキャンセルは完全にサポートされており、予定時間/オーナーがドラッグ前の状態に戻る結果となります。イベント引数クラスは Appointments コレクションにある実際のインスタンスへの参照を含む予定の読み取り専用コレクションも公開します。一人の Owner から別の Owner への予定のドラッグも防止できます。
+
+*Visual Basic の場合：*
+
+----
+AddHandler Me.ultraDayView1.AppointmentsDragging, AddressOf ultraDayView1_AppointmentsDragging 
+AddHandler Me.ultraDayView1.AppointmentResized, AddressOf ultraDayView1_AppointmentResized
+Private Sub ultraDayView1_AppointmentsDragging(ByVal sender As Object, ByVal e As AppointmentsDraggingEventArgs) Handles ultraDayView1.AppointmentsDragging
+    Dim control As ControlWithActivityBase = TryCast(sender, ControlWithActivityBase)
+    'WinSchedule コントロール名を取得します 
+    System.Console.WriteLine(control.Name.ToString())
+    System.Console.WriteLine(e.Phase.ToString())
+    System.Console.WriteLine(e.InitialOwner.ToString())
+    '予定の Date Time 
+    System.Console.WriteLine(e.InitialDateTime.ToString())
+    '予定が移動された新しい Date Time 
+    System.Console.WriteLine(e.NewDateTime.ToString())
+    '一人の Owner から別の Owner への予定のドラッグを防止します 
+    e.AllowOwnerChange = False
+End Sub
+Private Sub ultraDayView1_AppointmentResized(ByVal sender As Object, ByVal e As AppointmentResizedEventArgs) Handles ultraDayView1.AppointmentResized
+    '開始 Date Time がリサイズされたのか、それとも終了 Date Time がリサイズされたのかを指定します 
+    System.Console.WriteLine(e.ResizeType.ToString()) 
+End Sub
+----
+
+*C# の場合：*
+
+----
+this.ultraDayView1.AppointmentsDragging += new AppointmentsDraggingHandler(ultraDayView1_AppointmentsDragging);
+this.ultraDayView1.AppointmentResized += new AppointmentResizedHandler(ultraDayView1_AppointmentResized);
+void ultraDayView1_AppointmentsDragging(object sender, AppointmentsDraggingEventArgs e)
+                {
+                  ControlWithActivityBase control = sender as ControlWithActivityBase;
+                    //WinSchedule コントロール名を取得します
+                    System.Console.WriteLine(control.Name.ToString());
+                    System.Console.WriteLine(e.Phase.ToString());
+                    System.Console.WriteLine(e.InitialOwner.ToString());
+                   //予定の Date Time
+                    System.Console.WriteLine(e.InitialDateTime.ToString());
+                   //予定が移動された新しい Date Time
+                    System.Console.WriteLine(e.NewDateTime.ToString());   
+                   //一人の Owner から別の Owner への予定のドラッグを防止します
+                    e.AllowOwnerChange = false;
+                }
+   void ultraDayView1_AppointmentResized(object sender, AppointmentResizedEventArgs e)
+                {
+                    //開始 Date Time がリサイズされたのか、それとも終了 Date Time がリサイズされたのかを指定します
+                    System.Console.WriteLine(e.ResizeType.ToString());
+                }
+----

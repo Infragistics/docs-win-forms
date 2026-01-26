@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-assign-multiple-owners-for-wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": [],
+    "guid": "{ADDB9317-05EB-4FE6-8620-B40412B577DD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView に複数オーナーを指定
+
+複数オーナーは WinTimelineView™ コントロールに指定でき、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointments]"]  は各オーナーに指定できます。 オーナーは WinTimelineView で行として表示されます。 pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner.html[Owners]"]  オブジェクトは通常、予定をグループ化する単位となる個人、部門、またはその他のエンティティを表します。 オーナーは WinCalendarInfo™ コンポーネントの Owners コレクションに追加されます。
+
+このトピックは、オーナーをどのように WinTimelineView コントロールに関連付けることができるかを示します。 これは ultraTimelineView コントロール、UltraCalendarInfo および UltraCalendarLook コンポーネントがフォームにドロップされていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraCalendarInfo1.Owners.Add("Charlie") 
+Me.ultraCalendarInfo1.Owners.Add("Jamie") 
+Me.ultraCalendarInfo1.Owners.Add("Leah") 
+' デフォルトでは使用できる UnassignedOwner を非表示にします
+Me.ultraCalendarInfo1.Owners.UnassignedOwner.Visible = False 
+Me.ultraCalendarLook1.ViewStyle = Infragistics.Win.UltraWinSchedule.ViewStyle.Office2007 
+Me.ultraTimelineView1.CalendarInfo = Me.ultraCalendarInfo1 
+Me.ultraTimelineView1.CalendarLook = Me.ultraCalendarLook1
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.Owners.Add("Charlie");
+this.ultraCalendarInfo1.Owners.Add("Jamie");
+this.ultraCalendarInfo1.Owners.Add("Leah");
+// デフォルトでは使用できる UnassignedOwner を非表示にします
+this.ultraCalendarInfo1.Owners.UnassignedOwner.Visible = false;
+this.ultraCalendarLook1.ViewStyle = Infragistics.Win.UltraWinSchedule.ViewStyle.Office2007;
+this.ultraTimelineView1.CalendarInfo = this.ultraCalendarInfo1;
+this.ultraTimelineView1.CalendarLook = this.ultraCalendarLook1;
+----
+
+image::Images/WinTimelineView_Assign_Multiple_Owners_for_WinTimelineView.png[]

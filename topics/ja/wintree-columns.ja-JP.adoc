@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-columns",
+    "controlName": ["WinTree"],
+    "tags": ["Styling"],
+    "guid": "{AAB23521-A7BA-4109-B8AF-0254E284F31A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列
+
+WinTree™ は列とともにデータを表示できます。この機能を使用して、WinGrid™ コントロールと同じようにセルと列が表示されます。また、WinTree コントロールは各親ノードに異なる列セットを持つことができ、これによって異種データを表示することを可能になります。ViewStyle プロパティは列が表示される方法を決定します。これは Outlook® Express、Grid および Freeform スタイルという選択するための 3 種類の列スタイルが含まれます。
+
+*Outlook Express スタイル*
+
+OutlookExpress スタイルでは、すべてのノードはコントロールの一番上にあるひとつの列ヘッダー セットの下に終わり、すべての行はひとつのバンド内およびすべてのバンドにわたって同じ型です。同じ列セットを使用しないデータ行がある場合、それらのデータ行の列は、VisiblePosition が一致する列のセルとして表示されます。VisiblePosition が一致する表示列がない列は表示されません。このスタイルは通常、再帰的な関係を持つ同種のデータに対して使用します。
+
+このスタイルは、ひとつの列にひとつの階層が含まれ、その階層内のどこであろうともその階層内のすべてのノードが同じセットの列ヘッダーを共有する場合に非常に役立ちます。この状況の理想的な例は Newsgroup User Interface です。
+
+image::Images/WinTree_Adding_Columns_Using_Outlook_Express_Style_01.png[]
+
+また、このスタイルは再帰的または自己関係的なエンティティ関係を示したい時にも非常に役立ちます。たとえば、同じテーブルのプライマリ キーに関係する外部キーを持つ Data テーブルを検討しましょう。このテーブルは WinGrid で表すことができない再帰的な関係の無限の階層として WinTree に表すことができます。この一例は Employee エンティティまたはテーブルで、そのスキーマには Reports To という名前の列が含まれており、この場合外部キー列はこの同じエンティティまたはテーブルのプライマリ キーに関係します。このテーブルのすべてのエンティティは同じスキーマを持っていますが、階層的で再帰的な関係があり、Outlook Express スタイルを使用して WinTree に完全に表示できます。
+
+*Grid スタイル*
+
+Grid スタイルでは、WinTree は列ヘッダーを各ノード コレクションの一番上に表示します。このスタイルは、各ノード コレクションが固有の一意のデータ スキーマを持っているときに使用できます。非再帰的な階層データもこのモードで表すことができます。この例では、Tree は異なるノード内の Customers､Orders､Order Details､Categories および Products などの異なるエンティティを表すことができ、各ノードは、インデントの各レベルにひとつの特定のスキーマを要求する WinGrid と異なり固有のスキーマを持っています。
+
+image::Images/WinTree_Adding_Columns_Using_Grid_Style_01.png[]
+
+*FreeForm スタイル*
+
+Freeform スタイルは、同じコレクション内に存在するありとあらゆるノードが完全に異なるスキーマを持っている時に適しています。このような場合、ありとあらゆるノードは、セル データ上に直接配置された固有の列ヘッダーを持つことになります。
+
+image::Images/WinTree_Adding_Columns_Using_Freeform_Style_01.png[]
+
+*関連トピック*
+
+* link:wintree-adding-columns-using-outlook-express-style.html[Outlook Express スタイルを使用して列を追加]
+* link:wintree-adding-columns-using-freeform-style.html[Freeform スタイルを使用して列を追加]
+* link:wintree-displaying-wintree-with-columns-in-grid-style.html[Grid スタイルで列を持つ WinTree を表示]
+* link:wintree-manually-creating-columnsets-using-the-designer.html[デザイナーを使用して手動で ColumnSets を作成]

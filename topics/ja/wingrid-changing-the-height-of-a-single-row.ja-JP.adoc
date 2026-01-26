@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-height-of-a-single-row",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{9226192F-881E-4D71-9EA0-AEFE6475040E}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 単一行の高さの変更
+
+ユーザーが単一の行の高さを、バンド内の他の行に影響させずに変更できるようにするには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowsizing.html[RowSizing]"]  プロパティを使用します。
+
+以下のコードを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベントに組み込みます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Override.RowSizing = RowSizing.Free
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Override.RowSizing = RowSizing.Free;
+}
+----

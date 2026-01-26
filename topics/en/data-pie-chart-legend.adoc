@@ -1,0 +1,79 @@
+﻿= Legend
+
+This topic provides information for configuring the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] in order to use an link:{ItemLegendLink}.ItemLegend.html[ItemLegend].
+
+=== Overview
+
+This topic contains the following sections:
+
+* <<Requirements,Requirements>>
+* <<UsingLegend,Using the Legend>>
+* <<CodeExample,Code Example>>
+* <<RelatedContent,Related Content>>
+
+[[Requirements]]
+=== Requirements
+
+This article assumes you have already read the link:data-pie-chart-data-binding.html[Data Binding] topic and have a {DataPieChartName} already bound to some data.
+
+[[UsingLegend]]
+
+=== Using the Legend
+
+In order to display a legend for the {DataPieChartName} an ItemLegend needs to be created and assigned to the link:{DataPieChartLink}.{PieChartBase}{ApiProp}Legend.html[Legend] property. The ItemLegend will display its items in vertical orientation as a default, but this can be configured by setting its `Orientation` property.
+
+By default, the ItemLegend will show the same content as the label that is shown for each slice in the {DataPieChartName}. This can be modified by utilizing the `LegendSliceLabelContentMode` property on the chart. This exposes a `RadialLabelMode` enumeration that can allow you to show the label, value, percentage, or any combination of those as the legend's content for each data pie chart slice.
+
+The ItemLegend badge is also able to be modified. By default, it will appear as a filled circle corresponding to the color of the associated data pie chart slice. This can be configured by using the `LegendItemBadgeShape` property of the chart and you can set this to be a circle, line, bar, column, and more.
+
+[[CodeExample]]
+=== Code Example
+
+ifdef::wpf[]
+
+*In XAML:*
+
+[source, xaml]
+----
+TODO
+----
+
+*In C#:*
+
+[source,csharp]
+----
+TODO
+----
+
+endif::wpf[]
+
+
+ifdef::win-forms[]
+
+*In C#:*
+
+[source,csharp]
+----
+UltraItemLegend legend = new UltraItemLegend()
+{
+    Dock = DockStyle.Top,
+    Orientation = Orientation.Horizontal
+};
+
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    Dock = DockStyle.Fill,
+    DataSource = data,
+    Legend = legend
+};
+
+this.Controls.Add(dataPieChart);
+this.Controls.Add(legend);
+----
+
+endif::win-forms[]
+
+[[RelatedContent]]
+=== Related Content
+
+* link:data-pie-chart-data-binding.html[Data Binding]

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridrowedittemplate-understanding-wingridrowedittemplate",
+    "controlName": [],
+    "tags": ["Getting Started","Templating"],
+    "guid": "{94642161-FF03-4294-BC1B-3CEC74C528BA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridRowEditTemplate の理解
+
+これは、WinGridRowEditTemplate™ コントロール、ならびにその主要な特性と機能についての学習を開始するために絶好の場所です。このセクションのトピックを読むと、アプリケーションで WinGridRowEditTemplate コンポーネントを使用することの利点を理解できます。
+
+WinGridRowEditTemplate コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wingridrowedittemplate-about-wingridrowedittemplate.html[WinGridRowEditTemplate について] -- WinGridRowEditTemplate コントロールの概要を説明しています。
+* link:wingridrowedittemplate-smart-tag.html[WinGridRowEditTemplate スマート タグ] -- WinGridRowEditTemplate コントロールのスマート タグで表示されるプロパティと設定値について説明しています。

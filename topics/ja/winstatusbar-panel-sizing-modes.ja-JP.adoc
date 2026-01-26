@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-panel-sizing-modes",
+    "controlName": ["WinStatusBar"],
+    "tags": ["Getting Started"],
+    "guid": "{BDDF8A05-4770-476E-B353-A18D33D846B3}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル サイズ設定モード
+
+WinStatusBar はパネルの幅を制御するための 4 つのモードを提供します。モードは、パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~sizingmode.html[SizingMode]"]  プロパティを通じて制御されます。またパネルの最小幅を制御する pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~minwidth.html[MinWidth]"]  プロパティも公開されています。
+
+== Adjustable
+
+パネルのサイズは pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~width.html[Width]"]  プロパティに基づいて決まりますが、パネルの右端をドラッグすることでランタイムまたはデザインタイムに変更することもできます。ドラッグに使用できる領域のサイズは、ステータスバーの InterPanelSpacing に基づいて決まります。ステータスバーの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatusbar~resizestyle.html[ResizeStyle]"]  は、ドラッグ操作にあわせてパネルのサイズが自動的に変更されるか、またはドラッグ操作中にパネルの新しい幅を示す分割バーが表示されるのかを示します。また、パネルの右側にある調整可能領域をダブルクリックしたときに、そのパネルのスタイルで使用可能であれば、パネルの幅が pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~autosizewidth.html[AutoSizeWidth]"]  に設定されます。
+
+== Automatic
+
+パネルの画像とテキストに基づいて、パネルの幅が決まります。AutoSizeWidth の決定に使用されるテキストは、パネルのスタイルに基づきます。たとえば、AutoStatusText スタイルのパネルでは、各 Control の StatusBarText の幅が調べられます。
+
+[NOTE]
+====
+*注:* このスタイルは、すべての pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.panelstyle.html[PanelStyles]"]  で有効ではありません。ProgressBar、ControlContainer、MDIList の各スタイルのパネルでこのスタイルを使用すると、 Fixed の SizingMode が使用されます。
+====
+
+== Fixed
+
+パネルの値が Width プロパティの値に設定されます。
+
+== Spring（バネ）
+
+すべてのパネルのサイズがそれぞれの幅に基づいて決まると、残りの領域が Spring スタイルのパネルの間で分配されます。このスタイルのパネルは、他のパネルを右揃えにするためにも使用できます。これには、右側に表示するパネルの前に Spring スタイルのパネルを配置します。

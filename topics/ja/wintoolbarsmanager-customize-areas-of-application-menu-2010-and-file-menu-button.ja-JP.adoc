@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-customize-areas-of-application-menu-2010-and-file-menu-button",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "2bd8f852-1c2b-4928-88f7-1e87b17ced3d",  
+    "buildFlags": [],
+    "createdOn": "2010-09-23T21:33:24.8113339Z"
+}
+|metadata|
+////
+
+= アプリケーション メニュー 2010 の領域およびファイル メニュー ボタンのカスタマイズ
+
+リボンの Office 2010 スタイル アプリケーション メニューは、ナビゲーション メニュー、コンテンツ領域、ヘッダーで構成されます。これらの領域は Appearance プロパティを使用してカスタマイズできます。
+
+以下のコード例は、UltraToolbarsManager コンポーネントがフォームにドロップされ、FileMenuStyle プロパティが ApplicationMenu2010 に設定されることを前提とします。アプリケーション メニュー 2010 についての詳細は、 link:wintoolbarsmanager-office-2010-style-application-menu.html[「Office 2010 スタイル アプリケーション メニュー」]を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+' リボンの左上隅にある [ファイル] メニュー ボタンをクリックすることによって、アプリケーション メニュー 2010 が表示されます
+' このオブジェクトは Ribbon の ApplicationMenu2010 プロパティによってアクセスできます
+Dim appMenu2010 As ApplicationMenu2010 = Me.UltraToolbarsManager1.Ribbon. ApplicationMenu2010
+' Office 2010 スタイル アプリケーション メニューのナビゲーション メニュー、コンテンツ領域およびヘッダーの Appearance 設定
+appMenu2010.NavigationMenu.Settings.Appearance.BackColor = Color.BlanchedAlmond
+appMenu2010.NavigationMenu.Settings.HotTrackAppearance.BackColor = Color.LightBlue
+appMenu2010.ContentArea.Settings.Appearance.BackColor = Color.Ivory
+appMenu2010.ContentArea.Settings.PressedAppearance.BackColor = Color.Brown
+appMenu2010.HeaderAppearance.BackColor = Color.Red
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+// リボンの左上隅にある [ファイル] メニュー ボタンをクリックすることによって、アプリケーション メニュー 2010 が表示されます
+// このオブジェクトは Ribbon の ApplicationMenu2010 プロパティによってアクセスできます
+ApplicationMenu2010 appMenu2010= this.ultraToolbarsManager1.Ribbon.ApplicationMenu2010;
+// Office 2010 スタイル アプリケーション メニューのナビゲーション メニュー、コンテンツ領域およびヘッダーの Appearance 設定
+appMenu2010.NavigationMenu.Settings.Appearance.BackColor = Color.BlanchedAlmond;
+appMenu2010.NavigationMenu.Settings.HotTrackAppearance.BackColor = Color.LightBlue;
+appMenu2010.ContentArea.Settings.Appearance.BackColor = Color.Ivory;
+appMenu2010.ContentArea.Settings.PressedAppearance.BackColor = Color.Brown;
+appMenu2010.HeaderAppearance.BackColor = Color.Red;
+----
+
+[ファイル] メニュー ボタンはリボンの左上隅に表示されますが、FileMenuStyle プロパティの設定に基づいて、デフォルトのアプリケーション メニューまたは Office 2010 スタイル アプリケーション メニューをドロップダウンします。FileMenuStyle が None に設定される場合には、メニュー ボタンは非表示になり、アプリケーション メニューは全く表示されません。
+
+FileMenuButtonCaptionVisible プロパティを False に設定してキャプションを非表示にできます。デフォルトで True に設定され、ボタンはデフォルトのキャプション「ファイル」を表示します。FileMenuButtonCaption プロパティを使用してキャプションを変更できます。
+
+以下のコード例は、[ファイル] メニュー ボタンに使用可能なカスタマイズ オプションを表示します。
+
+*Visual Basic の場合：*
+
+----
+' [ファイル] メニュー ボタンの Appearance 設定
+Me.UltraToolbarsManager1.Ribbon.FileMenuButtonActiveAppearance.BackColor = Color.Green
+Me.UltraToolbarsManager1.Ribbon.FileMenuButtonAppearance.BackColor = Color.Yellow
+Me.UltraToolbarsManager1.Ribbon.FileMenuButtonCaption = "FileMenu"
+Me.UltraToolbarsManager1.Ribbon.FileMenuButtonHotTrackAppearance.BackColor = Color.Red
+----
+
+*C# の場合：*
+
+----
+// [ファイル] メニュー ボタンの Appearance 設定
+this.ultraToolbarsManager1.Ribbon.FileMenuButtonActiveAppearance.BackColor = Color.Green;
+this.ultraToolbarsManager1.Ribbon.FileMenuButtonAppearance.BackColor = Color.Yellow;
+this.ultraToolbarsManager1.Ribbon.FileMenuButtonCaption = "FileMenu";
+this.ultraToolbarsManager1.Ribbon.FileMenuButtonHotTrackAppearance.BackColor = Color.Red;
+----
+
+関連トピック:
+
+link:wintoolbarsmanager-add-tools-to-application-menu-2010.html[ツールをアプリケーション メニュー 2010 に追加]

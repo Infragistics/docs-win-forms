@@ -1,0 +1,21 @@
+﻿////
+|metadata|
+{
+    "name": "appstylistruntime",
+    "controlName": [],
+    "tags": [],
+    "guid": "{AEE932C0-510D-460D-B32D-2B6E90A5BED0}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= AppStylistRuntime
+
+AppStylistRuntime コンポーネント固有の情報を見つけるためには以下のリンクをクリックしてください。
+
+* link:appstylistruntime-about-appstylistruntime.html[AppStylistRuntime コンポーネントについて] -- AppStylistRuntime コンポーネントが実行すること、アプリケーションで使用したい理由についての情報を提供します。
+* link:styling-guide.html[スタイル ガイド] -- AppStylist を使用して Windows Forms のコントロールおよびコンポーネントのビジュアル スタイルと動作を設定する方法の概要。
+* link:styling-guide-styling-your-application-at-run-time.html[ランタイムにアプリケーションをスタイル] -- アプリケーション実行中にアプリケーション スタイルを実行および設定する方法を示します。
+* link:appstylistruntime-api-overview.html[API 概要] – AppStylistRuntime コンポーネントでプログラミング中に取り扱う名前空間とクラスをリストします。

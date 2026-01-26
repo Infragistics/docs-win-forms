@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-resize-drop-down-in-wincombo",
+    "controlName": ["WinCombo"],
+    "tags": ["Selection"],
+    "guid": "6b2b2ca7-ad64-4d32-b65e-eb0761667b0c",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T21:23:06.0717108Z"
+}
+|metadata|
+////
+
+= WinCombo でドロップダウンをリサイズ
+
+WinCombo™ コントロールのドロップダウンは、ハンドルを使用してリサイズできます。ハンドルはドロップダウンの一番下に垂直または水平に配置できます。このハンドルによって、ドロップダウンをリサイズし、コントロールのサイズのために切り詰められたドロップダウン内のテキストや項目を表示できます。デフォルトで link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~dropdownresizehandlestyle.html[DropDownResizeHandleStyle] プロパティは 'None' に設定されます。ランタイムに特定のスタイルに設定されてリサイズされると、ドロップダウンのリサイズされた高さと幅はアプリケーションのその実行に対して保存されます。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~dropdownresizehandleappearance.html[DropDownResizeHandleAppearance] プロパティを使用してハンドルをスタイルすることもできます。
+
+以下のコードは、UltraCombo コントロールがフォームにドロップされデータにバインドされていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+' UltraCombo のドロップダウン リサイズ ハンドルのスタイルを設定します。
+Me.ultraCombo1.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.DiagonalResize 
+' ハンドルの背景色を設定します 
+Me.ultraCombo1.DropDownResizeHandleAppearance.BackColor = Color.Blue
+----
+
+*C# の場合：*
+
+----
+// UltraCombo のドロップダウン リサイズ ハンドルのスタイルを設定します。
+this. ultraCombo1.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.DiagonalResize;
+// ハンドルの背景色を設定します
+this. ultraCombo1.DropDownResizeHandleAppearance.BackColor = Color.Blue;
+----

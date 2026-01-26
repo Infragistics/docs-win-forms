@@ -1,0 +1,124 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-pruning-the-syntax-tree",
+    "controlName": [],
+    "tags": [],
+    "guid": "bb4ed469-abdb-49e5-8300-77fd62f6e670",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1358585Z"
+}
+|metadata|
+////
+
+= 構文ツリーのプルーニング
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Syntax Parsing Engine が実施する構文ツリーのプルーニングについて説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-syntax-tree-overview.html[構文ツリーの概要]
+|このトピックは、構文ツリーが作成される場合とアクセス方法について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350263733, プルーニングの概要 >>
+* <<_Ref350263595, 名前に基づくプルーニング >>
+* <<_Ref350260807, 子に基づくプルーニング >>
+* <<_Ref350260820, 関連コンテンツ >>
+
+[[_Ref350263733]]
+== プルーニングの概要
+
+=== プルーニングのサマリー
+
+組織としては、エラー処理ビヘイビアー、あいまいさの解決、またはその他の理由のために文章校正ライターが、最終的な構文ツリーにノードとして含めるべきでないその他の非終端記号を文章校正の定義に含める必要があります。これらの記号を構文ツリーから除外するために使用するプルーニングは 2 種類あります。
+
+* <<_Ref350263595,名前に基づくプルーニング>>
+* <<_Ref350260807,子に基づくプルーニング>>
+
+構文ツリープルーニングの種類を変更するには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~syntaxtreepruningmode.html[Grammar.SyntaxTreePruningMode] プロパティを使用し、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxtreepruningmode.html[SyntaxTreePruningMode] 型の値に設定します。デフォルトでは、どちらのプルーニングモードも有効になります。
+
+[[_Ref350263595]]
+== 名前に基づくプルーニング
+
+=== 名前に基づくプルーニングのサマリー
+
+多くの場合、特定の「ヘルパー」非終端記号を文章校正定義に含め、文章校正の複雑さを軽減し、EBNF ファイル内で共通のパターンが繰り返されないようにできます。多くの場合、これらの非終端記号は構文ツリーのノードを関連づけておらず、そのため以下の例に示すように、最初の文字にアンダースコアを使用して名前をつけることにより除外できます。
+
+FieldDeclaration =
+
+_typeMemberPrefix, Semicolon;
+
+MethodDeclaration =
+
+_typeMemberPrefix, ParameterList, MethodBody;
+
+PropertyDeclaration =
+
+_typeMemberPrefix, PropertyBody;
+
+_typeMemberPrefix =
+
+[Attributes], [Modifiers], Type, Identifier;
+
+構文ツリーが名前に基づいてプルーニングされる場合、アンダースコアで開始するすべての非終端記号はツリー内でノードとして表れることはなく子ノードはツリー内の次に含められる親ノードの子に昇進します。
+
+[[_Ref350260807]]
+== 子に基づくプルーニング
+
+[[_Ref350260817]]
+
+=== 子に基づくプルーニングのサマリー
+
+オペレータールールを定義する場合にグローバルなあいまいさを回避する共通の方法は、優先順位の低い操作が優先順位の高い操作を「所有」するようにルールを決めることです。これにより、優先順位の高い操作はオペランドでグループ化されます。この取り決めの副作用は、自身で参照する識別子などより共通の単純な表現が非常に濃厚な構文ツリーにつながりかねないことです。識別子ノードは、それぞれ優先順位の低いレベルを表すノードによって所有されます。
+
+たとえば、「x = y」のような単純な式が以下のような構文ツリー構造につながる可能性があります。
+
+image::images/SPE_Pruning01.png[]
+
+ただし、「子に基づく」プルーニングでは、構文ツリーは代わりにこのように見えます。
+
+image::images/SPE_Pruning02.png[]
+
+このプルーニングモードは、単一の非終端記号ノードを所有する非終端記号ノードを除外します。子の非終端記号ノードは、その後、次に含められるアンカーノードの子に昇進します。
+
+[[_Ref350260820]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-ignored-content.html[無視されるコンテンツ]
+|このトピックは、構文解析中に起こる無視されたコンテンツへのアクセス方法について説明します。
+
+| link:ig-spe-custom-diagnostics-and-annotations.html[カスタム診断および注釈]
+|このトピックは、構文ツリーにデータを追加、また構文ツリーからデータを取得する方法について説明します。
+
+|====

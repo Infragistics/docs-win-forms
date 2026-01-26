@@ -1,0 +1,187 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-adding-columns-using-freeform-style",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{4EF35258-0424-480E-BD27-EF513BFD4002}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Freeform スタイルを使用して列を追加
+
+このトピックは、Freeform スタイルで列を WinTree™ に追加できる方法を示します。Freeform スタイルでは、ありとあらゆる行は異なる列セットを持つことができ、各列のセル データの上に、列ヘッダーを表示できます。したがって、Freeform スタイルでは、異種データに対してノード単位で個別のはっきり異なるスキーマを作成できます。
+
+この例で各行は異なるデータを持つ異なる列を表示します。UltraTree がフォームにドロップされていることが前提となります。
+
+コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+using Infragistics.Win;
+----
+
+フォームの Load イベントに以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+'WinTree コントロールの viewStyle を設定します。 
+Me.ultraTree1.ViewStyle = Infragistics.Win.UltraWinTree.ViewStyle.FreeForm 
+#Region "Create the first Node which displays a hierarchy"
+'親テーブルを表す ColumnSet を定義します。 
+Dim customerColumnSet As New UltraTreeColumnSet()
+'列を ColumnSet に追加します。 
+customerColumnSet.Columns.Add("CustName") 
+customerColumnSet.Columns.Add("CustID") 
+customerColumnSet.Columns.Add("ContactTitle") 
+customerColumnSet.Columns("CustName").CanShowExpansionIndicator = DefaultableBoolean.[True] 
+'作成された列を持つ ColumSet を WinTree に設定します。 
+Me.ultraTree1.ColumnSettings.RootColumnSet = customerColumnSet 
+'親テーブルを保持するノードを定義して、そのノードを WinTree に追加します。 
+Dim CustomerNode As UltraTreeNode = Me.ultraTree1.Nodes.Add("10", "RootNode1")
+'子テーブルを表す ColumnSet を定義します。 
+Dim orderColumnSet As New UltraTreeColumnSet()
+'列を子 ColumnSet に追加します。 
+orderColumnSet.Columns.Add("OrderID") 
+orderColumnSet.Columns.Add("OrderDate") 
+orderColumnSet.Columns.Add("CustID") 
+'子テーブルを保持するノードを定義して、そのノードを親ノードに追加します。 
+Dim OrderNode As UltraTreeNode = CustomerNode.Nodes.Add("10~1", "1042")
+'作成された列を持つ ColumSet を子ノードに設定します。 
+OrderNode.Override.ColumnSet = orderColumnSet 
+'親テーブルのためにセル値を設定します。 
+CustomerNode.Cells("CustName").Value = "Diego Roel" 
+CustomerNode.Cells("CustID").Value = "1" 
+CustomerNode.Cells("ContactTitle").Value = "Sales Manager" 
+'子テーブルのためにセル値を設定します。 
+OrderNode.Cells("OrderID").Value = "1042" 
+OrderNode.Cells("OrderDate").Value = "10/02/2009" 
+OrderNode.Cells("CustID").Value = "1" 
+#End Region
+#Region "Create the second node"
+Dim shirtNode As UltraTreeNode = Me.ultraTree1.Nodes.Add("1", "Products")
+Dim shirtColumnSet As New UltraTreeColumnSet()
+shirtNode.Override.ColumnSet = shirtColumnSet 
+shirtColumnSet.Columns.Add("ProductName") 
+shirtColumnSet.Columns.Add("Color") 
+shirtColumnSet.Columns.Add("Size") 
+shirtNode.Cells("ProductName").Value = "Shirt" 
+shirtNode.Cells("Color").Value = "Blue" 
+shirtNode.Cells("Size").Value = "Large" 
+#End Region
+#Region "Create the third node"
+Dim washerNode As UltraTreeNode = Me.ultraTree1.Nodes.Add("2", "Products")
+Dim washerColumnSet As New UltraTreeColumnSet()
+washerNode.Override.ColumnSet = washerColumnSet 
+washerColumnSet.Columns.Add("ProductName") 
+washerColumnSet.Columns.Add("Brand") 
+washerColumnSet.Columns.Add("Wash Cycle") 
+washerNode.Cells("ProductName").Value = "Washer" 
+washerNode.Cells("Brand").Value = "GE" 
+washerNode.Cells("Wash Cycle").Value = "35 mins" 
+#End Region
+#Region "Create the fourth node"
+Dim refrigeratorNode As UltraTreeNode = Me.ultraTree1.Nodes.Add("3", "Products")
+Dim refrigeratorColumnSet As New UltraTreeColumnSet()
+refrigeratorNode.Override.ColumnSet = refrigeratorColumnSet 
+refrigeratorColumnSet.Columns.Add("ProductName") 
+refrigeratorColumnSet.Columns.Add("Type") 
+refrigeratorColumnSet.Columns.Add("Capacity") 
+refrigeratorNode.Cells("ProductName").Value = "Refrigerator" 
+refrigeratorNode.Cells("Type").Value = "French Door" 
+refrigeratorNode.Cells("Capacity").Value = "29 cu.ft." 
+#End Region
+----
+
+*C# の場合：*
+
+----
+//WinTree コントロールの viewStyle を設定します。
+this.ultraTree1.ViewStyle =   Infragistics.Win.UltraWinTree.ViewStyle.FreeForm;
+#region Create the first Node displaying a hierarchy
+//親テーブルを表す ColumnSet を定義します。
+UltraTreeColumnSet customerColumnSet = new UltraTreeColumnSet();
+//列を ColumnSet に追加します。
+customerColumnSet.Columns.Add("CustName");
+customerColumnSet.Columns.Add("CustID");
+customerColumnSet.Columns.Add("ContactTitle");
+customerColumnSet.Columns["CustName"].CanShowExpansionIndicator = DefaultableBoolean.True;
+//作成された列を持つ ColumSet を WinTree に設定します。
+this.ultraTree1.ColumnSettings.RootColumnSet = customerColumnSet;
+//親テーブルを保持するノードを定義して、そのノードを WinTree に追加します。
+UltraTreeNode CustomerNode = this.ultraTree1.Nodes.Add("10", "RootNode1");
+//子テーブルを表す ColumnSet を定義します。
+UltraTreeColumnSet orderColumnSet = new UltraTreeColumnSet();
+//列を子 ColumnSet に追加します。
+orderColumnSet.Columns.Add("OrderID");
+orderColumnSet.Columns.Add("OrderDate");
+orderColumnSet.Columns.Add("CustID");
+//子テーブルを保持するノードを定義して、そのノードを親ノードに追加します。
+UltraTreeNode OrderNode = CustomerNode.Nodes.Add("10~1", "1042");
+//作成された列を持つ ColumSet を子ノードに設定します。
+OrderNode.Override.ColumnSet = orderColumnSet;
+//親テーブルのためにセル値を設定します。
+CustomerNode.Cells["CustName"].Value = "Diego Roel";
+CustomerNode.Cells["CustID"].Value = "1";
+CustomerNode.Cells["ContactTitle"].Value = "Sales Manager";
+//子テーブルのためにセル値を設定します。
+OrderNode.Cells["OrderID"].Value = "1042";
+OrderNode.Cells["OrderDate"].Value = "10/02/2009";
+OrderNode.Cells["CustID"].Value = "1";
+#endregion
+#region Create the second node
+UltraTreeNode shirtNode = this.ultraTree1.Nodes.Add("1", "Products");
+UltraTreeColumnSet shirtColumnSet = new UltraTreeColumnSet();
+shirtNode.Override.ColumnSet = shirtColumnSet;
+shirtColumnSet.Columns.Add("ProductName");
+shirtColumnSet.Columns.Add("Color");
+shirtColumnSet.Columns.Add("Size");
+shirtNode.Cells["ProductName"].Value = "Shirt";
+shirtNode.Cells["Color"].Value = "Blue";
+shirtNode.Cells["Size"].Value = "Large";
+#endregion
+#region Create the third node
+UltraTreeNode washerNode = this.ultraTree1.Nodes.Add("2", "Products");
+UltraTreeColumnSet washerColumnSet = new UltraTreeColumnSet();
+washerNode.Override.ColumnSet = washerColumnSet;
+washerColumnSet.Columns.Add("ProductName");
+washerColumnSet.Columns.Add("Brand");
+washerColumnSet.Columns.Add("Wash Cycle");
+washerNode.Cells["ProductName"].Value = "Washer";
+washerNode.Cells["Brand"].Value = "GE";
+washerNode.Cells["Wash Cycle"].Value = "35 mins";
+#endregion
+#region Create the fourth node
+UltraTreeNode refrigeratorNode = this.ultraTree1.Nodes.Add("3", "Products");
+UltraTreeColumnSet refrigeratorColumnSet = new UltraTreeColumnSet();
+refrigeratorNode.Override.ColumnSet = refrigeratorColumnSet;
+refrigeratorColumnSet.Columns.Add("ProductName");
+refrigeratorColumnSet.Columns.Add("Type");
+refrigeratorColumnSet.Columns.Add("Capacity");
+refrigeratorNode.Cells["ProductName"].Value = "Refrigerator";
+refrigeratorNode.Cells["Type"].Value = "French Door";
+refrigeratorNode.Cells["Capacity"].Value = "29 cu.ft.";
+#endregion
+----
+
+image::Images/WinTree_Adding_Columns_Using_Freeform_Style_01.png[]
+
+== 関連トピック
+
+* link:wintree-adding-columns-using-outlook-express-style.html[Outlook Express スタイルを使用して列を追加]
+
+* link:wintree-displaying-wintree-with-columns-in-grid-style.html[Grid スタイルで列を持つ WinTree を表示]

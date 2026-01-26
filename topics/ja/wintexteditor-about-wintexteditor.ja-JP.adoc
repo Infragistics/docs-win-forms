@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintexteditor-about-wintexteditor",
+    "controlName": ["WinTextEditor"],
+    "tags": [],
+    "guid": "{F263F423-CBD4-457F-B9FC-AF49B466B830}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTextEditor について
+
+WinTextEditor コントロールは、.NET Framework で提供される組み込みの TextBox とよく似たテキストエディタを提供しますが、以下のような追加機能があります。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* インク対応 -  ユーザーは、FreeForm のインク入力と仮想キーボード入力を切り替て使用できます。
+* オーバーフロー インジケータ - テキスト オーバーフロー インジケータのイメージはカスタマイズ可能で、テキスト全体を表示するツールチップをサポートします。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+
+image::images\WinEditors_Control_Overview_01.png[ultratexteditor の例]

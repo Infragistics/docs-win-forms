@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-an-ellipsis-for-truncated-cell-text",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{10DA2AAC-C111-429E-9914-0E264BCD9AD9}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 切り捨てられたセル テキストを示す省略記号の表示
+
+次のコードは、セルのテキストが長すぎてセルの表示領域に収まらないときに CellAppearance オブジェクトの TextTrimming プロパティを使用して省略記号を表示する方法を示しています。
+
+[NOTE]
+====
+*注:* この方法は複数行セルには適用されません。
+====
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub DisplayinganEllipsisforTruncatedCellText_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Override.CellAppearance.TextTrimming = _
+	  TextTrimming.EllipsisCharacter
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void DisplayinganEllipsisforTruncatedCellText_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.CellAppearance.TextTrimming = TextTrimming.EllipsisCharacter;
+}
+----

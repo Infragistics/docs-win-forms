@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-retrieving-value-from-a-specific-cell",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{F3EE9E58-EBEB-4CAD-836F-DE7AD9A0A43D}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 指定行の指定セルからの値の取得
+
+次のコードは特定行の特定セルから値を取得する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	MessageBox.Show(Me.UltraGrid1.Rows(2).Cells(2).Value)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	MessageBox.Show(this.ultraGrid1.Rows[2].Cells[2].Value.ToString());
+}
+----

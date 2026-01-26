@@ -1,0 +1,106 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-column-styles-added-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{312922EF-02DD-49B0-A746-E1C3FF0825C5}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列スタイルの追加
+
+UltraGridColumn の Style プロパティは便利です。これを使用すると、列の編集スタイルを一般的に使用される編集スタイルのひとつに設定できます。このリストには、使用可能なすべてのスタイルが網羅されているわけではありません。スタイルがこの列挙体にリストされていない場合には、UltraGridColumn オブジェクトが公開するその他のプロパティとともに、Editor プロパティを使用できます。これには MinValue、MinValueExclusive、MaxValueExclusive、MaskInput、FormatInfo、Format、MaxLength、RegexPattern などが挙げられ、希望の列スタイルを完成できます。スタイルによっては希望の動作を実行するためにこれらのプロパティのいくつかを設定します。たとえば 、CurrencyPositive スタイルは、UltraGridColumn.Editor を Infragistics.Win.EditorWithMask インスタンスに、MinValueExclusive を 0 に設定します。また、これらのプロパティを設定して列スタイルの動作をさらに改良することもできます。これは、これらのプロパティが Style プロパティより優先されるためです。ColumnStyle 列挙体のメンバーの完全リストを参照してください。
+
+[options="header", cols="a,a"]
+|====
+|新規メンバ|説明
+
+|Date
+|日付の入力を可能にするスタイル。ドロップダウン カレンダーを表示するドロップダウン ボタンが表示されます。UltraGridColumn.MaskInput プロパティを設定することによって、日、月、および年部分の順序を制御することができます。入力可能な最小値と最大値を制御するには、UltraGridColumn.MinValue プロパティと UltraGridColumn.MaxValue プロパティを使用します。注:このスタイルはマスク機能を使用します。
+
+|DateWithoutDropDown
+|ドロップダウン ボタンが表示されない点以外は Date スタイルと同じです。
+
+|DateWithSpin
+|ドロップダウン ボタンが表示されない点と、所定の位置にスピン ボタンが表示される点以外は、Date スタイルと同じです。スピン ボタンは日付の各部分を増加または減少させるのに使用できます。
+
+|DateTime
+|日付と時刻の入力を可能にするスタイル。時刻部分には短い形式の時刻パターンが使用されます。ドロップダウン カレンダーを表示するドロップダウン ボタンも表示されます。UltraGridColumn.MaskInput プロパティを設定することによって、日付と時刻の書式をさらに制御することができます。入力可能な最小値と最大値を制御するには、UltraGridColumn.MinValue プロパティと UltraGridColumn.MaxValue プロパティを使用します。注:このスタイルはマスク機能を使用します。
+
+|DateTimeWithoutDropDown
+|ドロップダウン ボタンが表示されない点以外は DateTime スタイルと同じです。
+
+|DateTimeWithSpin
+|ドロップダウン ボタンが表示されない点と、所定の位置にスピン ボタンが表示される点以外は、DateTime スタイルと同じです。スピン ボタンは日付の各部分を増加または減少させるのに使用できます。
+
+|Color
+|色の入力を可能にするスタイル。
+
+|Currency
+|通貨値の入力を可能にするスタイル。注:このスタイルはマスク機能を使用します。全体の桁数と小数点以下の桁数は CurrentCulture を使用して決定されます。UltraGridColumn.MaskInput プロパティを設定することによって、全体の桁数や小数点以下の桁数などを制御することができます。Infragistics.Win.EditorWithMask が使用されます。
+
+|CurrencyNonNegative
+|負の値を入力できない点以外は Currency スタイルと同じです。
+
+|CurrencyPositive
+|ゼロと負の値を入力できない点以外は Currency スタイルと同じです。
+
+|Double
+|倍精度浮動小数点値の入力を可能にするスタイル。注:このスタイルはマスク機能を使用します。全体の桁数と小数点以下の桁数は CurrentCulture の NumberFormatInfo を使用して決定されます。UltraGridColumn.MaskInput プロパティを設定することによって、全体の桁数や小数点以下の桁数などを制御することができます。入力可能な最小値と最大値を制御するには、UltraGridColumn.MinValue プロパティと UltraGridColumn.MaxValue プロパティを使用します。Infragistics.Win.EditorWithMask が使用されます。
+
+|DoubleWithSpin
+|スピン ボタンが表示される点以外は Double スタイルと同じです。
+
+|DoubleNonNegative
+|ユーザーが負の数値を入力できない点以外は Double スタイルと同じです。注:このスタイルはマスク機能を使用します。
+
+|DoubleNonNegativeWithSpin
+|スピン ボタンが表示される点以外は DoubleNonNegative スタイルと同じです。
+
+|DoublePositive
+|ユーザーがゼロまたは負の数値を入力できない点以外は Double スタイルと同じです。注:このスタイルはマスク機能を使用します。
+
+|DoublePositiveWithSpin
+|スピン ボタンが表示される点以外は DoublePositive スタイルと同じです。
+
+|Font
+|フォントの選択を可能にするスタイル。Infragistics.Win.FontNameEditor が使用されます。
+
+|Image
+|画像を表示するために Infragistics.Win.EmbeddableImageRenderer を使用するスタイル。
+
+|ImageWithShadow
+|イメージが影付きで表示される点以外は Image スタイルと同じです。
+
+|Integer
+|整数値の入力を可能にするスタイル。UltraGridColumn.MaskInput プロパティを設定することによって、全体の桁数を制御することができます。Infragistics.Win.EditorWithMask が使用されます。
+
+|IntegerWithSpin
+|スピン ボタンが表示される点以外は Integer スタイルと同じです。
+
+|IntegerPositive
+|ユーザーがゼロまたは負の数値を入力できない点以外は Integer スタイルと同じです。
+
+|IntegerPositiveWithSpin
+|スピン ボタンが表示される点以外は IntegerPositive スタイルと同じです。
+
+|IntegerNonNegative
+|ユーザーが負の数値を入力できない点以外は Integer スタイルと同じです。
+
+|IntegerNonNegativeWithSpin
+|スピン ボタンが表示される点以外は IntegerNonNegative スタイルと同じです。
+
+|Time
+|時刻の入力を可能にするスタイル。現在のカルチャの短い形式の時刻パターンが使用されます。UltraGridColumn.MaskInput プロパティを設定することによって、時刻書式のさまざまな側面を制御することができます。入力可能な最小値と最大値を制御するには、UltraGridColumn.MinValue プロパティと UltraGridColumn.MaxValue プロパティを使用します。注:このスタイルはマスク機能を使用します。
+
+|TimeWithSpin
+|スピン ボタンが表示される点以外は Time スタイルと同じです。スピン ボタンは時刻の各部分を増加または減少させるのに使用できます。
+
+|TimeZone
+|タイム ゾーンの選択を可能にするスタイル。Infragistics.Win.TimeZoneEditor が使用されます。
+
+|====

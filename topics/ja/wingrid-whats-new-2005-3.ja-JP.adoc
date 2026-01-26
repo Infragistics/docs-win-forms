@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2860CF40-2A9D-4717-835C-3DD6DC26C7C3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 2005.3
+
+2005 Volume 3 の WinGrid コントロールに追加された新機能と拡張を確認するには、以下のリンクをクリックしてください。
+
+* link:wingrid-cellclickaction-property-added-whats-new-2005-3.html[CellClickAction プロパティの追加]
+* link:wingrid-column-chooser-whats-new-2005-3.html[列の選択]
+* link:wingrid-column-styles-added-whats-new-2005-3.html[列スタイルの追加]
+* link:wingrid-column-swapping-in-rowlayout-whats-new-2005-3.html[RowLayout における列の交換]
+* link:wingrid-column-tabindex-property-whats-new-2005-3.html[列の TabIndex プロパティ]
+* link:wingrid-display-cell-image-in-groupby-header-whats-new-2005-3.html[GroupBy ヘッダでのセル画像の表示]
+* link:wingrid-filling-in-empty-rows-whats-new-2005-3.html[空行を埋める]
+* link:wingrid-header-and-row-tooltips-whats-new-2005-3.html[ヘッダと行のツールチップ]
+* link:wingrid-headers-on-top-and-no-repeat-headers-whats-new-2005-3.html[上部のヘッダと非繰り返しヘッダ]
+* link:wingrid-hottracking-appearances-whats-new-2005-3.html[ホットトラッキング外観]
+* link:wingrid-invalid-value-behavior-whats-new-2005-3.html[無効値の動作]
+* link:wingrid-row-auto-sizing-in-rowlayout-whats-new-2005-3.html[RowLayout における行の自動サイズ変更]
+* link:wingrid-tooltips-in-feature-picker-whats-new-2005-3.html[機能の選択のスクロールチップ]
+* link:wingrid-tooltips-in-feature-picker-whats-new-2005-3.html[機能の選択のツールチップ]
+* link:wingrid-wrap-header-text-in-rowlayout-whats-new-2005-3.html[RowLayout におけるヘッダ テキストの折り返し]

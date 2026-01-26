@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-shadow-effects",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{BA0DC2DF-2206-4199-9109-79B2B9465339}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= シャドー効果
+
+ゲージのプロパティにさまざまな効果を適用できます。シャドー効果は深さを追加し、プロパティを視覚的に強化します。たとえば、ドロップシャドー効果をアンカーに適用して、アンカーに 3D の外観を提供することができます。
+
+以下のスクリーンショットは、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugescale~markers.html[Markers]"]  プロパティに効果を適用したリニア ゲージの例です。
+
+image::images/Gauge_Create_Shadow_Effects_01.png[]
+
+== 関連トピック
+
+link:wingauge-apply-shadow-effects.html[シャドー効果の適用]

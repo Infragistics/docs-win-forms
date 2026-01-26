@@ -1,0 +1,145 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintpreviewdialog-winscheduleprintdocument-using-winprintpreviewdialog-with-winscheduleprintdocument",
+    "controlName": ["WinSchedulePrintDocument"],
+    "tags": ["How Do I"],
+    "guid": "{3F65F9D5-3518-43C0-9A40-46DC41E41613}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedulePrintDocument での WinPrintPreviewDialog の使用
+
+2005 Volume 1 では、PrintDocument の印刷プレビューを表示する新しいコントロールが追加されました。 この WinPrintPreviewDialog™ は同様に 2005 Volume 1 に追加された 2 つの他のコントロールを使用します。このコントロールは WinPrintPreviewControl と WinPrintPreviewThumbnail™ です。 WinPrintPreviewDialog は .NET PrintDocument を処理します。これには、スケジュール表示の印刷に使用される WinSchedulePrintDocument™ が含まれます。 このトピックでは、WinPrintPreviewDialog と WinSchedulePrintDocument を使用する方法について説明します。
+
+[start=1]
+. 新しい Windows アプリケーションを作成します。 デザイン ビューでフォームを開き、UltraDayView コントロールと 2 つの Button コントロールをフォームに追加します。 次に、UltraSchedulePrintDocument、UltraPrintPreviewDialog、および UltraCalendarInfo を追加します。
+[start=2]
+. Button コントロールを選択し、Text プロパティをそれぞれ [印刷プレビュー] と [閉じる] に変更します。
+[start=3]
+. フォームのコード ファイルに移動し、ボタンの Click イベントのハンドラーと Form Load イベントのハンドラーを作成します。
+[start=4]
+. フォームの Form Load イベント ハンドラーに次のコードを配置します。 コメントは各行の処理内容を表します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Using_WinPrintPreviewDialog_with_WinSchedulePrintDocument_Load( _
+  ByVal sender _
+  As System.Object, ByVal e As System.EventArgs) _
+  Handles MyBase.Load
+	' 予定を作成します。
+	Me.CreateAppointment()
+	' UltraDayView の CalendarInfo を UltraCalendarInfo コントロールに設定します。
+	' UltraDayView に予定を設定します。
+	Me.UltraDayView1.CalendarInfo = Me.UltraCalendarInfo1
+	' UltraSchedulePrintDocument の CalendarInfo を UltraCalendarInfo コントロールに設定します。
+	' ドキュメントは UltraDayView が使用すると同じ予定を使用できるようにします。
+	Me.UltraSchedulePrintDocument1.CalendarInfo = Me.UltraCalendarInfo1
+	' UltraPrintPreviewDialogのDocumentプロパティを　UltraSchedulePrintDocumentに設定します。
+	Me.UltraPrintPreviewDialog1.Document = Me.UltraSchedulePrintDocument1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Using_WinPrintPreviewDialog_with_WinSchedulePrintDocument_Load( 
+  object sender, 
+  EventArgs e)
+{
+	// 予定を作成します。
+	this.CreateAppointment();
+	// UltraDayView の CalendarInfo を UltraCalendarInfo コントロールに設定します。
+	// UltraDayView に予定を設定します。
+	this.ultraDayView1.CalendarInfo = this.ultraCalendarInfo1;
+	// UltraSchedulePrintDocument の CalendarInfo を UltraCalendarInfo コントロールに設定します。
+	// ドキュメントは UltraDayView が使用すると同じ予定を使用できるようにします。
+	this.ultraSchedulePrintDocument1.CalendarInfo = this.ultraCalendarInfo1;
+	// UltraPrintPreviewDialogのDocumentプロパティをUltraSchedulePrintDocumentに設定します。
+	this.ultraPrintPreviewDialog1.Document = this.ultraSchedulePrintDocument1;
+}
+----
+
+[start=5]
+. 実際の動作を確かめるために、UltraDayView に予定をひとつ表示します。 前の手順で作成した CreateAppointment メソッドに、予定を作成する次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub CreateAppointment()
+	' カレンダーに表示する予定を作成します。
+	Dim myStartDate As New DateTime(2007, 3, 23, 1, 23, 3)
+	Dim myEndDate As New DateTime(2007, 3, 23, 1, 23, 3)
+	Me.UltraCalendarInfo1.Appointments.Add(myStartDate, myEndDate, "Meeting")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void CreateAppointment()
+{
+	// カレンダーに表示する予定を作成します。
+	DateTime myStartTime = new DateTime(2007, 3, 23, 1, 23, 3);
+	DateTime myEndTime = new DateTime(2007, 3, 23, 1, 23, 3);
+	this.ultraCalendarInfo1.Appointments.Add(myStartTime, myEndTime, "Meeting");
+}
+----
+
+[start=6]
+. 最後に、ボタンの Click イベントにコードを追加します。 Print Preview ボタンの Click イベントに次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnPrintPreview_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnPrintPreview.Click
+	' ShowDialog を呼び出して UltraPrintPreviewDialog を表示します。
+	Me.UltraPrintPreviewDialog1.ShowDialog(Me)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnPrintPreview_Click(object sender, EventArgs e)
+{
+	// ShowDialog を呼び出して UltraPrintPreviewDialog を表示します。
+	this.ultraPrintPreviewDialog1.ShowDialog(this);
+}
+----
+
+[閉じる] ボタンの Click イベントに次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnClose_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnClose.Click
+	Me.Close()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnClose_Click(object sender, EventArgs e)
+{
+	this.Close();
+}
+----
+
+[start=7]
+. プロジェクトをビルドして実行すると、次のスクリーンショットのようなフォームが表示されます。
+
+image::Images/WinPrintPreviewDialog_WinSchedulePrintDocument_Using_WinPrintPreviewDialog_with_WinSchedulePrintDocument_01.png[コードおよび上記の手順を使用して構築されたアプリケーション]
+
+[start=8]
+. [印刷プレビュー] ボタンをクリックすると、予定を含む WinDayView が表示された WinPrintPreviewDialog が現れます。 ドキュメントを印刷するには、印刷プレビュー ダイアログ ウィンドウから印刷オプションをクリックします。
+
+image::Images/WinPrintPreviewDialog_WinSchedulePrintDocument_Using_WinPrintPreviewDialog_with_WinSchedulePrintDocument_02.png[windayview を表示する winprintpreviewdialog]

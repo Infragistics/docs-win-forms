@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-verify-the-number-of-spelling-errors-in-a-document",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Validation"],
+    "guid": "{C3DD154D-D3A7-4210-94D3-50219F1AF9D8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ドキュメントでスペルエラーの数を検証
+
+ドキュメントにスペルミスがあるかどうかを素早く確認する必要がある場合、コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~checktext.html[CheckText]"]  メソッドを使用します。このメソッドを使用すれば、テキスト ボックス、リッチ テキスト ボックス、WinTextEditor、または任意のコントロールからのテキストを渡して、どれぐらいのスペルミスがあるかを確認できます。メソッドの Count プロパティを使用することによって、テキストのスペルミスの正確な数を取得します。したがって、エラーをテストしてカウントがゼロであれば、テキストにスペルミスがないことが確認できます。
+
+以下のコードを使用すれば、ボタンの Click イベントを使用してリッチ テキスト ボックスのテキストにスペルミスがあるかどうかをテストすることができます。スペルミスがあれば、メッセージ ボックスにスペルミスの数に続いて「スペルミスが見つかりました」というメッセージが表示されます。テキストにスペルミスがなければ、「スペルミスはありません」というメッセージがメッセージ ボックスに表示されます。
+
+*Visual Basic の場合：*
+
+----
+If Me.UltraSpellChecker1.CheckText(Me.RichTextBox1.Text).Count = 0 Then
+	MessageBox.Show("No Spelling Errors")
+Else
+	If Me.UltraSpellChecker1.CheckText(Me.RichTextBox1.Text).Count > 0 Then
+		MessageBox.Show(Me.UltraSpellChecker1.CheckText(Me.RichTextBox1.Text).Count.ToString() + _
+		" Spelling Errors Found!")
+	End If
+End If
+----
+
+*C# の場合：*
+
+----
+if (this.ultraSpellChecker1.CheckText(this.richTextBox1.Text).Count == 0)
+{
+	MessageBox.Show("No Spelling Errors");
+}
+else if (this.ultraSpellChecker1.CheckText(this.richTextBox1.Text).Count > 0)
+{
+	MessageBox.Show(this.ultraSpellChecker1.CheckText(this.richTextBox1.Text).Count + 
+	" Spelling Errors Found!");
+}
+----

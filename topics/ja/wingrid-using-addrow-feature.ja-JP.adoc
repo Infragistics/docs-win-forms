@@ -1,0 +1,139 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-addrow-feature",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{A9768F8C-7BDA-4099-B735-9B52BDD00661}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= AddRow 機能の使用
+
+Add Row 機能を使用すると、ユーザーが簡単に行を追加できるようになります。この機能は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[Rows]"]  コレクションの上または下に追加行テンプレートを表示します。追加行テンプレートをクリックして入力するだけで、新しい行が追加されます。
+
+== AddRow 機能を使用するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowaddnew.html[AllowAddNew]"]  プロパティを TemplateOnTop、TemplateOnTopWithTabRepeat または TemplateOnBottom のいずれかに設定することによって、Add Row はオンにできます。
+
+*Visual Basic の場合：*
+
+----
+' 追加行を各行コレクションの上に表示します。
+Me.UltraGrid1.DisplayLayout.Override.AllowAddNew = AllowAddNew.TemplateOnTop
+----
+
+*C# の場合：*
+
+----
+// Displays the add-row on top of each rows collection.
+this.ultraGrid1.DisplayLayout.Override.AllowAddNew = AllowAddNew.TemplateOnTop;
+----
+
+[start=3]
+. デフォルトで、テンプレート追加行は行の色の影が付けられます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~templateaddrowappearance.html[TemplateAddRowAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~templateaddrowcellappearance.html[TemplateAddRowCellAppearance]"]  プロパティを使用することによって、テンプレート追加行の外観は制御できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.TemplateAddRowCellAppearance.BackColor = _
+  Color.Yellow
+Me.UltraGrid1.DisplayLayout.Override.TemplateAddRowCellAppearance.ForeColor = _
+  Color.LightYellow
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.TemplateAddRowCellAppearance.BackColor = Color.Yellow;
+this.ultraGrid1.DisplayLayout.Override.TemplateAddRowCellAppearance.ForeColor = Color.LightYellow;
+----
+
+[start=4]
+. ユーザーがテンプレート追加行に入力を開始すると、単に「追加行」になります。追加行の外観も制御することができます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AddRowCellAppearance.BackColor = _
+  Color.LightYellow
+Me.UltraGrid1.DisplayLayout.Override.AddRowCellAppearance.ForeColor = _
+  Color.Black
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AddRowCellAppearance.BackColor = Color.LightYellow;
+this.ultraGrid1.DisplayLayout.Override.AddRowCellAppearance.ForeColor = Color.Black;
+----
+
+次のスナップショットはテンプレート追加行を示します。
+
+image::Images/WinGrid_Use_the_AddRow_Feature_01.png[]
+
+ユーザーがテンプレート追加行に入力を開始すると、「追加行」になります。新しいテンプレート追加行が作成されて表示されるため、ユーザーはより多くの行を継続的に追加できます。
+
+image::Images/WinGrid_Use_the_AddRow_Feature_02.png[]
+
+[start=5]
+. 外観関連の設定のほかに、テンプレート追加行の境界線スタイルと間隔を制御するためのプロパティも公開されています。
+
+*Visual Basic の場合：*
+
+----
+' テンプレート追加行の前後の間隔を 5 ピクセルに設定します。
+Me.UltraGrid1.DisplayLayout.Override.TemplateAddRowSpacingBefore = 5
+Me.UltraGrid1.DisplayLayout.Override.TemplateAddRowSpacingAfter = 5
+' テンプレート追加行の境界線スタイルを Inset に設定します。
+Me.UltraGrid1.DisplayLayout.Override.BorderStyleTemplateAddRow = UIElementBorderStyle.Inset
+----
+
+*C# の場合：*
+
+----
+// テンプレート追加行の前後の間隔を 5 ピクセルに設定します。
+this.ultraGrid1.DisplayLayout.Override.TemplateAddRowSpacingBefore = 5;
+this.ultraGrid1.DisplayLayout.Override.TemplateAddRowSpacingAfter = 5;
+// テンプレート追加行の境界線スタイルを Inset に設定します。
+this.ultraGrid1.DisplayLayout.Override.BorderStyleTemplateAddRow = UIElementBorderStyle.Inset;
+----
+
+[start=6]
+. 新しい行のデフォルト値も同様に設定できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Country").DefaultCellValue = "US"
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Country"].DefaultCellValue = "US";
+----
+
+ 

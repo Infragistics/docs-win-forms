@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "name": "wintoolbarsmanager-quick-access-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{00187A7D-8B35-4D51-9500-50BD72F79FD6}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クイック アクセス ツールバー
+
+Quick Access Toolbar (QAT) は常に表示されるツールバーであるため、頻繁に使用するツールを素早くクリックできます。QAT の右側のドロップダウン矢印をクリックすることで、エンド ユーザーはリボンの下の QAT を表示するオプションも使用できます。link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.quickaccesstoolbar~location.html[Location] プロパティを AboveRibbon（デフォルト）または BelowRibbon に設定して、機能を構成することもできます。
+
+[cols="a,a"]
+|====
+
+|image::images/WinToolbarsManager_Quick_Access_Toolbar_01.png[] 
+
+|image::images/WinToolbarsManager_Quick_Access_Toolbar_02.png[] 
+
+|リボンの上の QAT
+|リボンの下の QAT
+
+|====
+
+QAT をクリックし、次に [新しいツールを挿入] または [既存のツールを挿入] をクリックして、デザイン タイムに QAT にツールを追加できます。ラン タイムでこれを行う方法については、 link:wintoolbarsmanager-add-a-tool-to-the-quick-access-toolbar.html[「クイック アクセス ツールバーにツールを追加」]を参照してください。

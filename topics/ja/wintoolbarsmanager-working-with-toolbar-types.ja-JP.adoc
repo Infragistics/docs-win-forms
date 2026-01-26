@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-working-with-toolbar-types",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{593F5530-C75C-4E5F-840D-618586D86CBA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーの種類の操作
+
+以下は WinToolbarsManager コンポーネントで使用できる異なるツールバーのタイプのリストです。以下のリンクをクリックすると、ツールバーの概要にアクセスできます。また、ツールバーを管理およびカスタマイズする方法についての情報が含まれる「使用例」のセクションにもアクセスできます。
+
+* link:wintoolbarsmanager-common-toolbar-tasks.html[一般的なツールバー タスク]
+* link:wintoolbarsmanager-standard.html[標準]
+* link:wintoolbarsmanager-mainmenu.html[MainMenu]
+* link:wintoolbarsmanager-navigation.html[ナビゲーション]
+* link:wintoolbarsmanager-taskpane-toolbar.html[TaskPane]

@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-binding-wingrid-rows-to-text-boxes",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{693350BD-0706-400B-BC80-B806B9FE7D23}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid Rows 行をテキストボックスに結合
+
+== バックグラウンド
+
+多くのプロジェクトでは、WinGrid を用いてソートされた結果と標準 TextBoxes をナビゲートしてデータを編集します。この操作がうまくいくようにするには、DataSources と Grid Rows 間に既知の関係がなければなりません。
+
+UltraGridRow の Index プロパティがバインドされた DataTable で行の位置を直接指すので、フラット データにとってこれはたいした問題ではありません。
+
+== 質問
+
+ユーザーが UltraWinGrid の行を選択するとき、どのように DataTable 行をテキストボックスにバインドし、DataTable 内の位置を変更したらよいですか?
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、ユーザーが UltraGrid の行を選択し、TextBoxes の対応するデータを表示できます。
+
+image::Images/WinGrid_Binding_WinGrid_Rows_to_Text_Boxes_01.png[]
+
+フォーム イベント領域には以下のイベント ハンドラがあります。
+
+* MyBase.Load - Form Load イベント コードと Order Details テーブルの列はテキストボックス コントロールにバインドされます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DataSourcesandWinGridRows_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.txtShipAddress.DataBindings.Add("Text", Me.nWindDataSet3.Orders, "ShipAddress")
+	Me.txtShipCity.DataBindings.Add("Text", Me.nWindDataSet3.Orders, "ShipCity")
+	Me.txtShipName.DataBindings.Add("Text", Me.nWindDataSet3.Orders, "ShipName")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DataSourcesandWinGridRows_Load(object sender, System.EventArgs e)
+{
+	this.txtShipAddress.DataBindings.Add("Text", 
+	  this.nWindDataSet3.Orders, "ShipAddress");
+	this.txtShipCity.DataBindings.Add("Text", this.nWindDataSet3.Orders, "ShipCity");
+	this.txtShipName.DataBindings.Add("Text", this.nWindDataSet3.Orders, "ShipName");
+}
+----
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベント ハンドラは Row Select Type プロパティと Cell Click Action プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Override.SelectTypeRow = SelectType.Single
+	e.Layout.Override.CellClickAction = CellClickAction.RowSelect
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Override.SelectTypeRow = SelectType.Single;
+	e.Layout.Override.CellClickAction = CellClickAction.RowSelect;
+}
+----
+
+* UltraGrid1.AfterSelectChange - グリッドの選択行を変更するたびに AfterSelectChange イベントが発生します。
+
+選択のため、CurrencyManager が Selected.Rows(0).Index により直接呼び出され、TextBoxes に置くことができます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_AfterSelectChange(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.AfterSelectChangeEventArgs) _
+  Handles UltraGrid1.AfterSelectChange
+	' CurrencyManager を使用して位置を設定します
+	Dim currencymanager1 As CurrencyManager
+	currencymanager1 = Me.BindingContext(Me.nWindDataSet3.Orders)
+	currencymanager1.Position = Me.UltraGrid1.Selected.Rows(0).Index
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_AfterSelectChange(object sender, 
+  Infragistics.Win.UltraWinGrid.AfterSelectChangeEventArgs e)
+{
+	// CurrencyManager を使用して位置を設定します
+	CurrencyManager currencyManager1;
+	currencyManager1 = (CurrencyManager)this.BindingContext[this.nWindDataSet3.Orders];
+	currencyManager1.Position = this.ultraGrid1.Selected.Rows[0].Index;
+}
+----
+
+== まとめ
+
+このプロジェクトは UltraGrid 行インデックスと基本の DataTable 行の関係を示す興味深いプロジェクトです。このプロジェクトでは、VB.NET で使用される DataTable 列を TextBoxes にバインドするためのメカニズムも示しています。

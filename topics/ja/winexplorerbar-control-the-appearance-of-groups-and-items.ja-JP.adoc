@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-control-the-appearance-of-groups-and-items",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Styling","Theming"],
+    "guid": "{D6DFF960-4912-466D-BCB8-9910334A1561}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Groups と Items の外観のコントロール
+
+エレメントの外観、たとえば使用するインタフェースのスタイルや、エレメントが入力フォーカスを受け取るかどうかなどを制御する設定は、エレメント レベルのプロパティによって決定します（これらの機能の詳細な説明については、 link:winexplorerbar-select-an-appearance-style.html[「外観スタイルの選択」]を参照してください）。ただし、エレメントの外観の大部分はグループ レベルの設定によって決定します。一般に、グループ レベルの設定とコントロール レベルの設定は相補的であり、特定のインタフェース スタイルを実現するには通常両方を使用する必要があります。また、項目レベルの設定もあり、これは必要に応じて個々の項目にカスタムの書式を適用する場合に使用します。
+
+[[overview]]
+
+== 外観の概要
+
+グループと項目の外観関連のプロパティに注目するには、Infragistics が採用しているコンポーネント デザインへの階層的アプローチをベースとした、段階的かつ間接的な手法を理解する必要があります。第 1 に、Group オブジェクトと Item オブジェクトは自身のプロパティの多くを、関連する pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[GroupSettings]"]  オブジェクトまたは pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[ItemSettings]"]  オブジェクトの内部にカプセル化します。第 2 に、これらの「settings」オブジェクトは、グループによって表示されるアイコンのサイズに基づいて、外観関連のプロパティを 2 つのカテゴリーに分類します。そのため、各「settings」オブジェクトには、大きいアイコン用にひとつと小さいアイコン用にひとつの、計 2 つの「appearances」オブジェクトが関連付けられます。これらの「appearances」オブジェクトはそれぞれ、いくつかの「appearance」オブジェクト、たとえばデフォルトの外観用のオブジェクト、編集中の外観用のオブジェクト、ホット トラッキング（マウス オーバー）時の外観用のオブジェクトなどのコンテナになります。グループ内の項目が各種状態時にどのような外観になるかを決定するのは、これらの「appearance」オブジェクトのプロパティです。
+
+グループ レベルの外観設定を取り扱う際、UltraExplorerBarGroupSettings オブジェクトはグループのプロパティをすべてカプセル化します。これらのプロパティは外部ファイルに保存できるため、アプリケーションのインスタンス全体にわたって維持できます。このオブジェクトにアクセスするには、UltraExplorerBarGroup オブジェクトの Settings プロパティを使用します。
+
+UltraExplorerBarGroupSettings オブジェクトは外観設定と動作設定をどちらもカプセル化します。外観関連の設定は、GroupSettings オブジェクトに関連付けられた UltraExplorerBarGroupAppearances オブジェクトのひとつに格納されます。GroupSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~appearanceslarge.html[AppearancesLarge]"]  プロパティは、大きいアイコンが表示されるときにグループによって使用される pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupappearances.html[GroupAppearances]"]  オブジェクトを返します。GroupSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~appearancessmall.html[AppearancesSmall]"]  プロパティは、小さいアイコンが表示されるときにグループによって使用される GroupAppearances オブジェクトを返します。
+
+[[accessing]]
+
+== 外観へのアクセス
+
+UltraExplorerBarGroupAppearances オブジェクトには、 pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトを返すいくつかのプロパティがあります。Apperance オブジェクト（Infragistics.Win アセンブリの一部）には、前景色、背景色、透明度などの書式属性を指定するプロパティがあります。GroupAppearances オブジェクトは、その外観がどのような目的で使用されるのかを示すプロパティを通じて、これらの Appearance オブジェクトにアクセスします。pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupappearances~activeappearance.html[ActiveAppearance]"]  は、アクティブになると、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[グループ]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[項目]"]  に適用される外観を返します。pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupappearances~editappearance.html[EditAppearance]"]  は編集中のグループ項目の設定を提供し、Appearance は非アクティブ、非編集時のデフォルトの外観設定を提供します。グループ自体の書式設定に使用される Appearance オブジェクトもあります。たとえば、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupappearances~activeheaderappearance.html[ActiveHeaderAppearance]"]  はグループがアクティブなときのグループのヘッダの外観を制御します。また、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupappearances~headerappearance.html[HeaderAppearance]"]  はグループがアクティブでないときにグループのヘッダに適用されます。
+
+たとえば、特定のグループで小さいアイコン用のテキストと大きいアイコン用のテキストに異なる色を設定し、マウスが項目の上に来たときはどちらの場合もテキストを赤に変えるには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ControllingGroupandItemAppearance_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraExplorerBar1.Groups(0).Settings.AppearancesLarge.Appearance.BackColor = _
+		Color.Orange
+	Me.UltraExplorerBar1.Groups(0).Settings.AppearancesSmall.Appearance.BackColor = _
+		Color.Orange
+	Me.UltraExplorerBar1.Groups(0).Settings.AppearancesLarge.HotTrackAppearance.BackColor = _
+		Color.Red
+	Me.UltraExplorerBar1.Groups(0).Settings.AppearancesSmall.HotTrackAppearance.BackColor = _
+		Color.Red
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ControllingGroupandItemAppearance_Load(object sender, System.EventArgs e)
+{
+	this.ultraExplorerBar1.Groups[0].Settings.AppearancesLarge.Appearance.BackColor = 
+		Color.Orange;
+	this.ultraExplorerBar1.Groups[0].Settings.AppearancesSmall.Appearance.BackColor = 
+		Color.Orange;
+	this.ultraExplorerBar1.Groups[0].Settings.AppearancesLarge.HotTrackAppearance.BackColor = 
+		Color.Red;
+	this.ultraExplorerBar1.Groups[0].Settings.AppearancesSmall.HotTrackAppearance.BackColor = 
+		Color.Red;
+}
+----
+
+image::images\WinExplorerBar_Control_the_Appearance_of_Groups_and_Items_01.png[]
+
+また、グループ内の個々の項目をカスタマイズするために、項目レベルの設定も存在します。Item オブジェクトで使用できる設定は、Group オブジェクトの設定に対応しています。デフォルトでは、グループ内の各項目はそのグループに適用された外観設定を継承します。項目レベルの設定は、グループの設定をオーバーライドする必要がある特別な場合にのみ使用します。
+
+グループと同様に項目の外観も、Item オブジェクト自体のプロパティではなく、関連する UltraExplorerBarItemSettings オブジェクトのプロパティによって制御されます。このオブジェクトは、Item オブジェクトの ItemSettings プロパティを通じて使用できます。このオブジェクトには 2 つのプロパティがあります。AppearancesLarge および AppearancesSmall です。これらのプロパティはどちらも UltraExplorerBarItemAppearances オブジェクトを返します。UltraExplorerBarItemAppearances オブジェクトは、各種状態の項目に適用される Appearance オブジェクトをカプセル化します。
+
+[[essential]]
+
+== 基本的なプロパティ
+
+以下に、アプリケーションのエレメントの外観を指定する際に使用する、重要なグループ外観プロパティと項目外観プロパティの一部を示します。プロパティの完全なリストについては、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[UltraExplorerBarGroupSettings]"]  クラスと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[UltraExplorerBarItemSettings]"]  クラスの参照トピックを参照してください。また、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupappearances.html[UltraExplorerBarGroupAppearances]"]  クラスと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemappearances.html[UltraExplorerBarItemAppearances]"]  クラスのトピックも参照してください。
+
+[start=1]
+. *Style* - グループは（その GroupAppearance オブジェクトを通じて）固有の Style プロパティを持っています。コントロールの Style プロパティとは異なり、このプロパティはグループに属する項目の全体的な外観を指定し、項目のサイズや配列のほか、グループの項目の代わりにWinFormsコントロールを配置するかどうかを決定します。
+
+*Style* では、グループの項目を書式設定するために次のような設定を使用できます。
+
+** *SmallImages* - 項目には小さい画像がありますがテキストはありません。項目は行および列形式で左から右、上から下に整列されます。
+** *SmallImagesWithText* - 項目は小さい画像の右にテキストを表示します。Items はリスト形式で上から下に整列されます。（これは Visual Studio .NET のツールバーのスタイルです）。
+** *LargeImages* - 項目は大きい画像がありますがテキストはありません。項目は行および列形式で左から右、上から下に整列されます。
+** *LargeImagesWithText* - 項目は大きい画像の右にテキストが表示されます。項目はリスト形式で上から下に整列されます。
+** *LargeImagesWithTextBelow* - 項目は大きい画像があり、その画像の下にテキストを表示します。項目はリスト形式で上から下に整列されます（これは従来の OutlookBar のスタイルです）。
+** *ControlContainer* - UltraExplorerBarContainerControl が UltraExplorerBarGroup の項目領域全体を占めます。コンテナの中には任意の.NET WinFormsコントロールを配置できます。
+
+[start=2]
+. *MaxLines* - グループ内の項目がテキスト ラベルを表示する場合、MaxLines プロパティを使用することで、テキストを複数行に折り返すことができます。このプロパティは、テキストを折り返す最大の行数を指定します。1 より大きい値を指定すると、グループまたは項目のテキストが 1 行に収まらない場合、次の行に折り返されます。MaxLines はグループ内の項目のテキストだけでなく、グループのヘッダ テキストにも適用されます。
+[start=3]
+. *Indent* - ItemSettings オブジェクトの *Indent* プロパティを使用すると、グループ内の個々の項目を特定の量だけインデントできます。インデントは強調するためや、グループ内の項目の単純な階層を示すために使用できます。

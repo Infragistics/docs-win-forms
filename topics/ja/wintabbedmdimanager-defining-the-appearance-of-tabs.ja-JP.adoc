@@ -1,0 +1,109 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-defining-the-appearance-of-tabs",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": ["Styling"],
+    "guid": "{1326D92A-79BE-49CB-BC9D-93EE71733D2A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの外観を定義
+
+WinTabbedMdiManager コントロールは、タブ項目の位置、サイズ、および外観を制御するためのプロパティを数多く公開しています。タブ グループ内のすべてのタブに対して設定可能なプロパティ（TabStyle や TabHeight など）は、特定の pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup~settings.html[MdiTabGroup]"]  の Settings を使用するか、またはすべてのタブ グループに対してエレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings.html[GroupSettings]"]  プロパティを使用することで、設定できます。個々のタブに対して設定可能なプロパティ（AllowDrag や外観など）は、MdiTab の pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab~settings.html[Settings]"]  プロパティを使用するか、またはタブ グループ内のすべてのタブに対して MdiTabGroup の pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup~tabsettings.html[TabSettings]"]  を使用するか、あるいはすべてのタブに対してエレメントの TabSettings プロパティを使用することで、設定できます。
+
+== タブのスタイル
+
+MdiTabGroupSettings オブジェクトの TabStyle プロパティを使用すると、MdiTabGroup 内のタブ項目の全般的な外観と境界線を制御できます。
+
+image::images/WinTabbedMdi_Apperance_01.png[タブのスタイル]
+
+* [PropertyPage] - 角の丸い 3D の境界線がある、標準のプロパティ ページ/オプション ダイアログ スタイルのタブ。
+* [PropertyPageSelected] - プロパティ ページに似ていますが、選択したタブのみ境界線が表示されます。HotTrack が有効な場合は、マウスの下にあるタブにも、タブを囲む境界線が表示されます。
+* [VisualStudio] - Visual Studio のスタイルに似たスタイル。
+* [StateButtons] - 各タブがボタンで表現されます。ShowButtonSeparators プロパティを使用すると、タブ ボタンの間にセパレータ ラインを表示できます。TabButtonStyle プロパティを使用して、タブ ボタンの境界線の外観を制御することもできます。
+* [Excel] - ノッチの付いた Excel ワークブック スタイルのタブ。
+* [Flat] - タブの周りに 1 ピクセルの境界線が付きます。
+* [PropertyPageFlat] - 1 ピクセルの境界線がある、角の丸いプロパティ ページ スタイル。
+* [PropertyPage2003] - 前縁が傾斜し、後縁の角が丸くなっている、2 ピクセルの境界線を持ちます。
+* [Wizard] - タブは表示されません。使用可能な領域は、各タブ グループのフォームと分割バーの表示に使用されます。
+
+== タブのサイズ設定
+
+MdiTabGroupSettings オブジェクトの TabSizing プロパティを使用すると、タブ項目の範囲を制御できます。タブのデフォルトの範囲は、そのテキストとイメージのサイズに基づいて決まります。タブの高さは自動的に計算されるか、TabHeight プロパティを使用してオーバーライドできます。
+
+image::images/WinTabbedMdi_Apperance_02.png[タブのサイズ設定のスタイル]
+
+* [Fixed] - 固定幅のタブ。デフォルトでは、タブのサイズはテキストとイメージに基づいて自動的に設定されますが、タブの幅は MdiTabSettings オブジェクトの TabWidth プロパティを使用して指定することもできます。
+* [Justified] - テキストとイメージの表示に必要なサイズを上限としてタブのサイズが設定されます。すべてのタブを表示できるだけのスペースがない場合は、表示領域の中にすべてのタブが表示されるようにタブが縮小されます。
+* [AutoSize] - テキストとイメージに基づいてタブのサイズが設定されます。
+* [Compressed] - Visual Studio のピン解除ウィンドウで見られるものと同様のスタイルです。選択されていないタブにはイメージのみが表示されます。選択されているタブにはイメージとテキストの両方が表示されます。
+* [TabsPerRow] - 各タブに使用可能領域の一部分が与えられるようにタブのサイズが設定されます。たとえば、TabsPerRow の値を 4 にすると、各タブが使用可能領域の 4 分の 1 を占めるようになります。
+* [SizeToFit] - テキストとイメージに基づいてタブのサイズが設定されます。すべてのタブによって使用可能領域がすべて使用されるように、タブが拡大または縮小されます。
+
+== タブのレイアウト
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~taborientation.html[TabOrientation]"]  - MdiTabGroupSettings の TabOrientation プロパティを使用すると、タブの表示されているフォームを基準としてタブの方向を制御することができます。
+* link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~textorientation.html[ pick:[win-forms="TextOrientation"] ] - このプロパティを使用するとテキストの方向を制御できます。テキストの方向は TabOrientation に基づいて設定するか、または絶対的な方向に設定できます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~intertabspacing.html[InterTabSpacing]"]  - このプロパティを使用すると、タブ項目間のスペースまたは重なりの量を制御できます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~maxtabwidth.html[MaxTabWidth]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~mintabwidth.html[MinTabWidth]"]  - MaxTabWidth と MinTabWidth プロパティを使用すると、タブのサイズを一定の範囲に制限しながら、タブの幅をイメージとテキストに基づいて自動的に計算できます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~tabpadding.html[ TabPadding]"]  - TabPadding は、タブ項目の境界線と内容（テキストとイメージ）との間にあるスペースの量を決めます。
+* *Fixed*  pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~tabwidth.html[TabWidth]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~tabheight.html[TabHeight]"]  - TabWidth と TabHeight プロパティによって、タブ項目の限度と高さを完全に制御できます。TabWidth は特定のタブ スタイルでのみサポートされます。
+
+== スクロール ボタン
+
+UltraTabbedMdiManager では、現在表示されていないタブ項目をユーザーが操作して表示できるようにするためのスクロール ボタンを表示できます。また、いつ、どのスクロール ボタンを表示するかを制御するプロパティもあります。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~scrollbuttons.html[ScrollButtons]"]  プロパティは、スクロール ボタンをいつ表示するかを指定するために使用します。スクロール ボタンは、必要でなくても常に表示したり、または非表示にしたりできます。デフォルトでは、タブ項目をすべて表示できるだけのスペースがない場合のみ、スクロール ボタンが表示されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~scrollbuttontypes.html[ScrollButtonTypes]"]  プロパティを使用すると、どのスクロール ボタンを表示するかを指定できます。デフォルトでは、次および前の項目を表示するスクロール ボタンのみが表示されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~scrollbuttontypes.html[ScrollButtonTypes]"]  に Thumb が含まれている場合は、スクロール トラックが表示されます。ScrollTrackExtent を使用してスクロール トラックの長さを制御できます。
+
+UltraTabbedMdiManager には、スクロール ボタンの外観を制御するためのプロパティもあります。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~scrollarrowstyle.html[ScrollArrowStyle]"]  - ScrollArrowStyle プロパティは、スクロール ボタンに表示されるスクロール矢印のタイプを指定します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~buttonstyle.html[ButtonStyle]"]  - ButtonStyle プロパティは、閉じるボタンとスクロール ボタンの境界線スタイルを指定します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~scrollbuttonappearance.html[ScrollButtonAppearance]"]  - ScrollButtonAppearance は、スクロール ボタンの描画時に使用される色を指定します。
+
+[NOTE]
+====
+*注意* Windows XP で SupportThemes を True に設定している場合は、テーマの外観情報によって外観がオーバーライドされることがあります。
+====
+
+== 閉じるボタン
+
+閉じるボタンはタブ グループごとに表示でき、ユーザーはこのボタンを使用してタブ グループ内で選択したタブを閉じたり非表示にしたりできます。閉じるボタンの外観や動作を制御するプロパティを次に示します。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~closebuttonlocation.html[CloseButtonLocation]"]  - The CloseButtonLocation property determines the location of the close button.  If set to None the close button will not be shown.
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~allowclose.html[AllowClose]"]  - AllowClose プロパティはタブを閉じることができるかどうかを指定します。選択したタブを閉じることが禁止されている場合、閉じるボタンは無効になり、タブに対して表示されるコンテキスト メニューの [Close] メニュー オプションは削除されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~tabcloseaction.html[TabCloseAction]"]  - TabCloseAction プロパティは、閉じるボタンがクリックされたときに、関連付けられたフォームに対してどのようなアクションを実行するかを指定します。デフォルトでは、関連付けられたフォームの Close メソッドが呼び出されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~buttonstyle.html[ButtonStyle]"]  - ButtonStyle プロパティは閉じるボタンの外観を指定します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~closebuttonappearance.html[CloseButtonAppearance]"]  - CloseButtonAppearance プロパティは、閉じるボタンの描画時に使用される色を指定します。
+
+[NOTE]
+====
+*注意* Windows XP で SupportThemes を True に設定している場合は、テーマの外観情報によって閉じるボタンのスタイルと外観がオーバーライドされることがあります。
+====
+
+== 分割バー
+
+各タブ グループには、最後のタブ グループを除いて、分割バーがあります。分割バーを使用するとタブ グループの範囲を調整できます。SplitterWidth は、分割バーの幅を指定します。SplitterBorderStyle プロパティは、分割バーの描画に使用される境界線スタイルを指定します。背景と境界線の色は SplitterAppearance プロパティを使用して制御できます。
+
+== 全般的な外観
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~hottrack.html[HotTrack]"]  - このプロパティはマウスの下にあるタブの表示に作用します。デフォルトでは、ホット トラッキングは有効になっていません。ホット トラッキングを有効にすると、HotTrackAppearance がタブの外観の解決に使用されます。前景色の外観情報が指定されていなければ、デフォルトの動作としてタブの ForeColor が変更されます。タブ スタイルが PropertyPageSelected に設定されている場合は、マウスの下にあるタブの境界線も表示されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~showbuttonseparators.html[ShowButtonSeparators]"]  - このプロパティは、StateButton スタイルのタブの間にセパレータ ラインを描画するかどうかを指定します。セパレータを表示するためには InterTabSpacing を 0 よりも大きくする必要があります。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~displayformicon.html[DisplayFormIcon]"]  - このプロパティは、外観プロパティで他にイメージが指定されていないときに、タブに関連付けられたフォームのアイコンをタブ イメージとして使用するかどうかを指定します。デフォルトでは、フォームのアイコン プロパティは使用されません。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~usemnemonics.html[UseMnemonics]"]  - このプロパティは、「&」文字の直後にある文字をニーモニックとして解釈するかどうかを指定します。UseMnemonic を True に設定した場合、ニーモニック シーケンスを押すと、そのニーモニックを持つタブがアクティブ化されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~imagesize.html[ImageSize]"]  - このプロパティは、タブに表示されるイメージのサイズを指定します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~imagetransparentcolor.html[ImageTransparentColor]"]  - ImageTransparentColor プロパティは、タブ イメージの描画時に透明色として解釈される色を指定します。
+
+== 動作
+
+* link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~autoselect.html[ pick:[win-forms="AutoSelect"] ] - pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~autoselect.html[AutoSelect]"]  プロパティが True に解決されると、指定した時間（AutoSelectDelay）が経過した後、タブを自動的に選択できます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~showtooltips.html[ShowToolTips]"]  - ShowToolTips を True（デフォルト値）に設定すると、タブ項目のテキストを表示できるだけのスペースがないとき、またはタブの ToolTip プロパティが明示的に設定されたときに、ツールチップが表示されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~maxtabgroups.html[MaxTabGroups]"]  - MaxTabGroups プロパティは、作成可能な TabGroups の最大数を指定します。最大数を超える数のタブ グループを作成しようとすると、例外が発生します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~allowverticaltabgroups.html[AllowVerticalTabGroups]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~allowhorizontaltabgroups.html[AllowHorizontalTabGroups]"]  - これらのプロパティは、エンド ユーザーがタブをドラッグするか、またはタブを右クリックしたときに表示されるコンテキスト メニューを使用して、水平または垂直のタブ グループを新規作成できるかどうかを指定するのに使用します。タブ グループは必ずすべて同じ方向になります。

@@ -1,0 +1,157 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-modifying-the-drop-down-list--and-appearance",
+    "controlName": ["WinEditors"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{DE313FD1-7FDA-44E4-A8B8-360E79F00CBC}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウン リストおよび外観の変更
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinComboEditor
+* WinFontNameEditor
+
+UltraComboEditor エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~selecteditem.html[SelectedItem]"]  プロパティは ValueListItem 型です。ValueListItem オブジェクトはその値に関連する次の 2 つのプロパティを公開します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem~datavalue.html[DataValue]"]  プロパティおよび pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem~displaytext.html[DisplayText]"]  プロパティです。
+
+オブジェクト タイプである DataValue プロパティは ValueListItem の基底データ値を表します。DisplayText プロパティは項目で表示されたテキストを保存します。UltraComboEditor エレメントの Items コレクションの Add メソッドは、DisplayText の値が指定できるようにオーバーロードされますが、必須ではありません。
+
+== ドロップダウン リストの各項目の外観設定
+
+UltraComboEditor エレメントのドロップダウン リストの各項目は、固有の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトを持ち、 他のすべての項目から切り離して区別を明確にすることができます。リスト内のすべての項目に統一した外観を適用するには、エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~itemappearance.html[ItemAppearance]"]  を使用します。さらに Appearance オブジェクトの各プロパティは他のプロパティとは独立して解決されます。たとえばすべての項目に同じ pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcolor.html[BackColor]"]  を指定しておいて、各項目に特定の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~forecolor.html[ForeColor]"]  を割り当てることができます。
+
+以下のコードは UltraComboEditor エレメントの Items コレクションで、項目の外観を設定する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ModifyingtheDropDownMenusAppearanceandItemList_Load(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles MyBase.Load
+' リスト内のすべての項目に影響する ItemAppearance の BackColor を設定します。
+Me.UltraComboEditor1.ItemAppearance.BackColor = Color.WhiteSmoke
+' 奇数番号の項目は偶数番号の項目とは異なる ForeColor を表示するように 
+' UltraComboEditor の Items コレクションの各項目の Appearance を 
+' 設定します
+Dim i As Integer
+For i = 0 To 4
+If i Mod 2 Then
+Me.UltraComboEditor1.Items(i).Appearance.ForeColor = Color.Blue
+Else
+Me.UltraComboEditor1.Items(i).Appearance.ForeColor = Color.Red
+End If
+Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ModifyingtheDropDownMenusAppearanceandItemsList_Load(object sender, System.EventArgs e)
+{
+//　リスト内のすべての項目に影響する ItemAppearance の BackColor を設定します。
+this.ultraComboEditor1.ItemAppearance.BackColor = Color.WhiteSmoke;
+// 奇数番号の項目は偶数番号の項目とは異なる ForeColor を表示するように 
+// UltraComboEditor の Items コレクションの各項目の Appearance を 
+// 設定します
+for ( int i = 0; i $$<=$$ 4; i ++ )
+        {
+if ( ( i % 2 ) == 0 )
+this.ultraComboEditor1.Items[i].Appearance.Forecolor = Color.Blue;
+else
+this.ultraComboEditor1.Items[i].Appearance.Forecolor = Color.Red;
+        }
+}
+----
+
+image::images/WinEditors_Modify_the_Drop_Down_Menus_Appearance_and_Item_List_01.png[]
+
+== 項目をプログラムで選択する
+
+以下のコードは UltraComboEditor エレメントの Items コレクションの項目をプログラムで選択する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSelectItem_Click(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles btnSelectItem.Click
+' リストの最初の項目を選択します
+Me.UltraComboEditor1.SelectedItem = Me.UltraComboEditor1.Items(1)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSelectItem_Click(object sender, System.EventArgs e)
+{
+// リストの最初の項目を選択します
+this.ultraComboEditor1.SelectedItem = this.ultraComboEditor1.Items[1];
+}
+----
+
+== 項目をプログラムで選択解除する
+
+以下のコードは UltraComboEditor エレメントの Items コレクションから SelectedItems をプログラムで解除する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnDeselectingItem_Click(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles btnDeselectingItem.Click
+' SelectedIndex を -1 に設定して SelectedItemの選択を解除します
+Me.UltraComboEditor1.SelectedIndex = -1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnDeselectingItem_Click(object sender, System.EventArgs e)
+{       
+// SelectedIndex を -1 に設定して SelectedItemの選択を解除します
+this.ultraComboEditor1.SelectedIndex = -1;
+}
+----
+
+== エレメントの現在値のクエリを行う
+
+以下のコードは pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~text.html[Text]"]  プロパティの値とは異なる UltraComboEditor エレメントの現在値を取得する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnCurrentValue_Click(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles btnCurrentValue.Click
+' SelectedItem があることを確認し、SelectedItem がある場合にはその値を取得し、デバッグ ウインドウに出力します
+Dim objValue As Object
+If Not Me.UltraComboEditor1.SelectedItem Is Nothing Then
+                objValue = Me.UltraComboEditor1.SelectedItem.DataValue
+                MessageBox.Show("SelectedItem's value = " + objValue.ToString())
+Else
+                MessageBox.Show("SelectedItem's value = Nothing")
+End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnCurrentValue_Click(object sender, System.EventArgs e)
+{
+// SelectedItem があることを確認し、SelectedItem がある場合にはその値を取得し、デバッグ ウインドウに出力します
+if ( this.ultraComboEditor1.SelectedItem != null )
+        {
+                object objValue = this.ultraComboEditor1.SelectedItem.DataValue;
+                MessageBox.Show( "SelectedItem's value = " + objValue.ToString() );
+        }
+else
+                MessageBox.Show( "SelectedItem's value = null" );
+}
+----

@@ -1,0 +1,92 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-defining-the-orientaton-and-appearance-of-mdi-tabs",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": ["Styling"],
+    "guid": "{60068420-9B55-4269-8658-3E338505045B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= MDI タブの方向と外観を定義
+
+MDI クライアント領域で MDI タブが方向付けられる方法を変更できます。Appearance オブジェクトを使用してタブの外観をコントロールしてアプリケーションの外観全体にタブの外観を一致することもできます。
+
+== 質問
+
+* クライアント領域の横または下にタブを配置するにはどうすればいいですか？
+* タブのテキストを回転するにはどうすればいいですか？
+* アプリケーションの残りで使用される n と一致するためにタブで使用される色、フォントなどをどのように変更できますか?
+
+== 解決策
+
+上記の最初の 2 つは、エレメントの TabGroupSettings プロパティとアクセスを提供する TabGroupSettings オブジェクトを通して達成できます。このオブジェクトのプロパティ セットは、エレメントのすべての TabGroup（およびすべてのタブ）でデフォルトとなります。しかし、TabGroup レベルでオーバーライド可能なので、さまざまな設定でさまざまな TabGroups を持つ事が可能です。
+
+* Tab の方向付けは、TabGroupSettings オブジェクトの TabOrientation プロパティを使用して変更できます。
+* タブのテキストの方向は、TabGroupSettings オブジェクトの TextOrientation プロパティを使用して変更できる場合があります。
+* 色、フォント、透過、および他の書式属性は、エレメントの Appearance プロパティによって返される Appearance オブジェクトから設定できます。このオブジェクトは、エレメントのサブオブジェクトに適用するデフォルト書式を指定します（これは非視覚的エレメントなので、エレメント自体は書式を持ちません）。ただし、外観設定は階層の低いレベルでオーバーライドできます。特に、TabSettings オブジェクト（エレメントの TabSettings プロパティからアクセス可能）は、タブ自体に適用する書式を指定する Appearance プロパティを持ちます。また、エレメントのさまざまなパーツがそれ自体の設定を持つことができます。たとえば、TabGroupSettings オブジェクトの CloseButtonAppearance、ScrollButtonAppearance、および TabAreaAppearance プロパティを使用して、閉じるボタン、スクロール ボタン、およびタグ グループのタブ領域のみに書式を適用できます。
+
+== サンプル プロジェクト
+
+以下のコードは、タブをトップのクライアント領域の左側に移動します。タブが左右のいずれかにある場合、デフォルトではタブの向きに一致するようにテキストを回転します。その代わりに、テキストの方向を水平を維持するように変更します。最後に、アクティブ タブ（現在選択されている）のテキストを暗く変更します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTabs
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTabs;
+----
+
+[start=2]
+. 次のコードをフォームの Load イベントに入力します。このコードは、Load イベントにすでに存在するコードの前に入力する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub WinTabbedMDIManagerOrientationandAppearance_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' タブをトップの左側に配置します。
+	Me.UltraTabbedMdiManager1.TabGroupSettings.TabOrientation = _
+	  TabOrientation.LeftTop
+	' テキストを水平に維持します。
+	Me.UltraTabbedMdiManager1.TabGroupSettings.TextOrientation = _
+	  TextOrientation.Horizontal
+	' タブのキャプションを深い赤色に変更します。
+	Me.UltraTabbedMdiManager1.TabSettings.TabAppearance.ForeColor = _
+	  Color.DarkRed
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void WinTabbedMDIManagerOrientationandAppearance_Load(
+  object sender, System.EventArgs e)
+{
+	// タブをトップの左側に配置します。
+	this.ultraTabbedMdiManager1.TabGroupSettings.TabOrientation = 
+	  TabOrientation.LeftTop;
+	// テキストを水平に維持します。
+	this.ultraTabbedMdiManager1.TabGroupSettings.TextOrientation = 
+	  TextOrientation.Horizontal;
+	// タブのキャプションを深い赤色に変更します。
+	this.ultraTabbedMdiManager1.TabSettings.TabAppearance.ForeColor = 
+	  Color.DarkRed;
+}
+----
+
+== まとめ
+
+この練習では、タブの方向とそれが含むテキストの操作方法を検討しました。また特定の Apperance オブジェクトを使用してタブ付けされた MDI インタフェースの特定部分の書式を制御する方法も確認しました。

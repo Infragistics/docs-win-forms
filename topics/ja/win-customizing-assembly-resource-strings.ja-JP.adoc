@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-customizing-assembly-resource-strings",
+    "controlName": [],
+    "tags": ["Application Scenarios","Localization","Resource Strings"],
+    "guid": "{24CD0BF8-79F5-490B-A1EA-629B1E9CF7DC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アセンブリ リソース文字列のカスタマイズ
+
+各 Infragistics® .NET アセンブリでは、{ProductName} のコントロール／コンポーネントがエンド ユーザーに対して表示するすべての文字列値を簡単に変更する機能が提供されています。カスタマイズ可能な文字列には、ダイアログ ボックス キャプションなどの項目、ダイアログ ボックスに表示されるメッセージ テキスト、警告メッセージ、アラートなどがあります。リソース文字列をカスタマイズする主な目的は、ローカライズのためです。
+
+[NOTE]
+====
+*注:* 各アセンブリのリソース文字列を含むすべてのトピックのリストは、 link:win-assembly-resource-strings.html[「アセンブリ リソース文字列」]を参照してください。リソース文字列とコントロール/コンポーネントの間には相関関係がないことに留意してください。リソース文字列とアセンブリ間には相関関係があります。
+====
+
+アセンブリ リソース文字列のカスタマイズ機能にアクセスするには、アセンブリ の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.runtime.applicationstylelibrary~resources.html[Resources]"]  クラスの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.resources~customizer.html[Customizer]"]  プロパティを使用できます。このプロパティは、カスタマイズしようとしているアセンブリに固有の（Infragistics.Shared からの）ResourceCustomizer クラスのインスタンスを返します。ResourceCustomizer クラスには、以下の項目を含むコレクションがあります。
+
+* name -- アセンブリが特定のリソース文字列の識別に使用する内部名です。
+* value -- エンド ユーザーに対して表示されるテキストです。
+
+特定の名前に関連付けられている値を変更することで、コントロール/コンポーネントによって表示されるあらゆるメッセージをカスタマイズできます。
+
+ResourceCustomizer クラスは、リソース文字列値のカスタマイズに使用することができるいくつかのメソッドを提供しています。
+
+* pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resourcecustomizer~setcustomizedstring.html[SetCustomizedString]"]  メソッド -- 特定の  _name_  の文字列を、指定するテキストに設定します。
+* link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resourcecustomizer~getcustomizedstring.html[ pick:[win-forms="GetCustomizedString"] ] メソッド -- 特定の  _name_  に対して設定されているカスタム テキストを返します。または対象の  _name_  に対応するカスタマイズが存在しない場合は null を返します。
+* pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resourcecustomizer~resetcustomizedstring.html[ResetCustomizedString]"]  メソッド -- 指定した  _name_  のためにカスタマイズした文字列を削除し、その文字列をデフォルトの（組み込みの）メッセージ テキストに戻します。
+* pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resourcecustomizer~resetallcustomizedstrings.html[ResetAllCustomizedStrings]"]  メソッド -- それまでに行ったカスタマイズをすべて破棄します。すべての  _name_  が、デフォルトの（組み込みの）メッセージ テキストに一斉にリセットされます。
+
+さらに、Resources クラスには、解決されたリソース文字列値へのアクセスを可能にするための pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resources~getstring.html[GetString]"]  メソッドと link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resources~getobject.html[ pick:[win-forms="GetObject"] ] メソッドがあります。
+
+リソース文字列のカスタマイズ機能はラインタイム機能で、カスタマイズされた文字列設定はコントロールにローカルではありません。リソース文字列をカスタマイズするコードを作成する場合には、アプリケーションの実行時（可能であれば、インタフェースがユーザーに表示される前）に必ず実行されるプロシージャの中にそのコードを配置する必要があります。
+
+以下のサンプル コードは、アセンブリのリソース カスタマイザを使用して、アセンブリが使用する文字列リソースをカスタマイズする方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles MyBase.Load
+Dim rc As Infragistics.Shared.ResourceCustomizer
+' 'Infragistics.Win.UltraWinTree' アセンブリのリソース カスタマイザ
+' オブジェクトを取得します。
+    rc = Infragistics.Win.UltraWinTree.Resources.Customizer
+' 1 組の文字列リソースをカスタマイズします。
+    rc.SetCustomizedString("xxxxx", "New string for 'xxxxx' resource")
+    rc.SetCustomizedString("yyyyy", "New string for 'yyyyy' resource")
+' 'Infragistics.Win' アセンブリのリソース カスタマイザ  
+' オブジェクトを取得します。
+    rc = Infragistics.Win.Resources.Customizer
+' 文字列リソースのいずれかをカスタマイズします。
+    rc.SetCustomizedString("zzzzz", "New string for 'zzzzz' resource")
+' 'GetCustomizedString' メソッドを使用して、
+' 以前にカスタマイズした文字列リソースを取得できます。
+Dim customizedString As String
+    customizedString = rc.GetCustomizedString("zzzzz")
+' 注：上記の例では、'SetCustomizedString' メソッドへの最初のパラメータ
+' (つまり "xxxxx"、"yyyyy"、または "zzzzz")は、
+' リソースの名前を指定します。
+    '
+' リソース名の一覧については、製品ヘルプの Infragistics Software\
+' [アセンブリ名]\サポート トピック\メッセージ文字列のカスタマイズ[名前]
+' を参照してください。
+    '
+' 文字列リソースを元の値にリセットする場合は、いずれかの
+' 「Reset...」メソッドを呼び出します。
+' 以下にサンプル コードを示します。
+' これまでにカスタマイズした文字列リソースを元の値に
+' リセットします。
+    rc.ResetCustomizedString("xxxxx")
+' これまでにカスタマイズしたすべての文字列リソースを
+' 元の値にリセットします。
+    rc.ResetAllCustomizedStrings()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, System.EventArgs e)
+{
+        Infragistics.Shared.ResourceCustomizer rc;
+// 'Infragistics.Win.UltraWinTree' アセンブリの
+// リソース カスタマイザ オブジェクトを取得し、
+// 1 組の文字列リソースをカスタマイズします。
+        rc = Infragistics.Win.UltraWinTree.Resources.Customizer;
+        rc.SetCustomizedString("xxxxx", "New string for 'xxxxx' resource");
+        rc.SetCustomizedString("yyyyy", "New string for 'yyyyy' resource");
+// 'Infragistics.Win' アセンブリの 
+// リソース カスタマイザ オブジェクトを取得して、
+// 文字列リソースの 1 つをカスタマイズします。
+        rc = Infragistics.Win.Resources.Customizer;
+        rc.SetCustomizedString("zzzzz", "New string for 'zzzzz' resource");
+// 'GetCustomizedString' メソッドを使用して、
+// 以前にカスタマイズした文字列リソースを取得できます。
+string customizedString = rc.GetCustomizedString("zzzzz");
+// 注：上記の例では、'SetCustomizedString' メソッドへの最初のパラメータ
+// (つまり "xxxxx"、"yyyyy"、または "zzzzz")は
+// リソース名を指定します。
+// リソース名の一覧については、製品ヘルプの Infragistics Software\
+// [アセンブリ名]\サポートトピック\メッセージ文字列のカスタマイズ[名前]
+// を参照してください。
+        //
+// 文字列リソースを元の値にリセットする場合は、いずれかの
+// 「Reset...」メソッドを呼び出します。
+// 以下にサンプルコードを示します。
+// これまでにカスタマイズした文字列リソースを元の値に
+// リセットします。
+        rc.ResetCustomizedString("xxxxx");
+// これまでにカスタマイズしたすべての文字列リソースを
+// 元の値にリセットします。
+        rc.ResetAllCustomizedStrings();
+}
+----

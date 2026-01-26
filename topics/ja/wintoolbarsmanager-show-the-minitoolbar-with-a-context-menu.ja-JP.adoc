@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-show-the-minitoolbar-with-a-context-menu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{039CD849-0235-473C-A808-8061E7342CA5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コンテキスト メニューで MiniToolbar を表示
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.com にお問い合わせください。
+====
+
+WinToolbarsManager コンテキスト メニューが表示される時は自動的に MiniToolbar を表示できます。これを行うためには、MiniToolbar の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.minitoolbar~autoshow.html[AutoShow]"]  プロパティを OnContextMenuClick（デフォルト設定）に設定する必要があります。WinToolbarsManager の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~setcontextmenuultra.html[SetContextMenuUltra]"]  メソッドを使用してコンテキスト メニューを設定する必要があります。このメソッドには 2 つのパラメータがあります。コンテキスト メニューを設定するコントロールと、そのコントロールでコンテキスト メニュー WinToolbarsManager が使用するパラメータです。コンテキスト メニューの設定についての詳細は、 link:wintoolbarsmanager-replace-a-controls-context-menu-with-a-popupmenu-tool.html[コントロールのコンテキスト メニューの PopupMenu ツールへの置換]を参照してください。コンテキスト メニューが設定されれば、MiniToolbar は自動的にコンテキスト メニューの上に表示されます。
+
+フォームの Load イベントに配置される以下のコードは、WinButton コントロールのコンテキスト メニューを設定し、その上に MiniToolbar を自動的に表示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Me.UltraToolbarsManager1.SetContextMenuUltra(Me.UltraButton1, "PopupMenu1")
+Me.UltraToolbarsManager1.MiniToolbar.AutoShow =_
+  MiniToolbarAutoShow.OnContextMenuClick
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+this.ultraToolbarsManager1.SetContextMenuUltra(this.ultraButton1, "PopupMenu1");
+this.ultraToolbarsManager1.MiniToolbar.AutoShow =
+  MiniToolbarAutoShow.OnContextMenuClick;
+----

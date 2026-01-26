@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-labels-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{9307496E-D862-48D7-BD3D-E3CFDFA71E70}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベル ペイン
+
+[ラベル] ペインによって、ゲージ上の注釈のテキストと回転角度を設定できます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance~formatstring.html[フォーマット文字列]"]  -- この値は注釈のテキストを設定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance~rotationangle.html[回転角度]"]  -- この値を 0 から 100 の整数に設定します。この値は注釈の回転角度を決定します。
+
+image::images/Annotations_Label_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-annotations-tab.html[注釈タブ]

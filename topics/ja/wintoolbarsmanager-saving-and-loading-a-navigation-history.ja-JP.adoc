@@ -1,0 +1,198 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-saving-and-loading-a-navigation-history",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Navigation","Selection"],
+    "guid": "{79CD7CE6-11EC-42A2-8401-A937CCD2298F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲーション履歴の保存およびロード
+
+== 始める前に
+
+ユーザーの設定を保存およびロードすることは、ほとんどの開発者がアプリケーションで処理する必要がある一般的な作業です。ナビゲーション ツールバーは、エンド ユーザーのアクションを追跡するナビゲーション履歴を公開します。WinToolbarsManager™ はエンド ユーザーのナビゲーション履歴を保存するための機能を公開しませんが、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem.html[NavigationHistoryItems] の配列に基づいて履歴を初期化するための方法を提供します。エンド ユーザーの戻る履歴を繰り返し、テキストまたは XML ファイルで履歴項目を記録することができます。アプリケーションがロードする時に NavigationHistoryItems の新しい配列にそれらをロードして、その配列をナビゲーション ツールバーの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~initializehistory.html[InitializeHistory] メソッドに渡すことができます。
+
+== 達成すること
+
+この詳細なガイドは、カスタムの Save および Load メソッドを使用して、ナビゲーション履歴を保存およびロードする方法を示します。Save メソッドは現在の項目と戻る履歴のテキストをテキスト ファイルに保存するだけです。Load メソッドは、現在の項目を表す NavigationHistoryItem および戻る履歴を表す NavigationHistoryItems の配列にテキスト ファイルをロードします。Load メソッドは InitializeHistory メソッドを使用して、これらの 2 つのオブジェクトをナビゲーション ツールバーにロードします。
+
+== 次の手順を実行します
+
+[start=1]
+. *ナビゲーション履歴をファイルに保存するためのメソッドを作成します。*
+
+ナビゲーション履歴を保存するには、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~backhistory.html[BackHistory] コレクションからすべての位置をファイルに保存するメソッドを作成する必要があります。BackHistory コレクションだけでなく link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~currentitem.html[CurrentItem] をメソッドに渡したい場合があります。NavigationHistoryItems と文字列を受け付ける別のパラメータの配列を受け付けるパラメータを作成します。このメソッド内で、以下を実行したい場合があります。
+
+.. 履歴ファイルが存在するかどうかを確認し、存在する場合には削除します。これがアプリケーションのロジックに適する場合、履歴を削除するのではなく、それを上書きしたいかどうかをエンド ユーザーにプロンプト表示できます。
+.. 履歴をテキスト ファイルに書き込む TextWriter を作成します。
+.. 最初に現在の位置をテキスト ファイルに書き込みます。この方法で、履歴をロードする時に入手する方がより簡単になります。
+.. 履歴を繰り返し、BackHistory で位置ごとにテキスト ファイルに行を書き込みます。
+.. TextWriter を閉じます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub SaveHistory(ByVal history As NavigationHistoryItem(), _
+  ByVal current As String)
+' ナビゲーション履歴が既に存在している場合、
+' 削除します。
+    If System.IO.File.Exists("C:\App_History\NavigationHistory.txt") Then
+        System.IO.File.Delete("C:\App_History\NavigationHistory.txt")
+    End If
+' TextWriter を準備してそのパスを設定します。
+    Dim tw As System.IO.TextWriter = _
+        New System.IO.StreamWriter("C:\App_History\NavigationHistory.txt")
+' 最初に現在の項目を書き込みます。履歴を 
+' 初期化するには、現在の項目は
+' null にできません。
+    tw.WriteLine(current)
+' 履歴全体を繰り返し、項目ごとに
+' 行を書き込みます。これを使用して、戻る履歴を
+' 後でロードすることができます。
+    For Each item As NavigationHistoryItem In history
+        tw.WriteLine(item.Text)
+    Next
+' TextWriter を閉じます。
+    tw.Close()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SaveHistory
+	(NavigationHistoryItem[] history, string current)
+{
+	// ナビゲーション履歴が既に存在している場合、
+	// 削除します。
+	if (System.IO.File.Exists(@"C:\App_History\NavigationHistory.txt"))
+		System.IO.File.Delete(@"C:\App_History\NavigationHistory.txt");
+	// TextWriter を準備してそのパスを設定します。
+	System.IO.TextWriter tw = 
+		new System.IO.StreamWriter
+		(@"C:\App_History\NavigationHistory.txt");
+	// 最初に現在の項目を書き込みます。履歴を 
+	// 初期化するには、現在の項目は
+	// null にできません。
+	tw.WriteLine(current);
+	// 履歴全体を繰り返し、項目ごとに
+	// 行を書き込みます。これを使用して、戻る履歴を
+	// 後でロードすることができます。
+	foreach (NavigationHistoryItem item in history)
+	{
+		tw.WriteLine(item.Text);
+	}
+	// TextWriter を閉じます。
+	tw.Close();
+}
+----
+
+[start=2]
+. *ナビゲーション履歴をファイルからロードするためのメソッドを作成します。*
+
+エンド ユーザーのナビゲーション履歴のロードはいくつかの追加の手順が必要となります。繰り返す項目数がどのぐらいあるのかが分からず、NavigationHistoryItems の配列（ナビゲーション ツールバーを初期化するために必要）は初期化されるためにサイズを必要とするからです。エンド ユーザーのナビゲーション履歴をロードするメソッドを作成するには、以下の手順に従います。
+
+.. 履歴ファイルが存在するかどうかを確認し、存在しなければメソッドを終了するか、エラー処理コードを提供します。
+.. 履歴をテキスト ファイルから読み取る TextReader を作成します。
+.. 現在の項目を表す NavigationHistoryItem を作成します。NavigationHistoryItem の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem~-ctor(string).html[コンストラクタ]でテキストとしてテキスト ファイルの先頭行を使用します。
+.. ArrayList を作成し、配列でひとつの項目としてテキスト ファイルの各行を追加します。
+.. TextReader を閉じます。
+.. NavigationHistoryItems の配列をインスタンス化します。ArrayList の各項目を繰り返し、NavigationHistoryItem の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem~text.html[テキスト]を ArrayList 項目のテキストに設定します。
+.. InitializeHistory メソッドを呼び出してナビゲーション履歴を初期化します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub LoadHistory()
+' ナビゲーション履歴が存在することを確認します。
+    If System.IO.File.Exists("C:\App_History\NavigationHistory.txt") = True Then
+        Return
+    End If
+' ナビゲーション履歴ファイルを読むために 
+' TextReader を準備します。
+    Dim tr As System.IO.TextReader = _
+        New System.IO.StreamReader _
+        ("C:\App_History\NavigationHistory.txt")
+' 先頭行は現在の項目なので、
+' 最初に読みます。
+    Dim currentItem As NavigationHistoryItem = _
+        New NavigationHistoryItem(tr.ReadLine())
+' ArrayList を作成して 
+' 戻る履歴テキストを保持します。
+    Dim history As ArrayList = New ArrayList()
+' 読み取る行がまだあるので、
+' ArrayList に行を読み取ります。
+    While (tr.Peek() > 0)
+        history.Add(tr.ReadLine())
+    End While
+' TextReader を閉じます。
+    tr.Close()
+' 戻る履歴を構成する NavigationHistoryItems
+' の配列を作成します。
+    Dim loadedHistory(history.Count) As NavigationHistoryItem
+' ArrayList を繰り返し、そのコンテンツを
+' NavigationHistoryItems の配列にコピーします。
+    For i As Integer = 0 To history.Count Step 1
+        loadedHistory(i) = New NavigationHistoryItem(history(i))
+    Next
+' 履歴を初期化します。
+    Me.UltraToolbarsManager1.NavigationToolbar.InitializeHistory _
+        (loadedHistory, Nothing, currentItem)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void LoadHistory()
+{
+	// ナビゲーション履歴が存在することを確認します。
+	if (!(System.IO.File.Exists(@"C:\App_History\NavigationHistory.txt")))
+		return;
+	// ナビゲーション履歴ファイルを読むために 
+	// TextReader を準備します。
+	System.IO.TextReader tr = 
+		new System.IO.StreamReader
+		(@"C:\App_History\NavigationHistory.txt");
+	// 先頭行は現在の項目なので、
+	// 最初に読みます。
+	NavigationHistoryItem currentItem = 
+		new NavigationHistoryItem(tr.ReadLine());
+	// ArrayList を作成して 
+	// 戻る履歴テキストを保持します。
+	ArrayList history = new ArrayList();
+	// 読み取る行がまだあるので、
+	// ArrayList に行を読み取ります。
+	while (tr.Peek() > 0)
+	{
+		history.Add(tr.ReadLine());
+	}
+	// TextReader を閉じます。
+	tr.Close();
+	// 戻る履歴を構成する NavigationHistoryItems
+	// の配列を作成します。
+	NavigationHistoryItem[] loadedHistory = 
+		new NavigationHistoryItem[history.Count];
+	// ArrayList を繰り返し、そのコンテンツを
+	// NavigationHistoryItems の配列にコピーします。
+	for (int i = 0; i < history.Count; i++)
+	{
+		loadedHistory[i] = 
+			new NavigationHistoryItem((string)history[i]);
+	}
+	// 履歴を初期化します。
+	this.ultraToolbarsManager1.NavigationToolbar.InitializeHistory
+		(loadedHistory, null, currentItem);
+}
+----
+
+[start=3]
+. *適切なイベントでメソッドを呼び出します。*
+
+これで 2 つのメソッドを宣言しました。アプリケーションでそれらを呼び出す必要があります。Save メソッドを呼び出すために適した場所は、フォームの FormClosing イベントです。[はい/いいえ] MessageBox をエンド ユーザーに表示して、履歴を保存したいかどうかを尋ねることができます。Load メソッドを呼び出すために適した場所は、フォームの Load イベントです。もちろん、これらのメソッドをツールバーのメニュー項目またはシンプルなボタンで呼び出すことができます。

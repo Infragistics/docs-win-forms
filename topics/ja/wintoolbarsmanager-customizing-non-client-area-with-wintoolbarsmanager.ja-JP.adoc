@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-customizing-non-client-area-with-wintoolbarsmanager",
+    "controlName": [],
+    "tags": [],
+    "guid": "1d3921b4-fe74-484a-91be-10e8414c407a",  
+    "buildFlags": [],
+    "createdOn": "2014-01-22T20:43:23.7812064Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager のクライアント以外の領域のカスタマイズ
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _WinToolbarsManager_™ コンポーネントのクライアント以外の領域をカスタマイズする方法を紹介します。
+
+== クライアント以外の領域のカスタマイズ
+
+=== はじめに
+
+フォームのクライアント以外の領域は、カスタマイズで一部が公開されない領域です。 _WinToolbarsManager_   コンポーネントは、フォームのクライアント以外の領域 (キャプション領域) をカスタマイズするために公開します。
+
+=== フォームのクライアント以外の領域のカスタマイズ
+
+以下の要素およびプロパティは以下の画面でカスタマイズされます。
+
+* キャプション: “ *Formatted Caption* ”
+* キャプションの背景外観 (青色)
+* コンポーネントのスタイル設定 (Office2013)
+* link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~formdisplaystyle.html[FormDisplayStyle] プロパティ
+
+.注:
+[NOTE]
+====
+`FormDisplayStyle` プロパティは、コンポーネントの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~dockwithincontainer.html[DockWithinContainer] プロパティが Form に設定 *し* 、  _WinFormManager_   は同じフォームにない場合のみ影響します。
+====
+
+コード例の結果です。
+
+image::images/Customizing_Non-Client_Area_with_WinToolbarsManager_1.png[]
+
+フォームのキャプション領域をカスタマイズするためのコード例。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// キャプション領域に書式設定されたテキストを設定します
+ultraToolbarsManager1.Ribbon.Caption =
+    "<span style='color:DrakGray; font-family:Calibri; font-size:20pt;'>Formatted Caption</span>";
+// キャプションの背景色を設定します
+ultraToolbarsManager1.Ribbon.CaptionAreaAppearance.BackColor = Color.LightSkyBlue;
+// フォームの表示スタイルを設定します
+ultraToolbarsManager1.FormDisplayStyle = FormDisplayStyle.RoundedFixed;
+// フォームの特定のスタイルを設定します
+ultraToolbarsManager1.Style = ToolbarStyle.Office2013;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' キャプション領域に書式設定されたテキストを設定します
+ultraToolbarsManager1.Ribbon.Caption = "<span style='color:DrakGray; font-family:Calibri; font-size:20pt;'>Formatted Caption</span>"
+' キャプションの背景色を設定します
+ultraToolbarsManager1.Ribbon.CaptionAreaAppearance.BackColor = Color.LightSkyBlue
+' フォームの表示スタイルを設定します
+ultraToolbarsManager1.FormDisplayStyle = FormDisplayStyle.RoundedFixed
+' フォームの特定のスタイルを設定します
+ultraToolbarsManager1.Style = ToolbarStyle.Office2013
+----
+
+=== WinToolbarsManager および WinFormManager
+
+_WinToolbarsManager_   および  _WinFormManager_   コンポーネントは相互に排他的です。つまり、1 つのコンポーネントのみがフォーム内でドックできます。その他のコンポーネントはフォームのクライアント領域でドックする必要があります。
+
+.注:
+[NOTE]
+====
+同じフォームで  _WinToolbarsManager_   および  _WinFormManager_   を含むことは推薦されません。
+====
+
+以下の表は、フォームのクライアント領域をカスタマイズするために両方のコンポーネントで使用されるプロパティを表示します。
+
+[options="header", cols="a,a"]
+|====
+|_WinToolbarsManager_|_WinFormManager_
+
+|`ultraToolbarsManager1.Ribbon.Caption`
+|`ultraFormManager1.FormStyleSettings.Caption`
+
+|`ultraToolbarsManager1.Ribbon.CaptionAreaAppearance.BackColor`
+|`ultraFormManager1.FormStyleSettings.CaptionAreaAppearance.BackColor`
+
+|`ultraToolbarsManager1.FormDisplayStyle`
+|`ultraFormManager1.FormStyleSettings.FormDisplayStyle`
+
+|`ultraToolbarsManager1.Style`
+|`ultraFormManager1.FormStyleSettings.Style`
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winformmanager-customize-a-form-with-winformmanager.html[WinFormManager でフォームをカスタマイズ]
+|このトピックは、 _WinFormManager_ コンポーネントでフォームを設定し、キャプション領域、フォーム境界線などのフレームの異なる領域と閉じる、元のサイズに戻す、最大化、最小化、コンテキスト ヘルプ ボタンをスタイルするためにカスタマイズする方法について説明します。
+
+|====

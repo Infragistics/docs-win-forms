@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter-api-overview",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": ["API"],
+    "guid": "{8C84101D-C11B-4DC3-93B4-97C11208CE96}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== ExcelExporter 名前空間
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport_namespace.html[Infragistics.Win.UltraWinGrid.ExcelExporter]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter.html[UltraGridExcelExporter]"]

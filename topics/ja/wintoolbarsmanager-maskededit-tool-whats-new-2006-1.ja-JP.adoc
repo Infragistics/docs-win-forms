@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-maskededit-tool-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EF1D1A4D-FDC6-4068-A618-1A0920DF77FC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MaskedEdit ツール
+
+MaskedEditTool クラスは、エンド ユーザーによる入力を制限するためのマスクを指定するためのエディタ ツールです。
+
+image::images/WinToolbarsManager_MaskedEdit_Tool_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:wintoolbarsmanager-add-a-maskededit-tool-to-a-toolbar.html[ツールバーへの MaskedEdit ツールの追加]

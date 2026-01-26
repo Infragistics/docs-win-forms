@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-disable-the-current-day-week-month-or-year",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{2A6D99B4-FE07-4E8E-9414-9609B02B1FDE}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 現在の曜日、週、月、または年の無効化
+
+このトピックは、7 つすべての WinSchedule 名前空間エレメントがツールボックスに追加されていることを前提とします。
+
+== デザインタイム
+
+[start=1]
+. 7 つすべての WinSchedule エレメントをフォームに追加します。
+[start=2]
+. フォームに表示する任意の 5 つの視覚的エレメントを選択します。
+[start=3]
+. [プロパティ] ウィンドウから CalendarInfo プロパティを選択します。
+[start=4]
+. CalendarInfo プロパティのドロップダウン リストから UltraCalendarInfo1 を選択します。
+[start=5]
+. その他 4 つの視覚的エレメントに繰り返します。
+[start=6]
+. ここでアプリケーションを実行します。任意のエレメントで任意の日付を選択すると、その選択がすべてのエレメントに反映されます。
+
+[NOTE]
+====
+*注:* デフォルトで、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarcombo.html[UltraCalendarCombo]"]  の編集部分は、その他のエレメントの変更を反映して更新 _されません_ 。これは設計でその他のエレメントにおける変更のために、ユーザーが入力したデータが破棄されないようにします。この動作を有効にするために、UltraCalendarCombo の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarcombo~autoselectionupdate.html[AutoSelectionUpdate]"]  プロパティを True に設定します。
+====
+
+== ランタイム
+
+[start=1]
+. 現在の日を無効にします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraCalendarInfo1.GetDay(DateTime.Today.AddDays(1), True).Enabled = False
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.GetDay(DateTime.Today.AddDays(1), true).Enabled = false;
+----
+
+[start=2]
+. 現在の週を無効にします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraCalendarInfo1.GetWeek(DateTime.Today.AddDays(4)).Enabled = False
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.GetDay(DateTime.Today.AddDays(1), true).Enabled = false;
+----
+
+[start=3]
+. 現在の月を無効にします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraCalendarInfo1.GetMonth(DateTime.Today.AddMonths(2)).Enabled = False
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.GetMonth(DateTime.Today.AddMonths(2)).Enabled = false;
+----
+
+[start=4]
+. 年を無効にします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraCalendarInfo1.GetYear(2006).Enabled = False
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.GetYear(2006).Enabled = false;
+----

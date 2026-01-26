@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-offsetting-the-spellchecker-underline",
+    "controlName": [],
+    "tags": [],
+    "guid": "ca0adde1-104a-41a0-bd4e-3fdabd7007dc",  
+    "buildFlags": [],
+    "createdOn": "2014-01-29T04:53:42.3764167Z"
+}
+|metadata|
+////
+
+= SpellChecker の下線のオフセット
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、スペルミスの単語の下に表示される下線のオフセットを変更する方法を紹介します。
+
+=== SpellChecker の下線の構成
+
+link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~underlineverticaloffset.html[UnderlineVerticalOffset] プロパティをスペルミスの単語の下線のオフセットを垂直方向に設定するための整数値 (正の値または負の値) に設定できます。
+
+以下の例では、プロパティを設定すると SpellChecker の下線が変更されます。この機能をデモするために「underlyne」の単語のスペルを間違えます。下線は下に移動されました。
+
+[options="header", cols="a,a"]
+|====
+|_UnderlineVerticalOffset=0_   (default)| _UnderlineVerticalOffset=5_  
+
+|image::images/Offsetting_the_SpellChecker_Underline_1.png[]
+|image::images/Offsetting_the_SpellChecker_Underline_2.png[]
+
+|====
+
+=== SpellChecker の下線の設定
+
+プロパティ グリッドで `UnderlineVerticalOffset` を構成します。
+
+image::images/Offsetting_the_SpellChecker_Underline_3.png[]
+
+コードで `UnderlineVerticalOffset` を構成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraSpellChecker1.UnderlineVerticalOffset = 5;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraSpellChecker1.UnderlineVerticalOffset = 5
+----
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:win-winspellchecker-using-winspellchecker.html[WinSpellChecker の使用]
+|_WinSpellChecker_ コンポーネントに関連する特定のタスクを実行する方法を説明するトピックのリストを提供します。
+
+|====

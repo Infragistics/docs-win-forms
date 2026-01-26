@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-digital-gauges",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{AAF31530-D6DF-451E-BCCA-25BADAB11609}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デジタル ゲージ
+
+デジタル ゲージは、デジタル腕時計や目覚まし時計に似た値を表します。値内の各数字は、さまざまな「セクション」を配置することによって描画されます。デジタル ゲージは既存のゲージにオドメータのような表示を提供する場合に非常に役に立ちます。または単体としても使用できます。
+
+image::images/Gauge_About_Digital_Gauges_01.png[]
+
+デジタル ゲージで作業する場合の詳細は、以下のリンクをクリックしてください。
+
+* link:wingauge-working-with-digital-gauges.html[デジタル ゲージでの作業]

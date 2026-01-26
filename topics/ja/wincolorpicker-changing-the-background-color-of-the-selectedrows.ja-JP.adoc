@@ -1,0 +1,54 @@
+﻿////
+|metadata|
+{
+    "name": "wincolorpicker-changing-the-background-color-of-the-selectedrows",
+    "controlName": ["WinEditors"],
+    "tags": ["Editing","Styling"],
+    "guid": "{7D18ABA5-9573-40A5-BCBF-F612B63F3878}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= テキストボックスの背景色の変更
+
+WinColorPicker はユーザーが色を選択できるドロップダウン リストで構成されます。ドロップダウン リストが表示されると、色を選択するために以下の 3 つのタブの選択肢が提供されます。
+
+* Custom
+* Web
+* System
+
+サンプルの使用事例は、エンド ユーザーがランタイムに WinGrid の選択された行に対して異なる色を指定することを許可したい場合です。スタイルに提供されるものよりも強いコントラストを必要とする顧客には役に立つ場合があります。以下のサンプル コードは、このシナリオをどのように実装することができるのかを示しています。このコードは、categoriesUltraGrid と呼ばれるデータ バインドされた WinGrid があることを前提とします。
+
+.注:
+[NOTE]
+====
+WinGrid の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~useappstyling.html[UseAppStyling]"] プロパティを False に設定しています。アプリケーション スタイリングを使用している場合、UseAppStyling を True に設定すると、項目選択の時に設定は効果がないためです。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraColorPicker1_ColorChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraColorPicker1.ColorChanged
+	Me .categoriesUltraGrid.UseAppStyling = False
+ 	Me .categoriesUltraGrid.DisplayLayout.Override.SelectedRowAppearance.BackColor = _
+	  Me .UltraColorPicker1.Value
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraColorPicker1_ColorChanged(object sender, EventArgs e)
+{
+	this.categoriesUltraGrid.UseAppStyling = false;
+	this.categoriesUltraGrid.DisplayLayout.Override.SelectedRowAppearance.BackColor = 
+	  (Color)this.ultraColorPicker1.Value;
+}
+----
+
+このコードを実装した場合、新しい値が WinColorPicker のドロップダウン リストから選択されると、すべての選択された行は自動的に変更されて新しい色の選択を反映します。さらに、選択される行は今後は新たに選択された色を使用します。
+
+image::images\WinEditors_Changing_the_Background_Color_of_a_Text_Box_01.png[]

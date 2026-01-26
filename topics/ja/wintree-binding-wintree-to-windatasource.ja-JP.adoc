@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-binding-wintree-to-windatasource",
+    "controlName": ["WinTree"],
+    "tags": ["Data Binding","How Do I"],
+    "guid": "{FCC62AE9-BA48-4329-8A32-260062D9FC84}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree を WinDataSource にバインド
+
+{ProductName} 2005 Volume 2 の WinTree には、列サポートに加えて、コントロールのバインド機能も追加されました。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~datasource.html[DataSource]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~datamember.html[DataMember]"]  プロパティを使用してルート ノード コレクションをバインドできます。また、ノード コレクションの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection~setdatabinding.html[SetDataBindingMethod]"]  を使用して、特定のノードの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~nodes.html[Nodes]"]  コレクションの内容をバインドすることもできます。WinTree は IList または IBindingList データソースにバインド可能で、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~autogeneratecolumnsets.html[AutoGenerateColumnSets]"]  を True に設定すれば、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[UltraTreeColumnSet]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn.html[UltraTreeNodeColumn]"]  オブジェクトをデータソースに基づいて自動的に生成できます。
+
+このトピックでは、WinDataSource コントロールを使用して WinTree をバインドする方法について説明します。まず UltraDataSource デザイナを使用してスキーマを設計し、それから、Grid pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~viewstyle.html[ViewStyle]"]  に設定された WinTree が UltraDataSource からのスキーマを使用したときに表示がどのように変わるかを調べます。
+
+[start=1]
+. 新しい Windows アプリケーションを作成し、デザイン ビューでフォームを開きます。ツールボックスから WinTree をフォームに追加し、その Dock プロパティをFillに設定します。
+
+WinTree をプロジェクトに追加すると、次の 3 つの参照が追加されます。
+
+** Infragistics.Shared.v{ProductVersion}
+** Infragistics.Win.UltraWinTree.v{ProductVersion}
+** Infragistics.Win.Win.v{ProductVersion}
+
+[start=2]
+. UltraDataSource をプロジェクトに追加します。これにより、次の参照がプロジェクトに追加されます。
+
+** Infragistics.Win.UltraDataSource.v{ProductVersion}
+
+[start=3]
+. コンポーネント トレイにある ultraDataSource1 を右クリックして、コンテキスト メニューから ［UltraDataSource デザイナ］ を選択します。次のようなデザイナ ダイアログが表示されます。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_01.png[]
+
+[start=4]
+. ［データバンド］ ヘッダの下で "Band 0" を選択し、［F2］ キーを押すか、ダイアログの右側のプロパティ グリッドで Key プロパティを選択して、キーを "Customers" に変更します。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_02.png[]
+
+[start=5]
+. ［データ列］ ヘッダの下で [追加] ボタンをクリックして列を作成します。[追加] ボタンをクリックすると項目が編集モードになり、新しい項目のキーを変更できます。4 つの列をこのバンドに追加し、それぞれの Key を "Last Name"、"First Name"、"Middle Name"、"Title" に変更します。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_03.png[]
+
+[start=6]
+. 4 つの列を作成したら、左のツリーで ［データ入力］ ノードをクリックします。データ行を作成するためのグリッドが右側に表示されます。次のスクリーンショットのとおりにデータを入力します。[OK] をクリックしてダイアログを閉じます。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_04.png[]
+
+[start=7]
+. この UltraDataSource スキーマを WinTree のデータソースとして設定するには、WinTree を右クリックして ［プロパティ］ を選択します。プロパティ グリッドで DataSource プロパティを選択し、ドロップダウン矢印をクリックします。作成した UltraDataSource（例：ultraDataSource1）を選択します。WinTree に "Customers" バンドを表す単一ルート ノードが表示されます。これは"バンド"ノードと呼ばれる特殊なタイプのバインド ノードで、基になるデータソースに含まれるリストの名前を表示します。このノードの展開インジケータをクリックすると、作成した列構造が表示されます。ここまでで、ツリーは次のスクリーンショットのようになります。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_05.png[]
+
+[start=8]
+. ここで、プロパティ グリッドで DataMember プロパティを選択し、ドロップダウン矢印からデータソースで定義したバンド（例："Customers"）を選択できます。こうすると、バンドノードが削除され、グリッド構造がルート レベルに表示されます。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_06.png[]
+
+[start=9]
+. これで基本的な構造は完成したので、次に UltraDataSource デザイナを再び表示し、子バンドを作成してルート顧客ノードのバインドされた子ノードを作成できます。たとえば次の図では、"Address" という名前の子バンドを "Customers" バンドに追加してから、その新しいバンドに "Address"、"City"、"State"、"Zip Code" の 4 つの列を追加しています。
+
+image::Images/WinTree_Binding_to_the_WinDataSource_07.png[]

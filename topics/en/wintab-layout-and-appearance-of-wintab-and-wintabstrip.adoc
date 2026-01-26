@@ -1,0 +1,77 @@
+﻿////
+|metadata|
+{
+    "name": "wintab-layout-and-appearance-of-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{CAE8124E-7C89-421A-84ED-9D18BC6DEA15}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Layout and Appearance of WinTab and WinTabStrip
+
+The following properties on both the WinTab™ and WinTabStrip™ are used to specify the appearance and layout of the tabs:
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~Appearance.html[Appearance] -- Determines the default appearance for all tabs. On XP systems where the tab element's SupportThemes property is set to true, some elements will be drawn themed. In this case certain appearance settings are ignored, such as BackColor, BorderColor etc.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ActiveTabAppearance.html[ActiveTabAppearance] -- Specifies the default appearance of the active tab (the tab with focus).
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ClientAreaAppearance.html[ClientAreaAppearance] -- Determines the default appearance of the client area (the entire element excluding the tab header area).
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~IsHotTracked.html[HotTrack] -- if set to true will modify the appearance of the tab that the mouse is over at run-time. By default only the ForeColor of the tab changes, except on XP systems where the tab element's SupportThemes property is set to true and the Style property is set to PropertyPage or PropertyPageSelected. In this case, the hot tracked tab is rendered the same as a selected, themed tab as depicted in the image below.
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_01.png[shows ultratabcontrol's hottracking functionality]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~HotTrackAppearance.html[HotTrackAppearance] -- Determines the appearance of the hot tracked tab. Some settings are ignored when drawing the themed tabs as in the above image.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~InterRowSpacing.html[InterRowSpacing] -- In multi-row TabLayoutStyles this specifies how large a gap, in pixels, there will be between each row of tabs. Negative values are allowed. The following image shows the effect of setting InterRowSpacing to 5.
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_02.png[shows ultratabcontrols's with interrowspacing set to five]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~InterTabSpacing.html[InterTabSpacing] -- Specifies how large a gap, in pixels, there will be between each tab in the same row. Negative values are allowed. The following image shows the effect of setting InterTabSpacing to 3.
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_03.png[shows ultratabcontrol with intertabspacing set to three]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~MaxTabWidth.html[MaxTabWidth] and link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~MinTabWidth.html[MinTabWidth] -- When calculating the size of a tab based on its image and text size, these properties limit how big or small the tab will be.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~SelectedTabAppearance.html[SelectedTabAppearance] -- Specifies the default appearance of the selected tab (the tab whose tab page is currently visible).
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ShowButtonSeparators.html[ShowButtonSeparators] -- This property only has meaning when the Style property is set to StateButtons. The following image shows an UltraTabControl with Style set to StateButtons, TabButtonStyle set to PopupSoftBorderless and ShowButtonSeparators set to true.
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_04.png[shows ultratabcontrol's show button separators functionality]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~Style.html[Style] -- Specifies the style of the tabs. If Style is set to StateButtons, then the TabButtonStyle property determines the look of the buttons. Also, themed support is only available on Windows XP and is specified with the UseOsThemes property.
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_05.png[shows ultratabcontrol with style set to propertypage style]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~SupportThemes.html[SupportThemes] -- If this property is set to true on XP systems and if the Style property is set to PropertyPage or PropertyPageSelected then scroll buttons and tabs will display as themed.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabButtonStyle.html[TabButtonStyle] -- This property has meaning only if the Style property is set to StateButtons.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabHeaderAreaAppearance.html[TabHeaderAreaAppearance] -- Determines the background appearance of the tab header area.
+
+.Note
+[NOTE]
+====
+Transparency is not supported directly on the element since the .NET framework does not support nested transparent controls, and the element needs to support the containment of transparent controls on its tab pages. However, if the tab element is on a container that has a background image, then setting the ImageBackground property of this appearance to the same image and setting its ImageBackgroundOrigin to Container will align the image so that the portion of the tab header area without tabs will appear transparent.
+====
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabLayoutStyle.html[TabLayoutStyle] -- Determines how tabs are laid out. There are various single row and multi-row styles available.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabOrientation.html[TabOrientation] -- Determines how tabs are positioned relative to the tab page area, top-left, bottom-right, left-top, etc.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabsPerRow.html[TabsPerRow] -- This property has meaning only if the TabLayoutStyle property is set to SingleRowTabsPerRow or MultiRowTabsPerRow. It determines how many tabs will be placed on every tab row and the size of each tab.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TextOrientation.html[TextOrientation] -- Determines if and how the text is rotated with respect to the horizontal.
+
+In addition, the following properties on both the UltraTabControl and UltraTabStripControl are used to specify the appearance of scroll buttons:
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollArrowStyle.html[ScrollArrowStyle] -- Determines how the arrows are rendered in the scroll buttons, e.g. as filled triangles, hollow triangles or chevrons.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtonAppearance.html[ScrollButtonAppearance] -- Determines the appearance of the scroll buttons.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtons.html[ScrollButtons] -- Determines if scroll buttons are shown always, only when needed or never.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtonStyle.html[ScrollButtonStyle] -- Determines the style of the scroll buttons. This property is ignored on XP systems if SupportThemes is true and Style is PropertyPage or PropertyPageSelected.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtonTypes.html[ScrollButtonTypes] -- Determines which scroll buttons are show, next/previous, next page/previous page, first/last and thumb.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollTrackAppearance.html[ScrollTrackAppearance] -- This has meaning only if the 'Thumb' bit in ScrollButtonTypes is set on and the buttons aren't rendered as themed. It determines the look of the track that the thumb sits in.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollTrackExtent.html[ScrollTrackExtent] -- Determines the length of the thumb track. If set to 0 then an appropriate size will we calculated.
+
+The following properties on the UltraTab object are used to specify the appearance of specific tabs:
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~Appearance.html[Appearance] -- Determines the normal appearance of the tab.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~ActiveAppearance.html[ActiveAppearance] -- Determines the appearance of the tab when it is the active tab (the tab has input focus.)
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~ClientAreaAppearance.html[ClientAreaAppearance] -- Determines the appearance of the client area (the entire element excluding the tab header area) when the tab is the selected tab (its tab page is visible.)
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~FixedWidth.html[FixedWidth] -- Determines the width of the tab in pixels. If set to 0 will cause an appropriate width to be calculated.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~HasHotTrackAppearance.html[HotTrackAppearance] -- Determines the appearance of the tab when it is the hot tracked tab. The HotTrack property must be true for this property to have meaning.
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~SelectedAppearance.html[SelectedAppearance] -- Determines the appearance of the tab when it is the selected tab (its tab page is visible.)
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~Text.html[Text] -- Specifies the text that will be shown in the tab. When determining the size required for a tab the text metrics calculations are based on the largest font specified by the Font, Appearance, ActiveTabAppearance, HotTrackAppearance and SelectedTabAppearance properties on the tab element. It will ignore any font settings on specific tab appearance properties.

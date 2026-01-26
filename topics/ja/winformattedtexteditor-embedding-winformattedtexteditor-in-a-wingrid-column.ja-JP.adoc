@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-embedding-winformattedtexteditor-in-a-wingrid-column",
+    "controlName": [],
+    "tags": ["How Do I"],
+    "guid": "{2E04DD8A-344B-4891-9C71-AEE620152320}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:43:30Z"
+}
+|metadata|
+////
+
+= WinGrid 列に WinFormattedTextEditor を組み込む
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"]  クラスを使用すると、埋め込みエディタを使用するすべての {ProductName} コントロールにフォーマットされたテキストとハイパーリンクを追加することができます。FormattedLinkEditor は、{ProductName} コントロールにこの機能を提供するために、埋め込みエディタ基本クラスから派生します。このトピックでは、 WinDataSource コンポーネントを使用してフォーマットされていないテキストを保存する WinGrid コントロールを設定する操作手順について説明します。WinFormattedTextEditor コントロールを使用して、このテキストをフォーマットします。
+
+[start=1]
+. *WinDataSource と WinGrid を設定します。*
+
+.. UltraDataSource コンポーネントをフォームにドラッグします。ultraDataSource1 コンポーネントがコンポーネント トレイ内に表示されます。
+.. ツールボックスから UltraGrid コントロールをフォームにドラッグします。
+.. [プロパティ] ウィンドウにある pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~datasource.html[DataSource]"]  プロパティを ultraDataSource1 に設定します。
+
+[start=2]
+. *データ ソースを設定します。*
+
+.. コンポーネント トレイにある ultraDataSource1 を右クリックして ［UltraDataSource デザイナ］ を選択します。UltraDataSource デザイナが表示されます。
+.. DataColumns の下で [新しい列の追加] ボタンをクリックします。
+.. [適用] をクリックします。
+.. 左側のツリーにある [データ入力] をクリックします。
+.. 最初のセルに "<span >Bolded Text</span>" と入力して Enter を押します。
+.. 2 番目セルに "<span >Italicized Text</span>" と入力して Enter を押します。
+.. 3 番目のセルに "<span >Underlined Text</span>" と入力して Enter を押します。
+.. [適用]、そして [OK] をクリックします。
+
+[start=3]
+. *WinFormattedTextEditor コントロールを設定し、列のエディタとして設定します。*
+
+次のコードを FormLoad イベントに配置します。最初の行は、FormattedLinkEditor のインスタンスをインスタンス化します。supportsEditing 引数に True を使用して、FormattedTextEditor のインスタンスを作成します。False では FormattedLinkLabel が作成されます。この 2 つの違いは、FormattedTextEditor は編集をサポートしますが、FormattedLinkLabel はサポートしないことです。コードの 2 行目は、FormattedLinkEditor を列のエディタとして設定します。
+
+*Visual Basic の場合：*
+
+----
+Dim textEditor As New Infragistics.Win.FormattedLinkLabel.FormattedLinkEditor(true)
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Editor = textEditor
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.FormattedLinkLabel.FormattedLinkEditor textEditor = 
+  new Infragistics.Win.FormattedLinkLabel.FormattedLinkEditor(true);
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Editor = textEditor;
+----
+
+[start=4]
+. *アプリケーションを実行します。*
+
+3 つのセルがあり、それぞれにフォーマットされたテキストがあります。最初のセルを強調表示し、Ctrl+B を押します。テキストの太字は解除されます。セルのテキストを編集します。FormattedLinkEditor をインスタンス化した時に supportsEditing 引数で False が使用される場合、セルのテキストを編集できません。編集を許可したくない場合、ReadOnly プロパティを True に設定できます。ReadOnly プロパティの詳細は、 link:winformattedtexteditor-prevent-text-from-being-edited.html[「テキストが編集されることを防止」]を参照してください。

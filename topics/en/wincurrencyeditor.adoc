@@ -1,0 +1,23 @@
+﻿////
+|metadata|
+{
+    "name": "wincurrencyeditor",
+    "controlName": ["WinCurrencyEditor"],
+    "tags": [],
+    "guid": "{336D342D-C68B-4272-8DBF-F2B220863B6C}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCurrencyEditor
+
+Click the links below to find information specific to the WinCurrencyEditor™ control.
+
+* Understanding WinCurrencyEditor
+** link:wincurrencyeditor-about-wincurrencyeditor.html[About WinCurrencyEditor]
+** link:winmaskededitorbase-spinning.html[Spinning Behavior]
+** link:wincurrencyeditor-smart-tag.html[WinCurrencyEditor Smart Tag]
+* Using WinCurrencyEditor
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[Increment an Editor Using Custom Input]
+* link:wincurrencyeditor-api-overview.html[API Overview]

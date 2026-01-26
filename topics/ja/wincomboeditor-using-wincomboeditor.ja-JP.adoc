@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-using-wincomboeditor",
+    "controlName": ["WinComboEditor"],
+    "tags": ["How Do I"],
+    "guid": "{6E888C43-3795-4682-804A-18C155C85BA9}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-11T13:23:46Z"
+}
+|metadata|
+////
+
+= WInComboEditor の使用方法
+
+このセクションには、WinCalendarLook™ コンポーネントの機能を使用する方法を説明する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wincomboeditor-autosuggest-highlight-appearance.html[AutoSuggest 強調表示の外観]
+* link:wincomboeditor-changing-the-drop-down-button-alignment.html[ドロップダウン ボタンの位置揃えの変更]
+* link:wincomboeditor-filter-options-to-filter-suggested-values.html[候補値をフィルターするフィルター オプション]
+* link:wincomboeditor-ignoring-diacritics-on-autocomplete.html[オートコンプリートで分音記号を無視]
+* link:wincomboeditor-resize-drop-down-in-wincomboeditor.html[WinComboEditor でドロップダウンのサイズ変更]
+* link:wincomboeditor-selecting-multiple-values-within-wincomboeditor.html[WinComboEditor 内で複数の値を選択]
+* link:wincomboeditor-suggest-possible-values-with-wincomboeditor.html[WinComboEditor で可能な値を提案]
+* link:wincomboeditor-using-limittolist-and-itemnotinlist.html[LimitToList と ItemNotInList の使用]

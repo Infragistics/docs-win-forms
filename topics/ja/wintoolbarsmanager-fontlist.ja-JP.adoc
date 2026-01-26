@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-fontlist",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{B7B26A17-C22A-4789-A686-4AF9708C5061}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= FontList
+
+FontList ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-fontlist-about-the-fontlist-tool.html[FontList ツールについて]

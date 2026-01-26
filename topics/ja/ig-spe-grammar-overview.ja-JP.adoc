@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-grammar-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "af1cb6e3-24d6-402d-a6b6-04640483c482",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0238473Z"
+}
+|metadata|
+////
+
+= 文書校正の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350527823, 文書校正の概要 >>
+* <<_Ref349221041, 関連コンテンツ >>
+
+[[_Ref350527823]]
+== 文書校正の概要
+
+[[_Ref349221033]]
+
+=== 文章校正の要点
+
+文章校正の定義は、正しいとみなされた場合にドキュメントが準拠しなければならない構造を示します。Infragistics Syntax Parsing Engine は、以下の 4 項目で特徴づけられる文脈自由の文章校正をサポートします。
+
+* 一連の終端記号。名前の付いたテキスト要素です。
+* 一連の非終端記号。名前の付いた記号シーケンスです。
+* 開始記号。構文ツリーのルートに存在することができる唯一の非終端記号です。
+* 一連の生産。それぞれが非終端記号が記号シーケンスを表すことができる 1 つの方法を示します。この場合、記号は終端記号、非終端記号、またはその両方です。
+
+文章校正は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing_namespace.html[Infragistics.Documents.Parsing] 名前空間で定義される link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar] クラスによって表され、誰もが予想されるように、文脈自由の文章校正のすべてのコンポーネントに直接または間接的に関係する文章校正上のプロパティがあります。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~lexerstates.html[Grammar.LexerStates] – link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate.html[LexerState] インスタンスのコレクション。Symbols コレクションを持ち、そのすべてが文章校正の端末記号を集合的に含みます。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~nonterminalsymbols.html[Grammar.NonTerminalSymbols] – 文章校正の非終端記号のコレクション
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~startsymbol.html[Grammar.StartSymbol] – `NonTerminalSymbols` コレクションに存在し、文章校正の開始記号である非終端記号
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~rule.html[NonTerminalSymbol.Rule] – この独自の非終端記号をヘッド記号として有するすべての生産を定義する構文ルール ツリーのルート。
+
+[[_Ref349221041]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+|====

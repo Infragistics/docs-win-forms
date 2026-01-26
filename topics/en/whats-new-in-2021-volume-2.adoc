@@ -1,0 +1,36 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2021 Volume 2
+
+=== Visual Studio 2022 support 
+=== .NET 6.0 support
+
+=== Category Chart, Financial Chart, Data Chart, and Geographic Map:
+- Added link:{DataChartLink}.MarkerAutomaticBehavior.html[MarkerAutomaticBehavior] that allows which marker type is assigned to multiple series in the same chart
+- Added link:{DataChartLink}.LegendItemBadgeShape.html[LegendItemBadgeShape] for setting badge shape of all series represented in a legend
+- Added link:{DataChartLink}.LegendItemBadgeMode.html[LegendItemBadgeMode] for setting badge complexity on all series in a legend
+
+=== Data Chart Series and Geographic Map Series:
+- Added `LegendItemBadgeShape` for setting badge shape on specific series represented in a legend
+- Added `LegendItemBadgeMode` for setting badge complexity on specific series in a legend
+
+=== Category Chart and Financial Chart:
+- Added link:{CategoryChartNamespace}.shared{ApiProp}{ApiPlatform}win.description.xychartdescription{ApiProp}XAxisLabelLocation.html[XAxisLabelLocation] property to CategoryChart
+- Added link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}CrosshairsLineThickness.html[CrosshairsLineThickness] and other properties for customizing crosshairs lines
+- Added link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}CrosshairsAnnotationXAxisBackground.html[CrosshairsAnnotationXAxisBackground] and other properties for customizing crosshairs annotations
+- Added link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}FinalValueAnnotationsBackground.html[FinalValueAnnotationsBackground] and other properties for customizing final value annotations
+- Added link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}AreaFillOpacity.html[AreaFillOpacity] that allow changing opacity of series fill (e.g. Area chart)
+- Added link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}MarkerThickness.html[MarkerThickness] that allows changing thickness of markers
+
+=== Enhancements
+Simplified shapes of series in chart's legend to display only circle, line, or square. This can be reverted by setting chart's `LegendItemBadgeMode` property to `MatchSeries` enum value
+
+=== Geographic Map
+- Added support for representing geographic series in a legend

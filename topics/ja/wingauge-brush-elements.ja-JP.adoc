@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-brush-elements",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{261E3578-6812-471A-ACF2-6A2CD5B0CF09}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ブラシ エレメントについて
+
+WebGauge コントロールのグラフィカルな性質のために、多くの要素がそのレンダリングに関わります。各ゲージの個々の要素を十分にカスタマイズする能力を得ることができるようにゲージは設計されています。
+
+ゲージ全体で BrushElement プロパティを活用することによって、高レベルのカスタマイズの精度を達成してきました。Gauge オブジェクト モデル内で BrushElement プロパティが見つかった場合には、そのプロパティが表す要素に完全な制御とカスタマイズを必ず適用できます。
+
+組み込みタイプのブラシ要素がいくつかあります。各要素はさまざまな種類のカスタマイズを提供するように設計されています（画像のレンダリング、シンプルな塗りつぶしの色の作成、グラデーション パターンの作成など）。
+
+ゲージによって、固有のブラシ要素を作成し、要素をどのようにレンダリングするのかを指示するペイント/ドロー ロジックを提供することも可能です。BrushElement クラスを理解することで、ゲージを思うようにカスタマイズできます。
+
+各ブラシ要素についての詳細は以下のリンクをクリックしてください。
+
+* link:wingauge-hatch-brush-element.html[ハッチ ブラシ エレメント]
+* link:wingauge-image-fill-brush-element.html[画像塗りつぶしブラシ エレメント]
+* link:wingauge-multi-stop-linear-gradient-brush-element.html[マルチストップ線形グラデーション ブラシ エレメント]
+* link:wingauge-multi-stop-radial-gradient-brush-element.html[マルチストップ放射型グラデーション ブラシ エレメント]
+* link:wingauge-radial-gradient-brush-element.html[放射型グラデーション ブラシ エレメント]
+* link:wingauge-simple-gradient-brush-element.html[シンプル グラデーション ブラシ エレメント]
+* link:wingauge-solid-brush-element.html[単色ブラシ エレメント]
+* link:wingauge-texture-brush-element.html[テクスチャ ブラシ エレメント]
+* link:wingauge-apply-brush-elements-at-design-time.html[デザインタイムにブラシ エレメントを適用]
+* link:wingauge-apply-brush-elements-at-run-time.html[ランタイムにブラシ エレメントを適用]
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナを使用してブラシ エレメントを適用]

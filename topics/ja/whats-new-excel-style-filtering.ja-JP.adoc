@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-excel-style-filtering",
+    "controlName": [],
+    "tags": ["Application Scenarios","Filtering","Grids"],
+    "guid": "39d4e786-e745-4168-9a18-2456929bc0e7",  
+    "buildFlags": [],
+    "createdOn": "2011-08-29T17:59:31.4717784Z"
+}
+|metadata|
+////
+
+= WinGridFilterUIProvider Excel スタイル フィルタリング
+
+{ProductName} の 2011 Volume 2 以降、グリッドのフィルタリング機能は Microsoft Excel® のフィルタリング動作と同じに動作します。Excel では、セル値のリストがフィルターされ、他の列にフィルター アウトされていない値のみが表示されます。
+
+フィルタリング機能は WinGridFilterUIProvider™ コンポーネントによって提供されます。以前のバージョンの WinGridFilterUIProvider は、フィルター アウトされた状態かどうかにかかわらず、ドロップダウン ツリーにすべての値を残しました。古い機能との後方互換性のために、UltraGridFilterUIProvider では link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider~operandlistfilterbehavior.html[OperandListFilterBehavior] という名前の新しいプロパティが使用可能になりました。
+
+== 関連トピック
+
+* link:wingridfilteruiprovider-about-wingridfilteruiprovider.html[WinGridFilterUIProvider について]

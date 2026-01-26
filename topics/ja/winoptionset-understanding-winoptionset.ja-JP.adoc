@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winoptionset-understanding-winoptionset",
+    "controlName": ["WinOptionSet"],
+    "tags": [],
+    "guid": "{2BA2A19D-037D-4506-AFD0-539148DE4063}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinOptionSet の理解
+
+これは、WinOptionSet™ コントロール、ならびにその主要な特性と機能についての学習を開始するために絶好の場所です。このセクションのトピックを読むと、アプリケーションで WinOptionSet コンポーネントを使用することの利点を理解できます。
+
+WinOptionSet コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winoptionset-about-winoptionset.html[WinOptionSet について] -- WinOptionSet コントロールの概要を説明しています。
+* link:winoptionset-smart-tag.html[WinOptionSet スマート タグ] -- WinOptionSet コントロールのスマート タグで表示されるプロパティと設定について説明しています。

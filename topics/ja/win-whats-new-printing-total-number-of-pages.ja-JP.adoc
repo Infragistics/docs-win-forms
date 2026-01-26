@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-printing-total-number-of-pages",
+    "controlName": [],
+    "tags": [],
+    "guid": "{60DFA68D-B9B4-4F5E-B923-1796EAAA650D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridPrintDocument 総ページ数の印刷
+
+この新しい機能によって、WinGridPrintDocument™ コンポーネントは追加の置き換え文字列 (<##> または <Total Pages>) を使用することで印刷される物理的なページ総数を印刷することが可能となります。以前は現在の物理的なページ数しか印刷できませんでした (例、"Page<#>")。
+
+*関連トピック*
+
+* link:wingridprintdocument-printing-total-number-of-pages.html[ページ総数を印刷]

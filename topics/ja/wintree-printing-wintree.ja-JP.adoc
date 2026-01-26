@@ -1,0 +1,130 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-printing-wintree",
+    "controlName": [],
+    "tags": [],
+    "guid": "428719b7-839f-49d5-9621-35cc4bed4537",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T14:06:37.9277011Z"
+}
+|metadata|
+////
+
+= WinTree の印刷
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree_members.html[UltraTree]™ の印刷機能の概要について紹介します。 _WinGrid™_   印刷機能と類似しています。<<_Ref364014173,前提条件>>セクションの  _WinGrid_   の印刷を参照することを推奨します。
+
+[[_Ref364014173]]
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-printing.html[印刷]
+|_WinGrid_ では、グリッドを Microsoft® Excel® ファイルまたは PDF ドキュメントにエクスポートする方法から、グリッドをプレビュー ダイアログやプリンタに送信する方法までのいくつかの印刷オプションが提供されています。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref364014499,概要>>
+* <<_Ref364014507,コード例>>
+* <<_Ref364014514,関連コンテンツ>>
+
+[[_Ref364014499]]
+== 概要
+
+=== WinTree 印刷の概要
+
+_WinTree_   印刷機能は、印刷プレビューや印刷の機能性を提供することを目的としています。 _WinTree_   は、 _標準_  、 _OutlookExpress_  、 _グリッド_  および _フリーフォーム_  など、サポートされたビュー スタイルで表示または印刷することができます。
+
+以下のスクリーンショットは、 _WinTree_   ( _OutlookExpress_   ビュー スタイル) の印刷プレビューを示しています。
+
+image::images/Printing_WinTree_1.png[]
+
+[[_Ref364014507]]
+
+=== コード例
+
+このコード例は  _WinTree_   コントロールを含むプロジェクトが必要です。プロジェクトがない場合は印刷プレビューや印刷設定を実行する前に、 link:wintree.html[WinTree] ヘルプ ドキュメントを参照してください。
+
+以下のコードは、ボタンのクリック イベントで印刷プレビューを実行する  _WinTree_   を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+using (var printDoc = new UltraTreePrintDocument())
+{
+    printDoc.Tree = _ultraTree1;
+    using (var previewDialog = new UltraPrintPreviewDialog())
+    {
+        previewDialog.Document = printDoc;
+        previewDialog.ShowDialog(this);
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Using printDoc As UltraTreePrintDocument = New UltraTreePrintDocument()
+printDoc.Tree = _ultraTree1
+       Using previewDialog As UltraPrintPreviewDialog = New UltraPrintPreviewDialog()
+             previewDialog.Document = printDoc
+              previewDialog.ShowDialog(Me)
+       End Using
+End Using
+----
+
+印刷プレビュー ダイアログを開き、 _WinTree_   で印刷を実行する代わりに、 link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreeprintdocument_members.html[UltraTreePrintDocument] の Print メソッドを呼び出します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+using (UltraTreePrintDocument printDoc = new UltraTreePrintDocument())
+{
+    printDoc.Tree = ultraTree1;
+    printDoc.Print();
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Using printDoc As New UltraTreePrintDocument()
+      printDoc.Tree = ultraTree1
+      printDoc.Print()
+End Using
+----
+
+[[_Ref364014514]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintree.html[WinTree]
+|このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの _WinTree_ についての有益な情報を含んでいます。
+
+|====

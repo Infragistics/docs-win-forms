@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-culture-specific-formatting",
+    "controlName": ["WinEditors"],
+    "tags": ["Data Presentation","Extending","How Do I"],
+    "guid": "{37A372BB-8147-4F3A-984C-F6AD728D3B50}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カルチャ固有の書式設定
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinCurrencyEditor
+* WinNumericEditor 
+* WinDateTimeEditor
+
+WinEditor コントロールを使用しているときに、現在のマシンのオペレーティング システムのカルチャとは異なるカルチャでエディタを表示しなければならない場合があります。このような場合は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formatproviderpropertyeditor~formatprovider.html[FormatProvider]"]  プロパティが非常に役立つことが分かります。このプロパティを使用すると、開発者は CultureInfo クラス内に詳細に指定されるカルチャ情報にあわせてエレメントの書式を設定できます。
+
+WinEditors コントロール（WinCurrencyEditor、WinNumericEditor、および WinDateTimeEditor）には、これらのエレメントに特定のカルチャを割り当てることができる FormatProvider プロパティが含まれています。
+
+次のコードは、WinEditors のカルチャをフランス語（フランス）に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Use_the_FormatProvider_Property_to_Manipulate_the_Cultures_Load( _
+  ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim culture As New System.Globalization.CultureInfo("fr-FR")
+	Me.UltraCurrencyEditor1.FormatProvider = culture
+End Sub   
+----
+
+*C# の場合：*
+
+----
+private void Use_the_FormatProvider_Property_to_Manipulate_the_Cultures_Load(object sender, 
+  EventArgs e)
+{
+	System.Globalization.CultureInfo culture = new System.Globalization.CultureInfo("fr-FR");
+	this.ultraCurrencyEditor1.FormatProvider = culture;
+}   
+----
+
+カルチャ宣言に渡す文字列パラメータを変更して、他のさまざまなカルチャを表すことができます。
+
+image::images/WinEditors_Use_the_FormatProvider_Property_to_Manipulate_the_Culture_01.png[]

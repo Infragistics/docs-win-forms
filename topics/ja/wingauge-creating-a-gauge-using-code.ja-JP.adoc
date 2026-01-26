@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-gauge-using-code",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{8FFD49D7-5342-4B06-8F27-579494DF9EDF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードを使用してゲージを作成
+
+コードを使用して gauges を作成する方法を確認するには、以下のリンクをクリックしてください。
+
+* link:wingauge-creating-a-digital-gauge-using-code.html[コードを使用してデジタル ゲージを作成]
+* link:wingauge-creating-a-linear-gauge-using-code.html[コードを使用してリニア ゲージを作成]
+* link:wingauge-creating-a-radial-gauge-using-code.html[コードを使用してラジアル ゲージを作成]

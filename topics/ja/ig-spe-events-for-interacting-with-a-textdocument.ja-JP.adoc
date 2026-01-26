@@ -1,0 +1,210 @@
+﻿////
+|metadata|
+{
+    "name": "ig-spe-events-for-interacting-with-a-textdocument",
+    "controlName": [],
+    "tags": [],
+    "guid": "3f2f16cf-205d-413f-8f99-75e10ca4d0b4",
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1178567Z"
+}
+|metadata|
+////
+
+= TextDocument を操作するイベント
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、主要な `TextDocument` クラス イベントを紹介し、使用を説明するためのコード スニペットが含まれています。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref335121529,PropertyChanged イベント – コード例>>
+
+** <<_Ref326147531,説明>>
+** <<_Ref326147537,コード>>
+
+* <<_Ref335121552,TextChanged イベント – コード例>>
+
+** <<_Ref335121559,説明>>
+** <<_Ref335121563,コード>>
+
+* <<_Ref335121568,TextChanging イベント – コード例>>
+
+** <<_Ref335121575,説明>>
+** <<_Ref335121580,コード>>
+
+* <<_Ref335121588,TextLoaded イベント>>
+
+** <<_Ref335121594,説明>>
+
+* <<_Ref335121599,関連コンテンツ>>
+
+** <<_Ref335121607,トピック>>
+
+[[_Ref335121529]]
+== PropertyChanged イベント – コード例
+
+[[_Ref326147531]]
+
+=== 説明
+
+`TextDocument` のプロパティの値が変更する時は常に PropertyChanged イベントが発生します。
+
+このイベントを処理する時、`TextDocument` オブジェクトが「センダー」としてイベント ハンドラーに送信され、PropertyChangedEventArgs オブジェクト “e” には変更したプロパティ名 e.PropertyName が含まれます。
+
+以下のコードは、`TextDocument` の CurrentSnapshot が変更した時にロジックを実行するためのイベント ハンドラー設定を示します。
+
+[[_Ref326147537]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+void _textDocument_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+{
+    if (e.PropertyName == "CurrentSnapshot")
+    {
+        //TODO:  新しいスナップショットが作成された時に必要とされるロジックを実行する
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub _textDocument_PropertyChanged(sender As Object, e As System.ComponentModel.PropertyChangedEventArgs)
+      'TODO:  新しいスナップショットが作成された時に必要とされるロジックを実行する
+      If e.PropertyName = "CurrentSnapshot" Then
+      End If
+End Sub
+----
+
+[[_Ref335121552]]
+== TextChanged イベント – コード例
+
+[[_Ref335121559]]
+
+=== 説明
+
+ドキュメントに適用された変更が TextChanged イベントを発生させます。前後のスナップショットだけでなくすべての変更のリストを公開します。
+
+以下のコード例は TextChanged イベントの処理とドキュメントで行われたすべての変更のループです。
+
+[[_Ref335121563]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+void _textDocument_TextChanged(object sender, TextChangedEventArgs e)
+{
+    foreach (TextChange tc in e.Changes)
+    {
+        //TODO: 行われた変更に基づいてロジックを実行するために 
+        //テキスト変更をループする
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub _textDocument_TextChanged(sender As Object, e As TextChangedEventArgs)
+      For Each tc As TextChange In e.Changes
+                'TODO: 行われた変更に基づいてロジックを実行するために
+              'テキスト変更をループする
+      Next
+End Sub
+----
+
+[[_Ref335121568]]
+== TextChanging イベント – コード例
+
+[[_Ref335121575]]
+
+=== 説明
+
+ドキュメントの変更が適用される前に発生する、TextChanging イベントは Delete、Append、FindReplace などのドキュメント内のテキストを更新するメソッドによってトリガーされます。CanCancel プロジェクトが true を返す場合、このイベントはキャンセル可能です (変更の元が 元に戻すまたはやり直し操作でない限り true を返す)。前後のスナップショットだけでなく変更のリストを公開します。
+
+以下のコード例は TextChanging イベントを処理し、ドキュメントがこの変更から成長するかどうかをチェックします。プログラマによって指定されたシナリオ “someCondition” でイベントをキャンセルします。
+
+[[_Ref335121580]]
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+void _textDocument_TextChanging(object sender, TextChangingEventArgs e)
+{
+    if (e.After.Document.CurrentSnapshot.Length > e.Before.Document.CurrentSnapshot.Length)
+    {
+        //TODO: ドキュメントが成長する時にあるロジックを実行する
+        //TODO: ある状況下で、イベントをキャンセルする
+        if (someCondition == true && e.CanCancel == true)
+            e.Cancel = true;
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub _textDocument_TextChanging(sender As Object, e As TextChangingEventArgs)
+      If e.After.Document.CurrentSnapshot.Length > e.Before.Document.CurrentSnapshot.Length Then
+            'TODO: ドキュメントが成長する時にあるロジックを実行する
+            'TODO: ある状況下で、イベントをキャンセルする
+            If someCondition = True AndAlso e.CanCancel = True Then
+                  e.Cancel = True
+            End If
+      End If
+End Sub
+----
+
+[[_Ref335121588]]
+== TextLoaded イベント
+
+[[_Ref335121594]]
+
+=== 説明
+
+Load() または InitializeText() メソッドは TextLoaded イベントを発生させます。また、テキストを含む TextDocument で言語が変わる時には常にこのイベントは発生します。
+
+[[_Ref335121599]]
+== 関連コンテンツ
+
+[[_Ref335121607]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-textdocument-overview.html[TextDocument の概要]
+|このトピックでは、Infragistics Syntax Parsing Engine のメイン クラス、`TextDocument` について説明します。最も重要なメソッド、イベントおよびプロパティを概略するトピックへのリンクが含まれています。
+
+| link:ig-spe-methods-for-modifying-text-in-a-textdocument.html[TextDocument でテキストを変更するメソッド]
+|このトピックは、コードスニペットを使用してテキストを編集する `TextDocument` クラス メソッドについて説明します。
+
+| link:ig-spe-properties-for-configuring-a-textdocument.html[TextDocument を構成するプロパティ]
+|このトピックでは、カスタム構成を可能とするために公開された `TextDocument` クラス プロパティについて説明します。
+
+| link:ig-spe-implementing-a-textdocument-with-a-richtextbox.html[RichTextBox を含む TextDocument を実装]
+|このトピックでは、特定の言語に基づいて文書でキーワードを強調表示できる RichTextBox コントロールを使用する方法をコード スニペットを用いて説明します。
+
+|====

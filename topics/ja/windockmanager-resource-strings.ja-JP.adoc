@@ -1,0 +1,222 @@
+﻿////
+|metadata|
+{
+    "name": "windockmanager-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{D0428D40-71C6-416A-93DB-B3AE53142658}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDockManager リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AllowDropErrorMessage
+|AllowDrop プロパティが true に設定されていますが、現在のアパートメント状態 (ApartmentState) は、ドラッグ アンド ドロップをサポートしていません。ドラッグ アンド ドロップ機能を無効にする場合は、AllowDrop プロパティを false に設定してください。ドラッグ アンド ドロップ機能を有効にする場合は、スレッドの ApartmentState プロパティを STAThread に設定してください。これは、Main メソッドに [STAThread] 属性を追加することでも実現できます。
+
+|AllowDropErrorMessageTitle
+|UltraDockManager - ドラッグ アンド ドロップの無効
+
+|ContextMenuAutoHide
+|自動的に隠す(&A)
+
+|ContextMenuDockable
+|ドッキング可能(&K)
+
+|ContextMenuFloating
+|フローティング(&F)
+
+|ContextMenuHide
+|非表示(&H)
+
+|ControlPanePropertyTabName
+|ドックされているペイン
+
+|DockableControlPaneUnpinnedState
+|ピン固定の解除
+
+|DockablePanesPropertyPageTabCaption
+|ペイン
+
+|DockControlsDlgCancel
+|キャンセル(&C)
+
+|DockControlsDlgDockedLocation
+|ドック領域位置:
+
+|DockControlsDlgGroupType
+|子ペイン スタイル:
+
+|DockControlsDlgOK
+|&OK
+
+|DockControlsDlgSelectedControls
+|選択されたコントロール:
+
+|DockControlsDlgTitle
+|新しいドック領域
+
+|InvalidGrabHandleExtent
+|グラブ ハンドルの範囲は最低 0 にする必要があります。
+
+|LoadSaveDlgAction
+|操作(&A):
+
+|LoadSaveDlgBinary
+|バイナリ(&B)
+
+|LoadSaveDlgCancel
+|キャンセル(&C)
+
+|LoadSaveDlgFileDialogDefaultExt
+|udm
+
+|LoadSaveDlgFileDialogFilter
+|UltraDockManager ファイル ($$*$$.udm)\|$$*$$.udm\|すべてのファイル ($$*$$.$$*$$)\|$$*$$.$$* $$
+
+|LoadSaveDlgFileDialogLoadTitle
+|UltraDockManager レイアウトのロード
+
+|LoadSaveDlgFileDialogSaveTitle
+|UltraDockManager レイアウトの保存
+
+|LoadSaveDlgFilename
+|ファイル名(&F):
+
+|LoadSaveDlgFormat
+|形式(&O)
+
+|LoadSaveDlgLoad
+|ロード(&L)
+
+|LoadSaveDlgLoadLayout
+|UltraDockManager レイアウトのロード
+
+|LoadSaveDlgOK
+|&OK
+
+|LoadSaveDlgSave
+|保存(&S)
+
+|LoadSaveDlgSaveLayout
+|UltraDockManager レイアウトの保存
+
+|LoadSaveDlgSummary
+|このダイアログでは UltraDockManager の設定を保存または読み込むことができます。情報はバイナリまたは XML 形式 (SOAP) で扱うことができます。
+
+|LoadSaveDlgTitle
+|UltraDockManager レイアウトのロードと保存
+
+|LoadSaveDlgXML
+|&XML
+
+|MsgLoadLayout
+|UltraDockManager レイアウトのロード
+
+|MsgSaveLayout
+|UltraDockManager レイアウトの保存
+
+|NavigatorDefaultMdiListCaption
+|Windows
+
+|NavigatorDefaultPaneListCaption
+|ツール
+
+|PaneButtonToolTipClose
+|閉じる
+
+|PaneButtonToolTipMaximize
+|最大化
+
+|PaneButtonToolTipMenu
+|メニュー
+
+|PaneButtonToolTipMinimize
+|最小化
+
+|PaneButtonToolTipPin
+|自動的に隠す
+
+|PaneButtonToolTipRestoreDown
+|元に戻す
+
+|PaneButtonToolTipRestoreUp
+|元に戻す
+
+|PaneButtonToolTipUnpin
+|自動的に隠す
+
+|PanePropPageDockedPanesText
+|ドックされているペイン:
+
+|PanePropPageDockedPanesToolTip
+|ドックされているドック領域ペインを表示します。
+
+|PanePropPageFloatingPanesText
+|フロートしているペイン:
+
+|PanePropPageFloatingPanesToolTip
+|フロートしているドック領域ペインを表示します。
+
+|PanePropPageUndockedPanesText
+|ドックされていないコントロール
+
+|PanePropPageUndockedPanesTooltip
+|ドック可能なコントロール ペインに関連付けられていないコントロールを表示します。
+
+|QuickHelpDlgBody1
+|グループ化するコントロールを選択した後(複数可)、マウスの右クリックで表示されるコンテキスト メニューから [コントロールのドック] メニューをクリックします。
+
+|QuickHelpDlgBody2
+|作成されたドック コントロールは、ペインのキャプション、タブ項目またはスライド グループのヘッダーをクリックして移動することができます。
+
+|QuickHelpDlgBody3
+|ペインをドラッグして移動時、CTRL キーを押しながらドロップした場合、ペインは常にフローティング ウィンドウになります。
+
+|QuickHelpDlgBody4
+|ペインのキャプション、タブ項目またはスライド グループのヘッダーをダブルクリックすることでペインのドッキング状態を切り替えることができます。
+
+|QuickHelpDlgBody5
+|ドックしているコントロールをドック ウィンドウから切り取り、削除またはドラッグした場合、関連付けられた DockableControlPane は削除されます。ドック コントロールのドックの解除は、選択したのちコンテキスト メニューで [コントロールのドック] をクリックすることでも可能です。
+
+|QuickHelpDlgBody6
+|ドックされたコントロールがある場合、カスタム プロパティ ページに追加のプロパティ ウィンドウが表示されます。このプロパティ ウィンドウには、ドック コントロールに関連付けられた DockableControlPane のプロパティが表示されます。
+
+|QuickHelpDlgOk
+|&OK
+
+|QuickHelpDlgShowNextTime
+|新しく UltraDockManager コンポーネントが作成されたときにこのダイアログ表示します。
+
+|QuickHelpDlgTitle
+|クイック ヘルプ - UltraDockManager
+
+|QuickHelpDlgTopic1
+|新しいドック可能ペインの作成
+
+|QuickHelpDlgTopic2
+|ペインのグループ化と移動
+
+|QuickHelpDlgTopic3
+|ドックの禁止
+
+|QuickHelpDlgTopic4
+|ペインのドッキング/フローティング状態を切り替える
+
+|QuickHelpDlgTopic5
+|コントロールの削除およびドックの解除
+
+|QuickHelpDlgTopic6
+|コントロール ペイン設定用の追加のプロパティ タブ
+
+|====

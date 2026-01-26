@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-appearance",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{A68D0F10-7456-48FC-9007-2526BA26874E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 外観
+
+このセクションは、外観と、外観を使用して WinGauge のルック アンド フィールをカスタマイズする方法に関する役立つ情報を提供します。以下のリンクをクリックすると、外観について学習するだけでなく、ゲージの外観に関連したタスクベースの手順にアクセスすることができます。
+
+* link:wingauge-brush-elements.html[ブラシ要素]
+* link:wingauge-effects.html[エフェクト]

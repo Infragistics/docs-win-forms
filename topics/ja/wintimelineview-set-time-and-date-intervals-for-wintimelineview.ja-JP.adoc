@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-set-time-and-date-intervals-for-wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{797AF682-4932-4F6B-ACF2-80E50D06C7AA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView に時間/日の間隔を設定
+
+WinTimelineView™ コントロールは、左から右に示される水平のタイムラインに沿った列として pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslot.html[TimeSlots]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointments]"]  を表示します。 エンドユーザーは列をリサイズでき、それによって表示できるタイムスロットの数を増減します。
+
+WinTimelineView コントロールによって、時間/日をタイムスロットとしてスパンすることができます。 この目的のため、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeinterval.html[TimeInterval]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dateinterval.html[DateInterval]"]  オブジェクトは、定期的に繰り返す間隔を定義するために使用できます。 整数型の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.datetimeinterval~interval.html[Interval]"]  プロパティは、周期的な期間の数を定義するために使用でき、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeinterval~intervalunits.html[IntervalUnits]"]  プロパティは、Minutes または Hours（TimeInterval クラス用）または日、週、月または年（DateInterval クラス用）で表される値で時間の単位を定義するために使用できます。
+
+列に表される時間の各区分の長さは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~primaryinterval.html[PrimaryInterval]"]  プロパティで定義できます。 第一の間隔の上に pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~additionalintervals.html[AdditionalIntervals]"]  コレクションにメンバーを追加することによって追加の日付または間隔を表示できます。 AdditionalIntervals コレクションにひとつ以上のメンバーが存在する時に、複数の日/時間の間隔が上から下に降順で表示されます。たとえば、期間が長い時間の間隔は、期間が短い時間の間隔の上に表示されます。 TimeInterval および DateInterval オブジェクト（またはどちらか一方）が構成されると、それらを PrimaryInterval または AdditionalIntervals プロパティに指定できます。
+
+たとえば、2 時間の TimeInterval を PrimaryInterval として設定し、1 ヶ月の DateInterval を AdditionalInterval として設定できます。 タイムスロットを表すためにひとつの PrimaryInterval が必要です。 AdditionalIntervals はシナリオに基づいてオプションですが、任意の数の AdditionalIntervals を WinTimelineView コントロールに指定できます。
+
+このトピックは、オーナーが 3 人の ultraTimeLineView コントロールがフォームにドロップされていることを前提とします。 オーナーを WinTimelineView に指定する詳細については、 link:wintimelineview-assign-multiple-owners-for-wintimelineview.html[WinTimelineView に複数オーナーを指定]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+' TimeInterval オブジェクトを定義し、Interval および IntervalUnits をパラメーターとして渡します 
+Dim timeInterval As New TimeInterval(15, TimeIntervalUnits.Minutes)
+' DateInterval オブジェクトを定義し、Interval および IntervalUnits を第一の追加間隔のパラメーターとして渡します 
+Dim dayInterval As New DateInterval(1, DateIntervalUnits.Days)
+' DateInterval オブジェクトを定義し、Interval および IntervalUnits を第二の追加間隔のパラメーターとして渡します
+Dim monthInterval As New DateInterval(1, DateIntervalUnits.Months)
+' TimeInterval インスタンスを第一の間隔として設定します
+Me.ultraTimelineView1.PrimaryInterval = timeInterval 
+timeInterval.LabelText = "EST"
+' DateInterval インスタンス（第一の追加の間隔）を追加の間隔として設定します
+Me.ultraTimelineView1.AdditionalIntervals.Add(dayInterval) 
+dayInterval.LabelText = "Date"
+' DateInterval インスタンス（第二の追加の間隔）を追加の間隔としても設定します
+Me.ultraTimelineView1.AdditionalIntervals.Add(monthInterval) 
+monthInterval.LabelText = "Month"
+Me.ultraTimelineView1.ColumnWidth = 120
+----
+
+*C# の場合：*
+
+----
+// TimeInterval オブジェクトを定義し、Interval および IntervalUnits をパラメーターとして渡します
+TimeInterval timeInterval = new TimeInterval(15, TimeIntervalUnits.Minutes);
+// DateInterval オブジェクトを定義し、Interval および IntervalUnits を第一の追加間隔のパラメーターとして渡します
+DateInterval dayInterval = new DateInterval(1, DateIntervalUnits.Days);
+// DateInterval オブジェクトを定義し、Interval および IntervalUnits を第二の追加間隔のパラメーターとして渡します
+DateInterval monthInterval = new DateInterval(1, DateIntervalUnits.Months);
+// TimeInterval インスタンスを第一の間隔として設定します
+this.ultraTimelineView1.PrimaryInterval = timeInterval;
+timeInterval.LabelText = "EST";
+// DateInterval インスタンス（第一の追加の間隔）を追加の間隔として設定します
+this.ultraTimelineView1.AdditionalIntervals.Add(dayInterval);
+dayInterval.LabelText = "Date";
+// DateInterval インスタンス（第二の追加の間隔）を追加の間隔としても設定します
+this.ultraTimelineView1.AdditionalIntervals.Add(monthInterval);
+monthInterval.LabelText = "Month";
+this.ultraTimelineView1.ColumnWidth = 120;
+----
+
+image::Images/WinTimelineView_Set_Time_and_Date_Intervals_for_WinTimelineView.png[]

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-prevent-the-navigator-from-being-displayed",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{630BB79C-4833-4AC8-9E60-21C19B0DE467}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲータの非表示化
+
+ユーザーが Ctrl-Tab キーを押したときに WinDockManager の Navigator が表示されないようにするには、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.navigatorsettings~enabled.html[NavigatorSettings]"]  の下の pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.navigatorsettings.html[Enabled]"]  プロパティを False に設定します。以下のコードはこの設定を示したものです。Enabled プロパティを False に設定するだけで、Navigator がユーザーに表示されなくなります（Ctrl-Tab キーを押しても）。このプロパティを False に設定しても、コードを使用すれば Navigator を表示できます。ボタンがクリックされたときにコードを使用して Navigator を表示したい場合には、 link:windockmanager-show-the-navigator-programmatically.html[「プログラミングによる Navigator の表示」]を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraDockManager1.NavigatorSettings.Enabled = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.NavigatorSettings.Enabled = false;
+}
+----

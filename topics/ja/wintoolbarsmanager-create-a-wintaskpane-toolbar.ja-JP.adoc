@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-create-a-wintaskpane-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{45B574B3-5786-4B3B-92EF-3F5F497B0B0B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTaskPane ツールバーの作成
+
+== UltraTaskPane ツールバーの作成
+
+デザインタイムに、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  は [新しいツールバー] ダイアログを使用することによって作成できます。編集が有効な時にフォーム/ユーザー コントロール デザイナで [新しいツールバー] ボタンを押すことによって、このダイアログは表示できます。
+
+image::Images/WinToolbar_Creating_an_WinTaskPane_Toolbar_01.png[]
+
+または [デザイン タイム カスタマイザ] Toolbars タブ内から、[新規...] ボタンを押します。
+
+image::Images/WinToolbar_Creating_an_WinTaskPane_Toolbar_02.png[]
+
+これによって、[新しいツールバー] ダイアログが表示されます。
+
+image::Images/WinToolbar_Creating_an_WinTaskPane_Toolbar_03.png[]
+
+このダイアログは、追加のオプション、[ツールバー タイプ] がある点を除きランタイム カスタマイズ ダイアログからランタイムに提示されるダイアログに似ています。デフォルトで、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[ButtonTool]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.textboxtool.html[TextBoxTool]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  などのツールをホストするために使用される標準的な UltraToolbar タイプ ツールバーを作成するためにこのダイアログが使用されます。追加のオプション、"TaskPane Toolbar" を使用できます。
+
+image::Images/WinToolbar_Creating_an_WinTaskPane_Toolbar_04.png[]

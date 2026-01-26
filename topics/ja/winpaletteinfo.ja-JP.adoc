@@ -1,0 +1,7 @@
+﻿= WinPaletteInfo
+
+WinPaletteInfo™ コンポーネントについて、以下の各リンクを参照してください。
+
+* link:winpaletteinfo-about.html[WinPaletteInfo について] -- WinPaletteInfo コンポーネントの機能、アプリケーションでの使用方法について紹介します。
+* link:winpaletteinfo-api-overview.html[API 概要] -- このトピックは、WinColorPalette
+コントロールで開発する際に使用する名前空間とクラスについて説明します。

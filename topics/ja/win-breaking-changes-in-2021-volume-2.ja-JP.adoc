@@ -1,0 +1,42 @@
+﻿////
+|metadata|
+{
+    "tags": ["Breaking Changes"],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2021 Volume 2 の重大な変更
+
+== 重大な変更の概要
+
+以下の表は、{ProductName} 2021 Volume 2 の重大な変更の概要を示します。問題の詳細な説明は、概要表の後に記載されています。
+
+== チャートとマップ
+
+このリリースでは、地理マップとすべてのチャート コンポーネントのビジュアル デザインと構成オプションにいくつかの改善と簡素化が導入されています。
+
+* `FinancialChart` と `CategoryChart` の `YAxisLabelLocation` プロパティのタイプを `AxisLabelLocation` から `YAxisLabelLocation` に変更しました。
+* `FinancialChart` の `XAxisLabelLocation` プロパティのタイプを `AxisLabelLocation` から `XAxisLabelLocation` に変更しました。
+* `FinancialChart` と`CategoryChart` にデフォルトの十字線を追加しました。
+* `FinancialChart` と`CategoryChart` にデフォルトの十字線の注釈を追加しました。
+* `CategoryChart` にデフォルトの十字線の注釈を追加しました。
+* カテゴリ チャートとシリーズのデフォルトの垂直十字線ストロークを #000000 から #BBBBBB に変更しました。
+* 同じチャートにプロットされたすべてのシリーズのマーカーの図形を円に変更しました。これは、チャートの `MarkerAutomaticBehavior` プロパティを `SmartIndexed` 列挙値に設定することで元に戻すことができます。
+* すべてのチャートに表示されるシリーズとマーカーのカラー パレットを変更しました。
+
+[cols=2*] 
+|===
+a| 古いシリーズのブラシのアウトライン  | 新シリーズのブラシのアウトライン 
+a|`Color_001=#8BDC5C`  | `Color_001=#8BDC5C`
+a|`Color_002=#8B5BB1`  | `Color_002=#8961A9` 
+a|`Color_003=#6DB1FF`  | `Color_003=#6DB1FF` 
+a|`Color_004=#F8A15F`  | `Color_004=#82E9D9` 
+a|`Color_005=#EE5879`  | `Color_005=#EA3C63` 
+a|`Color_006=#735656`  | `Color_006=#735656` 
+a|`Color_007=#F7D262`  | `Color_007=#F8CE4F` 
+a|`Color_008=#8CE7D9`  | `Color_008=#A8A8B7` 
+a|`Color_009=#E051A9`  | `Color_009=#E051A9` 
+a|`Color_010=#A8A8B7`  | `Color_010=#FF903B` 
+|===

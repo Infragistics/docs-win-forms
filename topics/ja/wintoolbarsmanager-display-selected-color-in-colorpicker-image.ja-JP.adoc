@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-display-selected-color-in-colorpicker-image",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{411799FD-4CD0-40FC-A3C3-852A53DBD9EA}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択した色の ColorPicker イメージでの表示
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcolorpickertool.html[PopUpColorPicker]"]  ツールは、ユーザーが選択できる色のポップアップ リストを表示します。どの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトにもイメージが設定されていなければ、選択した色で塗りつぶされたボックスが表示されます。イメージを指定し、イメージ内の色をユーザーが色のリストから選択した色に変更することも可能です。この動作は Word でのフォント カラー ツールに似ています。
+
+カスタムのイメージを使用して、ユーザーが別の色を選択するたびにイメージ内の色が変更されるようにするには、まず Customize エディタに移動して PopUpColorPicker ツールを作成します。ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  の下で AppearancesSmall または Appearance を選択し、ツールがツールバー上にあるときに表示されるイメージを設定します。イメージ内で、どの色を変更対象の色にするのかを決めます。たとえば、インク ボトルのイメージをツールに表示する場合は、ボトルの内側（インク部分）を選択色として指定できます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcolorpickertool~replaceablecolor.html[ReplaceableColor]"]  プロパティで、変更する色を指定します。これで、ユーザーがツールを使用して別の色を選択したときに、ツールのイメージ内の指定した色が、ユーザーの選択した色に変更されます。

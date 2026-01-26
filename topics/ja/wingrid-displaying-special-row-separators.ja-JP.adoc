@@ -1,0 +1,88 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-special-row-separators",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{40833AE4-5A8B-4003-B62F-C58425AE05B6}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 特殊行セパレータの表示
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~specialrowseparator.html[SpecialRowSeparator]"] プロパティを使用すると、ヘッダ、フィルター行、固定追加行、固定集計フッタ、固定行、および非固定行を相互に明確に分離できます。この機能を使用すると、指定された特殊行の下に追加の UI 要素が挿入され、ビジュアル ギャップが作られます。
+
+== 特殊行セパレータを表示するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. この機能を有効にするには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~specialrowseparator.html[SpecialRowSeparator]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.specialrowseparator.html[SpecialRowSeparator]"]  列挙体の値に設定します。この値は分離すべき特殊行のタイプに影響を及ぼします。デフォルト値は「すべて」となり、これはデフォルトで各タイプの特殊行の下にセパレータが表示されることを意味します。
+
+[NOTE]
+====
+*注:* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.specialrowseparator.html[SpecialRowSeparator]"]  はフラグ型列挙体であるので、ビット演算子を使えば、複数の列挙体値をひとつの値に結合できます。
+====
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.SpecialRowSeparator = SpecialRowSeparator.FixedRows
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.SpecialRowSeparator = SpecialRowSeparator.FixedRows;
+----
+
+[start=3]
+. SpecialRowSeparator の外観を制御するには、Overide オブジェクト上で pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~specialrowseparatorappearance.html[SpecialRowAppearance]"]  プロパティを使用します。
+[start=4]
+. セパレータの高さは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~specialrowseparatorheight.html[SpecialRowSeparatorHeight]"]  プロパティの設定で指定できます。デフォルトの高さは 6 ピクセルです。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.SpecialRowSeparatorHeight = 25
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.SpecialRowSeparatorHeight = 25;
+----
+
+[start=5]
+. 最後に変更しなければならない可能性のあるプロパティは SpecialRowSeparator の BorderStyle です。この変更は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~borderstylespecialrowseparator.html[BorderStyleSpecialRowSeparator]"]  プロパティを変更することによって実行できます。デフォルトの設定は 'RaisedSoft' です。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.BorderStyleSpecialRowSeparator = UIElementBorderStyle.Dashed
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.BorderStyleSpecialRowSeparator = UIElementBorderStyle.Dashed;
+----

@@ -1,0 +1,215 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-appearance-of-wingrid-bands",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{0986EC5B-D119-476A-97ED-60532F034AA3}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid バンドの外観変更
+
+== バックグラウンド
+
+マルチバンドの WinGrid コントロールで作業をしているときに、バンドが表示される方法に関連して多数の異なる設定があります。
+
+== 質問
+
+* マルチバンド グリッドの各バンドにヘッダをどのようにして表示しますか?
+* デフォルトに設定すると、すべてのバンドに対して列を同じサイズになるようです。どうすればグリッドを各バンドの列ごとのサイズにすることができますか?
+* どのようにして展開インジケータと点線を除くことができますか?
+* どのようにしてバンド ヘッダの外観を変更しますか?
+
+== 解決策
+
+バンドのデフォルト設定はバンド ヘッダを表示しません。バンド ヘッダをオンにしたい場合は、バンドの HeaderVisible プロパティを True に設定してください。
+
+列のサイズ変更はデフォルトですべての列のサイズ変更を同期化してしまいます。列のサイズを各バンドで異なったサイズに変更したい場合は、 AllowColSizing プロパティを AllowColSizing.Free に設定しなければなりません。
+
+バンドヘッダの外観を Band.Header.Appearance オブジェクトのプロパティを使用して設定します。Band Header オブジェクトの Appearance プロパティを設定する時は、グリッドのテーマをオフにするか、 ThemesAlpha を Transparent に設定する必要があります。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトはいくつかの起こりうる Band Appearance の変更を紹介します。このプロジェクトではシンプルなマルチバンドグリッドを最初に表示し、ユーザーにバンド ヘッダの表示と異なったバンドの列を自由にサイズ変更ができるように許可し、展開インジケータの消去とバンドヘッダの色を設定します:
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Changing_the_Appearance_of_WinGrid_Bands_01.png[]
+
+== UltraGrid イベント
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeRow -  InitializeRow イベント内のコードはバンド 0 の行を展開します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' バンド 0 の行を展開します
+	If e.Row.Band.Index = 0 Then
+		e.Row.ExpandAll()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// バンド 0 の行を展開します
+	if(e.Row.Band.Index == 0)
+		e.Row.ExpandAll();
+}
+----
+
+== Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します。
+
+* AllowColSizingFree.Click - AllowColSizingFree Click イベント内のコードは AllowColSizing プロパティを AllowColSizing.Free に設定します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnColumnSizing_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnColumnSizing.Click
+	' バンドの列を個別にサイズに変更します
+	Me.UltraGrid1.DisplayLayout.Override.AllowColSizing = AllowColSizing.Free
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnColumnSizing_Click(object sender, System.EventArgs e)
+{
+	// バンドの列を個別にサイズに変更します
+	this.ultraGrid1.DisplayLayout.Override.AllowColSizing = AllowColSizing.Free;
+}
+----
+
+* MakeBandHeadersVisible.Click - MakeBandHeadersVisible Click イベント内のコードは両方のバンドの HeaderVisible プロパティを True に設定し、またバンド １ の Caption プロパティを ”Orders” に設定します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnBandHeadersVisible_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnBandHeadersVisible.Click
+	' バンド ヘッダを表示し、Band1 のヘッダ キャプションを設定します
+	Me.UltraGrid1.DisplayLayout.Bands(0).HeaderVisible = True
+	Me.UltraGrid1.DisplayLayout.Bands(1).HeaderVisible = True
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Caption = "Orders"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnBandHeadersVisible_Click(object sender, System.EventArgs e)
+{
+	// バンド ヘッダを表示し、Band1 のヘッダ キャプションを設定します
+	this.ultraGrid1.DisplayLayout.Bands[0].HeaderVisible = true;
+	this.ultraGrid1.DisplayLayout.Bands[1].HeaderVisible = true;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Caption = "Orders";
+}
+----
+
+* RemoveExpansionIndicators.Click - RemoveExpansionIndicators Click イベント内のコードは両方のバンドのインデントを 0 に設定し、RowConnectorStyle を None に設定します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnExpansionIndicators_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnExpansionIndicators.Click
+	' 展開インジケータおよびコネクタを削除します
+	Me.UltraGrid1.DisplayLayout.Bands(0).Indentation = 0
+	Me.UltraGrid1.DisplayLayout.Bands(1).Indentation = 0
+	Me.UltraGrid1.DisplayLayout.RowConnectorStyle = RowConnectorStyle.None
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnExpansionIndicators_Click(object sender, System.EventArgs e)
+{
+	// 展開インジケータおよびコネクタを削除します
+	this.ultraGrid1.DisplayLayout.Bands[0].Indentation = 0;
+	this.ultraGrid1.DisplayLayout.Bands[1].Indentation = 0;
+	this.ultraGrid1.DisplayLayout.RowConnectorStyle = RowConnectorStyle.None;
+}
+----
+
+* SetColorOfBandHeaders.Click - SetColorOfBandHeaders Click イベントのコードは ThemedElementAlpha プロパティを Transparent に設定することで両方のバンド ヘッダのテーマをオフにします。このイベントはバンド ヘッダの背景色と前景色も設定します。このコードはシステム カラーまた指定カラーの両方を使用しているのに注意してください。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnColorBandHeaders_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnColorBandHeaders.Click
+	' バンド ヘッダのカラーを設定します
+	Me.UltraGrid1.DisplayLayout.Bands(0).Header.Appearance.ThemedElementAlpha = _
+	  Alpha.Transparent
+	Me.UltraGrid1.DisplayLayout.Bands(0).Header.Appearance.BackColor = _
+	  SystemColors.ActiveCaption
+	Me.UltraGrid1.DisplayLayout.Bands(0).Header.Appearance.ForeColor = _
+	  SystemColors.ActiveCaptionText
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Appearance.ThemedElementAlpha = _
+	  Alpha.Transparent
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Appearance.BackColor = Color.Blue
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Appearance.BackColor2 = Color.Red
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Appearance.ForeColor = Color.White
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Appearance.BackGradientStyle = _
+	  GradientStyle.Horizontal
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnColorBandHeaders_Click(object sender, System.EventArgs e)
+{
+	// バンド ヘッダのカラーを設定します
+	this.ultraGrid1.DisplayLayout.Bands[0].Header.Appearance.ThemedElementAlpha = 
+	  Alpha.Transparent;
+	this.ultraGrid1.DisplayLayout.Bands[0].Header.Appearance.BackColor = 
+	  SystemColors.ActiveCaption;
+	this.ultraGrid1.DisplayLayout.Bands[0].Header.Appearance.ForeColor = 
+	  SystemColors.ActiveCaptionText;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Appearance.ThemedElementAlpha = 
+	  Alpha.Transparent;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Appearance.BackColor = Color.Blue;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Appearance.BackColor2 = Color.Red;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Appearance.ForeColor = Color.White;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Appearance.BackGradientStyle = 
+	  GradientStyle.Horizontal;
+}
+----
+
+== まとめ
+
+このサンプル プログラムは開発者が WinGrid バンドの外観を強調するいくつかの方法を紹介しています。

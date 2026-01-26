@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Getting Started"],
+    "guid": "{B2529EC1-2336-4DA4-9E43-905698C9EA3E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar
+
+WinExplorerBar コントロールに関連する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、このコンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順に至るまで、WinExplorerBar に関する貴重な情報が含まれています。
+
+以下のリンクをクリックして、WinExplorerBar コントロールに関する重要な情報にアクセスします。
+
+== link:winexplorerbar-understanding-winexplorerbar.html[WinExplorerBar の理解]
+
+このセクションでは、WinExplorerBar コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:winexplorerbar-getting-started-with-winexplorerbar.html[WinExplorerBar で開始]
+
+WinExplorerBar コントロールを使った処理をできるだけ早く準備、実行できるように、WinExplorerBar コンポーネントの利用を開始する方法（WinExplorerBar デザイナの使用など）を提供しています。
+
+== link:win-winexplorerbar-using-winexplorerbar.html[WinExplorerBar の使用]
+
+このセクションは、WinExplorerBar コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:winexplorerbar-api-overview.html[API 概要]
+
+このトピックでは、WinExplorerBar コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

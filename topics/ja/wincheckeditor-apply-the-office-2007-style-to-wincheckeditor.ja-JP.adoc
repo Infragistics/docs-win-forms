@@ -1,0 +1,40 @@
+﻿////
+|metadata|
+{
+    "name": "wincheckeditor-apply-the-office-2007-style-to-wincheckeditor",
+    "controlName": ["WinCheckEditor"],
+    "tags": ["Styling"],
+    "guid": "{FEE35443-1E2D-427F-B461-6506CB2C8C2F}",
+    "buildFlags": [],
+    "createdOn": "2006-10-10T09:42:02Z"
+}
+|metadata|
+////
+
+= Office 2007 スタイルを WinCheckEditor に適用する
+
+2006 volume 3 リリースでは、弊社のコントロールの一部に Office 2007 のルック アンド フィールを追加しました。WinCheckEditor は新しいルック アンド フィールを取得したこれらのコントロールのひとつです。ただし、そのルック アンド フィールは他のコントロールと若干異なる方法で達成されます。他のコントロールにはルック アンド フィールを変更する ViewStyle プロパティがありますが、WinCheckEditor には GlyphInfo プロパティがあります。さらに、Office 2007 のルック アンド フィールを確認するには、OS テーマをオフにする必要があります。
+
+.*注* 
+[NOTE]
+====
+Office 2007 スタイルの WinGrid、WinTree、WinListView などの中にある UltraCheckEditor のインスタンスを表示したい場合（組み込み可能のエディタとしてではなく）、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams.html[Infragistics.Win.UIElementDrawParams]"]  の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams~checkboxglyphinfo.html[CheckBoxGlyphInfo]"]  プロパティを代わりにオフに設定する必要があります。これはアプリケーション全体の設定で、前述のコントロールで表示されるすべての WinCheckEditors および WinOptionSets に影響を及ぼします。組み込み可能なエディタとして使用されている場合、WinCheckEditor コントロールの GlyphStyle プロパティを設定できます。
+====
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors~infragistics.win.ultrawineditors.ultratoggleeditorbase~glyphinfo.html[GlyphInfo]"] プロパティを Office2007 に、UseOsThemes を False に設定することによって Office 2007 のルック アンド フィールで WinCheckEdior を表示します。
+
+image::images/WinCheckEditor_Apply_the_Office_2007_Style_to_WinCheckEditor_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.UltraCheckEditor1.UseOsThemes=Infragistics.Win.DefaultableBoolean.False
+Me.UltraCheckEditor1.GlyphInfo=Infragistics.Win.UIElementDrawParams.Office2007CheckBoxGlyphInfo
+----
+
+*C# の場合：*
+
+----
+this.ultraCheckEditor1.UseOsThemes=Infragistics.Win.DefaultableBoolean.False;
+this.ultraCheckEditor1.GlyphInfo=Infragistics.Win.UIElementDrawParams.Office2007CheckBoxGlyphInfo;
+----

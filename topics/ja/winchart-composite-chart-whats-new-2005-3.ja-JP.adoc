@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-composite-chart-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{38FE8D3C-42DC-41A4-AE8F-5BADF9AE4D77}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 合成チャート
+
+新しい ChartType が Chart に追加されました。これによって、新しいチャートを作成するために既存のチャートと合成することが可能になります。この新しいチャート タイプと共に、この機能を可能にするために複数の変更が行われました。
+
+新しいコレクションがチャートに追加されました。
+
+* Series コレクションは、複数のデータ系列を含むことができます。各系列は複数のデータ点を含むことができます。
+* ChartAreas コレクションは、チャート レイヤを追加できる個別の領域を含むことができます。各 ChartArea にひとつまたは複数のチャート レイヤを追加できます。
+* ChartLayers コレクションによって、複数のチャート タイプを表示に追加することができます。
+
+== 関連トピック：
+
+link:chart-about-composite-charts.html[合成チャートについて]
+
+link:chart-series-collection.html[Series コレクション]
+
+link:chart-creating-a-composite-chart.html[合成チャートの作成]

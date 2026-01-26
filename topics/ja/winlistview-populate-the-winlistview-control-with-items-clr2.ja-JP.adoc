@@ -1,0 +1,220 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-populate-the-winlistview-control-with-items-clr2",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{8CB538F5-A8EF-4B34-8EF3-50ACFCF1BF96}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "2006-02-08T16:42:15Z"
+}
+|metadata|
+////
+
+= WinListView コントロールへの項目の移植
+
+WinListView コントロールは、コントロールが表示する項目を含む pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~items.html[Items]"]  コレクション プロパティを公開します。このコレクション プロパティは、ほとんどのコレクション プロパティに似ており、開発者がコンテンツを操作することを可能にする pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemscollection~add.html[Add]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemscollection~remove.html[Remove]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemscollection~clear.html[Clear]"]  などのメソッドを提供します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemscollection.html[Items]"]  コレクションには pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitem.html[UltraListViewItem]"]  タイプのオブジェクトが含まれており、個々の UltraListViewItem 自体には pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitem~subitems.html[SubItems]"]  コレクション プロパティによって公開されるサブアイテムのコレクションが含まれます。Items コレクションのメンバは、すべてのビューに適用できます。つまり、Items コレクションのメンバは（意図的に非表示に設定しない限り）コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティのすべての設定に表示されます。SubItems コレクションのメンバは、各ビューに表示されるツールチップで使用されますが、特定のビューのユーザー インターフェイスではそれ以外の形では表示できません。サブアイテムが表示される唯一のビューは、[詳細] と [タイル] 表示です。
+
+次のサンプル コードは、コントロールの Items コレクションおよび個々の項目の SubItems コレクションを、よく使われる Northwind データベースの Customers テーブルから取得したデータで移植する操作を示しています。また、一方または両方のビューで条件に応じてサブアイテムの列を非表示にする方法と、ツールチップに特定のサブアイテムの列を含める、または除外するように設定する方法も示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinListView
+Imports Infragistics.Win
+...
+Private Sub Form1_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	'TODO: このコードの行は 'NWindDataSet.Customers' テーブルにデータをロードします。 
+	' 必要に応じて、移動や削除ができます。
+	Me.CustomersTableAdapter.Fill(Me.NWindDataSet.Customers)
+	' コントロールの View プロパティを 'Tiles' に設定します。
+	Me.UltraListView1.View = UltraListViewStyle.Tiles
+	' SubItems（およびそれぞれの列）が列をサポートしている
+	' ビューにデフォルトで表示されるように、
+	' また列名とサブアイテムの値がデフォルトでツールチップに
+	'表示されないように、一部のプロパティを設定します。
+	Me.UltraListView1.ViewSettingsDetails.SubItemColumnsVisibleByDefault = True
+	Me.UltraListView1.ViewSettingsTiles.SubItemsVisibleByDefault = True
+	Me.UltraListView1.ItemSettings.SubItemsVisibleInToolTipByDefault = False
+	' 非表示になる列の名前を
+	' ArrayList に追加します。
+	Dim hiddenColumns As ArrayList = New ArrayList(4)
+	hiddenColumns.Add("ContactName")
+	hiddenColumns.Add("ContactTitle")
+	hiddenColumns.Add("Phone")
+	hiddenColumns.Add("Fax")
+	' テーブルの Columns コレクションを反復処理し、
+	' メンバをテーブルの各フィールドごとに WinListView コントロールの
+	' SubItemColumns コレクションに追加します。
+	Dim dataColumn As DataColumn
+	For Each dataColumn In Me.NWindDataSet.Tables("Customers").Columns
+		' 'CustomerID' フィールドの SubItemColumn は追加しません。
+		' この値をアイテムの Tag に代入します。
+		If (dataColumn.ColumnName = "CustomerID") Then
+		ElseIf (dataColumn.ColumnName = "CompanyName") Then
+			' 'CustomerName' フィールドの SubItemColumn は追加しません。
+			' このフィールドは、コントロールの MainColumn によって表されます。
+			Dim mainColumn As UltraListViewMainColumn = Me.UltraListView1.MainColumn
+			mainColumn.Text = "Company Name"
+			mainColumn.DataType = dataColumn.DataType
+		Else
+			' 他のすべてのフィールドでは、メンバを
+			' SubItemColumns コレクションに追加します。
+			Dim subItemColumn As UltraListViewSubItemColumn
+			subItemColumn = Me.UltraListView1.SubItemColumns.Add(dataColumn.ColumnName)
+			subItemColumn.DataType = dataColumn.DataType
+		End If
+	Next
+	' 非表示にされる列の適切なプロパティを
+	' Details ビューまたは Tiles ビューで表示されないように設定します。
+	' これをツールチップに表示されるようにします。
+	Dim i As Integer
+	For i = 0 To hiddenColumns.Count - 1
+		Dim hiddenColumn As String = hiddenColumns(i)
+		Dim subItemColumn As UltraListViewSubItemColumn = Me.UltraListView1.SubItemColumns(hiddenColumn)
+		subItemColumn.VisibleInDetailsView = DefaultableBoolean.False
+		subItemColumn.VisibleInTilesView = DefaultableBoolean.False
+		subItemColumn.VisibleInToolTip = DefaultableBoolean.True
+		subItemColumn.VisiblePositionInToolTip = i
+	Next
+	' テーブルの Rows コレクションを反復処理し、項目を
+	' テーブルの各行の WinListView コントロールの Items コレクションに
+	' 追加します。
+	For i = 0 To Me.NWindDataSet.Tables("Customers").Rows.Count - 1
+		Dim row As DataRow = Me.NWindDataSet.Tables("Customers").Rows(i)
+		' この行のフィールド値を個別に処理します。
+		Dim customerID As String = row("CustomerID")
+		Dim companyName As String = row("CompanyName")
+		Dim contactName As Object = row("ContactName")
+		Dim contactTitle As Object = row("ContactTitle")
+		Dim address As Object = row("Address")
+		Dim city As Object = row("City")
+		Dim region As Object = row("Region")
+		Dim postalCode As Object = row("PostalCode")
+		Dim country As Object = row("Country")
+		Dim phone As Object = row("Phone")
+		Dim fax As Object = row("Fax")
+		' 項目を WinListView コントロールの Items コレクションに追加します。このとき
+		' CustomerID フィールドの値を項目の Key として使用し、
+		' CompanyName フィールドの値を項目の Value として使用します。
+		Dim item As UltraListViewItem = Me.UltraListView1.Items.Add(customerID, companyName)
+		' フィールド値を対応する UltraListViewSubItem の Value プロパティに
+		' 代入します。
+		item.SubItems("ContactName").Value = contactName
+		item.SubItems("ContactTitle").Value = contactTitle
+		item.SubItems("Address").Value = address
+		item.SubItems("City").Value = city
+		item.SubItems("Region").Value = region
+		item.SubItems("PostalCode").Value = postalCode
+		item.SubItems("Country").Value = country
+		item.SubItems("Phone").Value = phone
+		item.SubItems("Fax").Value = fax
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinListView;
+using Infragistics.Win;
+...
+private void Form1_Load(object sender, EventArgs e)
+{
+	// TODO: このコードの行は 'NWindDataSet.Customers' テーブルにデータをロードします。必要に応じて、移動や削除ができます。
+	this.customersTableAdapter.Fill(this.nWindDataSet.Customers);
+	// コントロールの View プロパティを 'Details' に設定します。
+	this.ultraListView1.View = UltraListViewStyle.Tiles;
+	// SubItems（およびそれぞれの列）が列をサポートしている
+	// ビューにデフォルトで表示されるように、
+	// また列名とサブアイテムの値がデフォルトでツールチップに
+	// 表示されないように、一部のプロパティを設定します。
+	this.ultraListView1.ViewSettingsDetails.SubItemColumnsVisibleByDefault = true;
+	this.ultraListView1.ViewSettingsTiles.SubItemsVisibleByDefault = true;
+	this.ultraListView1.ItemSettings.SubItemsVisibleInToolTipByDefault = false;
+	// 非表示になる列の名前を
+	// ArrayList に追加します。
+	ArrayList hiddenColumns = new ArrayList(4);
+	hiddenColumns.Add("ContactName");
+	hiddenColumns.Add("ContactTitle");
+	hiddenColumns.Add("Phone");
+	hiddenColumns.Add("Fax");
+	// テーブルの Columns コレクションを反復処理し、
+	// メンバをテーブルの各フィールドごとに WinListView コントロールの
+	// SubItemColumns コレクションに追加します。
+	foreach (DataColumn dataColumn in this.nWindDataSet.Tables["Customers"].Columns)
+	{
+		// 'CustomerName' フィールドの SubItemColumn は追加しません。
+		// この値をアイテムの Tag に代入します。
+		if (dataColumn.ColumnName == "CustomerID")
+			continue;
+		else
+			// 'CompanyName' フィールドの SubItemColumn は追加しません。
+			// このフィールドは、コントロールの MainColumn によって表されます。
+			if (dataColumn.ColumnName == "CompanyName")
+			{
+				UltraListViewMainColumn mainColumn = this.ultraListView1.MainColumn;
+				mainColumn.Text = "Company Name";
+				mainColumn.DataType = dataColumn.DataType;
+			}
+			else
+			{
+				// 他のすべてのフィールドでは、メンバを
+				// SubItemColumns コレクションに追加します。
+				UltraListViewSubItemColumn subItemColumn = null;
+				subItemColumn = this.ultraListView1.SubItemColumns.Add(dataColumn.ColumnName);
+				subItemColumn.DataType = dataColumn.DataType;
+			}
+	}
+	//非表示にされる列の適切なプロパティを
+	// Details ビューまたは Tiles ビューで表示されないように設定します。
+	// これをツールチップに表示されるようにします。
+	for (int i = 0; i < hiddenColumns.Count; i++)
+	{
+		string hiddenColumn = hiddenColumns[i] as string;
+		UltraListViewSubItemColumn subItemColumn = this.ultraListView1.SubItemColumns[hiddenColumn];
+		subItemColumn.VisibleInDetailsView = DefaultableBoolean.False;
+		subItemColumn.VisibleInTilesView = DefaultableBoolean.False;
+		subItemColumn.VisibleInToolTip = DefaultableBoolean.True;
+		subItemColumn.VisiblePositionInToolTip = i;
+	}
+	// テーブルの Rows コレクションを反復処理し、項目を
+	// テーブルの各行の WinListView コントロールの Items コレクションに
+	// 追加します。
+	for (int i = 0; i < this.nWindDataSet.Tables["Customers"].Rows.Count; i++)
+	{
+		DataRow row = this.nWindDataSet.Tables["Customers"].Rows[i];
+		// この行のフィールド値を個別に処理します。
+		string customerID = row["CustomerID"] as string;
+		string companyname = row["CompanyName"] as string;
+		object contactName = row["ContactName"];
+		object contacttitle = row["ContactTitle"];
+		object address = row["Address"];
+		object city = row["City"];
+		object region = row["Region"];
+		object postalcode = row["PostalCode"];
+		object country = row["Country"];
+		object phone = row["Phone"];
+		object fax = row["Fax"];
+		// 項目を WinListView コントロールの Items コレクションに追加します。このとき
+		// CustomerID フィールドの値を項目の Key として使用し、
+		// CompanyName フィールドの値を項目の Value として使用します。
+		UltraListViewItem item = this.ultraListView1.Items.Add(customerID, companyName);
+		// フィールド値を対応する UltraListViewSubItem の Value プロパティに
+		// 代入します。
+		item.SubItems["ContactName"].value = contactName;
+		item.SubItems["ContactTitle"].Value = contactTitle;
+		item.SubItems["Address"].value = address;
+		item.SubItems["City"].Value = city;
+		item.SubItems["Region"].value = region;
+		item.SubItems["PostalCode"].Value = postalCode;
+		item.SubItems["Country"].value = country;
+		item.SubItems["Phone"].Value = phone;
+		item.SubItems["Fax"].value = fax;
+	}
+}
+----

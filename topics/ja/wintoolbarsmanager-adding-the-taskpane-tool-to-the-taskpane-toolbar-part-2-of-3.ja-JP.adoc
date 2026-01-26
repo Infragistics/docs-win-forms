@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-adding-the-taskpane-tool-to-the-taskpane-toolbar-part-2-of-3",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{581039A3-A254-4EED-AF74-F34F15B628EE}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane ツールバーへの TaskPane ツールの追加（パート 2）
+
+== TaskPaneTool を作成して UltraTaskPaneToolbar に追加する
+
+このトピックでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  を作成して pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  に追加する方法について説明します。このトピックは、 link:wintoolbarsmanager-creating-a-taskpane-toolbar-part-1-of-3.html[「TaskPane ツールバーの作成（パート 1）」]の続きです。
+
+[start=1]
+. WinTaskPaneToolbar をフォームに追加したら、次はこのツールバーにツールを追加する必要があります。ツールを追加すると、UltraTaskPane へのコントロールの割り当てが可能になります。ここが UltraTaskPaneToolbar が通常のツールバーと異なる点です。UltraTaskPaneToolbar の Tools コレクションには TaskPaneTool インスタンスのみを格納できます。つまり、ButtonTool や PopupMenuTool などを UltraTaskPaneToolbar に割り当てることはできません。UltraTaskPaneToolbar の中に配置できるのは TaskPaneTool のみです。
+[start=2]
+. デザイン ビューのフォームと新しく作成した TaskPaneToolbar が表示され、ヘッダの UltraTaskPaneToolbar のトップで、矢印ボタンと閉じるボタンの間に、ドロップダウン矢印があります。
+
+image::Images/WinToolbars_Create_a_TaskPaneTool_Designers_01.png[]
+
+[start=3]
+. このドロップダウン矢印を左クリックすると、［ツールの新規追加］ というドロップダウン メニューが表示されます。このメニューを左または右クリックすると、［ツールの新規追加］ というコンテキスト メニューが表示されます。この 2 番目のメニューでマウス オーバーして ［ツールの新規追加］ を選択します。［新しいツール］ ダイアログが表示されます。
+
+image::Images/WinToolbars_Create_a_TaskPaneTool_Designers_02.png[]
+
+[start=4]
+. これは新しい TaskPaneTool を UltraTaskPaneToolbar に追加する 1 つの方法です。［種類］ ドロップダウンには"タスクペイン"というオプションが 1 つだけあります。もう一度繰り返しますが、UltraTaskPaneToolbar の Tools コレクションには TaskPaneTool インスタンスのみを格納できます。この例では、デフォルト設定のまま [追加] をクリックします。［新しいツール］ ダイアログは閉じずに残るので、必要であれば複数の TaskPaneTool を UltraTaskPaneToolbar に追加できます。後の説明のために [追加] ボタンをもう一度クリックして 2 番目の TaskPaneTool を追加してから、[閉じる] をクリックしてダイアログを閉じます。
+[start=5]
+. 追加した TaskPaneTool を確認するため、UltraTaskPaneToolbar のヘッダにあるドロップダウン矢印をクリックします。今度は 2 つの TaskPaneTool が表示されます。
+
+image::Images/WinToolbars_Create_a_TaskPaneTool_Designers_03.png[]
+
+[start=6]
+. このドロップダウン メニューの、どちらかの TaskPaneTool の左横にチェックマークが付いています。TaskPaneTool の横のグレーの領域の、チェックマークが付いていない箇所をクリックすると、その TaskPaneTool にチェックマークが付きます。このチェックマークは、プログラムを起動したときにデフォルト ツールとして表示される TaskPaneTool を示します。
+[start=7]
+. このドロップダウン メニューで注目すべきもう 1 つのことは、TaskPaneTool の 1 つを右クリックすると、そのツールに関するオプションを含むコンテキスト メニューが表示される点です。次に、これらの便利なオプションについて説明します。
+
+image::Images/WinToolbars_Create_a_TaskPaneTool_Designers_04.png[]
+
+.. ［削除］ オプションは、TaskPaneTool のこのインスタンスを UltraTaskPaneToolbar から削除します。
+
+[NOTE]
+====
+*注：* ただし、［削除］ を選択しても UltraToolbarsManager の Tools コレクションからは削除されない点に注意してください。削除した後も、コンテキスト メニューの ［ツールの追加］>［既存ツールの追加］ から、削除した TaskPaneTool を再びメニューに戻すことができます。
+====
+
+.. コンテキスト メニューのもうひとつの重要なオプションは ［名前］ オプションです。［名前］ オプションは、TaskPaneTool の名前を変更します。この名前は、UltraTaskPaneToolbar と同様にキーでもあるので、Tools コレクション内で TaskPaneTool を識別するのに使用されます。
+.. 最も重要なオプションは ［コントロール］ です。このオプションを使用すると、TaskPaneTool に表示するコントロールを選択できます。現時点で ［ コントロール］ オプションの上にマウスを置くと、［なし］ というオプションのみが表示されます。これは、TaskPaneTool の中に配置するコントロールがフォーム上にまだ存在しないためです。このオプションについては、次のセクションで、TaskPaneTool へのコントロールの追加方法を示すときに説明します。
+.. 最後に取り上げるオプションは [グループの始まり] オプションです。このオプションには、PopupMenu ツールで使用した場合と同じ効果があります。この効果を示す良い例は、今説明しているオプションを含むコンテキスト メニューです。[グループの始まり] を選択すると、オプションの間に線が表示されます。 この線はコンテキスト メニューをグループに分割します。
+
+[start=8]
+. これが TaskPaneTool の基本です。
+
+[NOTE]
+====
+*注：* UltraTaskPaneToolbar と同様に、 link:wintoolbarsmanager-design-time-customize-dialog-box.html[[ユーザー設定] ダイアログ]を使用して TaskPaneTool を追加することもできます。この方法の唯一の違いは、追加する TaskPaneTool を [ツール] タブの下からメニュー上の追加する位置にドラッグすることです。
+====

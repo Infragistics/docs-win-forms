@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-collapse-the-outlook-navigation-pane",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Events","How Do I"],
+    "guid": "{3057CC8A-8F24-4799-BA9D-44B904DCC771}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Outlook ナビゲーション ペインを縮小
+
+WinExplorerBar™には、Microsoft® Outlook ナビゲーション ペインをエミュレートするスタイルが含まれます。Microsoft は縮小できるナビゲーション ペインを開発し、エンド ユーザーの価値ある画面領域を節約できます。WinExplorerBar はこの同じ機能を含み、2 つのプロパティを設定して簡単にオンにすることができます。
+
+* *Style* – WinExplorerBar はその他のいかなるスタイルで縮小できないので、Style プロパティを OutlookNavigationPane に設定することが重要です。
+* *NavigationPaneExpansionMode* – このプロパティ（None にデフォルト設定されている）によってユーザーはナビゲーション ペインを縮小および展開する方法を選択できます。NavigationPaneExpansionMode を OnButtonClick に設定すると、ナビゲーション ペインの右上角にボタンが配置されます。このボタンをクリックすればエンド ユーザーはナビゲーション ペインを縮小できます。NavigationPaneExpansionMode を OnSizeChanged に設定すると、自動的に縮小される前にナビゲーション ペインがどの位の幅でなければならないかを決定できます。
+
+以下のコードは、展開ボタンを使用して WinExplorerBar の Outlook ナビゲーション ペインOutlookOutlookザーが縮小できる方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraExplorerBar1.Style = _
+	Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.OutlookNavigationPane
+Me.UltraExplorerBar1.NavigationPaneExpansionMode = _
+	Infragistics.Win.UltraWinExplorerBar.NavigationPaneExpansionMode.OnButtonClick
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.Style = 
+	Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.OutlookNavigationPane;
+this.ultraExplorerBar1.NavigationPaneExpansionMode = 
+	Infragistics.Win.UltraWinExplorerBar.NavigationPaneExpansionMode.OnButtonClick;
+----

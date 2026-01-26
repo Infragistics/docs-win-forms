@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupcontrolcontainer",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{06F5408B-5FCE-4687-9891-1D26A6814E53}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupControlContainer
+
+PopupControlContainer ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-popupcontrolcontainer-about-the-popupcontrolcontainer-tool.html[PopupControlContainer ツールについて]
+* link:wintoolbarsmanager-create-a-popup-of-a-net-control-from-a-toolbar.html[ツールバーからの .NET コントロールのポップアップの作成]

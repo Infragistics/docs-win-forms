@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-right-fixed-headers",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{ED1E91BF-3BA6-417E-890C-F3CF0E3E1472}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 右の固定ヘッダー
+
+列のピン固定は、$WinGrid™ が装備されたアプリケーションのエンド ユーザーがコントロールの左側または右側に特定の列を選択的に固定することを可能にする機能です。ピン固定された列は、エンド ユーザーがすべての WinGrid 列を水平方向にスクロールしても常に表示されたままになります。この機能は、多くの列があるデータ スキーマを検証する必要があるエンド ユーザーに非常に役立ちます。このようなエンド ユーザーは、水平方向にスクロールする時に常にビュー内で列を識別するキーをいくつか保持する必要があるからです。
+
+エンド ユーザーが列のピン固定アイコンをクリックすると、列は WinGrid の右側または左側に固定されます。この動作は列のヘッダーの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~header.html[FixOnRight]"]  プロパティを介して構成されます。
+
+*Visual Basic の場合：*
+
+----
+'列でピンを表示するには 
+ Me.UltraGrid1.DisplayLayout.UseFixedHeaders = True
+'列 1 を右にピン固定します 
+ Me.UltraGrid1.DisplayLayout.Bands(0).Columns(1).Header.FixOnRight =   DefaultableBoolean.[True]
+' すべての列を右に固定します
+ Me.UltraGrid1. DisplayLayout.Override.FixHeadersOnRight =DefaultableBoolean.[True]
+----
+
+*C# の場合：*
+
+----
+//列でピンを表示するには
+this.ultraGrid1.DisplayLayout.UseFixedHeaders = true;
+//列 1 を右にピン固定します 
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[1].Header.FixOnRight = DefaultableBoolean.True;
+//すべての列を右に固定します
+this.ultraGrid1.DisplayLayout.Override.FixHeadersOnRight = DefaultableBoolean.True;
+----

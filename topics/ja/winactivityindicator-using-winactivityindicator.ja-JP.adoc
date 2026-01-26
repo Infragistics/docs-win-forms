@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator-using-winactivityindicator",
+    "controlName": ["WinActivityIndicator"],
+    "tags": [],
+    "guid": "{765CE0E2-E017-4319-932C-1A3CEDCDAE21}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinActivityIndicator の使用
+
+このセクションでは、WinActivityIndicator コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:winactivityindicator-displaying-text-on-activity-indicator.html[アニメーションを再生するときにテキストの表示]
+* link:winactivityindicator-marquee-animation-style-settings.html[マーキー アニメーション スタイルの設定]
+* link:winactivityindicator-styling-winactivityindicator.html[WinActivityIndicator のスタイリング]
+* link:winactivityindicator-winactivityindicator-animation.html[WinActivityIndicator アニメーション]

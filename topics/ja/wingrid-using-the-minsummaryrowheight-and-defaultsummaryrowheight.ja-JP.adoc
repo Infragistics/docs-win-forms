@@ -1,0 +1,128 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-using-the-minsummaryrowheight-and- defaultsummaryrowheight",
+    "controlName": [],
+    "tags": [],
+    "guid": "2e648301-772d-4b5b-9988-d454c1222a26",
+    "buildFlags": [],
+    "createdOn": "2015-07-14T15:33:03.922517Z"
+}
+|metadata|
+////
+
+= MinSummaryRowHeight および DefaultSummaryRowHeight の使用
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、  link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid_members.html[UltraGrid] の MinSummaryRowHeight および DefaultSummaryRowHeight プロパティの使用方法を紹介します。
+
+=== 前提条件
+
+本トピックの理解をより深めるために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-displaying-non-scrolling-summaries.html[非スクロール集計の表示]
+|WinGrid™ はデフォルトで集計を行コレクションの下に表示します。さらに、集計は行のようにスクロールします。 
+
+このトピックでは、集計値を固定してスクロールしないようにする方法を紹介します。また、集計を行コレクションの下ではなく上に表示する方法を説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref423531568,DefaultSummaryRowHeight>>
+
+** <<_Ref421266503,概要>>
+** <<_Ref423531244,例>>
+
+* <<_Ref423531385,MinSummaryRowHeight>>
+
+** <<_Ref423531308,概要>>
+** <<_Ref423531317,例>>
+
+* <<_Ref423531444,関連コンテンツ>>
+
+[[_Configuring_a_Custom]]
+[[_Ref386478097]]
+[[_Ref423531568]]
+== DefaultSummaryRowHeight
+
+[[_Ref421266503]]
+
+=== 概要
+
+DefaultSummaryRowHeight プロパティでは集計行のデフォルトの高さを設定します。既定値は -1、すなわち DefaultSummaryRowHeight プロパティは集計行の高さの計算に影響を与えません。DefaultSummaryRowHeight プロパティが集計行の最小の高さより小さい場合、最小の高さが集計行の高さになります。プロパティが 0 に設定された場合、集計行の高さは、プロパティの値や Override レベルにかかわらず、集計行のコンテンツに基づいて計算されます。
+
+[[_Ref423531244]]
+
+=== 例
+
+DefaultSummaryRowHeight プロパティは以下のように設定します:
+
+*C# の場合:*
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.DefaultSummaryRowHeight = 40;
+
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+UltraGrid1.DisplayLayout.Override.DefaultSummaryRowHeight = 40
+----
+
+
+[[_Ref388439099]]
+[[_Ref423531385]]
+== MinSummaryRowHeight
+
+[[_Ref423531308]]
+
+=== 概要
+
+デフォルトでは、集計行の最小の高さは集計のコンテンツ (テキスト、画像など) の表示に必要なスペースによります。MinSummaryRowHeight プロパティでは集計行の最小の高さを設定します。このプロパティの既定値は -1、すなわち計算済みのコンテンツ サイズに設定されます。行の高さが 1 以上になる必要があるため、プロパティを 0 に設定すると、ArgumentOutOfRangeException がスローされます。
+
+[[_Ref423531317]]
+
+=== 例
+
+MinSummaryRowHeight プロパティは以下のように設定します:
+
+*C# の場合:*
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.MinSummaryRowHeight = 10;
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+UltraGrid1.DisplayLayout.Override.MinSummaryRowHeight = 10
+----
+
+[[_Ref423531444]]
+== 関連コンテンツ
+
+[[_Ref386478106]]
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-using-wingrid.html[WinGrid の使用]
+| link:wingrid.html[WinGrid] コントロールの使用方法を説明するチュートリアルを含みます。
+
+|====

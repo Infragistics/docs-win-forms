@@ -1,0 +1,149 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalculatordropdown-applying-appearances-to-wincalculatordropdown",
+    "controlName": ["WinCalculatorDropDown"],
+    "tags": ["Styling"],
+    "guid": "{E039E97B-FB5D-4DEA-9897-E338099CF5D1}",  
+    "buildFlags": [],
+    "createdOn": "2010-05-04T11:14:57Z"
+}
+|metadata|
+////
+
+= WinCalculatorDropDown に外観の適用
+
+オブジェクトがどのように表示されるかは、オブジェクトの Appearance によって決まります。ほとんどのオブジェクトは、その pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  プロパティを変更することでオブジェクトの外観を完全に制御できます。
+
+== デザインタイムの Appearance の設定
+
+WinCalculatorDropDown コントロールの Appearance を変更するには、プロパティ ページで Appearance プロパティを展開し、サブプロパティに必要な変更を加えます。これらの変更は、コントロール全体と、ButtonAppearance プロパティまたは個々のボタンの Appearance によってオーバーライドされていない任意の Appearance に適用されます。
+
+Buttons グループの Appearance を全体的に変更するには、プロパティ ページで pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculatordropdown~calculatorbuttonappearance.html[CalculatorButtonAppearance]"]  プロパティを展開し、サブプロパティに必要な変更を加えます。これらの変更は、計算機上に配置された、個々の Appearance オブジェクトを持たないすべてのボタンのプロパティに影響を与えます。
+
+個々のボタンの Appearance を変更するには、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculatordropdown~buttons.html[Buttons]"]  プロパティを展開し、次にプロパティ ページで個々のボタンの Appearance を展開し、サブプロパティに必要な変更を加えます。これらの変更は個々のボタンに適用され、これまでの Appearance をすべてオーバーライドします。 外観の変更を表示するには、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~useosthemes.html[UseOsThemes]"]  プロパティを False に設定する必要があります。また、アプリケーション スタイルが設定される場合、ローカル コントロールに外観の変更を表示するには、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~useappstyling.html[UseAppStyling]"]  プロパティを False に設定する必要があります。
+
+== ランタイムの Appearance の設定
+
+以下の例のコードは、WinCalculatorDropDown の Appearance をランタイムに変更する方法を示します。
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Win
+...
+Private Sub Applying_Appearances_to_Calculator_Controls_Load( _
+  ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' UseOsThemes および UseAppStyling を False に設定すると、
+	' 作成されたグラデーションが適用されます
+	Me.ultraCalculatorDropDown1.UseOsThemes = DefaultableBoolean.False
+	Me.ultraCalculatorDropDown1.UseAppStyling = False
+	' コードで Appearance オブジェクトを作成します
+	Dim app1 As New Appearance()
+	Dim app2 As New Appearance()
+	Dim app3 As New Appearance()
+	Dim app4 As New Appearance()
+	' コード内で appearance1 のプロパティを設定します。
+	app1.FontData.SizeInPoints = 25
+	app1.BackColor = Color.White
+	app1.BackColor2 = Color.Yellow
+	app1.BackGradientStyle = GradientStyle.Circular
+	app1.ForeColor = Color.DarkGreen
+	app1.TextHAlign = HAlign.Right
+	app1.Cursor = Cursors.Cross
+	' appearance2 のプロパティを設定します。
+	app2.BackColor = Color.Yellow
+	app2.BackColor2 = Color.Green
+	app2.BackGradientStyle = GradientStyle.BackwardDiagonal
+	app2.FontData.Bold = DefaultableBoolean.True
+	app2.FontData.Italic = DefaultableBoolean.True
+	app2.TextHAlign = HAlign.Center
+	app2.FontData.SizeInPoints = 15
+	app2.Cursor = Cursors.Help
+	' appearance 3 のプロパティを追加します。
+	app3.TextHAlign = HAlign.Center
+	app3.BackColor = Color.DodgerBlue
+	app3.BackColor2 = Color.Gainsboro
+	app3.BackGradientStyle = GradientStyle.HorizontalBump
+	' 最後の appearance にプロパティを追加します。
+	app4.BackColor = Color.Black
+	app4.BackHatchStyle = BackHatchStyle.DarkVertical
+	app4.AlphaLevel = 150
+	app4.BackGradientStyle = GradientStyle.VerticalBump
+	' CalculatorButtonAppearance の外観を適用し、 
+	' 計算機の外観をオーバーライドしますが、
+	' ただし、個々のボタンの Appearance はオーバーライドしません。
+	Me.ultraCalculatorDropDown1.CalculatorButtonAppearance = app3
+	' 個々のボタンに適用され、
+	' これまでのすべての外観をオーバーライドします。
+	Me.ultraCalculatorDropDown1.Buttons("+").Appearance = app2
+	Me.ultraCalculatorDropDown1.Buttons("=").Appearance = app1
+	' 計算機全体の外観、エレメント全体および 
+	' ButtonAppearance によってオーバーライドされていない外観、 
+	' または個々のボタンの外観のみに適用されます。
+	Me.ultraCalculatorDropDown1.CalculatorAppearance = app4
+End Sub
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win;
+...
+private void Applying_Appearances_to_Calculator_Controls_Load(object sender, 
+  EventArgs e)
+{
+	// UseOsThemes および UseAppStyling を False に設定すると、
+	// 作成されたグラデーションが適用されます
+	this.ultraCalculatorDropDown1.UseOsThemes = DefaultableBoolean.False;
+	this.ultraCalculatorDropDown1.UseAppStyling = false;
+	// コードで Appearance オブジェクトを作成します
+	Infragistics.Win.Appearance app1 = new Infragistics.Win.Appearance();
+	Infragistics.Win.Appearance app2 = new Infragistics.Win.Appearance();
+	Infragistics.Win.Appearance app3 = new Infragistics.Win.Appearance();
+	Infragistics.Win.Appearance app4 = new Infragistics.Win.Appearance();
+	// コード内で appearance1 のプロパティを設定します。
+	app1.FontData.SizeInPoints=25;
+	app1.BackColor=Color.White;
+	app1.BackColor2=Color.Yellow;
+	app1.BackGradientStyle=GradientStyle.Circular;
+	app1.ForeColor=Color.DarkGreen;
+	app1.TextHAlign=HAlign.Right;
+	app1.Cursor=Cursors.Cross;
+	// appearance2 のプロパティを設定します。
+	app2.BackColor=Color.Yellow;
+	app2.BackColor2=Color.Green;
+	app2.BackGradientStyle=GradientStyle.BackwardDiagonal;
+	app2.FontData.Bold=DefaultableBoolean.True;
+	app2.FontData.Italic=DefaultableBoolean.True;
+	app2.TextHAlign=HAlign.Center;
+	app2.FontData.SizeInPoints=15;
+	app2.Cursor=Cursors.Help;
+	// appearance 3 のプロパティを追加します。
+	app3.TextHAlign=HAlign.Center;
+	app3.BackColor=Color.DodgerBlue;
+	app3.BackColor2=Color.Gainsboro;
+	app3.BackGradientStyle=GradientStyle.HorizontalBump;
+	// 最後の appearance にプロパティを追加します。
+	app4.BackColor=Color.Black;
+	app4.BackHatchStyle=BackHatchStyle.DarkVertical;
+	app4.AlphaLevel=150;
+	app4.BackGradientStyle=GradientStyle.VerticalBump;
+	// CalculatorButtonAppearance の外観を適用し、 
+	// 計算機の外観をオーバーライドしますが、
+	// ただし、個々のボタンの Appearance はオーバーライドしません。
+	this.ultraCalculatorDropDown1.CalculatorButtonAppearance=app3;
+	// 個々のボタンに適用され、 
+	// これまでのすべての外観をオーバーライドします。
+	this.ultraCalculatorDropDown1.Buttons["+"].Appearance=app2;
+	this.ultraCalculatorDropDown1.Buttons["="].Appearance=app1;
+	// 計算機全体の外観、エレメント全体および 
+	// ButtonAppearance によってオーバーライドされていない外観、
+	// または個々のボタンの外観のみに適用されます。 
+	this.ultraCalculatorDropDown1.CalculatorAppearance=app4;
+}
+----
+
+image::images\WinEditors_Applying_Appearances_to_the_Calculator_Controls_02.png[example of wincalculator after applying above code]

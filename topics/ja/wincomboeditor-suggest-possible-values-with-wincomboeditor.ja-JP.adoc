@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-suggest-possible-values-with-wincomboeditor",
+    "controlName": ["WinComboEditor"],
+    "tags": ["FAQ","How Do I","Selection"],
+    "guid": "{08AAB486-24E5-4775-AB07-7D54929CD3D2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinComboEditor で可能となる値を提案
+
+WinComboEditor™ を使用して、項目の最初から設定されているリストを提供することでエンド ユーザーがデータを入力する支援をします。エンド ユーザーが実行しなければならないのはドロップダウン リストを開くためにドロップダウン矢印をクリックし、リストから値を選択することだけです。ところが、選択の処理をより簡単にしたい場合にはどうすればよいでしょうか？WinComboEditor が可能な値を提案するのでエンド ユーザーはテキスト ボックスに入力するだけでいいように、すべての不要なマウス アクションを削除したい場合はどうすればよいでしょうか？
+
+WinComboEditor の link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~autocompletemode.html[AutoCompleteMode] プロパティは、エンド ユーザーが現在入力した内容に基づいてすべての可能な値を表示するドロップダウン リストを提供するかどうかを決定します。AutoCompleteMode を Suggest に設定するとそれだけを実行しますが、AutoCompleteMode を Append に設定すると現在入力されている値の最後に最も可能性の高い候補値を追加します。AutoCompleteMode を SuggestAppend に設定することで、これらの両方の機能を同時に使用するためのオプションも用意されます。
+
+フォームに WinComboEditor コントロールが含まれていると仮定して、以下のコード例は、System.Drawing.KnownColor 列挙体からエンド ユーザーに可能となる色を提案する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(ByVal sender As System.Object, _
+                       ByVal e As System.EventArgs) Handles MyBase.Load
+    'KnownColor 列挙体から色のリストを取得します。
+    For Each s As String In System.Enum.GetNames(GetType(KnownColor))
+        '各色を WinComboEditor の項目コレクションに追加します。
+        Me.UltraComboEditor1.Items.Add(s)
+    Next
+    'WinComboEditor に可能な色を提案させます。
+    Me.UltraComboEditor1.AutoCompleteMode = _
+        Infragistics.Win.AutoCompleteMode.Suggest
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, EventArgs e)
+{
+	//KnownColor 列挙体から色のリストを取得します。
+	foreach (string s in System.Enum.GetNames(typeof(KnownColor)))
+	{
+		//各色を WinComboEditor の項目コレクションに追加します。
+		this.ultraComboEditor1.Items.Add(s);
+	}
+	//WinComboEditor に可能な色を提案させます。
+	this.ultraComboEditor1.AutoCompleteMode = 
+		Infragistics.Win.AutoCompleteMode.Suggest;
+}
+----

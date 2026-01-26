@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2007-volume-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6DD3CFCD-722B-49DE-B569-E5A4A722A5DC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2007 Volume 3 の新機能
+
+{ProductName} 2007 Volume 3 のリリースには、Windows Formsのコントロールとコンポーネントをこれまで以上に活用することができるいくつかの強力な新しい特性と機能が含まれています。
+
+以下に、2007 Volume 3 リリースで追加または強化されたコントロール/コンポーネントをリストアップします。リンクをクリックして提供されている機能のリストを確認してください。
+
+* link:win-new-winnavigationbar-control-whats-new-20073.html[新しい WinNavigationBar コントロール]
+* link:win-plf-and-wingrid-performance-improvements-whats-new-20073.html[PLF および WinGrid パフォーマンス向上]
+* link:win-winchart-whats-new-20073.html[WinChart]
+* link:win-wingauges-new-relativebounds-designer-editor.html[WinGauge の新しい RelativeBounds デザイナ エディタ]
+* link:win-wintoolbarsmanager-whats-new-20073.html[WinToolbarsManager]

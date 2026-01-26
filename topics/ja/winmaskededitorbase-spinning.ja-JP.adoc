@@ -1,0 +1,42 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": ["WinEditors"]
+}
+|metadata|
+////
+
+= WinEditorMaskedControlBase スピン
+
+== スピン動作
+link:windatetimeeditor.html[WinDateTimeEditor]、link:wincurrencyeditor.html[WinCurrencyEditor]、link:winmaskededit.html[WinMaskedEdit] および link:winnumericeditor.html[WinNumericEditor] に特定の入力を実行すると現在の値をインクリメントする機能があります。この動作をトリガーする方法は 3 つあります。
+
+. 上下の矢印キーを押します。
+. スピン ボタンをクリックします。
+. link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase~performaction.html[PerformAction()] を使用して、コントロールに対して `UpKeyAction` または `DownKeyAction` が実行されます。
+
+[NOTE]
+.注
+スピンは、エディターが編集モードの場合にのみ実行できます。エディターが編集モードにない場合、上下の矢印キー アクションで PerformAction() をトリガーすることができますが、エラーが発生します。link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してエディターをインクリメント]で、このシナリオに対するコード例を示しています。 
+
+== セクションのスピン
+スピン動作がトリガーされると、現在カーソルが置かれているセクションは、トリガーに使用された矢印に応じて上下にインクリメントされます。`WinDateTimeEditor` の場合、このセクションは年、月、または日です。`WinCurrencyEditor` および `WinNumericEditor` の場合、整数セクション、または小数セクションがインクリメントされます。
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor~spinincrement.html[SpinIncrement] が設定されている場合、カーソル位置が無視され、`SpinIncrement` の設定により値が増減します。
+
+== スピン折り返し
+セクションがインクリメントで最大値に達する、またはデクリメントで最小値に達すると、次の増減の動作は link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~spinwrapbehavior.html[SpinWrapBehavior] プロパティで定義されます。以下に設定できます。
+
+* `Default` - デフォルトでは、コントロールは `WrapAcrossSections` の動作に従います。
+* `NoWrapping` - 値は、最大/最小値で増減を停止します。
+* `WrapAcrossSections` - 値は最小値/最大値に達し、次に高いセクションが増減されます。
++
+たとえば、12 の値がある月セクションをスピンアップすると、月は 1 になり、年セクションは 1 で増加します。
+* `WrapCurrentSection` - 値は最小値/最大値に達するが、他のセクションは影響を受けません。
++
+たとえば、12 の値がある月セクションをスピンアップすると、月は 1 になりますが、年セクションは変わりません。
+
+== 関連トピック
+* link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してスピン可能なエディターをインクリメント]
+* link:winnumericeditor-incrementing-the-spin-value.html[スピン値のインクリメント]

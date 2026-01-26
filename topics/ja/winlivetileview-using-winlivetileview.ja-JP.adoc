@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlivetileview-using-winlivetileview",
+    "controlName": [],
+    "tags": [],
+    "guid": "4fe7a99e-a007-4548-b3d1-24819abaa2b1",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T23:21:01.3580357Z"
+}
+|metadata|
+////
+
+= WinLiveTileView の使用
+
+=== はじめに
+
+このグループのトピックでは、最新の link:{ApiPlatform}win.ultrawinlivetileview{ApiVersion}~infragistics.win.ultrawinlivetileview.ultralivetileview_members.html[UltraLiveTileView]™ コントロールについて、デザイナーやコード ビハインドを使用して各タイルを作成および設定する方法の手順を含めて紹介します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winlivetileview-adding-winlivetileview-using-the-designer.html[デザイナーを使用した WinLiveTileView の追加]
+|このトピックでは、デザイナー インターフェイスを使用して _UltraLiveTileView_ コントロールやタイルをアプリケーションで追加する方法を示します。
+
+| link:winlivetileview-adding-winlivetileview-in-code-behind.html[コード ビハインドでの WinLiveTileView の追加]
+|このトピックでは、 _UltraLiveTileView_ コントロールやタイルをコード ビハインドで追加する方法を示します。
+
+| link:winlivetileview-styling-winlivetileview.html[WinLiveTileView のスタイル設定]
+|このトピックでは、デザイナーを使用してコード ビハインドや AppStylist で、 _UltraLiveTileView_ コントロールのスタイルを設定する方法を示します。
+
+| link:winlivetileview-winlivetileview-localization.html[WinLiveTileView のローカライズ]
+|このトピックでは、 _UltraLiveTileView_ のローカライズの設定方法を示します。
+
+|====

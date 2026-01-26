@@ -1,0 +1,258 @@
+﻿////
+|metadata|
+{
+    "name": "wingridexcelexporter-transposing-rows-and-columns-using-wingrid-excel-exporter",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": ["How Do I"],
+    "guid": "{934828FE-2C9E-4ADD-8B2C-2568F17A85DC}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid Excel エクスポーターを使用して行および列を転置
+
+== 始める前に
+
+WinGridExcelExporter™ には、WinGrid™ から Microsoft® Excel® ファイル フォーマットにデータをエクスポートするための機能があります。デフォルトで、Excel ファイルのレイアウトには、データの標準的な水平行と垂直列表現があります。ただし、データを表現する標準的な方法と異なるレイアウトが必要となる場合があります。
+
+== 達成すること
+
+このトピックでは、WinGridExcelExporter の使用によって Excel Worksheet にエクスポートされている WinGrid の行と列を転置するために使用可能な技術を示します。行と列の転置技術を理解すれば、アプリケーションの同一または類似する操作を実行するためにこのコードとロジックを採用することができます。
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから UltraGrid および UltraGridExcelExporter コントロールを指定し、それらを WinForm にドラッグ アンド ドロップします。UltraGrid コントロールに "customersUltraGrid" と名前を付け、UltraGridExcelExporter コントロールはデフォルト名のままにします。
+[start=2]
+. このトピックでは、Northwind データベースの Customers テーブルとグリッドをバインドします。グリッドをデータにバインドする方法の詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+[start=3]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Imports Infragistics.Documents.Excel
+Imports Infragistics.Win.UltraWinGrid
+Imports System.Diagnostics
+----
+
+*C# の場合：*
+[source,csharp]
+----
+using Infragistics.Documents.Excel;
+using Infragistics.Win.UltraWinGrid;
+using System.Diagnostics;
+----
+
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat.html[IWorksheetCellFormat]"]  へのクラス スコープ指定された参照を宣言します。これは、Excel ワークシートのセルのセル フォーマットをカスタマイズするために使用されます。メモリー フットプリントを最小にするために、データ セルに固有の IWorkSheetCellFormat のインスタンスをひとつだけ作成して再使用します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~rowexporting_ev.html[RowExporting]"]  イベントが発生するたびに新しいインスタンスを作成できますが、それはより多くの犠牲を払うことになります。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Private _theCellFormat As IWorksheetCellFormat = Nothing
+----
+
+*C# の場合：*
+[source,csharp]
+----
+private IWorksheetCellFormat _theCellFormat = null;
+----
+
+[start=5]
+. WinGrid データを Excel にエクスポート - ここで WinGrid データを Excel にエクスポートするための手段を提供する必要があります。ボタンのイベント ハンドラー内に以下のコードを配置します。クリックすると、これは WinGridExcelExporter を使用して WinGrid データをエクスポートします。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Dim theFile As String = Application.StartupPath & "\xl.xls"
+Me.UltraGridExcelExporter1.Export(Me.customersUltraGrid, theFile)
+Process.Start(theFile)
+----
+
+*C# の場合：*
+[source,csharp]
+----
+string theFile = Application.StartupPath + @"\xl.xls";
+this.ultraGridExcelExporter1.Export(this.customersUltraGrid, theFile);
+Process.Start(theFile);
+----
+
+このコードで、Excel ファイルのファイル名を作成し、次に WinGridExcelExporter の Export メソッドを呼び出して最後に Process.Start メソッドを最後に呼び出すと、関連付けられたアプリケーションで Excel ファイルを起動できます。このケースでは、Microsoft™ Excel™ です。
+[start=6]
+. Excel ワークシートで行と列を転置するこのテクニックでは、最初にデータをエクスポートするデフォルトの方法をキャンセルする必要があります。これは UltraGridExcelExporter1 の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~headercellexporting_ev.html[HeaderCellExporting]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~cellexporting_ev.html[CellExporting]"]  イベントをキャンセルすることで実行できます。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Private Sub UltraGridExcelExporter1_HeaderCellExporting(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.HeaderCellExportingEventArgs) Handles UltraGridExcelExporter1.HeaderCellExporting
+        e.Cancel = True
+End Sub
+Private Sub UltraGridExcelExporter1_CellExporting(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.CellExportingEventArgs) Handles UltraGridExcelExporter1.CellExporting
+        e.Cancel = True
+End Sub
+----
+
+*C# の場合：*
+[source,csharp]
+----
+private void ultraGridExcelExporter1_HeaderCellExporting(object sender, Infragistics.Win.UltraWinGrid.ExcelExport.HeaderCellExportingEventArgs e)
+{
+            e.Cancel = true;
+}
+private void ultraGridExcelExporter1_CellExporting(object sender, Infragistics.Win.UltraWinGrid.ExcelExport.CellExportingEventArgs e)
+{
+            e.Cancel = true;
+}
+----
+
+[start=7]
+. メソッド TransposeRowAndColumn を作成します。このメソッドは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[UltraGridRow]"] 、pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheet.html[Worksheet]"]  および IWorksheetCellFormat の 3 つのパラメーターを取ります。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+  Private Sub TransposeRowAndColumn(ByVal r As UltraGridRow, ByVal w As Worksheet, ByVal cellFormat As IWorksheetCellFormat)
+       For Each c As UltraGridCell In r.Cells
+            If Not c.Column.Hidden Then
+                'ワークシート セルを移植してフォーマッティングを設定します 
+                w.Rows(c.Column.Index).Cells(r.Index + 1).Value = c.Value
+                w.Rows(c.Column.Index).Cells(r.Index +).CellFormat.SetFormatting(cellFormat)
+            End If
+        Next
+    End Sub
+----
+
+*C# の場合：*
+[source,csharp]
+----
+    private void TransposeRowAndColumn(UltraGridRow r,Worksheet w, 
+            IWorksheetCellFormat cellFormat)
+        {
+            foreach (UltraGridCell c in r.Cells)
+            {
+                if (!c.Column.Hidden) //非表示の列を処理しません
+                {
+                    //ワークシート セルを移植してフォーマッティングを設定します
+                    w.Rows[c.Column.Index].Cells[r.Index + 1].Value = c.Value;
+                    w.Rows[c.Column.Index].Cells[r.Index +].CellFormat.SetFormatting(cellFormat);                    
+                }
+            }
+        }
+----
+
+[NOTE]
+====
+*注:* このメソッドは BEFORE Excel Exporter イベントで使用するのが最善です。デフォルトのエクスポート動作を中止できるようにすべての BEFORE イベントで e.Cancel = True を設定していることを確認する必要があります。
+====
+
+これは TransposeRowAndColumn メソッド内で使用されるロジックです：
+
+** 最初にグリッドの各セルでループし、Excel ワークシートに非表示の列をエクスポートしないように、セルの列が非表示かどうかをチェックします。
+** 最初のワークシートの列は WinGrid 列ヘッダーを表すので、2 番目のワークシートの列からデータが開始するように記述する必要があります。ワークシート セルを参照する時に r.Index + 1 を使用するのはこのためです。
+** 最後に、セルは SetFormatting メソッドを呼び出して、IWorkSheetCellFormat インスタンスを渡すことによってスタイルされます。
+
+[start=8]
+. ここまでで、行の転置を処理するためのメソッドを記述しました。ただし、列ヘッダーを転置するためにはもうひとつのメソッドが必要です。メソッド TransposeHeader() を作成します。このメソッドは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnscollection.html[ColumnsCollection]"] 、Worksheet および IWorksheetCellFormat の 3 つのパラメーターを取ります。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Private Sub TransposeHeader(ByVal c As ColumnsCollection, ByVal w As Worksheet, ByVal headerFormat As IWorksheetCellFormat)
+          For Each column As UltraGridColumn In c
+            If Not column.Hidden Then
+                w.Rows(column.Index).Cells(0).Value = column.Header.Caption
+                w.Rows(column.Index).Cells(0).CellFormat.SetFormatting(headerFormat)
+            End If
+          Next
+   End Sub
+----
+
+*C# の場合：*
+[source,csharp]
+----
+private void TransposeHeader(ColumnsCollection c, Worksheet w, IWorksheetCellFormat headerFormat)
+{
+           foreach (UltraGridColumn column in c)
+            {
+                if (!column.Hidden)
+                {
+                    w.Rows[column.Index].Cells[0].Value = column.Header.Caption;
+                    w.Rows[column.Index].Cells[0].CellFormat.SetFormatting(headerFormat);
+                }
+            }
+ }
+----
+
+これは TransposeHeader メソッド内で使用されるロジックです：
+
+** 最初に ColumnsCollection の各列でループし、Excel ワークシートに非表示の列をエクスポートしないように、列が非表示かどうかをチェックします。
+** 最初のワークシート列は WinGrid 列ヘッダーを表すので、WinGrid Header キャプションをワークシート セルに書き込みます。
+** 最後に、セルは SetFormatting メソッドを呼び出して、IWorkSheetCellFormat インスタンスを渡すことによってスタイルされます。列ヘッダーをデータ セルと区別するスタイルを作成したい場合があります。
+
+[start=9]
+. 最後に、デフォルトのエクスポート動作をキャンセルし、TransposeRowAndColumn メソッドと TransposeHeader メソッドをそれぞれ呼び出すことができるように、UltraGridExcelExporter の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~headerrowexporting_ev.html[HeaderRowExporting]"]  および RowExporting イベントを処理します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+ Private Sub UltraGridExcelExporter1_HeaderRowExporting(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.HeaderRowExportingEventArgs) Handles UltraGridExcelExporter1.HeaderRowExporting
+             e.Cancel = True
+             Dim theHeaderFormat As IWorksheetCellFormat =      e.Workbook.CreateNewWorksheetCellFormat()
+             theHeaderFormat.Font.Bold = ExcelDefaultableBoolean.[True]
+             theHeaderFormat.Font.Name = "Comic Sans"
+             theHeaderFormat.Font.Color = Color.Blue
+             theHeaderFormat.FillPatternBackgroundColor = Color.LightGray
+             Me.TransposeRowAndColumn(e.Band.Columns, e.CurrentWorksheet, theHeaderFormat)
+     End Sub
+                  Private Sub UltraGridExcelExporter1_RowExporting(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.RowExportingEventArgs) Handles UltraGridExcelExporter1.RowExporting
+             e.Cancel = True
+            'デフォルトのエクスポート動作を中止するためにこのイベントをキャンセルします。 
+            If _theCellFormat Is Nothing Then
+            '一度だけ作成します 
+            'セル データを表すプロパティは何でも設定します： 
+            _theCellFormat = e.Workbook.CreateNewWorksheetCellFormat()
+            _theCellFormat.Font.Bold = ExcelDefaultableBoolean.[False]
+            _theCellFormat.Font.Name = "Comic Sans"
+            _theCellFormat.Font.Color = Color.Black
+             End If
+              Me.TransposeRowAndColumn(e.GridRow, e.CurrentWorksheet, _theCellFormat)
+     End Sub
+----
+
+*C# の場合：*
+[source,csharp]
+----
+private void ultraGridExcelExporter1_HeaderRowExporting(object sender, Infragistics.Win.UltraWinGrid.ExcelExport.HeaderRowExportingEventArgs e)
+          {
+              e.Cancel = true;
+              IWorksheetCellFormat theHeaderFormat = e.Workbook.CreateNewWorksheetCellFormat();
+               theHeaderFormat.Font.Bold = ExcelDefaultableBoolean.True;
+               theHeaderFormat.Font.Name = "Comic Sans";
+               theHeaderFormat.Font.Color = Color.Blue;
+               theHeaderFormat.FillPatternBackgroundColor = Color.LightGray;
+               this.TransposeHeader(e.Band.Columns, e.CurrentWorksheet, theHeaderFormat);
+       }
+          private void ultraGridExcelExporter1_RowExporting(
+            object sender, 
+            Infragistics.Win.UltraWinGrid.ExcelExport.RowExportingEventArgs e)
+          {
+                e.Cancel = true; //デフォルトのエクスポート動作を中止するためにこのイベントをキャンセルします。
+                if (_theCellFormat == null) //一度だけ作成します
+                {
+                //セル データを表すプロパティは何でも設定します：
+                  _theCellFormat = e.Workbook.CreateNewWorksheetCellFormat();
+                  _theCellFormat.Font.Bold = ExcelDefaultableBoolean.False;
+                  _theCellFormat.Font.Name = "Comic Sans";
+                  _theCellFormat.Font.Color = Color.Black;
+                 }  
+                this.TransposeRowAndColumn(e.GridRow, e.CurrentWorksheet, _theCellFormat);
+        }
+----
+
+[start=10]
+. アプリケーションを保存して実行します。Excel ファイルを生成するために使用されるボタンをクリックします。Excel ファイルは自動的に起動し、以下の画像のように表示されます：
+
+image::images\WinGridExcelExporter_Transposing_Rows_and_Columns_using_WinGridExcelExporter_01.png[]

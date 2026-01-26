@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-wingrid-clickcell-event",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EDDE9A3E-76F9-4E93-986E-1187463D00A5}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-09T13:50:20Z"
+}
+|metadata|
+////
+
+= WinGrid ClickCell イベント
+
+WinGrid™ は pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~clickcell_ev.html[ClickCell]"]  イベントを持つようになりました。既存の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~doubleclickcell_ev.html[DoubleClickCell]"]  イベントに非常に似ており、さまざまなシナリオに対応するために多くの種類のカスタム ロジックを実装できます。ClickCell イベント内では、イベント引数を介してクリックされたセルに簡単にアクセスできるので、その兄弟セルや値だけでなく、セル値、属する行にアクセスできます。
+
+== *関連トピック*
+
+link:wingrid-clickcell-event.html[ClickCell イベント]

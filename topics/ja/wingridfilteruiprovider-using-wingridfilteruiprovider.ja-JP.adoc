@@ -1,0 +1,20 @@
+﻿////
+|metadata|
+{
+    "name": "wingridfilteruiprovider-using-wingridfilteruiprovider",
+    "controlName": [],
+    "tags": ["Filtering","Getting Started","How Do I"],
+    "guid": "{3FFAEA12-29D6-4CC4-9F23-59B41C5911DF}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridFilterUIProvider の使用
+
+このセクションでは、WinGridFilterUIProvider™ コンポーネント関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wingridfilteruiprovider-enabling-enhanced-filtering-on-wingrid.html[WinGrid で拡張フィルタリングを有効にする]
+* link:wingridfilteruiprovider-applying-enhanced-filter-condition-to-wingrid-at-run-time.html[ランタイムに拡張フィルター条件を WinGrid に適用]
+* link:wingridfilteruiprovider-adding-a-custom-filter-to-enhanced-filtering-ui-on-a-wingrid.html[WinGrid でカスタムのフィルターを拡張フィルタリング UI に追加]

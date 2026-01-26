@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingriddocumentexporter-using-wingriddocumentexporter",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": [],
+    "guid": "{904E0DBA-3F56-41FD-AEA5-C1DB56B07D6A}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:31:32Z"
+}
+|metadata|
+////
+
+= WinGridDocumentExporter の使用
+
+このセクションには、WinGridDocumentExporter™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wingriddocumentexporter-change-the-paper-orientation-and-size.html[用紙の方向とサイズを変更]
+* link:wingriddocumentexporter-export-wingrid-to-a-new-pdf-document.html[WinGrid を新しい PDF ドキュメントにエクスポート]
+* link:wingriddocumentexporter-export-wingrid-to-an-existing-report.html[WinGrid を既存のレポートにエクスポート]
+* link:wingriddocumentexporter-modifying-wingrids-layout-before-exporting-to-a-pdf-document.html[PDF ドキュメントにエクスポートする前に WinGrid のレイアウトを修正]
+* link:wingriddocumentexporter-use-a-file-buffer-when-exporting.html[エクスポートするときにファイル バッファを使用]

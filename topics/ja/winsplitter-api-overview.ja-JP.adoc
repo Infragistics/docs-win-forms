@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winsplitter-api-overview",
+    "controlName": ["WinSplitter"],
+    "tags": ["API"],
+    "guid": "{EE49708B-AFAF-46B8-ACD5-59FF14EC2D58}",  
+    "buildFlags": [],
+    "createdOn": "2009-10-12T16:21:40Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。 このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。 このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinSplitter 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[Infragistics.Win.Misc 名前空間]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrasplitter.html[UltraSplitter]"]

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-understanding-winvalidator",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{E7A9178E-2828-448C-8F00-A5C60723E59D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinValidator の理解
+
+WinValidator™ コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinValidator コントロールを使用することの利点を理解できます。
+
+WinValidator コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winvalidator-about-winvalidator.html[WinValidator について] -- WinValidator コントロールの概要を説明しています。
+* link:winvalidator-smart-tag.html[WinValidator スマート タグ] -- WinValidator コントロールのスマート タグで表示されるプロパティと設定値について説明しています。

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-progressbar-tool-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{8EB27501-5FE2-4B55-AA2D-17995870DAFA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ProgressBar ツール
+
+新しい ProgressBarTool クラスを使用すると、ツールバーまたはメニューにプログレス バーを表示できます。このツールは、進捗状況を示す部分の外観を制御するためのいくつかのプロパティを提供します。ProgressBar ツールには編集モードはありませんが、プログレス バーをクリックすると ToolClick イベントが、ダブルクリックすると ToolDoubleClick イベントがトリガーされます。
+
+image::images/WinToolbarsManager_ProgressBar_Tool_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:wintoolbarsmanager-add-a-progressbar-tool-to-a-toolbar.html[ツールバーへの ProgressBar ツールの追加]

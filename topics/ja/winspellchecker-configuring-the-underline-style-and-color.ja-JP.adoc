@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-configuring-the-underline-style-and-color",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["How Do I","Validation"],
+    "guid": "{6CDE5577-6D26-4D9A-A144-B96A49C27CD3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 下線のスタイル設定および色の構成
+
+Microsoft® Word のミススペルのワードに下線が付く赤色の波線の外観が気に入らない場合、それを変更します。WinSpellChecker によって、赤色の波線の色を変更したり、波線を 1 本の下線または二重下線に変更することができます。波線を完全に除外することもできます。以下のコードを使用して赤色の波線を青色の二重下線に変更します。 
+
+image::images/WinSpellChecker_Change_the_Look_of_the_Red_Squiggle_Under_Misspelled_Words_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSpellChecker
+...
+Me.UltraSpellChecker1.UnderlineSpellingErrorColor = Color.Blue
+Me.UltraSpellChecker1.UnderlineSpellingErrorStyle = UnderlineErrorsStyle.DoubleLine
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSpellChecker;
+...
+this.ultraSpellChecker1.UnderlineSpellingErrorColor = Color.Blue;
+this.ultraSpellChecker1.UnderlineSpellingErrorStyle = UnderlineErrorsStyle.DoubleLine;
+----

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-about-winschedule-controls-and-components",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{33C22B68-3F2E-4EF0-944D-6CD942AA235F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule コントロールとコンポーネントについて
+
+WinSchedule コントロールは、5 つのコントロールと 3 つのコンポーネントで構成されます。以下は、5 つの WinSchedule コントロールのリストです。最初のコントロールはエディタで、残りの 4 つのコントロールはスケジュール ビューです。これらのコントロールを使用してエンド ユーザーにスケジュール/スケジュール済みの情報を表示できます。スケジュール ビューのルック アンド フィールは、Microsoft® Outlook® のカレンダーと似ています。
+
+* link:wincalendarcombo.html[WinCalendarCombo] -- 1 ヶ月のカレンダーを表示するドロップダウン エディタです。
+* link:windayview.html[WinDayView] -- 1 日または数日の活動を表示、追加、更新、削除するために使用します。
+* link:winmonthviewmulti.html[WinMonthViewMulti] -- 1 ヶ月間の予定を見るために使用します。
+* link:winmonthviewsingle.html[WinMonthViewSingle] -- 1 月間の活動を表示、追加、更新、削除するために使用します。
+* link:winweekview.html[WinWeekView] -- 1 週間の活動を表示、追加、更新、削除するために使用します。
+
+次の 3 つのコンポーネントは、Windows Formsで使用する各ビューを制御、操作、同期するために使用します。
+
+* link:wincalendarinfo.html[WinScheduleInfo] -- ひとつ以上の WinSchedule ビューで同期化されたすべてのスケジュール情報と制御状態を表示、管理します。
+* link:wincalendarlook.html[WinCalendarLook] -- WinSchedule ビューのルック アンド フィールを管理します。
+* link:winscheduleprintdocument.html[WinSchedulePrintDocument] -- WinSchedule ビューの印刷を可能にします。

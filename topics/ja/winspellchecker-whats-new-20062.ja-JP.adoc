@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-whats-new-20062",
+    "controlName": [],
+    "tags": [],
+    "guid": "{7E76A377-1DEE-4897-9446-749B55DC153F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker 2006.2
+
+以下のリンクをクリックすると、Infragistics 2006 Volume 2 リリースのコントロールとコンポーネントのスイートに新しく追加された WinSpellChecker コントロールの説明を読むことができます。
+
+* link:win-new-winspellchecker-control-whats-new-2006-2.html[新しい WinSpellChecker コントロール]

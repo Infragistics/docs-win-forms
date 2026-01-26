@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalculator-using-wincalculator",
+    "controlName": ["WinCalculator"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{219CE35D-3210-4075-9C99-29EA5A9207B2}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-11T12:18:25Z"
+}
+|metadata|
+////
+
+= WinCalculator の使用
+
+このセクションでは、WinCalculator™ コンポーネントを使用するときのよくあるシナリオおよびタスクを説明する詳細な手順ごとのチュートリアルを提供します。
+
+* link:wincalculator-applying-appearances-to-wincalculator.html[計算機コントロールに外観を適用]
+* link:wincalculator-wincalculator-button-types-and-events.html[計算機ボタンの種類とイベント]
+* link:wincalculator-working-with-custom-calculator-functions.html[カスタム計算機機能の操作]

@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-distinguish-between-root-tools-and-instance-tools",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{210980FD-04EE-4277-BCFA-23EDAAB50DA5}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ルート ツールとインスタンス ツールの区別
+
+WinToolbarsManager コンポーネントには、ルート ツールとインスタンス ツールの 2 種類のツールが含まれます。ルート ツールは、UltraToolbarsManager の Tools コレクションに属するツールです。インスタンス ツールとは、特定のツールバーやメニューの Tools コレクションに属しているツールのことで、ルート ツールが実体化されたものです。
+
+ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase~isroottool.html[IsRootTool]"]  プロパティを使用すると、ルート ツールとインスタンス ツールを区別できます。このプロパティは、ツールがルート ツールの場合に True を返し、インスタンス ツールの場合に False を返します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnToolbar_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnToolbar.Click
+	' False を返します。
+	MessageBox.Show(Me.UltraToolbarsManager1.Toolbars(1).Tools(0).IsRootTool)
+End Sub
+Private Sub btnTools_Click(ByVal sender As System.Object, _
+ ByVal e As System.EventArgs) Handles btnTools.Click
+	' True を返します。
+	MessageBox.Show(Me.UltraToolbarsManager1.Tools(0).IsRootTool)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnToolbar_Click(object sender, EventArgs e)
+{
+	// Falseを返します。
+	MessageBox.Show(this.ultraToolbarsManager1.Toolbars[1].Tools[0].IsRootTool.ToString());
+}
+private void btnTools_Click(object sender, System.EventArgs e)
+{
+	// Trueを返します。
+	MessageBox.Show(this.ultraToolbarsManager1.Tools[0].IsRootTool.ToString());
+}
+----

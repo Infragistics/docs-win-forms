@@ -1,0 +1,116 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-backtracking-strategy",
+    "controlName": [],
+    "tags": [],
+    "guid": "9b5dbe0c-feb8-410b-95c4-4de4a14b24a9",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.080853Z"
+}
+|metadata|
+////
+
+= バックトラッキング方法
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、バックトラッキングによるエラー処理方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このグループのトピックでは、Infragistics Syntax Parsing Engine について説明します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349639323, はじめに >>
+* <<_Ref349639329, 概要 >>
+* <<_Ref349639333, 関連コンテンツ >>
+
+[[_Ref349639323]]
+== はじめに
+
+[[_Ref349639329]]
+
+=== 概要
+
+ユーザーがコードの一部を省略すると Syntax Parsing Engine が解析を誤る可能性があります。こうした特殊な場合はシンクロナイザー ペア エラー処理方法で処理できますが、大半の記号に対して link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol~isstartoferrorrecoverypair.html[IsStartOfErrorRecoveryPair] を設定しても意味をなしません。バックトラッキング方法は、不良解析判断から一般的なバッキング事例を処理します。以下は、パーサーが解析を開始したドキュメントの一部の例です。
+
+*C# の場合:*
+
+[source,csharp]
+----
+class X
+{
+      int A()
+      {
+      int B
+----
+
+パーサーは、ローカル変数「B」を含むメソッド「A」を含むクラス「X」内にあるとみなしています。ただし、ドキュメント全文はこのようになります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+class X
+{
+    int  A()
+    {
+    int B()
+    {
+    }
+}
+----
+
+構文解析がテキスト「B(」に到達すると、間違いがあることを認識します。ローカル変数宣言の後ろには 開カッコを続けることはできません。ここでどうなっているべきであったかと言うと、メソッド「A」のための閉カッコが抜けているとして挿入されるべきであったのと、「int B」はメソッドシグニチャの開始として解釈されるべきであったのです。
+
+バックトラッキング方法では、パーサーが作成したばかりの一部の小さな構文ノードを分割し、省略されていたものがユーザーによって盛り込まれていた場合にはそれらのノード内のトークンがより良い形で解析できたかもしれない可能性を確認します。上記の例では、閉カッコがないことを正しく報告します。
+
+バックトラッキング エラー処理方法に関する点について:
+
+* この方法は、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~preventbacktracking.html[NonTerminalSymbol.PreventBacktracking] プロパティを True に設定すると非終端記号で無効にすることができます。この値を True に設定した非終端記号に対しリダクションが起きると、リダクションによって作成された構文ノードはバックトラッキング方法を実施しようとして分割されることはありません。
+* エラー発生時にこのように分割されるのは、ほんのわずかな構文ノードのみです。また、あまりにも多くのトークンでノードが構成されていると、バックトラッキング方法は使用されません。ノード構造に解析された後で何百または何千というトークンを再解析するには時間がかかりすぎます。
+
+[[_Ref349639333]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[cols="a,a"]
+|====
+| link:ig-spe-synchronizer-symbol-strategy.html[シンクロナイザー記号方法]
+|このトピックは、シンクロナイザー記号によるエラー処理方法について説明します。
+
+| link:ig-spe-error-production-strategy.html[エラー生産方法]
+|このトピックは、エラー生産によるエラー処理方法について説明します。
+
+| link:ig-spe-synchronizer-pair-strategy.html[シンクロナイザー ペア方法]
+|このトピックは、シンクロナイザーのペアによるエラー処理方法について説明します。
+
+|====

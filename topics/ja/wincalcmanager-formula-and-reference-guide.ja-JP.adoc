@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-formula-and-reference-guide",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "bf67178a-c817-46da-8d26-d6436775c3a2",  
+    "buildFlags": [],
+    "createdOn": "2010-07-26T14:13:23.9932447Z"
+}
+|metadata|
+////
+
+= WinCalcManager 数式およびリファレンス ガイド
+
+このトピックは、WinCalcManager™ を使用する時に数式を作成してさまざまなソース項目を参照する方法について学習します。
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn] オブジェクトと link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.summarysettings.html[SummarySettings] オブジェクトの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~formula.html[Formula] プロパティは、WinCalcManager 固有の数式構文を含む文字列を指定するために使用されます。以下は、WinGrid で Formula プロパティを使用する例です。
+
+=== 列数式（Row-by-row 数式）
+
+WinGrid 列に指定された数式内で使用される時に、列参照（つまり [Price]、[Quantity] など）は個々のセル値を表します。このデザインによって、数式は個々の WinGrid 行ごとに評価できます。したがって、数式を持つ列の各セルには数式評価の結果が含まれます。
+
+以下のコード例は、Price セルに Quantity セルを掛ける Total 列の数式を設定します。Total 列に適用される数式で、大括弧内の列名は同じ行内のセルを表します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.Bands(0).Columns("Total").Formula = "[Price] * [Quantity]"
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Total"].Formula = "[Price] * [Quantity]";
+----
+
+=== 集計式
+
+集計ベースの数式で、列参照（つまり [Total]）はその列内の各セル値を表します。ほとんどの合計タイプ関数と同様に、このデザインによって数式は、結果を評価するために列内のセル値すべてを含むことができます。
+
+以下のコード例は、Total 列の合計を計算する数式による集計を追加します。集計用の数式を適用する時、大括弧内の列名は同じバンド内の列全体を表します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.Bands(0).Summaries.Add("GrandTotal", "sum( [Total] )")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Summaries.Add("GrandTotal", "sum( [Total] )");
+----
+
+== 数式構文：
+
+[start=1]
+. 列を参照するために、大括弧で列キーを囲みます。例：[Total]、[Quantity]。
+[start=2]
+. 合計ベースの集計式を使用するには、数式引数を含み、左丸括弧と右丸括弧が後ろに付いた数式名を使用します。例：[GrandTotal ()]。
+[start=3]
+. 別の列に指定されている数式から特定の列のすべてのセルを参照するには、以下のインジケーターを列名の後ろに使用します“($$*$$)”（引用符を除く）。例：[Price ($$*$$)]。[Price] のみの場合には、同じ行の Price セルを参照します。ただし、[Price ($$*$$)] はすべての Price セルを参照します。構文、 Price (0) を使用して、Visual Basic で配列の要素を参照するとして、これを考えてみましょう。ただし、数字の代わりにアスタリスク「$$* $$」を使用すると、計算エンジンによって、列のすべてのセルへの参照として解釈されます。この構文は行ベースの数式で使用されます。デフォルトで、列名だけを指定すると、現在の行のみに対してセル値を評価することになります。
+[start=4]
+. WinGrid でバインド列と非バインドされない列の両方に対して数式を指定できます。通常、新しい非バインド列を作成し、次に数式をその列に指定します。あるいは、実際的に基本のデータ ソースの一部である列に数式を指定することもできます。バインド列に指定された数式の結果は実際的には基本データ ソースに書き込まれます。
+[start=5]
+. WinGrid で同じバンドからだけでなくその他のバンドから列と集計を参照できます。数式を設定する時フォーム上のその他のコントロール（たとえば TextBox）を参照することもできます。参照名前空間は階層を形成します。フォーム上のコントロールはルート レベルとなります。UltraWinGrid の列と集計は、グリッドの子孫になります。ファイル システム パス同様に、計算ネットワークに参加できる参照をナビゲートできます。これらは相対にも絶対にもできます。絶対参照は「//」で始まるものです。相対参照は「//」で始まりません。
+
+参照の例:
+
+* [//ultraGrid1/Customers/CustomerID] - Customers バンドの CustomerID 列を参照します。
+* [//ultraGrid1/Customers/Customers_to_Orders/OrderID] - Customers_to_Orders バンドの OrderID 列を参照します。
+* Customers_to_Orders は Customers バンドの子バンドであるため、Customers は Customers_to_Orders の前に指定されます。
+* DataSet を WinGrid のデータ ソースとして使用する開発者のための注:Customers_to_Orders は子 DataTable の名前ではなく、子バンドに関連付けられた関係の名前です。複数の関係する DataTable を持つ DataSet は複数のネストされた ILists として最終的に使用されるため、親エンティティは子エンティティを表す IList プロパティを含みます。この構成で DataSets を使用する時、この IList プロパティは通常この階層を定義する DataRelation にちなんで命名されます。確信が持てない場合には、常に子バンドの Key プロパティを使用して、数式内で使用しなければならない識別子を知ることができます。
+
+実際の列が要素階層内のどこにあるのか不明な時には、列オブジェクトの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~formulaabsolutename.html[FormulaAbsoluteName] プロパティを使用できます。このプロパティは列の絶対名を返します。
+* [//textBox1] - フォーム上の textBox1 コントロールを参照します。
+* [//PI] - 名前付き参照を参照します。名前付き参照は、異なる数式で同じ値または式を複数回繰り返したくない状況で、複数のその他の数式で使用できる値または数式を表すために通常使用できます。UltraCalcManager は、NamedReferences プロパティによって名前付き参照のコレクションを公開します。たとえば、数式として「3.14」の PI 名前付き参照があり、この名前付き参照は、[//PI] を使用してさまざまなその他の数式で参照できます。この名前付き参照の値を変更する必要がある場合、ある場所の PI の値を変更すると、参照されるたびに複数の数式でこの値を変更します。
+* 上の階層に移動するためのファイル システム パスと全く同じように、参照は「..」（2 つの点）を含むことができます。たとえば、子バンドの列に数式があり、親バンドの中の列を参照したい場合には、構文、[../../Column1] を使用できます。
+* 参照には、[CustomerID (-1)] などの相対インデックスを含むことができ、前の行の CustomerID セルを参照します。
+* 以下の 2 通りのいずれかを使用して、数式の特定のセルを参照できます。
+
+.. [//ultraGrid1/Customer (2)/Total] のような整数インデックスを使用 - 現在の行コレクションの 3 番目の行（インデックス 2 の行）の Total セルを参照します。
+
+... 行を見つけるために基準を指定する列-値の組み合わせを使用します。たとえば [//ultraGrid1/Customers(CustomerID=ABCD, OrderID=111)/Total]。
+
+* グループ化:行を列でグループ化する場合、グループ化レベル情報を参照に含む必要があります。たとえば、State 列と City 列で行をグループ化する場合、整数インデックスを使用したセルへの参照は、[//ultraGrid1/Customers/State(2)/City(3)/Customers(2)/Total] のようになります。これは、3 番目の State グループ内の 4 番目の City グループの中にある 3 番目の行の Total セルを参照します。再度インデックスは 0 ベースになります。列-値の組み合わせは、グループ化された行シナリオでも使用できます。[//ultraGrid1/Customers/State(NY)/City(Albany)/Customers(CustomerID=ABCD)/Total] - その CustomerID セル値が ABCD で、NY State グループに属する Albany City グループに属する行の Total セルを参照します。 グループ化された行の構文に達する時に留意すべき点が 3 つあります。最初に、Customers バンド名は繰り返されます。これは、兄弟バンド間のあいまいさを解決するためです。バンド名の最初の発生には、インデックスまたは列-値組み合わせ情報が決して含まれません。第 2 に留意すべきことは、グループ化レベルを表すためにグループ化列名を使用することです。示された例では、State と City がグループ化列です。第 3 に留意すべきことは、絶対名に含まれるグループ化レベルに関連付けられたコンポーネントはグループ値を使用することで基準を指定することです。たとえば示された絶対例では、State(NY) は NY 値に関連付けられた State グループ化行を参照します。グループ化レベル コンポーネントは列-値の組み合わせをサポートしません。上記の通り、整数インデックスをサポートします。
+* 参照の整数インデックスはデフォルトで表示可能な行インデックスです。これらのインデックスが行インデックスか、表示可能な行インデックスか、それともリスト インデックスかを制御する link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride] オブジェクトの FormulaRowIndexSource プロパティがあります。
+* 範囲参照のサポートがあります。範囲参照によって、数式内のセルの範囲を参照することが可能となります。範囲参照は、「..」（点が 2 つ）または「:」（セミコロン）のいずれかによって区切られる 2 つの参照です。たとえば、[Price (0)]: [Price (5)] は 0 番目の Price セルから始まり 5 番目の Price セルを含むセル範囲を指定します。範囲参照の 2 つの特別なケースがあります。
+
+.. [Price (0)]: [Price] は、0 番目の Price セルから始まり現在の Price セルまでのセルの範囲を指定します（現在というのは、数式が評価されているセルの行からの Price セルという意味です）。最後の参照がインデックスを持たないことに注意してください。これは現在のセルを意味します。
+.. [Price (0)]: [Price ($$*$$)] は行コレクションの 0 番目の Price セルから始まり最後の Price セルまでのセル範囲を指定します。
+.. [Price]: [Price ($$*$$)] は、現在の Price セルから始まり最後の Price セルまでのすべてのセルを指定します。
+
+* 数式の参照名に特殊文字（\ / [] () “, =）が含まれている場合には、\（バックスラッシュ）エスケープ文字を使用してエスケープされる必要があります。

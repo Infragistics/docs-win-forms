@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-hide-tiles-using-close-button",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I"],
+    "guid": "{4F13DBD3-6D4B-4957-A8E5-3864A061A40C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 閉じるボタンを使用してタイルを非表示にする
+
+エンドユーザーがタイルを非表示にすることを可能にする閉じるボタンをランタイムにタイルに表示することができます。これは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile.html[UltraTile]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~showclosebutton.html[Settings.ShowCloseButton]"]  プロパティを True に設定することで特定のタイルに表示するか、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel.html[UltraTilePanel]"]  オブジェクトの TileSettings.ShowCloseButton プロパティを True に設定することですべてのタイルで表示することができます。
+
+[NOTE]
+====
+*注：* エンドユーザーが閉じるボタンをクリックすると、タイルは非表示になり、エンドユーザーが非表示のタイルを表示する方法はありません。非表示のタイルを表示するための唯一の方法は、visible プロパティを True に手動で設定することです。
+====
+
+このトピックは、UltraTilePanel がフォームにドロップされていることを前提とします。TilePanel コントロールへのタイルの追加については、 link:wintilepanel-add-and-remove-tiles-through-code.html[コードでタイルを追加および削除]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+' 特定のタイルに閉じるボタンを表示します 
+' tile1.Settings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.[True] 
+' UltraTilePanel コントロールですべてのタイルに閉じるボタンを表示します 
+Me.ultraTilePanel1.TileSettings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.[True]
+----
+
+*C# の場合：*
+
+----
+// 特定のタイルに閉じるボタンを表示します
+// tile1.Settings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.True;
+// UltraTilePanel コントロールですべてのタイルに閉じるボタンを表示します
+this.ultraTilePanel1.TileSettings.ShowCloseButton =    Infragistics.Win.DefaultableBoolean.True;
+----
+
+image::Images/WinTilePanel_Hide_Tiles_using_the_Close_Button_01.png[]
+
+== 関連トピック
+
+* link:wintilepanel-styling-the-close-button.html[閉じるボタンのスタイリング]

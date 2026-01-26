@@ -1,0 +1,102 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-data-binding-the-wintabstrip-control",
+    "controlName": ["WinTab"],
+    "tags": ["Data Binding","How Do I"],
+    "guid": "{5F9DBCFF-A918-4EC1-B0AD-851F9C22AA1E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTabStrip コントロールのデータバインディング
+
+== バックグラウンド
+
+WinTabStrip コントロールは、アプリケーション データのためのタブ スタイルのフロントエンドを提供します。このエレメントを使用すると、タブの選択に応じて内容が変化する、一連の共有コントロールを設定できます。タブそのものは、データソースの値に基づいて作成し、ラベルを付けることができます。
+
+== 質問
+
+* データソースからのデータに基づいてタブのテキストを設定するにはどうすればいいですか。
+* 共通のコントロールセットを作成してデータソースのデータをタブに表示するにはどうすればいいですか。
+
+== 解決策
+
+WinTabStrip エレメントを使用し、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabstripcontrol~tabkeymember.html[TabKeyMember]"] プロパティにデータソースのフィールドの 1 つを設定します。同じデータソースにバインドされているコントロールはすべて、タブ選択が変更されるたびに自動的に更新されます。
+
+== サンプル プロジェクト
+
+このプロジェクトでは、タブに表示するデータセットとしてメモリ内データセットを使用します。このデータセットを設定するためのコードはかなり大規模ですが、演習の目的から外れるため、ここでは説明しません。
+
+データセットを設定すれば、タブとそのコントロールをデータにバインドするのは簡単です。フォームの Load イベントでいくつかのプロパティを設定すれば、それですべてが処理されます。
+
+[start=1]
+. 新しい Windows Application を開き、UltraTabStrip エレメントをフォームに追加します。
+[start=2]
+. テキストボックスを TabStrip エレメントの共有コントロール ページに追加します。そして、テキストボックスの名前を次のように変更します。
+
+TextBox1.Name = "txtCustomerID"
+
+TextBox2.Name = "txtCompanyName"
+
+TextBox3.Name = "txtCity"
+[start=3]
+. 次のコードをフォームの Load イベントに入力します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DataBindingtheWinTabStripControl_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' データをフェッチします。
+	Me.SqlDataAdapter1.Fill(Me.DataSet11.Customers)
+	' タブ ストリップの TabKeyMember と ToolTipTextMember を設定します。
+	Me.UltraTabStripControl1.TabKeyMember = "CustomerID"
+	Me.UltraTabStripControl1.ToolTipTextMember = "CustomerName"
+	' タブ ストリップをデータソースにバインドします。
+	' 注：これにより Tabs コレクションが消去され、データソース内の
+	' すべての行に対応するタブが Tabs コレクションに格納されます。
+	Me.UltraTabStripControl1.SetDataBinding(Me.DataSet11.Customers, "")
+	' テキストボックスのデータ バインディングを設定します。
+	Me.txtCustomerID.DataBindings.Add("Text", Me.DataSet11.Customers, "CustomerID")
+	Me.txtCompanyName.DataBindings.Add("Text", Me.DataSet11.Customers, "CompanyName")
+	Me.txtCity.DataBindings.Add("Text", Me.DataSet11.Customers, "City")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DataBindingtheWinTabStripControl_Load(object sender, System.EventArgs e)
+{
+	// データをフェッチします。
+	this.sqlDataAdapter1.Fill(this.dataSet11.Customers);
+	// タブ ストリップの TabKeyMember と ToolTipTextMember を設定します。
+	this.ultraTabStripControl1.TabKeyMember = "CustomerID";
+	this.ultraTabStripControl1.ToolTipTextMember = "CustomerName";
+	// タブ ストリップをデータソースにバインドします。
+	// 注：これにより Tabs コレクションが消去され、データソース内の
+	// すべての行に対応するタブが Tabs コレクションに格納されます。
+	this.ultraTabStripControl1.SetDataBinding( this.dataSet11.Customers, "" );
+	// テキストボックスのデータ バインディングを設定します。
+	this.txtCustomerID.DataBindings.Add("Text", this.dataSet11.Customers, "CustomerID");
+	this.txtCompanyName.DataBindings.Add("Text", this.dataSet11.Customers, "CompanyName");
+	this.txtCity.DataBindings.Add("Text", this.dataSet11.Customers, "City");
+}
+----
+
+[start=4]
+. プロジェクトを実行します。3 つのテキストボックスを持つエレメントが表示されます。タブのテキストにはデータソースからの顧客 ID が設定され、タブの上にマウスを移動するとタブのツールチップに顧客名が表示されます。タブをクリックすると、顧客の ID、名前、および都市がテキストボックスに表示されます。また、タブのナビゲーション インタフェースも表示され、コントロール内にタブが多数ある場合にスクロールできます。
+
+image::images\WinTab_Data_Binding_the_WinTabStrip_Control_01.png[]
+
+== コードの説明
+
+TabKeyMember プロパティはこのコードの中で最も重要なプロパティで、データソースのどのフィールドを使用してタブのテキストを設定するのかを指定します。残りのコードでは、単に標準的なデータ バインディングの技術を使用しています。
+
+== まとめ
+
+この演習では、TabStrip をデータベース データのフロントエンド インタフェースとして使用する方法を示しました。コントロールをデータソースにバインドする方法と、コントロールで基本的なデータ ナビゲーション インタフェースを提供する方法を示しました。また、ナビゲーションを管理するコードや、データがバインドされたコントロールをタブ内部で更新するコードは _必要ない_ ことも示しました。

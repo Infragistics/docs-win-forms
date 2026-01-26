@@ -1,0 +1,73 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= アニメーション
+
+このトピックでは、link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] コントロールで有効にできるさまざまなアニメーションに関する情報を提供します。
+
+このトピックは、以下のセクションで構成されています。
+
+* <<Requirements,要件>>
+* <<Overview,{DataPieChartName} のアニメーション>>
+* <<RelatedTopics,関連コンテンツ>>
+
+[[Requirements]]
+=== 要件
+
+このトピックは、ユーザーがlink:data-pie-chart-data-binding.html[データ バインディング] トピックを既に読んでいることを前提とし、はじめにそのコードを使用します。
+
+[[Animation]]
+== {DataPieChartName} のアニメーション
+
+{DataPieChartName} は、スライスの表示や値の変更時のアニメーション化をサポートしています。
+
+TODO...
+
+[[CodeExample]]
+
+== コード例
+
+ifdef::wpf[]
+
+*XAML の場合:*
+
+[source,xaml]
+----
+TODO
+----
+
+*C# の場合:*
+
+[source, csharp]
+----
+TODO
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*C# の場合:*
+
+[source,csharp]
+----
+TODO
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== 関連コンテンツ
+
+* link:data-pie-chart-data-binding.html[データ バインディング]
+* link:data-pie-chart-others-category.html[その他カテゴリ]

@@ -1,0 +1,216 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-the-filter-row-feature",
+    "controlName": ["WinGrid"],
+    "tags": ["Filtering","Grids","How Do I"],
+    "guid": "{5146F2C1-64E3-4145-A3C5-FCE493544B30}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= フィルタ行機能の使用
+
+フィルター行は列ヘッダ領域にある link:wingrid-specifying-fixed-rows.html[固定行]で、指定した基準に一致しない行を非表示にする手段をユーザーに提供します。フィルター行機能を使用すると、他の行のフィルタリング条件値を入力するためのフィルター行が表示されます。これによりユーザーは、WinGrid 内の行または行セットを直感的で簡便な操作によって特定できます。フィルター行のセルに入力される値はフィルター オペランドです。フィルター演算子を選択するためのユーザー インターフェイス エレメントをフィルター行に表示することもできます。フィルター演算子は、行フィルタリング時にセルの値をフィルター オペランドとどのように比較するか（"is greater than" や "starts with" など）を決定します。グリッドのルート バンド内のフィルター行は固定できます（上下にスクロールしても画面上からなくなりません）。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. フィルター行を使用するためには、まず pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowrowfiltering.html[AllowRowFiltering]"]  を有効にする必要があります。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AllowRowFiltering = _
+  DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowRowFiltering = 
+  DefaultableBoolean.True;
+----
+
+[start=3]
+. 次に、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filteruitype.html[FilterUIType]"]  プロパティを設定できます。このプロパティは、行のフィルタリングのために表示するユーザー インターフェイスのタイプを指定します。オプションは、「列ヘッダにフィルター アイコンを表示する」と「フィルター行を表示する」の 2 つです。このプロパティを有効にするためには、AllowRowFiltering プロパティを True に設定する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterUIType = _
+  FilterUIType.FilterRow
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterUIType = 
+  FilterUIType.FilterRow;
+----
+
+[start=4]
+. WinGrid がフィルターをいつ適用するかを指定できます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filterevaluationtrigger.html[FilterEvaluationTrigger]"]  は、何が起こったときに行フィルタリングを実行するかを指定します。デフォルトでは、ユーザーがフィルター演算子またはフィルター オペランドの値を変更すると同時にフィルターが適用されます。
+
+*Visual Basic の場合：*
+
+----
+' ユーザーがセルから離れたときにフィルターを適用するよう設定します。
+Me.UltraGrid1.DisplayLayout.Override.FilterEvaluationTrigger = _
+  FilterEvaluationTrigger.OnLeaveCell
+----
+
+*C# の場合：*
+
+----
+// ユーザーがセルから離れたときにフィルターを適用するよう設定します。
+this.ultraGrid1.DisplayLayout.Override.FilterEvaluationTrigger = 
+  FilterEvaluationTrigger.OnLeaveCell;
+----
+
+[start=5]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filteroperatordefaultvalue.html[FilterOperatorDefaultValue]"]  プロパティも指定できます。このプロパティは、フィルター行の演算子セルのデフォルト値を表します。演算子セルが非表示の場合、これは対応するフィルターオペランドセルに入力された値に対するフィルター演算子として使用されます。このプロパティは各列でオーバーライドできます。'Default' は 'FilterOperatorDefaultValue' に解決されます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterOperatorDefaultValue = _
+  FilterOperatorDefaultValue.DoesNotContain
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterOperatorDefaultValue = 
+  FilterOperatorDefaultValue.DoesNotContain;
+----
+
+[start=6]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filteroperandstyle.html[FilterOperandStyle]"]  プロパティを設定して、フィルター行のセルに表示するオペランド入力のスタイルを指定することもできます。'Default' は 'Combo' に解決されます。このプロパティは、各列で FilterOperandStyle プロパティを使用してオーバーライドできます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterOperandStyle = _
+  FilterOperandStyle.DropDownList
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterOperandStyle = 
+  FilterOperandStyle.DropDownList;
+----
+
+[start=7]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filteroperatorlocation.html[FilterOperatorLocation]"]  プロパティを設定して、フィルター行のセルに表示する演算子入力のスタイルを指定します。このプロパティは、各列で FilterOperatorLocation プロパティを使用してオーバーライドできます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterOperatorLocation = _
+  FilterOperatorLocation.WithOperand
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterOperatorLocation = 
+  FilterOperatorLocation.WithOperand;
+----
+
+[start=8]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filteroperatordropdownitems.html[FilterOperatorDropDownItems]"]  を設定して、フィルター行のフィルター演算子ドロップダウン リストに表示する演算子を指定できます。これは、FilterOperatorLocation が "Hidden" に*設定されていない* 場合のみ役立ちます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterOperatorDropDownItems = _
+  FilterOperatorDropDownItems.All
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterOperatorDropDownItems = 
+  FilterOperatorDropDownItems.All;
+----
+
+[start=9]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.filterclearbuttonlocation.html[FilterClearButtonLocation]"]  プロパティを設定して、フィルター クリア ボタンをフィルター行に表示するかどうか、およびその表示位置を指定します。表示位置のオプションは、フィルター行セレクタ、フィルター セル、その両方の 3 つです。フィルター クリア ボタンは、セルまたは行全体のフィルターをリセットするときに使用します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterClearButtonLocation = _
+  FilterClearButtonLocation.Row
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterClearButtonLocation = 
+  FilterClearButtonLocation.Row;
+----
+
+[start=10]
+. その他の関連する設定として、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filterrowprompt.html[FilterRowPrompt]"]  プロパティがあります。このプロパティは、フィルター行に表示するプロンプト テキストを指定します。デフォルトでは、プロンプトは空の文字列です。プロンプトはフィルター行がアクティブになると消えます（アクティブ状態でなくなると再び表示されます）。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FilterRowPrompt = _
+  "Click here to filter rows..."
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterRowPrompt = 
+  "Click here to filter rows...";
+----
+
+このプロンプトの表示を単一のセルに制限するには、UltraGridBand.SpecialRowPromptField を設定します。
+
+*Visual Basic の場合：*
+
+----
+' 列の名前が "ContactTitle" の場合
+Me.UltraGrid1.DisplayLayout.Bands(0).SpecialRowPromptField = "ContactTitle"
+----
+
+*C# の場合：*
+
+----
+// 列の名前が "ContactTitle" の場合
+this.ultraGrid1.DisplayLayout.Bands[0].SpecialRowPromptField = "ContactTitle";
+----
+
+フィルター行の表示スタイルの設定には、次の 4 つの外観設定を使用できます。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filterrowappearance.html[ultraGrid1.DisplayLayout.Override.FilterRowAppearance]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filterrowappearanceactive.html[ultraGrid1.DisplayLayout.Override.FilterRowAppearanceActive]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~filtercellappearance.html[ultraGrid1.DisplayLayout.Override.FilterCellAppearance]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filterrowselectorappearance.html[ultraGrid1.DisplayLayout.Override.FilterRowSelectorAppearance]"] 
+
+次のスクリーンショットは、フィルター行機能を使用した WinGrid を示します。このフィルター行には、オペランドの左側に演算子ユーザー インターフェイスがあります。クリックすると、フィルター演算子ドロップダウンが表示され、演算子を選択できます。行セレクタ内のボタンは、すべての列のフィルターをクリアするボタンです。
+
+image::Images/WinGrid_Use_the_Filter_Row_Feature_01.png[]

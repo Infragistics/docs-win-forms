@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-changing-stylesets-at-run-time",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{64B1B885-C6C4-43B6-9481-233A03B8164B}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-04T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにスタイルセットを変更
+
+Infragistics AppStylist™ で作成した異なるスタイルをエンド ユーザーに選択させたい場合、スタイルセットを変更する必要があります。デザイン タイムまたはランタイムでスタイルセットを変更できます。デザイン タイムにスタイルセットを変更するには、アプリケーション スタイリングをサポートする Infragistics コントロールの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~stylesetname.html[StyleSetName]"]  プロパティを使用します。ラン タイムでは、スタイルセットを変更するには以下のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraMonthViewSingle.StyleSetName = "StyleSetBlue"
+----
+
+*C# の場合：*
+
+----
+this.ultraMonthViewSingle.StyleSetName = "StyleSetBlue";
+----
+
+== 関連トピック
+
+link:styling-guide-loading-a-stylelibrary.html[スタイル ライブラリのロード]

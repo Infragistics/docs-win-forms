@@ -1,0 +1,59 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-grouping-columns-in-row-layout-mode-using-the-designer",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Grouping"],
+    "guid": "{994254C3-EE7D-4AEE-BAF8-65D22501E8CD}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイナを使用して行レイアウト モードで列をグループ化
+
+*始める前に*
+
+グループ モードの行レイアウトによって、ユーザーは列だけでなく他のグループを含むグループを作成できます。これによって WinGrid™ 内で複数レベルのグループ化を提供します。
+
+*達成すること*
+
+この詳細なガイドは、WinGrid デザイナーを使用してグループを追加する方法を示します。このトピックは Windows Form に置かれた WinGrid コントロールから開始しますが、WinGrid コントロールは以下のスキーマでデータ ソースにバインドされます。WinGrid をデータにバインドする方法の詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+
+
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_01.png[]
+
+*次の手順を実行します*
+
+. WinGrid の [スタート] ボタンをクリックします。UltraWinGrid デザイナーが実行されます。
+. 左側のメニュー ツリーの「バンドおよび列の設定」のノードを指定して展開します。
+. [予算と経費の集計] バンドを指定して展開し、列の配置の概要をクリックします。行レイアウト デザイナーの使用方法の詳細は、 link:wingrid-using-row-layouts-designer.html[「行レイアウト デザイナーの使用」]を参照してください。
+. デザイナーの右側から [グループで行レイアウトを使用] を選択します。
+. [すぐに列の配置をデザインする] ボタンをクリックします。行レイアウト デザイナーが実行されます。
+. *グループを作成* - 1stQuarter 列ヘッダーを右クリックし、そのコンテキスト メニューから [グループに追加] > [新しいグループ] を選択します。
++
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_03.png[]
+
+. NewGroup0 という名前の新しいグループが作成されます。このグループを選択し、行レイアウト デザイナーの左側で使用できる ColumnInfo プロパティ設定ペインでグループの設定を変更できます。新しいグループに意味のある名前を提供するために、Caption プロパティを ‘2008 (Jan-June)’ に設定します。
++
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_04.png[]
+
+. 第 1 四半期の列は 2008 (Jan-June) グループに入ります。今度は、同じテクニックを使用して、第 2 四半期の列を右クリックし、同様にそれを 2008 (Jan-June) グループに追加します。
+. 手順 6 および 7 で概説した同じテクニックを使用して、2008 (July-Aug) という名前の新しいグループを作成し、残りの第 3 四半期と第 4 四半期の列をこのグループに追加します。
++
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_05.png[]
+
+. *親グループを作成* – 多くのレベルのグループを作成可能です。この手順では、以前に作成したグループを Expenses という名前のトップ レベル グループに追加します。2008 (Jan-June) グループを右クリックし、同じテクニックを使用して、これを Expenses という名前の新しいグループに追加します。同じことを行い、2008 (July-Dec) グループを Expenses グループに追加します。この時点で、グループ レイアウト配置は以下のスクリーンショットのようになります。
++
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_06.png[]
+
+. この時点で、行レイアウト モードで列をグループ化する方法の学習は無事終了しました。ただし、Budget Categories および Budget Amount 列は、列ヘッダーとデータ セルの間に大きなスペースがあることに気づくかもしれません。これを良い見栄えの外観にするために Budget Categories 列ヘッダーの下側にある菱形のアイコンをクリックし、それを下にドラッグします。これによって SpanY プロパティが変更されるので、列ヘッダーはその下の空のスペースを占有します。Budget Amount 列ヘッダーで同じプロシージャを繰り返します。
+. アプリケーションを実行します。WinGrid は以下の画像のようになるはずです。
++
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_07.png[]
+
+*関連トピック*
+
+* link:wingrid-grouping-columns-in-row-layout-using-code.html[コードを使用して行レイアウトで列をグループ化]
+* link:wingrid-collapsing-column-groups.html[列グループの縮小]

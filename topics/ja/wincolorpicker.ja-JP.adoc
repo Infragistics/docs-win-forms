@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincolorpicker",
+    "controlName": ["WinColorPicker"],
+    "tags": [],
+    "guid": "{83FB6486-879B-4298-A419-A147EF9FB49D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinColorPicker
+
+以下のリンクをクリックすると、WinColorPicker コントロールに関する説明を読むことができます。
+
+* link:wincolorpicker-about-wincolorpicker.html[WinColorPicker について] -- WinColorPicker コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wincolorpicker-smart-tag.html[WinColorPicker スマート タグ] -- WinColorPicker コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:wincolorpicker-changing-the-background-color-of-the-selectedrows.html[テキストボックスの背景色の変更] -- WinColorPicker コントロールを使用して WinGrid で選択行の背景色を変更する方法を示すサンプル コードが含まれています。
+* link:wincolorpicker-api-overview.html[API 概要] -- このトピックでは、WinColorPicker コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

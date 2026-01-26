@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-api-overview",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["API"],
+    "guid": "b544dacd-9140-431f-ad6c-2e23fa38e18c",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:14:51.4333456Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションは Infragistics Math Library に関連した各名前空間をリストします。また、このエンジンでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== Infragistics Math ライブラリ名前空間:
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math_namespace.html[Infragistics.Math]
+
+=== 主要な API:
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[BooleanMatrix]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexMatrix]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexvector.html[ComplexVector]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.constant.html[Constant]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrixbase.html[MatrixBase]
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector]

@@ -1,0 +1,78 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-solid-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{C531D99F-64BE-4A7B-B8DE-6CE45CECB926}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムに単色ブラシ エレメントを適用
+
+ゲージのプロパティが単色になるようにしたい場合には、単色ブラシ エレメントをプロパティに適用します。
+
+*コードを使用して単色ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+Dim solidFillBrushElement1 As New SolidFillBrushElement()
+----
+
+*C# の場合：*
+
+----
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as  RadialGauge;
+SolidFillBrushElement solidFillBrushElement1 = new SolidFillBrushElement();
+----
+
+[start=4]
+. 色を黒に設定します。
+
+*Visual Basic の場合：*
+
+----
+solidFillBrushElement1.Color = System.Drawing.Color.Black
+myRadialGauge.Dial.BrushElement = solidFillBrushElement1
+----
+
+*C# の場合：*
+
+----
+solidFillBrushElement1.Color = System.Drawing.Color.Black;
+myRadialGauge.Dial.BrushElement = solidFillBrushElement1;
+----
+
+== 関連トピック
+
+link:wingauge-solid-brush-element.html[単色ブラシ エレメント]
+
+link:wingauge-apply-the-solid-fill-brush-element-at-design-time.html[デザインタイムに単色ブラシ エレメントを適用]
+
+link:wingauge-apply-the-solid-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用して単色ブラシ エレメントを適用]

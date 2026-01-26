@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-looping-through-the-entire-grid",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{B4003820-D552-4130-954D-34B666254A0A}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= グリッド全体のループ処理
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~getrowenumerator.html[GetRowEnumerator]"]  メソッドを使用すると、容易に WinGrid 全体をループして特定の行の変更を検索できます。GetRowEnumerator メソッドは、特定のバンドにあるすべての行をループする目的で pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  クラスに追加されたものです。また、このメソッドは、特定の行コレクションにあるすべての行をループする目的で pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscollection.html[RowsCollection]"]  クラスにも追加されました。次のコードに 2 つの FOREACH ループの例を示します。この例では、バンドをループしています。2 つ目は行のコレクションをループする例を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+' この機能は、子バンドに特に有効です。
+' なぜならば、これまでのように子バンドのすべての行をループ処理するために再帰的な
+' メソッドを記述する必要がなくなったからです。
+Dim band As UltraGridBand = Me.ultraGrid1.DisplayLayout.Bands(1)
+Dim row As UltraGridRow
+For Each row In band.GetRowEnumerator(GridRowType.DataRow)
+	' 行を処理するコードを記述します。
+Next row
+' これで、子バンドからの行を含めて、グリッドのすべての行を 
+' ループ処理できます。
+Dim row As UltraGridRow
+For Each row In  Me.ultraGrid1.Rows.GetRowEnumerator(GridRowType.DataRow, Nothing, Nothing)
+	' 行を処理するコードを記述します。
+Next row
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+// この機能は、子バンドに特に有効です。
+// なぜならば、これまでのように子バンドのすべての行をループ処理するために再帰的な
+// メソッドを記述する必要がなくなったからです。
+UltraGridBand band = this.ultraGrid1.DisplayLayout.Bands[1];
+foreach (UltraGridRow row in band.GetRowEnumerator(GridRowType.DataRow))
+{
+	// 行を処理するコードを記述します。
+}
+// これで、子バンドからの行を含めて、グリッドのすべての行を 
+// ループ処理できます。
+foreach ( UltraGridRow row in this.ultraGrid1.Rows.GetRowEnumerator( GridRowType.DataRow, null, null ) )
+{
+	// 行を処理するコードを記述します。
+}
+----

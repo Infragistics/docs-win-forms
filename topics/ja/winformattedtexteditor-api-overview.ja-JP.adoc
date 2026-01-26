@@ -1,0 +1,43 @@
+﻿////
+|metadata|
+{
+    "name": "winformattedtexteditor-api-overview",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "{ACAFDC2C-8511-4492-A49C-187814213E26}",
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:52:18Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+[cols="a,a"]
+|====
+|*WinFormattedLinkLabel名前空間:* +
+(Miscアセンブリ) 
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel_namespace.html[Infragistics.Win.FormattedLinkLabel]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor.html[UltraFormattedTextEditor]"]
+
+|*WinFormattedLinkLabel 名前空間:* 
+
+(Win アセンブリ) 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel_namespace.html[Infragistics.Win.FormattedLinkLabel]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.editstatechangedeventargs.html[EditStateChangedEventArgs]"] 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo.html[FormattedTextEditInfo]"] 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.styleinfo.html[StyleInfo]"]
+
+|====

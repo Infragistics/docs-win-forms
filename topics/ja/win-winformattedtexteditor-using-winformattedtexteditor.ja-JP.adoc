@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-winformattedtexteditor-using-winformattedtexteditor",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{55EE5125-01CC-45A5-A0BF-B106AE76DC6C}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:25:18Z"
+}
+|metadata|
+////
+
+= WinFormattedTextEditor の使用
+
+このセクションでは、WinFormattedTextEditor™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winformattedtexteditor-accomplish-simple-tasks-with-the-performaction-method.html[PerformAction メソッドで簡単なタスクを実行]
+* link:winformattedtexteditor-add-items-to-winformattedtexteditors-context-menu.html[WinFormattedTextEditor のコンテキスト メニューに項目を追加]
+* link:winformattedtexteditor-apply-a-style-to-text.html[スタイルをテキストに適用]
+* link:winformattedtexteditor-clear-all-style-attributes.html[すべてのスタイル属性をクリア]
+* link:winformattedtexteditor-clearing-specific-styles-from-formatted-text.html[フォーマットされたテキストから特定のスタイルをクリア]
+* link:winformattedtexteditor-cut-copy-paste-and-delete-formatted-text.html[フォーマットされたテキストを切り取り、コピー、貼り付け、および削除]
+* link:winformattedtexteditor-determine-the-current-style.html[現在のスタイルを判断]
+* link:winformattedtexteditor-determining-if-text-is-in-a-specific-format.html[テキストが特定のフォーマットであるかどうかを判断]
+* link:winformattedtexteditor-display-winformattedtexteditors-support-dialog-boxes.html[WinFormattedTextEditor のサポート ダイアログ ボックスを表示]
+* link:winformattedtexteditor-embedding-winformattedtexteditor-in-a-wingrid-column.html[WinGrid 列に WinFormattedTextEditor を組み込む]
+* link:winformattedtexteditor-prevent-text-from-being-edited.html[テキストが編集されることを防止]
+* link:winformattedtexteditor-smooth-formatted-text.html[テキストを滑らかにフォーマット]
+* link:winformattedtexteditor-switching-between-design-view-and-code-view.html[デザイン ビューとコード ビューの切り替え]
+* link:winformattedtextwordwriter-export-formattedtexteditor-text-to-word.html[FormattedTextEditor テキストを Word にエクスポート]

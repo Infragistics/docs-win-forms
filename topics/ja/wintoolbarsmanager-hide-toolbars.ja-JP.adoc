@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-hide-toolbars",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Layouts"],
+    "guid": "{1B62F423-86ED-4202-99F9-D8CB6CD9E562}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツール バーを非表示にする
+
+WinToolbarsManager エレメント内のツールバーをデザインタイムに非表示にするには、コンポーネント トレイの中でコントロールを右クリックして「ツールバーを非表示にする」を選択するか、またはフォーム上のツールバーを右クリックして「ツールバーを非表示にする」を選択します。エレメントはデザインタイムにはフォーム上に表示されませんが、アプリケーションを実行すると表示されます。デザインタイムに非表示のツールバーを表示するには、コンポーネント トレイの中で UltraToolBarsManager を右クリックし、もう一度「ツールバーを非表示にする」を選択してオプションを切り替えます。すると、ツールバーが表示されます。
+
+以上のように、UltraToolBarsManager エレメント内のツールバーは、デザインタイムにすべて非表示にし、ランタイムに表示されるようにすることができます。また、ランタイムに特定のツールバーを非表示にすることも可能です。後者の方法はツールバーには適用できますが、メニューバーには適用できません。
+
+特定のツールバーは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~visible.html[Visible]"]  プロパティを False に設定することで非表示にできます。Visible プロパティを True に設定することで再び表示することができます。

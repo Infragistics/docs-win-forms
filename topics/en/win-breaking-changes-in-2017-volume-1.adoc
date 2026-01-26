@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "tags": ["Breaking Changes"],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= Breaking Changes in 2017 Volume 1
+
+== WinEditors
+
+`SpinWrapBehavior` obsoletes its predecessor, the `SpinWrap` property. In order to reduce breaking existing applications, SpinWrap has been obsoleted rather than replaced. Therefore it will not be shown through IntelliSense, since SpinWrapBehavior is the preferred implementation, but it is still valid to set for the sake of legacy code.
+
+The default behavior of all affected controls has been changed from `NoWrapping` to `WrapAcrossSections`, so any editors which did not have SpinWrap explicitly set will see that change in default behavior.
+
+See link:winmaskededitorbase-spinning.html[WinEditorMaskedControlBase Spin] for more information.
+
+== UltraDataChart
+=== Redesigned Chart Defaults
+[options="header", cols="a,a"]
+|====
+|Element | Changes
+|All color resources	
+|All color resource values were changed, and new resource values are added	
+|Brushes	
+|Most of the brush values were updated
+|====

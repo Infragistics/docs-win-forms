@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "coded-ui-test-extension",
+    "controlName": [],
+    "tags": [],
+    "guid": "669cfd60-3275-4b99-9220-1566fdb1d9cb",  
+    "buildFlags": [],
+    "createdOn": "2012-09-14T17:12:36.2794285Z"
+}
+|metadata|
+////
+
+= コード化された UI テストの拡張機能
+
+== このグループのトピックについて
+
+=== 概要
+
+このグループのトピックは、Windows Forms コントロールの Infragistics のコード化された UI テストの拡張子を説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:coded-ui-test-extension-overview.html[コード化された UI テストの拡張機能の概要]
+|このトピックでは、コード化された UI テストの拡張子でサポートされるコントロールの一覧、システムの提供、および許可要件について説明します。
+
+| link:using-the-coded-ui-test-extension.html[コード化された UI テストの拡張子の使用]
+|このトピックは、簡単な例を使用して _Infragistics_ でコード化された UI テストの記録を説明します。
+
+|====

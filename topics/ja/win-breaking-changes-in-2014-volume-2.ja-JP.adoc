@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2014-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "4a1d03ee-4aa7-4161-b8ce-fbb4f237bc9b",  
+    "buildFlags": [],
+    "createdOn": "2014-09-05T20:43:44.9878054Z"
+}
+|metadata|
+////
+
+= 2014 Volume 2 の重大な変更
+
+== WinGrid (非量的フィルタリング アプローチと量的フィルタリング アプローチ)
+
+=== 重大な変更点
+
+_UltraGrid_   の以前のバージョンでは、フィルタリング基準は量的な比較 ( _Equals_  、 _GreaterThan_  、 _LessThan_  ) および非量的な比較 ( _StartWith_  、  _EndWith_  、 _Contains_  ) に基づいていました。
+
+このアプローチは、数値フィールドや書式付きマスクを持つフィールドを非量的比較でフィルタリングする場合に、予期しない動作が発生します。数値フィールドが値でフィルタリングされると、以下のようなシナリオで誤った結果を返します。
+
+例: 1.20 を含む数値列が「 _EndWith .20_  」でフィルタリングされると、値によりフィルタリングされ、1.20 ではなく 1.2 を返します。末尾のゼロは、数値比較では考慮されないため、正しい比較を得ることができません。
+
+回避方法
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~filtercomparisonstyle.html[FilterComparisonStyle] プロパティに、非量的比較のための  _DisplayTextOnly_   と呼ばれる新しい値が含められました。既存の値も、値比較が必要な場合に動作を元に戻すために使用できます。
+
+[[_Ref367305781]]
+== インフラジスティックス Excel エンジン
+
+リリース 14.2 では、すべてのプラットフォームにおいて、 _INotifyPropertyChanged_   インターフェイスと  _INotifyCollectionChanged_   インターフェイスが、 _ブック_  、 _ワークシート_  、設定クラス、 _WorksheetCollection_   を含むいくつかの Excel クラスに実装されました。
+
+これは WPF プラットフォームで必要な通知インフラストラクチャおよび元に戻すインフラストラクチャの一部として実装されましたが、一時的に WinForms プラットフォームに影響する場合があり、最適化として 2014 年 10 月のサービスリリースで削除される予定です。

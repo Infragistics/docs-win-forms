@@ -1,0 +1,79 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-resource-strings",
+    "controlName": [],
+    "tags": ["Exporting","Resource Strings"],
+    "guid": "{CCB776A5-5B3A-4551-AE03-EE1B37338370}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridDocumentExporter リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|LDR_UltraGridDocumentExporter_E_BeginExport
+|エクスポートが始まる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_CellExported
+|グリッドのセルがレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_CellExporting
+|グリッドのセルがレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_EndExport
+|グリッドのエクスポートが終了した後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_ExportEnded
+|グリッドのエクスポートが終了した後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_ExportEnding
+|エクスポート処理の終了後、文書の作成を完了する前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_ExportStarted
+|エクスポートが始まる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_HeaderCellExported
+|ヘッダーのセルがレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_HeaderCellExporting
+|ヘッダーのセルがレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_HeaderRowExported
+|ヘッダーの行がレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_HeaderRowExporting
+|ヘッダーの行がレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_InitializeRow
+|行が初期化されるときに発生します。
+
+|LDR_UltraGridDocumentExporter_E_RowExported
+|グリッドの行がレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_RowExporting
+|グリッドの行がレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_SummaryCellExported
+|集計セルがレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_SummaryCellExporting
+|集計セルがレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridDocumentExporter_E_SummaryRowExported
+|集計行がレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridDocumentExporter_E_SummaryRowExporting
+|集計行がレポートにエクスポートされる前に発生します。
+
+|====

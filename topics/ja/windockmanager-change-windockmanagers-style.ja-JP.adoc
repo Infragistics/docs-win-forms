@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-change-windockmanagers-style",
+    "controlName": ["WinDockManager"],
+    "tags": ["Styling"],
+    "guid": "{6EAA6393-8F06-4777-95E8-18DFC89B5158}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDockManager のスタイルを変更
+
+ほとんどの {ProductName} コントロールおよびコンポーネントは、馴染みのある Microsoft® オペレーティング システム（つまり Windows® XP または Vista™）またはアプリケーション（つまり Windows® XP または Vista™）にコンポーネントのルック アンド フィールを変更することを可能にするプロパティを公開しています。WinDockManager™ は、WinDockManager のスタイルを簡単に変更することを支援する 2 つのプロパティを公開しています。
+
+link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~windowstyle.html[WindowStyle] – WindowStyle プロパティは、ペインに含まれる各ウィンドウのルック アンド フィールを変更します。これには、ヘッダー、ピン ボタンおよび閉じるボタンが含まれます。
+
+link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~dragindicatorstyle.html[DragIndicatorStyle] – ウィンドウのヘッダーをクリックしてドラッグすると、そのウィンドウを配置できる場所についての視覚的な手掛かりが提供されます。これらのドラッグ インジケータには、DragIndicatorStyle 列挙体で公開される選択可能な 3 つのスタイルがあります。
+
+以下のコード例は、Windows Vista にドラッグ インジケータの視覚的スタイルを設定すると同時に、WinDockManager の ウィンドウの視覚的スタイルを Visual Studio 2008 に設定します。
+
+image::images/WinDockManager_Change_WinDockManagers_Style_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.UltraDockManager1.WindowStyle = _
+	Infragistics.Win.UltraWinDock.WindowStyle.VisualStudio2008
+Me.UltraDockManager1.DragIndicatorStyle = _
+	Infragistics.Win.UltraWinDock.DragIndicatorStyle.VisualStudio2008Vista
+----
+
+*C# の場合：*
+
+----
+this.ultraDockManager1.WindowStyle = 
+	Infragistics.Win.UltraWinDock.WindowStyle.VisualStudio2008;
+this.ultraDockManager1.DragIndicatorStyle = 
+	Infragistics.Win.UltraWinDock.DragIndicatorStyle.VisualStudio2008Vista;
+----

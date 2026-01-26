@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-support-for-zero-data-points-in-charts-having-logarithmic-axes-whats-new-20073",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F462C3B5-0931-4530-9D1A-0CD6B3429642}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 対数軸を持つチャートのゼロ データ点のサポート
+
+算術的にゼロの対数は定義されていないので、ゼロ データ値が対数軸付きのグラフにデータを渡した場合、Infragistics の前バージョンは例外をスローしました。{ProductName} 2007 Volume 3 リリースでは、対数の軸のあるグラフで表示したいデータ セットの一部として供給されるゼロ データ ポイントを許可するために、0 の対数に別の値を設定することができます。
+
+グラフが Log(0) のプロットを試みる場合、値を表す特定の値に AxisAppearance オブジェクトで新しい LogZero プロパティを設定することができます。ToolTip はそれでも "0" を表示します。
+
+LogZero プロパティのデフォルト値は double.NaN です。このプロパティをデフォルト値にしておくと、例外がスローされます。
+
+以下のスクリーン ショットは、対数 y 軸とゼロ値で柱状グラフを示します。
+
+image::images/Chart_Plot_Log_Zero_Values_01.png[]
+
+== 関連トピック
+
+link:chart-linear-and-logarithmic-axes.html[リニアおよび対数の軸]

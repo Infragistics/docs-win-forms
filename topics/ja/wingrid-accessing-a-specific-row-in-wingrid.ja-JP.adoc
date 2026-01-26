@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-accessing-a-specific-row-in-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{0913741F-561E-4068-9635-7393966735F7}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 内の特定の行にアクセスする
+
+特定の行にアクセスする方法は、アクセスする行と、その行に関する既知の情報によって異なります。以下の例は、WinGrid の構造をトラバースして、WinGrid の行にアクセスする方法を示したものです。
+
+== WinGrid をトラバースして特定の行を取得するには、次の手順に従ってください。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. グリッド内の行をトラバースするには、行への参照を取得する必要があります。通常は、グリッド内の最初の行にアクセスしてそこから開始します。これには pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~getrow.html[GetRow]"]  メソッドを使用します。
+
+*Visual Basic の場合：*
+
+----
+Dim aRow As UltraGridRow
+aRow = UltraGrid1.GetRow(ChildRow.First)
+----
+
+*C# の場合：*
+
+----
+UltraGridRow aRow = this.ultraGrid1.GetRow(ChildRow.First);
+----
+
+[start=3]
+. 最初の行にアクセスしたら、複数のメソッドを使用して他の行への参照を取得できます。同一バンド内の次の行を取得する場合、まず次の行があるかどうかを確認します。行に次の兄弟があるかどうかを確認するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~hasnextsibling.html[HasNextSibling]"]  メソッドを使用します。
+
+*Visual Basic の場合：*
+
+----
+If aRow.HasNextSibling Then
+----
+
+*C# の場合：*
+
+----
+if(aRow.HasNextSibling())
+{
+----
+
+[start=4]
+. 次の兄弟があることがわかったら、行の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~getsibling.html[GetSibling]"]  メソッドを使用して次の兄弟にアクセスできます。
+
+*Visual Basic の場合：*
+
+----
+	Dim NextRow As UltraGridRow = aRow.GetSibling(SiblingRow.Next)
+	MessageBox.Show("Has Siblings")
+Else
+	MessageBox.Show("Has no Siblings")
+End If
+----
+
+*C# の場合：*
+
+----
+	UltraGridRow NextRow = aRow.GetSibling(SiblingRow.Next);
+	MessageBox.Show("Has Siblings");
+}
+else
+	MessageBox.Show("Has no Siblings");
+----
+
+[start=5]
+. 同様に、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~haschild.html[HasChild]"]  メソッドと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~getchild.html[GetChild]"]  メソッドを使用すると、子行への参照を取得できます。
+
+*Visual Basic の場合：*
+
+----
+If aRow.HasChild Then
+	Dim ChildRow As UltraGridRow = aRow.GetChild(Infragistics.Win.UltraWinGrid.ChildRow.First)
+	MessageBox.Show("Has a Child")
+Else
+	MessageBox.Show("Has no Child")
+End If
+----
+
+*C# の場合：*
+
+----
+if(aRow.HasChild())
+{
+	UltraGridRow childRow = aRow.GetChild(Infragistics.Win.UltraWinGrid.ChildRow.First);
+	MessageBox.Show("Has a Child");
+}
+else
+	MessageBox.Show("Has no Child");
+----

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wineditor-can-now-increment-by-values-other-than-one",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1D85C8EA-FE03-45AC-A1E7-467F50179512}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditor は 1 以外の値で増分可能
+
+WinEditor™ コントロールのスピン ボタンを使用して、エンド ユーザーは関連する値を 1 つずつ増減できます。ただし、希望する変更が大きい数である場合、これは面倒な作業になります。新しい link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor~spinincrement.html[SpinIncrement] プロパティを使用すれば、製品の大量注文の場合は一度に 1000 件、またはより正確な計測の場合は小数単位など、エンド ユーザーはより論理的な違いで値を変更できます。
+
+== 関連トピック
+
+link:winnumericeditor-incrementing-the-spin-value.html[定数値で増分]
+
+link:winmaskededit-incrementing-the-spin-value.html[定数値で WinMaskedEdit を増分] 

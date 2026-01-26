@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-embeddable-editor-events",
+    "controlName": ["WinTree"],
+    "tags": ["Events"],
+    "guid": "{9174598E-E08C-4C2A-B650-DF2D72CBBBCE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 埋め込みエディタ イベント
+
+WinTree™ は埋め込みエディタを直接やりとりするのではなく、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase.html[EmbeddableEditorOwnerBase]"]  クラスを実装することにより、埋め込みエディタに情報を渡します。詳細は、 link:wintree-embeddable-editors-overview.html[「埋め込みエディタの概要」]トピックを参照してください。
+
+項目のリストとともにロードされ、WinTree の EditorComponent プロパティに割り当てられた WinComboEditor コントロールを検証します。コントロールが pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~editorcomponent.html[EditorComponent]"]  プロパティに割り当てられると、埋め込みの WinComboEditor コントロールはエディタにホストを提供します。この場合は WinTree です。同様にこの例では、WinComboEditor コントロールはドロップダウンが表示する WinTree セルに EditorWithCombo 埋め込みエディタを提供します。
+
+したがってセルのドロップダウンから項目が選択されると、EditorWithCombo 埋め込みエディタのイベントを処理できます。
+
+[NOTE]
+====
+*注：* WinComboEditor コントロールはやりとりに関与しないので、イベントは発生しません。
+====
+
+以下のコードは、WinTree 内に組み込まれた WinComboEditor コントロールから項目が選択される時に EditorWithCombo 固有のイベント（この例では、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~selectionchanged_ev.html[SelectionChanged]"]  イベント）を処理する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' EditorWithCombo 変数を宣言します。 
+Private editor As EditorWithCombo = Nothing
+' UltraTree コントロールの AfterActivate イベントを処理して、ActiveNode に関連付けられた EditorWithCombo の SelectionChanged イベントを発生させます。  
+Private Sub ultraTree1_AfterActivate(ByVal sender As Object, ByVal e As NodeEventArgs) Handles ultraTree1. AfterActivate
+    Dim node As UltraTreeNode = e.TreeNode
+    If node Is Nothing Then
+        Exit Sub
+    End If
+Dim editor_Combo As EditorWithCombo = TryCast(node.EditorResolved, EditorWithCombo)
+' 前回エディタを変更して以降エディタが変更されていない場合には、正しいエディタのイベントをすでにリッスンしているので戻ります。 
+    If Me.editor = editor_Combo Then
+        Exit Sub
+    End If
+' 非 null エディタ 参照がある場合には、SelectionChanged イベントのフックを解除します。 
+' （以前の選択が異なるエディタだった場合にこのループが実行されます。） 
+    If Me.editor IsNot Nothing Then
+RemoveHandler Me.editor.SelectionChanged, AddressOf Me.editor_SelectionChanged
+        	Me.editor = Nothing
+    End If
+    ' 参照を設定します。 
+    Me.editor = editor_Combo
+    ' 新しいエディタでイベントを接続します。 
+AddHandler Me.editor.SelectionChanged, AddressOf Me.editor_SelectionChanged
+End Sub
+' EditorWithCombo の SelectionChanged イベントを処理します。 
+Private Sub editor_SelectionChanged(ByVal sender As Object, ByVal e As EventArgs) Handles editor.SelectionChanged
+    Dim editor As EditorWithCombo = TryCast(sender, EditorWithCombo)
+    Dim val As Object = editor.Value
+End Sub
+----
+
+*C# の場合：*
+
+----
+   // EditorWithCombo 変数を宣言します。     
+     private EditorWithCombo editor = null;
+// ActiveNode に関連付けられた EditorWithCombo の SelectionChanged イベントを発生させる目的で、UltraTree コントロールの AfterActivate イベントを処理します。  
+void ultraTree1_AfterActivate(object sender, NodeEventArgs e)
+        {
+            UltraTreeNode node = e.TreeNode;
+            if (node == null)
+                return;
+EditorWithCombo editor_Combo = node.EditorResolved as  EditorWithCombo;
+// 前回エディタを変更して以降エディタが変更されていない場合には、正しいエディタのイベントをすでにリッスンしているので戻ります。
+            if (this.editor == editor_Combo)
+                return;
+// 非 null エディタ 参照がある場合には、SelectionChanged イベントのフックを解除します。
+// （以前の選択が異なるエディタだった場合にこのループが実行されます。）
+            if (this.editor != null)
+            {
+this.editor.SelectionChanged -= new EventHandler(this.editor_SelectionChanged);
+               	this.editor = null;
+            }
+            // 参照を設定します。
+            this.editor = editor_Combo;
+           // 新しいエディタでイベントを接続します。
+this.editor.SelectionChanged += new EventHandler(this.editor_SelectionChanged);
+        }
+        // EditorWithCombo の SelectionChanged イベントを処理します。
+        private void editor_SelectionChanged(object sender, EventArgs e)
+        {
+            EditorWithCombo editor = sender as EditorWithCombo;
+            object val = editor.Value;
+        }
+----

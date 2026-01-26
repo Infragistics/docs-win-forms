@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-you-can-now-merge-ribbons-in-a-multiple-document-interface-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{67318585-924A-494C-9945-BCA48F28EA92}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:22:52Z"
+}
+|metadata|
+////
+
+= 複数のドキュメント インタフェースでリボンの結合が可能
+
+2006 Volume 3 で、弊社はリボンをリリースしました。しかし、リボンが処理できなかったことは、Multiple Document Interface (MDI) の結合でした。弊社の標準ツールバーは、複数のリリースで MDI 結合をサポートしています。リボン MDI 結合は、以前に存在していた MDI 結合と非常に似ています。
+
+MDI 結合によって、ご使用の標準ツールバーはリボンとなり、親ツールバーまたはリボンと結合できます。リボンの場合、親フォームはリボン タブおよび子フォームのグループをそれ自体に追加します。これによってエンド ユーザーは、ひとつの論理的な場所ですべての子フォームからすべてのツールを保持しながら作業面を最大化することができます。
+
+== 関連トピック
+
+link:wintoolbarsmanager-mdi-ribbon-merging.html[MDI リボン結合]

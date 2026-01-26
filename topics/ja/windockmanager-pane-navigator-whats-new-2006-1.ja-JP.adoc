@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-pane-navigator-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{193216CA-707E-4C53-B459-94C6CB93C880}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ペイン ナビゲータ
+
+Visual Studio® 2005 では、開いたドキュメントとツール ウィンドウの管理でユーザーを支援するために、ナビゲーション インタフェースの概念が導入されました。Infragistics は、この概念の基本的な仕組みを重視し、これを WinDockManager コントロールに適用しました。ただし、この概念は、Visual Studio 2005 固有というわけではなく、CLR 1.x や CLR 2.0 でも使用できます。
+
+WinDockManager のホスト コントロールが MDI の上位である場合、ナビゲータはデフォルト設定で自動的に動作します。エンド ユーザーが多数の MDI 子ウィンドウを管理する必要がある場合は、必ずナビゲータが必要となります。Ctrl-Tab キーを押すと、ちょうど Windows® の Alt-Tab キーを押すと表示されるようなナビゲータが画面の中央に表示されます。ナビゲータのインタフェースは即座にドッキング可能なウィンドウ、MDI 下位フォーム、記述エリアを表示します。左クリックか、矢印キーでナビゲートしてアクティブ化したい個別フォームを選択し、Enter キーを押します。
+
+image::images/WinDockManager_Pane_Navigator_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:windockmanager-prevent-the-navigator-from-being-displayed.html[ナビゲータの非表示化]
+
+link:windockmanager-show-the-navigator-programmatically.html[プログラミングによるナビゲータの表示]

@@ -1,0 +1,88 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-create-a-textdocument",
+    "controlName": [],
+    "tags": [],
+    "guid": "fe206df9-c3a6-418d-99ff-ea3bc7dbd0b9",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1038553Z"
+}
+|metadata|
+////
+
+= TextDocument の作成
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは TextDocument を紹介し、TextDocument 上で言語を設定する方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-create-custom-language.html[カスタム言語の作成]
+|このトピックは、カスタム言語を作成するプロセスを説明します。
+
+|====
+
+== TextDocument の概要
+
+=== 概要
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument.html[TextDocument] とは link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents_namespace.html[Infragistics.Documents] 名前空間内のクラスで、ドキュメントの変更および解析のための機能を提供します。カスタム言語 を設定するには、`TextDocument` クラスの link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument~language.html[Language] プロパティを使用してください。
+
+次は、`TextDocument` への C# 言語の設定の例です:
+
+*C# の場合:*
+
+[source,csharp]
+----
+var document = new TextDocument();
+document.Language = CSharpLanguage.Instance;
+----
+
+ドキュメントにコンテンツを読み込むには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument~initializetext.html[InitializeText] メソッド、あるいは link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument~load.html[Load] メソッドを使用してください。ドキュメントの変更に伴い、字句アナライザーが変更された部分のみ分析するために、ほとんどすべてのトークンが再利用されます。
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-create-custom-language.html[カスタム言語の作成]
+|このトピックは、カスタム言語を作成するプロセスを説明します。
+
+| link:ig-spe-customize-error-messages.html[エラー メッセージのカスタマイズ]
+|このトピックでは、Syntax Parsing Engine により生成されたエラー メッセージのカスタマイズ方法を説明します。
+
+| link:ig-spe-working-with-the-syntax-tree.html[構文ツリーでの作業]
+|このグループ内のトピックは、構文ツリーでの作業方法を詳細に説明します。
+
+| link:ig-spe-textdocument-overview.html[TextDocument の概要]
+|このトピックは、TextDocument クラスの概念的な情報とコード スニペットへのリンクを含みます。
+
+| link:ig-spe-textdocumentsnapshot-overview.html[TextDocumentSnapshot の概要]
+|このトピックでは、TextDocumentSnapshot オブジェクトのプロパティおよびメソッドの概要を提供します。
+
+| link:ig-spe-textdocumentsnapshotscanner-overview.html[TextDocumentSnapshotScanner の概要]
+|このトピックでは、TextDocumentSnapshotScanner オブジェクトのプロパティおよびメソッドの概要を提供します。
+
+|====

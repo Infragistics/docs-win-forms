@@ -1,0 +1,87 @@
+﻿////
+|metadata|
+{
+    "name": "wintab-layout-and-appearance-of-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{CAE8124E-7C89-421A-84ED-9D18BC6DEA15}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab および WinTabStrip のレイアウトと外観
+
+WinTab™ および WinTabStrip™ の両方で、次のプロパティを使用して、タブの外観とレイアウトを指定します。
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~Appearance.html[Appearance] -- 
+タブのデフォルトの外観を決定します。Tab 要素の SupportThemes プロパティが true に設定されている XP システムでは、要素にテーマが設定されて描画されます。この場合、BackColor、BorderColor などの外観設定は無視されます。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ActiveTabAppearance.html[ActiveTabAppearance] -- アクティブなタブ (フォーカスのあるタブ) のデフォルトの外観を指定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ClientAreaAppearance.html[ClientAreaAppearance] -- クライアント領域のデフォルトの外観 (タブ ヘッダー領域を除く要素全体) を決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~IsHotTracked.html[HotTrack] -- 
+True に設定すると、マウス オーバーしたタブの外観がランタイムで変更されます。デフォルトでは、tab 要素の SupportThemes プロパティが true に設定され、Style プロパティが PropertyPage または PropertyPageSelected に設定されている XP システムを除いて、タブの ForeColor のみが変更されます。この場合、ホットトラッキングされたタブは、下の画像に示すように、選択されたテーマ付きタブと同様に描画されます。
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_01.png[]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~HotTrackAppearance.html[HotTrackAppearance] -- ホットトラッキングされたタブの外観を決定します。一部の設定は、上記の画像のようにテーマ付きタブを描画する場合に無視されます。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~InterRowSpacing.html[InterRowSpacing] -- 複数行の TabLayoutStyles では、ピクセル単位でタブ行の間のスペースを指定します。負の値も使用できます。次の画像は、InterRowSpacing を 5 にした設定を示しています。
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_02.png[]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~InterTabSpacing.html[InterTabSpacing] -- ピクセル単位で同一行のタブの間のスペースを指定します。負の値も使用できます。次の画像は、InterTabSpacing を 3 にした設定を示しています。
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_03.png[]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~MaxTabWidth.html[MaxTabWidth] および link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~MinTabWidth.html[MinTabWidth] -- 画像とテキスト サイズに基づいてタブのサイズを計算する場合、このプロパティはタブの大きさを制限します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~SelectedTabAppearance.html[SelectedTabAppearance] -- 
+選択したタブ (タブ ページが現在表示されているタブ) のデフォルトの外観を指定します。
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ShowButtonSeparators.html[ShowButtonSeparators] -- このプロパティは、Style プロパティが StateButtons に設定されている場合にのみ有効です。次の画像は、スタイルが StateButtons に、TabButtonStyle が PopupSoftBorderless に、ShowButtonSeparators が true に設定された UltraTabControl を示しています。
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_04.png[]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~Style.html[Style] -- タブのスタイルを決定します。Style が StateButtons に設定されている場合、TabButtonStyle プロパティはボタンの外観を決定します。また、テーマ サポートは Windows  XP のみで使用できます。UseOsThemes プロパティで指定します。
+
+image::images/WinTabs_Layout_and_Appearance_of_WinTab_05.png[]
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~SupportThemes.html[SupportThemes] -- XP システムでこのプロパティが true、更に Style プロパティが PropertyPage または PropertyPageSelected に設定されている場合、スクロール ボタンとタブにテーマが適用されて表示されます。
+
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabButtonStyle.html[TabButtonStyle] -- このプロパティは、Style プロパティが StateButtons に設定されている場合にのみ有効です。
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabHeaderAreaAppearance.html[TabHeaderAreaAppearance] -- 
+タブ ヘッダー領域の背景の外観を決定します。
+
+.注:
+[NOTE]
+ .NET フレームワークがネストされた透明コントロールはサポートせず、要素がタブ ページの透明コントロールのコンテインメントをサポートする必要があるため、透過は要素で直接サポートされません。ただし、タブ要素が背景画像を持つコンテナーにある場合、この外観の ImageBackground プロパティを同じ画像に設定し、ImageBackgroundOrigin を Container に設定すると、タブのないタブ ヘッダー領域の部分が透明に表示されます。
+
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabLayoutStyle.html[TabLayoutStyle] -- タブのレイアウト方法を決定します。さまざまな単一行および複数行スタイルがあります。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabOrientation.html[TabOrientation] -- タブ ページ領域に相対して、左上、右下、左上などのタブの配置方法を指定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TabsPerRow.html[TabsPerRow] -- このプロパティは、TabLayoutStyle プロパティが SingleRowTabsPerRow または MultiRowTabsPerRow に設定されている場合にのみ有効です。各タブ行に配置するタブの数と各タブのサイズを決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~TextOrientation.html[TextOrientation] -- テキストが水平方向に回転するかどうか、また回転する方法を指定します。
+
+UltraTabControl  および UltraTabControl の両方で、次のプロパティを使用して、スクロール ボタンの外観を指定します。
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollArrowStyle.html[ScrollArrowStyle] -- スクロール ボタンの矢印の表示方法を指定します。 塗りつぶされた三角形、白抜き三角形またはシェブロン。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtonAppearance.html[ScrollButtonAppearance] -- 
+スクロールボタンの外観を決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtons.html[ScrollButtons] -- スクロール ボタンが常に、必要な場合にのみ表示され、または表示されないかを決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtonStyle.html[ScrollButtonStyle] -- スクロールボタンのスタイルを決定します。XP システムでは、SupportThemes が true で Style が PropertyPage または PropertyPageSelected の場合、このプロパティは無視されます。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollButtonTypes.html[ScrollButtonTypes] -- どのスクロール ボタンが表示されるかを決定します。次/前、次ページ/前ページ、最初/最後、つまみ。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollTrackAppearance.html[ScrollTrackAppearance] -- ScrollButtonTypes の Thumb ビットがオンに設定され、ボタンがテーマとして描画されない場合にのみ有効です。つまみが位置されているトラックの外観を決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTabControlBase~ScrollTrackExtent.html[ScrollTrackExtent] -- つまみトラックの長さを決定します。0 に設定すると、適切なサイズが計算されます。
+
+UltraTab オブジェクトで、次のプロパティを使用して、タブの外観を指定します。
+
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~Appearance.html[Appearance] -- 
+タブの通常の外観を決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~ActiveAppearance.html[ActiveAppearance] -- アクティブなタブ （タブに入力フォーカスがある場合） の外観を指定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~ClientAreaAppearance.html[ClientAreaAppearance] -- タブが選択されたタブ （そのタブ ページが表示されている） の場合に、クライアント領域 （タブ ヘッダー領域を除く要素全体） の外観を決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~FixedWidth.html[FixedWidth] -- 
+タブの幅をピクセル単位で指定します。0 に設定すると、適切な幅が計算されます。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~HasHotTrackAppearance.html[HotTrackAppearance] -- タブがホットトラッキングされたタブの場合に、タブの外観を決定します。HotTrack プロパティを true に設定する必要があります。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~SelectedAppearance.html[SelectedAppearance] -- 選択したタブ （タブ ページが表示されている場合） の外観を決定します。
+* link:infragistics.win.ultrawintabcontrol~Infragistics.Win.UltraWinTabControl.UltraTab~Text.html[Text] -- タブに表示されるテキストを指定します。タブに必要なサイズが決定される際、テキスト メトリックの計算はタブ要素の Font、Appearance、ActiveTabAppearance、HotTrackAppearance、および SelectedTabAppearance プロパティで指定された最大のフォントに基づきます。特定のタブ表示プロパティのフォント設定は無視されます。

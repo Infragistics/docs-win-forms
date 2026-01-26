@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-disabling-a-wingrid-column",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{3337FC79-9167-448E-8272-9983DEC8B94C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 列を無効にする
+
+WinGrid™ に修正してはならない、または特定の状況で適用しない情報の列が含まれる場合、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Column] オブジェクトの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~cellactivation.html[CellActivation] プロパティを Activation.Disabled に設定することによって、これらの列を無効にできます。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.activation.html[Activation] 列挙体には、特定の列に含まれる各セルに適用されるその他の役に立つアクティブ化固有の設定も含まれます。
+
+以下のコードは、WinGrid コントロールの最初のバンドの最初の列にあるすべてのセルを無効にします。無効にすると、列の各セルはテキストを上記のスクリーンショットのようにグレー表示します（個々のセルのアクティブ化が変更されない限り）。このトピックは、少なくともひとつのバンドとともにフォーム上に WinGrid コントロールがあることが前提となります。WinGrid コントロールのデータ バインディングの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+
+image::images/WinGrid_Disable_a_WinGrid_Column_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).CellActivation = _
+  Infragistics.Win.UltraWinGrid.Activation.Disabled
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].CellActivation = 
+  Infragistics.Win.UltraWinGrid.Activation.Disabled;
+----
+
+== 関連トピック
+
+link:wingrid-disabling-a-band-or-the-entire-wingrid.html[バンドまたは WinGrid 全体を無効にする]
+
+link:wingrid-disabling-a-wingrid-cell.html[WinGrid セルを無効にする]
+
+link:wingrid-disabling-a-wingrid-row.html[WinGrid 行を無効にする]

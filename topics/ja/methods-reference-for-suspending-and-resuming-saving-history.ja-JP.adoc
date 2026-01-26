@@ -1,0 +1,114 @@
+﻿////
+
+|metadata|
+{
+    "name": "methods-reference-for-suspending-and-resuming-saving-history",
+    "controlName": [],
+    "tags": ["API","Commands","Editing","Getting Started","How Do I"],
+    "guid": "c3db4b89-ce20-4c21-a406-5767383dcadf",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3650125Z"
+}
+|metadata|
+////
+
+= 履歴の保存を中断および再開するためのメソッド参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、履歴に元に戻す/やり直し操作を保存することを中断および再開するために使用可能なメソッドをリストします。
+
+=== 前提条件
+
+以下の表は、このトピックを理解するための前提条件として必要なトピックを示しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+|====
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320867189, 履歴の保存を中断および再開するためのメソッド参照 >>
+** <<_Ref320867284,はじめに>>
+** <<_Ref320867289,メソッド参照の概要>>
+
+* <<_Ref320867197, 関連コンテンツ >>
+
+[[_Ref320867189]]
+== 履歴の保存を中断および再開するためのメソッド参照
+
+[[_Ref320867284]]
+
+=== はじめに
+
+link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager_members.html[UndoManager] クラスは、元に戻す/やり直し履歴での保存を中断および再開するために 2 つのメソッドを公開します。
+
+データが最初に読み込まれるときに保存プロセスを中断したい場合があります。これで、コレクションの変更を保持することが不要となります。
+
+[[_Ref320867289]]
+
+=== メソッド参照の概要
+
+以下の表で、履歴の link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit_members.html[UndoUnit] インスタンスの記録を中断および再開するための `UndoManager` メソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~resume.html[Resume]
+|履歴内の `UndoUnit` インスタンスの記録を再開します。 
+
+`Suspend` メソッドへの各呼び出しには、対応する `Resume` メソッドへの呼び出しがなければなりません。これで保存が再開されます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~suspend.html[Suspend]
+|履歴内の `UndoUnit` インスタンスの記録を中断します。 
+
+link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addchange.html[AddChange] への呼び出し、または UndoUnit インスタンスを作成および保存するためのヘルパー メソッドは元に戻す/やり直し履歴に影響しません。
+
+|====
+
+[[_Ref320867197]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:methods-reference-for-adding-undounits-to-the-undo-history.html[UndoUnits を元に戻す履歴に追加するためのメソッド参照]
+|このトピックは、UndoUnit 派生クラス オブジェクトを元に戻す履歴に追加するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-removing-undounits-from-the-history.html[UndoUnits を履歴から削除するためのメソッド参照]
+|このトピックは、UndoUnit インスタンスを元に戻す/やり直し履歴から削除するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-registering-unregistering-objects.html[オブジェクトの登録/登録解除のためのメソッド参照]
+|このトピックは、UndoManager インスタンスに特定のオブジェクトを登録/登録解除するメソッドをリストします。
+
+| link:methods-reference-for-performing-undo-redo-operations.html[元に戻す/やり直し操作を実行するためのメソッド参照]
+|このトピックは、元に戻す/やり直し操作を実行するために使用可能なメソッドをリストします。
+
+| link:methods-and-properties-reference-for-performing-transactions.html[トランザクションを実行するためのメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直しトランザクションを実行するための使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-and-properties-reference-for-merging-undoredo-operations.html[元に戻す/やり直し操作の結合のメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直し操作の結合に関係する使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-and-properties-reference-for-creating-custom-undounit.html[カスタム UndoUnit を作成するためのメソッドおよびプロパティ参照]
+|このトピックは、Infragistics Undo/Redo Framework™ でカスタム UndoUnit を作成することに関連する使用可能なメソッドおよびプロパティをリストします。
+
+|====

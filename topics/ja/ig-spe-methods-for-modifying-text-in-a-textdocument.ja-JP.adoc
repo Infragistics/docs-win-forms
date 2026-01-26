@@ -1,0 +1,285 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-methods-for-modifying-text-in-a-textdocument",
+    "controlName": [],
+    "tags": [],
+    "guid": "3efd5d7a-bdbd-4415-9139-0c641f94e8fd",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.120857Z"
+}
+|metadata|
+////
+
+= TextDocument でテキストを変更するメソッド
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、`TextDocument` オブジェクトのテキストを変更するメソッドの概要を提供します。さらに、コード スニペットはこれらのメソッドの使用を示します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref327861013,テキストをドキュメントの最後に追加 - コード例>>
+
+** <<_Ref326147531,説明>>
+** <<_Ref326147537,コード>>
+
+* <<_Ref335122546,テキストをドキュメントから削除 - コード例>>
+
+** <<_Ref335122550,説明>>
+** <<_Ref335122555,コード>>
+
+* <<_Ref335122560,テキストをドキュメントに挿入 - コード例>>
+
+** <<_Ref335122565,説明>>
+** <<_Ref335122568,コード>>
+
+* <<_Ref335122576,ドキュメントで検出したテキストのすべての発生を置き換え - コード例>>
+
+** <<_Ref335122581,説明>>
+** <<_Ref335122584,コード>>
+
+* <<_Ref335122590,ドキュメントで検出したテキストの単一の発生を置き換え - コード例>>
+
+** <<_Ref335122596,説明>>
+** <<_Ref335122599,コード>>
+
+* <<_Ref335122603,ドキュメントの特定の場所にあるテキストを置き換え - コード例>>
+
+** <<_Ref335122608,説明>>
+** <<_Ref335122611,コード>>
+
+* <<_Ref335122617,関連コンテンツ>>
+
+** <<_Ref335122621,トピック>>
+
+[[_Append_Text_to]]
+[[_Ref327861013]]
+[[_Ref324841253]]
+== テキストをドキュメントの最後に追加 - コード例
+
+[[_Description]]
+
+=== 説明
+
+Append メソッドは、`TextDocument` クラスによって表されるテキストをドキュメントの最後に追加します。
+
+以下のコード例は TextBox コントロールのテキストをドキュメントの最後に追加します。
+
+[[_Code]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+_textDocument.Append(textBox.Text);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+_textDocument.Append(textBox.Text)
+----
+
+[[_Delete_Text_from]]
+[[_Ref335122546]]
+== テキストをドキュメントから削除 - コード例
+
+[[_Description_1]]
+
+=== 説明
+
+Delete メソッドはドキュメント内で、すべてのテキストを含みそれまでの、連続するテキストの指定した領域を削除します。削除操作が正しく完了したことを示す Boolean を返します。
+
+すべてのテキストを削除するには、パラメーターなしで Delete を呼び出します。
+
+以下のコード例は、オフセットに「0」を、長さとして “5” を Delete メソッドに渡すことによってドキュメントから最初の 5 文字を削除します。削除が成功したら、Visual Studio の出力ウィンドウにメッセージを書き込みます。
+
+[[_Code_1]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+int offset = 0;
+int length = 5;
+if (_textDocument.Delete(offset, length))
+    System.Diagnostics.Debug.WriteLine("Delete characters successful.");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim offset As Integer = 0
+Dim length As Integer = 5
+If _textDocument.Delete(offset, length) Then
+      System.Diagnostics.Debug.WriteLine("Delete characters successful.")
+End If
+----
+
+[[_Insert_Text_into]]
+[[_Ref335122560]]
+== テキストをドキュメントに挿入 - コード例
+
+[[_Description_2]]
+
+=== 説明
+
+Insert メソッドは特定のオフセットでテキストをドキュメントに挿入します。
+
+以下のコード例は、10 文字のオフセットで文字列 “INSERTED TEXT” を挿入する方法を示します。その結果存在するテキストの 11 番目と 12 番目の文字の間にテキストを挿入することになります。
+
+[[_Code_2]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+_textDocument.Insert(10, "INSERTED TEXT");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+_textDocument.Insert(10, "INSERTED TEXT")
+----
+
+[[_Replace_All_Occurrences]]
+[[_Ref335122576]]
+== ドキュメントで検出したテキストのすべての発生を置き換え - コード例
+
+[[_Description_3]]
+
+=== 説明
+
+`FindReplaceAll` メソッドは、ドキュメントで指定されたオフセットの位置の後の指定されたテキストのすべての発生を検出して置き換えます。このメソッドは TextSearchCritera オブジェクトを使用します。これは逐語的文字列または正規表現のいずれかを受け付けます。
+
+以下のコードは、ドキュメントの最初の行に位置するすべて小なり記号 “<” を見つけて小なり記号2 つ “<<.” と置換ます。
+
+[[_Code_3]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+TextSearchCriteria tsc = new TextSearchCriteria(true, "^<", RegexOptions.None);
+_textDocument.FindReplaceAll(tsc,"<<");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim tsc As New TextSearchCriteria(True, "^<", RegexOptions.None)
+_textDocument.FindReplaceAll(tsc,"<<")
+----
+
+[[_Replace_a_Single]]
+[[_Ref335122590]]
+== ドキュメントで検出したテキストの単一の発生を置き換え - コード例
+
+[[_Description_4]]
+
+=== 説明
+
+`FindReplace` メソッドは、ドキュメントで指定されたオフセットの位置の後の指定されたテキストの最初の発生を検出して置き換えます。このメソッドは `TextSearchCritera` オブジェクトを使用します。これは逐語的文字列または正規表現のいずれかを受け付けます。
+
+以下のコード例は、行の先頭に配置された「～より小さい」文字「<」の最初の発生を検出します。テキストに検索 50 文字を開始します。小なり記号 “<” を 2 つの小なり記号 “<<” と置き換えます。
+
+[[_Code_4]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+//50 文字をドキュメントで開始し、行の先頭に「～より小さい」文字の最初の発生を検出する
+//「～より小さい」文字のペアで置き換える
+TextSearchCriteria tsc = new TextSearchCriteria(true, "^<", RegexOptions.None);
+_textDocument.FindReplace("<<",tsc,50);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+'50 文字をドキュメントで開始し、行の先頭に「～より小さい」文字の最初の発生を検出する
+'「～より小さい」文字のペアで置き換える
+Dim tsc As New TextSearchCriteria(True, "^<", RegexOptions.None)
+_textDocument.FindReplace("<<", tsc, 0)
+----
+
+[[_Replace_Text_at]]
+[[_Ref335122603]]
+== ドキュメントの特定の場所にあるテキストを置き換え - コード例
+
+[[_Description_5]]
+
+=== 説明
+
+Replace メソッドはドキュメントでオフセットと長さまたは `TextSpan` オブジェクトによって定義された特定の位置に配置されたテキストを置き換えます。挿入された文字列の長さは置き換えるテキストの長さと等しい必要はありません。
+
+以下のコードは、ドキュメントの 100 番目の文字で開始するテキストの 10 文字を文字列 “REPLACED TEXT” で置き換えます。できあがったドキュメントはこの場合 3 文字の長さになります。13 文字の文字列が既存のテキストの 10 文字を置き換えます。
+
+[[_Code_5]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+_textDocument.Replace("REPLACED TEXT", 99, 10);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+_textDocument.Replace("REPLACED TEXT", 99, 10)
+----
+
+[[_Related_Content]]
+[[_Ref335122617]]
+== 関連コンテンツ
+
+[[_Topics]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-textdocument-overview.html[TextDocument の概要]
+|このトピックでは、Infragistics Syntax Parsing Engine のメイン クラス、`TextDocument` について説明します。最も重要なメソッド、イベントおよびプロパティを概略するトピックへのリンクが含まれています。
+
+| link:ig-spe-events-for-interacting-with-a-textdocument.html[TextDocument を操作するイベント]
+|このトピックでは、コードスニペットを使用して `TextDocument` クラス イベントについて説明します。
+
+| link:ig-spe-properties-for-configuring-a-textdocument.html[TextDocument を構成するプロパティ]
+|このトピックでは、カスタム構成を可能とするために公開された `TextDocument` クラス プロパティについて説明します。
+
+| link:ig-spe-implementing-a-textdocument-with-a-richtextbox.html[RichTextBox を含む TextDocument を実装]
+|このトピックでは、特定の言語に基づいて文書でキーワードを強調表示できる RichTextBox コントロールを使用する方法をコード スニペットを用いて説明します。
+
+|====

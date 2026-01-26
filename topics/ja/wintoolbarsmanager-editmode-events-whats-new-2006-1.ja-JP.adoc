@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-editmode-events-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{61089ED9-F9A6-46AD-B3D6-2F55795C9AD8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= EditMode イベント
+
+UltraToolbarsManager クラスと ToolBase クラスに、エディタツール（TextBoxTool、ComboBoxTool、FontNameTool、MaskedEditTool など）に関連した 5 つの新しいイベントが追加されました。
+
+* BeforeToolEnterEditMode -- このキャンセル可能なイベントは、ツールが編集モードに入る前にトリガーされます。
+* BeforeToolExitEditMode -- このキャンセル可能なイベントは、ツールが編集モードを出る前にトリガーされます。
+* AfterToolEnterEditMode -- このイベントは、ツールが編集モードに入るとトリガーされます。
+* AfterToolExitEditMode -- このイベントは、ツールが編集モードを出るとトリガーされます。
+* ToolEditError -- このイベントは、ユーザーが無効な値を入力した場合に、BeforeToolExitEditMode の後にトリガーされます。

@@ -1,0 +1,77 @@
+﻿////
+|metadata|
+{
+    "name": "getting-started-where-files-are-placed-on-your-file-system-during-installation",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{954281B4-BF65-48B0-950D-113FED711CDA}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= インストール時のシステム上のファイルの配置場所
+
+このトピックは、インストーラーに含まれるファイルとフォルダーがファイル システムに配置される場所を説明します。
+
+== Win プリセット
+`C:\Users\Public\Documents\Infragistics {ProductVersion}\Presets\CLR4x\Win`
+
+
+このフォルダーには、すべての {ProductName} コントロールおよびコンポーネントのために Infragistics が提供するすべてのインボックス プリセットが含まれます。インターフェイスのエレメントおよびアプリケーション全体で広範なフォーマッティングおよび動作オプションを適用するためにプリセットを使用できます。プリセットは XML フォーマットで保存されます。
+
+以下のとおり 3 つの異なるタイプのプリセットがあります。
+
+* 外観 -- コントロールまたはコンポーネントの視覚的スタイリングの情報を含みます。
+
+* 動作 -- コントロールまたはコンポーネントが動作する方法についての情報を含みます。
+
+* 外観と動作 -- コントロールまたはコンポーネントの視覚的スタイリングとコントロールまたはコンポーネントの動作に関する情報を含みます。
+
+
+== Win スタイル
+
+インストールの間に、「現在のユーザー」または「すべてのユーザー」をインストールするオプションが提供されます。選択に応じて、Templates、Palettes および Styles フォルダーが異なる場所に配置されます。
+
+
+=== 「現在のユーザー」オプションが選択された場合
+
+`C:\Users\[USERID]\Documents\Infragistics\{ProductVersion}\Windows Forms\AppStylist for Windows Forms\Palettes`
+
+`C:\Users\[USERID]\Documents\Infragistics\{ProductVersion}\Windows Forms\AppStylist for Windows Forms\Styles`
+
+`C:\Users\[USERID]\Documents\Infragistics\{ProductVersion}\Windows Forms\AppStylist for Windows Forms\Templates`
+
+=== 「すべてのユーザー」オプションが選択された場合
+
+`C:\Users\Public\Documents\Infragistics\20{ProductVersion}\Windows Forms\AppStylist for Windows Forms\Palettes`
+
+`C:\Users\Public\Documents\Infragistics\20{ProductVersion}\Windows Forms\AppStylist for Windows Forms\Styles`
+
+`C:\Users\Public\Documents\Infragistics\20{ProductVersion}\Windows Forms\AppStylist for Windows Forms\Templates`
+
+これらのフォルダーには Windows Forms内で使用可能なすべてのスタイルが含まれます。アプリケーションをスタイルするときにスタイルは Application Styling Framework（ASF）によって使用されます。
+
+
+== グローバル アセンブリ キャッシュ
+
+*CLR 4.0 以後の場合*
+
+`C:\Windows\Microsoft.NET\assembly\GAC_MSIL\`
+
+{ProductName} のインストールに関する詳細は、link:win-deploying-your-application.html[Windows Forms でアプリケーションの配備]を参照してください。
+
+== バージョン ユーティリティ
+
+インストーラーをダウンロードするには、link:https://github.com/Infragistics/winforms-resources[GitHub] にアクセスしてください。
+
+`C:\Program Files\Common Files\Infragistics\{ProductVersion}\Version Utility`
+
+このフォルダーには、プロジェクトのっぷグレードの必要なバージョン ユーティリティ ファイルが含まれます。
+
+== メインの Infragistics インストール フォルダー
+
+{InstallPath}
+
+このフォルダーとそのサブフォルダーには、デザインタイムに使用されるアセンブリだけでなくランタイムに使用されるアセンブリも含まれます。その他のファイルは、特定なコントロールに使用されるファイル (たとえば、`SpellChecker` に使用される辞書ファイル) などです。

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2009-volume-1",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{91F15178-6CA6-47B6-8BD0-DA684A27212F}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-03T11:24:13Z"
+}
+|metadata|
+////
+
+= 2009 Volume 1 の重大な変更
+
+Infragistics.Win.Misc 名前空間内の pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.autosizecontrolbase.html[AutoSizeControlBase]"]  オブジェクトの RequiredImageAndTextSize プロパティは現在廃止されています。 その代わりに、新しい GetRequiredImageAndTextSize メソッドが追加されました。このメソッドは画像とテキストを表示するためにパラメーターとしてサイズを認めます。
+
+今後の 2009.1 リリースからですが、スタート メニューのショートカットのパスは C:\Documents and Settings\AllUsers\StartMenu\Programs\Infragistics\x.x に変更されており、メインの Infragistics インストール フォルダーのパスは C:\Program Files\Infragistics\x.x\Windows Forms に変更されています。 さまざまなオペレーティング システム上のより具体的なパスについては、 link:getting-started-where-files-are-placed-on-your-file-system-during-installation.html[インストール時のシステム上のファイルの配置場所] を参照してください。

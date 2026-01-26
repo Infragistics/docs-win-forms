@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winscrollbar",
+    "controlName": ["WinScrollBar"],
+    "tags": [],
+    "guid": "{BF3E71FD-0EF2-40B6-B05E-CF5398D1F39C}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinScrollBar
+
+以下のリンクをクリックすると、WinScrollBar コントロールに関する説明を読むことができます。
+
+* link:winscrollbar-about-winscrollbar.html[WinScrollBar について] -- WinScrollBar コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winscrollbar-smart-tag.html[WinScrollBar スマート タグ] -- WinScrollBar コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winscrollbar-adding-vertical-and-horizontal-scrollbars.html[垂直スクロールバーと水平スクロールバーの追加] -- WinScrollBar コントロールを使用して垂直と水平のスクロールバーを追加する方法を説明しています。
+* link:winscrollbar-api-overview.html[API の概要] -- WinScrollBar コントロールを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

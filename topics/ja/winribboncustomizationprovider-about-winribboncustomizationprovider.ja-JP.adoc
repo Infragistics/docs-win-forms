@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "winribboncustomizationprovider-about-winribboncustomizationprovider",
+    "controlName": ["WinRibbonCustomizationProvider"],
+    "tags": ["Editing","Extending"],
+    "guid": "6a3282e7-bd77-4934-8a76-ef6532086a5c",  
+    "buildFlags": [],
+    "createdOn": "2011-04-26T21:12:55.9372583Z"
+}
+|metadata|
+////
+
+= WinRibbonCustomizationProvider について
+
+WinRibbonCustomizationProvider™ コンポーネントは、エンドユーザーによる link:wintoolbarsmanager.html[WinToolbarsManager]™ コンポーネントの link:wintoolbarsmanager-using-the-ribbon.html[リボン レイアウト]のカスタマイズを可能にします。WinRibbonCustomizationProvider™ は Infragistics.Win.SupportDialogs に属しており、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.iribboncustomizationprovider.html[IRibbonCustomizationProvider] インターフェイスを実装します。このインターフェイスを使用すると、リボンとそのコンポーネントの外観を管理およびカスタマイズすることができます。
+
+== WinRibbonCustomizationProvider の実装
+
+UltraRibbonCustomizationProvider コンポーネントを UltraToolbarsManager のリボンに割り当てる必要があります（以下のコードを参照してください）。これによって、クイック アクセス ツールバーをカスタマイズとリボンをカスタマイズの 2 つのリボンのカスタマイズ オプションがユーザーの右クリックのコンテキスト メニューに追加されます（以下の図 1）。この 2 つのオプションはクイック アクセス ツール バーとリボンをそれぞれカスタマイズするためのエントリ ポイントをユーザーに提供します。オプションを選択すると、対応するタブを事前に選択した状態でリボン カスタマイズ ダイアログを開きます（詳細は「リボン カスタマイズ ダイアログ」を参照してください）。
+
+[NOTE]
+====
+注: “UltraRibbonCustomizationProvider” は Visual Studio ツールボックスに表示する時の WinRibbonCustomizationProvider コントロールの名前です。UltraToolbarsManager でも同じことが発生します。
+====
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+Me.ultraToolbarsManager1.Ribbon.RibbonCustomizationProvider = this.ultraRibbonCustomizationProvider1
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+this.ultraToolbarsManager1.Ribbon.RibbonCustomizationProvider = this.ultraRibbonCustomizationProvider1;
+----
+
+image::images/WinToolbarsManager_About_WinRibbonCustomizationProvider_01.png[]
+
+図 1: WinRibbonCustomizationProvider を実装した後の右クリックのコンテキスト メニュー - カスタマイズ オプションが使用可能となっている
+
+== ユーザー操作と使いやすさ
+
+リボン カスタマイズ ダイアログで、ユーザーは以下を実行できます。
+
+* リボン タブ、グループ、ツールを管理する:
+
+** 追加/削除
+** 表示／非表示
+** 名前の変更
+** 位置変更
+
+* リボンのレイアウトのインポート/エクスポート
+* リボンを元のレイアウトにリセット
+
+== 関連トピック
+
+* link:winribboncustomizationprovider-using-the-ribbon-customization-dialog.html[リボン カスタマイズ ダイアログを使用]
+* link:winribboncustomizationprovider-adding-custom-tab-to-ribbon-customization-dialog.html[カスタム タブをリボン カスタマイズ ダイアログに追加]

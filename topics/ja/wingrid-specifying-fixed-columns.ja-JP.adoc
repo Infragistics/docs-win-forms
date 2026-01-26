@@ -1,0 +1,140 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-specifying-fixed-columns",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{CF3598F9-9A7E-438D-A020-3B7E850D9114}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 固定列の指定
+
+toc::[]
+
+== 固定列の指定方法
+
+これまでの WinGrid のバージョンでは、スクロールによって列が画面上から消えないようにロックするには、列のスクロール領域を作成し、列を排他的に割り当て、さまざまなプロパティを設定するという、手動のプロセスが必要でした。DisplayLayout オブジェクトと HeaderBase オブジェクトの新しいプロパティにより、列のスクロール領域を使用しなくても、スクロールしない列やグループをすばやく設定できます。
+
+固定（非スクロール）列を有効にするには、次の手順に従います。
+
+
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
++
+*Visual Basic の場合：*
++
+----
+Imports Infragistics.Win.UltraWinGrid
+----
++
+*C# の場合：*
++
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+
+. グリッドの固定ヘッダを有効にします。固定ヘッダは、グリッド レベルで有効または無効にする必要があります。これは、固定ヘッダを使用した場合、スクロールしてもレコード セレクタが常に表示され、これがすべてのバンドに適用されるためです。固定ヘッダをグリッド全体で有効にするには、グリッドの InitializeLayout イベントに次のコードを追加します。
++
+*Visual Basic の場合：*
++
+----
+Me.UltraGrid1.DisplayLayout.UseFixedHeaders = True
+----
++
+*C# の場合：*
++
+----
+this.ultraGrid1.DisplayLayout.UseFixedHeaders = true;
+----
+
+. 固定ヘッダを有効にしたら、特定のバンド内のどの列またはグループを固定するかを、関連付けられた Header オブジェクトの Fixed プロパティを設定することによって指定します。次のコードは、列レベルでこれを実行する方法を示しています。
++
+*Visual Basic の場合：*
++
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("CustomerID").Header.Fixed = True
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("ContactName").Header.Fixed = True
+----
++
+*C# の場合：*
++
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["CustomerID"].Header.Fixed = true;
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["ContactName"].Header.Fixed = true;
+----
+
+. あるバンドまたはグリッドの UseFixedHeaders プロパティを True に設定すると、影響を受ける列のヘッダに、デフォルトで「固定列」プッシュピン アイコン が表示されます。これは、固定する列またはグループを、ユーザーがすばやく簡単に選択するためのインタフェースになります。このインタフェースの制御には、いくつかのオプションがあります。まず、列またはグループ ヘッダでデフォルトのプッシュピン ボタンを使用できます。列およびグループの入れ替えが有効になっている場合は、このボタンを削除し、代わりに列を固定または固定解除するオプションをグループ/列入れ替えドロップダウンに表示できます。また、インタフェースを完全に非表示にして、列の固定または固定解除をコードで制御することもできます。
++
+このオプションはバンド レベルで設定できるため、この機能がグリッド全体で有効になっている場合も、バンドごとに固定列を制御できる点に注意してください。固定列がひとつのバンドでのみ必要な場合は、そのバンドで固定列を設定し、他のバンドから固定列機能にアクセスするための UI エレメントを削除します。
++
+グリッドの列およびグループ ヘッダ内でのプッシュピン アイコンの表示を無効にするには、次のコードを使用します。
++
+*Visual Basic の場合：*
++
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Override.FixedHeaderIndicator = FixedHeaderIndicator.None
+----
++
+*C# の場合：*
++
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Override.FixedHeaderIndicator = FixedHeaderIndicator.None;
+----
+
+. 固定ヘッダ インジケータの外観を変更する場合は、Override オブジェクトの FixedHeaderAppearance プロパティを使用します。同様に、Override オブジェクトの FixedCellAppearance プロパティを使用することによって、固定ヘッダと関連付けられたセルの外観を変更できます。Override オブジェクトの FixedCellSeparatorColor プロパティを使用することによって、固定セルと非固定セル間に表示される 1 ピクセル幅の線の色を変更することも可能です。
++
+*Visual Basic の場合：*
++
+----
+Me.UltraGrid1.DisplayLayout.Override.FixedHeaderAppearance.BackColor = Color.LightYellow
+Me.UltraGrid1.DisplayLayout.Override.FixedCellAppearance.BackColor = Color.LightYellow
+Me.UltraGrid1.DisplayLayout.Override.FixedCellSeparatorColor = Color.Red
+----
++
+*C# の場合：*
++
+----
+this.ultraGrid1.DisplayLayout.Override.FixedHeaderAppearance.BackColor = Color.LightYellow;
+this.ultraGrid1.DisplayLayout.Override.FixedCellAppearance.BackColor = Color.LightYellow;
+this.ultraGrid1.DisplayLayout.Override.FixedCellSeparatorColor = Color.Red;
+----
+
+以下のスナップショットは、階層的な UltraWinGrid の固定ヘッダを表示します。見て分かるように、バンドでは固定ヘッダの数を変更できます。
+
+image::Images/WinGrid_Specify_Fixed_Columns_01.png[]
+
+== ColPosChanged イベント
+UI を使用して列を固定すると、
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforecolposchanged_ev.html[BeforeColPosChanged]
+および
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~aftercolposchanged_ev.html[AfterColPosChanged]
+イベントが発生します。同様に、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroup.html[UltraGridGroup] を固定すると、
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforegroupposchanged_ev.html[BeforeGroupPosChanged]
+および
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~aftergroupposchanged_ev.html[AfterGroupPosChanged] イベントが発生します。
+
+この相互作用をリッスンするには、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.beforecolposchangedeventargs~ColumnPosChangedType.html[ColumnPosChangedType] が link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.poschangedtype.html[PosChangedType]  になることをトラップします。次のコードに示すように、イベント引数に FixedStateChanged を追加します。
+
+*C# の場合:*
+[source, csharp]
+private void UltraGrid1_AfterColPosChanged(object sender, AfterColPosChangedEventArgs e)
+{
+    bool hasFixedChanged = (e.ColumnPosChangedType & PosChangedType.FixedStateChanged) == PosChangedType.FixedStateChanged;
+    if(hasFixedChanged)
+    {
+        //コードの追加
+    }
+} 
+
+*Visual Basic の場合:*
+[source, vb]
+Private Sub UltraGrid1_AfterColPosChanged(sender As Object, e As AfterColPosChangedEventArgs)
+    Dim hasFixedChanged As Boolean = (e.ColumnPosChangedType And PosChangedType.FixedStateChanged) = PosChangedType.FixedStateChanged
+    If hasFixedChanged Then
+        'コードの追加
+    End If
+End Sub

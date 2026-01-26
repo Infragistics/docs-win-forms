@@ -1,0 +1,36 @@
+﻿////
+|metadata|
+{
+    "name": "windropdown-resize-drop-down-in-windropdown",
+    "controlName": ["WinDropDown"],
+    "tags": ["How Do I"],
+    "guid": "ab537e9a-8b7e-45ff-ad4d-900437ba0fc0",
+    "buildFlags": [],
+    "createdOn": "2010-06-03T21:51:36.5500761Z"
+}
+|metadata|
+////
+
+= WinDropDown のドロップダウンのサイズ変更
+
+WinDropDown™ コントロールのドロップダウンは、ハンドルを使用してサイズ変更できます。ハンドルは、ドロップダウンの下部に垂直または斜めに配置できます。ハンドルでは、ドロップダウンのサイズを変更して、コントロールのサイズのために切り捨てられたドロップダウンのテキストやアイテムを表示できます。デフォルトで、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~dropdownresizehandlestyle.html[DropDownResizeHandleStyle] プロパティは None に設定されています。特定のスタイルに設定され、ランタイムにサイズが変更されると、サイズ変更された高さおよび幅が、そのアプリケーションの実行中、保存されます。また、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~dropdownresizehandleappearance.html[DropDownResizeHandleAppearance] プロパティを使用してハンドルをスタイル設定することもできます。
+
+次のコードは、UltraGrid および UltraDropDown コントロールをフォームにドロップしたことを前提とします。UltraGrid コントロールは Customers テーブルにバインドされ、UltraDropDown は Orders データ テーブルにバインドされます。UltraDropDown コントロールは UltraGridColumn の ValueList プロパティに割り当てられます。
+
+*Visual Basic の場合:*
+
+----
+' Set the Drop Down Resize handle style for UltraDropDown
+Me. ultraDropDown1.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.DiagonalResize 
+' Set the back color for the handle 
+Me. ultraDropDown1.DropDownResizeHandleAppearance.BackColor = Color.Blue
+----
+
+*C# の場合:*
+
+----
+// Set the Drop Down Resize handle style for UltraDropDown
+this. ultraDropDown1.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.DiagonalResize;
+// Set the back color for the handle
+this. ultraDropDown1.DropDownResizeHandleAppearance.BackColor = Color.Blue;
+----

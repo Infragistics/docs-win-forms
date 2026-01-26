@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "tags": ["Breaking Changes"],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2017 Volume 1 の重大な変更
+
+== WinEditors
+`SpinWrap` プロパティが非推奨となり、代わりに `SpinWrapBehavior` が導入されました。既存のアプリケーションへの支障を軽減するために、SpinWrap は置き換えではなく非推奨となります。推奨されている実装が SpinWrapBehavior であるため、SpinWrap は IntelliSense では表示されませんが、レガシーコードで使用するための設定があります。
+
+影響を受けるすべてのコントロールのデフォルトの動作が `NoWrapping` から `WrapAcrossSections` に変更されたため、SpinWrap が明示的に設定されていないエディターでは、`WrapAcrossSections` の動作がデフォルトの動作になります。
+
+詳細は link:winmaskededitorbase-spinning.html[WinEditorMaskedControlBase] スピンを参照してください。
+
+== UltraDataChart
+
+=== チャート デフォルト値のデザイン更新
+[options="header", cols="a,a"]
+|====
+|要素 | 更新
+|すべての色リソース	
+|すべての色リソース値が変更され、新しいリソース値が追加されました。	
+|ブラシ	
+|ほとんどのブラシ値が更新されました。
+|====

@@ -1,0 +1,127 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-share-data-selection-and-appearances",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{AEB32337-E996-4CF6-AC3E-4917C9967EC1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= データ、選択項目、および外観の共有
+
+WinSchedule 製品は 7 つのコントロールおよびコンポーネントから構成されています。このトピックはこれらすべてのコントロールに適用されます。
+
+* WinCalendarCombo
+* WinCalendarInfo
+* WinDayView
+* WinMonthViewMulti
+* WinMonthViewSingle
+* WinSchedulePrintDocument
+* WinWeekView
+
+これらのエレメントは通常、豊富なカレンダー機能を備えた UI を提供するために組み合わされて使用されます。同じ形式で使用する場合、一般的に同じデータ セットの異なるビューを示します（すなわち、予定、休日、メモなど）。
+
+たとえば、MonthViewSingle エレメントはひと月分の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentscollection.html[Appointments]"]  を表示するために使用される場合がありますが、同じ形式の DayView エレメントは、その月の特定の日の予定がその日にどのように含まれるのかを示すために使用されます。
+
+== データ（予定、休日、メモ）の共有
+
+同じデータ セットを共有する複数の UltraWinSchedule エレメントを含む UI を設計するために必要な労力を削減するために、WinSchedule には UltraCalendarInfo エレメントが含まれており、すべてのデータを集中管理します。WinCalendarInfo コントロールは、WinSchedule エレメントによって表示可能なすべてのデータ（予定、休日、メモ）の中心となるレポジトリです。UltraCalendarInfo エレメントのインスタンスには、複数の WinSchedule エレメントによって共有可能な予定、休日およびメモのコレクションが含まれます。
+
+== UltraCalendarInfo エレメント
+
+それぞれの WinSchedule コントロールは、エレメントにデータを提供する pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo.html[UltraCalendarInfo]"]  インスタンスへの参照である CalendarInfo プロパティを持っています。エレメントの UltraCalendarInfo プロパティがデザインタイムまたはランタイムに明示的に設定されない場合、初めてプロパティにアクセスされた時に UltraCalendarInfo インスタンスが自動的に作成されます。このシナリオでは、UltraCalendarInfo インスタンスに追加される任意のデータのみをそのエレメントで使用できます。たとえば、フォームに 'ultraDayView1' と呼ばれる UltraDayView エレメントのインスタンスが含まれ、その CalendarInfo プロジェクトが明示的に設定されない場合、以下のコードはエレメントに提供されるデフォルトの UltraCalendarInfo インスタンスに予定を追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraDayView1.CalendarInfo.Appointments.Add(DateTime.Now, "New Appointment")
+----
+
+*C# の場合：*
+
+----
+this.ultraDayView1.CalendarInfo.Appointments.Add(DateTime.Now, "New Appointment");
+----
+
+UltraWinDayView エレメントはこれで予定を表示します。次の手順に進むと、このデフォルトの UltraCalendarInfo インスタンスは、以下のコードを使用すればフォームの他の WinSchedule エレメントと共有できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraMonthViewSingle1.CalendarInfo = Me.UltraDayView1.CalendarInfo
+----
+
+*C# の場合：*
+
+----
+this.ultraMonthViewSingle1.CalendarInfo = this.ultraDayView1.CalendarInfo;
+----
+
+これが完了すると両方のエレメントは予定を表示します。
+
+UltraCalendarInfo エレメントでデータを共有するためのもうひとつの方法は、複数の WinSchedule エレメントにデザイン時にリンクすることです。これを実行するには、ツールボックスからフォームに UltraCalendarInfo ツールをドラッグします。
+
+[NOTE]
+====
+*注:* UltraCalendarInfo エレメントは System.ComponentModel.Component から派生し UI を持たないので、フォーム デザイナの下側のコンポーネント トレイに表示されます。
+====
+
+デザイナのプロパティ ブラウザを使用して、フォームの各 WinSchedule エレメントで CalendarInfo プロパティを設定します。
+
+[NOTE]
+====
+*注:* プロパティ ブラウザを使用してデザインタイムに WinSchedule エレメントで CalendarInfo プロパティを設定する場合、フォームに使用できるすべての UltraCalendarInfo エレメントを示すドロップダウン リストが表示されます。
+====
+
+デザインタイムのリンクが確立されれば、以下のコード行がランタイムに実行されます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraCalendarInfo1.Appointments.Add(New DateTime(2005, 10, 28, 12, 15, 1), "Second Appointment")
+----
+
+*C# の場合：*
+
+----
+this.ultraCalendarInfo1.Appointments.Add(new DateTime(2005, 10, 28, 12, 15, 1),"Second Appointment");
+----
+
+これによって、ultraCalendarInfo1 にリンクされた各 WinSchedule エレメントは「新規予定」という予定を表示するようになります。
+
+== 選択の共有
+
+複数の WinSchedule エレメントからの選択を調整することは、UltraCalendarInfo エレメントによって自動的に処理されるもうひとつのタスクです。前述のようにランタイムまたはデザインタイムに複数の WinSchedule エレメントを同じ UltraCalendarInfo インスタンスにリンクした後、エレメントは共通の選択リストをすべて共有します。日またはアクティビティがひとつのエレメントで選択されると、すべてのリンクされたエレメントで同時に選択されます。
+
+たとえば、1 月 1 日と 2 日が UltraMonthViewSingle エレメントで選択されると、同じ UltraCalendarInfo にリンクされている UltraDayView エレメントは、予定の 2 日分の値、すなわち 1 月 1 日と 2 日を表示します。同じ UltraCalendarInfo にリンクされている UltraMonthViewMulti は、選択された日として 1 月 1 日と 2 日を表示します。
+
+同様に、その予定が UltraDayView エレメントで選択された場合、予定は同じ UltraCalendarInfo にリンクされた UltraWeekView エレメントでも選択されて表示されます（予定を含む週が現在表示されていることを前提とする）。
+
+共通の UltraCalendarInfo インスタンスにリンクすると、リンクされたエレメントは追加コードなしで選択リストを共有します。
+
+== 外観の共有
+
+WinScheduleは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook.html[UltraCalendarLook]"]  と呼ばれるもうひとつのエレメントを含みます。このエレメントは、上記の UltraCalendarInfo で説明した方法と同様の方法でリンクされたエレメント間での共有機能を提供します。エレメント間でデータを共有する代わりに、UltraCalendarLook によってエレメント間で外観を共有できます。UltraCalendarLook のさまざまな外観を定義することによって、すべてのリンクされているエレメントは外観を使用します。これによって、最小限のい作業ですべてのエレメントで統一された外観を提供します。
+
+== UltraCalendarLook エレメント
+
+WinSchedule エレメントは、上記の UltraCalendarInfo で説明した方法と同様の方法で共通の UltraCalendarLook インスタンスにリンクできます。リンク先の各エレメントで CalendarInfo プロパティを設定する代わりに、CalendarLook プロパティが設定されます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraMonthViewSingle1.CalendarLook = Me.UltraDayView1.CalendarLook
+----
+
+*C# の場合：*
+
+----
+this.ultraMonthViewSingle1.CalendarLook = this.ultraDayView1.CalendarLook;
+----
+
+UltraCalendarLook には、異なる UI エレメントだけでなく、異なるデータ セットのための豊かな pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearancescollection.html[Appearances]"]  セットが含まれます。たとえば、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~dayheaderappearance.html[DayHeaderAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~weekheaderappearance.html[WeekHeaderAppearance]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~monthheaderappearance.html[MonthHeaderAppearance]"]  のようにエレメント項目の外観を含めることに加えて、DayLook や DayOfWeekLook などのデータに関連する外観を含むオブジェクトも含まれます。たとえば、'Monday' の DayOfWeekLook.Appearance を定義することで、同じ UltraCalendarLook にリンクされている UltraMonthViewSingle と UltraWeekView を同じ外観にして月曜日が表示されることを保証できます。

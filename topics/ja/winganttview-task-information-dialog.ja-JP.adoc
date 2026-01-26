@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-task-information-dialog",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{7CF42B86-02CC-445D-B285-AE00D6D131A5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タスク情報ダイアログ
+
+タスク情報ダイアログは特定のタスクの編集サポートを提供するウィンドウです。 ゼロから新しいタスクを作成することも可能です。 タスク名、期間、完了率、開始および終了日、依存関係、リソース、期限、制約などのさまざまなタスク設定を設定または表示するために使用できる複数のタブがダイアログにあります。 コンテキスト メニューから（グリッドまたはチャート セクションを右クリックすることによって）、またはコントロールのグリッドまたはチャート セクション内をダブルクリックすることによって、ダイアログを呼び出すことができます。
+
+[NOTE]
+====
+*注：* デフォルトで、コンテキスト メニューまたはタスク情報ダイアログを起動できるのはコントロールのグリッド セクションからだけです。 link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~autodisplaydefaultcontextmenu.html[AutoDisplayDefaultContextMenu] プロパティと link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~autodisplaytaskdialog.html[AutoDisplayTaskDialog] プロパティを使用してコントロールのさまざまなセクションから呼び出すことができます。
+====
+
+*Visual Basic の場合：*
+
+----
+' コントロールのグリッドおよびチャートセクションから Task 情報ダイアログを呼び出すことができるようにします。 
+Me.ultraGanttView1.AutoDisplayTaskDialog = Infragistics.Win.UltraWinGanttView.AutoDisplayTaskDialog.GridAreaOrChartArea 
+AddHandler Me.ultraGanttView1.TaskDialogDisplaying, AddressOf ultraGanttView1_TaskDialogDisplaying 
+Private Sub ultraGanttView1_TaskDialogDisplaying(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGanttView.TaskDialogDisplayingEventArgs) Handles ultraGanttView1.TaskDialogDisplaying
+    ' ダイアログを呼び出した Task への参照を取得します
+    Task taskInDialog = e.Task
+End Sub
+----
+
+*C# の場合：*
+
+----
+// コントロールのグリッドおよびチャートセクションから Task 情報ダイアログを呼び出すことができるようにします。
+this.ultraGanttView1.AutoDisplayTaskDialog = Infragistics.Win.UltraWinGanttView.AutoDisplayTaskDialog. GridAreaOrChartArea;
+this.ultraGanttView1.TaskDialogDisplaying += new Infragistics.Win.UltraWinGanttView.TaskDialogDisplayingHandler
+(ultraGanttView1_TaskDialogDisplaying);
+void ultraGanttView1_TaskDialogDisplaying(object sender, Infragistics.Win.UltraWinGanttView.TaskDialogDisplayingEventArgs e)
+{
+      // ダイアログを呼び出した Task への参照を取得します
+     Task taskInDialog = e.Task;
+}
+----
+
+image::Images/WinGanttView_Task_Inforamtion_Dialog_01.png[]
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView チャート領域でタイムライン間隔を設定]

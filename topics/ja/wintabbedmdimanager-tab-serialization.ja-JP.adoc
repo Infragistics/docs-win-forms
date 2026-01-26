@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-tab-serialization",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{3C736D98-1B74-4456-AA93-177B10F1FF10}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブのシリアル化
+
+タブおよびタブ グループのレイアウトと設定は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager.html[UltraTabbedMdiManager]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~saveasbinary.html[SaveAsBinary]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~saveasxml.html[SaveAsXml]"]  メソッドを使用して永続化することができます。通常、この処理はフォームを閉じるときに実行されます。これにより、後でアプリケーションを再度実行したときにユーザー インターフェイスを再ロードできるようになります。レイアウトをロードするには、レイアウトの保存に使用したメカニズムに応じて、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~loadfrombinary.html[LoadFromBinary]"]  メソッドまたはpick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~loadfromxml.html[LoadFromXml]"]  メソッドを使用します。
+
+保存メソッドが呼び出されると、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab.html[MdiTab]"]  ごとに pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~storetab_ev.html[StoreTab]"]  イベントが発生します。このイベントを使用して、MdiTab オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab~persistedinfo.html[PersistedInfo]"]  プロパティをシリアル化可能な値で初期化できます。復元時にはこのシリアル化可能な値を使用して、タブを関連付けるフォームを調べることができます。たとえば、タブが特定のファイルに関連付けられていた場合に、ドキュメントのファイル名を格納することが考えられます。
+
+ロード メソッドが呼び出されると、既存のタブおよびタブ グループへの参照はすべて解放され、シリアル化された MdiTab オブジェクトごとに RestoreTab イベントが発生します。このイベントは、MdiTab を既存のフォームまたは新しいフォームのどちらかに関連付ける機会を提供します。PersistedInfo プロパティは、作成するフォーム、またはタブに関連付けるフォームを調べるために使用できます。
+
+シリアル化されたタブごとに pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~restoretab_ev.html[RestoreTab]"]  イベントが発生すると、フォームに関連付けられていない MdiTab オブジェクトはすべて解放されます。MdiTab オブジェクトが 1 つもないタブ グループも解放されます。MdiTab に関連付けられていない MDI 子フォームに対しては、新しい MdiTab オブジェクトが作成されます。これらのタブに対しては、その設定を初期化できるように pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~initializetab_ev.html[InitializeTab]"]  イベントが発生します。また、タブに関連付けられたフォームの表示状態に応じて、タブが HiddenTabs コレクションからタブ グループに（またはその逆に）移動する場合があります。
+
+[NOTE]
+====
+*注：* MdiTab は 1 つのフォームにのみ関連付けることができます。そのため、すでに MdiTab に関連付けられているフォームを RestoreTab イベントで指定した場合、そのフォームにはイベントで指定されたタブが関連付けられ、以前の MdiTab は解放されます。
+====

@@ -1,0 +1,126 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-appointment-grouping",
+    "controlName": ["WinSchedule"],
+    "tags": ["Appointments","Grouping"],
+    "guid": "{B7D2BFDD-C6C1-4333-8246-9C59AAF36D4D}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 予定のグループ化
+
+WinSchedule の NAS2004 Volume 3 リリースには、予定のグループ化のサポートが含まれます。アクティビティ（予定やメモなど）を表示する WinSchedule コントロールを変更して、異なるオーナーに属するアクティビティを区別できるようになりました。これにより、いくつかの簡単なプロパティを設定するだけで、WinDayView、WinMonthViewSingle、および WinWeekView コントロールはエレメントの同じインスタンス内に異なるオーナーのカレンダーを並べて表示できます。
+
+== Owner オブジェクト
+
+予定グループ化機能をサポートするため、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner.html[Owner]"]  という新しいオブジェクトが WinSchedule アセンブリに追加されました。Owner オブジェクトは個人または部署を表すために設計され、予定やメモのグループが属しています。Owner は、異なるオーナーが互いを区別できる方法を提供するために、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~name.html[Name]"]  や pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~key.html[Key]"]  などのプロパティを公開しています。既存の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointment]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.note.html[Note]"]  オブジェクトは Owner や pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment~ownerkey.html[OwnerKey]"]  などの新しいプロパティを公開しています。これを使用して、Owner を予定/メモと関連付けることができます。Owner オブジェクトを作成するには、関連付けられている UltraCalendarInfo エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ownerscollection.html[Owners]"]  コレクションにメンバを追加します。オーナーが作成されるときに、そのオーナーを一意に識別するキーを割り当てる必要があります。
+
+Owners コレクションには常に「未割り当てオーナー」というメンバが少なくともひとつあります。これはコレクションを消去した場合にも存在します。オーナーに明示的に割り当てられていない予定またはメモは、この特別な未割り当てオーナーに割り当てられているかのように動作します。この未割り当てオーナーへの参照は、Owners コレクションの UnassignedOwner プロパティから取得できます。
+
+予定またはメモの所有権を設定するには、Owner オブジェクトを作成した後、そのインスタンスを Appointment/Note の Owner プロパティに割り当てるか、またはそのキーを予定/メモの OwnerKey プロパティに割り当てます。予定/メモを特定のオーナーに割り当てると、異なるオーナーのカレンダーを個別に表示するよう設定された UltraWinSchedule エレメントには、該当するオーナーのカレンダーに含まれる予定/メモのみが表示されます。Owners コレクションに比較的多くのオーナーが含まれていて、そのオーナーの一部にユーザー インターフェイスからアクセスできない場合は、オーナーの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~visible.html[Visible]"]  プロパティを使用してオーナー（とその関連するアクティビティ）を表示または非表示にできます。Visible プロパティが True に設定されているオーナーは、関連する UltraCalendarInfo エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.visibleownerscollection.html[VisibleOwners]"]  コレクションに格納されるため、現在ユーザー インターフェイスからアクセス可能なオーナーを簡単に反復処理できます。同様に、Owner オブジェクトは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~locked.html[Locked]"]  プロパティを公開しており、ユーザー インターフェイスには表示されるものの、その予定とメモを変更できない「読み取り専用」オーナーの概念をサポートします。
+
+== 外観
+
+Owner オブジェクトでは、動作関連プロパティのほかに、各オーナーに固有の外観を与える Appearance プロパティも公開しています。次の表に、Appearance プロパティとそれらが適用されるエレメント、および各プロパティによってエレメントのどの外観が変更されるかを示します。
+
+[options="header", cols="a,a,a"]
+|====
+|Appearance プロパティ|適用されるエレメント|説明
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~alternatemonthdayappearance.html[AlternateMonthDayAppearance]"] 
+|UltraMonthViewSingle
+|「交互月」内の日の外観を定義します。たとえば、現在の月が 6 月の場合、AlternateMonthDayAppearance は 7 月、9 月、11 月…の日に適用されます。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~dayappearance.html[DayAppearance]"] 
+|UltraMonthViewSingle 
+
+UltraWeekView
+|「非交互月」内の日の外観を定義します。たとえば、現在の月が 6 月の場合、AlternateMonthDayAppearance は 6 月、8 月、10 月…の日に適用されます。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~headerappearance.html[HeaderAppearance]"] 
+|UltraDayView 
+
+UltraMonthViewSingle 
+
+UltraWeekView
+|異なるオーナーを区別するために表示されるヘッダの外観を定義します。オーナーのヘッダは、コントロールの ShowOwnerHeader プロパティを False に設定することでコントロールごとに非表示にできる点に注意してください。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~nonworkinghourtimeslotappearance.html[NonWorkingHourTimeSlotAppearance]"] 
+|UltraDayView
+|「非就業」時間範囲内のタイムスロットの外観を定義します。非就業時間は、DayOfWeek オブジェクトの WorkDayStartTime プロパティと WorkDayEndTime プロパティによって定義されます。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~selectedtimeslotappearance.html[SelectedTimeSlotAppearance]"] 
+|UltraDayView
+|選択されているタイムスロットの外観を定義します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~workinghourtimeslotappearance.html[WorkingHourTimeSlotAppearance]"] 
+|UltraDayView
+|「就業」時間範囲内のタイムスロットの外観を定義します。就業時間は、DayOfWeek オブジェクトの WorkDayStartTime プロパティと WorkDayEndTime プロパティによって定義されます。
+
+|====
+
+== UltraDayView エレメントでの予定のグループ化
+
+UltraDayView コントロールは、異なるオーナーをコントロール内でどのように表示するかを指定するプロパティを公開しています。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~groupingstyle.html[GroupingStyle]"]  プロパティのデフォルトは「NoGrouping」になっていますが（下位互換性を維持するため）、「OwnerWithinDate」に設定すると、1 日のカレンダーの中に表示オーナーがすべて表示され、「DateWithinOwner」に設定すると、個々のオーナーの中に、関連する UltraCalendarInfo エレメントの SelectedDateRanges コレクションの内容が表示されます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~columnscrolling.html[ColumnScrolling]"]  プロパティは、エンド ユーザーが列を移動できるかどうかと、移動できる場合はその方法を決定します。次の表に、ColumnScrolling プロパティのさまざまな設定と、各設定がユーザー インターフェイスに与える影響についての簡単な説明を示します。    
+
+[options="header", cols="a,a"]
+|====
+|*ColumnScrolling プロパティの設定*|*説明*
+
+|ColumnsAcrossGroups
+|コントロールの下部に水平スクロールバーが表示され、エンド ユーザーはこのスクロールバーを使用して別のグループにスクロールできます。スクロールバーの位置を少し変更すると、内部列が 1 列だけ移動し、大きく変更すると、表示列の数だけ列が移動します。
+
+|ColumnsAndGroupsSeparately
+|コントロールの下部に水平スクロールバーが表示され、エンド ユーザーはこのスクロールバーを使用して、現在の表示グループの内部列をスクロールできます。グループ ヘッダの左右に、別のグループに移動するためのスクロール ボタンが表示されます。
+
+|ColumnsWithinGroupsOnly
+|コントロールの下部に水平スクロールバーが表示され、エンド ユーザーはこのスクロールバーを使用して、現在の表示グループの内部列をスクロールできます。別のグループにナビゲートするためのユーザー インターフェイス エレメントは表示されません。
+
+|GroupScrollbarOnly
+|コントロールの下部に水平スクロールバーが表示され、エンド ユーザーはこのスクロールバーを使用して別のグループにスクロールできます。内部列をナビゲートするためのユーザー インターフェイス エレメントは表示されません。
+
+|GroupScrollButtonsOnly
+|グループ ヘッダの左右に、別のグループにナビゲートするためのスクロール ボタンが表示されます。内部列をナビゲートするためのユーザー インターフェイス エレメントは表示されません。
+
+|なし
+|グループまたは列をナビゲートするためのユーザー インターフェイス エレメントは表示されません。
+
+|====
+
+このほかに、開発者がユーザー インターフェイスをさらにカスタマイズするためのプロパティも公開されています。たとえば、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~allowcolumnresizing.html[AllowColumnResizing]"]  プロパティを False に設定すると、エンド ユーザーは列の幅を変更できません。また、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~minimumcolumnwidth.html[MinimumColumnWidth]"]  プロパティを設定すると、列を一定の幅にすることができます。オーナー ヘッダは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsinglebase~showownerheader.html[ShowOwnerHeader]"]  プロパティを設定することで表示または非表示にできます。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~preferredinviewcolumncount.html[PreferredInViewColumnCount]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~preferredinviewgroupcount.html[PreferredInViewGroupCount]"]  の各プロパティを使用すると、列の初期幅（表示される列の数）を設定し、さらにアプリケーション セッション中にエンド ユーザーが列の幅を変更することを許可できます。
+
+== UltraMonthViewSingle および UltraWeekView エレメントでの予定のグループ化
+
+UltraMonthViewSingleBase 派生エレメント（UltraMonthViewSingle と UltraWeekView）は pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsinglebase~ownerdisplaystyle.html[OwnerDisplayStyle]"]  プロパティを公開しています。このプロパティは、予定/メモをオーナーごとにまとめて表示するか、または混在させるかを決定します。OwnerDisplayStyle プロパティのデフォルトは（下位互換性を維持するため）「Merged」になっていますが、「Separate」に設定すると、関連する UltraCalendarInfo コンポーネントの Owners コレクションに含まれる表示オーナーごとに異なるカレンダーが表示されます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsinglebase~ownernavigationstyle.html[OwnerNavigationStyle]"]  プロパティは、エンド ユーザーが別のオーナーにナビゲートできるかどうかと、ナビゲートできる場合はその方法を決定します。次の表に、OwnerNavigationStyle プロパティのさまざまな設定と、各設定がユーザー インターフェイスに与える影響についての簡単な説明を示します。   
+
+[options="header", cols="a,a"]
+|====
+|*ColumnScrolling プロパティの設定*|*説明*
+
+|DropDown
+|ヘッダ内のオーナー名の右にドロップダウン ボタンが表示され、このボタンをクリックすると、表示可能なオーナーのリストが表示されます。リストからオーナーを選択すると、そのオーナーと元のオーナーの表示位置が入れ替わります。
+
+|Scrollbar
+|コントロールの下部に水平スクロールバーが表示され、エンド ユーザーはこのスクロールバーを使用して表示オーナー間をナビゲートできます。スクロールバーの位置を少し変更すると、オーナーがひとつだけ移動し、大きく変更すると、MaximumOwnersInView プロパティの値だけオーナーが移動します。
+
+|DropDownAndScrollbar
+|「DropDown」と「Scrollbar」の設定を組み合わせたものです。
+
+|ScrollButtons
+|オーナーのヘッダの一番左と一番右にスクロール ボタンが表示され、これをクリックすると、前または次のオーナーが表示されます。
+
+|なし
+|オーナー間をナビゲートするためのユーザー インターフェイス エレメントは表示されません。
+
+|====
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsinglebase~maximumownersinview.html[MaximumOwnersInView]"]  プロパティは、コントロールによって表示されるオーナーの数を指定する場合に使用します。UltraDayView コントロールと同様に、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~showownerheader.html[ShowOwnerHeader]"]  プロパティはオーナーのヘッダを表示するか非表示にするかを決定します。

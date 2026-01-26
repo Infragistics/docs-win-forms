@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "breaking-changes-2015-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "28999d2f-8a96-4c58-8304-32b9ffd79aeb",  
+    "buildFlags": [],
+    "createdOn": "2015-02-10T19:48:56.8348445Z"
+}
+|metadata|
+////
+
+= 2015 Volume 1 の重大な変更
+
+== Infragistics CAB 拡張性キット
+
+15.1 リリースでは、Infragistics CAB 拡張性キットのサポートを終了しました。
+
+技術が旧式であるためマイクロソフトによる保守がありません。そのため、Windows 8 以降の新しいオペレーティング システムではサポートされません。インフラジスティックスは、Windows 8 以降ではこの機能の品質を保証いたしかねます。
+
+詳細は左記のリンクを参照ください: link:https://msdn.microsoft.com/ja-jp/library/ff709809.aspx[https://msdn.microsoft.com/ja-jp/library/ff709809.aspx]
+
+[[_Ref367305781]]
+== Infragistics WinInkProvider
+
+15.1 リリースでは Infragistics WinInkProvider コンポーネントのサポートを終了しました。
+
+このコンポーネントは、Microsoft のサポートが終了した link:http://windows.microsoft.com/ja-jp/windows/xp-downloads#2TC=featured[Microsoft® Windows® XP] の link:https://msdn.microsoft.com/ja-jp/library/ms840464.aspx[Tablet PC Platform SDK] に依存します。そのため、インフラジスティックスでは、新しいオペレーティング システムでのこのコンポーネントの品質および動作を保証いたしかねます。
+
+UltraInkProvider コンポーネントは Visual Studio ツールボックスから削除されていますが、アセンブリは後方互換性のため本製品に含まれています。

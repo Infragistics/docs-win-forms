@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-exporting-formulas-to-excel",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{B23AE2A4-D86D-4EDB-BE27-9B62EB3AC6BD}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-09T16:05:58Z"
+}
+|metadata|
+////
+
+= Excel へ数式をエクスポート
+
+*始める前に*
+
+WinGridExcelExporter™ は WinGrid™ から Microsoft® Excel® ファイル フォーマットにデータをエクスポートする機能を持ちます。バインドされていない WinCalcManager™ の計算された列を持つグリッドを検討する場合、作成された Excel ファイルの実際の Excel 関数にグリッド式を変換したい場合があります。WinGridExcelExporter は、WinCalcManager 式を Excel 式に変換する機能を持ちます。したがって、結果の Excel ファイルは、WinGridExcelExporter のエクスポート プロセスによって作成された実際の作業式を持ちます。
+
+WinGridExcelExporter コンポーネントで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~exportformulas.html[ExportFormulas]"]  と呼ばれるプロパティは、式がエクスポートされるかどうかを決定します。
+
+[NOTE]
+====
+*注：* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~exportformulas.html[ExportFormulas]"]  プロパティはデフォルトで True に設定されます。
+====
+
+*達成すること*
+
+この詳細なガイドによって、Excel ワークシートに計算された列を持つ WinGrid をエクスポートする方法の手順を説明します。これを達成するには、以下の手順に従ってください：
+
+[start=1]
+. 少なくともひとつのバインドされていない計算された列を持つ WinGrid が必要です。これを実行する方法の詳細は、「WinGrid での計算された列の作成」を参照してください。
+[start=2]
+. コード ビハインドでは、以下の using/Imports のディレクティブを追加します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+[source]
+----
+Imports
+----
+
+ Infragistics.Win.UltraWinCalcManager;
+
+[source]
+----
+Imports
+----
+
+ Infragistics.Win.UltraWinGrid;
+
+*C# の場合：*
+
+[source]
+----
+using
+----
+
+ Infragistics.Win.UltraWinCalcManager;
+
+[source]
+----
+using
+----
+
+ Infragistics.Win.UltraWinGrid;
+
+[start=3]
+. Visual Studio® のツールボックスで UltraGridExcelExporter コンポーネントを指定してダブルクリックし、フォームに追加します。これは視覚的ではないコンポーネントなので、フォームのコンポーネント トレイに表示されます。
+[start=4]
+. ボタンをフォームに追加します。これはグリッド データを Excel にエクスポートするために使用されます。
+[start=5]
+. 次のコードをボタンのクリック イベント ハンドラに入力します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnExport_Click (ByVal sender As System. Object, _
+  ByVal e As System. EventArgs) Handles btnExport.Click
+	Me.UltraGridExcelExporter1.Export (Me.UltraGrid1, "C:\GridData.xls")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnExport_Click (object sender, EventArgs e)
+{
+	this.ultraGridExcelExporter1.Export (this.ultraGrid1, @"C:\GridData.xls");
+}
+----
+
+image::Images/Formula_In_Excel.png[Excel へ数式をエクスポート中]
+
+Excel ファイルが作成され、グリッドの計算された列数式は Excel 数式に変換されます。

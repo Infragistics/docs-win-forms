@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-presenting-data",
+    "controlName": ["WinTree"],
+    "tags": ["Data Presentation"],
+    "guid": "{89C83794-4922-49C4-BF9E-CBF41A1A8E64}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= データの提示
+
+このセクションでは、WinTree™ コントロールにデータを示す方法を説明します。また列にデータを示す方法や列の作成の詳細な手順も学習します。
+
+* link:wintree-add-nodes-to-wintree-at-design-time.html[デザインタイムにノードを WinTree に追加する]
+* link:wintree-columns.html[列]
+* link:wintree-sort-columns-in-wintree.html[WinTree 内で列をソート]

@@ -1,0 +1,20 @@
+﻿////
+|metadata|
+{
+    "name": "wingridbaglayoutmanager",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{AB846D4A-9664-403C-846F-30DD4685ABD2}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridBagLayoutManager
+
+以下のリンクをクリックすると、WinGridBagLayoutManager コンポーネントに関する説明を読むことができます。
+
+* link:wingridbaglayoutmanager-about-wingridbaglayoutmanager.html[WinGridBagLayoutManager について] -- WinGridBagLayoutManager コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wingridbaglayoutmanager-smart-tag.html[WinGridBagLayoutManager スマート タグ] -- WinGridBagLayoutManager コンポーネントのスマート タグで表示されるプロパティと設定について説明しています。
+* link:wingridbaglayoutmanager-api-overview.html[API の概要] -- WinGridBagLayoutManager コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

@@ -1,0 +1,177 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-overriding-default-cursor-movement",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Navigation"],
+    "guid": "{493F2019-E7FA-419C-A5A3-3210E5762FD5}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= デフォルトのカーソル移動をオーバーライド
+
+== バックグラウンド
+
+ユーザー環境によっては、WinGrid で Excel と似た方法でカーソルを移動しなければならないことがあります。WinGrid の PerformAction メソッドは、通常の動作をオーバーライドするときに無制限の柔軟性を提供します。
+
+== 質問
+
+* WinGrid で、Excel に似たカーソル移動キーを用いてアクティブなセルを移動するにはどうすればいいでしょうか?
+
+== 解決策
+
+PerformAction メソッドを使用して、通常のカーソル動作をオーバーライドします。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、サンプル DataTable を表示し、矢印キーでカーソルを移動できます。
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.KeyDown - KeyDown イベントのコードはカーソル移動キー ストロークのそれぞれに対して適当な PerformAction メソッドを呼び出します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_KeyDown(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.KeyEventArgs) _
+  Handles UltraGrid1.KeyDown
+	' カーソル移動に必要なアクションを実行します
+	Select Case e.KeyValue
+		Case Keys.Up
+			Me.UltraGrid1.PerformAction(UltraGridAction.ExitEditMode, False, False)
+			Me.UltraGrid1.PerformAction(UltraGridAction.AboveCell, False, False)
+			e.Handled = True
+			Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+		Case Keys.Down
+			Me.UltraGrid1.PerformAction(UltraGridAction.ExitEditMode, False, False)
+			Me.UltraGrid1.PerformAction(UltraGridAction.BelowCell, False, False)
+			e.Handled = True
+			Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+		Case Keys.Right
+			Me.UltraGrid1.PerformAction(UltraGridAction.ExitEditMode, False, False)
+			Me.UltraGrid1.PerformAction(UltraGridAction.NextCellByTab, False, False)
+			e.Handled = True
+			Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+		Case Keys.Left
+			Me.UltraGrid1.PerformAction(UltraGridAction.ExitEditMode, False, False)
+			Me.UltraGrid1.PerformAction(UltraGridAction.PrevCellByTab, False, False)
+			e.Handled = True
+			Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+	End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+{
+	// カーソル移動に必要なアクションを実行します
+	switch(e.KeyCode)
+	{
+		case Keys.Up:
+			this.ultraGrid1.PerformAction(UltraGridAction.ExitEditMode, false, 
+			  false);
+			this.ultraGrid1.PerformAction(UltraGridAction.AboveCell, false, 
+			  false);
+			e.Handled = true;
+			this.ultraGrid1.PerformAction(UltraGridAction.EnterEditMode, false, 
+			  false);
+			break;
+		case Keys.Down:
+			this.ultraGrid1.PerformAction(UltraGridAction.ExitEditMode, false, 
+			  false);
+			this.ultraGrid1.PerformAction(UltraGridAction.BelowCell, false, 
+			  false);
+			e.Handled = true;
+			this.ultraGrid1.PerformAction(UltraGridAction.EnterEditMode, false, 
+			  false);
+			break;
+		case Keys.Right:
+			this.ultraGrid1.PerformAction(UltraGridAction.ExitEditMode, false, 
+			  false);
+			this.ultraGrid1.PerformAction(UltraGridAction.NextCellByTab, false, 
+			  false);
+			e.Handled = true;
+			this.ultraGrid1.PerformAction(UltraGridAction.EnterEditMode, false, 
+			  false);
+			break;
+		case Keys.Left:
+			this.ultraGrid1.PerformAction(UltraGridAction.ExitEditMode, false, 
+			  false);
+			this.ultraGrid1.PerformAction(UltraGridAction.PrevCellByTab, false, 
+			  false);
+			e.Handled = true;
+			this.ultraGrid1.PerformAction(UltraGridAction.EnterEditMode, false, 
+			  false);
+			break;
+	}
+}
+----
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードはアクティブ セルの背景色をオーバーライドします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' アクティブ セルの背景色を設定します
+	Me.UltraGrid1.DisplayLayout.Override.ActiveCellAppearance.BackColor = Color.Red
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// アクティブ セルの背景色を設定します
+	this.ultraGrid1.DisplayLayout.Override.ActiveCellAppearance.BackColor = Color.Red;
+}
+----
+
+* UltraGrid1.Enter - Enter イベントのコードは、アクティブ行とアクティブ セルがまだ設定されていない場合、設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_Enter(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraGrid1.Enter
+	' グリッドで ActiveRow と ActiveCell を設定します
+	If Me.UltraGrid1.ActiveRow Is Nothing Then
+		Me.UltraGrid1.ActiveRow = Me.UltraGrid1.GetRow(ChildRow.First)
+	End If
+	If Me.UltraGrid1.ActiveCell Is Nothing Then
+		Me.UltraGrid1.ActiveCell = Me.UltraGrid1.ActiveRow.Cells(2)
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_Enter(object sender, System.EventArgs e)
+{
+	// グリッドで ActiveRow と ActiveCell を設定します
+	if(this.ultraGrid1.ActiveRow == null)
+		this.ultraGrid1.ActiveRow = this.ultraGrid1.GetRow(ChildRow.First);
+	if(this.ultraGrid1.ActiveCell == null)
+		this.ultraGrid1.ActiveCell = this.ultraGrid1.ActiveRow.Cells[2];
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトは、WinGrid の PerformAction メソッドを使用して Excel のカーソル移動をシミュレートする方法を紹介しています。

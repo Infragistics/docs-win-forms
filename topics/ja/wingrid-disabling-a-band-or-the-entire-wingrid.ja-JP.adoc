@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-disabling-a-band-or-the-entire-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{A4F3EB22-29D3-49A6-A645-33B7BDCAF851}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= バンドまたは全体のグリッドを無効にする
+
+WinGrid™ コントロールの開始以降、エンド ユーザーは WinGrid を使用して、あらゆる方法、形状、フォームのデータを操作できます。ただし、開発者として、エンド ユーザーに特定のデータを修正させたくない場合にはどうすればいいでしょうか。また、エンド ユーザーが特定のデータをそのままの読み取り専用にすることを求める場合にはどうすればいいでしょうか。このようなシナリオは多々発生する可能性があり、これらのシナリオに対応するためにはたったひとつのプロパティを設定する必要があります。グリッド自体と個々のバンドは両方ともそれぞれの Overrides で AllowUpdate プロパティを公開します。両方のオブジェクトにこれらのプロパティがあることによって、単一のバンドまたは WinGrid 全体でデータを更新することをエンド ユーザーに許可するかどうかを選択することができます。
+
+バンドやグリッド全体を無効にできるだけでなく、個々の列、行、セルを無効にすることができます。WinGrid をこのように詳細に制御するためには、 link:wingrid-disabling-a-wingrid-column.html[「WinGrid 列を無効にする」], link:wingrid-disabling-a-wingrid-row.html[「WinGrid 行を無効にする」]、そして link:wingrid-disabling-a-wingrid-cell.html[「WinGrid セルを無効にする」]を参照して、列、行、セルをそれぞれ無効にしてください。
+
+以下のコードは、WinGrid 全体を更新することを許可しませんが、最初のバンドでの更新を許可します。このトピックは、少なくともひとつのバンドとともにフォーム上に WinGrid コントロールがあることが前提となります。WinGrid コントロールのデータ バインディングの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+
+[NOTE]
+====
+*注:* 更新および削除は、WinGrid のための 2 つの個別のプロシージャで、個別のプロパティを公開します。行を削除したくない場合には、グリッドまたはバンドの Override いずれかの AllowDelete プロパティを DefaultableBoolean.False に設定できます。
+====
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AllowUpdate = _
+  Infragistics.Win.DefaultableBoolean.False
+Me.UltraGrid1.DisplayLayout.Bands(0).Override.AllowUpdate = _
+  Infragistics.Win.DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowUpdate = 
+  Infragistics.Win.DefaultableBoolean.False;
+this.ultraGrid1.DisplayLayout.Bands[0].Override.AllowUpdate =
+  Infragistics.Win.DefaultableBoolean.True;
+----

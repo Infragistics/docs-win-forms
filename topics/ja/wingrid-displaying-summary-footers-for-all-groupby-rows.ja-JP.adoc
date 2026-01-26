@@ -1,0 +1,73 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-displaying-summary-footers-for-all-groupby-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Summaries"],
+    "guid": "{635746C0-8F95-4633-B32F-0C55DE35F813}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= すべての GroupBy 行に対する集計フッタの表示
+
+グループ行は、行を列によってグループ化したときに表示されます。グループ内の各行コレクションにはそれぞれ固有の集計フッタが表示されます。グループ行コレクションに対して集計フッタを表示することもできます。たとえば、Country 列によって行をグループ化するとします。それぞれの国グループには、グループに含まれる行に対する固有の集計フッタが表示されます。ただし、すべての国のすべての行に対して全体的な集計を表示することもできます。
+
+== すべてのグループ行に対する集計フッタを表示するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~summarydisplayarea.html[SummaryDisplayArea]"]  プロパティを、GroupByRowsFooter ビットと、Top、TopFixed、Bottom、BottomFixed のいずれかのビットをオンにした値に設定します。SummaryDisplayArea プロパティはフラグ型列挙体です。ビットごとの OR 演算子を使用して複数の値を指定できます。
+
+GroupByRowsFooter フラグは、グループ行の集計を表示することを指定します。ただしこのフラグは、集計を上部と下部のどちらに表示するか、およびスクロール可能にするかどうかは指定しません。したがって、GroupByRowsFooter を有効にするためには、Top、TopFixed、Bottom、BottomFixed のいずれかのフラグをあわせて指定する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DisplayingSummaryFootersforAllGroupbyRows_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True
+	Me.UltraGrid1.DisplayLayout.Override.SummaryDisplayArea = _
+	  SummaryDisplayAreas.GroupByRowsFooter _
+	  Or SummaryDisplayAreas.TopFixed
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DisplayingSummaryFootersforAllGroupByRows_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True;
+	this.ultraGrid1.DisplayLayout.Override.SummaryDisplayArea = 
+	  SummaryDisplayAreas.GroupByRowsFooter |
+	  SummaryDisplayAreas.TopFixed;
+}
+----
+
+[start=3]
+. プロジェクトを実行して Country 列を集計するときは、ContactTitle で GroupBy を実行します。集計が上部に表示されます。
+
+[NOTE]
+====
+*注:* Country 列を集計するだけでなく、この列をグループ化したい場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbycolumnshidden.html[GroupByColumnsHidden]"]  プロパティを False に設定する必要があります。
+====
+
+[start=4]
+. SummaryDisplayArea プロパティは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.summarysettings.html[SummarySettings]"]  オブジェクトでも公開されています。そのため、集計をグループ行の集計フッタに表示するかどうかを集計ごとに制御できます。つまり、ある集計はグループ行の集計フッタに表示し、別の集計は表示しないことが可能です。

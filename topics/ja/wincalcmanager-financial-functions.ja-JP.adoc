@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-financial-functions",
+    "controlName": ["WinCalcManager"],
+    "tags": [],
+    "guid": "{D2CD84BF-4C4D-49EC-83F9-541F9AAA9DF7}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 財務関数
+
+以下は WinCalcManager コントロールで提供されるすべての Microsoft® Excel® スタイルの財務関数のリストです。
+
+[[FUNC_Db]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiondb.html[DB]"] 
+[[FUNC_DDb]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionddb.html[DDB]"] 
+[[FUNC_FV]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionfv.html[FV]"] 
+[[FUNC_INTRATE]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionintrate.html[INTRATE]"] 
+[[FUNC_IPMT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionipmt.html[IPMT]"] 
+[[FUNC_IRR]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionirr.html[IRR]"] 
+[[FUNC_NPER]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionnper.html[NPER]"] 
+[[FUNC_NPV]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionnpv.html[NPV]"] 
+[[FUNC_PMT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionpmt.html[PMT]"] 
+[[FUNC_PPMT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionppmt.html[PPMT]"] 
+[[FUNC_PV]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionpv.html[PV]"] 
+[[FUNC_RATE]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionrate.html[RATE]"] 
+[[FUNC_SLN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionsln.html[SLN]"] 
+[[FUNC_SYD]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionsyd.html[SYD]"] 
+
+*関連トピック：*
+
+* link:wincalcmanager-date-and-time-functions.html[日付&時間関数]
+* link:wincalcmanager-information-functions.html[情報関数]
+* link:wincalcmanager-logical-functions.html[論理関数]
+* link:wincalcmanager-math-functions.html[算術関数]
+* link:wincalcmanager-statistical-functions.html[統計関数]
+* link:wincalcmanager-text-and-data-functions.html[テキスト&データ関数]

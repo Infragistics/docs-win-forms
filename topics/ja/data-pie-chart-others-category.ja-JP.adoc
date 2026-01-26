@@ -1,0 +1,97 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-others-category",
+    "controlName": ["{PieChartName}"],
+    "tags": ["How Do I"],
+    "guid": "5b5ba0e9-953a-4a6c-84d3-0a4d1641c57b",
+    "buildFlags": ["SL","WPF","win-phone","XAMARIN","ANDROID","WINFORMS"],
+    "createdOn": "2014-06-05T19:53:12.0768992Z"
+}
+|metadata|
+////
+
+= Others カテゴリ (その他カテゴリ)
+
+このトピックでは、link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] コントロールのその他カテゴリを構成する方法を説明します。トピックの最後で、完全なコード例を提供します。
+
+トピックは以下のとおりです。
+
+* <<Introduction,はじめに>>
+* <<Requirements,要件>>
+* <<Configuring,Others カテゴリの構成>>
+* <<CodeExample, コード例>>
+* <<RelatedTopics,関連コンテンツ>>
+
+[[Introduction]]
+== はじめに
+
+Data Pie Chart コントロールの基本データに、小さい値を含む多くの項目が含まれる場合があります。この場合、Others カテゴリは、単一スライスへの複数のデータ値の自動集計を許可します。
+
+[[Requirements]]
+=== 要件
+
+このトピックは、ユーザーがlink:data-pie-chart-data-binding.html[データ バインディング] トピックを既に読んでいることを前提とし、はじめにそのコードを使用します。
+
+
+[[Configuring]]
+== Others カテゴリの構成
+
+{DataPieChartName} の「その他」カテゴリには、`OthersCategoryType`、`OthersCategoryThreshold`、`OthersCategoryText` という 3 つの主要な構成可能なプロパティがあり、これらを使用して、チャート内の「その他」スライスの表示方法を構成できます。これらについては、それぞれ以下で説明します。
+
+`OthersCategoryType` プロパティは、{DataPieChartName} の `OthersCategoryThreshold` プロパティと連動して機能します。`OthersCategoryType` では、`OthersCategoryThreshold` を数値として評価するか、パーセンテージとして評価するかを定義できます。たとえば、数値を選択し、`OthersCategoryThreshold` を 5 に設定すると、5 未満の値を持つスライスはすべて「その他」カテゴリの一部になります。パーセント タイプで同じ値 5 を使用すると、{DataPieChartName} の合計値の 5 パーセント未満の値はすべて「その他」カテゴリの一部になります。
+
+デフォルトでは、「その他」スライスは「その他」というラベルで表されます。チャートの `OthersCategoryText` プロパティを変更することでこれを変更できます。
+
+{DataPieChartName} に「その他」カテゴリが表示されないようにするには、`OthersCategoryThreshold` を 0 に設定します。
+
+[[CodeExample]]
+== コード例
+
+以下のコード例は {DataPieChartName} での「その他」カテゴリの使用方法を紹介します。
+
+ifdef::wpf[]
+
+*XAML の場合:*
+
+[source,xaml]
+----
+TODO
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+TODO
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*C# の場合:*
+
+[source,csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    Dock = DockStyle.Fill,                
+    OthersCategoryThreshold = 3,
+    OthersCategoryType = OthersCategoryType.Number,
+    OthersCategoryText = "Others Custom"
+};
+
+this.Controls.Add(dataPieChart);
+----
+
+endif::win-forms[]
+
+
+
+[[RelatedTopics]]
+== 関連コンテンツ
+
+* link:data-pie-chart-data-binding.html[データ バインディング]
+* link:data-pie-chart-selection.html[選択]

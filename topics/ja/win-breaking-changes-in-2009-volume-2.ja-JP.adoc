@@ -1,0 +1,79 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2009-volume-2",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{63DE5896-352B-4130-ABE0-0102348CB027}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2009 Volume 2 の重大な変更
+
+=== WinGrid™
+
+* エディタでパスワード文字を保持するように pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~text.html[Text]"]  プロパティとセルの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~getcelltext.html[GetCellText]"]  メソッドが今回変更されています。また pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~charactercasing.html[CharacterCasing]"]  プロパティも変更されています。WinGrid が PDF、XPS または Excel シートにエクスポートされる時に、Grid セルのパスワード文字がプレーン テキストの代わりにマスクされて表示されるようになります。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトと UltraGridColumn オブジェクトの EditorControl プロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~editorcomponent.html[EditorComponent]"]  プロパティで置き換えられました。
+
+=== WinPanel™
+
+WinPanel コントロールの一部のリソース文字列キーが変更されています。変更されたリソース文字列キーは以下のとおりです。
+
+[options="header", cols="a,a"]
+|====
+|以前のリソース文字列キー|新しいリソース文字列キー
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaBackColor
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyBackColor
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaMaximumSize
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyMaximumSize
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaMinimumSize
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyMinimumSize
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaClientSize
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyClientSize
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaAnchor
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAnchor
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaAutoScrollMargin
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoScrollMargin
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaAutoScrollMinSize
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoScrollMinSize
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaBorderStyle
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyBorderStyle
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaBounds
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyBounds
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaDock
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyDock
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaImeMode
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyImeMode
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaLocation
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyLocation
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaMargin
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyMargin
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaName
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyName
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaSize
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifySize
+
+|UltraPanel_InvalidOperationException_CannotModifyClientAreaTabIndex
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyTabIndex
+
+|====

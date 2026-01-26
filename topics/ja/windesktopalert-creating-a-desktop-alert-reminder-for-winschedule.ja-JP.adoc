@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-creating-a-desktop-alert-reminder-for-winschedule",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","Appointments","How Do I","Scheduling"],
+    "guid": "{E48D9A8D-B99C-4DD9-92A6-24726B400957}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule のデスクトップ アラート リマインダを作成
+
+このセクションは WinDesktopAlert™ とその機能のいくつかの多様性を例示することを目的とした 3 つの詳細なガイドで構成されます。これらの詳細なガイドは、順番に完了することを想定しています。前述のガイドに基づいて後述のガイドが構成されているからです。3 番目の詳細なガイドが終了するまでには、WinSchedule™ の [アラーム] ダイアログ ボックスの機能と同様の完全機能を装備したデスクトップ アラート リマインダが完成します。
+
+image::images/WinDesktopAlert_Creating_a_Desktop_Alert_Reminder_for_WinSchedule_01.png[]
+
+デスクトップ アラート ウィンドウは、デザインと機能の両面で WinSchedule の [アラーム] ダイアログ ボックスに非常に似ています。ウィンドウとダイアログ ボックスの両方にテキスト フィールドがあり、イベントを説明することができます。アラームを開く、再通知する、解除するために使用できるボタンのコレクションが両方にあります。そして最後に、いずれも複数のアラームを処理できます（WinDesktopAlert は複数のウィンドウを同時に管理できます）。
+
+以下のリンクをクリックして、WinSchedule のデスクトップ アラート リマインダを作成する方法を学習します。
+
+* link:windesktopalert-displaying-a-desktop-alert-window-when-a-winschedule-reminder-comes-due.html[WinSchedule アラームの設定時間になるとデスクトップ アラート ウィンドウを表示] – このトピックでは、デスクトップ アラート リマインダを作成するために必要なコントロール/コンポーネントでフォームを設定します。サンプル情報で予定を作成します。WinCalendarInfo™ の link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~beforedisplayappointmentdialog_ev.html[BeforeDisplayReminderDialog] イベントを使用して、[アラーム] ダイアログ ボックスをキャンセルしデスクトップ アラート ウィンドウを表示します。次に、エンド ユーザーがデスクトップ アラート リマインダでキャプションまたはテキストをクリックした時に [予定] ダイアログ ボックスを開くために WinDesktopAlert の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~desktopalertlinkclicked_ev.html[DesktopAlertLinkClicked] イベントを処理します。
+* link:windesktopalert-adding-alert-buttons-to-the-desktop-alert-reminder.html[デスクトップ アラート リマインダにアラート ボタンを追加] – このトピックは、デスクトップ アラート ウィンドウにアラート ボタンを追加する方法を例示します。アラート ボタンを作成し、これらのボタンを link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.desktopalertbuttonscollection.html[DesktopAlertButtons] コレクションに追加して、次に link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~alertbuttonclicked_ev.html[AlertButtonClicked] イベントを処理します。これによって、デスクトップ アラート リマインダを再通知または解除することができます。
+* link:windesktopalert-adding-a-menu-to-the-desktop-alert-reminders-dropdown-button.html[デスクトップ アラート リマインダのドロップダウン ボタンにメニューを追加] – エンド ユーザーがデスクトップ アラート ウィンドウでドロップダウン ボタンをクリックした時にメニューを表示する方法を学習します。WinToolbarsManager™ の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool] を使用してメニューを作成します。このメニューは、Microsoft® Outlook® の新しいメール デスクトップ アラートに似ています。次にメニューを表示するために WinDesktopAlert の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~dropdownbuttonclicked_ev.html[DropDownButtonClicked] イベントが後から発生するメニュー項目のための WinToolbarManager の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick] イベントを処理します。

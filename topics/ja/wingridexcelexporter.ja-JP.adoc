@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": [],
+    "guid": "{438FCAE2-3F42-4FFD-8E54-F503A813215F}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridExcelExporter
+
+以下のリンクをクリックすると、WinGridExcelExporter™ コンポーネントに関する説明を読むことができます。
+
+* link:wingridexcelexporter-understanding-wingridexcelexporter.html[WinGridExcelExporter の理解] -- WinGridExcelExporter コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:win-wingridexcelexporter-using-wingridexcelexporter.html[WinGridExcelExporter を使用] -- このセクションでは、WinGridExcelExporter コンポーネントを使用して特定のタスクを実現するための短い、有益なトピックがコード例のスニペットとともに紹介されています。
+* link:wingridexcelexporter-api-overview.html[API 概要] -- WinGridBagLayoutManager コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

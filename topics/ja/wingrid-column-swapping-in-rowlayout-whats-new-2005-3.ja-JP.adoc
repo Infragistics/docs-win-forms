@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-column-swapping-in-rowlayout-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9FD09438-A082-4D87-BCB4-D4E26809E2D9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= RowLayout における列の交換
+
+AllowColSwapping プロパティを WithinBand または WithinGroup に設定して列の交換機能を有効にします。有効にすると、ドロップダウン矢印が各列ヘッダに表示されます。このドロップダウン矢印をクリックすると、列のリストが表示されます。リストから列を選択すると現在の列（交換ドロップダウンをクリックした列ヘッダ）を、ドロップダウン リストから選択した列で置き換えます。列の位置は切り替えられます。
+
+{ProductName} 2005 Volume 3 以前のバージョンでは、列の交換機能は、非行レイアウト モードに限り機能しました。{ProductName} 2005 Volume 3 は行レイアウト モードでこの機能を実装します。既存の AllowColumnSwapping プロパティで十分であるため、新しいプロパティは不要でした。また、AllowColumnSwapping はデフォルトでは NotAllowed に解決されるので、デフォルトの動作を変更しません。
+
+image::images/WinGrid_Move_And_Swap_Columns_And_Groups_01.png[]
+
+== 関連トピック:
+
+link:wingrid-moving-swapping-columns.html[列の移動と交換]

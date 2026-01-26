@@ -1,0 +1,38 @@
+﻿////
+|metadata|
+{
+    "name": "winlistview-api-overview",
+    "controlName": ["WinListView"],
+    "tags": ["API"],
+    "guid": "{74BC7A4A-CE92-4773-8346-2DC5711D87EF}",
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+
+=== WinListView 名前空間: 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview_namespace.html[Infragistics.Win.UltraWinListView]"]
+
+=== キー クラス：
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview.html[UltraListView]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewgroup.html[UltraListViewGroup]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitem.html[UltraListViewItem]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewmaincolumn.html[UltraListViewMainColumn]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitemcolumn.html[UltraListViewSubItemColumn]"]
+
+
+=== 重要な列挙体：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewstyle.html[UltraListViewStyle]"] 
+(UltraListView クラスの View プロパティから)

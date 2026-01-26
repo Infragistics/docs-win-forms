@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winsplitter",
+    "controlName": ["WinSplitter"],
+    "tags": [],
+    "guid": "{AE35E220-F0E9-4D2C-BB4C-E97C667201C5}",  
+    "buildFlags": [],
+    "createdOn": "2009-10-12T16:15:34Z"
+}
+|metadata|
+////
+
+= WinSplitter
+
+WinSplitter™ コントロールに関する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。 このセクションには、コントロールの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順まで、WinSplitter コントロールに関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、WinSplitter コントロールに関する重要な情報にアクセスします。
+
+== link:winsplitter-understanding-winsplitter.html[WinSplitter の理解]
+
+このセクションには WinSplitter コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:winsplitter-getting-started-with-winsplitter.html[WinSplitter で開始]
+
+WinSplitter コントロールでできる限り素早く起動して実行するために、コントロール（つまり、フォームに WinSplitter を追加）を使用する方法についての情報を提供します。
+
+== link:winsplitter-using-winsplitter.html[WinSplitter の使用]
+
+このセクションには役に立つ短いトピックがあり、WinSplitter コントロールを使って特定の作業を実行する方法を示すサンプル コードが付いています。
+
+== link:winsplitter-api-overview.html[API の概要]
+
+このトピックでは、WinSplitter コントロールを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。 このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API リファレンス ガイド」セクションへリンクしていて便利です。

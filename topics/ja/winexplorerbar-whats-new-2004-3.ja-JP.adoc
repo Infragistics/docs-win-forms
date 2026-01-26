@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-whats-new-2004-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{00826888-220C-444D-A497-3241E9567F2D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar 2004.3
+
+* 新しいをスタイルに関連した色が実装されるようになりました。
+* ShowExpansionIndicator プロパティが UltraExplorerBarGroupSettings オブジェクトに追加されました。
+* VisualStudioToolbox2005 という新しい UltraExplorerBarStyle を追加しました。これは Visual Studio 2005 のツールボックスをシミュレートします。
+* VisualStudioToolbox2005 という新しい UltraExplorerBarViewStyle を追加しました。
+
+UltraWinExplorerBar の NAS 2004 Volume 3 リリースは、Visual Studio 2005 "Whidbey" Toolbox スタイルのサポートを追加しています。この機能は VisualStudio2005Toolbox と呼ばれる UltraExplorerBarStyle 列挙体の新しいメンバ経由でアクセスされます。UltraExplorerBar がこの新しいスタイルを使用すると、同時にゼロまたは複数のグループを展開された状態にすることができるツールボックスのようになります。さらに、展開インディケータは互いのグループ ヘッダ上に表示されます。この新しいスタイルはツールボックス スタイルと ExplorerBar スタイルの展開機能のレイアウト/外観を採用します。詳細については、新しいツールボックス以下の画像を参照して下さい。

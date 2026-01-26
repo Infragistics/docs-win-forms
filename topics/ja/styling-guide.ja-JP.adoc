@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{A19B1054-AF09-40AF-B80B-F47E04C430E7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スタイル ガイド
+
+以下のリンクをクリックすると、Windows Forms のコントロールおよびコンポーネントの表示スタイルと動作を設定する方法について概要がわかります。
+
+* link:styling-guide-overview-of-styles-presets-and-themes.html[スタイル、プリセット、テーマの概要] -- Windows Forms のコントロールおよびコンポーネントにスタイルを追加するさまざまな方法、たとえば Windows テーマのサポートや外観オブジェクトの使用などについて説明します。
+* link:win-application-styling-framework-whats-new-2006-2.html[Application Styling Framework™] -- Application Styling Framework（ASF）と、アプリケーション開発者およびグラフィック デザイナの両者にどのようなメリットがあるのかを定義します。AppStylist™ アプリケーションと、これを使用してアプリケーションをスタイルする方法について学習します。
+* link:styling-guide-working-with-presets.html[プリセットの操作] -- 3 種類のプリセットを説明し、クイック デザイナによるプリセットの管理およびコントロール/コンポーネントへのプリセットの適用について解説します。
+* link:styling-guide-office-2007-look-and-feel.html[Office 2007 ルック アンド フィール] -- Office 2007 ルック アンド フィーるを説明して、コントロールに適用する方法を紹介します。
+* link:styling-guide-windows-vista-look-and-feel.html[Windows Vista のルック アンド フィール] -- WinToolbarsManager™ の新しい Vista スタイルをサポートするための link:win-plf-overview.html[PLF 概要] の新しい機能を説明します。
+* link:styling-guide-office-2010-look-and-feel.html[Office 2010 のルック アンド フィール] -- Office 2010 ルック アンド フィールを説明し、サポートするコントロールおよびコンポーネントに適用する方法を紹介します。

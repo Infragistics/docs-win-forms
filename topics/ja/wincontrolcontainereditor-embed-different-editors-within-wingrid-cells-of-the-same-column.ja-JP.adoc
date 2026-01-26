@@ -1,0 +1,52 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-embed-different-editors-within-wingrid-cells-of-the-same-column",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["How Do I"],
+    "guid": "{E6F788BA-7E87-4679-BC98-BB3D290C8BDA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 同じ列の WinGrid セル内に異なるエディターを組み込む
+
+WinGrid™ pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~editor.html[Editor]"]  プロパティによってセル単位でさまざまなエディター コントロールを指定できます。従来、開発者は特定の条件のテストを実行するために WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializerow_ev.html[InitializeRow]"]  イベントを処理し、次に特定の列内のセルごとに特定のエディターを提供してきました。これの単純な事例は、ひとつの列のデータ タイプがセル単位で変わるデータ ソースを持つことです。最初の行のセルは数値にすることができますが、2 番目の行のセルはブール値にすることができます。最初の UltraGridCell の数値エディターを指定し、次に次の UltraGridCell のチェックボックス エディターを指定するようにコードを記述します。WinControlContainerEditor™ を使用すると、セル単位で編集/レンダリング コントロールの組み合わせを指定することによって次のレベルにこの概念を進めることができます。
+
+このトピックは、Microsoft® .NET ProgressBar、TrackBar および Infragistics WinGauge™ のような多様なコントロールを同じ WinGrid 列の異なるセル内に組み込む方法を示します。
+
+2 つの WinControlContainerEditor コンポーネント、ひとつの ProgressBar、TrackBar および Infragistics WinGauge とともに Northwind データベースの Products テーブルにバインドされた WinGrid コントロールがフォームにドロップされていることが前提となります。WinControlContainerEditor の設定の詳細は、 link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-ultracontrolcontainereditor-component.html[「UltraControlContainerEditor コンポーネントを使用して WinGrid セル内に任意のコントロールを組み込む」]を参照してください。WinGrid コントロールの IntializeLayout イベント内に以下のコードを記述します。
+
+[NOTE]
+====
+*注:* ControlContainerEditor オブジェクトで WinGauge コントロールを設定する Editor クラス（以下のコードで使用される）についての詳細は、 link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-controlcontainereditor-object.html[ControlContainerEditor オブジェクトを使用して WinGrid セル内に任意のコントロールを組み込む]を参照してください。
+====
+
+*Visual Basic の場合：*
+
+----
+e.Layout.Override.RowSizing = Infragistics.Win.UltraWinGrid.RowSizing.AutoFixed 
+Me.ultraControlContainerEditor1.RenderingControl = Me.progressBar1 
+Me.ultraControlContainerEditor2.RenderingControl = Me.trackBar1 
+Me.ultraGrid1.Rows(6).Cells(6).EditorComponent = Me.ultraControlContainerEditor1 
+Me.ultraGrid1.Rows(7).Cells(6).EditorComponent = Me.ultraControlContainerEditor2 
+Dim editor As New Editor(Me.ultraGauge1, Me.numericUpDown1)
+Me.ultraGrid1.Rows(8).Cells(6).Editor = editor
+----
+
+*C# の場合：*
+
+----
+e.Layout.Override.RowSizing = Infragistics.Win.UltraWinGrid.RowSizing.AutoFixed;
+this.ultraControlContainerEditor1.RenderingControl = this.progressBar1;
+this.ultraControlContainerEditor2.RenderingControl = this.trackBar1;
+this.ultraGrid1.Rows[6].Cells[6].EditorComponent = this.ultraControlContainerEditor1;
+this.ultraGrid1.Rows[7].Cells[6].EditorComponent = this.ultraControlContainerEditor2;
+Editor editor = new Editor(this.ultraGauge1, this.numericUpDown1);
+this.ultraGrid1.Rows[8].Cells[6].Editor = editor;
+----
+
+image::Images/WinControlContainerEditor_Embedding_different_Editors_within_a_particular_WinGrid_Column_01.png[]

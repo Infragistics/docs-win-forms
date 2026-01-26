@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridbaglayoutpanel-about-wingridbaglayoutpanel",
+    "controlName": ["WinGridBagLayoutPanel"],
+    "tags": ["Getting Started","Layouts"],
+    "guid": "{EFE10B38-BF7C-450B-8862-8D3722595005}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridBagLayoutPanel について
+
+WinGridBagLayoutPanel™ は 1 点を除きあらゆる点で WinGridBagLayoutManager™ に似ています。WinGridBagLayoutPanel によって所有したコントロールのレイアウトをデザインタイムに管理することができます。WinGridBagLayoutPanel コントロールは仮想の行と列で構成される仮想グリッドで、行と列のいずれもボタンのクリックでリサイズできます。
+
+*ドラッグ アンド ドロップ* – コントロールを Microsoft® Visual Studio® ツールボックスから WinGridBagLayoutPanel にドラッグする時、ドラッグされたらコントロールがどこに配置されるかを識別する視覚的な目印として機能する赤い輪郭線が表示されます。2 つの管理されているコントロール間の領域上にコントロールをドラッグすると、コントロールが挿入される場所を識別する 2 つの大きい赤い矢印が表示されます。
+
+image::images/WinGridBagLayoutPanel_About_WinGridBagLayoutPanel_01.png[]
+
+*行と列のリサイズ* – 管理されているコントロールを分離する点線をクリックしてドラッグすることによって、仮想の行と列をリサイズできます。個々のコントロールでプロパティを設定して、コントロールよりも大きい行または列をリサイズした場合にコントロールが余分なスペースを使用するかどうかを決定することができます。
+
+image::images/WinGridBagLayoutPanel_About_WinGridBagLayoutPanel_02.png[]
+
+*行と列のスパニング* – 各コントロールの右側と下側にある小さい、白い、菱形のグリフをクリックすることによって、管理されているコントロールは複数の行と列をスパンすることも可能です。いったんクリックしてから、グリフを別の行または列にドラッグすると、マウス ボタンを放したときにコントロールがどこをスパンするのかを示す赤の輪郭線が表示されます。
+
+image::images/WinGridBagLayoutPanel_About_WinGridBagLayoutPanel_03.png[]
+
+*エクステンダ プロパティ* – WinGridBagLayoutPanel コントロールによって管理されている各コントロールは一連のエクステンダ プロパティを受け取ります。これらのプロパティを通して、WinGridBagLayoutPanel コントロールによって特定のコントロールが管理されるかどうかを指定できます。そのコントロールの個々の link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint.html[GridBagConstraint] を編集することも可能です。  

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-api-overview",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["API"],
+    "guid": "{7E0B6E02-8B12-48AD-866C-646D95DFEF3F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== その他の名前空間：
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[{ApiPlatform}Win.Misc.v{ProductVersion}]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert.html[UltraDesktopAlert]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertbutton.html[UltraDesktopAlertButton]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo.html[UltraDesktopAlertShowWindowInfo]

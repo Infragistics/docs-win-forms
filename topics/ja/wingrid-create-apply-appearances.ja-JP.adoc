@@ -1,0 +1,107 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-create-apply-appearances",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{54EDC9BE-84B2-4273-9DF0-3CEE1E105772}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 外観の作成と適用
+
+== Appearance オブジェクトの作成と適用
+
+[start=1]
+. pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトを作成するには、WinGrid の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearancescollection.html[Appearances]"]  コレクションを使用します。Appearances をサポートするグリッドのオブジェクトは、Appearance オブジェクトを既に持っているので、希望しない場合には Appearance オブジェクトを作成する必要はありません。ただし同じ外観をいくつかの異なるオブジェクトに適用したい場合には、Appearance オブジェクトを作成すると便利です。
+
+始めに Appearance オブジェクトを Appearances コレクションに追加し、キーを割り当てます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Appearances.Add("Highlighted")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Appearances.Add("Highlighted");
+----
+
+[start=2]
+. Appearance オブジェクトを作成すると、BackColor や ForeColor などのプロパティにアクセスできます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Appearances("Highlighted").BackColor = Color.Red
+Me.UltraGrid1.DisplayLayout.Appearances("Highlighted").ForeColor = Color.White
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Appearances["Highlighted"].BackColor = Color.Red;
+this.ultraGrid1.DisplayLayout.Appearances["Highlighted"].BackColor = Color.White;
+----
+
+[start=3]
+. その後、この Appearance をグリッドのほぼすべてのオブジェクトに適用できます。たとえば、ActiveRow が常に赤い背景に白い文字で表示されるようにする場合は、今作成した Appearance をグリッドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activerowappearance.html[ActiveRowAppearance]"]  に適用します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.ActiveRowAppearance = _
+  Me.UltraGrid1.DisplayLayout.Appearances("Highlighted")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.ActiveRowAppearance = 
+  this.ultraGrid1.DisplayLayout.Appearances["Highlighted"];
+----
+
+[start=4]
+. 同じ Appearance オブジェクトに pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~rowselectorappearance.html[RowSelectorAppearance]"]  を設定することにより、同じ設定を pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectors.html[RowSelectors]"]  に適用することができます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.RowSelectorAppearance = _
+  Me.UltraGrid1.DisplayLayout.Appearances("Highlighted")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.RowSelectorAppearance = 
+  this.ultraGrid1.DisplayLayout.Appearances["Highlighted"];
+----
+
+[start=5]
+. これは、RowSelectorAppearance と ActiveRowAppearanc を直接変更しても同じ効果が得られます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.ActiveRowAppearance.BackColor = Color.Red
+Me.UltraGrid1.DisplayLayout.Override.ActiveRowAppearance.ForeColor = Color.White
+Me.UltraGrid1.DisplayLayout.Override.RowSelectorAppearance.BackColor = Color.Red
+Me.UltraGrid1.DisplayLayout.Override.RowSelectorAppearance.ForeColor = Color.White
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.ActiveRowAppearance.BackColor = Color.Red;
+this.ultraGrid1.DisplayLayout.Override.ActiveRowAppearance.ForeColor = Color.White;
+this.ultraGrid1.DisplayLayout.Override.RowSelectorAppearance.BackColor = Color.Red;
+this.ultraGrid1.DisplayLayout.Override.RowSelectorAppearance.ForeColor = Color.White;
+----
+
+image::images/WinGrid_Create_and_Apply_Appearances_01.png[]

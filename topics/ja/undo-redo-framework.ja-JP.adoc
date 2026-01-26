@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "undo-redo-framework",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "3961de75-bd40-45b1-a3c7-e8fcda072341",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3110125Z"
+}
+|metadata|
+////
+
+= Infragistics Undo/Redo Framework
+
+=== はじめに
+
+Infragistics Undo/Redo Framework™ はアプリケーションで元に戻す/やり直し機能を提供します。
+
+フレームワークは操作の履歴を保存し、元に戻す/やり直す操作を実行し、複数の操作を 1 つの履歴項目に結合することが可能です。UI で元に戻す/やり直す操作を実行するには、コマンドを提供します。
+
+=== トピック
+
+Infragistics Undo/Redo Framework についての情報は、以下のトピックで解説します。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:undo-redo-framework-methods-and-properties-reference-by-class.html[クラスによる Undo/Redo Framework メソッドおよびプロパティ参照]
+|このセクションには、Infragistics Undo/Redo Framework™ のキー クラス メソッドおよびプロパティに関する参照情報が含まれます。
+
+| link:undo-redo-framework-methods-and-properties-reference-by-task.html[タスクによる Undo/Redo Framework メソッドおよびプロパティ参照]
+|このセクションには、特定の元に戻す/やり直し機能を実装するために役に立つ Infragistics Undo/Redo Framework™ のキー メソッドおよびプロパティに関する参照情報が含まれます。
+
+|====

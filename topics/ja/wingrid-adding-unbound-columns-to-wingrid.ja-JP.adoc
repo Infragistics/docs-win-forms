@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-adding-unbound-columns-to-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{64DEBFC2-023E-4C91-A575-BDA1DC666639}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アンバインド列を WinGrid に追加
+
+WinGrid にはアンバウンド列を追加できます。これは、行内の他のフィールドに基づいた計算を表示する場合や、グリッドにチェックボックスを配置してユーザーが複数行を選択できるようにする場合に便利です。
+
+[NOTE]
+====
+*注* ：グリッドには最低 1 つのバウンド列が存在する必要があることに注意してください。グリッドにアンバウンド列のみを含めることはできません。このタスクでは、フォーム上にすでにバウンド WinGrid があることを前提とします。
+====
+
+計算列を WinGrid に追加する方法については、WinCalcManager チュートリアルの link:wincalcmanager-creating-a-calculated-column-in-wingrid.html[「WinGrid での計算された列の作成」]を参照してください。
+
+== グリッドにアンバウンド列を追加するには、次の手順に従ってください。
+
+アンバウンド列をグリッドに追加するには、2 つの方法があります。デザインタイムには、カスタム プロパティ ページを使用することができます。ランタイムには、Band の Columns コレクションを使用して列を追加します。
+
+== プロパティ ページ（デザインタイム）
+
+[start=1]
+. グリッド上で右クリックし、コンテキスト メニューから UltraWinGrid デザイナを選択してグリッド デザイナを開きます。
+[start=2]
+. [バンドと列の設定] を展開します。
+[start=3]
+. 適切な Band のノードを展開し、そのバンドの下にある Columns ノードをクリックします。
+[start=4]
+. 列のリストが右側に表示されます。リストの下部に [アンバウンド列の追加] というラベルがついたボタンがあります。このボタンをクリックします。
+
+== コード（ランタイム）
+
+コードで列を追加するには、新しい列のキー値を指定して Columns コレクションの Add メソッドにアクセスします。オプションとして、列ヘッダに表示する表題を指定できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns.Add("CalculatedColumn", "Calculated Value")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns.Add("CalculatedColumn", "Calculated Value");
+----
+
+アンバウンド列を作成する際にもっともよく使うのは、他の列に基づく計算を実行し、アンバウンド列にその結果を表示することです。

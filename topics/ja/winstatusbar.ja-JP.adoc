@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar",
+    "controlName": ["WinStatusBar"],
+    "tags": [],
+    "guid": "{B3D7AE35-EB47-4BC4-B971-78A844CCD279}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinStatusBar
+
+WinStatusBar コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinStatusBar についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinStatusBar コントロールについての情報にアクセスします。
+
+== link:winstatusbar-understanding-winstatusbar.html[WinStatusBar の理解]
+
+このセクションでは、WinStatusBar コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:win-winstatusbar-using-winstatusbar.html[WinStatusBar の使用]
+
+このセクションは、WinStatusBar コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:winstatusbar-api-overview.html[API 概要]
+
+このトピックは、WinStatusBar コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

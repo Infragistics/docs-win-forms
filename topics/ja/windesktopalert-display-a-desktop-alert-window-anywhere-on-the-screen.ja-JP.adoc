@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-display-a-desktop-alert-window-anywhere-on-the-screen",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{63112CA9-CB17-42B8-8698-5373A3017ADD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画面の任意の場所にデスクトップ アラート ウィンドウを表示
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~screenposition.html[ScreenPosition] プロパティを使用していくつかの標準的な位置にデスクトップ アラート ウィンドウを配置できます。設定可能な「位置」のひとつは link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.screenposition.html[Manual] です。これは必ずしも位置ではありませんが、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~screenlocation.html[ScreenLocation] プロパティを設定することができます。このプロパティによって完全にカスタムの画面の位置を設定できます。
+
+ScreenLocation プロパティはタイプ System.Drawing.Point です。必要なのは点を指定するために x-座標と y-座標を提供するだけです。この点は、特定の座標にウィンドウの左上隅を配置することによって、デスクトップ アラート ウィンドウの位置を決定します。ScreenPosition プロパティと ScreenLocation プロパティを一緒に使用することで、画面上の任意の場所にアラート ウィンドウを配置することができます。
+
+以下のコードを使用して、画面の左から 200 ピクセル、上から下に 200 ピクセルのところにデスクトップ アラート ウィンドウを配置します。
+
+*Visual Basic の場合：*
+
+----
+' サンプル テキストを使用して新しいデスクトップ アラート ウィンドウを作成します。
+Dim windowInfo1 As UltraDesktopAlertShowWindowInfo = _
+  New UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.")
+' 画面の配置をオフにすることで配置を手動で
+' 設定できます。 
+windowInfo1.ScreenPosition = ScreenPosition.Manual
+' 画面の左上隅の 200 ピクセル下、200 ピクセルの右に 
+' デスクトップ アラート ウィンドウの
+' 位置を設定します。
+windowInfo1.ScreenLocation = New Point(200, 200)
+' 上記の情報を使用してデスクトップ アラート ウィンドウを表示します。
+Me.UltraDesktopAlert1.Show(windowInfo1)
+----
+
+*C# の場合：*
+
+----
+// サンプル テキストを使用して新しいデスクトップ アラート ウィンドウを作成します。
+UltraDesktopAlertShowWindowInfo windowInfo1 = 
+  new UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.");
+// 画面の配置をオフにすることで配置を手動で 
+// 設定できます。
+windowInfo1.ScreenPosition = ScreenPosition.Manual;
+// 画面の左上隅の 200 ピクセル下、200 ピクセルの右に
+// デスクトップ アラート ウィンドウの
+// 位置を設定します。
+windowInfo1.ScreenLocation = new Point(200, 200);
+// 上記の情報を使用してデスクトップ アラート ウィンドウを表示します。
+this.ultraDesktopAlert1.Show(windowInfo1);
+----

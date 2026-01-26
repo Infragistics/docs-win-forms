@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmonthviewsingle-smart-tag",
+    "controlName": ["WinMonthViewSingle"],
+    "tags": ["Getting Started"],
+    "guid": "{31B10D15-60F9-4E16-9B2D-D8486DD51595}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMonthViewSingle スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、それぞれの {ProductName} コントロール/コンポーネントが固有のスマート タグを備えています。 コントロール/コンポーネントを単に選択すると、Smart Tag のアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WinMonthViewSingle スマート タグには、以下のセクションと共にコントロールの名前が含まれます。
+
+* 外観 -- コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* データ -- コントロールが使用している基になるデータ（データ ソースやデータ メンバなど）を参照します。
+* レイアウト -- コントロールをフォームのどこに、どのように配置するかを指定するプロパティがあります。
+
+各セクションの項目（たとえば、フィールド、ドロップダウン リスト、チェックボックス）およびプロパティ グリッドの項目の対応するプロパティの説明については以下を参照してください。
+
+image::images/WinSchedule_The_WinMonthViewSingle_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|オーナーの表示スタイル
+|Merged を選択するとすべてのオーナーがまとめて表示され、Separate を選択すると各オーナーが個別に表示されます。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsinglebase~ownerdisplaystyle.html[OwnerDisplayStyle]
+
+|オーナーのナビゲーション スタイル
+|ユーザーが別のオーナーに移動するための手段をドロップダウン、スクロールバー、ドロップダウンとスクロールバー、スクロールボタンの中から選択するか、または別のオーナーに移動できないようにするかを指定します。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsinglebase~ownernavigationstyle.html[OwnerNavigationStyle]
+
+|カレンダーの外観
+|ドロップダウンをクリックすると、フォーム上にある使用可能なすべての WinCalendarLook コントロールが表示されます。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultraschedulecontrolbase~calendarlook.html[CalendarLook]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|データ|説明|対応するプロパティ
+
+|カレンダー情報
+|ドロップダウンをクリックすると、フォーム上にある使用可能なすべての WinCalendarInfo コントロールが表示されます。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultraschedulecontrolbase~calendarinfo.html[CalendarInfo]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|レイアウト|説明|対応するプロパティ
+
+|ドッキング
+|WinMonthViewSingle を上、右、下、左、全体のどこにドッキングするか、またはどこにもドッキングしないかを選択します。
+|Dock
+
+|====

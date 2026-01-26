@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-fill-scene-graph-event-whats-new-20073",
+    "controlName": [],
+    "tags": [],
+    "guid": "{67F44254-6A27-4019-9E84-0D067C825D57}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Fill Scene Graph イベント
+
+新しい FillSceneGraph イベントは、ユーザー自身のカスタム レイヤーを作成することを不要にしました。このイベントは、Primitive のすべてが WinChart™ のシーン グラフに追加されているが、WinChart が描画される前に起動します。
+
+FillSceneGraphEvent に渡される FillSceneGraphEventArgs は、ChartCore の複数の重要なメンバを公開します。
+
+== 関連トピック
+
+link:chart-fillscenegraph-event.html[Fill Scene Graph イベント]

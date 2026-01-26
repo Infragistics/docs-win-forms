@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-infragistics-word-library",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting"],
+    "guid": "7580e9fd-cee0-4255-96bc-0b10d60f338d",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T13:46:46.429061Z"
+}
+|metadata|
+////
+
+= Infragistics Word ライブラリ
+
+Word ライブラリに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、Word ライブラリが何を実行するのか、またアプリケーションでなぜ Word ライブラリを使用したくなるのかから、一般的なタスクを完了する方法に関するステップバイステップの手順まで、Word ライブラリに関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、Word ライブラリに関する重要な情報にアクセスします。
+
+== link:word-understanding-infragistics-word-library.html[Infragistics Word ライブラリの理解]
+
+このセクションには Word ライブラリの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:word-using-the-infragistics-word-library.html[Infragistics Word ライブラリの使用]
+
+このセクションには、Word ライブラリで固有のタスクを実行する方法のデモを行うサンプル コード例を示す役立つトピックがあります。
+
+== link:word-api-overview.html[API の概要]
+
+このトピックでは、Word ライブラリを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「Infragistics Windowsフォームヘルプ」の「API参照ガイド」セクションへリンクしていて便利です。

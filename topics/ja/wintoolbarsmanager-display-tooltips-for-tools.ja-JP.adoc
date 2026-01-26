@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-display-tooltips-for-tools",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{39B9267D-4914-4CEB-AF2F-A07DEFA735E6}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールのツールチップの表示
+
+WinToolbarsManager コンポーネントには、ユーザーがマウスをツール上に移動したときにツールチップを表示する機能があります。
+
+ツールチップは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~showtooltips.html[ShowTooltips]"]  プロパティを True に設定することで表示できます。ShowTooltips プロパティが False のときは表示されません。ツールチップ用のテキストを指定するには、ツールごとに pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~tooltiptext.html[TooltipText]"]  プロパティを設定します。TooltipText プロパティに値が設定されていない場合は、ツールの Caption プロパティに設定されている値がツールチップとして表示されます。どちらのプロパティも設定されていない場合、ツールチップは表示されません。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub DisplayTooltipsforTools_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' Caption プロパティをツールチップとして表示します。
+	Me.UltraToolbarsManager1.ShowToolTips = True
+	Dim btnNew As New ButtonTool("New")
+	Me.UltraToolbarsManager1.Tools.Add(btnNew)
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(btnNew)
+	btnNew.SharedProps.Caption = "New File"
+	btnNew.SharedProps.ToolTipText = "New File..."
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void DisplayTooltipsforTools_Load(object sender, System.EventArgs e)
+{
+	// Caption プロパティの値をツールチップとして表示します。
+	this.ultraToolbarsManager1.ShowToolTips = true;
+	ButtonTool btnNew = new ButtonTool("New");
+	this.ultraToolbarsManager1.Tools.Add(btnNew);
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(btnNew);
+	btnNew.SharedProps.Caption = "New File";
+	btnNew.SharedProps.ToolTipText = "New File...";
+}
+----
+
+image::images/WinToolbarsManager_Display_ToolTips_for_Tools_01.png[]

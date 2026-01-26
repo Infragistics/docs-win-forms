@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-upgrading-your-windows-forms-projects",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B75B3FA7-2086-4E52-8D7B-E348389E521D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Windows Forms プロジェクトのアップグレード
+
+{ProductName} ツールセットの新しいバージョンは年に 2 回リリースされ、公開のサービスリリースはさらに頻繁にリリースされます。これらのリリースは重要な機能を追加するとともに、ユーザーに対して利用できる最も安定した製品を保証するものです。ただし、これはユーザーが既存のバージョンを最新のリリースにアップグレードする必要があるということにもなります。弊社は、このアップグレード作業をできるだけ苦労せずにおこなっていただきたいと考え、以下のように既存のプロジェクトをアップグレードする迅速で簡単な方法を提供します。
+
+* link:win-upgrading-a-project-to-infragistics-windows-forms-11-1-(and-above)-using-version-utility.html[バージョン ユーティリティの使用] -- 使いやすいInfragistics .NET プロジェクトアップグレードユーティリティを使用してWindowsフォームプロジェクトをアップグレードするプロセスについて概要を述べます。
+* link:win-using-command-line.html[コマンドラインの使用] -- コマンドライン プログラムを使用して、Infragistics .NET バージョン ユーティリティを実行する際に使用できるコマンドライン引数について述べます。
+* link:win-upgrading-a-project-manually.html[プロジェクトを手動でアップグレード] -- Infragistics アセンブリへ参照を追加したり、そこから参照を削除したりして手動でプロセスをアップグレードする方法について述べます。
+
+[NOTE]
+====
+*注:* ソリューションを Microsoft™ Visual Studio™ の別のバージョンへアップグレードする場合は、バージョン ユーティリティを使用する前に Visual Studio アップグレードを実行してください。Visual Studio のサポートされるバージョン以降です。ユーティリティは Infragistics 2005 以降のアプリケーションをアップグレードできます。
+====

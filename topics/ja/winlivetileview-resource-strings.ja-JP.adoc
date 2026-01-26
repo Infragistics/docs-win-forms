@@ -1,0 +1,129 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlivetileview-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "f6da23b2-310c-47a9-b724-5235a667a7fe",  
+    "buildFlags": [],
+    "createdOn": "2013-09-25T19:21:42.4114186Z"
+}
+|metadata|
+////
+
+= WinLiveTileView リソース文字列
+
+コントロールやコンポーネントで表示されるリソース文字列の値を簡単に編集できます。リソース文字列には、ダイアログ ボックスのキャプションや警告メッセージ、アラートなどが含まれます。
+
+以下の表に、このアセンブリで使用されるリソース文字列の名称や文字列の既定のテキスト値をリストで示します。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|DuplicateKeyException
+|'{0}' キーの項目はすでに存在します。
+
+|EmptyKeyException
+|空以外のキーを指定してください。
+
+|TileGroupsCollection_Exception_DifferentCollection
+|別のコレクションに属するため、指定したグループをこのコレクションに追加することはできません。
+
+|KeyedCollectionBase_Exception_ItemNotFound
+|このコレクションは指定した '{0}' キーの項目を含みません。
+
+|TileGroupsCollection_Exception_ItemAlreadyExists
+|指定したグループはすでにこのコレクションに属しています。
+
+|TilesCollection_Exception_DifferentCollection
+|別のコレクションに属するため、指定したタイルをこのコレクションに追加することができません。
+
+|TilesCollection_Exception_ItemNotFound
+|指定したタイルは、このコレクションに存在しません。
+
+|TilesCollection_Exception_ItemAlreadyExists
+|指定したタイルはすでにこのコレクションに属しています。
+
+|FontSet_InvalidSize
+|指定したフォント サイズ {0} の値 {1} は無効です。 
+
+以下を確認してください... 
+
+スモール フォントのサイズが、`Scale100Percent` フォントのサイズより小さい。また、 
+
+`Scale100Percent` フォントのサイズが、見出しのフォントのサイズより小さい。また、 
+
+`見出し` のフォントのサイズが、`ブロック` フォントのサイズより小さい。
+
+|MultiResolutionTileSizeSet_InvalidSize
+|{0} 値は無効です。タイルのサイズは負の値に設定できません。
+
+|Exception_CannotSetImageSize
+|画像のサイズはテンプレートによって決定されるため、変更できません。
+
+|Exception_InvalidCultureName
+|値 '{0}' は有効なカルチャ名ではありません。
+
+|Exception_InvalidTimeSpan
+|指定した `TimeSpan` はマイナス値にできません。
+
+|CountEquals
+|項目数 = {0}
+
+|Exception_CannotSetActiveTile
+|コントロールが縮小モードの場合、`ActiveTile` プロパティは設定できません。縮小モードを終了するために、 Expanded プロパティを True に設定します。
+
+|Exception_CannotSetActiveGroup
+|コントロールが縮小モードの場合のみ、`ActiveGroup` プロパティは設定できます。縮小モードを開始するために、 Expanded プロパティを False に設定します。
+
+|Exception_CannotSendBadgeNotification
+|コントロールに関連付けられていないタイルにバッジ通知を送信できません。
+
+|Exception_StaticTile_CurrentSize
+|値'{0}' は有効な `StaticTile` の値ではありません。「小」と「中」サイズのみがサポートされています。
+
+|UltraLiveTileView_Description
+|{ProductName} コントロールは、Windows8 ライブ タイルのルック アンド フィールをエミュレートします。
+
+|UltraLiveTileView_Exception_InvalidPropertyValue
+|'{0}'の値 が無効です。
+
+|ApplicationBarButtonsCollection_Exception_CannotAddDefaultButton
+|'{0}' ボタンをシェイプ コレクションに追加できません
+
+|DefaultApplicationBarButton_Customize_Text
+|ユーザー設定
+
+|DefaultApplicationBarButton_Resize_Text
+|サイズ変更
+
+|DefaultApplicationBarButton_ClearSelection_Text
+|選択のクリア
+
+|DefaultApplicationBarButton_TurnLiveTileOn_Text
+|ライブ タイルをオンにする
+
+|DefaultApplicationBarButton_TurnLiveTileOff_Text
+|ライブ タイルをオフにする
+
+|TileSize_Small
+|小
+
+|TileSize_Medium
+|中
+
+|TileSize_Wide
+|ワイド
+
+|TileSize_Large
+|大
+
+|UnnamedGroupCustomizeModeText
+|グループ名の設定
+
+|TileGroup_Exception_CannotEditCollapsedGroup
+|コントロールの折りたたまれた状態で編集は不可能です。編集可能にするには、Expanded プロパティを True に設定します。
+
+|====

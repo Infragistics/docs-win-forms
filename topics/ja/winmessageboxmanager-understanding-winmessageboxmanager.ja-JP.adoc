@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmessageboxmanager-understanding-winmessageboxmanager",
+    "controlName": ["WinMessageBoxManager"],
+    "tags": ["Getting Started"],
+    "guid": "{BDD623B2-FFCD-4344-A4A1-AA952255C383}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMessageBoxManager の理解
+
+WinMessageBoxManager™ コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinMessageBoxManager コントロールを使用することの利点を理解できます。
+
+* link:winmessageboxmanager-about-winmessageboxmanager.html[WinMessageBoxManage について] -- WinMessageBoxManager コンポーネントの概要を説明しています。

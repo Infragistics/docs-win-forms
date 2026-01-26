@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-ultracontrolcontainereditor-component",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["How Do I"],
+    "guid": "{C48A7D81-6DD5-4246-AD1A-E71F13DB5F55}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= UltraControlContainerEditor コンポーネントを使用して WinGrid セル内に任意のコントロールを組み込む
+
+ControlContainerEditor コンポーネントは、標準的な描画に使用されるコントロールだけでなく、編集モードの時に使用されるコントロールの指定を可能にする埋め込みエディターです。標準的な描画だけでなく編集モードの描画にも同じコントロールを表示することさえ選択できます。レンダリング コントロールは編集モードではない時に値を描画するために使用されます。
+
+[NOTE]
+====
+*注：* レンダリング コントロールはビットマップに描画されます。したがって、レンダリング コントロールとして使用されるコントロールは DrawToBitmap メソッドをサポートする必要があります。
+====
+
+編集コントロールによってエンドユーザーは編集モードの間にセルを編集することが可能となります。WinGrid と使用される時に、編集コントロールが指定されてない場合、編集はできません。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  は基本的にはレンダラーでありエディターではないためです。同様に、レンダリング コントロールが指定されない場合には、UltraGridCell はセル値をテキストとして表示するだけです。 
+
+デフォルトで、エディターが編集モードでない場合、レンダリング コントロールはオーナーまたは親コントロールと同様に同じ外観で（BackColor、ForeColor、Font など）表示されます。
+
+この例のコードは、編集コントロールのみ、またはレンダリング コントロールのみのいずれかを ControlContainerEditor に割り当てることができることを示します。これを埋め込みエディターをサポートするコントロールに組み込むことができます。編集コントロールとレンダリング コントロールの両方を ControlContainerEditor コンポーネントに割り当てる方法についての詳細は、 link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-controlcontainereditor-object.html[「ControlContainerEditor オブジェクトを使用して WinGrid セル内に任意のコントロールを組み込む」]を参照してください。
+
+編集コントロールまたはレンダリング コントロールはデザイン タイムに使用可能な pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.ultracontrolcontainereditor.html[UltraControlContainerEditor]"]  コンポーネントまたは pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor.html[ControlContainerEditor]"]  オブジェクトのインスタンスのいずれかに割り当てることができます。
+
+このトピックは、UltraGrid コントロール、.Net TrackBar コントロールおよび UltraControlContainerEditor コンポーネントを Form にドロップしてあることが前提となります。WinGrid コントロールは Northwind データベースの Products DataTable にバインドされます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinEditors
+...
+Me.ultraControlContainerEditor1.EditingControl = Me.trackBar1
+Me.ultraControlContainerEditor1.EditingControlPropertyName = "Value"
+' WinGrid で ControlContainerEditor を列に割り当てます。
+Me.ultraGrid1.DisplayLayout.Bands[0].Columns["UnitsInStock"].EditorComponent = Me.ultraControlContainerEditor1
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinEditors;
+...
+this.ultraControlContainerEditor1.EditingControl = this.trackBar1;
+this.ultraControlContainerEditor1.EditingControlPropertyName = "Value";
+// WinGrid で ControlContainerEditor を列に割り当てます。
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["UnitsInStock"].EditorComponent = this.ultraControlContainerEditor1;
+----
+
+*‘UnitsInStock’ 列で編集コントロールとして Trackbar が付いた WinGrid。レンダリング コントロールが指定されていないため、'UnitsInStock' 列のセル値はテキストとして表示されるだけです。*
+
+image::Images/WinControlContainerEditor_Embed_Any_Control_Within_WinGrid_cell_using_UltraControlContainerEditor_Component_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.ultraControlContainerEditor1.RenderingControl = Me.trackBar1
+Me.ultraControlContainerEditor1.RenderingControlPropertyName = "Value"
+' WinGrid で ControlContainerEditor を列に割り当てます。
+Me.ultraGrid1.DisplayLayout.Bands[0].Columns["UnitsInStock"].EditorComponent = Me.ultraControlContainerEditor1
+----
+
+*C# の場合：*
+
+----
+this.ultraControlContainerEditor1.RenderingControl = this.trackBar1;
+this.ultraControlContainerEditor1.RenderingControlPropertyName = "Value";
+// WinGrid で ControlContainerEditor を列に割り当てます。
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["UnitsInStock"].EditorComponent = this.ultraControlContainerEditor1;
+----
+
+*‘UnitsInStock’ 列でレンダリング コントロールとして Trackbar が付いた WinGrid。編集コントロールが指定されていないため、'UnitsInStock' 列のセルは編集できません。*
+
+image::Images/WinControlContainerEditor_Embed_Any_Control_Within_WinGrid_cell_using_UltraControlContainerEditor_Component_02.png[]

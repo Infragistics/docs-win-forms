@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A0564833-B0E8-480E-BDF4-A7DECC6A8A27}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule 2005.3
+
+2005 Volume 3 リリースの WinSchedule コントロールに追加された新機能を確認するには、以下のリンクをクリックしてください。
+
+link:winschedule-owner-dayofweeksettings-whats-new-2005-3.html[オーナー曜日設定]

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatetimeeditor-using-windatetimeeditor",
+    "controlName": ["WinDateTimeEditor"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{2F0CE44B-238E-4FC9-BE8B-8D353D01A6EC}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-11T13:44:53Z"
+}
+|metadata|
+////
+
+= WinDateTimeEditor の使用
+このセクションには、WinDateTimeEditor™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:windatetimeeditor-adding-selected-dates-to-wintree.html[選択した日付を WinTree に追加]
+* link:windatetimeeditor-preventing-from-typing-into-windatetimeeditor.html[ドロップダウン カレンダーに入力の無効化]
+* link:windatetimeeditor-restricting-the-range-of-dates-accepted-by-the-datetimeeditor.html[DateTimeEditor が受け入れる日付の範囲を制限する]

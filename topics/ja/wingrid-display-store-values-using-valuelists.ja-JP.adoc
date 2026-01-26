@@ -1,0 +1,104 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-display-store-values-using-valuelists",
+    "controlName": ["WinGrid"],
+    "tags": ["Data Presentation","Grids","How Do I"],
+    "guid": "{DE6F96EA-B259-4467-9E2A-CBDB9DE58353}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ValueLists を使用して値を表示および保存
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist.html[ValueLists]"]  を使用すると、ひとつの値を表示して別の値を格納できます。この例では、WinGrid がすでにある種のデータ ソースにバインドされていることを前提とします。
+
+== ValueList を表示および格納
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+[start=2]
+. ValueList を UltraGrid の ValueLists コレクションに追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.ValueLists.Add("List1")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.ValueLists.Add("List1");
+----
+
+[start=3]
+. 特定の値を表示して、別の値を保存するには、ValueList に pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem.html[ValueListItems]"]  を追加するときに、 pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem~displaytext.html[DisplayText]"]  プロパティだけでなく、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem~datavalue.html[DataValue]"]  プロパティで作業をする必要があります。値リストにデータを移植するときは、両方の値を pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitemscollection.html[ValueListItems]"]  コレクションの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitemscollection~add.html[Add]"]  メソッドに渡すことができます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.ValueLists("List1").ValueListItems.Add(1, "One")
+Me.UltraGrid1.DisplayLayout.ValueLists("List1").ValueListItems.Add(2, "Two")
+Me.UltraGrid1.DisplayLayout.ValueLists("List1").ValueListItems.Add(3, "Three")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.ValueLists["List1"].ValueListItems.Add(1, "One");
+this.ultraGrid1.DisplayLayout.ValueLists["List1"].ValueListItems.Add(2, "Two");
+this.ultraGrid1.DisplayLayout.ValueLists["List1"].ValueListItems.Add(3, "Three");
+----
+
+[start=4]
+. ValueList が DisplayText を表示し DataValue を保存するように、ValueList の表示スタイルを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.ValueLists("List1").DisplayStyle = ValueListDisplayStyle.DisplayText
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.ValueLists["List1"].DisplayStyle = ValueListDisplayStyle.DisplayText;
+----
+
+[start=5]
+. ValueList の設定が完了したので、ValueList を列に関連付けます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns.Add("Notes")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Notes").ValueList = _
+  Me.UltraGrid1.DisplayLayout.ValueLists("List1")
+Me.UltraGrid1.DataBind()
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns.Add("Notes");
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Notes"].ValueList = 
+  this.ultraGrid1.DisplayLayout.ValueLists["List1"];
+this.ultraGrid1.DataBind();
+----

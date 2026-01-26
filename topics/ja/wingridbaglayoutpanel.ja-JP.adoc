@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridbaglayoutpanel",
+    "controlName": ["WinGridBagLayoutPanel"],
+    "tags": [],
+    "guid": "{A19814EF-BB10-4EDD-9720-F11F655EF67D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridBagLayoutPanel
+
+WinGridBagLayoutPanel コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コンポーネントについての概要からアプリケーションで使用する理由、コンポーネントを使用して一般的なタスクを完了するための方法の手順などの WinGridBagLayoutPanel についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinGridBagLayoutPanel コントロールについての情報にアクセスします。
+
+== link:wingridbaglayoutpanel-understanding-wingridbaglayoutpanel.html[WinGridBagLayoutPanel の理解]
+
+このセクションでは、WinGridBagLayoutPanel コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:wingridbaglayoutpanel-api-overview.html[API 概要]
+
+このトピックは、WinGridBagLayoutPanel コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

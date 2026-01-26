@@ -1,0 +1,61 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": ["WinEditors"]
+}
+|metadata|
+////
+
+= カスタム入力を使用してエディターをインクリメント
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase.html[WinEditorMaskedControlBase] は、上/下矢印キー入力でその値を増減することができます。この機能を他の入力に対して使用するには、link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase~performaction.html[PerformAction()] メソッドを使用して、適切な上下矢印キー アクションを実行します。
+
+スピンを実行するにはエディターが編集モードになっている必要があります。エディターが編集モードでない場合にスピンを試みると `InvalidOperationException` がスローされます。このシナリオは、エディターの `Focused` プロパティを確認して防止することが可能です。
+
+次のコードは、マウス ホイール入力に応じてエディターを増減させる MouseWheel イベント ハンドラーを示します。
+
+*C# の場合:* 
+[source, csharp]
+----
+private void MouseWheelIncrement(object sender, MouseEventArgs e)
+{
+    var editor = (UltraWinEditorMaskedControlBase)sender;
+
+    // ignore if editor is not in edit mode
+    if (!editor.Focused)
+        return;
+
+    MaskedEditAction action;
+    bool positiveRoll = e.Delta > 0;
+    if (positiveRoll)
+        action = MaskedEditAction.UpKeyAction;
+    else
+        action = MaskedEditAction.DownKeyAction;
+
+    editor.PerformAction(action, false, false);
+}
+----
+
+*VB の場合:* 
+[source, vb]
+----
+Private Sub MouseWheelIncrement(sender As Object, e As MouseEventArgs)
+	Dim editor = DirectCast(sender, UltraWinEditorMaskedControlBase)
+
+	&apos; ignore if editor is not in edit mode
+	If Not editor.Focused Then
+		Return
+	End If
+
+	Dim action As MaskedEditAction
+	Dim positiveRoll As Boolean = e.Delta > 0
+	If positiveRoll Then
+		action = MaskedEditAction.UpKeyAction
+	Else
+		action = MaskedEditAction.DownKeyAction
+	End If
+
+	editor.PerformAction(action, False, False)
+End Sub
+----

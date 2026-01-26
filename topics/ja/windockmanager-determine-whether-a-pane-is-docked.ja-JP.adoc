@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-determine-whether-a-pane-is-docked",
+    "controlName": ["WinDockManager"],
+    "tags": ["Layouts"],
+    "guid": "{12ACBB6B-03B8-4BC3-A73C-3A43BC7681DA}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ペインをドックするかどうかを判断
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase.html[ペイン]"] がドックされるかどうかを決定するには、最初に特定のペインを指定する必要があります。以下のコードは pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~panefromcontrol.html[PaneFromControl]"]  メソッドを使用しますが、ペインを取得するその他の同様のメソッドをどれでも使用できます。詳細は、 link:windockmanager-locate-a-specific-pane.html[「特定のペインを指定」]を参照してください。
+
+以下のコードはペインを見つけ、ペインがドックされているかどうか、ドックされている場合にはフローティング ペインにするかどうかを確認します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinDock
+...
+Private Sub UltraButton1_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	'コントロールを保持しているペインがドックされているかどうかを確認します。
+	If Me.UltraDockManager1.PaneFromControl(Me.UltraDayView1).DockedState = _
+	  DockedState.Docked Then
+		' ドックされている場合にはフローティング ペインにします。
+		Me.UltraDockManager1.PaneFromControl(Me.UltraDayView1).Float(True)
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinDock;
+...
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	// コントロールを保持しているペインがドックされているかどうかを確認します。
+	if(this.ultraDockManager1.PaneFromControl(this.ultraDayView1).DockedState == 
+	  DockedState.Docked)
+		// ドックされている場合にはフローティング ペインにします。
+		this.ultraDockManager1.PaneFromControl(this.ultraDayView1).Float(true);
+}
+----

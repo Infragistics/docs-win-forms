@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-list-about-the-list-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{0C826417-DCD5-4E17-847A-91C5FF746FF5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リスト ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== List
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtool.html[ListTool]"]
+
+派生元：Toolbase
+
+説明：リスト ツールは、メニュー上の文字列のリストを表示します。各リスト項目はそれぞれメニュー上の別々のツールとして表示されます。各リスト項目には、エントリのテキストとは独立した値を関連付けることができます。また、Appearance オブジェクトを各リスト項目に関連付けることもできます。リスト ツールは、ファイルの MRU リストを作成するのに最適です。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_07.png[]

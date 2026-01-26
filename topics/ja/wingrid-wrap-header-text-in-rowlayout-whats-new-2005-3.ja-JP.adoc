@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-wrap-header-text-in-rowlayout-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9B4576F7-563E-4E35-BF2F-400073CC37A0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= RowLayout におけるヘッダ テキストの折り返し
+
+{ProductName} 2005 Volume 2 でこのプロパティを追加しました。ただし、通常モード（カード ビューではないモードおよび行レイアウトではないモード）に限って実装されました。Windows Forms 2005 Volume 3 では、行レイアウト通常ビュー モード、カード ビュー行レイアウトでないモード、およびカード ビュー行レイアウト モードのすべてのモードが実装されます。
+
+WrapHeaderText が True に設定されている場合、ヘッダのキャプションに対応するために WinGrid はヘッダのキャプションを自動的に折り返し、ヘッダの高さを増します。これは通常、キャプションを完全に表示するために必要なサイズよりもヘッダの幅が小さい場合に発生します（たとえば、小さくサイズを変更した場合）。
+
+image::images/WinGrid_Whats_New_Wrap_Header_Text_in_RowLayout_01.png[]
+
+_WrapHeaderText を False に設定_ 
+
+image::images/WinGrid_Whats_New_Wrap_Header_Text_in_RowLayout_02.png[]
+
+_WrapHeaderText を True に設定_ 
+
+== 関連トピック
+
+link:wingrid-wrapping-text-in-a-header.html[ヘッダのテキストの折り返し]

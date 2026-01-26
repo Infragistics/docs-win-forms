@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-defining-layouts",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Layouts"],
+    "guid": "{AF005333-1623-4137-870B-F0C9B3E56649}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:29:48Z"
+}
+|metadata|
+////
+
+= レイアウトの定義
+
+このセクションは、WinGrid コントロールでデータを表示できるさまざまなレイアウトおよびビューを紹介します。シナリオに応じて、任意のレイアウトを選択できます。
+
+* link:wingrid-creating,-saving,-and-loading-a-layout.html[レイアウトの作成、保存およびロード]
+* link:wingrid-limiting-band-indentation.html[バンドのインデントを制限]
+* link:wingrid-control-the-placement-of-headers.html[ヘッダーの配置を制御]
+* link:wingrid-card-view.html[カード ビュー]
+* link:wingrid-row-layouts.html[行レイアウト]
+* link:wingrid-creating-multiple-row-layout-use-levels.html[レベルを使用した複数行レイアウトを作成]
+* link:wingrid-displaying-data-in-an-alternate-card-view.html[代替カード ビューでのデータ表示]
+* link:wingrid-no-repeat-column-headers.html[非繰り返し列のヘッダー]
+* link:wingrid-arranging-cells.html[セルの整列]

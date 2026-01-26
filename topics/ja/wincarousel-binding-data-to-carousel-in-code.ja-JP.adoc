@@ -1,0 +1,165 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincarousel-binding-data-to-carousel-in-code",
+    "controlName": [],
+    "tags": [],
+    "guid": "42b39208-5d5c-43ef-a8cc-de2fa1b8d079",  
+    "buildFlags": [],
+    "createdOn": "2014-09-17T00:49:19.9278218Z"
+}
+|metadata|
+////
+
+= コードでのデータのカルーセルへのバインド
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、コードビハインドでデータを link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel_members.html[UltraCarousel] にバインドする方法を紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref397457597,概要>>
+
+** <<_Ref397457606,概要>>
+** <<_Ref397457617,アプリケーションの要件>>
+** <<_Ref397457625,データのバインド>>
+
+* <<_Ref381022312,関連コンテンツ>>
+
+[[_Ref397457597]]
+== 概要
+
+[[_Ref397457606]]
+
+=== 概要
+
+このトピックでは、コードで  _UltraCarousel_   を SQL データにバインドする方法を学習します。
+
+.注:
+[NOTE]
+====
+この演習では、データ バインディングを紹介するために Northwind SQL データベースを使用します。
+====
+
+[[_Ref397457617]]
+
+=== アプリケーションの要件
+
+1. _Infragistics WinForms 2014 Volume 2_   またはそれ以降のバージョンをインストールします。
+
+2.Visual Studio 2010 またはそれ以降のバージョンを使用して、新しい Windows Forms アプリケーションを開始します。
+
+3.Visual Studio ツールボックス領域からフォーム上に UltraCarousel コントロールをドラッグ アンド ドロップします。あるいは、コード内でコントロールを作成する場合は、以下のアセンブリをプロジェクトに追加します。
+
+* {ApiPlatform}Shared
+* {ApiPlatform}Win.UltraWinCarousel
+* {ApiPlatform}Win
+
+[[_Ref397457625]]
+
+=== データのバインド
+
+以下のコード例を使用してSQL データベースから取得したデータを、コントロールの `DataSource` プロパティを使用して  _UltraCarousel_   コントロールにバインドします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+using System.Data;
+using System.Data.SqlClient;
+. . . . .
+private void Form1_Load(object sender, EventArgs e)
+{
+    // Initialize DataSet and give it a name
+    this.dataSet = new DataSet("dataSet");
+    // Initialize the SqlConnection providing the connection string
+    this.sqlConnection1 = new SqlConnection("Data Source=(local);Initial Catalog=Northwind;Integrated Security=True");
+    // Initialize the SqlCommand that contains the Select command
+    this.sqlCommand1 = new SqlCommand("SELECT CategoryName, Picture FROM Categories");
+    // Assign the SqlConnection to the Connection property of the SqlCommand.
+    this.sqlCommand1.Connection = this.sqlConnection1;
+    // Initialize the SqlDataAdapter
+    this.sqlAdapter1 = new SqlDataAdapter();
+    // Assign the SelectCommand property of Adapter to the SqlCommand that has been created(SQL Query).
+    this.sqlAdapter1.SelectCommand = sqlCommand1;
+    try
+    {
+        // Fill the DataSet
+        this.sqlAdapter1.Fill(this.dataSet);
+        // Assign the DataSet's DefaultView to a control's data source.
+        this.ultraCarousel1.DataSource = this.dataSet.Tables[0].DefaultView;
+    }
+    catch (SqlException ex)
+    {
+        // Catch and display any exceptions that may occur
+        MessageBox.Show(ex.Message.ToString());
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Imports System.Data
+Imports System.Data.SqlClient
+. . . . .
+Private Sub Form1_Load(sender As Object, e As EventArgs)
+      ' Initialize DataSet and give it a name
+      Me.dataSet = New DataSet("dataSet")
+      ' Initialize the SqlConnection providing the connection string
+      Me.sqlConnection1 = New SqlConnection("Data Source=(local);Initial Catalog=Northwind;Integrated Security=True")
+      ' Initialize the SqlCommand that contains the Select command
+      Me.sqlCommand1 = New SqlCommand("SELECT CategoryName, Picture FROM Categories")
+      ' Assign the SqlConnection to the Connection property of the SqlCommand.
+      Me.sqlCommand1.Connection = Me.sqlConnection1
+      ' Initialize the SqlDataAdapter
+      Me.sqlAdapter1 = New SqlDataAdapter()
+      ' Assign the SelectCommand property of Adapter to the SqlCommand that has been created(SQL Query).
+      Me.sqlAdapter1.SelectCommand = sqlCommand1
+      Try
+            ' Fill the DataSet
+            Me.sqlAdapter1.Fill(Me.dataSet)
+            ' Assign the DataSet's DefaultView to a control's data source.
+            Me.ultraCarousel1.DataSource = Me.dataSet.Tables(0).DefaultView
+      Catch ex As SqlException
+            ' Catch and display any exceptions that may occur
+            MessageBox.Show(ex.Message.ToString())
+      End Try
+End Sub
+----
+
+アプリケーションを実行し、結果を検証します。
+
+image::images/Binding_Data_to_Carousel_in_Code_1.png[]
+
+[[_Ref381022312]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincarousel-binding-data-to-carousel-using-the-designer.html[デザイナーを使用したカルーセルへのデータのバインド]
+|このトピックでは、デザイン時にデータ ソースをセットアップする方法、およびそれを UltraCarousel コントロールにバインドする方法を手順とともに紹介します。
+
+| link:wincarousel-adding-carousel-items-in-code.html[コードでのカルーセル項目の追加]
+|このトピックでは、コードビハインドを使用して UltraCarousel 項目を追加する方法を紹介します。
+
+| link:wincarousel-adding-carousel-items-using-the-designer.html[デザイナーを使用したカルーセル項目の追加]
+|このトピックでは、コントロールのデザイン時のインターフェイスを使用して UltraCarousel 項目を追加および構成する方法を紹介します。
+
+| link:wincarousel-save-load-carousel-layout.html[カルーセル レイアウトの保存と読み込み]
+|このトピックでは、コントロールがデータにバインドされていない場合に、カルーセル項目を含む UltraCarousel レイアウトを保存する方法と読み込む方法を紹介します。バインドされている場合、保存されたレイアウトを読み込んだ後でコントロールを再度バインドする必要があります。
+
+|====

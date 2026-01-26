@@ -1,0 +1,18 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-whats-new-2004-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4AD68F7F-2049-4378-A27A-07CAEB11B5D9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 2004.3
+
+* デザインタイムに集計されたシリアライズを行う機能は実行中です。現在、デザインタイムに .NET コレクション エディタを経由したコレクションの集計を変更することによって、もしくは権限を与える集計（AllowRowSummariesを True に設定）によってのどちらでもなく、集計を作成することができます。そして、そのときの集計の選択にカラムヘッダにシグマ アイコンを使用します。
+* ToolTipText プロパティを UltraGridCell オブジェクトに追加しました。

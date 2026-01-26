@@ -1,0 +1,164 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-displaying-a-desktop-alert-window-when-a-winschedule-reminder-comes-due",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","Appointments","How Do I","Scheduling"],
+    "guid": "{2EC5CA05-A9FF-4CB1-8A2A-85D95DF543B2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule アラームの設定時間になるとデスクトップ アラート ウィンドウを表示
+
+== 始める前に
+
+これは遭遇するかもしれない一般的なシナリオで動作するいくつかの主要な WinDesktopAlert™ 機能を例示することを目的とした 3 部構成の詳細なガイドの最初のトピックです。このシナリオの詳細については、 link:windesktopalert-creating-a-desktop-alert-reminder-for-winschedule.html[「WinSchedule のデスクトップ アラート リマインダを作成」]を参照してください。
+
+このシナリオを可能にするひとつのプロパティは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertwindowinfo.html[UltraDesktopAlertWindowInfo] オブジェクトの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertwindowinfo~data.html[Data] プロパティです。このプロパティによって任意のタイプのオブジェクトを渡すことができます。これは任意のデータを使用することができますが、この事例では、デスクトップ アラート リマインダを表示する基本の WinSchedule™ link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointment] オブジェクトになります。WinDesktopAlert イベントのいくつかのイベント引数は、特定のデスクトップ アラート ウィンドウに関連付けられた UltraDesktopAlertWindowInfo オブジェクトを含みます。このため、Data プロパティを使用して各イベントに Appointment オブジェクトを渡すことができます。この概念が理解できたら、残りのシナリオはボタンを作成してイベントを処理するのと同じくらい簡単です。
+
+== 達成すること
+
+このトピックでは、デスクトップ アラート リマインダを作成するために必要なコントロール/コンポーネントでフォームを設定します。サンプル情報で予定を作成します。WinCalendarInfo™ の link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~beforedisplayreminderdialog_ev.html[BeforeDisplayReminderDialog] イベントを使用して、[アラーム] ダイアログ ボックスをキャンセルしデスクトップ アラート ウィンドウを表示します。次に、エンド ユーザーがデスクトップ アラート リマインダでキャプションまたはテキストをクリックした時に [予定] ダイアログ ボックスを開くために WinDesktopAlert の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~desktopalertlinkclicked_ev.html[DesktopAlertLinkClicked] イベントを処理します。
+
+== 次の手順を実行します
+
+[start=1]
+. *フォームを設定します。*
+
+WinButton™、WinCalendarInfo、WinToolbarsManager™、および WinDesktopAlert をフォームに追加する必要があります。ツールボックスでそれぞれをダブルクリックします。フォームに配置される唯一の項目はボタンです。ボタン名を [予定の作成] に変更します。フォームは以下のスクリーンショットのようになります。
+
+image::images/WinDesktopAlert_Displaying_a_Desktop_Alert_Window_When_a_WinSchedule_Reminder_Comes_Due_01.png[]
+
+[start=2]
+. *ボタンの Click イベントを使用して予定を作成します。*
+
+ボタンをダブルクリックして、 Click イベント ハンドラを作成します。このイベントで、2 つのタスクを実行します。最初のタスクは予定の作成です。予定は現在の時刻から 1 分後に開始し、5 分間続きます。予定の件名、説明、位置など追加のプロパティも設定します。予定を作成した後で、予定のプロパティに基づいてデスクトップ アラート ウィンドウでいくつかのプロパティを設定する必要があります。デスクトップ アラート ウィンドウのキャプションは予定の件名となり、テキストは予定の開始時刻と位置になります。デスクトップ アラート ウィンドウに設定するもうひとつの重要なプロパティは Data プロパティです。Data プロパティを予定に設定します。これでその他のイベントでこの予定にアクセスすることが可能となります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Dim appt As Appointment = New Appointment(DateTime.Now.AddMinutes(1), _
+	  DateTime.Now.AddMinutes(6))
+	appt.CalendarInfo = Me.UltraCalendarInfo1
+	appt.Subject = "Code Review"
+	appt.Description = "Let's discuss how efficient our code base is."
+	appt.Location = "Research Lab"
+	appt.Reminder.Enabled = True
+	Me.windowInfo.Caption = appt.Subject
+	Me.windowInfo.Text = _
+	  "Start Time: " + _
+	  appt.StartDateTime.ToLongDateString() + " " + _
+	  appt.StartDateTime.ToShortTimeString() + vbCrLf + _
+	  "Location: " + _
+	  appt.Location
+	Me.windowInfo.Data = appt
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, EventArgs e)
+{
+	Appointment appt = new Appointment(DateTime.Now.AddMinutes(1), 
+	  DateTime.Now.AddMinutes(6));
+	appt.CalendarInfo = this.ultraCalendarInfo1;
+	appt.Subject = "Code Review";
+	appt.Description = "Let's discuss how efficient our code base is.";
+	appt.Location = "Research Lab";
+	appt.Reminder.Enabled = true;
+	this.windowInfo.Caption = appt.Subject;
+	this.windowInfo.Text = 
+	  "Start Time: " + 
+	  appt.StartDateTime.ToLongDateString() + " " +
+	  appt.StartDateTime.ToShortTimeString() + "\n" +
+	  "Location: " +
+	  appt.Location;
+	this.windowInfo.Data = appt;
+}
+----
+
+[start=3]
+. *[アラーム] ダイアログ ボックスをキャンセルして、デスクトップ アラート ウィンドウを表示します。*
+
+WinCalendarInfo の BeforeDisplayReminderDialog イベントのイベント ハンドラを作成する必要があります。これは Visual Basic プロジェクトまたは C# プロジェクトのいずれかによって実行方法が異なります。
+
+*Visual Basic* – ソリューション エクスプローラでメインのフォーム（デフォルトで Form1.cs）を右クリックして、[コードを表示] をクリックします。コード ビハインドで、コード ウィンドウの真上に 2 つのドロップダウン リストが表示されます。左のドロップダウン リストで、UltraCalendarInfo1 を選択します。これで 2 番目のドロップダウン リストに UltraCalendarInfo1 のメンバが格納されます。右のドロップダウン リストで BeforeDisplayReminderDialog イベントを見つけてクリックします。Visual Studio はイベント ハンドラを作成します。
+
+*C#* - デザイン ビューで、ultraCalendarInfo1 がコンポーネント トレイで選択されていることを確認します。[プロパティ] ウィンドウの一番上で、光っているボルト ボタンをクリックします。[プロパティ] ウィンドウで、BeforeDisplayReminderDialog プロパティをダブルクリックします。Visual Studio はイベント ハンドラを作成します。
+
+イベント ハンドラを作成したので、[アラーム] ダイアログ ボックスをキャンセルする必要があります。EventArgs の Cancel プロパティを True に設定するだけです。[アラーム] ダイアログ ボックスが表示しなくなったので、デスクトップ アラート リマインダを表示する必要があります。これも非常に簡単に実行できます。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert.html[UltraDesktopAlert] コンポーネントの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~show.html[Show] メソッドを呼び出して、手順 1 で作成した UltraDesktopAlertShowWindowInfo オブジェクトを渡します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraCalendarInfo1_BeforeDisplayReminderDialog(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinSchedule.CancelableAppointmentEventArgs) _
+  Handles UltraCalendarInfo1.BeforeDisplayReminderDialog
+        e.Cancel = True
+        Me.UltraDesktopAlert1.Show(Me.windowInfo)
+    End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraCalendarInfo1_BeforeDisplayReminderDialog(object sender,
+  CancelableAppointmentEventArgs e)
+{
+	e.Cancel = true;
+	this.ultraDesktopAlert1.Show(this.windowInfo);
+}
+----
+
+[start=4]
+. *デスクトップ アラート ウィンドウのリンクをクリックした時に [予定] ダイアログ ボックスを開きます。*
+
+WinDesktopAlert コンポーネントにはリンクをクリックするかのようにエンド ユーザーがクリックできる 3 つのテキスト領域があります。これらの領域は、キャプション、テキスト、フッタテキストです。基本のメカニズムは、テキストを表示し LinkClicked イベントを処理するために link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor] オブジェクトを使用します。したがって、[予定] ダイアログ ボックスを開くなどテキストをクリックしたときにタスクを実行するだけでなく、これら 3 つのプロパティでフォーマットしたテキストを使用できます。
+
+このデスクトップ アラート ウィンドウにフッタ テキストがないため、エンド ユーザーがキャプション（予定の件名）またはテキスト（予定時刻と位置）をクリックするかどうかは重要ではありません。実行する必要があるのは、WinCalendarInfo の link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~displayappointmentdialog.html[DisplayAppointmentDialog] メソッドを呼び出して EventArgs の WindowInfo の Data プロパティによって予定への参照を渡すことだけです。
+
+[NOTE]
+====
+*注：* エンド ユーザーがどのリンクをクリックしたかが重要でない場合、EventArgs の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.desktopalertlinktype.html[DesktopAlertLinkType] プロパティを使用してエンド ユーザーがどのリンクをクリックしたかをテストするために IF/ELSE ステートメントまたは switch/select ステートメントのいずれかを使用することができます。
+====
+
+手順 2 で説明したのと同じ方法で、WinDesktopAlert の DesktopAlertLinkClicked イベントのイベント ハンドラを作成します。
+
+*Visual Basic の場合：*
+
+----
+' 注:このイベントは、リンクにその周りを囲むアンカー タグが 
+' ある場合に限り発生します!!!
+Private Sub UltraDesktopAlert1_DesktopAlertLinkClicked(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.Misc.DesktopAlertLinkClickedEventArgs) _
+  Handles UltraDesktopAlert1.DesktopAlertLinkClicked
+	Dim appt As Appointment = e.WindowInfo.Data
+	Me.UltraCalendarInfo1.DisplayAppointmentDialog(appt)
+End Sub
+----
+
+*C# の場合：*
+
+----
+// 注:このイベントは、リンクにその周りを囲むアンカー タグが 
+// ある場合に限り発生します!!!
+private void ultraDesktopAlert1_DesktopAlertLinkClicked(object sender,
+  DesktopAlertLinkClickedEventArgs e)
+{
+	this.ultraCalendarInfo1.DisplayAppointmentDialog(e.WindowInfo.Data as Appointment);
+}
+----
+
+[start=5]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行してボタンをクリックすると、予定が作成されます。アラームが有効になっており、デフォルトのアラームの間隔が 15 分であるため、デスクトップ アラート リマインダがポップアップします。次の手順は、 link:windesktopalert-adding-alert-buttons-to-the-desktop-alert-reminder.html[「デスクトップ アラート リマインダにアラートボタンを追加」]です。
+
+image::images/WinDesktopAlert_Displaying_a_Desktop_Alert_Window_When_a_WinSchedule_Reminder_Comes_Due_02.png[]

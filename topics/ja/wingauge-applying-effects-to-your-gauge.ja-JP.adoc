@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-applying-effects-to-your-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{19C6187D-76DB-4ADD-8759-0AAADC0C01DE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 効果をゲージに適用
+
+[プロパティ] パネルの [効果] タブによって、さまざまな効果をゲージのプロパティに適用できます。たとえば、ラジアル ゲージのアンカーにドロップ シャドー効果を適用するためにこのタブを使用できます。
+
+プロパティ パネルで使用可能な [効果] タブの説明については、以下のリンクをクリックしてください。
+
+* link:wingauge-effects-tab.html[効果タブ]

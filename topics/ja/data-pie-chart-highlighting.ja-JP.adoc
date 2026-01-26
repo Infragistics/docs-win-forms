@@ -1,0 +1,113 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= 強調表示
+
+このトピックでは、link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] コントロールのさまざまな強調表示機能を有効にして使用する方法について説明します。
+
+このトピックは、以下のセクションで構成されています。
+
+* <<Requirements,要件>>
+* <<Overview,強調表示の概要>>
+* <<HighlightBehaviors, 強調表示動作>>
+* <<HighlightModes,強調表示モード>>
+* <<RelatedTopics,関連コンテンツ>>
+
+[[Requirements]]
+=== 要件
+
+このトピックは、ユーザーがlink:data-pie-chart-data-binding.html[データ バインディング] トピックを既に読んでいることを前提とし、はじめにそのコードを使用します。
+
+[[Overview]]
+== 強調表示の概要
+
+{DataPieChartName} は、マウス オーバーによる強調表示と、別のデータ ソースを提供することで設定できる強調表示オーバーレイをサポートしています。以下のセクションでは、これらの機能について詳しく説明します:
+
+[[HighlightBehaviors]]
+=== 強調表示動作
+
+`HighlightingBehavior` プロパティは、スライスがどのように強調表示されるかを決定します。これは `SeriesHighlightingBehavior` 列挙体で表されます。以下はその列挙体のオプションとその機能です。
+
+- `DirectlyOver`: スライスは、マウスがその上に直接置かれている場合にのみ強調表示されます。
+- `NearestItems`: マウスの位置に最も近いスライスが強調表示されます。
+- `NearestItemsAndSeries`: マウスの位置に最も近いスライスとシリーズが強調表示されます。
+- `NearestItemsRetainMainShapes`: マウスの位置に最も近い項目が強調表示され、シリーズのメイン図形は強調表示されなくなります。
+
+
+[[HighlightModes]]
+=== 強調表示モード
+
+`HighlightingMode` プロパティは、データ円チャートのスライスが強調表示されたときにどのように反応するかを決定します。このプロパティは、`SeriesHighlightingMode` 列挙体によって定義されます。以下はその列挙体のオプションとその機能です。
+
+- `Brighten`: マウスの位置がそのシリーズ上または近くにあると、そのシリーズの色が明るくなります。
+- `BrightenSpecific`: マウスの位置が特定のスライスの上または近くにある場合、そのスライスの色が明るくなります。
+- `FadeOthers`: マウスの位置がそのシリーズ上または近くにある場合、そのシリーズは色を保持しますが、他の部分は薄く表示されます。
+- `FadeOthersSpecific`: マウスの位置がそのスライスの上または近くにある場合、そのスライスの色は保持されますが、他のスライスの色は薄く表示されます。
+- `None`: シリーズとスライスは強調表示されません。
+
+[[HighlightFilter]]
+=== 強調表示フィルター
+
+{DataPieChartName} の強調表示フィルターは、コントロールの `HighlightedDataSource` を指定し、`HighlightedValuesDisplayMode` プロパティを `Overlay` に設定することで適用されます。`HighlightedDataSource` は、{DataPieChartName} の `DataSource` プロパティに割り当てられたデータのサブセットを想定しています。
+
+これらの条件が満たされると、サブセットの値が強調表示され、データの全セットの残りの部分はフェードアウトされます。これにより、サブセットが効果的にハイライトされ、同じコントロール内でデータのサブセットをより簡単に視覚化できるようになります。
+
+[[CodeExample]]
+
+== コード例
+
+ifdef::wpf[]
+
+*XAML の場合:*
+
+[source,xaml]
+----
+TODO
+----
+
+*C# の場合:*
+
+[source, csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    HighlightingMode = SeriesHighlightingMode.BrightenSpecific,
+    HighlightingBehavior = SeriesHighlightingBehavior.NearestItems
+};
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*C# の場合:*
+
+[source,csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    Dock = DockStyle.Fill,
+    HighlightingMode = SeriesHighlightingMode.BrightenSpecific,
+    HighlightingBehavior = SeriesHighlightingBehavior.NearestItems
+};
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== 関連コンテンツ
+
+* link:data-pie-chart-data-binding.html[データ バインディング]
+* link:data-pie-chart-others-category.html[その他カテゴリ]

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-tools-to-a-wintaskpane-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Layouts"],
+    "guid": "{55CB90B8-8619-43D8-9202-CDE67B654E2E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTaskPane ツールバーへのツールの追加
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  は特殊な UltraToolbar で、この Tools コレクションは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  インスタンスだけを含むことができます。TaskPaneTool には pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool~control.html[Control]"]  プロパティがあり、これによってどのコントロールが UltraTaskPaneToolbar の内容領域に表示されるのかが決まります。デザインタイムに UltraTaskPaneToolbar にツールを追加するには、キャプション領域のポップアップ メニューから [ツールの新規追加] オプションをクリックします。あるいは、UltraTaskPaneToolbar にツールがひとつも追加されていない場合は、キャプション上の [ツールの新規追加] オプションをクリックできます。
+
+image::Images/WinToolbar_Adding_Tools_to_an_WinTaskPane_Toolbar_01.png[]
+
+UltraTaskPaneToolbar で使用できるツールタイプは "TaskPane Item" のみです。ツールを作成したら、ツールバー上のツールやメニューと同じように各ツールを右クリックすることで、ツールの変更オプションを含むコンテキスト メニューを表示できます。その中に、TaskPaneTool が選択されたときに表示するコントロールを選択するオプションがあります。
+
+[NOTE]
+====
+*注:* コントロールが指定されていない場合、ツールは無効になります。
+====
+
+image::Images/WinToolbar_Adding_Tools_to_an_WinTaskPane_Toolbar_02.png[]
+
+チェックマークの付いている項目は UltraTaskPaneToolbar の SelectedTaskPaneTool で、現在内容領域に表示されているコントロールを持つ TaskPaneTool を示します。このプロパティをデザイナで変更するには、メニュー内の項目のチェックマークが表示される領域をクリックします。
+
+[NOTE]
+====
+*注:* デザインタイムにはコントロールの親は変更されません（つまり、内容領域には表示されません）。
+====

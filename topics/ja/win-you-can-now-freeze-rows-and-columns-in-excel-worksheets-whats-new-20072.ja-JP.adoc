@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-freeze-rows-and-columns-in-excel-worksheets-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{8BB88054-181B-4C5E-A998-B555165AFCC6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Excel ワークシートで行と列を固定できるようになった
+
+Microsoft® Excel® の非常に有用な機能は、ペインの固定および固定解除で、この機能によってエンド ユーザーはタイトル行やメインの列を常に見ることができます。pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.displayoptions.html[DisplayOptions]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.displayoptions~panesarefrozen.html[PanesAreFrozen]"]  プロパティを True に設定し、次に pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.frozenpanesettings.html[FrozenPaneSettings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.frozenpanesettings~frozenrows.html[FrozenRows]"]  プロパティまたは pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.frozenpanesettings~frozencolumns.html[FrozenColumns]"]  プロパティを設定することによって固定する行または列を識別することによって、行と列を固定することができるようになりました。
+
+== 関連トピック
+
+link:excelengine-freeze-rows-and-columns.html[行と列をフリーズ]

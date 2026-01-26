@@ -1,0 +1,64 @@
+﻿////
+|metadata|
+{
+    "name": "wingriddocumentexporter-export-wingrid-asynchronously",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": ["Exporting","Grids"],
+    "guid": "d2ab03b8-1440-43e5-89aa-0dd05f7419e0",
+    "buildFlags": [],
+    "createdOn": "2011-08-05T19:10:48.8723104Z"
+}
+|metadata|
+////
+
+= WinGrid を非同期でエクスポート
+
+WinGridDocumentExporter™ コンポーネントによって、WinGrid™ 全体を直接 PDF または XML Paper Specification (XPS) ドキュメントに非同期にエクスポートすることができます (使用される link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.gridexportfileformat.html[GridExportFileFormat] 列挙体に基づいて) 。 link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter.html[UltraGridDocumentExporter] オブジェクトの link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~exportasync.html[ExportAsync] メソッドを呼び出すことによって、これを実行します。
+
+== はじめに
+
+非同期エクスポートでは、エクスポート中にアプリケーションのユーザー インターフェイスを操作できます。非同期エクスポートが実行中に、アプリケーションは WinGrid にもデータ ソースにもアクセスできないことを保証しなければなりません。WinGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~isexportasyncinprogress.html[IsExportAsyncInProgress] プロパティを使用して、アクセス競合を回避するために非同期エクスポートがまだ処理中かどうかを判断できます。
+
+== 要件
+
+* .NET Framework 3.0 以降を使用した Microsoft Visual Studio ソリューション
+* WinGrid とデータへのバインドを使用した Windows Forms アプリケーション ソリューション
+* フォームでの WinGridDocumentExporter コントロール
+
+== 概要
+
+[start=1]
+. <<Anchor4154,WinGrid を非同期でエクスポート>>
+[start=2]
+. <<Anchor828,(オプション) 結果を検証します>>
+
+== 手順
+
+[[Anchor4154]]
+[start=1]
+. WinGrid を非同期でエクスポート
+
+*C# の場合：*
+[source,csharp]
+----
+this.ultraGridDocumentExporter1.ExportAsync(this.ultraGrid1,    "C:\\Reports\\WinGrid_Report.pdf", Infragistics.Win.UltraWinGrid.DocumentExport.GridExportFileFormat.PDF);
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Me.UltraGridDocumentExporter1.ExportAsync(Me.UltraGrid1, _   "C:\Reports\WinGrid_Report.pdf", Infragistics.Win.UltraWinGrid.DocumentExport.GridExportFileFormat.PDF)
+----
+
+[[Anchor828]]
+[start=2]
+. (オプション) 結果を検証します。結果を検証するには、アプリケーションを実行してエクスポートを実行します (図 1) 。
+
+image::images/WinGridDocumentExporter_Export_WinGrid_Asynchronously_01.png[]
+
+図 1: PDF ドキュメントに非同期でエクスポートする WinGrid
+
+== 関連トピック
+
+* link:wingriddocumentexporter-export-wingrid-to-a-new-pdf-document.html[WinGrid を新しい PDF ドキュメントにエクスポート]
+* link:wingriddocumentexporter-export-wingrid-to-an-existing-report.html[WinGrid を既存のレポートにエクスポート]

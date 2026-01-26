@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-tool-statustext-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EB26CB5A-DF2E-42CB-BFE0-0B6AD079F95A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールの StatusText
+
+ツールをアクティブ化すると、UltraToolbarsManager と同じコンテナにある UltraStatusBar の AutoStatusText タイプのパネルに、テキストが自動的に表示されます。以前のバージョンでは、この値はアクティブ化されたツールの解決されたツールチップに基づいて設定されました。個々のツールの SharedProps プロパティの StatusText プロパティをパネルに表示されるテキストに設定すると、ツールチップとステータス テキストに表示されるテキストを変更できます。
+
+image::images/WinToolbarsManager_Tool_StatusText_Whats_New_2006_1_01.png[]

@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-showing-winspellchecker-status-on-a-status-bar",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["How Do I","Validation"],
+    "guid": "{EA097CC8-D2CF-4EF9-939A-4A314D444DF3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ステータス バーに WinSpellChecker のステータスを表示する
+
+== 始める前に
+
+WinSpellChecker の最もエキサイティングな機能のひとつは、Microsoft® Word のスペル チェックと同じ機能を実行できることです。WinSpellChecker が Microsoft Word のスペル チェッカーを真似ることができる方法のひとつが、ドキュメントの下のステータス バーにスペル チェックの状態を表示することです。WinSpellChecker のステータスを表示する作業は非常にシンプルで、2 つのイベントに関わり、各コードに 1 行あります。RichTextBox コントロールの KeyDown イベントと WinSpellChecker コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~spellchecked_ev.html[SpellChecked]"]  イベントを使用します。
+
+== 達成すること
+
+この詳細なガイドは、WinSpellChecker が現在ドキュメントをスペル チェックしているかどうか、またはドキュメントのスペル チェックが完了したかをエンド ユーザーに通知するステータス バーを作成する手順を説明します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. *フォームを設定します。*
+
+RichTextBox コントロール、StatusBar コントロール、および WinSpellChecker コンポーネントをフォームに配置する必要があります。ツールボックス内の RichTextBox と StatusBar をダブルクリックします。richTextBox1 の Dock プロパティを Fill に設定します。ツールボックスの Infragistics {ProductVersion} Win タブから UltraSpellChecker コンポーネントをダブルクリックします。WinSpellChecker がコンポーネント トレイに配置されると、richTextBox1 に戻り、pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spellcheckersettings.html[SpellCheckerSettings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spellcheckersettings~enabled.html[Enabled]"]  プロパティを True に設定します。
+[start=2]
+. *ステータス バーに WinSpellChecker のステータスを表示するためにイベントを作成します。*
+
+richTextBox1 の KeyDown イベントを作成します。イベントの内部に以下のコードを貼り付けます。
+
+*Visual Basic の場合：*
+
+----
+Me.StatusBar1.Text = "Checking Spelling"
+----
+
+*C# の場合:*
+
+----
+this.statusBar1.Text = "Checking Spelling";
+----
+
+ultraSpellChecker1 の SpellChecked イベントを作成します。イベントの内部に以下のコードを貼り付けます。
+
+*Visual Basic の場合：*
+
+----
+Me.StatusBar1.Text = "Spelling Checked"
+----
+
+*C# の場合：*
+
+----
+this.statusBar1.Text = "Spelling Checked";
+----
+
+[start=3]
+. *アプリケーションを実行します。*
+
+rich text box に入力すると、ステータス バーのテキストが「スペル チェック中」に変わります。WinSpellChecker がドキュメントのスペル チェックを完了すると、テキストは「スペル チェック完了」に変わります。もちろん、この機能は Microsoft Word のスペル ステータスの表示方法とは同一ではありませんが、行わなければならないことは、テキストの代わりに画像を使用することで、効果は同じです。他のシナリオは最後のスペルミスのワードを表示するステータス パネルを含むことができ、ドキュメント内のミススペルの数またはどのユーザー辞書が現在使用されているかが表示されます。

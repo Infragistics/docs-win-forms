@@ -1,0 +1,142 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-creating-multiple-row-layout-use-levels",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{28380F39-6175-49E4-9CCC-53027D3C7A42}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= レベルを使用した複数行レイアウトの作成
+
+WinGrid の 1 行に複数のレベルを含むことができます。
+
+[NOTE]
+====
+*注:* ここでは少なくとも １ 行のデータを含むバインドされたグリッドがあるものとします。
+====
+
+== 複数行レイアウトの作成
+
+[start=1]
+. 複数レベルの行を使用するには、列をpick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroup.html[グループ]"] に分割しなければいけません。グループを作ることから始めます。
+
+データベースには個人の住所情報があると仮定します。フィールドには First Name、 Last Name、 Street Address、City、State、Zip、Phone Number、Fax Number があります。
+
+この場合 Name、Address、Phone のように 3 つのグループに分けたいとします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Groups.Add("Name")
+Me.UltraGrid1.DisplayLayout.Bands(0).Groups.Add("Address")
+Me.UltraGrid1.DisplayLayout.Bands(0).Groups.Add("Phone")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Groups.Add("Name");
+this.ultraGrid1.DisplayLayout.Bands[0].Groups.Add("Address");
+this.ultraGrid1.DisplayLayout.Bands[0].Groups.Add("Phone");
+----
+
+[start=2]
+. 各pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[列]"] を特定のグループに割り当てることができます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("CompanyName").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Name")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("ContactName").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Name")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("ContactTitle").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Name")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("CustomerID").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Name")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Address").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Address")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Country").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Address")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("City").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Address")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Region").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Address")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("PostalCode").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Address")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Phone").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Phone")
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Fax").Group = _
+  Me.UltraGrid1.DisplayLayout.Bands(0).Groups("Phone")
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["CompanyName"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Name"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["ContactName"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Name"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["ContactTitle"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Name"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["CustomerID"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Name"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Address"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Address"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Country"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Address"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["City"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Address"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Region"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Address"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["PostalCode"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Address"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Phone"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Phone"];
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Fax"].Group = 
+  this.ultraGrid1.DisplayLayout.Bands[0].Groups["Phone"];
+----
+
+[start=3]
+. 新しいレベルを作成し、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~levelcount.html[LevelCount]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).LevelCount = 2
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].LevelCount = 2;
+----
+
+[start=4]
+. この時点ですべての列は Level 0 にあり、Level 1 は空です（レベルは 0 から始まります）。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~level.html[Level]"]  プロパティを設定して、いくつかの列を 2 番目の（より低い）レベルに移動します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("City").Level = 1
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Country").Level = 1
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("PostalCode").Level = 1
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Fax").Level = 1
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["City"].Level = 1;
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Country"].Level = 1;
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["PostalCode"].Level = 1;
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Fax"].Level = 1;
+----
+
+image::images/WinGrid_Create_a_Multiple_Row_Layout_Use_Levels_01.png[]

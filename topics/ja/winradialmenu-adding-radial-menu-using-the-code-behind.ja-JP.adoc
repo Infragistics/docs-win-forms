@@ -1,0 +1,345 @@
+﻿////
+
+|metadata|
+{
+    "name": "winradialmenu-adding-radial-menu-using-the-code-behind",
+    "controlName": [],
+    "tags": [],
+    "guid": "cbf16a03-e73a-4bbd-9324-867b1c357a24",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T22:10:39.1638209Z"
+}
+|metadata|
+////
+
+= コード ビハインドを使用したラジアル メニューの追加
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、コード ビハインドを使用した link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}~infragistics.win.ultrawinradialmenu.ultraradialmenu_members.html[UltraRadialMenu]™ ツールの追加についての概要を説明します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winradialmenu.html[WinRadialMenu]
+|このトピックは、Microsoft の OneNote MX 2013 ラジアル メニューと同様のタッチ操作を完全にサポートする、Windows Forms 用の 2013 Infragistics _WinRadialMenu_ コンポーネントを紹介します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref365799293,概要>>
+* <<_Ref365799303,ツールの追加>>
+** <<_Ref365799315, _WinRadialMenu_   をフォームに追加>>
+** <<_Ref365799327,RadialMenuTool の追加>>
+** <<_Ref365799335,RadialMenuColorTool の追加>>
+** <<_Ref365799348,RadialMenuNumericTool の追加>>
+** <<_Ref365799358,RadialMenuListTool の追加>>
+
+* <<_Ref365799368,関連コンテンツ>>
+
+[[_Ref365799293]]
+== 概要
+
+=== 概要
+
+このトピックでは、コード ビハインドを使用して  _WinRadialMenu_   ツールを追加する方法を学習します。
+
+[[_Ref365799303]]
+== ツールの追加
+
+[[_Ref365799315]]
+
+=== WinRadialMenu をフォームに追加
+
+* ツールボックス領域から、 link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}~infragistics.win.ultrawinradialmenu.ultraradialmenu_members.html[UltraRadialMenu] コンポーネントをフォームにドロップします。
+
+.注:
+[NOTE]
+====
+メニューを表示するには、常に引数として位置を渡すフォームを取得する  _Show_   メソッドのオーバーロードを呼び出します。
+====
+
+* 呼び出しは、フォームの Load イベント中または `初期化` の後になります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraRadialMenu1.Show(this, new Point(Bounds.Right, Bounds.Top));
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraRadialMenu1.Show(Me, New Point(Bounds.Right, Bounds.Top))
+----
+
+この時点でアプリケーションを実行している場合、ラジアル メニューは縮小された状態で表示されます。
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_1.png[]
+
+[[_Ref365799327]]
+
+=== RadialMenuTool の追加
+
+link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}~infragistics.win.ultrawinradialmenu.radialmenutool_members.html[RadialMenuTool] は、すべてのツール タイプの基本クラスです。ボタン ツールは特にコピー、貼り付け、元に戻す、やり直し、太字、斜体のようなツールを表現する link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}~infragistics.win.ultrawinradialmenu.radialmenutool_members.html[RadialMenuTool] タイプのツールです。デフォルトでは、ラジアル メニューには中央ツールのみが含まれ、そのコレクションの子ツールは含まれていません。最初に、各ツールを中央ツールのコレクションに追加し、次に各ツールに対して子ツールを追加します。
+
+.注:
+[NOTE]
+====
+中央ボタン ツールは、メニュー上のすべてのツールの親になります。
+====
+
+以下のコードは、 link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}~infragistics.win.ultrawinradialmenu.radialmenutool_members.html[RadialMenuTool] の親の `Copy` ツール タイプを、中央ツールのコレクションに追加する方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+var mainCopyTool = new RadialMenuTool("mainCopyTool")
+{
+    Text = "Copy",
+    ChildToolCheckBehavior = ChildToolCheckBehavior.Any,
+    VisiblePosition = 5
+};
+mainCopyTool.ToolSettings.Appearance.Image = // ユーザーのイメージ パス
+ultraRadialMenu1.CenterTool.Tools.Add(mainCopyTool);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim mainCopyTool = New RadialMenuTool("mainCopyTool") With { _
+      .Text = "Copy", _
+      .ChildToolCheckBehavior = ChildToolCheckBehavior.Any, _
+      .VisiblePosition = 5 _
+}
+mainCopyTool.ToolSettings.Appearance.Image = ' ユーザーのイメージ パス
+ultraRadialMenu1.CenterTool.Tools.Add(mainCopyTool)
+----
+
+以下のコードは、 link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}~infragistics.win.ultrawinradialmenu.radialmenutool_members.html[RadialMenuTool] タイプの子の `Cut`、`Copy` および `Paste` ツールを、親の Copy ツールのコレクションに追加する方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 子の Cut ツールを追加。
+var cutTool = new RadialMenuTool("cutTool")
+{
+    Text = "Cut",
+    VisiblePosition = 7
+};
+cutTool.ToolSettings.Appearance.Image = // ユーザーのイメージ パス
+mainCopyTool.Tools.Add(cutTool);
+// 子の Copy ツールを追加。
+var copyTool = new RadialMenuTool("copyTool")
+{
+    Text = "Copy",
+    VisiblePosition = 0
+};
+copyTool.ToolSettings.Appearance.Image = // ユーザーのイメージ パス
+mainCopyTool.Tools.Add(copyTool);
+// 子の Paste ツールを追加 
+var pasteTool = new RadialMenuTool("pasteTool")
+{
+    Text = "Paste",
+    VisiblePosition = 1
+};
+pasteTool.ToolSettings.Appearance.Image = // ユーザーのイメージ パス
+mainCopyTool.Tools.Add(pasteTool);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 子の Cut ツールを追加。
+Dim cutTool = New RadialMenuTool("cutTool") With { _
+      .Text = "Cut", _
+      .VisiblePosition = 7 _
+}
+cutTool.ToolSettings.Appearance.Image = ' ユーザーのイメージ パス
+mainCopyTool.Tools.Add(cutTool)
+' 子の Copy ツールを追加。
+Dim copyTool = New RadialMenuTool("copyTool") With { _
+      .Text = "Copy", _
+      .VisiblePosition = 0 _
+}
+copyTool.ToolSettings.Appearance.Image = ' ユーザーのイメージ パス
+mainCopyTool.Tools.Add(copyTool)
+' 子の Paste ツールを追加 
+Dim pasteTool = New RadialMenuTool("pasteTool") With { _
+      .Text = "Paste", _
+      .Checkable = True, _
+      .VisiblePosition = 1 _
+}
+pasteTool.ToolSettings.Appearance.Image = ' ユーザーのイメージ パス
+mainCopyTool.Tools.Add(pasteTool)
+----
+
+親 (Copy) と子 (Cut、Copy および Paste) のツールの結果
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_2.png[]
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_3.png[]
+
+[[_Ref365799335]]
+
+=== RadialMenuColorTool の追加
+
+以下のコードは、Microsoft の  _OneNote MX 2013_   カラー ツールに類似したカラー ツールを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraRadialMenu1.CenterTool.Tools.AddOneNoteMxColorTool("Color");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraRadialMenu1.CenterTool.Tools.AddOneNoteMxColorTool("Color")
+----
+
+[[_Ref365799348]]
+
+=== RadialMenuNumericTool の追加
+
+以下のコードは、ゲージの数値を表す数値ゲージ ツールを使用して、数値ツールを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// フォント サイズ用の親の数値ツール。
+var fontSize = new RadialMenuNumericTool("FontSize")
+{
+    Text = Properties.Resources.FontSize,
+    VisiblePosition = 7,
+    Value = 9
+};
+fontSize.ToolSettings.Appearance.Image = // ユーザーのイメージ パス
+ultraRadialMenu1.CenterTool.Tools.Add(fontSize);
+// FontSize オプションを持つ子のゲージ ツール。
+_rangeTool = new RadialMenuNumericGaugeTool();
+NumericGaugeToolTickmark tickmark = _rangeTool.Tickmarks.Add(9);
+tickmark.ShowLabel = false;
+_rangeTool.Tickmarks.Add(9);
+_rangeTool.Tickmarks.Add(11);
+_rangeTool.Tickmarks.Add(13);
+_rangeTool.Tickmarks.Add(16);
+_rangeTool.Tickmarks.Add(20);
+_rangeTool.Tickmarks.Add(26);
+_rangeTool.Tickmarks.Add(36);
+_rangeTool.Tickmarks.Add(48);
+fontSize.Tools.Add(_rangeTool);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' フォント サイズ用の親の数値ツール。
+Dim fontSize = New RadialMenuNumericTool("FontSize") With { _
+    .Text = "Font Size", _
+    .VisiblePosition = 7, _
+    .Value = 9 _
+}
+fontSize.ToolSettings.Appearance.Image = ' ユーザーのイメージ パス
+UltraRadialMenu1.CenterTool.Tools.Add(fontSize)
+' FontSize オプションを持つ子のゲージ ツール。
+Dim _rangeTool As RadialMenuNumericGaugeTool = New RadialMenuNumericGaugeTool()
+Dim tickmark As NumericGaugeToolTickmark = _rangeTool.Tickmarks.Add(9)
+tickmark.ShowLabel = False
+_rangeTool.Tickmarks.Add(9)
+_rangeTool.Tickmarks.Add(11)
+_rangeTool.Tickmarks.Add(13)
+_rangeTool.Tickmarks.Add(16)
+_rangeTool.Tickmarks.Add(20)
+_rangeTool.Tickmarks.Add(26)
+_rangeTool.Tickmarks.Add(36)
+_rangeTool.Tickmarks.Add(48)
+fontSize.Tools.Add(_rangeTool)
+----
+
+* 数値ゲージ ツールを持つ数値ツールの結果
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_4.png[]
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_5.png[]
+
+[[_Ref365799358]]
+
+=== RadialMenuListTool の追加
+
+以下のコードは、コレクション内の項目のリストを含むリスト ツールを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+var listTool = new RadialMenuListTool("List")
+    {
+        Text = "List",
+        VisiblePosition = 3
+    };
+listTool.ToolSettings.Appearance.Image = // ユーザーのイメージ パス
+ultraRadialMenu1.CenterTool.Tools.Add(listTool);
+listTool.ValueList.ValueListItems.Add("Item 1");
+listTool.ValueList.ValueListItems.Add("Item 2");
+listTool.ValueList.ValueListItems.Add("Item 3");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim listTool = New RadialMenuListTool("List") With { _
+      .Text = "List", _
+      .VisiblePosition = 3 _
+}
+listTool.ToolSettings.Appearance.Image = ' ユーザーのイメージ パス
+ultraRadialMenu1.CenterTool.Tools.Add(listTool)
+listTool.ValueList.ValueListItems.Add("Item 1")
+listTool.ValueList.ValueListItems.Add("Item 2")
+listTool.ValueList.ValueListItems.Add("Item 3")
+----
+
+* リスト ツールとその項目のリストの結果
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_6.png[]
+
+* リスト ツールのドリルダウン ボタンをクリックすると、以下に示すように、ラジアル メニューの位置に項目のリストが表示されます。
+
+image::images/Adding_Radial_Menu_Tool_Using_the_Code-Behind_7.png[]
+
+[[_Ref365799368]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winradialmenu-adding-radial-menu-using-the-designer.html[デザイナーを使用したラジアル メニューの追加]
+|このトピックは、コンポーネントのデザイナーを使用した _WinRadialMenu_ ツールの追加についての概要を説明します。
+
+|====

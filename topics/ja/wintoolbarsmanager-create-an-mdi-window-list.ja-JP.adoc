@@ -1,0 +1,54 @@
+﻿////
+|metadata|
+{
+    "name": "wintoolbarsmanager-create-an-mdi-window-list",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{BAF92FE2-427F-46AD-A242-67DF6F804C8A}","buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= MDI ウィンドウ リストの作成
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.mdiwindowlisttool.html[MDIWindowList]"]  ツールは、アプリケーションですべてのオープン MDI フォームを文書化するためのリスト ツールで、リストからひとつのフォームを選択すると、そのフォームが前景になりフォーカスされます。また、すべてのウィンドウを閉じる、水平または垂直に並べる、すべてのウィンドウを縮小する、カスケード表示するなどのオプションもあります。
+
+[start=1]
+. エレメントのカスタマイザ エディタを開き、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopUpMenu]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[Button]"]  ツールを作成し、MDI 親フォームに置かれたツールバーに追加します。
+[start=2]
+. MDIWindowList ツールを作成し、それをドロップ カーソルが表示されるまでメニュー ツールに向かってドラッグ アンド ドロップしてポップアップ メニューに MDIWindowList を追加します。
+[start=3]
+. MDI アプリケーションにすべてのオープン フォームをリストすることに加えて、オープン フォームの視覚的な表示のために選択するためのユーザー用の異なるコマンドをリストできます。以下は使用できるプロパティのリストです。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|説明
+
+|DisplayArrangeIconsCommand
+|親フォームの左下角にすべての縮小されたウィンドウを整列します。
+
+|DisplayCascadeCommand
+|すべてのオープン フォームをカスケードします。
+
+|DisplayCheckmark
+|フォーカスを持つフォームの横にチェック マークを表示します。
+
+|DisplayCloseWindowsCommand
+|すべてのオープン フォームを閉じます。
+
+|DisplayMinimizeCommand
+|すべてのオープン フォームを縮小します。
+
+|DisplayTileHorizontalCommand
+|水平の外観ですべてのオープン フォームをタイルします。
+
+|DisplayTileVerticalCommand
+|垂直の外観ですべてのオープン フォームをタイルします。
+
+|====
+
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtool~displaycheckmark.html[DisplayCheckmark]"]  プロパティはブール値を取りますが、他は Hide、DisplayOnMenu、DisplayOnDialog または DisplayOnMenuAndDialog に設定できます。（この場合、ダイアログは [その他のウィンドウ...] ダイアログという意味です。）
+[start=5]
+. ボタン ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick]"]  イベントでコードを追加して、複数の MDI 子フォームを表示します。プロジェクトを実行し、子フォームの数を表示し、MDIWindowList ツールを表示し、リストされるすべてのオープン フォームのテキストを見ます。

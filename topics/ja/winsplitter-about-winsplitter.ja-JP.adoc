@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winsplitter-about-winsplitter",
+    "controlName": ["WinSplitter"],
+    "tags": [],
+    "guid": "{B3C3492A-7651-4EEF-B5F3-D59EC392040D}",  
+    "buildFlags": [],
+    "createdOn": "2009-10-12T16:22:12Z"
+}
+|metadata|
+////
+
+= WinSplitter について
+
+WinSplitter™ コントロールによってエンドユーザーは、ランタイムに WinSplitter の端にドックされるコントロールをリサイズできます。 エンドユーザーが WinSplitter の上にマウスを移動すると、カーソルは WinSplitter にドックされるコントロールがリサイズできることを示すために変更されます。 フォームの Top/Bottom または Left/Right に WinSplitter をドックできるので、コンテンツは水平方向または垂直方向にリサイズできます。
+
+WinSplitter コントロールの機能の一部は以下のとおりです:
+
+* *コンテンツの縮小/復元：* 縮小/復元ボタンは、フォームでコンテンツを縮小または復元するために WinSplitter コントロールで使用できます。
+* *スタイリング：* WinSplitter は、Appearance 設定および AppStyling からスタイルできます。 縮小/復元ボタンは、さまざまなスタイル プロパティでスタイルすることもできます。
+
+== 関連トピック
+
+* link:winsplitter-getting-started-with-winsplitter.html[WinSplitter で開始] link:winsplitter-using-winsplitter.html[]
+* link:winsplitter-using-winsplitter.html[WinSplitter の使用]

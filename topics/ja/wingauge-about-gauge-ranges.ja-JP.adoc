@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-about-gauge-ranges",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{EF7D0E22-6B94-49A8-AA15-2E3780A86C8C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ レンジについて
+
+Gauge コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange.html[Range]"]  プロパティはスケール上の指定した値から開始し指定した値で終了する視覚的エレメントです。Range プロパティによって、スケールの特定の部分を強調表示することができます。たとえば、自動車のタコメータでは、高 RPM ゾーン（通常黄色と赤）は、最適なロードよりもエンジンの回転数が高いことを示します。
+
+image::images/Gauge_Add_Range_01.png[]
+
+== 関連トピック
+
+link:wingauge-add-a-range-to-a-gauge.html[レンジをゲージに追加]

@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-gallerytoolitemclick-event",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Events"],
+    "guid": "{BB01FC53-71D8-4680-A008-85C225BCCD2F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= GalleryToolItemClick イベント
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.com にお問い合わせください。
+====
+
+本トピックは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool.html[PopupGalleryTool]"]  で GalleryToolItems の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool~gallerytoolitemclick_ev.html[GalleryToolItemClick]"]  イベントを処理する方法を示します。エンド ユーザーが通常のツールをクリックする場合、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick]"]  イベントはクリックを処理するために使用できます。一方、PopupGalleryTool に固有である GalleryToolItems がクリックされる場合、GalleryToolItemClick イベントが処理される必要があります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ultraToolbarsManager1_GalleryToolItemClick (ByVal sender As Object, _
+              ByVal e As GalleryToolItemEventArgs) Handles UltraToolbarsManager1. GalleryToolItemClick
+                        'クリックされる GalleryToolItem を指定します
+                       System.Diagnostics.Debug.WriteLine (e.Item.Key)
+    End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraToolbarsManager1_GalleryToolItemClick (object sender, GalleryToolItemEventArgs e)
+        {
+            // クリックされる GalleryToolItem を指定します
+            System.Diagnostics.Debug.WriteLine (e.Item.Key);
+        }
+----

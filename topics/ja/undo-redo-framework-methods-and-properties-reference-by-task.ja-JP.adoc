@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "undo-redo-framework-methods-and-properties-reference-by-task",
+    "controlName": [],
+    "tags": [],
+    "guid": "25ea03ee-e551-4455-a7a1-71c68f041e7e",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3500125Z"
+}
+|metadata|
+////
+
+= タスクによる Undo/Redo Framework メソッドおよびプロパティ参照
+
+=== はじめに
+
+このセクションには、特定の元に戻す/やり直し機能を実装するために役に立つ Infragistics Undo/Redo Framework™ のキー メソッドおよびプロパティに関する参照情報が含まれます。
+
+=== トピック
+
+タスクによる Infragistics Undo/Redo Framework メソッドおよびプロパティ参照についての情報は、以下のトピックで解説します。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:methods-reference-for-adding-undounits-to-the-undo-history.html[UndoUnits を元に戻す履歴に追加するためのメソッド参照]
+|このトピックは、UndoUnit 派生クラス オブジェクトを元に戻す履歴に追加するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-removing-undounits-from-the-history.html[UndoUnits を履歴から削除するためのメソッド参照]
+|このトピックは、UndoUnit インスタンスを元に戻す/やり直し履歴から削除するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-registering-unregistering-objects.html[オブジェクトの登録/登録解除のためのメソッド参照]
+|このトピックは、UndoManager インスタンスに特定のオブジェクトを登録/登録解除するメソッドをリストします。
+
+| link:methods-reference-for-performing-undo-redo-operations.html[元に戻す/やり直し操作を実行するためのメソッド参照]
+|このトピックは、元に戻す/やり直し操作を実行するために使用可能なメソッドをリストします。
+
+| link:methods-and-properties-reference-for-performing-transactions.html[トランザクションを実行するためのメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直しトランザクションを実行するための使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-and-properties-reference-for-merging-undoredo-operations.html[元に戻す/やり直し操作の結合のメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直し操作の結合に関係する使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-reference-for-suspending-and-resuming-saving-history.html[履歴の保存を中断および再開するためのメソッド参照]
+|このトピックは、履歴に元に戻す/やり直し操作を保存することを中断および再開するために使用可能なメソッドをリストします。
+
+| link:methods-and-properties-reference-for-creating-custom-undounit.html[カスタム UndoUnit を作成するためのメソッドおよびプロパティ参照]
+|このトピックは、Infragistics Undo/Redo Framework™ でカスタム UndoUnit を作成することに関連する使用可能なメソッドおよびプロパティをリストします。
+
+|====

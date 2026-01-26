@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-row-numbers-in-row-selectors",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{51B30B79-B467-4E35-9A9B-C02F1B182E6A}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 行セレクタでの行番号の表示
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectornumberstyle.html[RowSelectorNumberStyle]"]  プロパティを使用すると、WinGrid の行セレクタに行番号を簡単に表示できます。
+
+このプロパティには 4 つの設定があります。
+
+* *None* - 行番号は表示されません。これがデフォルト設定です。
+* *ListIndex* - これは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~listindex.html[ListIndex]"]  プロパティに関連付けられたインデックスです。この行番号は、データ ソース内での行のインデックスを表します。
+* *RowIndex* - これは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~index.html[Index]"]  プロパティに関連付けられたインデックスです。この行番号は、親の行コレクション内での行のインデックスを表します。
+* *VisibleIndex* - これは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~visibleindex.html[VisibleIndex]"]  プロパティに関連付けられたインデックスです。この行番号は、親の行コレクション内での行の表示インデックスを表します。
+
+*注：* 行番号を使用するときは、必ず pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectors.html[RowSelectors]"]  を True に設定してください。
+
+== RowSelectorNumberStyle プロパティにアクセスするには:
+
+[start=1]
+. デザインタイムに WinGrid を右クリックして [UltraWinGrid デザイナ] を選択します。
+[start=2]
+. デザイナの右側で、[コントロール設定] オプションを選択します。
+[start=3]
+. 下にスクロールして pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  プロパティを展開します。
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~override.html[Override]"]  プロパティが表示するまで下にスクロールして、プロパテイを展開します。
+[start=5]
+. Override プロパティで、RowSelectorNumberStyle プロパティが表示されるまで下にスクロールします。
+
+たとえばこのプロパティを RowIndex に設定すると、WinGrid は次の図のようになります。
+
+image::Images/WinGrid_Row_Numbers_in_Row_Selectors_01.png[]

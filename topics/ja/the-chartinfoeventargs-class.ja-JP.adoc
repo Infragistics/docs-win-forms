@@ -1,0 +1,66 @@
+﻿////
+
+|metadata|
+{
+    "name": "the-chartinfoeventargs-class",
+    "controlName": [],
+    "tags": ["Charting","Events"],
+    "guid": "{FAFE6BA2-287E-477B-841A-F7A8A118044F}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-10T13:56:32Z"
+}
+|metadata|
+////
+
+= ChartInfoEventArgs クラス
+
+カスタム ChartInfoEventArgs クラスの目的は、グリッドの各行を表すグラフを移植することを希望する開発者に重要な情報を公開することです。このクラスは、グラフが初めて初期化されてグリッド行に添付される時に常に発生するように設計された ChartInfoRequested イベントを通して公開されます。ChartInfoEventArgs クラスは 2 つの重要なイベントを公開します。ひとつは現在初期化している実際の WinChart への参照で、もうひとつのプロパティはグラフが添付されるグリッド行を表します。使用可能なこれらの両方のプロパティの両方で、グリッド行に簡単にアクセスしてルックアップ操作を実行するためにプライマリ キー値を使用したり、グラフ データを取得してそれをグラフにバインドできます。
+
+*Visual Basic の場合：*
+
+----
+Public Class ChartInfoEventArgs
+	Inherits EventArgs
+	Private _chart As UltraChart = Nothing
+	Private _row As UltraGridRow = Nothing
+	Public Sub New(ByVal Chart As UltraChart, ByVal Row As UltraGridRow)
+		_chart = Chart
+		_row = Row
+	End Sub
+	Public ReadOnly Property WinChart() As UltraChart
+		Get
+			Return _chart
+		End Get
+	End Property
+	Public ReadOnly Property Row() As UltraGridRow
+		Get
+			Return _row
+		End Get
+	End Property
+End Class
+----
+
+*C# の場合：*
+
+----
+public class ChartInfoEventArgs : EventArgs
+{
+	private UltraChart _chart = null;
+	private UltraGridRow _row = null;
+	public ChartInfoEventArgs(UltraChart Chart, UltraGridRow Row)
+	{
+		_chart = Chart;
+		_row = Row;
+	}
+	public UltraChart WinChart
+	{
+		get { return _chart; }
+	}
+	public UltraGridRow Row
+	{
+		get { return _row; }
+	}
+}
+----
+
+以下のトピックは、グラフをアクティブ セルにリストアすると、保持されたグラフ設定およびデータをリロードできるようにグラフの状態を保持するために使用される ChartLayout クラスを説明します： link:the-chartlayout-class.html[ChartLayout クラス]

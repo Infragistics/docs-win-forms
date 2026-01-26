@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-modifying-the-settings-of-wingrids-editor",
+    "controlName": ["WinEditors"],
+    "tags": ["Extending","How Do I"],
+    "guid": "{C3BDACD7-F98E-474D-A347-CD35B42A8E7A}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid のエディタの設定を変更する
+
+このトピックはすべての WinEditor コントロールに適用されます。
+
+WinGrid は、WinGrid コントロールにあるスタンドアロン エレメントの専用バージョンである使用される埋め込みエディタです。WinGrid の Column オブジェクトを通じて基本エディタにアクセスし、基本エディタで使用される任意のプロパティを変更できます。
+
+ランタイムに pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベント内で、列によって使用されるエディタへの参照を取得し、その参照を使用してプロパティを変更できます。これらのプロパティの変更は、そのエディタ エレメントが列によって表示されるときにエディタに反映されます。

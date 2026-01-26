@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winanimation-api-overview",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{AA9291B5-4166-4B4B-A37D-1EF5774C9EA3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinMisc 名前空間:
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.commoncontrols_namespace.html[Infragistics.Win.Misc.CommonControls]"] 
+
+=== キー クラス:
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.commoncontrols.animationcontrol.html[AnimationControl]"]

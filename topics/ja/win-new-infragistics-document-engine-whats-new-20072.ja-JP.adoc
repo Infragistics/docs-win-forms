@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-new-infragistics-document-engine-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{202F9C44-D761-4816-9107-CCC9B62E7B9F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい Infragistics Document Engine
+
+Infragistics Document Engine™ は、ゼロから PDF および XML Paper Specification（XPS）ドキュメント全体を記述する機能を提供する全く新しいコード ライブラリです。直感的なドキュメント オブジェクト モデル（DOM）を含む Document Engine は任意のデザインのレポート全体を記述する支援をします。コード ライブラリに管理者が精査するに値する洗練されたレポート作成の支援を目的としたいくつかのグラフィック要素を含めました。
+
+=== レポートの自然なフロー
+
+Document Engine の DOM は、任意のレイアウトのレポートの作成を可能にする 5 つ星のオブジェクト モデルです。DOM はインタフェース主導であるため、フロー要素をレポートに追加する、また他のフロー要素内にフロー要素を組み込むことさえ、メソッドを呼び出すことと同じくらい簡単です。この固有のオブジェクト モデルによって、データベースのレコードでループすることが可能となり、カスタムのレイアウトや選択する基準に基づいてグラフィックスさえ追加できます。これがレポートです。好きなように書いてください。
+
+=== ハイクラスのレポートはハイクラスの姿勢が必要
+
+Visual Studio® でレポートを記述することは、技術的でなければならないとか、退屈でなければならないということを意味しているわけではありません。グラフィック要素のいくつかを使用して、多少なりともあか抜けたレポートを作成します。よりパーソナライズされたタッチを付けるためには、会社のロゴや製品のショットなどの画像を挿入します。形状や線を追加して、レポート レイアウトに定義を提供します。レポートに深さや濃さを付けるブラシや色で画像または形状を強化します。レポート自体に埋め込むためのオプションも提供されているので希望のフォントを使用してください。
+
+=== 今までで最高の WinGrid™
+
+今回の新規リリースでも、WinGridDocumentExporter™ コンポーネントが提供されています。WinGridDocumentExporter は Document Engine の DOM を使用しており、WinGrid 全体を全く新しいレポート、または既存のレポートの全く新しいセクションにエクスポートすることが可能です。WinGridDocumentExporter は、Document Engine のマニュアルで詳細に説明されている IGrid インタフェースを完全に利用しています。詳細は、 link:wingriddocumentexporter-new-wingriddocumentexporter-component-whats-new-20072.html[「新しい WinGridDocumentExporter コンポーネント」]を参照してください。
+
+== 関連トピック
+
+link:waw-infragistics-document-engine.html[Infragistics Document Engine]
+
+link:documentengine-report-elements.html[レポート エレメント]
+
+link:documentengine-report-graphics.html[レポート グラフィックス]
+
+link:wingriddocumentexporter.html[WinGridDocumentExporter]

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "waw-infragistics-excel-engine",
+    "controlName": [],
+    "tags": [],
+    "guid": "{03100E03-8DD8-45F3-BCB9-B2AD03138FBB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics Excel Engine
+
+Infragistics Excel Engine™ に関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コード ライブラリが実行できることとアプリケーションで使用する理由、コード ライブラリを使用して共通タスクを達成するための方法の手順などの Infragistics Excel Engine についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、Infragistics Excel Engine コントロールについての情報にアクセスします。
+
+== link:excelengine-understanding-the-infragistics-excel-engine.html[Infragistics Excel Engine の理解]
+
+このセクションでは、Infragistics Excel Engine の機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:excelengine-using-the-infragistics-excel-engine.html[Infragistics Excel Engine の使用]
+
+このセクションは、Infragistics Excel Engine コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:excelengine-deploying-the-infragistics-excel-engine.html[Infragistics Excel Engine の配備]
+
+アプリケーションに Infragistics Excel Engine が含まれている場合、アプリケーションの一部として再配布する必要がある Infragistics .NET のリストのトピックを参照してください。
+
+== link:excelengine-api-overview.html[API 概要]
+
+このトピックは、Infragistics Document Engine でプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-api-overview",
+    "controlName": ["WinCombo"],
+    "tags": ["API"],
+    "guid": "{41EFD50C-91E2-4BBB-A401-66C130C4E449}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinGrid 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid_namespace.html[Infragistics.Win.UltraWinGrid]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo.html[UltraCombo]"]

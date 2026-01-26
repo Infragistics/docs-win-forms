@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-set-the-active-day",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{F4A2DDCF-D9EF-4581-9DAB-1C84702378D9}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブ日の設定
+
+WinCalendarInfo の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~activeday.html[ActiveDay]"]  プロパティを使用して特定の日付に設定すると、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo.html[UltraCalendarInfo]"]  に関連付けられたすべてのエレメントにそのアクティブ日が表示されます。

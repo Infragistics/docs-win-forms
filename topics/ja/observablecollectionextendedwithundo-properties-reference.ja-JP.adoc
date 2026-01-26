@@ -1,0 +1,86 @@
+﻿////
+
+|metadata|
+{
+    "name": "observablecollectionextendedwithundo-properties-reference",
+    "controlName": [],
+    "tags": ["API","Tips and Tricks"],
+    "guid": "3f063129-8101-440f-8dcb-420cee9b3ce8",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3830125Z"
+}
+|metadata|
+////
+
+= ObservableCollectionExtendedWithUndo プロパティ参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、ObservableCollectionExtendedWithUndo クラスの重要なプロパティをいくつかリストします。
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320691128, ObservableCollectionExtendedWithUndo クラス参照 >>
+** <<_Ref320801241,はじめに>>
+** <<_Ref320801246,プロパティ参照の概要>>
+
+* <<_Ref320691132, 関連コンテンツ >>
+
+[[_Ref320691128]]
+== ObservableCollectionExtendedWithUndo クラス参照
+
+[[_Ref320801241]]
+
+=== はじめに
+
+ObservableCollectionExtendedWithUndo クラスは、UndoManager インスタンスによるコレクションへの変更の記録を自動的にサポートします。
+
+このクラスは以下の 2 つのオーバーロードされたコンストラクターを提供します:
+
+* 静的な link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~current.html[Current] プロパティから返される UndoManager インスタンスを使用するパラメーターを持たないコンストラクター。
+
+* コレクションの変更が元に戻す/やり直し履歴の一部として記録される link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager_members.html[UndoManager] への参照をパラメーターとして取得するコンストラクター。
+
+[[_Ref320801246]]
+
+=== プロパティ参照の概要
+
+以下の表で、ObservableCollectionExtendedWithUndo クラスのキー プロパティの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager_members.html[UndoManager]
+|元に戻すためにコレクション変更の操作を記録しなければならない UndoManager を返します。
+
+|====
+
+[[_Ref320691132]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:undohistoryitem-properties-and-methods-reference.html[UndoHistoryItem プロパティおよびメソッド参照]
+|このトピックは、UndoHistoryItem クラスのプロパティおよびメソッドをリストします。
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounitfactory-properties-and-methods-reference.html[UndoUnitFactory プロパティおよびメソッド参照]
+|このトピックは、UndoUnitFactory クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+|====

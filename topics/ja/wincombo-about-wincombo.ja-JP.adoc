@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-about-wincombo",
+    "controlName": ["WinCombo"],
+    "tags": [],
+    "guid": "{673867C9-C959-4930-910A-FF51E0EA1189}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCombo について
+
+WinCombo コントロールは、Windows Formsのコントロールで、ドロップダウン リストのフォームで WinGrid コントロールの単純化されたバージョンを提供します。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* プリセット -- WinCombo の WinGrid 部分の外観と動作を設定する組み込みプリセットです。
+* データ バインド -- DataSource プロパティと DataMember プロパティを使用した完全なデータ バインド サポートです。
+* WinGrid -- DisplayLayout を含めて、WinGrid コントロールとアーキテクチャが似ています。
+
+image::images/WinCombo_About_WinCombo_01.png[]

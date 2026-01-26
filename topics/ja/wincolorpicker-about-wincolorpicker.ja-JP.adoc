@@ -1,0 +1,24 @@
+﻿////
+|metadata|
+{
+    "name": "wincolorpicker-about-wincolorpicker",
+    "controlName": ["WinColorPicker"],
+    "tags": ["Editing","Styling"],
+    "guid": "{0444B03B-56B3-4731-AB38-578F29872FA6}",
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinColorPicker について
+
+WinColorPicker コントロールは Visual Studio のカラー ピッカーをエミュレートし、システム カラー、Web カラー、およびカスタマイズされたパレットを表示します。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+
+image::Images/UltraColorPicker_UltraColorPalette.png[]
+
+* link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracolorpicker~style.html[Style] - カラー パレットのスタイル変更

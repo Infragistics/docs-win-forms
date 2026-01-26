@@ -1,0 +1,25 @@
+﻿////
+|metadata|
+{
+    "name": "winnumericeditor",
+    "controlName": ["WinNumericEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{25B906FF-2309-459F-AE0F-AE465E90B23A}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNumericEditor
+
+Click the links below to access important information about the WinNumericEditor™ control.
+
+* Understanding WinNumericEditor
+** link:winnumericeditor-about-winnumericeditor.html[About WinNumericEditor]
+** link:winmaskededitorbase-spinning.html[Spinning Behavior]
+** link:winnumericeditor-smart-tag.html[WinNumericEditor Smart Tag]
+* Using WinNumericEditor
+** link:winnumericeditor-custom-buttons-and-events.html[Custom Buttons and Events]
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[Increment an Editor Using Custom Input]
+* link:winnumericeditor-api-overview.html[API Overview]

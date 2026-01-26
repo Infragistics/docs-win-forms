@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "windropdownbutton-using-the-dropdown-button",
+    "controlName": ["WinDropDownButton"],
+    "tags": [],
+    "guid": "{F6CD6FDF-C3ED-40D3-A742-C27056F33B6C}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウン ボタンの使用
+
+WinDropdownButton は、標準のボタンの機能を提供し、ポップアップ コントロール コンテナの機能を追加します。ドロップダウン ボタンを使用することにより、ボタンによって示されるアクションを開始する前に、ユーザーが選択できる一連のオプションを提供できます。また、ユーザーが選択したオプションに従って、ひとつのボタンで複数のタスクを実行できます。
+
+ドロップダウン ボタンを使用するには、ドロップダウン部分として使用される 2 番目のコントロールを選択する必要があります。このエレメントは、ドロップダウンの表示と、表示されるコントロールの格納を処理します。このコンテナは、IPopupItem インタフェースを実装するコンテナである必要があります。たとえば、WinMisc にも組み込まれているスタンドアロンの WinPopupControlContainer コントロールや、WinToolbars 内に存在する PopupControlContainer ツールなどが使用できます。
+
+ドロップダウン ボタンを作成するには、次の手順に従ってください。
+
+[start=1]
+. Visual Studio のツールボックスから UltraDropDownButton エレメントを選択してダブルクリックするか、フォームにドラッグするか、またはクリックしてエレメントをフォームに描画します。
+[start=2]
+. ドロップダウン ボタンをクリックしたときに表示される 2 番目のコントロールを追加します。ドロップダウンのインタフェースが複数の WinForms コントロールから構成される場合は、Panel などのコンテナ コントロールを使用します（この時点で格納するコントロールをコンテナに追加し、ドロップダウンによって表示されるインタフェースを作成することもできます）。また、ドロップダウンとして ListView や UltraWinGrid などの非コンテナ コントロールを使用することもできます。
+[start=3]
+. ドロップダウンの表示を処理するコントロールを追加します。UltraPopupControlContainer エレメントを使用する場合は、このエレメントをツールボックス内でダブルクリックしてコンポーネント トレイに追加します。UltraWinToolbars の PopupControlContainer ツールを使用している場合は、フォームに UtlraToolbarsManager エレメントを追加する必要があります。
+[start=4]
+. 手順 2 で追加したポップアップ コントロールを使用するように、ドロップダウン ハンドラ コントロールを設定します。UltraPopupControlContainer コントロールの場合は、Visual Studio のプロパティ シートで pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapopupcontrolcontainer~popupcontrol.html[PopupControl]"]  プロパティを設定するだけです。UltraWinToolbars を使用している場合は、移植された PopupControlContainer ツールを含むように構成する必要があります。
+[start=5]
+. フォーム上の DropDownButton を選択し、Visual Studio のプロパティ シートを表示します。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradropdownbutton~popupitem.html[PopupItem]"]  プロパティを指定します。このプロパティは、IPopupItem インタフェースを実装する、フォーム上にあるすべてのコントロールの一覧を表示します。PopupItem プロパティのドロップダウン リストから、作成したポップアップ（UltraPopupControlContainer エレメントまたは PopupControlContainer ツール）を選択します。
+[start=6]
+. プロジェクトを実行し、ボタンのドロップダウン矢印部分をクリックします。作成したポップアップが表示されます。
+
+image::images\WinMisc_Using_the_Dropdown_Button_01.png[]
+
+ボタン自体の機能を実装するには、標準のコマンド ボタンの場合と同様に、Click イベントを使用します。また、ClosedUp イベントを使用して、ボタンのドロップダウン部分が閉じられたときにアクションを実行することもできます。

@@ -1,0 +1,141 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-binding-to-program-generated-flat-data",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Sample Data Source"],
+    "guid": "{7D2227ED-1A52-4A19-9BF8-5DDF2CF52E27}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= プログラムで生成されたフラット データにバインド
+
+== バックグラウンド
+
+このプロジェクトではプログラムを使って生成された DataTable（フラットデータ）とこの DataTable を WinGrid コントロールにバインドする方法について紹介します。
+
+== 概要
+
+このチュートリアルでは以下の方法を説明します。
+
+[start=1]
+. DataTable をプログラムで作成します。
+[start=2]
+. DataTable に列を追加します。
+[start=3]
+. DataTable のプライマリ キーを指定します。
+[start=4]
+. DataTable に行を追加します。
+[start=5]
+. DataTable を UltraGrid にバインドします。
+
+最終的に以下のようなフォームになります:
+
+image::Images/WinGrid_Binding_to_Program_Generated_Flat_Data_01.png[]
+
+== 新しい VB.NET プロジェクトを開始
+
+Visual Basic または C# Windows Application プロジェクトを新しく作成します。
+
+[start=1]
+. ツールボックスの Windows Forms タブから Button をフォーム上に配置し、Text プロパティを [フラット データの作成とバインド] に設定します(位置配置は上記のスクリーンショットを参照してください) 。
+[start=2]
+. ツールボックスの Infragistics タブから UltraGrid をフォームに追加します。
+[start=3]
+. ソリューション エクスプローラの References ノードで Infragistics.Shared、Infragistics.Win、および Infragistics.Win.UltraWinGrid の参照を追加します。
+
+== フラット データを作成しグリッドにバインド
+
+手順
+
+[start=1]
+. [フラット データの作成とバインド] ボタンの Click イベントに応答するサブ プロシージャを追加し、次のコードをプロシージャに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	' プログラムが生成したデータを格納する DataTable を宣言します
+	Dim dataTable As New DataTable("TableTest")
+	' CustomerID 列を作成して追加します
+	Dim colWork As New DataColumn("CustomerID", GetType(Int32))
+	dataTable.Columns.Add(colWork)
+	' CustomerID 列をキー配列に追加し、DataTable にバインドします
+	Dim Keys(0) As DataColumn
+	Keys(0) = colWork
+	dataTable.PrimaryKey = Keys
+	' CustomerName 列を作成して追加します
+	colWork = New DataColumn("CustomerName", GetType(String))
+	colWork.MaxLength = 50
+	dataTable.Columns.Add(colWork)
+	' LastOrderDate 列を作成して追加します
+	colWork = New DataColumn("LastOrderDate", GetType(Date))
+	dataTable.Columns.Add(colWork)
+	' 行を追加します
+	Dim row As DataRow = dataTable.NewRow()
+	row("CustomerID") = 1
+	row("CustomerName") = "John's Widgets"
+	row("LastOrderDate") = Now
+	dataTable.Rows.Add(row)
+	' もう １ 行追加します
+	row = dataTable.NewRow()
+	row("CustomerID") = 2
+	row("CustomerName") = "Fred's Thingamagigs"
+	row("LastOrderDate") = Now.AddDays(-101)
+	dataTable.Rows.Add(row)
+	' 表をグリッドにバインドします
+	Me.UltraGrid1.DataSource = dataTable
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	// プログラムが生成したデータを格納する DataTable を宣言します
+	DataTable dataTable = new DataTable("TableTest");
+	// CustomerID 列を作成して追加します
+	DataColumn colWork = new DataColumn("CustomerID", System.Type.GetType("System.Int32"));
+	dataTable.Columns.Add(colWork);
+	// CustomerID 列をキー配列に追加し、DataTable にバインドします
+	DataColumn[] Keys = new DataColumn[1];
+	Keys[0] = colWork;
+	dataTable.PrimaryKey = Keys;
+	// CustomerName 列を作成して追加します
+	colWork = new DataColumn("CustomerName", System.Type.GetType("System.String"));
+	colWork.MaxLength = 50;
+	dataTable.Columns.Add(colWork);
+	// LastOrderDate 列を作成して追加します
+	colWork = new DataColumn("LastOrderDate", System.Type.GetType("System.DateTime"));
+	dataTable.Columns.Add(colWork);
+	// 行を追加します
+	DataRow row = dataTable.NewRow();
+	row["CustomerID"] = 1;
+	row["CustomerName"] = "Johns Widgets";
+	row["LastOrderDate"] = System.DateTime.Now;
+	dataTable.Rows.Add(row);
+	// もう １ 行追加します
+	row = dataTable.NewRow();
+	row["CustomerID"] = 2;
+	row["CustomerName"] = "Freds Thingamagigs";
+	row["LastOrderDate"] = System.DateTime.Now.AddDays(-101);
+	dataTable.Rows.Add(row);
+	// 表をグリッドにバインドします
+	this.ultraGrid1.DataSource = dataTable;	
+}
+----
+
+[start=2]
+. プロジェクトをビルドして実行します。フォームを表示します。
+[start=3]
+. [フラット データの作成とバインド] を押すと、プログラムで生成されたフラット データが UltraGrid に表示されます。
+
+== まとめ
+
+このチュートリアルでは DataTable をコードから作成し、UltraWinGrid にバインドする方法を示しました。

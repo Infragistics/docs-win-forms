@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-winganttview-smart-tag",
+    "controlName": ["WinGanttView"],
+    "tags": ["Design Environment"],
+    "guid": "{88D491B2-2C0A-4770-9BF2-1975141B5AEB}",  
+    "buildFlags": [],
+    "createdOn": "2010-12-03T12:04:38Z"
+}
+|metadata|
+////
+
+= WinGanttView スマートタグ
+
+Visual Studio 2005/2008（.NET Framework 2.0/3.5）では、{ProductName} の個々のコントロール/コンポーネントにはスマートタグがあります。コントロールやコンポーネントを選択するだけで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WinGanttView™ スマートタグには、コンポーネントの名前と次の項目があります。
+
+* *外観：* コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* *データ:* コントロールが使用している基になるデータ（データ ソースやデータ メンバーなど）を参照します。
+* *日/時間の間隔：* 水平タイムラインに沿って表示されるコントロールによって必要とされるタイムスロット設定を参照します。
+* *レイアウト：* コントロールをフォームのどこに、どのように配置するかを指定するプロパティがあります。
+
+前述の項目の説明と、プロパティ グリッドの項目が対応するプロパティについては、以下の表を参照してください。
+
+image::Images/WinGanttView_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|カレンダーの外観
+|ドロップダウンをクリックすると、フォーム上にある使用可能なすべての WinCalendarLook コントロールが表示されます。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~calendarlook.html[CalendarLook]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|データ|説明|対応するプロパティ
+
+|カレンダー情報
+|ドロップダウンをクリックすると、フォーム上にある使用可能なすべての WinCalendarInfo コントロールが表示されます。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~calendarinfo.html[CalendarInfo]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|日/時間の間隔|説明|対応するプロパティ
+
+|追加の間隔
+|プライマリ間隔の上に表示される日/時間の間隔を定義します。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.timeline~additionalintervals.html[AdditionalIntervals]"] 
+
+|プライマリ間隔
+|コントロールに有効な最小時間の間隔を定義します。列ヘッダーの一番下の行に表示されます。
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.timeline~primaryinterval.html[PrimaryInterval]"] 
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|レイアウト|説明|対応するプロパティ
+
+|ドック
+|WinGanttView を上、右、下、左、全体のどこにドッキングするか、またはどこにもドッキングしないかを選択します。
+|Dock
+
+|====
+
+|====
+|====

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-prevent-ribbon-keytips-from-overriding-menu-mnemonics-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1D6F7FB2-C074-4C02-B487-B9DD72E5024C}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:27:19Z"
+}
+|metadata|
+////
+
+= リボン KeyTips がメニュー ニーモニック を無効にすることを防止
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~office2007uicompatibility.html[Office2007Compatibility]"]  プロパティが True に設定されている場合にリボンが表示中は、WinToolbarsManager からの標準のツールバーおよびメイン メニューは表示できません。ただし、これらのツールバーとメニューは非表示ですが削除できません。したがって、正しいニーモニックを知っていれば、エンド ユーザーはこれらのツールバーとメニューにアクセスできます。ただし、2006 Volume 3 リリースでは、何が非表示のニーモニックであるかに関係なく、メイン メニューのリボンは自動的に KeyTips をクイック アクセス ツールバー、アプリケーション メニュー、タブ、およびツールに指定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbon~reservemenubarkeytips.html[ReserveMenuBarKeyTips]"]  プロパティを True に設定することで、リボンは非表示のメイン メニュー バーのニーモニックと競合する KeyTip を作成しません。エンド ユーザーが予約されたニーモニックで入力すると、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbon~reservedkeytiptooltiptext.html[ReservedKeyTipToolTipText]"]  プロパティに配置したテキストと共にメッセージが表示されます。エンド ユーザーは非表示のメニューからツールにナビゲートすることを続行できます。
+
+== 関連トピック
+
+link:wintoolbarsmanager-prevent-ribbon-keytips-from-conflicting-with-hidden-main-menu-mnemonics.html[リボン KeyTips がメイン メニュー ニーモニックと競合することを防止]

@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-set-an-embeddable-editor",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{CEA8B958-1717-4556-9436-60222B8004CF}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 埋め込みエディタを設定
+
+WinTree™ のバージョン 3 から、ツリーノードの編集機能が大幅に強化されています。 ツリーノードの編集は、Infragistics.Win アセンブリの埋め込みエディター テクノロジーによって処理されるようになりました。 埋め込みエディターを使用すると、ノードの編集時にユーザーに表示する編集インターフェイスを選択できます。 デフォルトの設定ではテキスト エディターが表示されますが、マスク表示の数字エディター、通貨エディター、コンボボックス エディターなど、他のエディターも使用できます。 WinTree で埋め込みエディターを使用する概要については、 link:wintree-embeddable-editors-overview.html[「埋め込みエディターの概要」]を参照してください。
+
+埋め込みエディターの使用を有効にするには、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~useeditor.html[UseEditor]"]  プロパティを True に設定します。 このプロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"]  オブジェクトにあるため、ツリー レベルで設定するか、またはいくつかのサブレベルで設定またはオーバーライドできます。 サブレベルには、特定の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[Nodes]"]  コレクション内のすべてのノード、ツリー階層の指定したレベルにあるすべてのノード、または個々のノードがあります。 デフォルトでは、このプロパティは True に設定されています。
+
+コントロールでは、ノードのテキストを編集するときにデフォルトで簡易テキスト エディターを使用するようになっています。 使用する埋め込みエディターを変更するには、Override オブジェクトの Editor プロパティまたは pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~editorcomponent.html[EditorComponent]"]  プロパティを使用します。 このプロパティは、ツリー レベルで設定するか、またはいくつかのサブレベルで設定またはオーバーライドできます。 サブレベルには、特定の Nodes コレクション内のすべてのノード、ツリー階層の指定したレベルにあるすべてのノード、または個々のノードがあります。 フォーム上にスタンドアロンのエディター コントロールがあり、それを埋め込みエディターとする場合は、EditorComponent プロパティを使用します。 通常、これは WinEditors コントロールになりますが、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iprovidesembeddableeditor.html[IProvidesEmbeddableEditor]"]  インターフェイスを実装している他のコントロールも使用できます。 ランタイムにコードを通じて埋め込みエディターのインスタンスを作成する場合は、Editor プロパティを使用します。 Editor プロパティの設定は常に EditorComponent プロパティの設定よりも優先します。
+
+次のコードは、ツリー内のすべてのノードに対して特定の埋め込みエディターを設定し、それからツリーの単一レベルの階層にあるノードに対して設定をオーバーライドする方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub Set_an_Embeddable_Editor_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraTree1.Override.LabelEdit = DefaultableBoolean.True
+	Me.UltraTree1.Override.Editor = New EditorWithMask()
+	' 階層の第３レベルにあるすべてのノード（ルートノードの孫）で 'ColorPickerを使用します。
+	Me.UltraTree1.NodeLevelOverrides(2).Editor = New ColorPickerEditor()
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void Set_an_Embeddable_Editor_Load(object sender, EventArgs e)
+{
+	this.ultraTree1.Override.LabelEdit = DefaultableBoolean.True;
+	this.ultraTree1.Override.Editor = new EditorWithMask();
+	// 階層の第３レベルにあるすべてのノード（ルートノードの孫）で 'ColorPickerを使用します。
+	this.ultraTree1.NodeLevelOverrides[2].Editor = new ColorPickerEditor();
+}
+----

@@ -1,0 +1,131 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-replacing-winlistbar-with-winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["FAQ","How Do I"],
+    "guid": "{E0A7A637-38A5-45C6-A937-1919E7EACF70}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListBar の WinExplorerBar への置換
+
+WinExplorerBar および WinListbar エレメントのオブジェクト モデルは似ていますが、まったく同じというわけではありません。たとえば、WinListbar エレメントでは、Group オブジェクトと Item オブジェクトはそれぞれ pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[UltraExplorerBarGroup]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[UltraExplorerBarItem]"]  と呼ばれています。
+
+これに加えて、プロパティ設定時の柔軟性を向上させるため、元々 Group オブジェクトと Item オブジェクトに存在していた多くのプロパティが pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[GroupSettings]"]  オブジェクトと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[ItemSettings]"]  オブジェクトに移動しました。
+
+既存のプロジェクト内にある WinListbar エレメントを WinExplorerBar エレメントで置き換える場合は、次の作業を完了する必要があります。
+
+[start=1]
+. デザインタイムに WinListbar エレメント内に作成したグループと項目の定義を新しい WinExplorerBar コントロールにコピーする。
+[start=2]
+. WinListbar エレメントを操作している既存のコードを、WinExplorerBar エレメントで動作するよう変更する。
+
+== 既存の WinListbar エレメントからグループと項目をインポートする
+
+上記の手順 1 を支援するために、UltraExplorerBar には既存の  _UltraListbar_  エレメントで定義されたグループと項目を同じフォーム上の UltraExlorerBar エレメントに簡単にインポートできるインポート機能が用意されています。
+
+インポート機能は、UltraExplorerBar デザイナのタブにあります。UltraExplorerBar デザイナを起動するには、エレメントのコンテキスト メニュー（デザインタイムに Visual Studio IDE でフォーム上の UltraExplorerBar エレメントを右クリックすると表示されます）、または Visual Studio IDE のプロパティ ブラウザ内にあるリストから、[UltraExplorerBar デザイナ...] オプションを選択します（下図を参照）。
+
+image::Images/WinExplorerbar_Replacing_an_Existing_WinListbar_Element_with_a_WinExplorerbar_01.png[]
+
+UltraExplorerBar デザイナが表示されたら、[グループ/項目のインポート] タブを選択します。このタブには、次のように簡単な 3 段階のプロセスが示されています。
+
+image::Images/WinExplorerbar_Replacing_an_Existing_WinListbar_Element_with_a_WinExplorerbar_02.png[]
+
+左側にあるエレメントのリストは、現在のフォームで見つかったすべての UltraListbar エレメントを示します。
+
+*_手順 1_*  ダイアログの右側で、インポートするグループと項目を選択するように求められます。デフォルトでは、すべてのグループと項目がチェックされています。選択解除するグループまたは項目のチェックボックスをクリックし、インポートから除外します。
+
+*_手順 2_* 現在グループと項目が UltraExplorerBar エレメントに定義されている場合、UltraListbar のグループと項目をインポートする前にそれらを消去するかどうかを指定するように求められます。デフォルトでは、[現在のグループおよび項目を残す] が選択されています。
+
+*_手順 3_* [開始] ボタンをクリックするように求められます。インポートが完了したらメッセージが表示されます。
+
+== 既存の UltraListbar コードの修正
+
+既存の UltraListbar コードを UltraExplorerBar エレメントをターゲットとするように修正する場合、この変換を自動的に行う方法はありません。手動で作業するしかありませんが、次のガイドラインを頭に入れておくことで作業時間を短縮できます。
+
+* UltraExplorerBar エレメントのグループを表すオブジェクトのクラス名が、Group から UltraExplorerBarGroup に変更されました。
+* UltraExplorerBar エレメントの項目を表すオブジェクトのクラス名が、Item から UltraExplorerBarItem に変更されました。
+* UltraListbarでは  _Group_  オブジェクトに存在していたプロパティの多くが、UltraExplorerBar では  _GroupSettings_  オブジェクトに存在しています。 GroupSettings オブジェクトはプロパティ名「Settings」の下の UltraExplorerBarGroup オブジェクトにあります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinExplorerBar
+Imports Infragistics.Win.UltraWinListBar
+...
+Me.UltraListbar1.Groups(0).Style = Style.LargeIcons
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinExplorerBar;
+using Infragistics.Win.UltraWinListBar;
+...
+this.ultraListBar1.Groups[0].Style = Style.LargeIcons;
+----
+
+UltraExplorerBar では、同じプロパティに次のようにアクセスします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraExplorerBar1.Groups(0).Settings.Style = GroupStyle.LargeImages
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.Groups[0].Settings.Style = GroupStyle.LargeImages;
+----
+
+* UltraListbar の  _Item_  オブジェクトに存在していたプロパティの多くが、UltraExplorerBar の  _ItemSettings_  オブジェクトに存在しています。ItemSettings オブジェクトはプロパティ名「Settings」の下の UltraExplorerBarItem オブジェクトにあります。たとえば、UltraListbar では Item の Appearance プロパティに次のようにアクセスしていました。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraListBar1.Groups(1).Items(0).Appearance.ForeColor = Color.Red
+----
+
+*C# の場合：*
+
+----
+this.ultraListBar1.Groups[1].Items[0].Appearance.ForeColor = Color.Red;
+----
+
+UltraExplorerBar では、同じプロパティに次のようにアクセスします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraExplorerBar1.Groups(1).Items(0).Settings.AppearancesSmall.Appearance.ForeColor = Color.Red
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.Groups[1].Items[0].Settings.AppearancesSmall.Appearance.ForeColor = Color.Red;
+----
+
+* UltraExplorerBar エレメントは UltraListbar とは異なり複数の方向をサポートしていないため、エレメントには Orientation プロパティがありません。エレメントを水平方向で使用している場合は、Orientation プロパティにアクセスするコードを削除し、おそらくフォームをデザインし直す必要があります（UltraExplorerBar エレメントではコンテンツが常に垂直方向に表示されます）。
+* UltraListbar エレメントの GroupSelected イベントが次の 2 つのイベントに置き換えられました。
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~selectedgroupchanging_ev.html[SelectedGroupChanging]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~selectedgroupchanged_ev.html[SelectedGroupChanged]"] 
+
+* UltraListbar エレメントの ItemSelected イベントが ItemClick イベントに置き換えられました。
+
+[NOTE]
+====
+*注:* また、StateButton 型 Item の Item 選択に適用されるイベントとして、次の 2 つのイベントが追加されました。
+
+====
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemcheckstatechanging_ev.html[ItemCheckStateChanging]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemcheckstatechanged_ev.html[ItemCheckStateChanged]"]

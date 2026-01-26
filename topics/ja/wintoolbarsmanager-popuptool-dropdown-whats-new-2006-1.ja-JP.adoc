@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popuptool-dropdown-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5CDFCFB4-62DC-4372-A7BE-995F7564BBE5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupTool ドロップダウン
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popuptoolbase~dropdown().html[DropDown]"]  メソッドが pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popuptoolbase.html[PopupToolBase]"]  クラスに追加されました。このメソッドを使用すると、特定のツールバーまたはメニューに、マウスやキーボードを使用した場合と同様に、ポップアップ ツールのドロップダウン リストを表示できます。

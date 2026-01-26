@@ -1,0 +1,38 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-enabling-autoeditmode",
+    "controlName": [],
+    "tags": [],
+    "guid": "ba56dc84-1907-47e8-b702-7aa2ecdf730d",
+    "buildFlags": [],
+    "createdOn": "2016-03-12T04:46:18.3497067Z"
+}
+|metadata|
+////
+
+= AutoEditMode の有効化
+
+UltraGrid では、アクティブ セルに入力して編集モードに入ることが可能です。セルの迅速な編集開始など、グリッドの拡張性が向上されています。
+
+== AutoEditMode の有効化
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~autoeditmode.html[AutoEditMode] プロパティを True に設定することで、アクティブなセルでテキストを入力すると自動的に編集モードに入ることができます。以下のコードで用例を示します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.ultraGrid1.DisplayLayout.Override.AutoEditMode=Infragistics.Win.DefaultableBoolean.True
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraGrid1.DisplayLayout.Override.AutoEditMode=Infragistics.Win.DefaultableBoolean.True;
+----
+
+*関連トピック*
+
+* link:wingrid-editing-data.html[データの編集]

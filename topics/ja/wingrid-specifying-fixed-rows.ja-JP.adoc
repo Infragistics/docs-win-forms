@@ -1,0 +1,128 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-specifying-fixed-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{C54A9814-31AC-416C-B701-8CE110AFE606}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 固定行の指定
+
+固定行機能を使用すると、WinGrid の上部または下部に行を固定することが可能となり、グリッドを上下にスクロールしても常に固定行は画面に表示されたままになります。固定行はルート行コレクションのみでサポートされます。子バンド、または pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~viewstyle.html[ViewStyle]"]  が "OutlookGroupBy" に設定されている場合は現在サポートされていません。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. グリッドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~override.html[Override]"]  プロパティで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~fixedrowstyle.html[FixedRowStyle]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.fixedrowstyle.html[FixedRowStyle]"]  値のいずれかに設定することによって、WinGrid で固定行を有効にできます。FixedRowStyle は、固定行を行コレクションの先頭または最後のどちらに表示するかを指定します。
+
+*Visual Basic の場合：*
+
+----
+' FixedRowStyle を Top に設定して、固定行をグリッドの上部に表示します。
+Me.UltraGrid1.DisplayLayout.Override.FixedRowStyle = FixedRowStyle.Top
+----
+
+*C# の場合：*
+
+----
+// FixedRowStyle を Top に設定して、固定行をグリッドの上部に表示します。
+this.ultraGrid1.DisplayLayout.Override.FixedRowStyle = FixedRowStyle.Top;
+----
+
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~fixedrowstyle.html[FixedRowStyle]"]  プロパティを設定するほかに、固定する行も指定する必要があります。次のコード行を使用して、ルート バンドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscollection~fixedrows.html[FixedRows]"]  コレクションに行を追加できます。 
+
+*Visual Basic の場合：*
+
+----
+' 最初の行を固定行に設定します。
+Me.UltraGrid1.Rows.FixedRows.Add(Me.UltraGrid1.Rows(0))
+----
+
+*C# の場合：*
+
+----
+// 最初の行を固定行に設定します。
+this.ultraGrid1.Rows.FixedRows.Add(this.ultraGrid1.Rows[0]);
+----
+
+あるいは、行で pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~fixed.html[Fixed]"]  プロパティを設定して、その行を固定するように指示することができます。次のコードはこの方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' 最初の行を固定行に設定します。
+Me.UltraGrid1.Rows(0).Fixed = True
+----
+
+*C# の場合：*
+
+----
+// 最初の行を固定行に設定します。
+this.ultraGrid1.Rows[0].Fixed = true;
+----
+
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~fixedrowindicator.html[FixedRowIndicator]"]  プロパティの設定は、ランタイムにユーザーが行を固定できるかどうかを決定します。このプロパティを "Button" に設定すると、行セレクタに状態ボタンが表示されます。これらの状態ボタンは行の固定または固定解除に使用できます。行セレクタに状態ボタンを表示すると、行セレクタの幅が、状態ボタンが収まるように自動的に調整されます。このプロパティを "None" に設定すると、インジケータは表示されません。"Default" は "None" に解決されます。 
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.FixedRowIndicator = FixedRowIndicator.Button
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FixedRowIndicator = FixedRowIndicator.Button;
+----
+
+[start=5]
+. UltraGridRow オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~allowfixing.html[AllowFixing]"]  プロパティを設定できます。このプロパティを使用すると、ユーザーが行単位で行を固定できるかどうかを指定できます。 
+
+*Visual Basic の場合：*
+
+----
+' この行の固定または固定解除をユーザーに許可しません。
+Me.UltraGrid1.Rows(0).AllowFixing = Infragistics.Win.DefaultableBoolean.False
+----
+
+*C# の場合：*
+
+----
+// この行の固定または固定解除をユーザーに許可しません。
+this.ultraGrid1.Rows[0].AllowFixing = DefaultableBoolean.False;
+----
+
+[start=6]
+. 次の 3 つの項目は、固定されている行またはセルの外観を変更するときに使用できます。
+
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~fixedrowappearance.html[FixedRowAppearance]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~fixedrowcellappearance.html[FixedRowCellAppearance]"] 
+** pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~fixedrowcellappearance.html[FixedRowSelectorAppearance]"] 
+
+[start=7]
+. 次のスクリーンショットは、WinGrid の上部に 3 つの固定行がある場合を示します。
+
+image::Images/WinGrid_Specify_Fixed_Rows_01.png[]

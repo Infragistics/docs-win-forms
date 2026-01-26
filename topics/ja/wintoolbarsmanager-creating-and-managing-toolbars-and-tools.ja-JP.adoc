@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-creating-and-managing-toolbars-and-tools",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{30A4DE25-B885-4AAA-8F96-7F46743FF27B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーとメニューの作成と管理
+
+WinToolbarsManager には Visual Studio .NET と連携したデザイン機能が用意されており、これによってツールバーとメニューを容易に作成、管理できるようになっています。ここでは、これらのデザイン機能の概要について説明します。
+
+== ツールバーおよびツールの作成と変更
+
+UltraToolbarsManager をデザインタイムに操作するには、主に 2 つの方法があります。
+
+* link:wintoolbarsmanager-in-place-designer.html[インプレース デザイナ] - フォームまたはユーザー コントロール デザイナ上で UltraToolbarsManager を操作できます。ツールおよびツールバーの新規作成、プロパティの変更、ツールバーの移動などが可能です。
+* link:wintoolbarsmanager-design-time-customize-dialog-box.html[カスタマイズダイアログ] - 独立したカスタマイズ ダイアログを使用して UltraToolbarsManager を操作します。
+
+== UltraToolbarsManager コンテキスト メニュー
+
+UltraToolbarsManager を右クリックしたときに表示されるコンテキスト メニューには、デザインタイムの作業を簡単にするための追加機能があります。
+
+image::Images/WinToolbarsManager_Designer_Overview_01.png[]
+
+コンテキスト メニューでのこれらの追加のオプションについて、次にまとめて説明します。
+
+* [バージョン情報] - エレメントの [バージョン情報] ダイアログを表示します。このダイアログには、エレメントのライセンス情報やバージョン情報が表示されます。
+* [カスタム プロパティ ページ...]参照するための代用手段を提供するすべての Infragistics コンポーネントに共通のモーダル ダイアログ ボックスを表示します。このダイアログでは、Visual Studioの ［プロパティ］ ウィンドウと同じようにコンポーネントのプロパティをブラウズして変更できます。
+* [ユーザー設定...]-- デザインタイム link:wintoolbarsmanager-design-time-customize-dialog-box.html[カスタマイズ ダイアログ]を表示します。このダイアログでは、ツールバーおよびツールの作成と変更が可能です。
+* ［ツールバーを非表示にする］ -- コンポーネントが管理しているすべてのツールバーを表示または非表示にします。
+* ［構成の読み込み/保存］ -- UltraToolbarsManager のツール、ツールバー、およびプロパティを格納している UltraToolbarsManager レイアウトをバイナリまたは SOAP 形式のファイルからロードするか、またはそれらの形式で保存するためのダイアログを表示します。
+* [ツールバーの直接デザイン］ -- UltraToolbarsManager の link:wintoolbarsmanager-in-place-designer.html[インプレース編集]機能を有効または無効にします。
+* [ツールバーとツールのインポート...]-- 既存の UltraToolbarsManager レイアウト ファイルからツールまたはツールバーをインポートするためのウィザードを表示します。これは、既存のツールやツールバーを含むレイアウトをそのままロードするのとは異なります。

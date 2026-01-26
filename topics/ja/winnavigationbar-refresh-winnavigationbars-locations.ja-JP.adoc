@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-refresh-winnavigationbars-locations",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["Navigation"],
+    "guid": "{4E0BE6C7-C5A6-4B8D-B8BC-3E3D2105B128}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNavigationBar の場所をリフレッシュ
+
+ファイル システムまたはデータベースを表示するために WinNavigationBar™ を使用している場合、ファイル システムまたはデータをリフレッシュするための方法を実装しなければならない場合があります。各 Location を一度に移植している場合、データを再ロードするメソッドで初期化コードを配置することができます。WinNavigationBar を遅延移植して、それを行うために link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~initializelocations_ev.html[InitializeLocations] イベントを使用している場合、ユーザーの作業は既に完了しています。この手順の重要な点は link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~reset.html[Reset] メソッドで、すべての link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation.html[UltraNavigationBarLocation] コレクションで公開されます。Reset メソッドは、InitializeLocations イベントが各位置ごとに再び発生すべきかどうかを識別するブール値を受け入れます。
+
+WinNavigationBar をリフレッシュするには、メソッドを作成します。
+
+[start=1]
+. パラメータとして現在のパスを受け入れます。
+[start=2]
+. RootLocation ですべての Location をリセットします。
+[start=3]
+. WinNavigationBar を再初期化します。
+[start=4]
+. 現在のパスにナビゲートを戻します。
+
+手順 3 は、WinNavigationBar の初期化方法によって異なります。WinNavigationBar を遅延移植している場合、初期化コードを実行するメソッドを呼び出すか、手順 3 を空のままにしておくことができます。
+
+以下のコードは、すべてのその Location をリセットし、現在のパスにナビゲートを戻すことによって、WinNavigationBar コントロールをリフレッシュする方法を示します。ボタンの Click イベントでこのメソッドを呼び出し、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~selectedlocation.html[SelectedLocation] のフル パスを渡します。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~getfullpath.html[GetFullPath] メソッドを使用して、SelectedLocations のフル パスを取得できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub RefreshFileSystem(ByVal path As String)
+' RootLocation 下ですべての位置をリセットします。また、
+' Reset メソッドに True を渡すと、InitializeLocations イベントは
+' 各位置に対して再び発生します。
+    Me.UltraNavigationBar1.RootLocation.ResetLocations(True)
+' TODO: 
+' WinNavigationBar を遅延移植していない場合、
+' ここに初期化コードを配置します。
+' 保存したパスにナビゲートを戻します。WinNavigationBar は
+' このパスを解析し、パスの各項目に対して
+' InitializeLocations を発生させます。
+    Me.UltraNavigationBar1.NavigateTo(path, True)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void RefreshFileSystem(string path)
+{
+	// RootLocation 下ですべての位置をリセットします。また、
+	// Reset メソッドに True を渡すと、InitializeLocations イベントは
+	// 各位置に対して再び発生します。
+	this.ultraNavigationBar1.RootLocation.ResetLocations(true);
+	// TODO: 
+	// WinNavigationBar を遅延移植していない場合、
+	// ここに初期化コードを配置します。
+	// 保存したパスにナビゲートを戻します。WinNavigationBar は
+	// このパスを解析し、パスの各項目に対して
+	// InitializeLocations を発生させます。
+	this.ultraNavigationBar1.NavigateTo(path, true);
+}
+----

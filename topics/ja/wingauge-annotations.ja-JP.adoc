@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-annotations",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{BB02C06C-FBB6-413F-8926-D93245C3CBCD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 注釈
+
+WinGauge コントロールで使用可能な注釈タイプについての詳細は、以下のリンクをクリックしてください。以下のような注釈作成に関するタスク ベースの手順にアクセスすることもできます。
+
+* link:wingauge-box-annotations.html[ボックス注釈]
+* link:wingauge-ellipse-annotations.html[楕円形注釈]
+* link:wingauge-create-a-box-annotation-on-a-gauge.html[ゲージでボックス注釈を作成]

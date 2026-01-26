@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-calcmanager-excel-style-functions",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4835CC2D-7EED-4DDD-9681-E187BC12DD28}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-09T14:24:21Z"
+}
+|metadata|
+////
+
+= CalcManager Excel - スタイル関数
+
+本リリースでは、WinCalcManager™ コンポーネントでサポートされる多くの新しい Microsoft® Excel®- スタイル関数を取得できます。これらの新しい関数の追加によって、WinCalcManager を通して使用できるかなりハードな計算式を取得することができるので、これらの計算すべてを自身で実行する時間を節約できます。
+
+Infragistics Excel オブジェクト ライブラリ イニシアティブの一部は、WinGrid から Excel に CalcManager 式の直接的な統合を持つことです。この機能の実装は、式を提供するために WinCalcManager を使用して追加的に計算された列とともに移植された WinGrid™ を持ち、WinGridExcelExporter™ で WinGrid をエクスポートすることのように簡単です。エクスポートされた Excel ファイルには、計算された WinGrid 列を表す本当の Excel 関数と共に WinGrid データが含まれます。
+
+== *関連トピック*
+
+link:wincalcmanager-date-and-time-functions.html[日付&時間関数]
+
+link:wincalcmanager-financial-functions.html[財務関数]
+
+link:wincalcmanager-information-functions.html[情報関数]
+
+link:wincalcmanager-math-functions.html[算術関数]
+
+link:wincalcmanager-engineering-functions.html[エンジニアリング関数]
+
+link:wincalcmanager-lookup-and-reference-functions.html[ルックアップおよび参照関数]

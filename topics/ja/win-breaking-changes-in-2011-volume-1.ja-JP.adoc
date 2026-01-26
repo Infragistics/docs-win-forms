@@ -1,0 +1,166 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2011-volume-1",
+    "controlName": [],
+    "tags": ["Breaking Changes","Known Issues"],
+    "guid": "ee621bba-27ed-409d-aa64-91c20d1c6eb3",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T20:30:52.3419574Z"
+}
+|metadata|
+////
+
+= 2011 Volume 1 の重大な変更
+
+== アセンブリおよび名前空間の変更
+
+このリリースでは、以下のテーブルの Infragistics.Excel および Infragistics.Documents のアセンブリ名に変更があります。
+
+== テーブル 1：Infragistics.Excel および Infragistics.Documents アセンブリ名の変更
+
+[options="header", cols="a,a"]
+|====
+|以前の名前|新しい名前
+
+|{ApiPlatform}Excel.v11.1.dll
+|{ApiPlatform}Documents.Excel.v11.1.dll
+
+|Infragistics3.Excel.v11.1.dll
+|Infragistics3.Documents.Excel.v11.1.dll
+
+|{ApiPlatform}Documents.v11.1.dll
+|{ApiPlatform}Documents.Reports.v11.1.dll
+
+|Infragistics.Excel.dll
+|Infragistics.Documents.Excel.dll
+
+|Infragistics.Documents.dll
+|Infragistics.Documents.Reports.dll
+
+|====
+
+== テーブル 2：Infragistics.Excel アセンブリの名前空間名の変更
+
+[options="header", cols="a,a"]
+|====
+|以前の名前|新しい名前
+
+|Infragistics.Excel
+|Infragistics.Documents.Excel
+
+|Infragistics.Excel.CalcEngine
+|Infragistics.Documents.Excel.CalcEngine
+
+|Infragistics.Excel.Serialization.Excel2007
+|Infragistics.Documents.Excel.Serialization.Excel2007
+
+|====
+
+== テーブル 3：Infragistics.Documents アセンブリの名前空間名の変更
+
+[options="header", cols="a,a"]
+|====
+|以前の名前|新しい名前
+
+|Infragistics.Documents
+|Infragistics.Documents.Reports
+
+|Infragistics.Documents.Graphics
+|Infragistics.Documents.Reports.Graphics
+
+|Infragistics.Documents.HTML
+|Infragistics.Documents.Reports.HTML
+
+|Infragistics.Documents.PDF
+|Infragistics.Documents.Reports.PDF
+
+|Infragistics.Documents.Report
+|Infragistics.Documents.Reports.Report
+
+|Infragistics.Documents.Report.Band
+|Infragistics.Documents.Reports.Report.Band
+
+|Infragistics.Documents.Report.Bookmarks
+|Infragistics.Documents.Reports.Report.Bookmarks
+
+|Infragistics.Documents.Report.Flow
+|Infragistics.Documents.Reports.Report.Flow
+
+|Infragistics.Documents.Report.Grid
+|Infragistics.Documents.Reports.Report.Grid
+
+|Infragistics.Documents.Report.Index
+|Infragistics.Documents.Reports.Report.Index
+
+|Infragistics.Documents.Report.List
+|Infragistics.Documents.Reports.Report.List
+
+|Infragistics.Documents.Report.Preferences
+|Infragistics.Documents.Reports.Report.Preferences
+
+|Infragistics.Documents.Report.Preferences.PDF
+|Infragistics.Documents.Reports.Report.Preferences.PDF
+
+|Infragistics.Documents.Report.Preferences.Printing
+|Infragistics.Documents.Reports.Report.Preferences.Printing
+
+|Infragistics.Documents.Report.Preferences.XPS
+|Infragistics.Documents.Reports.Report.Preferences.XPS
+
+|Infragistics.Documents.Report.Projection
+|Infragistics.Documents.Reports.Report.Projection
+
+|Infragistics.Documents.Report.QuickList
+|Infragistics.Documents.Reports.Report.QuickList
+
+|Infragistics.Documents.Report.QuickTable
+|Infragistics.Documents.Reports.Report.QuickTable
+
+|Infragistics.Documents.Report.QuickText
+|Infragistics.Documents.Reports.Report.QuickText
+
+|Infragistics.Documents.Report.Section
+|Infragistics.Documents.Reports.Report.Section
+
+|Infragistics.Documents.Report.Segment
+|Infragistics.Documents.Reports.Report.Segment
+
+|Infragistics.Documents.Report.Shapes
+|Infragistics.Documents.Reports.Report.Shapes
+
+|Infragistics.Documents.Report.Table
+|Infragistics.Documents.Reports.Report.Table
+
+|Infragistics.Documents.Report.Text
+|Infragistics.Documents.Reports.Report.Text
+
+|Infragistics.Documents.Report.TOC
+|Infragistics.Documents Reports.Report.TOC
+
+|Infragistics.Documents.Report.Tree
+|Infragistics.Documents.Reports.Report.Tree
+
+|Infragistics.Documents.RTF
+|Infragistics.Documents.Reports.RTF
+
+|Infragistics.Documents.Utils
+|Infragistics.Documents.Reports.Utils
+
+|Infragistics.Documents.XPS
+|Infragistics.Documents.Reports.XPS
+
+|====
+
+== Infragistics Excel
+
+==== 新しいアセンブリ参照
+
+Excel アセンブリへの参照を含むプロジェクトでは、新しい Infragistics.Documents.Core アセンブリも必要となりました。この新しい Infragistics.Documents.Core アセンブリは、Excel および Word DOM アセンブリで共有されます。
+
+==== セル フォーマット
+
+以前はファイルやストリームから読み込まれたワークブックのセル、行、または列のインスタンスの CellFormat プロパティがデータで初期化された値を返しました。たとえば、CellFormat.Font.Name は Null の代わりに Arial を返しました。これは読み込まれた CellFormat で指定されていないすべてのプロパティでも同じです。
+
+今回のリリースから、これらのプロパティは、Default 値を返します。これは、値が CellFormat で指定されておらず、セルで使用される実際の値は行/列で使用される値、または通常の値であることが前提とされる値であることを示します。セルで解決された値を取得するには、新しい GetResolvedCellFormat メソッドを使用します。

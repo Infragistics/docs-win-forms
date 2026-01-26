@@ -1,0 +1,128 @@
+﻿////
+|metadata|
+{
+    "name": "winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D7CD2E90-DC84-44DF-BDFC-3682F48D07D7}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridPrintDocument での WinPrintPreviewDialog の使用
+
+2005 Volume 1 では、PrintDocument の印刷プレビューを表示する新しいコントロールが追加されました。この WinPrintPreviewDialog は同様に 2005 Volume 1 に追加された 2 つの他のコントロールを使用します。このコントロールは WinPrintPreviewControl と WinPrintPreviewThumbnail です。WinPrintPreviewDialog は任意の .NET PrintDocument と動作します。これには、WinGrid コントロールを印刷するために使用される WinGridPrintDocument が挙げられます。このトピックでは、WinPrintPreviewDialog と WinGridPrintDocument を使用する方法について説明します。
+
+[start=1]
+. 新しい C# または VB.NET Windows アプリケーションを作成します。デザイン ビューでフォームを開き、UltraGrid コントロールと 2 つの Button コントロールをフォームに追加します。さらに、UltraPrintPreviewDialog、UltraGridPrintDocument、および UltraDataSource を追加します。 
+
+[NOTE]
+====
+*注:* WinDataSource を使用するのは、単に一般的なデータを WinGrid に迅速に表示するためだけです。
+====
+
+[start=2]
+. 2 個のボタンの Text プロパティをそれぞれ [印刷プレビュー] と [閉じる] に変更します。
+[start=3]
+. UltraDataSource を設定したことで、ひとつのバンドと 2 つの列を持ちます。以下のスクリーンショットでは、2 つの列が使用されています。UltraDataSource デザイナで UltraDataSource の [データ入力] 領域に任意のサンプル データをいくつか追加します。
+
+image::Images/WinMisc_Using_the_WinPrintPreviewDialog_with_the_WinGridPrintDocument_01.png[]
+
+[start=4]
+. フォームのコード ファイルに移動し、ボタンの Click イベントのハンドラと Form Load イベントのハンドラを作成します。
+[start=5]
+. フォームの Form Load イベントに次のコードを追加します。コメントは各行の処理内容を表します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UsingtheWinPrintPreviewDialogwiththeWinGridPrintDocument_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' UltraDataSource をデータ ソースとして使用するようにグリッドを設定します。
+	Me.UltraGrid1.DataSource = Me.UltraDataSource1
+	' UltraGridPrintDocument の Grid プロパティを、印刷するグリッドに設定します。
+	Me.UltraGridPrintDocument1.Grid = Me.UltraGrid1
+	' UltraPrintPreviewDialog の Document プロパティを UltraGridPrintDocument
+	' に設定します。
+	Me.UltraPrintPreviewDialog1.Document = Me.UltraGridPrintDocument1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void UsingtheWinPrintPreviewDialogwiththeWinGridPrintDocument_Load(object sender, 
+  System.EventArgs e)
+{
+	// UltraDataSource をデータ ソースとして使用するようにグリッドを設定します。
+	this.ultraGrid1.DataSource = this.ultraDataSource1;
+	// UltraGridPrintDocument の Grid プロパティを、印刷するグリッドに設定します。
+	this.ultraGridPrintDocument1.Grid = this.ultraGrid1;
+	// UltraPrintPreviewDialog の Document プロパティを UltraGridPrintDocument
+	// に設定します。
+	this.ultraPrintPreviewDialog1.Document = this.ultraGridPrintDocument1;
+}
+----
+
+[start=6]
+. 次に [印刷プレビュー] ボタンの Click イベントに次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnPrintPreview_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnPrintPreview.Click
+	Me.UltraPrintPreviewDialog1.ShowDialog(Me)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnPrintPreview_Click(object sender, System.EventArgs e)
+{
+	this.ultraPrintPreviewDialog1.ShowDialog(this);
+}
+----
+
+[start=7]
+. [閉じる] ボタンの Click イベントに次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+ Private Sub btnClose_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnClose.Click
+	Me.Close()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnClose_Click(object sender, System.EventArgs e)
+{
+	this.Close();
+}
+----
+
+[start=8]
+. このサンプルをビルドして実行すると、次のスクリーンショットのようなフォームが表示されます。
+
+image::Images/WinPrintPreviewDialog_WinGridPrintDocument_Using_WinPrintPreviewDialog_with_WinGridPrintDocument_01.png[]
+
+[start=9]
+. [印刷プレビュー] ボタンをクリックすると、WinGrid を印刷した場合のプレビューが表示されます。
+
+image::Images/WinPrintPreviewDialog_WinGridPrintDocument_Using_WinPrintPreviewDialog_with_WinGridPrintDocument_02.png[]
+
+[NOTE]
+====
+*注:* 階層グリッドの場合には、[印刷プレビュー] ダイアログには最上位のバンドのみが表示されています。印刷時に下位のバンドも表示するためには、それらのバンドを、印刷に移るときに WinGrid に表示するか、または [印刷プレビュー] ダイアログに表示する必要があります。
+====
+
+==== 関連トピック
+
+link:wingridprintdocument-printing-total-number-of-pages.html[総ページ数の印刷]

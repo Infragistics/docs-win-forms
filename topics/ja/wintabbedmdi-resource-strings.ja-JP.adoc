@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdi-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{BA064794-7310-4124-A77D-D07005AF5220}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTabbedMdi リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列の名前を示しています。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|MenuItemCancel
+|キャンセル(&A)
+
+|MenuItemClose
+|閉じる(&C)
+
+|MenuItemMaximize
+|最大化(&M)
+
+|MenuItemMoveToNextGroup
+|次のタブグループへ移動(&X)
+
+|MenuItemMoveToPreviousGroup
+|前のタブグループへ移動(&R)
+
+|MenuItemNewHorizontalGroup
+|新しい水平タブグループ(&Z)
+
+|MenuItemNewVerticalGroup
+|新しい垂直タブグループ(&V)
+
+|====

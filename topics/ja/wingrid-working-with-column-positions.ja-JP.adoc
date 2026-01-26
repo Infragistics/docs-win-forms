@@ -1,0 +1,140 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-working-with-column-positions",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{1F6FCE63-356F-41E1-9B9E-7CC04D9AE419}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列位置の操作
+
+== バックグラウンド
+
+最初に列ヘッダをクリックして列を選択し、次に列ヘッダを再クリックして異なる場所にドラッグすることで、列の視覚的な場所をユーザーは変更することができます。開発者は、列オブジェクトの .Header.VisiblePosition プロパティを設定することで列の場所を変更できます。
+
+開発者は列オブジェクトの .Header.VisiblePosition プロパティを調べることによって列の場所を確認することもできます。
+
+== 質問
+
+* ユーザーが列を配置した場所を確認するにはどうすればいいですか?
+* 列の水平方向の場所を変更するにはどうすればいいですか?
+
+== 解決策
+
+Column オブジェクトの .Header.VisiblePosition プロパティを設定して、列の位置を変更するために照会できます。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、ユーザーは列をドラッグ アンド ドロップして場所を変更できます。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[列の位置の変更] をクリックして最初の表示位置に "DataValue2" を配置し、[列の位置の表示] をクリックして各列の Band、Column および VisiblePosition をテキスト ボックスに表示します。
+
+image::Images/WinGrid_Working_with_Column_Positions_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラーが含まれます:
+
+* UltraGrid1.InitializeLayout - UltraWinGrid InitializeLayout イベントのコードは、グリッドの幅に列が収めるようにグリッドに指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します:
+
+* btnChangeColumnPositions.Click - ChangeColumnPositions Click イベントのコードは、Column 2 Header オブジェクトの VisiblePosition プロパティを 0 に設定します。このようにすることでグリッドの左側に列を移動します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnChangeColumnPositions_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnChangeColumnPositions.Click
+	' 列 2 を位置 0 に移動します
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(2).Header.VisiblePosition = 0
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnChangeColumnPositions_Click(object sender, System.EventArgs e)
+{
+	// 列 2 を位置 0 に移動します
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[2].Header.VisiblePosition = 0;
+}
+----
+
+* btnDisplayColumnPositions.Click - DisplayColumnPositions Click イベントのコードは、各列オブジェクトを渡して Band Index、Column Index、および Visible Position 値を表示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnDisplayColumnPositions_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnDisplayColumnPositions.Click
+	' テキスト ボックスの列位置を表示します
+	Dim aColumn As UltraGridColumn
+	Me.UltraTextEditor1.Text = "Band, Column, VisiblePosition" + vbCrLf
+	For Each aColumn In Me.UltraGrid1.DisplayLayout.Bands(0).Columns
+		Me.UltraTextEditor1.Text += aColumn.Band.Index.ToString + ", " _
+		  + aColumn.Index.ToString + ", " _
+		  + aColumn.Header.VisiblePosition.ToString + vbCrLf
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnDisplayColumnPositions_Click(object sender, System.EventArgs e)
+{
+	// テキスト ボックスの列位置を表示します
+	this.ultraTextEditor1.Text = "Band, Column, VisiblePosition \n";
+	foreach(UltraGridColumn aColumn in this.ultraGrid1.DisplayLayout.Bands[0].Columns)
+	{
+		this.ultraTextEditor1.Text += aColumn.Band.Index.ToString() + "," +
+		  aColumn.Index.ToString() + ", " + aColumn.Header.VisiblePosition.ToString() +
+		  "\n";
+	}
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトは、コードを使用して列の表示可能な位置を変更する方法を解説し、列ヘッダ オブジェクトの表示可能な場所の値へのアクセス方法を示し、これはユーザー列の場所の結果を示すために使用できます。

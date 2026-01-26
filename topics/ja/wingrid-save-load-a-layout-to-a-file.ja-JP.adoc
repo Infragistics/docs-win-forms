@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-save-load-a-layout-to-a-file",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts","Persistence"],
+    "guid": "{B6670D3E-E6E8-4772-B890-237D9D6C3E7C}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= レイアウトのファイル保存とロード
+
+[start=1]
+. Layout の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~saveasxml.html[SaveAsXml]"]  メソッドと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~loadfromxml.html[LoadFromXml]"]  メソッドは WinGrid のレイアウトを Xml ファイルに保存します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSave_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSave.Click
+	Me.UltraGrid1.DisplayLayout.SaveAsXml("WinGridLayout.xml")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSave_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.SaveAsXml("WinGridLayout.xml");
+}
+----
+
+[start=2]
+. レイアウトをグリッドにロードする操作は保存と類似しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnLoad_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnLoad.Click
+	Me.UltraGrid1.DisplayLayout.LoadFromXml(System.IO.Path.Combine( _
+	  Application.StartupPath, "..\ExtraFiles\WinGridLayout.xml"))
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnLoad_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.LoadFromXml(System.IO.Path.Combine(
+	  Application.StartupPath, @"..\..\ExtraFiles\WinGridLayout.xml"));
+}
+----

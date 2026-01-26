@@ -1,0 +1,199 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-control-mdi-tool-merging-with-mergeorder-and-mergetype",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{1848ABD8-7BAD-4977-95FE-148EE716899D}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= MDI ツールの MergeOrder および MergeType とのマージの制御
+
+MDI 子フォームがランタイムで起動されると、その pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarscollection.html[Toolbars]"]  は MDI 親フォームに含まれるツールバーでマージされます。2 つのツールバーが同じキーを持つ場合、これらのツールバーのツールはひとつのツールバーにマージされます。（フォームのメイン メニューバーに設定されるツールバーは、キーが同じであるかどうかに関係なくマージされます）。
+
+2 つのツールバーがマージされると、同じキーを持ったり MDI 親のツールバーに既に存在するツールと同じ種類でない限り、MDI 子からの各ツールは親 MDI のツールバーに追加されます。このケースでは、ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~mergetype.html[MergeType]"]  プロパティは、アクションが取られたことを判断します。可能なアクションには、Default、Add、Replace、MergeItems（pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTools]"]  用のみ）および Remove が含まれます。
+
+[NOTE]
+====
+*注：* ツールの MergeType 設定に競合がある場合、子フォームのツール用に設定されている MergeType が優先されます。
+====
+
+デフォルトの MergeType ですべてのツールを開始します。この値に設定すると、ツールの種類に基づいてツールはデフォルト アクションをとります。ほとんどのツールは "Replace" にデフォルト設定されますが、その値は、「置き換えまたは追加」として効率的に機能します。MDI 子のツールバーのツールは、同じキーと同じ種類を持つ MDI 親のツールバーでひとつを置き換えますが、親のツールバーにそのようなツールがない場合、子のツールが親のツールバーに追加されます。
+
+PopupMenu ツールは、MergeItems のデフォルト アクションを持ちます。このアクションは、同じキーを持つ 2 つのメニューに含まれるツールをマージするので、ひとつのメニューに表示されます。
+
+追加アクションによって、MDI 親ツールバーのひとつに加えて MDI 子ツールバーにツールが表示されます。両方のツールを使用できます。
+
+削除アクションは、ツールバーがマージされると、子と親の両方のツールバーからツールを削除します。これによって、親ツールバーで使用できるツールをオーバーライドする方法をユーザーに提供します。たとえば、MDI 子フォームで使用できるツールを持っているがひとつである場合、そのフォームにツールを追加して、その MergeType を Remove に設定できます。親フォームのツールバーに同じツールを配置して、すべての他のフォームで使用できるようにすることもできます。ツールが付属する子フォームがアクティブになると、ツールが親のツールバーから削除されます。
+
+ツールをひとつのツールバーにマージすると、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~mergeorder.html[MergeOrder]"]  プロパティが、ツールが表示される順序を決定するために使用されます。マージされたツールのコレクションは、MergeOrder プロパティの値の順序で表示されます。2 つのツールが同じ MergeOrder を持つ場合、MDI 親のツールは、元の順序で MDI 子のツールに続くオリジナルの順序で表示されます。
+
+デザインタイムでは、各ツールの MergeType プロパティは、UltraToolBarsManager エレメントを右クリックして [ユーザー設定] を選択して設定することができます。次に [ツール] タブでツールを選択します。MergeType および MergeOrder プロパティは、SharedProps で使用できます。
+
+== 親フォームのコード
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub ControlMDIToolMergingwithMergeOrderandMergeType_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 3 つの新しいボタン ツールを作成します。
+	Dim button1 As New ButtonTool("button1")
+	Dim button2 As New ButtonTool("button2")
+	Dim button3 As New ButtonTool("button3")
+	' ボタン ツールを Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(button1)
+	Me.UltraToolbarsManager1.Tools.Add(button2)
+	Me.UltraToolbarsManager1.Tools.Add(button3)
+	' ツールの表示を設定します。
+	button1.SharedProps.Caption = "Button Tool 1"
+	button2.SharedProps.Caption = "Button Tool 2"
+	button3.SharedProps.Caption = "Button Tool 3"
+	button1.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	button2.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	button3.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	' ツールをツールバーに追加します。
+	Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Tools.AddTool("button1")
+	Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Tools.AddTool("button2")
+	Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Tools.AddTool("button3")
+	' ボタン ツールのそれぞれに MergeOrder を設定します。
+	' MergeType はすべての 3 つのボタン ツールのデフォルトです。
+	button1.SharedProps.MergeOrder = 1
+	button2.SharedProps.MergeOrder = 2
+	button3.SharedProps.MergeOrder = 3
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void ControlMDIToolMergingwithMergeOrderandMergeType_Load(object sender, System.EventArgs e)
+{
+	// 3 つの新しいボタン ツールを作成します。
+	ButtonTool button1 = new ButtonTool("button1");
+	ButtonTool button2 = new ButtonTool("button2");
+	ButtonTool button3 = new ButtonTool("button3");
+	// ボタン ツールを Tools コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(button1);
+	this.ultraToolbarsManager1.Tools.Add(button2);
+	this.ultraToolbarsManager1.Tools.Add(button3); 
+	// ツールの表示を設定します。
+	button1.SharedProps.Caption = "Button Tool 1";
+	button2.SharedProps.Caption = "Button Tool 2";
+	button3.SharedProps.Caption = "Button Tool 3";
+	button1.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	button2.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	button3.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	// ツールをツールバーに追加します。
+	this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Tools.AddTool("button1");
+	this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Tools.AddTool("button2");
+	this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Tools.AddTool("button3");
+	// ボタン ツールのそれぞれに MergeOrder を設定します。
+	// MergeType はすべての 3 つのボタン ツールのデフォルトです。
+	button1.SharedProps.MergeOrder = 1; 
+	button2.SharedProps.MergeOrder = 2;
+	button3.SharedProps.MergeOrder = 3;
+}
+----
+
+== MDI 子フォームのコード
+
+*Visual Basic の場合：*
+
+----
+Private Sub SampleMDIForm_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' このフォームのツールバーは、MDI 親のツールバーでマージされます。
+	Me.UltraToolbarsManager1.MdiMergeable = True
+	' 3 つの新しいボタン ツールを MDI 親のボタン ツール 
+	' と同じキーで作成します。
+	Dim button1 As New ButtonTool("button1")
+	Dim button2 As New ButtonTool("button2")
+	Dim button3 As New ButtonTool("button3")
+	' ボタン ツールを Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(button1)
+	Me.UltraToolbarsManager1.Tools.Add(button2)
+	Me.UltraToolbarsManager1.Tools.Add(button3)
+	' 各ボタン ツールの表示を設定します。
+	button1.SharedProps.Caption = "Child Button Tool 1"
+	button2.SharedProps.Caption = "Child Button Tool 2"
+	button3.SharedProps.Caption = "Child Button Tool 3"
+	button1.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	button2.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	button3.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	' ツールをツールバーに追加します。
+	Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Tools.AddTool("button1")
+	Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Tools.AddTool("button2")
+	Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Tools.AddTool("button3")
+	' このツールは同じキーをもつツールに加えてツールバーに 
+	' 追加されます。
+	button1.SharedProps.MergeType = MenuMergeType.Add
+	' MergeOrder が最も高いので、最後のボタン ツールとして 
+	' 表示されます。
+	button1.SharedProps.MergeOrder = 5
+	' このツールは、親のツールバーの同じ現在のキーで 
+	' ツールを置き換えます。
+	button2.SharedProps.MergeType = MenuMergeType.Replace
+	' ツールバーの 2 番目のツールとして表示されます。
+	button2.SharedProps.MergeOrder = 2
+	' このツールは、ツールバーから削除されます。
+	button3.SharedProps.MergeType = MenuMergeType.Remove
+	button3.SharedProps.MergeOrder = 3
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SampleMDIForm_Load(object sender, System.EventArgs e)
+{
+	// このフォームのツールバーは、MDI 親のツールバーで 
+	// マージされます。
+	this.ultraToolbarsManager1.MdiMergeable = true;
+	// 3 つの新しいボタン ツールを MDI 親のボタン ツール 
+	// と同じキーで作成します。
+	ButtonTool button1 = new ButtonTool("button1");
+	ButtonTool button2 = new ButtonTool("button2");
+	ButtonTool button3 = new ButtonTool("button3");
+	// ボタン ツールを Tools コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(button1);
+	this.ultraToolbarsManager1.Tools.Add(button2);
+	this.ultraToolbarsManager1.Tools.Add(button3);
+	// 各ボタン ツールの表示を設定します。
+	button1.SharedProps.Caption = "Child Button Tool 1";
+	button2.SharedProps.Caption = "Child Button Tool 2";
+	button3.SharedProps.Caption = "Child Button Tool 3";
+	button1.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	button2.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	button3.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	// ツールをツールバーに追加します。
+	this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Tools.AddTool("button1");
+	this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Tools.AddTool("button2");
+	this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Tools.AddTool("button3");
+	// このツールは同じキーをもつツールに加えてツールバーに 
+	// 追加されます。
+	button1.SharedProps.MergeType = MenuMergeType.Add;
+	// MergeOrder が最も高いので、最後のボタン ツールとして 
+	// 表示されます。
+	button1.SharedProps.MergeOrder = 5;
+	// このツールは、親のツールバーの同じ現在のキーで 
+	// ツールを置き換えます。
+	button2.SharedProps.MergeType = MenuMergeType.Replace;
+	// ツールバーの 2 番目のツールとして表示されます。
+	button2.SharedProps.MergeOrder = 2;
+	// このツールは、ツールバーから削除されます。
+	button3.SharedProps.MergeType = MenuMergeType.Remove;
+	button3.SharedProps.MergeOrder = 3;
+}
+----
+
+image::images/WinToolbarsManager_Control_MDI_Tool_Merging_with_MergeOrder_and_MergeType_01.png[]

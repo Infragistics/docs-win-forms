@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-order-of-precedence-for-datesettings,-recurringdatesettings,-and-dayofweeksettings",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{33C8BDDB-4393-4DAE-8FDE-87401F101D86}",  
+    "buildFlags": [],
+    "createdOn": "2009-02-02T09:50:14Z"
+}
+|metadata|
+////
+
+= DateSettings、RecurringDateSettings および DayofWeekSettings 優先順位
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~datesettings.html[DateSettings]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~recurringdatesettings.html[RecurringDateSettings]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~dayofweeksettings.html[DayofWeekSettings]"]  の設定が特定な日付に指定されることがあります。たとえば、毎月 25 日の稼働時間が 9am から 5pm (RecurringDateSettings) に設定されている場合で、これをある一日（DateSettings）、たとえば 2009 年 12 月 25 日（クリスマス）に対して変更する必要がある場合、この一日を非就業日として設定できます。この機能をサポートするため、CalendarInfo は特定の優先順序に基づいて特定の日にどの設定を適用するのかを決定します。
+
+優先順序は以下のとおりです：
+
+[start=1]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner.html[Owner]"]  オブジェクトの *_DateSettings_* コレクションの各メンバーは、RecurringDateSettings、DayOfWeekSettings の他の Owner 設定および WinCalendarInfo™ コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~daysofweek.html[DaysOfWeek]"]  プロパティ設定に優先します。明示的に DateSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweek~isworkday.html[IsWorkDay]"]  プロパティを false に設定すると、その日付は非就業日としてマークされます。一方、IsWorkDay プロパティを True に設定するか、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslotsettings~workinghours.html[WorkingHours]"]  コレクションを移植すると、その日付は就業日になります。
+[start=2]
+. Owner DateSettings が特定の日付に設定されていないか、IsWorkday プロパティが false に設定され、メンバーが WorkingHours コレクションに存在しない場合、Owner オブジェクトの *_RecurringDateSettings_* コレクションは、特定の日付に発生する繰り返しに対してチェックされます。
+[start=3]
+. Owner DateSettings または RecurringDateSettings が特定の日付に設定されていないか、IsWorkday プロパティが false に設定され、メンバーが WorkingHours コレクションに存在しない場合、Owner オブジェクトの *_DayOfWeekSettings_* コレクションは関連付けられた曜日に対してチェックされます。
+[start=4]
+. Owner DateSettings、RecurringDateSettings または DayofWeekSettings が特定の日付に存在しない場合、UltraCalendarInfo コンポーネントの *_DaysOfWeek_* プロパティは、関連する日付が就業日であるかどうかを決定するために使用されます。
+
+優先順序についての詳細は、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslotsettings~workinghours.html[WorkingHours]"]  プロパティの解説のセクションを参照してください。

@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlivetileview",
+    "controlName": [],
+    "tags": [],
+    "guid": "c7c0b65c-b496-4841-bcc7-ad84075aca97",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T21:42:26.6275842Z"
+}
+|metadata|
+////
+
+= WinLiveTileView
+
+=== はじめに
+
+このグループのトピックでは、最新の link:{ApiPlatform}win.ultrawinlivetileview{ApiVersion}~infragistics.win.ultrawinlivetileview.ultralivetileview_members.html[UltraLiveTileView] _™_   コントロールについて、使用および設定する手順を含めて紹介します。このコントロールは、Microsoft Windows 8 オペレーティング システムのスタート画面のタイルと類似しています。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winlivetileview-winlivetileview-control.html[WinLiveTileView コントロール]
+|このトピックは、新しい _UltraLiveTileView_ コントロールの概要を提供し、静的タイルとライブ タイル、およびタッチ操作の完全なサポートを含むそれらの動作を中心に説明します。
+
+| link:winlivetileview-using-winlivetileview.html[WinLiveTileView の使用]
+|このグループのトピックでは、最新の _UltraLiveTileView_ コントロールについて、デザイナーやコード ビハインドを使用して各タイルを作成および設定する方法の手順を含めて紹介します。
+
+| link:winlivetileview-styling-winlivetileview.html[WinLiveTileView のスタイル設定]
+|このトピックでは、デザイナーを使用してコード ビハインドや _AppStylist_ で、 _UltraLiveTileView_ コントロールのスタイルを設定する方法を示します。
+
+| link:winlivetileview-winlivetileview-localization.html[WinLiveTileView のローカライズ]
+|このトピックでは、 _UltraLiveTileView_ のローカライズの設定方法を示します。
+
+|====

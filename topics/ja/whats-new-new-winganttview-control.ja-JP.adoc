@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new-winganttview-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4BF8D7FB-1B72-451A-818A-710D7B9A4876}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinGanttView コントロール
+
+今回のリリースでは、増加している Windows Forms コントロールのリストにインタラクティブな WinGanttView™ コントロールを追加しています。 WinGanttView コントロールは Microsoft® Project のコントロールと機能的に似ており、プロジェクト管理に対して同様のフロント エンドを提供します。
+
+image::Images/WinGanttView_New_WinGanttView_Control.png[]
+
+このコントロールによって、Tasks、Summary Tasks、Milestones、Deadlines、PercentComplete、Dependencies、Constraints および Tooltips に対するサポートを提供することでプロジェクト管理ソフトウェアを効果的に作成することができます。 グリッドの形の表形式のリストを提供するだけでなく、さまざまなプロジェクトの詳細をガント チャートで表します。 コントロールのチャート セクションの列ヘッダーは、WinTimelineView™ コントロールに似た時間の間隔と水平のスクロールバーを表示できます。 WinGanttView は WinSchedule コントロールによっても使用される WinCalendarInfo™ コンポーネントを通してその機能を取得します。
+
+== 関連トピック
+
+* link:winganttview-understanding-winganttview.html[WinGanttView の理解]
+* link:winganttview-using-winganttview.html[WinGanttView の使用]

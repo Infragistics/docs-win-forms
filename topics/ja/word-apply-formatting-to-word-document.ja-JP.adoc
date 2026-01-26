@@ -1,0 +1,246 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-apply-formatting-to-word-document",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting","Formatting","Getting Started","How Do I"],
+    "guid": "1a2ff94b-bad1-4b1b-9b66-c0103e6ed519",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T14:20:04.676061Z"
+}
+|metadata|
+////
+
+= 書式設定を Word ドキュメントに適用
+
+このトピックは、Infragistics® Word ライブラリを使用して Word ドキュメントを書式設定する方法を示します。以下のコードは、forward-only の link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] オブジェクトを使用します。このトピックで検討されるさまざまな書式設定機能は、サイズ、方向などのフォント、段落書式およびページ属性です。
+
+[NOTE]
+====
+*注:* Infragistics3.Documents.IO アセンブリへの参照が必要とされます。
+====
+
+== フォントの指定
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.font.html[Font] クラスは、文字のビジュアル属性または文字の範囲をカスタマイズする方法を提供します。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+//  フォントを作成します。これはコンテンツ作成で再使用できます
+Infragistics.Documents.Word.Font font = docWriter.CreateFont();
+font.Bold = true;
+font.Size = .23f;
+font.Underline = Underline.Double;
+font.UnderlineColor = Color.Blue;
+font.Effects.Capitalization = Capitalization.CapsOn;
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+'  フォントを作成します。これはコンテンツ作成で再使用できます
+Dim font As Infragistics.Documents.Word.Font = docWriter.CreateFont()
+font.Bold = True
+font.Size = 0.23F
+font.Underline = Underline.[Double]
+font.UnderlineColor = Color.Blue
+font.Effects.Capitalization = Capitalization.CapsOn
+----
+
+== 段落プロパティ
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.paragraphproperties.html[ParagraphProperties] クラスは段落の書式設定を制御する方法を提供します。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// 段落プロパティ
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+ParagraphProperties paraformat = docWriter.CreateParagraphProperties();
+paraformat.Alignment = ParagraphAlignment.Right;
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' 段落プロパティ
+' 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+Dim docWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\TestWordDoc.docx")
+Dim paraformat As ParagraphProperties = docWriter.CreateParagraphProperties()
+paraformat.Alignment = ParagraphAlignment.Right
+----
+
+== セクション プロパティ
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.sectionproperties.html[SectionProperties] クラスは、サイズ、余白、方向などのページ属性を制御する方法を提供します。SectionProperties インスタンスを渡す DefineSection メソッドは、EndParagraph メソッドの後で呼び出さなければなりません。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+//  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+//  単位としてインチを使用します
+docWriter.Unit = UnitOfMeasurement.Inch;
+SectionProperties secProperties = docWriter.CreateSectionProperties();
+secProperties.PageSize = new SizeF(7, 5);
+secProperties.PageOrientation = PageOrientation.Landscape;
+// 上記の追加された段落に対してセクション プロパティ（PageSize と Orientation）を適用します
+docWriter.DefineSection(secProperties);   
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+'  単位としてインチを使用します
+docWriter.Unit = UnitOfMeasurement.Inch
+Dim secProperties As SectionProperties = docWriter.CreateSectionProperties()
+secProperties.PageSize = New SizeF(7, 5)
+secProperties.PageOrientation = PageOrientation.Landscape
+'  上記の追加された段落に対してセクション プロパティ（PageSize と Orientation）を適用します
+docWriter.DefineSection(secProperties)
+----
+
+以下は上記の書式設定すべてを含む完全なコードです。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+// コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+//  単位としてインチを使用します
+docWriter.Unit = UnitOfMeasurement.Inch;
+//  フォントを作成します。これはコンテンツ作成で再使用できます
+Infragistics.Documents.Word.Font font = docWriter.CreateFont();
+//ドキュメントを開始します。StartDocument への各呼び出しは
+//EndDocument への対応する呼び出しとバランスを取らなければならないことに留意します
+docWriter.StartDocument();
+//段落を開始します
+docWriter.StartParagraph();
+//  ボールド体で若干大きく、タイトルのテキスト ランを追加します
+font.Bold = true;
+font.Size = .23f;
+font.Underline = Underline.Double;
+font.UnderlineColor = Color.Blue;
+font.Effects.Capitalization = Capitalization.CapsOn;
+docWriter.AddTextRun("Paragraphs and Topic Sentences", font);
+//段落を終わります
+docWriter.EndParagraph();
+// 段落プロパティ
+ParagraphProperties paraformat = docWriter.CreateParagraphProperties();
+paraformat.Alignment = ParagraphAlignment.Right;
+//別の段落を開始し
+// ParagraphProperties オブジェクトを適用します
+docWriter.StartParagraph(paraformat);
+docWriter.AddNewLine();
+// フォントをリセットして、この段落に対して異なるフォント設定を適用します
+font.Reset();
+font.Italic = true;
+font.ForeColor = Color.Blue;
+font.Effects.TextEffect = FontTextEffect.EngravingOn;
+docWriter.AddTextRun("A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic. Almost every piece of writing you do that is longer than a few sentences should be organized into paragraphs. This is because paragraphs show a reader where the subdivisions of an essay begin and end, and thus help the reader see the organization of the essay and grasp its main points.", font);
+// 段落を終わります
+docWriter.EndParagraph();
+//空の段落を追加します
+docWriter.AddEmptyParagraph();
+docWriter.StartParagraph();
+font.Reset();
+font.ForeColor = Color.Red;
+docWriter.AddTextRun("This page is defined by the SectionProperties object. The size of the page is set to 7x5 inches and the Orientation is set to Landscape.", font);
+docWriter.EndParagraph();
+// ページ属性を設定します
+SectionProperties secProperties = docWriter.CreateSectionProperties();
+secProperties.PageSize = new SizeF(7, 5);
+secProperties.PageOrientation = PageOrientation.Landscape;
+// 上記の追加された段落に対してセクション プロパティ（PageSize と Orientation）を適用します
+docWriter.DefineSection(secProperties);
+// ドキュメントを終了します
+docWriter.EndDocument();
+// ライターを閉じます
+docWriter.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+'  コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+Dim docWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\TestWordDoc.docx")
+'  単位としてインチを使用します
+docWriter.Unit = UnitOfMeasurement.Inch
+'  フォントを作成します。これはコンテンツ作成で再使用できます
+Dim font As Infragistics.Documents.Word.Font = docWriter.CreateFont()
+'ドキュメントを開始します。StartDocument への各呼び出しは
+'  EndDocument への対応する呼び出しとバランスを取らなければならないことに留意します
+docWriter.StartDocument()
+'段落を開始します
+docWriter.StartParagraph()
+'  ボールド体で若干大きく、タイトルのテキスト ランを追加します
+font.Bold = True
+font.Size = 0.23F
+font.Underline = Underline.[Double]
+font.UnderlineColor = Color.Blue
+font.Effects.Capitalization = Capitalization.CapsOn
+docWriter.AddTextRun("Paragraphs and Topic Sentences", font)
+'段落を終わります
+docWriter.EndParagraph()
+' 段落プロパティ
+Dim paraformat As ParagraphProperties = docWriter.CreateParagraphProperties()
+paraformat.Alignment = ParagraphAlignment.Right
+' 別の段落を開始し
+' ParagraphProperties オブジェクトを適用します
+docWriter.StartParagraph(paraformat)
+docWriter.AddNewLine()
+' フォントをリセットして、この段落に対して異なるフォント設定を適用します
+font.Reset()
+font.Italic = True
+font.ForeColor = Color.Blue
+font.Effects.TextEffect = FontTextEffect.EngravingOn
+docWriter.AddTextRun("A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic. Almost every piece of writing you do that is longer than a few sentences should be organized into paragraphs. This is because paragraphs show a reader where the subdivisions of an essay begin and end, and thus help the reader see the organization of the essay and grasp its main points.", font)
+' 段落を終わります
+docWriter.EndParagraph()
+' ページ属性を設定します
+Dim secProperties As SectionProperties = docWriter.CreateSectionProperties()
+secProperties.PageSize = New SizeF(7, 5)
+secProperties.PageOrientation = PageOrientation.Landscape
+' 上記の追加された段落に対してセクション プロパティ（PageSize と Orientation）を適用します
+docWriter.DefineSection(secProperties)
+'空の段落を追加します
+docWriter.AddEmptyParagraph()
+docWriter.StartParagraph()
+font.Reset()
+font.ForeColor = Color.Red
+docWriter.AddTextRun("The above page is defined by the Section Properties object. The size of the page is set to 7x5 inches and the Orientation is set to Landscape.", font)
+docWriter.EndParagraph()
+' ドキュメントを終了します
+docWriter.EndDocument()
+' ライターを閉じます
+docWriter.Close()
+----
+
+== 関連トピック
+
+* link:word-create-a-word-document.html[Word ドキュメントの作成]
+* link:word-add-table-to-word-document.html[テーブルを Word ドキュメントに適用]
+* link:word-add-images-to-word-document.html[画像を Word ドキュメントに追加]
+* link:word-headers-footers-and-page-numbers.html[ヘッダー、フッター、ページ番号]
+* link:word-understanding-infragistics-word-library.html[Infragistics Word ライブラリの理解]

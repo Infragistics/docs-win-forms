@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-visual-studio-2005-specific-features",
+    "controlName": [],
+    "tags": [],
+    "guid": "{04053146-0174-4CF3-B701-8B215756BB65}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Visual Studio 2005 固有の機能
+
+Visual Studio® 2005 (.NET Framework 2.0) には数多くの新規機能と既存機能があります。Infragistics は、Windows Forms コントロールと新機能との互換性を確かなものにしようと努力してまいりました。以下に、弊社の Windows Forms コントロール/コンポーネントで実装された Visual Studio 2005 の機能を列挙します。
+
+* link:win-drag-once-databinding-whats-new-2005-3.html[Drag-Once データバインド]
+* link:win-imagelist-keys-whats-new-2005-3.html[ImageList キー]
+* link:win-ipersistcomponentsettings-whats-new-2005-3.html[IPersistComponentSettings]
+* link:win-rendering-gdi-text-with-textrenderer-whats-new-2005-3.html[TextRenderer による GDI テキストの描画]
+* link:win-rendering-themed-elements-under-semi-trust-security-whats-new-2005-3.html[Semi-Trust セキュリティ下でのテーマ エレメントの描画]
+* link:win-smart-tag-support-whats-new-2005-3.html[スマート タグのサポート]
+* link:win-snaplines-whats-new-2005-3.html[SnapLines]
+* link:win-using-embeddable-editors-in-the-datagridview-whats-new-2005-3.html[DataGridView での埋め込みエディタの使用]
+* link:wincalcmanager-using-wincalcmanager-in-the-datagridview-whats-new-2005-3.html[DataGridView での WinCalcManager の使用]

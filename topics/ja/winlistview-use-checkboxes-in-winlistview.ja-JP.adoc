@@ -1,0 +1,112 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-use-checkboxes-in-winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{0129C2A8-BD11-4E1D-9964-DD09D15AA605}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView でのチェックボックスの使用
+
+WinListView コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティを List または Details に設定すると、各項目の横にチェックボックスに表示をするようにコントロールを設定できます。そのためには、ViewSettingsList または ViewSettingsDetails の pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewlistsettingsbase~checkboxstyle.html[CheckBoxStyle]"]  プロパティを CheckBox または TriState に設定します。どちらの場合も、チェックボックスが表示されます。TriState に設定した場合には、チェックボックスに選択、選択解除、未定の状態を表示できます。
+
+WinListView コントロールもコレクション プロパティ pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~checkeditems.html[CheckedItems]"]  を提供します。このコレクション プロパティには、プログラムによって、またはユーザーにより選択された、コントロールの Items コレクションのメンバへの参照が含まれています。
+
+次のコード例は、チェックボックスを表示するようにコントロールを構成する方法と、CheckedItems コレクションを使用して、選択された項目をリストする方法を示しています。
+
+[NOTE]
+====
+*注:* pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitem.html[UltraListViewItem]"]  クラスは、その項目のチェックボックスの値を含めることができるpick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitem~checkstate.html[CheckState]"]  プロパティを公開します。また、WinListView コントロールは、このプロパティの値が変更されようとするときに発生するイベント、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~itemcheckstatechanging_ev.html[ItemCheckStateChanging]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~itemcheckstatechanged_ev.html[ItemCheckStateChanged]"]  を公開します。
+====
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinListView
+...
+Private Sub Use_Checkboxes_in_WinListView_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' Northwind データベースの 'Customers' テーブルのデータを使用します。
+	Me.CustomersTableAdapter.Fill(Me.NWindDataSet.Customers)
+	' コントロールの View プロパティを 'List' に設定します。
+	Me.ultraListView1.View = UltraListViewStyle.List
+	' 2 つ目のコントロールは、MultiColumn を False に設定します。
+	Me.UltraListView2.View = UltraListViewStyle.List
+	Me.UltraListView2.ViewSettingsList.MultiColumn = False
+	' CheckBoxStyle プロパティを 'CheckBox' に設定します。
+	Me.ultraListView1.ViewSettingsList.CheckBoxStyle = CheckBoxStyle.CheckBox
+	' 'Customers' テーブルの Rows コレクションを反復処理し、
+	' 個々の顧客の項目を追加します。
+	Dim i As Integer
+	For i = 0 To Me.NWindDataSet.Customers.Rows.Count - 1
+		Dim row As DataRow = Me.NWindDataSet.Customers.Rows(i)
+		Dim customerID As String = row("CustomerID")
+		Dim companyName As String = row("CompanyName")
+		Me.ultraListView1.Items.Add(customerID, companyName)
+	Next
+End Sub
+Private Sub btnGetCheckedItems_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles Button1.Click
+	' エンド ユーザーが選択した顧客をリストします。
+	' 前のリストを消去します。
+	Me.UltraListView2.Items.Clear()
+	' コントロールの CheckedItems コレクションへの参照を取得します。
+	Dim checkedItems As UltraListViewCheckedItemsCollection = Me.ultraListView1.CheckedItems
+	' CheckedItems コレクションを反復処理し、企業名を
+	'	2 つ目の UltraListView コントロールに追加します。
+	Dim i As Integer
+	For i = 0 To checkedItems.Count - 1
+		Dim checkedItem As UltraListViewItem = checkedItems(i)
+		Me.UltraListView2.Items.Add(checkedItem.Key, checkedItem.Value)
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinListView;
+...
+private void Use_Checkboxes_in_WinListView_Load(object sender, EventArgs e)
+{
+	// Northwind データベースの 'Customers' テーブルのデータを使用します。
+	this.customersTableAdapter.Fill(this.nWindDataSet1.Customers);
+	// コントロールの View プロパティを 'List' に設定します。
+	this.ultraListView1.View = UltraListViewStyle.List;
+	// 2 つ目のコントロールは、MultiColumn を False に設定します。
+	this.ultraListView2.View = UltraListViewStyle.List;
+	this.ultraListView2.ViewSettingsList.MultiColumn = false;
+	// CheckBoxStyle プロパティを 'CheckBox' に設定します。
+	this.ultraListView1.ViewSettingsList.CheckBoxStyle = CheckBoxStyle.CheckBox;
+	for ( int i = 0; i < this.nWindDataSet1.Customers.Rows.Count; i ++ )
+	{
+		DataRow row = this.nWindDataSet1.Customers.Rows[i];
+		string customerID = row["CustomerID"] as string;
+		string companyName = row["CompanyName"] as string;
+		this.ultraListView1.Items.Add( customerID, companyName );
+	}
+}
+private void btnGetCheckedItems_Click(object sender, EventArgs e)
+{
+	// エンド ユーザーが選択した顧客をリストします。
+	// 前のリストを消去します。
+	this.ultraListView2.Items.Clear();
+	// コントロールの CheckedItems コレクションへの参照を取得します。
+	UltraListViewCheckedItemsCollection checkedItems = this.ultraListView1.CheckedItems;
+	// CheckedItems コレクションを反復処理し、企業名を
+	//	2 つ目の UltraListView コントロールに追加します。
+	for ( int i = 0; i < checkedItems.Count; i ++ )
+	{
+		UltraListViewItem checkedItem = checkedItems[i];
+		this.ultraListView2.Items.Add( checkedItem.Key, checkedItem.Value );
+	}
+}
+----

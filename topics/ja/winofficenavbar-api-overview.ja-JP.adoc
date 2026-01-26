@@ -1,0 +1,17 @@
+﻿= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。また、このコントロールでプログラミングするときに使用する主なクラスを紹介します。このページの名前空間とクラスは、インフラジスティックス
+API マニュアルを直接リンクします。
+
+=== UltraWinOfficeNavBar 名前空間:
+
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar_namespace.html[Infragistics.Win.UltraWinOfficeNavBar
+名前空間]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar.html[UltraWinOfficeNavBar]
+
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings.html[ItemSettings]
+
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.navbaritem.html[NavBarItem]

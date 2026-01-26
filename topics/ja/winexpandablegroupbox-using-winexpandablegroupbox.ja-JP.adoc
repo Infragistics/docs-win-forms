@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexpandablegroupbox-using-winexpandablegroupbox",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4B0CDEEF-6ACE-4878-A19C-600F995E90D1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExpandableGroupBox の使用
+
+このセクションには、2 つ以上の WinExpandableGroupBox™ コントロールに適用する機能を使用する方法を紹介する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winexpandablegroupbox-add-controls-to-the-winexpandablegroupbox.html[コントロールを WinExpandableGroupBox に追加する]
+* link:winexpandablegroupbox-changing-the-style-and-appearance-of-winexpandablegroupbox.html[WinExpandableGroupBox のスタイルと外観を変更する]

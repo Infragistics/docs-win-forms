@@ -1,0 +1,22 @@
+﻿= About WinRadioButton
+
+The 
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraradiobutton.html[WinRadioButton]
+is a checkable button linked to other WinRadioButton's in a group. Its defining characteristic is that only 1 WinRadioButton within a group may be checked at one time, so when a WinRadioButton is selected, all others within the group become unchecked. This is useful in scenarios where a choice must be made between mutually exclusive options.
+
+By default, all of the WinRadioButtons within the same container on the UI are grouped. This makes it easy to visually represent the radio button functionality by grouping options within the same panel, group box, or other container.
+
+image:images/winradiobutton-control-containers.png[alt="Example of WinRadioButtons placed in WinGroupBoxes to cause them to be grouped by default."]
+
+== GroupManager
+WinRadioButtons may also be grouped manually by using a
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraradiobuttongroupmanager.html[WinRadioButtonGroupManager]
+component. The WinRadioButtons can be added to a WinRadioButtonGroupManager  by setting the `GroupManager` property:
+
+[source, csharp]
+ultraRadioButton1.GroupManager = ultraRadioButtonGroupManager1;
+
+
+This allows for a custom schema of mutually exclusive options for a UI. The WinRadioButtons within a GroupManager will also honor any appearance settings made to the GroupManager, making it easy to make grouped options visually identifiable.
+
+image:images/winradiobuttongroupmanager_example.png[alt="Example using the WinRadioButtonGroupManager to group WinRadioButtons horizontally rather than their control container by default."]

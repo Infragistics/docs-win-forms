@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-header-and-row-tooltips-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{BCE70E79-5390-431C-AB4D-23DB05B63CD0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ヘッダと行のツールチップ
+
+列のヘッダにツールチップを設定するためのプロパティ。
+
+以下に ToolTipText を追加しました。
+
+* UltraGridRow -- ユーザーが行にマウスを移動したときに表示するツールチップを指定します。
+* HeaderBase -- ユーザーがヘッダにマウスを移動したときに表示するツールチップを指定します。
+* SummarySettings -- ユーザーが関連付けられた集計値にマウスを移動したときに表示するツールチップを指定します。SummaryValue クラスは ToolTipText プロパティも公開します。SummaryValue とそれに関連する SummarySettings オブジェクトの両方に ToolTipText が設定されている場合には、SummaryValue の ToolTipText が優先されます。
+* SummaryValue -- ユーザーが関連付けられた集計値にマウスを移動したときに表示するツールチップを指定します。SummarySettings クラスは ToolTipText プロパティも公開します。SummaryValue とそれに関連する SummarySettings オブジェクトの両方に ToolTipText が設定されている場合には、SummaryValue の ToolTipText が優先されます。
+
+[NOTE]
+====
+*注:* UltraGridRow に加えて、UltraGridGroupByRow と UltraGridFilterRow は行ツールチップもサポートします。
+====
+
+この機能の一部として、ヘッダのキャプションがクリップされると UltraGrid はヘッダにツールチップを表示します。これに対してヘッダの ToolTipText プロパティを設定する必要はありません。セルはこのように現在動作します。セルのコンテンツがクリップされ、マウスをその上に移動した場合、セルのフルコンテンツを含むツールチップが表示されます。これでヘッダは同じ作業を実行します。このツールチップがヘッダに表示されるとヘッダを覆うことに注意してください。
+
+ToolTipText プロパティが設定されると、マウスをヘッダの上に移動するとツールチップのそのプロパティの値がヘッダに表示されます。ツールチップを表示する方法は、クリップされたキャプションをツールチップが表示される方法以外にもあります。クリップされたキャプションのツールチップはヘッダの上に表示されます。ToolTipText を含むツールチップが表示されますが、表示場所はカーソルの近くですがヘッダ上ではありません。これはクリップされたキャプションのツールチップの場合には、ツールチップにはヘッダキャプションが含まれるので、キャプションと同じ領域の上にツールチップが表示されるのは当然です。ToolTipText と同じように、ヘッダについてのその他の情報が通常表示されるので（たとえば、列の説明）、ツールバーのツールがツールバー チップを表示する方法と同じようにツールチップを表示するのは当然です。ヘッダの外側のカーソルの近くにツールチップが表示されます。
+
+[NOTE]
+====
+*注:* ToolTipText が設定されると、クリップされたキャプション ツールチップは表示されません。ToolTipText ツールチップのみが表示されます。
+====
+
+image::Images/WinGrid_How_To_Show_ToolTips_01.png[]
+
+== 関連トピック
+
+link:wingrid-displaying-tooltips.html[ツールチップを表示]

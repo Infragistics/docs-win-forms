@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-highlighting-an-active-row-with-background-color",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{A2DA6FCF-E278-4D70-BAB8-AF6E5CC8848D}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブな行を背景色で強調表示します
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activerowappearance.html[ActiveRow]"]  pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcolor.html[BackColor]"]  プロパティを使用して、アクティブな行を特定の色で強調表示することができます。
+
+*Visual Basic の場合:*
+
+----
+Private Sub Highlight_Active_Row_with_Background_Color_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraGrid1.DisplayLayout.Override.ActiveRowAppearance.BackColor = Color.Red
+End Sub
+----
+
+*C# の場合:*
+
+----
+private void Highlight_Active_Row_with_Background_Color_Load(object sender, EventArgs e)
+{
+        this.ultraGrid1.DisplayLayout.Override.ActiveRowAppearance.BackColor = Color.Red;
+}
+----
+
+image::images/WinGrid_Highlight_a_Selected_Row_with_Background_Color_01.png[UltraGrid 内で、選択した行を背景色で強調表示します]

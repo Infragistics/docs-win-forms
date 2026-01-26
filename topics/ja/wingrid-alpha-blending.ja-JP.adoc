@@ -1,0 +1,132 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-alpha-blending",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{3CCB8DED-2954-4178-91B8-B7BF45E62BCA}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アルファ ブレンディング
+
+== バックグラウンド
+
+外観がすべてと言えるアプリケーションは少なくありません。WinGrid は pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトの標準的なパーツとしてアルファ ブレンディングをサポートします。これにより、 pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement.html[UIElements]"]  を通じて画像を融合させ、ユーザー体験を向上させることができます。
+
+== 質問
+
+* グリッドの背景画像をセルにブレンドするにはどうすればいいですか?
+
+== 解決策
+
+行の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcoloralpha.html[BackgroundAlpha]"]  プロパティを設定してアルファ レベルを有効にし、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~alphalevel.html[AlphaLevel]"]  プロパティを使用して、エレメントの背景にブレンドする基本ピクセルの量を指定します。AlphaLevel プロパティ値の範囲は 0～255 で、0 は 100% ブレンド（不透明）を表し、255 は 0% ブレンド（透明）を表します。したがって、下層ピクセルの 25% をブレンドする場合は、AlphaLevel を 192 に設定します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、アルファ ブレンディングを使用して背景画像をセルにブレンドする方法を説明します。
+
+image::Images/WinGrid_Alpha_Blending_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeLayout - pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベントのコードは、グリッドの背景にピクチャを適用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Appearance.ImageBackground = Image.FromFile("Program Dependent Files\Sunset.jpg")
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Appearance.ImageBackground = Image.FromFile("Program Dependent Files\Sunset.jpg"));
+}
+----
+
+他のエレメントのイベント領域には以下のイベント ハンドラがあります。
+
+* chkRowAlpha.CheckedChanged - CheckBox.CheckedChanged イベントでは、エレメントのチェック状態に基づいてアルファ ブレンディングを有効または無効にします。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub chkRowAlpha_CheckedChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles chkRowAlpha.CheckedChanged
+	If Me.chkRowAlpha.Checked = True Then
+		Me.UltraGrid1.DisplayLayout.Override.RowAppearance.BackColorAlpha = _
+		  Alpha.UseAlphaLevel
+		Me.UltraGrid1.DisplayLayout.Override.RowAppearance.AlphaLevel = _
+		  Me.spnAlphaLevel.Value
+	Else
+		Me.UltraGrid1.DisplayLayout.Override.RowAppearance.BackColorAlpha = Alpha.Opaque
+		Me.UltraGrid1.DisplayLayout.Override.RowAppearance.AlphaLevel = 0
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void chkRowAlpha_CheckedChanged(object sender, System.EventArgs e)
+{
+	if(this.chkRowAlpha.Checked == true)
+	{
+		this.ultraGrid1.DisplayLayout.Override.RowAppearance.BackColorAlpha = 
+		  Alpha.UseAlphaLevel;
+		this.ultraGrid1.DisplayLayout.Override.RowAppearance.AlphaLevel = 
+		  short.Parse(this.spnAlphaLevel.Value.ToString());
+	}
+	else
+	{
+		this.ultraGrid1.DisplayLayout.Override.RowAppearance.BackColorAlpha = 
+		  Alpha.Opaque;
+		this.ultraGrid1.DisplayLayout.Override.RowAppearance.AlphaLevel = 0;
+	}
+}
+----
+
+* spnAlphaLevel.ValueChanged - spnAlphaLevel.ValueChanged イベントでは、エレメントの値が変更されたときにアルファ レベルを設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub spnAlphaLevel_ValueChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles spnAlphaLevel.ValueChanged
+	Me.UltraGrid1.DisplayLayout.Override.RowAppearance.AlphaLevel = Me.spnAlphaLevel.Value
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void spnAlphaLevel_ValueChanged(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.RowAppearance.AlphaLevel = 
+	  short.Parse(this.spnAlphaLevel.Value.ToString());
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、グリッドの背景に画像を適用し、その画像を行のセルに何%ブレンドするかを指定する方法を示しました。

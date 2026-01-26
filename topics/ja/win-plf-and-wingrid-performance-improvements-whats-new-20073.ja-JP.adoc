@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-plf-and-wingrid-performance-improvements-whats-new-20073",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EF401B6F-747B-4C80-B339-6E150ED03158}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PLF および WinGrid パフォーマンス向上
+
+本リリースでは、{ProductName} アプリケーションのパフォーマンスを大幅に向上する裏の調整を行いました。{ProductName} の中心である link:win-plf-overview.html[Presentation Layer Framework™ (PLF)] は、多くのパフォーマンスの向上を得て、すべてのコントロールおよびコンポーネントの全体的な効率および速度を向上しています。また、WinGrid™ コントロールは、複数の個々の拡張を得た結果、データ クイッカーをロードすることとなりました。最終結果として、コードを 1 行も書くことなくパフォーマンス ゲインを利用できます。

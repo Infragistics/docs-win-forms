@@ -1,0 +1,132 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-creating-a-running-total-in-the-datagridview-control",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{07C0A727-DCDC-4620-8598-D7B94E6044F5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DataGridView コントロールでの現在高の作成
+
+このチュートリアルは第 1 部（ link:wincalcmanager-creating-a-calculated-column-in-the-datagridview-control.html[「DataGridView での計算列の作成」]）を終了して、第 1 部で作成したテスト プロジェクトを使用していることを前提とします。Visual Studio .NET でテスト プロジェクトを開きます。
+
+このチュートリアルでは、現在高の列をグリッドに作成します。現在高の列には、現在の行とそれより上の行の Item Total 列（これ自体は計算列です）の合計を表示します。現在の行より下の行は含めません。
+
+[start=1]
+. *アンバインド列をグリッドに追加します。*
+
+デザイナで DataGridView を右クリックして [列の追加] を選択します。
+
+[列の追加] ダイアログが表示されます。[アンバウンド列] を選択します。
+
+列の Name を "runningTotalDataGridViewTextBoxColumn" に変更します。
+
+列の Header Text を "Running Total" に変更します。
+
+[読み取り専用] チェックボックスを選択します。
+
+[追加] ボタンをクリックします。
+
+[閉じる] ボタンをクリックします。
+[start=2]
+. *アンバインド列のプロパティを設定します。*
+
+次のコードを Form_Load イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+' Running Total 列の書式を通貨に設定します。
+Me.dataGridView1.Columns("runningTotalDataGridViewTextBoxColumn").DefaultCellStyle.Format = "c"
+' Running Total 列の ValueType を Decimal に設定します。
+Me.dataGridView1.Columns("runningTotalDataGridViewTextBoxColumn").ValueType = GetType(System.Decimal)
+----
+
+*C# の場合：*
+
+----
+// Running Total 列の書式を通貨に設定します。
+this.dataGridView1.Columns["runningTotalDataGridViewTextBoxColumn"].DefaultCellStyle.Format = "c";
+// Running Total 列の ValueType を Decimal に設定します。
+this.dataGridView1.Columns["runningTotalDataGridViewTextBoxColumn"].ValueType = typeof(System.Decimal);
+----
+
+[start=3]
+. *現在高を表示する数式を列に設定します。*
+
+[NOTE]
+====
+*注:* この手順では Visual Studio の [プロパティ] ウィンドウを使用します。DataGridView の列を編集するときは通常、デザイナでグリッドを右クリックし、[列の編集] を選択して列エディタを開きますが、このダイアログにはエクステンダ プロパティが表示されません。
+====
+
+Visual Studio の [プロパティ] ウィンドウで、リストをドロップダウンして runningTotalDataGridViewTextBoxColumn を選択します。
+
+UltraCalcManager1 プロパティで ColumnCalcSettings を探して展開します。
+
+現在高を計算するには、基本的に次の 2 通りの方法があります。
+
+*方法１ -- 単純だが効率が悪い*
+
+この方法では、行 0（グリッドの最初の行）から現在の行までの Item Total 列のセルに対して sum 関数を使用します。
+
+この方法の問題点は、前のすべてのセルの合計をセルごとに繰り返さなければならない点です。これは比較的行数が少ない場合は問題ありませんが、大量のデータセットでは計算に時間がかかる可能性があります。
+
+[関数] タブに切り替えて [数学] カテゴリーを開き、sum 関数をダブルクリックします。
+
+この関数はひとつ以上の引数をとり、引数の数に制限はありません。今回は、最初の行から現在の行までの Item Total 列のセルの範囲を示す引数をひとつだけ指定します。セル範囲には Microsoft Excel と同じようにコロン（:）記号を使用します。
+
+number0 引数ボックスをクリックして、次のテキストを入力します。
+
+[source]
+----
+[itemTotalDataGridViewTextBoxColumn(0)] : [itemTotalDataGridViewTextBoxColumn]
+----
+
+これは行 0（グリッドの最初の行）から現在の行までの Item Total 列のセルの範囲を指定します。
+
+[OK] をクリックしてフォーミュラ ビルダーを閉じ、もう一度 [OK] をクリックしてグリッド デザイナを閉じます。
+
+アプリケーションを実行して、現在高の列が正常に機能することを確認します。今回も、グリッドのセルの値を変更してフォーカスを他のセルに移すと、Item Total と Running Total が自動的に更新されます。
+
+image::images/WinCalcManager_Creating_a_Running_Total_in_the_DataGridView_01.png[]
+
+ 
+
+*方法２ -- 複雑だが効率が良い*
+
+現在高をより効率的に計算するには、前の行の Running Total 列と現在の行の Item Total 列を加算します。そのためには、相対行を参照する必要があります。数式の中で、次のように相対行インデックスを指定します。
+
+[source]
+----
+[itemTotalDataGridViewTextBoxColumn] + [runningTotalDataGridViewTextBoxColumn (-1)]
+----
+
+この数式は見た目はシンプルですが、実際には機能しません。その理由は、相対行の参照では行が存在しない場合にエラーが発生するためです。グリッドの 1 行目には前の兄弟行がないため、この数式では参照エラーが起こります。
+
+この問題を回避するには、if 関数と iserror 関数を使用してエラーをチェックし、エラーがある場合は 0 を、エラーがない場合は前のセルの値を、それぞれ返すようにします。完成した数式は次のようになります。
+
+----
+[itemTotalDataGridViewTextBoxColumn] + 
+if	
+(
+   iserror ( [runningTotalDataGridViewTextBoxColumn (-1)] ), 
+   0, 
+   [runningTotalDataGridViewTextBoxColumn (-1)] 
+)
+----
+
+ここでは読みやすいように改行していますが、数式のコンパイルに改行は必要ありません。
+
+[OK] をクリックしてフォーミュラ ビルダーを閉じ、もう一度 [OK] をクリックしてグリッド デザイナを閉じます。
+
+アプリケーションを実行して、現在高の列が正常に機能することを確認します。今回も、グリッドのセルの値を変更してフォーカスを他のセルに移すと、Item Total と Running Total が自動的に更新されます。
+
+image::images/WinCalcManager_Creating_a_Running_Total_in_the_DataGridView_01.png[]
+
+ 

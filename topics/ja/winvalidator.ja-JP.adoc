@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator",
+    "controlName": ["WinValidator"],
+    "tags": ["Getting Started","Validation"],
+    "guid": "{55EF783E-650B-4151-9919-87AD51748FDC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinValidator
+
+WinValidator™ コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、コントロールの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順まで、WinValidator コントロールに関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、WinValidator コンポーネントに関する重要な説明を読むことができます。
+
+== link:winvalidator-understanding-winvalidator.html[WinValidator の理解]
+
+このセクションでは、WinValidator コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。
+
+== link:winvalidator-using-winvalidator.html[WinValidator の使用]
+
+このセクションには役に立つ短いトピックがあり、WinValidator コンポーネントを使って特定の作業を実行する方法を示すサンプル コードが付いています。
+
+== link:winvalidator-api-overview.html[API の概要]
+
+このトピックでは、WinValidator コンポーネントを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

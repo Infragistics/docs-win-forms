@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-scrolling-a-parent-row-to-the-top-of-the-grid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{73F08FDF-C210-4BA5-9DD1-14CA36AE0498}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 親行をグリッドの先頭にスクロール
+
+WinGrid™ によって、ユーザーが子行を編集または読み取る間に、親行に注意してグリッドのトップに親行を簡単にスクロールすることができます。最初に、WinGrid のアクティブ行が親行を持つかどうかをチェックする必要があります。次に、WinGrid の最初の行をアクティブ行の親行に設定できます。
+
+WinGrid の AfterRowActivate イベント ハンドラ内に以下のコード例を配置して、WinGrid のトップにアクティブ行の親行を直ちにスクロールします。
+
+*Visual Basic の場合：*
+
+[source,vb]
+----
+If Me.UltraGrid1.ActiveRow.ParentRow Is Nothing Then
+     Return
+End If
+Me.UltraGrid1.DisplayLayout.RowScrollRegions(0).FirstRow = Me.UltraGrid1.ActiveRow.ParentRow
+----
+
+*C# の場合：*
+
+[source,csharp]
+----
+if (this.ultraGrid1.ActiveRow.ParentRow == null) return;
+this.ultraGrid1.DisplayLayout.RowScrollRegions[0].FirstRow = this.ultraGrid1.ActiveRow.ParentRow;
+----
+

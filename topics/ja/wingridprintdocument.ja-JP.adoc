@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridprintdocument",
+    "controlName": ["WinGridPrintDocument"],
+    "tags": ["Grids"],
+    "guid": "{C995A168-1668-4AAE-A08E-EE4A4C18DD99}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridPrintDocument
+
+以下のリンクをクリックすると、WinGridPrintDocument コンポーネントに関する説明を読むことができます。
+
+* link:wingridprintdocument-about-wingridprintdocument.html[WinGridPrintDocument について] -- WinGridPrintDocument コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+
+* link:wingridprintdocument-smart-tag.html[WinGridPrintDocument スマート タグ] -- WinGridPrintDocument コンポーネントのスマート タグで表示されるプロパティと設定について説明しています。
+
+* link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[WinGridPrintDocument と WinPrintPreviewDialog を使用] -- 印刷ドキュメントのプレビューを印刷する方法を説明しています。

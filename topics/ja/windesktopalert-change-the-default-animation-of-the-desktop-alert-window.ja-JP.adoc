@@ -1,0 +1,78 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-change-the-default-animation-of-the-desktop-alert-window",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I","Styling"],
+    "guid": "{09DA8484-6847-490C-8F67-503353C8DC49}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デスクトップ アラート ウィンドウのデフォルトのアニメーションを変更
+
+デスクトップ アラート ウィンドウにはいくつかの開始アニメーションと終了アニメーションがあります。これらのほとんどのアニメーションを調整することで、アラート ウィンドウを可能な限り目立たなくする、またはひと味加えてエンド ユーザーの注意を引き付けることができます。デスクトップ アラート ウィンドウのデフォルトのアニメーションを修正するには以下のとおりいくつかの方法があります。
+
+* *スクロールとフェード* – アラート ウィンドウがなめらかにフェード イン/アウトするか、スクロール効果でスクロール イン/アウトするかを選択します。
+* *スクロールの方向* – デスクトップ アラート ウィンドウが上下左右のいずれかからスクロール インする、または四隅のいずれかから対角にスクロール インするように設定できます。
+* *自動で閉じるのを遅延* – 設定したミリ秒後にデスクトップ アラート ウィンドウを自動的に閉じるかまったく閉じないかを設定します。
+* *アニメーションの速度* – デスクトップ アラート ウィンドウがフェード イン/アウト、およびスクロール イン/アウトする速度を制御します。ゆっくり、中間、高速の中から選択できます。
+* *不透明度* – エンド ユーザーを必ず見失うことがないようにデスクトップ アラート ウィンドウを完全に不透明にする、または作業の妨げとならないようにデスクトップ アラート ウィンドウを透明にすることができます。
+
+これらのアニメーション設定を組み合わせて使用することにより、デスクトップ アラート ウィンドウがユーザーのアプリケーション固有のニーズを満たすことを保証します。
+
+以下のコードはデスクトップ アラート ウィンドウのデフォルトのアニメーションを変更します。通常表示されるゆっくりとした透明にフェードするデスクトップ アラート ウィンドウの代わりに、デスクトップ アラート ウィンドウは完全に不透明で右から左に素早くスクロール インします。次にアラート ウィンドウは左から右に 3 秒後同じようにスクロール アウトします。
+
+[NOTE]
+====
+*注：* すべてのコードは、最終行の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~show.html[Show] メソッドを除き、フォームの Load イベントに配置することができます。Show メソッドは、アプリケーションのロジックに適合するその他任意のイベントまたはメソッドに配置できます。
+====
+
+*Visual Basic の場合：*
+
+----
+' デスクトップ アラート ウィンドウが右から左にスクロールするように
+' 強制します（フェードするのではなく）。
+Me.UltraDesktopAlert1.AnimationStyleShow = AnimationStyle.Scroll
+Me.UltraDesktopAlert1.AnimationScrollDirectionShow = AnimationScrollDirection.RightToLeft
+' デスクトップ アラート ウィンドウが自動的に閉じる時に、
+' 左から右にスクロールするように強制します。
+Me.UltraDesktopAlert1.AnimationStyleAutoClose = AnimationStyle.Scroll
+Me.UltraDesktopAlert1.AnimationScrollDirectionAutoClose = AnimationScrollDirection.LeftToRight
+' デスクトップ アラート ウィンドウが自動的に
+' 閉じる前の時間（ミリ秒単位）。
+Me.UltraDesktopAlert1.AutoCloseDelay = 3000
+' これはスクロール速度を速くします。
+Me.UltraDesktopAlert1.AnimationSpeed = AnimationSpeed.Fast
+' これによってデスクトップ アラート ウィンドウは完全に不透明になります。
+Me.UltraDesktopAlert1.Opacity = 1
+' サンプル テキストを表示したデスクトップ アラート ウィンドウを表示します。
+Me.UltraDesktopAlert1.Show("Test Alert", "This is only a test.")
+----
+
+*C# の場合：*
+
+----
+// デスクトップ アラート ウィンドウが右から左にスクロールするように
+// 強制します（フェードするのではなく）。
+this.ultraDesktopAlert1.AnimationStyleShow = AnimationStyle.Scroll;
+this.ultraDesktopAlert1.AnimationScrollDirectionShow =
+  AnimationScrollDirection.RightToLeft;
+// デスクトップ アラート ウィンドウが自動的に閉じる時に、
+// 左から右にスクロールするように強制します。
+this.ultraDesktopAlert1.AnimationStyleAutoClose = AnimationStyle.Scroll;
+this.ultraDesktopAlert1.AnimationScrollDirectionAutoClose =
+  AnimationScrollDirection.LeftToRight;
+// デスクトップ アラート ウィンドウが自動的に
+// 閉じる前の時間（ミリ秒単位）。
+this.ultraDesktopAlert1.AutoCloseDelay = 3000;
+// これはスクロール速度を速くします。
+this.ultraDesktopAlert1.AnimationSpeed = AnimationSpeed.Fast;
+// これによってデスクトップ アラート ウィンドウは完全に不透明になります。
+this.ultraDesktopAlert1.Opacity = 1;
+// サンプル テキストを表示したデスクトップ アラート ウィンドウを表示します。
+this.ultraDesktopAlert1.Show("Test Alert", "This is only a test.")
+----

@@ -1,0 +1,3373 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{FC54F4FE-A987-4D8C-8B08-584690B9FB0F}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalcManager リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|CalcSettingsPropertyName_Not_Set
+|CalcSettings で PropertyName が設定されていないか、あるいはプロパティを見つけることができません。
+
+|Error_Internal
+|{0} で内部エラーが発生しました。
+
+|Error_InvalidFunction
+|無効な関数があります。 '{0}' （行 {1}, 列 {2}）
+
+|Error_InvalidFunctionArgCountTooFew
+|行 {1} 桁 {2} にある関数 '{0}' の引数の数が正しくありません。この関数には少なくとも {3} 個の引数が必要です。
+
+|Error_InvalidFunctionArgCountTooMany
+|行 {1} 桁 {2} にある関数 '{0}' の引数の数が正しくありません。設定できる引数の数は {3} つまでです。
+
+|Error_InvalidOperatorArgCount
+|関数「{0}」は、{1} の引数を許可する必要があります。
+
+|Error_NullFunctionResult
+|「{0}」は Null 値を返しました。
+
+|Error_ParseRef
+|不明な参照が {0} 行 {1} 列にあります。
+
+|Error_UnresolvedExternal
+|未解決の外部参照
+
+|FormulaCircularityError_Default_Message
+|数式[{0}]に循環参照が見つかりました。数式は次のとおりです:{1}。UltraCalcManagerは循環参照を解決できないため、循環参照を含む数式は実行することができません。
+
+|FormulaCircularityError_Message_Title
+|循環参照エラー
+
+|FormulaSyntaxError_Default_Message
+|コンパイル時に構文エラーが発生しました。: {0}。エラー : {1}
+
+|FormulaSyntaxError_Message_Title
+|構文エラー
+
+|Func_abs_Arg_0
+|number
+
+|Func_abs_ArgDesc_0
+|数字は、絶対値を求める実数です。
+
+|Func_abs_Category
+|Math
+
+|Func_abs_CategoryURL
+|Math
+
+|Func_abs_Desc
+|数値の絶対値を返します。絶対値とは、数値から符号（+、-）を除いた値のことです。
+
+|Func_acos_Arg_0
+|number
+
+|Func_acos_ArgDesc_0
+|数字には、求める角度のコサインの値を -1 から 1 の範囲のラジアンで指定します。
+
+|Func_acos_Category
+|Math
+
+|Func_acos_CategoryURL
+|Math
+
+|Func_acos_Desc
+|数値のアークコサイン（逆コサイン）を返します。アークコサインとは、そのコサインが数値であるような角度のことです。戻り値の角度は、0（ゼロ）～PI の範囲のラジアンとなります。アークコサインの値を度で表すには、計算結果に 180/PI() を掛けます。
+
+|Func_acosh_Arg_0
+|number
+
+|Func_acosh_ArgDesc_0
+|数字には、双曲線逆余弦を求める数値を、1 より大きい実数で指定します。
+
+|Func_acosh_Category
+|Math
+
+|Func_acosh_CategoryURL
+|Math
+
+|Func_acosh_Desc
+|指定された数値の双曲線逆余弦を返します。
+
+|Func_and_Arg_0
+|logical{0}
+
+|Func_and_ArgDesc_0
+|logical1、logical2、...には、TRUE か FALSE かを評価する論理式を指定します。
+
+|Func_and_Category
+|Logical
+
+|Func_and_CategoryURL
+|Logical
+
+|Func_and_Desc
+|すべての引数が TRUE の場合、TRUE を返します。引数がひとつでも FALSE である場合、戻り値は FALSE になります。
+
+|Func_asin_Arg_0
+|number
+
+|Func_asin_ArgDesc_0
+|数字には、求める角度のサインの値を -1 から 1（ラジアン）の範囲で指定します。
+
+|Func_asin_Category
+|Math
+
+|Func_asin_CategoryURL
+|Math
+
+|Func_asin_Desc
+|数値のアークサイン（逆サイン）を返します。アークサインとは、そのサインが数値であるような角度のことです。戻り値の角度は、-PI/2～PI/2 の範囲のラジアンとなります。アークサインの値を度で表すには、計算結果に 180/PI() を掛けます。
+
+|Func_asinh_Arg_0
+|number
+
+|Func_asinh_ArgDesc_0
+|数字には、双曲線逆正弦を求める実数を指定します。
+
+|Func_asinh_Category
+|Math
+
+|Func_asinh_CategoryURL
+|Math
+
+|Func_asinh_Desc
+|指定された数値の双曲線逆正弦を返します。
+
+|Func_atan_Arg_0
+|number
+
+|Func_atan_ArgDesc_0
+|Number には、求める角度のタンジェントの値を指定します。
+
+|Func_atan_Category
+|Math
+
+|Func_atan_CategoryURL
+|Math
+
+|Func_atan_Desc
+|数値のアークタンジェント（逆タンジェント）を返します。アークタンジェントとは、そのタンジェントが数値であるような角度のことです。戻り値の角度は、-PI/2～PI/2 の範囲のラジアンとなります。アークタンジェントの値を度で表すには、計算結果に 180/PI() を掛けます。
+
+|Func_atan2_Arg_0
+|x
+
+|Func_atan2_Arg_1
+|y
+
+|Func_atan2_ArgDesc_0
+|X には、点の X 座標を指定します。
+
+|Func_atan2_ArgDesc_1
+|Y には、点の Y 座標を指定します。
+
+|Func_atan2_Category
+|Math
+
+|Func_atan2_CategoryURL
+|Math
+
+|Func_atan2_Desc
+|指定された x-y 座標のアークタンジェント（逆タンジェント）を返します。アークタンジェントとは、x 軸から、原点 0 と x_num、y_num で表される点を結んだ直線までの角度のことです。戻り値の角度は、-PI～PI（ただし -PI を除く）の範囲のラジアンとなります。
+
+|Func_atanh_Arg_0
+|number
+
+|Func_atanh_ArgDesc_0
+|Number には、双曲線逆正接を求める実数を、-1 から 1 の範囲で指定します。
+
+|Func_atanh_Category
+|Math
+
+|Func_atanh_CategoryURL
+|Math
+
+|Func_atanh_Desc
+|指定された数値の双曲線逆正接を返します。
+
+|Func_average_Arg_0
+|number{0}
+
+|Func_average_ArgDesc_0
+|number1、number2、...には、平均を求める数値を指定します。
+
+|Func_average_Category
+|Statistical
+
+|Func_average_CategoryURL
+|Statistical
+
+|Func_average_Desc
+|平均値を返します。
+
+|Func_bin2dec_Arg_0
+|Number
+
+|Func_bin2dec_ArgDesc_0
+|number は、2 進数を表わす文字列です。
+
+|Func_bin2dec_Category
+|Engineering
+
+|Func_bin2dec_CategoryURL
+|Engineering
+
+|Func_bin2dec_Desc
+|2 進記数法で数値を文字列表示する 10 進値を返します。
+
+|Func_bin2hex_Arg_0
+|Number
+
+|Func_bin2hex_Arg_1
+|Places
+
+|Func_bin2hex_ArgDesc_0
+|Number は、変換される値です。
+
+|Func_bin2hex_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_bin2hex_Category
+|Engineering
+
+|Func_bin2hex_CategoryURL
+|Engineering
+
+|Func_bin2hex_Desc
+|2 進数を表す文字列を 16 進法で同じ数を表す文字列に変換します。
+
+|Func_bin2oct_Arg_0
+|Number
+
+|Func_bin2oct_Arg_1
+|Places
+
+|Func_bin2oct_ArgDesc_0
+|Number は、変換される値です。
+
+|Func_bin2oct_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_bin2oct_Category
+|Engineering
+
+|Func_bin2oct_CategoryURL
+|Engineering
+
+|Func_bin2oct_Desc
+|2 進数を表す文字列を 8 進法で同じ数を表す文字列に変換します。
+
+|Func_CategoryURL_Template
+|ms-help://INFRAGISTICS_HELP/Infragisticsv{2}{3}/Win/WinElements/WinCalcManager_{0}_Functions.html#FUNC_{1}
+
+|Func_ceiling_Arg_0
+|number
+
+|Func_ceiling_Arg_1
+|significance
+
+|Func_ceiling_ArgDesc_0
+|Number には、四捨五入する数値を指定します。
+
+|Func_ceiling_ArgDesc_1
+|Significance は、四捨五入した結果の数値です。指定しない場合は、最も近い整数に四捨五入されます。
+
+|Func_ceiling_Category
+|Math
+
+|Func_ceiling_CategoryURL
+|Math
+
+|Func_ceiling_Desc
+|指定した数値以上で significance (デフォルト 1) の最小倍数を返します。
+
+|Func_char_Arg_0
+|charCode
+
+|Func_char_ArgDesc_0
+|charCode には、文字に変換する数値を指定します。
+
+|Func_char_Category
+|TextAndData
+
+|Func_char_CategoryURL
+|Text_and_Data
+
+|Func_char_Desc
+|作業中のコンピュータで使用されている文字セットのコード番号で指定された文字を返します。
+
+|Func_choose_Arg_0
+|IndexNum
+
+|Func_choose_Arg_1
+|値{0}
+
+|Func_choose_ArgDesc_0
+|残りの引数に使用する値の 1 ベースのインデックスです。
+
+|Func_choose_ArgDesc_1
+|Value1、 Value2、...、ValueN は任意の数の値です。
+
+|Func_choose_Category
+|LookupAndReference
+
+|Func_choose_CategoryURL
+|Lookup_And_Reference
+
+|Func_choose_Desc
+|最初の引数の数に基づいて、その引数で提供される値の 1 つを返します。
+
+|Func_code_Arg_0
+|string
+
+|Func_code_ArgDesc_0
+|string には、先頭文字のコード番号を調べる文字列を指定します。
+
+|Func_code_Category
+|TextAndData
+
+|Func_code_CategoryURL
+|Text_and_Data
+
+|Func_code_Desc
+|文字列の先頭文字に対応するコード番号を返します。戻り値のコード番号は、作業中のコンピュータで使用されている文字セットに対応します。
+
+|Func_combin_Arg_0
+|Number
+
+|Func_combin_Arg_1
+|NumberChosen
+
+|Func_combin_ArgDesc_0
+|Number は項目の数です。
+
+|Func_combin_ArgDesc_1
+|NumberChosen は各組み合わせで選択された項目の数です。
+
+|Func_combin_Category
+|Math
+
+|Func_combin_CategoryURL
+|Math
+
+|Func_combin_Desc
+|項目のセットとそのセットから選択された項目の数を提供した可能な組み合わせの数を返します。
+
+|Func_complex_Arg_0
+|RealNumber
+
+|Func_complex_Arg_1
+|ImaginaryNumber
+
+|Func_complex_Arg_2
+|Suffix
+
+|Func_complex_ArgDesc_0
+|RealNumber は複素数の実係数です。
+
+|Func_complex_ArgDesc_1
+|ImaginaryNumber は虚係数です。
+
+|Func_complex_ArgDesc_2
+|suffix は使用する接尾辞を指定します。許容可能な値は "i" または "j" です。省略されると、"i" が使用されます。接尾辞は大文字と小文字を識別します。大文字の "I" と "J" は使用できず #VALUE エラーになります。
+
+|Func_complex_Category
+|Engineering
+
+|Func_complex_CategoryURL
+|Engineering
+
+|Func_complex_Desc
+|実係数と虚数を組み合わせて、「x+yi」 または 「x+yj」 の書式の文字列に表す複素数を返します。
+
+|Func_concatenate_Arg_0
+|text{0}
+
+|Func_concatenate_ArgDesc_0
+|text1、text2、...は、1 つ以上のテキスト項目で、単一なテキスト項目に結合されます。
+
+|Func_concatenate_Category
+|TextAndData
+
+|Func_concatenate_CategoryURL
+|Text_and_Data
+
+|Func_concatenate_Desc
+|引数をすべて結合して 1 つの文字列にまとめます。
+
+|Func_convert_Arg_0
+|Number
+
+|Func_convert_Arg_1
+|FromUnit
+
+|Func_convert_Arg_2
+|ToUnit
+
+|Func_convert_ArgDesc_0
+|Number は、変換する値です。
+
+|Func_convert_ArgDesc_1
+|FromUnit は、任意の番号のユニットです。重さおよび質量単位: "g" = グラム "sg" = slug "lbm" = ポンド質量 (常衡) "u" = U (原子質量単位) "ozm" = オンス質量 (常衡) 距離の単位: "m" = メーター "mi" = 法廷マイル "Nmi" = 海里 "in" = インチ "ft" = フィート "yd" = ヤード "ang" = オングストローム "Pica" = パイカ(1/72 in.) 時間の単位: "yr" = 年 "day" = 日 "hr" = 時 "mn" = 分 "sec" = 秒 圧力のユニット: "Pa" (または "p") = パスカル "atm" (or "at") = 気圧 "mmHg" = マーキュリーのmm 力の単位: "N" = ニュートン "dyn" (または "dy") = ダイン "lbf" = ポンド フォース エネルギーの単位: "J" = ジュール "e" = エルグ "c" = 熱力学カロリー "cal" = IT カロリー "eV" (または "ev") = エレクトロン ボルト "HPh" (または "hh") = 馬力時 "Wh" (または "wh") = ワット時 "flb" = フィートポンド "BTU" (または "btu") = BTU 出力の単位: "HP" (または "h") = 馬力 "W" (または "w") = ワット 磁性の単位: "T" = テスラ "ga" = ガウス 温度の単位: "C" (または "cel") = セ氏温度 "F" (または "fah") = カ氏度 "K" (または "kel") = ケルビン 液量の単位: "tsp" = ティースプーン "tbs" = テーブルスプーン "oz" = 液量オンス "cup" = カップ "pt" (または "us_pt") = U.S. パイント "uk_pt" = U.K. パイント "qt" = クオート "gal" = ガロン "l" (または "lt") = リッター 次うち 1 つをメートル単位の接頭辞にします: exa ("E") = 1E+18 peta ("P") = 1E+15 tera ("T") = 1E+12 giga ("G") = 1E+09 mega ("M") = 1E+06 kilo ("k") = 1E+03 hecto ("h") = 1E+02 dekao ("e") = 1E+01 deci ("d") = 1E-01 centi ("c") = 1E-02 milli ("m") = 1E-03 micro ("u") = 1E-06 nano ("n") = 1E-09 pico ("p") = 1E-12 femto ("f") = 1E-15 atto ("a") = 1E-18
+
+|Func_convert_ArgDesc_2
+|ToUnit は、変換後のユニットです。重さおよび質量単位: "g" = グラム "sg" = slug "lbm" = ポンド質量 (常衡) "u" = U (原子質量単位) "ozm" = オンス質量 (常衡) 距離の単位: "m" = メーター "mi" = 法廷マイル "Nmi" = 海里 "in" = インチ "ft" = フィート "yd" = ヤード "ang" = オングストローム "Pica" = パイカ(1/72 in.) 時間の単位: "yr" = 年 "day" = 日 "hr" = 時 "mn" = 分 "sec" = 秒 圧力のユニット: "Pa" (または "p") = パスカル "atm" (or "at") = 気圧 "mmHg" = マーキュリーのmm 力の単位: "N" = ニュートン "dyn" (または "dy") = ダイン "lbf" = ポンド フォース エネルギーの単位: "J" = ジュール "e" = エルグ "c" = 熱力学カロリー "cal" = IT カロリー "eV" (または "ev") = エレクトロン ボルト "HPh" (または "hh") = 馬力時 "Wh" (または "wh") = ワット時 "flb" = フィートポンド "BTU" (または "btu") = BTU 出力の単位: "HP" (または "h") = 馬力 "W" (または "w") = ワット 磁性の単位: "T" = テスラ "ga" = ガウス 温度の単位: "C" (または "cel") = セ氏温度 "F" (または "fah") = カ氏度 "K" (または "kel") = ケルビン 液量の単位: "tsp" = ティースプーン "tbs" = テーブルスプーン "oz" = 液量オンス "cup" = カップ "pt" (または "us_pt") = U.S. パイント "uk_pt" = U.K. パイント "qt" = クオート "gal" = ガロン "l" (または "lt") = リッター 次うち 1 つをメートル単位の接頭辞にします: exa ("E") = 1E+18 peta ("P") = 1E+15 tera ("T") = 1E+12 giga ("G") = 1E+09 mega ("M") = 1E+06 kilo ("k") = 1E+03 hecto ("h") = 1E+02 dekao ("e") = 1E+01 deci ("d") = 1E-01 centi ("c") = 1E-02 milli ("m") = 1E-03 micro ("u") = 1E-06 nano ("n") = 1E-09 pico ("p") = 1E-12 femto ("f") = 1E-15 atto ("a") = 1E-18
+
+|Func_convert_Category
+|Engineering
+
+|Func_convert_CategoryURL
+|Engineering
+
+|Func_convert_Desc
+|ある測定システムから他へ値を変換しますたとえば、メーターからインチまたは時間から秒へ。
+
+|Func_cos_Arg_0
+|number
+
+|Func_cos_ArgDesc_0
+|number には、コサインを求める角度をラジアンで指定します。
+
+|Func_cos_Category
+|Math
+
+|Func_cos_CategoryURL
+|Math
+
+|Func_cos_Desc
+|指定された角度のコサインを返します。
+
+|Func_cosh_Arg_0
+|number
+
+|Func_cosh_ArgDesc_0
+|Number には、双曲線余弦を求める実数を指定します。
+
+|Func_cosh_Category
+|Math
+
+|Func_cosh_CategoryURL
+|Math
+
+|Func_cosh_Desc
+|数値の双曲線余弦（ハイパーボリック コサイン）を返します。
+
+|Func_count_Arg_0
+|値{0}
+
+|Func_count_ArgDesc_0
+|value1、value2、...、valueN には、任意のデータ型の値や参照を指定できます。ただし、計算の対象となるのは数値だけです。
+
+|Func_count_Category
+|Statistical
+
+|Func_count_CategoryURL
+|Statistical
+
+|Func_count_Desc
+|引数リストの各項目に含まれる数値の個数の合計を返します。引数リストの各項目には、数値またはセル参照を指定できます。
+
+|Func_date_Arg_0
+|year
+
+|Func_date_Arg_1
+|月
+
+|Func_date_Arg_2
+|日
+
+|Func_date_ArgDesc_0
+|Year には、年を表す数値を指定します。
+
+|Func_date_ArgDesc_1
+|Month には、月を表す数値を 1 から 12 の範囲で指定します。
+
+|Func_date_ArgDesc_2
+|Day には、日を表す数値を、1 からその月の最終日を表す数値の範囲で指定します。
+
+|Func_date_Category
+|DateAndTime
+
+|Func_date_CategoryURL
+|Date_and_Time
+
+|Func_date_Desc
+|指定された日付に対応するシリアル値を返します。
+
+|Func_dateadd_Arg_0
+|interval
+
+|Func_dateadd_Arg_1
+|number
+
+|Func_dateadd_Arg_2
+|date
+
+|Func_dateadd_ArgDesc_0
+|intervalには、加算する時間間隔を表す文字列を指定します。 d = 日 y = 日 h = 時 n = 分 m = 月 q = 四半期 s = 秒 w = 週 ww = カレンダー週 yyyy = 年
+
+|Func_dateadd_ArgDesc_1
+|number には、加算する間隔数を表す数値を指定します。将来の日時を取得するには正の数値を指定し、過去の日時を取得するには負の数値を指定します。interval で時、分、または秒が指定されている場合は、小数部分を含むことができます。その他の interval 値については、 Number の小数部分は無視されます。
+
+|Func_dateadd_ArgDesc_2
+|date には、間隔を加算する日付を指定します。
+
+|Func_dateadd_Category
+|DateAndTime
+
+|Func_dateadd_CategoryURL
+|Date_and_Time
+
+|Func_dateadd_Desc
+|指定された時間間隔を加算した日付と時刻を DateTime 型の値で返します。
+
+|Func_datediff_Arg_0
+|interval
+
+|Func_datediff_Arg_1
+|date1
+
+|Func_datediff_Arg_2
+|date2
+
+|Func_datediff_ArgDesc_0
+|intervalには、date1とdate2の間の差異の単位として使用する時間間隔を表す文字列を指定します。 d = 日 y = 日 h = 時 n = 分 m = 月 q = 四半期 s = 秒 w = 週 ww = カレンダー週 yyyy = 年
+
+|Func_datediff_ArgDesc_1
+|Date1 は date2 から引いて差を出します。
+
+|Func_datediff_ArgDesc_2
+|差を出すために date1 から引いた日にち。
+
+|Func_datediff_Category
+|DateAndTime
+
+|Func_datediff_CategoryURL
+|Date_and_Time
+
+|Func_datediff_Desc
+|2 の DateTime 値の間の時間間隔数を示す値を返します。
+
+|Func_datevalue_Arg_0
+|date_text
+
+|Func_datevalue_ArgDesc_0
+|date_text には、日付を表す文字列を .NET DateTime 形式で指定します。
+
+|Func_datevalue_Category
+|DateAndTime
+
+|Func_datevalue_CategoryURL
+|Date_and_Time
+
+|Func_datevalue_Desc
+|日付を表す文字列をシリアル値に変換します。
+
+|Func_day_Arg_0
+|Date_value
+
+|Func_day_ArgDesc_0
+|date_value には、特定の日付を表す .NET DateTime 型の値を指定します。
+
+|Func_day_Category
+|DateAndTime
+
+|Func_day_CategoryURL
+|Date_and_Time
+
+|Func_day_Desc
+|日付値の日を返します。
+
+|Func_dayofweek_Arg_0
+|date
+
+|Func_dayofweek_Arg_1
+|returnType
+
+|Func_dayofweek_ArgDesc_0
+|Date は日付です。
+
+|Func_dayofweek_ArgDesc_1
+|ReturnType は、週日に使用される番号方式を決定します。1 (デフォルト) = 日曜日 (1) から土曜日 (7) まで 2 = 月曜日 (1) から日曜日 (7) まで 3 = 月曜日 (0) から日曜日 (6) まで
+
+|Func_dayofweek_Category
+|DateAndTime
+
+|Func_dayofweek_CategoryURL
+|DateAndTime
+
+|Func_dayofweek_Desc
+|指定した日の週日を表示する番号を返します。
+
+|Func_days360_Arg_0
+|start_date
+
+|Func_days360_Arg_1
+|end_date
+
+|Func_days360_Arg_2
+|method
+
+|Func_days360_ArgDesc_0
+|start_date と end_date には、間の日数を求める 2 つの日付を指定します。
+
+|Func_days360_ArgDesc_1
+|start_date と end_date には、間の日数を求める 2 つの日付を指定します。
+
+|Func_days360_ArgDesc_2
+|method には、計算に米国方式（FALSE）とヨーロッパ方式（TRUE）のどちらを採用するかを論理値で指定します。
+
+|Func_days360_Category
+|DateAndTime
+
+|Func_days360_CategoryURL
+|Date_and_Time
+
+|Func_days360_Desc
+|1 年を 360 日として、2 つの日付の間の日数を返します。
+
+|Func_db_Arg_0
+|cost
+
+|Func_db_Arg_1
+|salvage
+
+|Func_db_Arg_2
+|life
+
+|Func_db_Arg_3
+|period
+
+|Func_db_Arg_4
+|月
+
+|Func_db_ArgDesc_0
+|cost には、資産を購入した時点での価格を指定します。
+
+|Func_db_ArgDesc_1
+|salvage には、耐用年数が終了した時点での資産の価格（資産の残存価額とも言います）を指定します。
+
+|Func_db_ArgDesc_2
+|life には、資産を償却する年数（資産の耐用年数とも言います）を指定します。
+
+|Func_db_ArgDesc_3
+|periodには、減価償却費を求める期を指定します。period は、life と同じ単位で指定する必要があります。
+
+|Func_db_ArgDesc_4
+|monthには、資産を購入した年の月を指定します。month を省略した場合は、12 を指定したものと見なされます。
+
+|Func_db_Category
+|Financial
+
+|Func_db_CategoryURL
+|Financial
+
+|Func_db_Desc
+|定率法 (Fixed-declining Balance Method) を使用して、特定の期における資産の減価償却費を返します。
+
+|Func_dbnull_Category
+|Information
+
+|Func_dbnull_CategoryURL
+|Information
+
+|Func_dbnull_Desc
+|DBNull.Value を返します。
+
+|Func_ddb_Arg_0
+|cost
+
+|Func_ddb_Arg_1
+|salvage
+
+|Func_ddb_Arg_2
+|life
+
+|Func_ddb_Arg_3
+|period
+
+|Func_ddb_Arg_4
+|factor
+
+|Func_ddb_ArgDesc_0
+|cost には、資産を購入した時点での価格を指定します。
+
+|Func_ddb_ArgDesc_1
+|salvage には、耐用年数が終了した時点での資産の価格（資産の残存価額とも言います）を指定します。
+
+|Func_ddb_ArgDesc_2
+|life には、資産を償却する年数（資産の耐用年数とも言います）を指定します。
+
+|Func_ddb_ArgDesc_3
+|periodには、減価償却費を求める期を指定します。period は、life と同じ単位で指定する必要があります。
+
+|Func_ddb_ArgDesc_4
+|factorには、減価償却率を指定します。factor を省略した場合は、2 を指定したものと見なされ、倍率法で計算が行われます。
+
+|Func_ddb_Category
+|Financial
+
+|Func_ddb_CategoryURL
+|Financial
+
+|Func_ddb_Desc
+|倍率法（Double-declining Balance Method）、またはユーザー指定のその他の方法を使用して、特定の期における資産の減価償却費を返します。
+
+|Func_dec2bin_Arg_0
+|Number
+
+|Func_dec2bin_Arg_1
+|Places
+
+|Func_dec2bin_ArgDesc_0
+|Number は、変換される 10 進数の値です。
+
+|Func_dec2bin_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_dec2bin_Category
+|Engineering
+
+|Func_dec2bin_CategoryURL
+|Engineering
+
+|Func_dec2bin_Desc
+|指定する 10 進値を 2 進数として表示する文字列を返します
+
+|Func_dec2hex_Arg_0
+|Number
+
+|Func_dec2hex_Arg_1
+|Places
+
+|Func_dec2hex_ArgDesc_0
+|Number は、変換される 10 進数の値です。
+
+|Func_dec2hex_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_dec2hex_Category
+|Engineering
+
+|Func_dec2hex_CategoryURL
+|Engineering
+
+|Func_dec2hex_Desc
+|指定する 10 進値を 16 進数として表示する文字列を返します。
+
+|Func_dec2oct_Arg_0
+|Number
+
+|Func_dec2oct_Arg_1
+|Places
+
+|Func_dec2oct_ArgDesc_0
+|Number は、変換される 10 進数の値です。
+
+|Func_dec2oct_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_dec2oct_Category
+|Engineering
+
+|Func_dec2oct_CategoryURL
+|Engineering
+
+|Func_dec2oct_Desc
+|指定された 10 進値を 8 進数として表わす文字列を返します
+
+|Func_degrees_Arg_0
+|Radians
+
+|Func_degrees_ArgDesc_0
+|Radians は、度に変換されるラジアンの値です。
+
+|Func_degrees_Category
+|Math
+
+|Func_degrees_CategoryURL
+|Math
+
+|Func_degrees_Desc
+|ラジアンを度に変換する。
+
+|Func_delta_Arg_0
+|Number1
+
+|Func_delta_Arg_1
+|Number2
+
+|Func_delta_ArgDesc_0
+|Number1 は、数値です。
+
+|Func_delta_ArgDesc_1
+|Number2 は、数値です。Number2 が指定されないと、Number1 は 0 と比較されます。
+
+|Func_delta_Category
+|Engineering
+
+|Func_delta_CategoryURL
+|Engineering
+
+|Func_delta_Desc
+|2 つの番号を比較して、等しい場合は 1、異なる場合は 0 を返します。
+
+|Func_dollarde_Arg_0
+|FractionDollarAmount
+
+|Func_dollarde_Arg_1
+|Fraction
+
+|Func_dollarde_ArgDesc_0
+|FractionDollarAmount は、分数で表示されたドルでの金額です。
+
+|Func_dollarde_ArgDesc_1
+|Fraction は、分数の分母に使用される値です。この値が整数でない場合に切り捨てられます。
+
+|Func_dollarde_Category
+|Financial
+
+|Func_dollarde_CategoryURL
+|Financial
+
+|Func_dollarde_Desc
+|分数で表わされた組入額を 10 進数で組入額へ変換します。
+
+|Func_dollarfr_Arg_0
+|DecimalDollarAmount
+
+|Func_dollarfr_Arg_1
+|Fraction
+
+|Func_dollarfr_ArgDesc_0
+|FractionDollarAmount は、分数で表示された組入額です。
+
+|Func_dollarfr_ArgDesc_1
+|Fraction は、分数の分母に使用される値です。この値が整数でない場合に切り捨てられます。
+
+|Func_dollarfr_Category
+|Financial
+
+|Func_dollarfr_CategoryURL
+|Financial
+
+|Func_dollarfr_Desc
+|10 進数の組入額を分数で表わされた組入額へ変換します。
+
+|Func_edate_Arg_0
+|date
+
+|Func_edate_Arg_1
+|numberOfMonths
+
+|Func_edate_ArgDesc_0
+|Date は、開始日です。
+
+|Func_edate_ArgDesc_1
+|NumberOfMonths は、日付を変更する月数です。整数は、開始日以降の日です。負数は、開始日より前の日です。
+
+|Func_edate_Category
+|DateAndTime
+
+|Func_edate_CategoryURL
+|DateAndTime
+
+|Func_edate_Desc
+|開始日前/後の指定された月数の日付を返します。
+
+|Func_eomonth_Arg_0
+|date
+
+|Func_eomonth_Arg_1
+|numberOfMonths
+
+|Func_eomonth_ArgDesc_0
+|Date は、開始日です。
+
+|Func_eomonth_ArgDesc_1
+|NumberOfMonths は、日付を変更する月数です。整数は、開始日以降の日です。負数は、開始日より前の日です。
+
+|Func_eomonth_Category
+|DateAndTime
+
+|Func_eomonth_CategoryURL
+|DateAndTime
+
+|Func_eomonth_Desc
+|開始日前/後の指定された月数の月末日を返します。
+
+|Func_errortype_Arg_0
+|error_value
+
+|Func_errortype_ArgDesc_0
+|Error_val には、検索したい識別番号のエラー値です。
+
+|Func_errortype_Category
+|Information
+
+|Func_errortype_CategoryURL
+|Information
+
+|Func_errortype_Desc
+|エラー値のタイプを返します。
+
+|Func_even_Arg_0
+|number
+
+|Func_even_ArgDesc_0
+|Number には、四捨五入する対象となる値です。
+
+|Func_even_Category
+|Math
+
+|Func_even_CategoryURL
+|Math
+
+|Func_even_Desc
+|数値を切り上げて、その結果に最も近い偶数の整数を返します。
+
+|Func_exp_Arg_0
+|number
+
+|Func_exp_ArgDesc_0
+|Number には、基本 e に適用する指数です。
+
+|Func_exp_Category
+|Math
+
+|Func_exp_CategoryURL
+|Math
+
+|Func_exp_Desc
+|e を底とする数値のべき乗を返します。定数 e は 2.71828182845904 です。
+
+|Func_fact_Arg_0
+|Number
+
+|Func_fact_ArgDesc_0
+|Number は、計算される階乗の整数です。
+
+|Func_fact_Category
+|Math
+
+|Func_fact_CategoryURL
+|Math
+
+|Func_fact_Desc
+|数値の階乗を返します。
+
+|Func_factdouble_Arg_0
+|Number
+
+|Func_factdouble_ArgDesc_0
+|Number は、計算される二重階乗の整数です。
+
+|Func_factdouble_Category
+|Math
+
+|Func_factdouble_CategoryURL
+|Math
+
+|Func_factdouble_Desc
+|数値の二重階乗を返します。
+
+|Func_false_Category
+|Logical
+
+|Func_false_CategoryURL
+|Logical
+
+|Func_false_Desc
+|論理値 False を返します。
+
+|Func_find_Arg_0
+|find_text
+
+|Func_find_Arg_1
+|within_text
+
+|Func_find_Arg_2
+|start_num
+
+|Func_find_ArgDesc_0
+|Find_text は、検索するテキストです。
+
+|Func_find_ArgDesc_1
+|Within_text は、検索するテキストを含むテキストです。
+
+|Func_find_ArgDesc_2
+|Start_num は、検索を開始する文字を指定します。1 は、Start_num を省略した場合を仮定します。
+
+|Func_find_Category
+|TextAndData
+
+|Func_find_CategoryURL
+|Text_and_Data
+
+|Func_find_Desc
+|FIND は、1 つのテキスト文字列を検索します。
+
+|Func_fixed_Arg_0
+|number
+
+|Func_fixed_Arg_1
+|decimals
+
+|Func_fixed_Arg_2
+|no_commas
+
+|Func_fixed_ArgDesc_0
+|number には、四捨五入して文字列に変換する数値を指定します。
+
+|Func_fixed_ArgDesc_1
+|decimals には、戻り値における小数点以下の桁数を指定します。負の値を指定すると、numberは小数点の左側の指定した桁数に四捨五入されます。デフォルト値は 2 です。
+
+|Func_fixed_ArgDesc_2
+|戻り値をコンマで桁区切りする場合は TRUE を指定します。コンマで桁区切りしない場合は、FALSE を指定するか、引数自体を省略します。
+
+|Func_fixed_Category
+|TextAndData
+
+|Func_fixed_CategoryURL
+|Text_and_Data
+
+|Func_fixed_Desc
+|指定された小数点の桁数に数値を四捨五入し、桁区切りのコンマ付き、またはコンマなしの文字列として返します。
+
+|Func_floor_Arg_0
+|number
+
+|Func_floor_Arg_1
+|significance
+
+|Func_floor_ArgDesc_0
+|Number には、四捨五入する数値を指定します。
+
+|Func_floor_Category
+|Math
+
+|Func_floor_CategoryURL
+|Math
+
+|Func_floor_Desc
+|指定した数値以下で significance (デフォルト 1) の最小倍数を返します。
+
+|Func_fv_Arg_0
+|rate
+
+|Func_fv_Arg_1
+|nper
+
+|Func_fv_Arg_2
+|pmt
+
+|Func_fv_Arg_3
+|pv
+
+|Func_fv_Arg_4
+|type
+
+|Func_fv_ArgDesc_0
+|Rate には、投資期間を通じての一定の利率を指定します。
+
+|Func_fv_ArgDesc_1
+|NPerには、投資期間全体での支払回数の合計を指定します。
+
+|Func_fv_ArgDesc_2
+|pmt には、毎回の支払額を指定します。投資期間内に支払額を変更することはできません。
+
+|Func_fv_ArgDesc_3
+|pv には、現在の投資額、つまり将来行われる一連の支払いを現時点で一括払いした場合の合計金額を指定します。
+
+|Func_fv_ArgDesc_4
+|Type には、支払いが期末と期首のどちらに行われるかを、数値の 0 または 1 で指定します。デフォルトは 0（期末）です。
+
+|Func_fv_Category
+|Financial
+
+|Func_fv_CategoryURL
+|Financial
+
+|Func_fv_Desc
+|定額の支払いを定期的に行い、利率が一定であると仮定して、投資の将来価値を返します。
+
+|Func_gcd_Arg_0
+|number{0}
+
+|Func_gcd_ArgDesc_0
+|Number1, Number2, ..., NumberN は、任意の整数です。
+
+|Func_gcd_Category
+|Math
+
+|Func_gcd_CategoryURL
+|Math
+
+|Func_gcd_Desc
+|2 つの整数値の最大共通序数を返します。
+
+|Func_gestep_Arg_0
+|Number1
+
+|Func_gestep_Arg_1
+|Step
+
+|Func_gestep_ArgDesc_0
+|Number は、数値です。
+
+|Func_gestep_ArgDesc_1
+|Step は、数値です。Step が、指定されない場合、Number は 0 と比較されます。
+
+|Func_gestep_Category
+|Engineering
+
+|Func_gestep_CategoryURL
+|Engineering
+
+|Func_gestep_Desc
+|2 つの数値を比較して、1 番目の数値が 2 番目の数値より大きいまたは等しい場合は、1 を返します。それ以外の場合は、0 を返します。
+
+|Func_hex2bin_Arg_0
+|Number
+
+|Func_hex2bin_Arg_1
+|Places
+
+|Func_hex2bin_ArgDesc_0
+|Number は、変換される値です。
+
+|Func_hex2bin_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_hex2bin_Category
+|Engineering
+
+|Func_hex2bin_CategoryURL
+|Engineering
+
+|Func_hex2bin_Desc
+|16 進数を表示する文字列と 2 進数で同じ番号を表示する文字列に変換します。
+
+|Func_hex2dec_Arg_0
+|Number
+
+|Func_hex2dec_ArgDesc_0
+|数値は、16進数を表示する文字列です。
+
+|Func_hex2dec_Category
+|Engineering
+
+|Func_hex2dec_CategoryURL
+|Engineering
+
+|Func_hex2dec_Desc
+|16 進記数法で、数値を文字列表示する 10 進数の値を返します。
+
+|Func_hex2oct_Arg_0
+|Number
+
+|Func_hex2oct_Arg_1
+|Places
+
+|Func_hex2oct_ArgDesc_0
+|Number は、変換される値です。
+
+|Func_hex2oct_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_hex2oct_Category
+|Engineering
+
+|Func_hex2oct_CategoryURL
+|Engineering
+
+|Func_hex2oct_Desc
+|16 進数を表す文字列と同じ番号を 2 進数で表す文字列に変換します。
+
+|Func_hour_Arg_0
+|Date_value
+
+|Func_hour_ArgDesc_0
+|date_value には、特定の日付を表す .NET DateTime 型の値を指定します。
+
+|Func_hour_Category
+|DateAndTime
+
+|Func_hour_CategoryURL
+|Date_and_Time
+
+|Func_hour_Desc
+|時刻値の時を返します。
+
+|Func_if_Arg_0
+|logical_test
+
+|Func_if_Arg_1
+|value_if_true
+
+|Func_if_Arg_2
+|value_if_false
+
+|Func_if_ArgDesc_0
+|評価する条件を指定します。
+
+|Func_if_ArgDesc_1
+|条件が TRUE の場合の結果。
+
+|Func_if_ArgDesc_2
+|条件が FALSE の場合の結果。
+
+|Func_if_Category
+|Logical
+
+|Func_if_CategoryURL
+|Logical
+
+|Func_if_Desc
+|指定された条件が TRUE の場合は値を 1 つ返し、FALSE の場合は、他の値を返します。
+
+|Func_imabs_Arg_0
+|ComplexNumber
+
+|Func_imabs_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imabs_Category
+|Engineering
+
+|Func_imabs_CategoryURL
+|Engineering
+
+|Func_imabs_Desc
+|複素数の絶対値を返します。
+
+|Func_imaginary_Arg_0
+|ComplexNumber
+
+|Func_imaginary_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imaginary_Category
+|Engineering
+
+|Func_imaginary_CategoryURL
+|Engineering
+
+|Func_imaginary_Desc
+|複素数の虚数を返します。
+
+|Func_imargument_Arg_0
+|ComplexNumber
+
+|Func_imargument_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imargument_Category
+|Engineering
+
+|Func_imargument_CategoryURL
+|Engineering
+
+|Func_imargument_Desc
+|ラジアンで表されるシータ引数および度を返します。
+
+|Func_imconjugate_Arg_0
+|ComplexNumber
+
+|Func_imconjugate_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imconjugate_Category
+|Engineering
+
+|Func_imconjugate_CategoryURL
+|Engineering
+
+|Func_imconjugate_Desc
+|共役複素数を返します。
+
+|Func_imcos_Arg_0
+|ComplexNumber
+
+|Func_imcos_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imcos_Category
+|Engineering
+
+|Func_imcos_CategoryURL
+|Engineering
+
+|Func_imcos_Desc
+|複素数のコサインを返します。
+
+|Func_imdiv_Arg_0
+|Dividend
+
+|Func_imdiv_Arg_1
+|Divisor
+
+|Func_imdiv_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imdiv_ArgDesc_1
+|Divisor は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imdiv_Category
+|Engineering
+
+|Func_imdiv_CategoryURL
+|Engineering
+
+|Func_imdiv_Desc
+|2 つの共役複素数の商を返します。(Dividend / Divisor)
+
+|Func_imexp_Arg_0
+|ComplexNumber
+
+|Func_imexp_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imexp_Category
+|Engineering
+
+|Func_imexp_CategoryURL
+|Engineering
+
+|Func_imexp_Desc
+|複素数の指数関数を返します。
+
+|Func_imln_Arg_0
+|ComplexNumber
+
+|Func_imln_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imln_Category
+|Engineering
+
+|Func_imln_CategoryURL
+|Engineering
+
+|Func_imln_Desc
+|複素数の自然対数を返します。
+
+|Func_imlog10_Arg_0
+|ComplexNumber
+
+|Func_imlog10_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imlog10_Category
+|Engineering
+
+|Func_imlog10_CategoryURL
+|Engineering
+
+|Func_imlog10_Desc
+|複素数の 10 を底とする数値の対数（常用対数）を返します。
+
+|Func_imlog2_Arg_0
+|ComplexNumber
+
+|Func_imlog2_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imlog2_Category
+|Engineering
+
+|Func_imlog2_CategoryURL
+|Engineering
+
+|Func_imlog2_Desc
+|複素数の 2 を底とする数値の対数 （常用対数） を返します。
+
+|Func_impower_Arg_0
+|ComplexNumber
+
+|Func_impower_Arg_1
+|Power
+
+|Func_impower_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_impower_ArgDesc_1
+|Power は、ComplexNumber のべき乗の指数です。
+
+|Func_impower_Category
+|Engineering
+
+|Func_impower_CategoryURL
+|Engineering
+
+|Func_impower_Desc
+|指定したべき乗の複素数を返します。
+
+|Func_improduct_Arg_0
+|ComplexNumber{0}
+
+|Func_improduct_ArgDesc_0
+|ComplexNumber1、ComplexNumber2、...、ComplexNumber は、次の書式の任意の複素数です: "x + yi" または "x + yj"は、一緒に乗算されます。
+
+|Func_improduct_Category
+|Engineering
+
+|Func_improduct_CategoryURL
+|Engineering
+
+|Func_improduct_Desc
+|1 から n 複素数の積を返します。
+
+|Func_imreal_Arg_0
+|ComplexNumber
+
+|Func_imreal_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imreal_Category
+|Engineering
+
+|Func_imreal_CategoryURL
+|Engineering
+
+|Func_imreal_Desc
+|複素数の実係数を返します。
+
+|Func_imsin_Arg_0
+|ComplexNumber
+
+|Func_imsin_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imsin_Category
+|Engineering
+
+|Func_imsin_CategoryURL
+|Engineering
+
+|Func_imsin_Desc
+|複素数のサインを返します。
+
+|Func_imsqrt_Arg_0
+|ComplexNumber
+
+|Func_imsqrt_ArgDesc_0
+|ComplexNumber は、次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imsqrt_Category
+|Engineering
+
+|Func_imsqrt_CategoryURL
+|Engineering
+
+|Func_imsqrt_Desc
+|複素数の平方根を返します。
+
+|Func_imsub_Arg_0
+|ComplexNumber1
+
+|Func_imsub_Arg_1
+|ComplexNumber2
+
+|Func_imsub_ArgDesc_0
+|ComplexNumber は、ComplexNumber2 が差し引かれる次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imsub_ArgDesc_1
+|ComplexNumber は、ComplexNumber1 が差し引かれる次の書式の複素数です: "x + yi" または "x + yj"。
+
+|Func_imsub_Category
+|Engineering
+
+|Func_imsub_CategoryURL
+|Engineering
+
+|Func_imsub_Desc
+|2 つの複素数の差を返します。
+
+|Func_imsum_Arg_0
+|ComplexNumber{0}
+
+|Func_imsum_ArgDesc_0
+|ComplexNumber1、ComplexNumber2、...、ComplexNumber は、次の書式の任意の複素数です: "x + yi" または "x + yj"は、一緒に乗算されます。
+
+|Func_imsum_Category
+|Engineering
+
+|Func_imsum_CategoryURL
+|Engineering
+
+|Func_imsum_Desc
+|1 から n 複素数の合計を返します。
+
+|Func_info_Arg_0
+|Type
+
+|Func_info_ArgDesc_0
+|Type は、返還する情報のタイプを示す文字列です。"directory" = 現在のフォルダーの完全パス"osversion" = 文字列としての現在のオペレーティング システムのバージョン。"system" = 現在のオペレーティング システム。これは常に Microsoft Windows を示す "pcdos" を返します。Excel の対応する関数は Macintosh を示す "mac" を返しますが、Infragistics をサポートするのは Windows のみであるため、この関数は常に "pcdos" を返します。次は、Microsoft Excel でサポートされていますが、UltraCalcManager において相関関係はありません: "numfile"、"origin"、"recalc"、"release"。次は、以前のバージョンの Excel でサポートされていますが、UltraCalcManager において相関関係はありません: "memavail"、"memused"、"totmem"。
+
+|Func_info_Category
+|Information
+
+|Func_info_CategoryURL
+|Information
+
+|Func_info_Desc
+|現在のオペレーション システムについての情報を返します。
+
+|Func_int_Arg_0
+|number
+
+|Func_int_ArgDesc_0
+|Number は、四捨五入して整数にする実数です。
+
+|Func_int_Category
+|Math
+
+|Func_int_CategoryURL
+|Math
+
+|Func_int_Desc
+|数値を四捨五入して整数にします。
+
+|Func_intrate_Arg_0
+|settlement
+
+|Func_intrate_Arg_1
+|maturity
+
+|Func_intrate_Arg_2
+|investment
+
+|Func_intrate_Arg_3
+|redemption
+
+|Func_intrate_Arg_4
+|basis
+
+|Func_intrate_ArgDesc_0
+|Settlement には、証券の受領日を指定します。
+
+|Func_intrate_ArgDesc_1
+|maturity には、証券の満期日を指定します。
+
+|Func_intrate_ArgDesc_2
+|investment には、証券への投資額を指定します。
+
+|Func_intrate_ArgDesc_3
+|redemption には、満期日における証券の償還額を指定します。
+
+|Func_intrate_ArgDesc_4
+|basis には、日数の計算方法を数値で指定します。0 または省略した場合 = 30日/360日（米国NASD方式）、1 = 実際の日数/実際の日数、2 = 実際の日数/360日、3 = 実際の日数/365日、4 = 30日/360日（ヨーロッパ方式）
+
+|Func_intrate_Category
+|Financial
+
+|Func_intrate_CategoryURL
+|Financial
+
+|Func_intrate_Desc
+|全額投資された証券の利率を返します。
+
+|Func_ipmt_Arg_0
+|rate
+
+|Func_ipmt_Arg_1
+|per
+
+|Func_ipmt_Arg_2
+|nper
+
+|Func_ipmt_Arg_3
+|pv
+
+|Func_ipmt_Arg_4
+|fv
+
+|Func_ipmt_Arg_5
+|type
+
+|Func_ipmt_ArgDesc_0
+|Rate には、投資期間を通じての一定の利率を指定します。
+
+|Func_ipmt_ArgDesc_1
+|Perには、元金支払額を求める期を1～NPerの範囲で指定します。
+
+|Func_ipmt_ArgDesc_2
+|NPerには、投資期間全体での支払回数の合計を指定します。
+
+|Func_ipmt_ArgDesc_3
+|Pv には、現在の投資額、つまり将来行われる一連の支払いを現時点で一括払いした場合の合計金額を指定します。
+
+|Func_ipmt_ArgDesc_4
+|Fv には、投資の将来価値、つまり最後の支払いを行った後に残る現金の収支を指定します。
+
+|Func_ipmt_ArgDesc_5
+|type には、支払いがいつ行われるかを、数値の {0} または {1} で指定します。
+
+|Func_ipmt_Category
+|Financial
+
+|Func_ipmt_CategoryURL
+|Financial
+
+|Func_ipmt_Desc
+|定額の支払いを定期的に行い、利率が一定であると仮定して、投資期間内の指定された期に支払われる金利を返します。
+
+|Func_irr_Arg_0
+|values
+
+|Func_irr_Arg_1
+|guess
+
+|Func_irr_ArgDesc_0
+|Values には、定期的に発生する支払い（負の値）と収益（正の値）のコレクションを指定します。
+
+|Func_irr_ArgDesc_1
+|guess には、関数の計算結果に近いと思われる数値を指定します。デフォルトは 10% です。
+
+|Func_irr_Category
+|Financial
+
+|Func_irr_CategoryURL
+|Financial
+
+|Func_irr_Desc
+|一連のキャッシュフローに対する内部利益率を返します。
+
+|Func_isblank_Arg_0
+|value
+
+|Func_isblank_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isblank_Category
+|Information
+
+|Func_isblank_CategoryURL
+|Information
+
+|Func_isblank_Desc
+|テストの対象が空白の場合、TRUE を返します。
+
+|Func_isdbnull_Arg_0
+|value
+
+|Func_isdbnull_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isdbnull_Category
+|Information
+
+|Func_isdbnull_CategoryURL
+|Information
+
+|Func_isdbnull_Desc
+|テストの対象が DBNull を参照する場合、TRUE を返します。
+
+|Func_iserr_Arg_0
+|value
+
+|Func_iserr_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_iserr_Category
+|Information
+
+|Func_iserr_CategoryURL
+|Information
+
+|Func_iserr_Desc
+|テストの対象が #N/A を除くエラー値を参照する場合、TRUE を返します。
+
+|Func_iserror_Arg_0
+|value
+
+|Func_iserror_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_iserror_Category
+|Information
+
+|Func_iserror_CategoryURL
+|Information
+
+|Func_iserror_Desc
+|テストの対象が任意のエラー値（#N/A、#VALUE!、#REF!、#DIV/0!、#NUM!、#NAME?、#NULL! のいずれか）を参照する場合、TRUE を返します。
+
+|Func_iseven_Arg_0
+|value
+
+|Func_iseven_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_iseven_Category
+|Information
+
+|Func_iseven_CategoryURL
+|Information
+
+|Func_iseven_Desc
+|テストの対象が偶数の場合は TRUE を返し、奇数の場合は FALSE を返します。
+
+|Func_islogical_Arg_0
+|value
+
+|Func_islogical_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_islogical_Category
+|Information
+
+|Func_islogical_CategoryURL
+|Information
+
+|Func_islogical_Desc
+|テストの対象が論理値を参照する場合、TRUE を返します。
+
+|Func_isna_Arg_0
+|value
+
+|Func_isna_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isna_Category
+|Information
+
+|Func_isna_CategoryURL
+|Information
+
+|Func_isna_Desc
+|テストの対象がエラー値 #N/A（使用する値がない）を参照する場合、TRUE を返します。
+
+|Func_isnontext_Arg_0
+|value
+
+|Func_isnontext_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isnontext_Category
+|Information
+
+|Func_isnontext_CategoryURL
+|Information
+
+|Func_isnontext_Desc
+|テストの対象が文字列でない項目を参照する場合、TRUE を返します。
+
+|Func_isnull_Arg_0
+|value
+
+|Func_isnull_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isnull_Category
+|Information
+
+|Func_isnull_CategoryURL
+|Information
+
+|Func_isnull_Desc
+|テストの対象が null（VB では Nothing）を参照する場合、TRUE を返します。
+
+|Func_isnumber_Arg_0
+|value
+
+|Func_isnumber_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isnumber_Category
+|Information
+
+|Func_isnumber_CategoryURL
+|Information
+
+|Func_isnumber_Desc
+|テストの対象が数値を参照する場合、TRUE を返します。
+
+|Func_isodd_Arg_0
+|value
+
+|Func_isodd_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isodd_Category
+|Information
+
+|Func_isodd_CategoryURL
+|Information
+
+|Func_isodd_Desc
+|テストの対象が奇数の場合は TRUE を返し、偶数の場合は FALSE を返します。
+
+|Func_isref_Arg_0
+|value
+
+|Func_isref_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_isref_Category
+|Information
+
+|Func_isref_CategoryURL
+|Information
+
+|Func_isref_Desc
+|テストの対象が参照を参照する場合、TRUE を返します。
+
+|Func_istext_Arg_0
+|value
+
+|Func_istext_ArgDesc_0
+|value には、テストする値を指定します。
+
+|Func_istext_Category
+|Information
+
+|Func_istext_CategoryURL
+|Information
+
+|Func_istext_Desc
+|テストの対象が文字列を参照する場合、TRUE を返します。
+
+|Func_lcm_Arg_0
+|number{0}
+
+|Func_lcm_ArgDesc_0
+|Number1, Number2, ..., NumberN は、任意の整数です。
+
+|Func_lcm_Category
+|Math
+
+|Func_lcm_CategoryURL
+|Math
+
+|Func_lcm_Desc
+|2 つの整数値の最小公倍数を返します。
+
+|Func_left_Arg_0
+|text
+
+|Func_left_Arg_1
+|num_chars
+
+|Func_left_ArgDesc_0
+|text には、取り出す文字を含む文字列を指定します。
+
+|Func_left_ArgDesc_1
+|Num_chars には、取り出す文字数を指定します。
+
+|Func_left_Category
+|TextAndData
+
+|Func_left_CategoryURL
+|Text_and_Data
+
+|Func_left_Desc
+|文字列の先頭から指定された数の文字を返します。
+
+|Func_len_Arg_0
+|text
+
+|Func_len_ArgDesc_0
+|text には、文字数を調べる文字列を指定します。スペースは文字として処理されます。
+
+|Func_len_Category
+|TextAndData
+
+|Func_len_CategoryURL
+|Text_and_Data
+
+|Func_len_Desc
+|文字列の文字数を返します。
+
+|Func_ln_Arg_0
+|number
+
+|Func_ln_ArgDesc_0
+|number には、自然対数を求める正の実数を指定します。
+
+|Func_ln_Category
+|Math
+
+|Func_ln_CategoryURL
+|Math
+
+|Func_ln_Desc
+|数値の自然対数を返します。
+
+|Func_log_Arg_0
+|number
+
+|Func_log_Arg_1
+|base
+
+|Func_log_ArgDesc_0
+|number には、対数を求める正の実数を指定します。
+
+|Func_log_ArgDesc_1
+|base には、対数の底を指定します。base を省略した場合は、10 を指定したものと見なされます。
+
+|Func_log_Category
+|Math
+
+|Func_log_CategoryURL
+|Math
+
+|Func_log_Desc
+|指定された数を底とする数値の対数を返します。
+
+|Func_log10_Arg_0
+|number
+
+|Func_log10_ArgDesc_0
+|number には、10 を底とする対数（常用対数）を求める正の実数を指定します。
+
+|Func_log10_Category
+|Math
+
+|Func_log10_CategoryURL
+|Math
+
+|Func_log10_Desc
+|10 を底とする数値の対数（常用対数）を返します。
+
+|Func_lower_Arg_0
+|text
+
+|Func_lower_ArgDesc_0
+|text には、小文字に変換する文字列を指定します。
+
+|Func_lower_Category
+|TextAndData
+
+|Func_lower_CategoryURL
+|Text_and_Data
+
+|Func_lower_Desc
+|文字列に含まれる英字をすべて小文字に変換します。
+
+|Func_max_Arg_0
+|number{0}
+
+|Func_max_ArgDesc_0
+|number1、number2、...には、最大値を求める数値を指定します。引数は 1 から 30 個まで指定できます。
+
+|Func_max_Category
+|Statistical
+
+|Func_max_CategoryURL
+|Statistical
+
+|Func_max_Desc
+|引数リストに含まれる最大の数値を返します。
+
+|Func_median_Arg_0
+|number{0}
+
+|Func_median_ArgDesc_0
+|number1、number2、...には、メジアンを求める数値を指定します。引数は 1 から 30 個まで指定できます。
+
+|Func_median_Category
+|Statistical
+
+|Func_median_CategoryURL
+|Statistical
+
+|Func_median_Desc
+|引数リストに含まれる数値のメジアン（中央値）を返します。
+
+|Func_mid_Arg_0
+|text
+
+|Func_mid_Arg_1
+|start_num
+
+|Func_mid_Arg_2
+|num_chars
+
+|Func_mid_ArgDesc_0
+|text には、取り出す文字を含む文字列を指定します。
+
+|Func_mid_ArgDesc_1
+|Num_chars には、取り出す文字数を指定します。
+
+|Func_mid_ArgDesc_2
+|start_num には、text から取り出す先頭文字の位置 (文字番号) を数値で指定します。
+
+|Func_mid_Category
+|TextAndData
+
+|Func_mid_CategoryURL
+|Text_and_Data
+
+|Func_mid_Desc
+|MID はテキスト文字列から指定された文字数の文字を返します。
+
+|Func_min_Arg_0
+|number{0}
+
+|Func_min_ArgDesc_0
+|number1、number2、...には、最小値を求める数値を指定します。引数は 1 から 30 個まで指定できます。
+
+|Func_min_Category
+|Statistical
+
+|Func_min_CategoryURL
+|Statistical
+
+|Func_min_Desc
+|引数リストに含まれる最小の数値を返します。
+
+|Func_minute_Arg_0
+|Date_value
+
+|Func_minute_ArgDesc_0
+|date_value には、特定の日付を表す .NET DateTime 型の値を指定します。
+
+|Func_minute_Category
+|DateAndTime
+
+|Func_minute_CategoryURL
+|Date_and_Time
+
+|Func_minute_Desc
+|時刻値の分を返します。
+
+|Func_mod_Arg_0
+|number
+
+|Func_mod_Arg_1
+|divisor
+
+|Func_mod_ArgDesc_0
+|number には、割り算の分子となる数値を指定します。
+
+|Func_mod_ArgDesc_1
+|divisor には、割り算の分母となる数値を指定します。
+
+|Func_mod_Category
+|Math
+
+|Func_mod_CategoryURL
+|Math
+
+|Func_mod_Desc
+|数値を除数で割ったときの剰余を返します。戻り値は除数と同じ符号になります。
+
+|Func_month_Arg_0
+|Date_value
+
+|Func_month_ArgDesc_0
+|date_value には、特定の日付を表す .NET DateTime 型の値を指定します。
+
+|Func_month_Category
+|DateAndTime
+
+|Func_month_CategoryURL
+|Date_and_Time
+
+|Func_month_Desc
+|日付値の月を返します。
+
+|Func_mround_Arg_0
+|Number
+
+|Func_mround_Arg_1
+|Multiple
+
+|Func_mround_ArgDesc_0
+|Number は、四捨五入する数値です。
+
+|Func_mround_ArgDesc_1
+|Multiple は、四捨五入する倍数を示す数値です。
+
+|Func_mround_Category
+|Math
+
+|Func_mround_CategoryURL
+|Math
+
+|Func_mround_Desc
+|他の数値の倍数に最も近い数値を四捨五入します。
+
+|Func_multinomial_Arg_0
+|number{0}
+
+|Func_multinomial_ArgDesc_0
+|Number1, Number2, ..., NumberN は、任意の数値です。
+
+|Func_multinomial_Category
+|Math
+
+|Func_multinomial_CategoryURL
+|Math
+
+|Func_multinomial_Desc
+|一連の数値の多項式を返します。
+
+|Func_n_Arg_0
+|値
+
+|Func_n_ArgDesc_0
+|Value は、数値に変換される値です。以下は、使用できる値です: 数値 - 数値を返します。日付 - 日付を返します。True - 1 を返します。False - 0 を返します。エラー値 - エラー値を返します。任意の他の値 - 0 を返します。
+
+|Func_n_Category
+|Information
+
+|Func_n_CategoryURL
+|Information
+
+|Func_n_Desc
+|数値を値に変換します。
+
+|Func_na_Category
+|Information
+
+|Func_na_CategoryURL
+|Information
+
+|Func_na_Desc
+|エラー値 #N/A を返します。
+
+|Func_networkdays_Arg_0
+|startDate
+
+|Func_networkdays_Arg_1
+|endDate
+
+|Func_networkdays_Arg_2
+|holiday{0}
+
+|Func_networkdays_ArgDesc_0
+|StartDate は、開始する日付です。
+
+|Func_networkdays_ArgDesc_1
+|EndDate は、終了する日付。
+
+|Func_networkdays_ArgDesc_2
+|Holiday1、holiday2、...、holidayN は、日付または非稼働日とみなされる日付を含む参照範囲任意の数値です。
+
+|Func_networkdays_Category
+|DateAndTime
+
+|Func_networkdays_CategoryURL
+|DateAndTime
+
+|Func_networkdays_Desc
+|特別な休日を除く、指定期間の全稼働日の合計数を返します。
+
+|Func_not_Arg_0
+|logical
+
+|Func_not_ArgDesc_0
+|logical には、TRUE または FALSE のどちらかに評価できる値または式を指定します。
+
+|Func_not_Category
+|Logical
+
+|Func_not_CategoryURL
+|Logical
+
+|Func_not_Desc
+|引数が TRUE の場合は FALSE を、FALSE の場合は TRUE を返します。
+
+|Func_now_Category
+|DateAndTime
+
+|Func_now_CategoryURL
+|Date_and_Time
+
+|Func_now_Desc
+|現在の日時を表す .NET DateTime 型のタイマー刻み数を返します。
+
+|Func_nper_Arg_0
+|rate
+
+|Func_nper_Arg_1
+|pmt
+
+|Func_nper_Arg_2
+|pv
+
+|Func_nper_Arg_3
+|fv
+
+|Func_nper_Arg_4
+|type
+
+|Func_nper_ArgDesc_0
+|Rate には、投資期間を通じての一定の利率を指定します。
+
+|Func_nper_ArgDesc_1
+|pmt には、毎回の支払額を指定します。投資期間内に支払額を変更することはできません。
+
+|Func_nper_ArgDesc_2
+|pv には、現在の投資額、つまり将来行われる一連の支払いを現時点で一括払いした場合の合計金額を指定します。
+
+|Func_nper_ArgDesc_3
+|Fv には、投資の将来価値、つまり最後の支払いを行った後に残る現金の収支を指定します。
+
+|Func_nper_ArgDesc_4
+|Type には、支払いが期末と期首のどちらに行われるかを、数値の 0 または 1 で指定します。デフォルトは 0（期末）です。
+
+|Func_nper_Category
+|Financial
+
+|Func_nper_CategoryURL
+|Financial
+
+|Func_nper_Desc
+|定額の支払いを定期的に行い、利率が一定であると仮定して、投資に必要な期間を返します。
+
+|Func_npv_Arg_0
+|rate
+
+|Func_npv_Arg_1
+|値{0}
+
+|Func_npv_ArgDesc_0
+|rate には、投資期間を通じての一定の割引率を指定します。
+
+|Func_npv_ArgDesc_1
+|value1、value2、...には、支払額（負の値）と収益額（正の値）を指定します。引数は 1 から 30 個まで指定できます。
+
+|Func_npv_Category
+|Financial
+
+|Func_npv_CategoryURL
+|Financial
+
+|Func_npv_Desc
+|投資の正味現在価値を、割引率、将来行われる一連の支払い（負の値）、およびその収益（正の値）を使用して算出します。
+
+|Func_null_Category
+|Information
+
+|Func_null_CategoryURL
+|Information
+
+|Func_null_Desc
+|null（VB では Nothing）を返します。
+
+|Func_oct2bin_Arg_0
+|Number
+
+|Func_oct2bin_Arg_1
+|Places
+
+|Func_oct2bin_ArgDesc_0
+|Number は、変換される値です。
+
+|Func_oct2bin_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_oct2bin_Category
+|Engineering
+
+|Func_oct2bin_CategoryURL
+|Engineering
+
+|Func_oct2bin_Desc
+|8 進数を表示する文字列を 2 進数で同じ番号を表示する文字列に変換します。
+
+|Func_oct2dec_Arg_0
+|Number
+
+|Func_oct2dec_ArgDesc_0
+|数値は、8進数を表示する文字列です。
+
+|Func_oct2dec_Category
+|Engineering
+
+|Func_oct2dec_CategoryURL
+|Engineering
+
+|Func_oct2dec_Desc
+|8 進記数法で数値を文字列表示する 10 進値を返します。
+
+|Func_oct2hex_Arg_0
+|Number
+
+|Func_oct2hex_Arg_1
+|Places
+
+|Func_oct2hex_ArgDesc_0
+|Number は、変換される値です。
+
+|Func_oct2hex_ArgDesc_1
+|Places は、値の表示に使用する文字数です。Places が指定されていない場合、値の表示に必要な文字の最小文字数が使用されます。Places に 0 の表示を指定できます。
+
+|Func_oct2hex_Category
+|Engineering
+
+|Func_oct2hex_CategoryURL
+|Engineering
+
+|Func_oct2hex_Desc
+|16 進法を表示する文字列を 2 進数で同じ番号を表示する文字列に変換します。
+
+|Func_odd_Arg_0
+|number
+
+|Func_odd_ArgDesc_0
+|Number には、四捨五入する対象となる値です。
+
+|Func_odd_Category
+|Math
+
+|Func_odd_CategoryURL
+|Math
+
+|Func_odd_Desc
+|数値を切り上げて、その結果に最も近い奇数の整数を返します。
+
+|Func_or_Arg_0
+|logical{0}
+
+|Func_or_ArgDesc_0
+|logical1、logical2、...には、TRUE か FALSE かを評価する論理式を指定します。
+
+|Func_or_Category
+|Logical
+
+|Func_or_CategoryURL
+|Logical
+
+|Func_or_Desc
+|いずれかの引数が TRUE の場合、TRUE を返します。引数がすべて FALSE である場合は、FALSE を返します。
+
+|Func_pi_Category
+|Math
+
+|Func_pi_CategoryURL
+|Math
+
+|Func_pi_Desc
+|数値 3.14159265358979 を返します。
+
+|Func_pmt_Arg_0
+|rate
+
+|Func_pmt_Arg_1
+|nper
+
+|Func_pmt_Arg_2
+|pv
+
+|Func_pmt_Arg_3
+|fv
+
+|Func_pmt_Arg_4
+|type
+
+|Func_pmt_ArgDesc_0
+|Rate には、貸付期間を通じての一定の利率を指定します。
+
+|Func_pmt_ArgDesc_1
+|NPer には、貸付期間全体での支払回数の合計を指定します。
+
+|Func_pmt_ArgDesc_2
+|Pv には、現在の貸付額、つまり将来行われる一連の支払いを現時点で一括払いした場合の合計金額 （元金とも言います） を指定します。
+
+|Func_pmt_ArgDesc_3
+|Fv には、投資の将来価値、つまり最後の支払いを行った後に残る現金の収支を指定します。
+
+|Func_pmt_ArgDesc_4
+|Type には、支払いが期末と期首のどちらに行われるかを、数値の 0 または 1 で指定します。デフォルトは 0（期末）です。
+
+|Func_pmt_Category
+|Financial
+
+|Func_pmt_CategoryURL
+|Financial
+
+|Func_pmt_Desc
+|定額の支払いを定期的に行い、利率が一定であると仮定して、貸付に必要な定期支払額を算出します。
+
+|Func_power_Arg_0
+|number
+
+|Func_power_Arg_1
+|power
+
+|Func_power_ArgDesc_0
+|number には、べき乗の底を指定します。
+
+|Func_power_ArgDesc_1
+|power には、number を底とするべき乗の指数を指定します。
+
+|Func_power_Category
+|Math
+
+|Func_power_CategoryURL
+|Math
+
+|Func_power_Desc
+|数値のべき乗を返します。
+
+|Func_ppmt_Arg_0
+|rate
+
+|Func_ppmt_Arg_1
+|per
+
+|Func_ppmt_Arg_2
+|nper
+
+|Func_ppmt_Arg_3
+|pv
+
+|Func_ppmt_Arg_4
+|fv
+
+|Func_ppmt_Arg_5
+|type
+
+|Func_ppmt_ArgDesc_0
+|Rate には、投資期間を通じての一定の利率を指定します。
+
+|Func_ppmt_ArgDesc_1
+|Perには、元金支払額を求める期を1～NPerの範囲で指定します。
+
+|Func_ppmt_ArgDesc_2
+|NPerには、投資期間全体での支払回数の合計を指定します。
+
+|Func_ppmt_ArgDesc_3
+|Pv には、現在の投資額、つまり将来行われる一連の支払いを現時点で一括払いした場合の合計金額を指定します。
+
+|Func_ppmt_ArgDesc_4
+|Fv には、投資の将来価値、つまり最後の支払いを行った後に残る現金の収支を指定します。
+
+|Func_ppmt_ArgDesc_5
+|type には、支払いがいつ行われるかを、数値の {0} または {1} で指定します。
+
+|Func_ppmt_Category
+|Financial
+
+|Func_ppmt_CategoryURL
+|Financial
+
+|Func_ppmt_Desc
+|定額の支払いを定期的に行い、利率が一定であると仮定して、投資の指定された期に支払われる元金を返します。
+
+|Func_product_Arg_0
+|number{0}
+
+|Func_product_ArgDesc_0
+|number1、number2、...には、積を計算する数値を指定します。
+
+|Func_product_Category
+|Math
+
+|Func_product_CategoryURL
+|Math
+
+|Func_product_Desc
+|引数リストの積を返します。
+
+|Func_pv_Arg_0
+|rate
+
+|Func_pv_Arg_1
+|nper
+
+|Func_pv_Arg_2
+|pmt
+
+|Func_pv_Arg_3
+|fv
+
+|Func_pv_Arg_4
+|type
+
+|Func_pv_ArgDesc_0
+|Rate には、投資期間を通じての一定の利率を指定します。
+
+|Func_pv_ArgDesc_1
+|NPerには、投資期間全体での支払回数の合計を指定します。
+
+|Func_pv_ArgDesc_2
+|pmt には、毎回の支払額を指定します。投資期間内に支払額を変更することはできません。
+
+|Func_pv_ArgDesc_3
+|Fv には、投資の将来価値、つまり最後の支払いを行った後に残る現金の収支を指定します。
+
+|Func_pv_ArgDesc_4
+|Type には、支払いが期末と期首のどちらに行われるかを、数値の 0 または 1 で指定します。デフォルトは 0（期末）です。
+
+|Func_pv_Category
+|Financial
+
+|Func_pv_CategoryURL
+|Financial
+
+|Func_pv_Desc
+|投資の現在価値を返します。
+
+|Func_quotient_Arg_0
+|numerator
+
+|Func_quotient_Arg_1
+|denominator
+
+|Func_quotient_ArgDesc_0
+|numerator には、被除数（割られる数）を指定します。
+
+|Func_quotient_ArgDesc_1
+|denominator には、除数（割る数）を指定します。
+
+|Func_quotient_Category
+|Math
+
+|Func_quotient_CategoryURL
+|Math
+
+|Func_quotient_Desc
+|除算の商の整数部分を返します。この関数は、商の余り（小数部）を切り捨てる場合に使用します。
+
+|Func_radians_Arg_0
+|Degrees
+
+|Func_radians_ArgDesc_0
+|Radians は、度に変換されるラジアンの値です。
+
+|Func_radians_Category
+|Math
+
+|Func_radians_CategoryURL
+|Math
+
+|Func_radians_Desc
+|度をラジアンに変換する。
+
+|Func_rand_Category
+|Math
+
+|Func_rand_CategoryURL
+|Math
+
+|Func_rand_Desc
+|0 以上で 1 より小さい乱数を発生させます。
+
+|Func_randbetween_Arg_0
+|Bottom
+
+|Func_randbetween_Arg_1
+|Top
+
+|Func_randbetween_ArgDesc_0
+|Bottom は、返還される最小値です。
+
+|Func_randbetween_ArgDesc_1
+|Top は、変換される最小値です。
+
+|Func_randbetween_Category
+|Math
+
+|Func_randbetween_CategoryURL
+|Math
+
+|Func_randbetween_Desc
+|2 つの指定した番号の間で疑似乱整数を生成します。
+
+|Func_rate_Arg_0
+|nper
+
+|Func_rate_Arg_1
+|Pmt
+
+|Func_rate_Arg_2
+|Pv
+
+|Func_rate_Arg_3
+|Type
+
+|Func_rate_Arg_4
+|Fv
+
+|Func_rate_Arg_5
+|guess
+
+|Func_rate_ArgDesc_0
+|nperには、投資期間全体での支払回数の合計を指定します。
+
+|Func_rate_ArgDesc_1
+|pmtには、毎回の支払額を指定します。 投資期間内に支払額を変更することはできません。
+
+|Func_rate_ArgDesc_2
+|pv には、現在の投資額、つまり将来行われる一連の支払いを現時点で一括払いした場合の合計金額を指定します。
+
+|Func_rate_ArgDesc_3
+|type には、支払いが期末と期首のどちらに行われるかを、数値の {0} または {1} で指定します。デフォルトは 0（期末）です。
+
+|Func_rate_ArgDesc_4
+|fv には、投資の将来価値、つまり最後の支払いを行った後に残る現金の収支を指定します。fv を省略した場合は、０を指定したものと見なされます。 たとえば、ローンなどの借入金の将来価値は０になります。たとえば、18 年間で 50,000 ドルをためることを目標にした場合、この投資の将来価値は 50,000 になります。投資期間の金利を予測することにより、毎月の貯蓄額を決めることができます。fv を省略した場合は、pmt 引数を指定する必要があります。fv のデフォルト値は 0 です。
+
+|Func_rate_ArgDesc_5
+|guess には、関数の計算結果に近いと思われる数値を指定します。guess を省略した場合は、10% が使用されます。
+
+|Func_rate_Category
+|Financial
+
+|Func_rate_CategoryURL
+|Financial
+
+|Func_rate_Desc
+|投資の利率を返します。
+
+|Func_replace_Arg_0
+|Old_text
+
+|Func_replace_Arg_1
+|Start_num
+
+|Func_replace_Arg_2
+|Num_chars
+
+|Func_replace_Arg_3
+|New_text
+
+|Func_replace_ArgDesc_0
+|old_text には、その一部を置き換える文字列を指定します。
+
+|Func_replace_ArgDesc_1
+|start_num には、new_text と置き換える先頭文字の位置（文字番号）を数値で指定します。old_text の先頭文字の位置は１になります。
+
+|Func_replace_ArgDesc_2
+|num_chars には、new_text と置き換える old_text の中の文字数を指定します。
+
+|Func_replace_ArgDesc_3
+|new_text には、old_text の一部と置き換える文字列を指定します。
+
+|Func_replace_Category
+|TextAndData
+
+|Func_replace_CategoryURL
+|Text_and_Data
+
+|Func_replace_Desc
+|文字列の一部を置き換えます。
+
+|Func_right_Arg_0
+|text
+
+|Func_right_Arg_1
+|num_chars
+
+|Func_right_ArgDesc_0
+|text には、取り出す文字を含む文字列を指定します。
+
+|Func_right_ArgDesc_1
+|num_chars には、取り出す文字数（text の末尾からの文字数）を指定します。
+
+|Func_right_Category
+|TextAndData
+
+|Func_right_CategoryURL
+|Text_and_Data
+
+|Func_right_Desc
+|文字列の末尾から指定された数の文字を返します。
+
+|Func_roman_Arg_0
+|Number
+
+|Func_roman_Arg_1
+|Form
+
+|Func_roman_ArgDesc_0
+|数値は、ローマ数字に変換する数値です。
+
+|Func_roman_ArgDesc_1
+|Form は、クラシック ローマ数字またはより簡潔な形を使用するかどうかを示す数値またはブール値0 = (デフォルト) 正式。(499 = "CDXCIX") 1 = より簡略化した形式。(499 = "LDVLIV") 2 = より簡略化した形式。(499 = "XDIX") 3 = より簡略化した形式。(499 = "VDIV") 4 = 簡略化した形式。(499 = "ID") TRUE = 正式な形式。FALSE = 簡略化した形式。
+
+|Func_roman_Category
+|Math
+
+|Func_roman_CategoryURL
+|Math
+
+|Func_roman_Desc
+|数値を文字列としてローマ数字に変換します。
+
+|Func_round_Arg_0
+|number
+
+|Func_round_Arg_1
+|num_digits
+
+|Func_round_ArgDesc_0
+|round_Style
+
+|Func_round_ArgDesc_0
+|Number には、四捨五入する数値を指定します。
+
+|Func_round_ArgDesc_1
+|Num_digits には、number を四捨五入した結果の桁数を指定します。
+
+|Func_round_ArgDesc_2
+|round_Style は、使用する四捨五入のスタイルを指定します。0 - 算術の四捨五入 (デフォールト) - これは Microsoft Excel によって使用される四捨五入の様式です。四捨五入する最後の数字が 5 の場合、切り上げられます。1 - 銀行家の四捨五入 - Visual Studioで使用される四捨五入の様式です。最後の数字が 5 の場合、前の数字を使用して切り上げるか切り下げるかを決定します。数字が偶数の場合、切り下げられます。奇数の場合、切り上げられます。
+
+|Func_round_Category
+|Math
+
+|Func_round_CategoryURL
+|Math
+
+|Func_round_Desc
+|数値を四捨五入して指定された桁数にします。
+
+|Func_rounddown_Arg_0
+|Number
+
+|Func_rounddown_Arg_1
+|Digits
+
+|Func_rounddown_ArgDesc_0
+|Number は、四捨五入する数値です。
+
+|Func_rounddown_ArgDesc_1
+|Digits は、四捨五入する小数点以下の桁数を示します。整数は、小数点の後の位置を示す数値です。負数は、小数点前の位置を示す数値です。
+
+|Func_rounddown_Category
+|Math
+
+|Func_rounddown_CategoryURL
+|Math
+
+|Func_rounddown_Desc
+|数値を切り捨てて指定した桁数にします。
+
+|Func_roundup_Arg_0
+|Number
+
+|Func_roundup_Arg_1
+|Digits
+
+|Func_roundup_ArgDesc_0
+|Number は、四捨五入する数値です。
+
+|Func_roundup_ArgDesc_1
+|Digits は、四捨五入する小数点以下の桁数を示します。整数は、小数点の後の位置を示す数値です。負数は、小数点前の位置を示す数値です。
+
+|Func_roundup_Category
+|Math
+
+|Func_roundup_CategoryURL
+|Math
+
+|Func_roundup_Desc
+|数値を切り上げて指定した桁数にします。
+
+|Func_second_Arg_0
+|Date_value
+
+|Func_second_ArgDesc_0
+|時刻値の秒を返します。
+
+|Func_second_Category
+|DateAndTime
+
+|Func_second_CategoryURL
+|Date_and_Time
+
+|Func_second_Desc
+|時刻値の秒を返します。
+
+|Func_seriessum_Arg_0
+|InputValue
+
+|Func_seriessum_Arg_1
+|InitialPower
+
+|Func_seriessum_Arg_2
+|Step
+
+|Func_seriessum_Arg_3
+|Coefficient{0}
+
+|Func_seriessum_ArgDesc_0
+|InputValue は、べき級数の入力値です。
+
+|Func_seriessum_ArgDesc_1
+|InitialPower は、InputValue のべき乗の指数です。
+
+|Func_seriessum_ArgDesc_2
+|Step は、一連の各期間でべき数の増加に使用される方法です。
+
+|Func_seriessum_ArgDesc_3
+|Coefficient1, Coefficient2, ..., CoefficientN は、乗算された InputValue の 各べき乗ごとによる一連の係数です。
+
+|Func_seriessum_Category
+|Math
+
+|Func_seriessum_CategoryURL
+|Math
+
+|Func_seriessum_Desc
+|一連のべき乗の合計を返します。
+
+|Func_sign_Arg_0
+|Number
+
+|Func_sign_ArgDesc_0
+|サインが返される数値。
+
+|Func_sign_Category
+|Math
+
+|Func_sign_CategoryURL
+|Math
+
+|Func_sign_Desc
+|数値のサインを返します。(-1、0、または 1)
+
+|Func_sin_Arg_0
+|number
+
+|Func_sin_ArgDesc_0
+|Number はサインを求める角度をラジアンで指定します。
+
+|Func_sin_Category
+|Math
+
+|Func_sin_CategoryURL
+|Math
+
+|Func_sin_Desc
+|指定された角度のサインを返します。
+
+|Func_sinh_Arg_0
+|number
+
+|Func_sinh_ArgDesc_0
+|number には実数を指定します。
+
+|Func_sinh_Category
+|Math
+
+|Func_sinh_CategoryURL
+|Math
+
+|Func_sinh_Desc
+|数値の双曲線正弦（ハイパーボリック サイン）を返します。
+
+|Func_sln_Arg_0
+|cost
+
+|Func_sln_Arg_1
+|salvage
+
+|Func_sln_Arg_2
+|life
+
+|Func_sln_ArgDesc_0
+|cost には、資産を購入した時点での価格を指定します。
+
+|Func_sln_ArgDesc_1
+|salvage には、耐用年数が終了した時点での資産の価格を指定します。
+
+|Func_sln_ArgDesc_2
+|life には、資産を償却する年数を指定します。
+
+|Func_sln_Category
+|Financial
+
+|Func_sln_CategoryURL
+|Financial
+
+|Func_sln_Desc
+|定額法（Straight-line Method）を使用して、資産の 1 期当たりの減価償却費を返します。
+
+|Func_sqrt_Arg_0
+|number
+
+|Func_sqrt_ArgDesc_0
+|number には、平方根を求める数値を指定します。
+
+|Func_sqrt_Category
+|Math
+
+|Func_sqrt_CategoryURL
+|Math
+
+|Func_sqrt_Desc
+|正の平方根を返します。
+
+|Func_sqrtpi_Arg_0
+|Number
+
+|Func_sqrtpi_ArgDesc_0
+|Pi で乗算される数値です。
+
+|Func_sqrtpi_Category
+|Math
+
+|Func_sqrtpi_CategoryURL
+|Math
+
+|Func_sqrtpi_Desc
+|指定した数値に Pi を乗じた平方根を返します。
+
+|Func_stdev_Arg_0
+|number{0}
+
+|Func_stdev_ArgDesc_0
+|number1、number2、...には、母集団の標本に対応する数値を指定します。引数は 1 から 30 個まで指定できます。
+
+|Func_stdev_Category
+|Statistical
+
+|Func_stdev_CategoryURL
+|Statistical
+
+|Func_stdev_Desc
+|母集団の標本の標準偏差を返します。
+
+|Func_sum_Arg_0
+|number{0}
+
+|Func_sum_ArgDesc_0
+|number1、number2、...には、合計を計算する数値を指定します。
+
+|Func_sum_Category
+|Math
+
+|Func_sum_CategoryURL
+|Math
+
+|Func_sum_Desc
+|セル範囲に含まれる数値をすべて合計します。
+
+|Func_syd_Arg_0
+|cost
+
+|Func_syd_Arg_1
+|salvage
+
+|Func_syd_Arg_2
+|life
+
+|Func_syd_Arg_3
+|per
+
+|Func_syd_ArgDesc_0
+|cost には、資産を購入した時点での価格を指定します。
+
+|Func_syd_ArgDesc_1
+|salvage には、耐用年数が終了した時点での資産の価格（資産の残存価額とも言います）を指定します。
+
+|Func_syd_ArgDesc_2
+|life には、資産を償却する年数（資産の耐用年数とも言います）を指定します。
+
+|Func_syd_ArgDesc_3
+|per には、減価償却費を求める期を指定します。
+
+|Func_syd_Category
+|Financial
+
+|Func_syd_CategoryURL
+|Financial
+
+|Func_syd_Desc
+|定額逓減法（Sum-of-Year's Digits Method）を使用して、特定の期における減価償却費を返します。
+
+|Func_tan_Arg_0
+|number
+
+|Func_tan_ArgDesc_0
+|number には、タンジェントを求める角度をラジアンで指定します。
+
+|Func_tan_Category
+|Math
+
+|Func_tan_CategoryURL
+|Math
+
+|Func_tan_Desc
+|指定された角度のタンジェントを返します。
+
+|Func_tanh_Arg_0
+|number
+
+|Func_tanh_ArgDesc_0
+|number には、双曲線逆正接を求める角度をラジアンで指定します。
+
+|Func_tanh_Category
+|Math
+
+|Func_tanh_CategoryURL
+|Math
+
+|Func_tanh_Desc
+|指定された角度の双曲線逆正接（ハイパーボリック タンジェント）を返します。
+
+|Func_time_Arg_0
+|hour
+
+|Func_time_Arg_1
+|minute
+
+|Func_time_Arg_2
+|second
+
+|Func_time_ArgDesc_0
+|hour には、時を表す数値を指定します。
+
+|Func_time_ArgDesc_1
+|minute には、分を表す数値を指定します。
+
+|Func_time_ArgDesc_2
+|second には、秒を表す数値を指定します。
+
+|Func_time_Category
+|DateAndTime
+
+|Func_time_CategoryURL
+|Date_and_Time
+
+|Func_time_Desc
+|指定された時刻を表す .NET DateTime 型のタイマー刻み数を返します。
+
+|Func_timevalue_Arg_0
+|time_text
+
+|Func_timevalue_ArgDesc_0
+|time_text には、時刻を表す文字列を .NET DateTime 形式で指定します。
+
+|Func_timevalue_Category
+|DateAndTime
+
+|Func_timevalue_CategoryURL
+|Date_and_Time
+
+|Func_timevalue_Desc
+|文字列で表された時刻に対応する小数を返します。
+
+|Func_today_Category
+|DateAndTime
+
+|Func_today_CategoryURL
+|Date_and_Time
+
+|Func_today_Desc
+|現在の日付を返します。この関数には引数はありません。
+
+|Func_trim_Arg_0
+|text
+
+|Func_trim_ArgDesc_0
+|text には、余分なスペースを削除する文字列を指定します。
+
+|Func_trim_Category
+|TextAndData
+
+|Func_trim_CategoryURL
+|Text_and_Data
+
+|Func_trim_Desc
+|文字列に複数のスペースが連続して含まれている場合、単語間のスペースを 1 つずつ残して、不要なスペースをすべて削除します。
+
+|Func_true_Category
+|Logical
+
+|Func_true_CategoryURL
+|Logical
+
+|Func_true_Desc
+|論理値 TRUE を返します。
+
+|Func_trunc_Arg_0
+|number
+
+|Func_trunc_Arg_1
+|num_digits
+
+|Func_trunc_ArgDesc_0
+|number には、小数部を切り捨てる数値を指定します。
+
+|Func_trunc_ArgDesc_1
+|number には、小数部を切り捨てる数値を指定します。num_digits のデフォルト値は 0（ゼロ）です。
+
+|Func_trunc_Category
+|Math
+
+|Func_trunc_CategoryURL
+|Math
+
+|Func_trunc_Desc
+|数値の小数部を切り捨てて、整数または指定した桁数に変換します。
+
+|Func_type_Arg_0
+|value
+
+|Func_type_ArgDesc_0
+|value には数値を指定します。
+
+|Func_type_Category
+|Information
+
+|Func_type_CategoryURL
+|Information
+
+|Func_type_Desc
+|データ型を表す数値を返します。
+
+|Func_upper_Arg_0
+|text
+
+|Func_upper_ArgDesc_0
+|text には、大文字に変換する文字列を指定します。
+
+|Func_upper_Category
+|TextAndData
+
+|Func_upper_CategoryURL
+|Text_and_Data
+
+|Func_upper_Desc
+|文字列に含まれる英字をすべて大文字に変換します。
+
+|Func_value_Arg_0
+|text
+
+|Func_value_ArgDesc_0
+|text には、変換する文字列を二重引用符で囲んで指定します。目的の文字列が入力されたセル参照を指定することもできます。
+
+|Func_value_Category
+|TextAndData
+
+|Func_value_CategoryURL
+|Text_and_Data
+
+|Func_value_Desc
+|数値を表す文字列を数値に変換します。
+
+|Func_var_Arg_0
+|number{0}
+
+|Func_var_ArgDesc_0
+|number1、number2、...には、母集団の標本に対応する数値を指定します。引数は 1 から 30 個まで指定できます。
+
+|Func_var_Category
+|Statistical
+
+|Func_var_CategoryURL
+|Statistical
+
+|Func_var_Desc
+|母集団の標本の分散を返します。
+
+|Func_weekday_Arg_0
+|Date
+
+|Func_weekday_Arg_1
+|returnType
+
+|Func_weekday_ArgDesc_0
+|Date は日付です。
+
+|Func_weekday_ArgDesc_1
+|ReturnType は、週日に使用される番号方式を決定します。1 (デフォルト) = 日曜日 (1) から土曜日 (7) まで 2 = 月曜日 (1) から日曜日 (7) まで 3 = 月曜日 (0) から日曜日 (6) まで
+
+|Func_weekday_Category
+|DateAndTime
+
+|Func_weekday_CategoryURL
+|DateAndTime
+
+|Func_weekday_Desc
+|指定した日の週日を表示する番号を返します。
+
+|Func_weeknum_Arg_0
+|date
+
+|Func_weeknum_Arg_1
+|returnType
+
+|Func_weeknum_ArgDesc_0
+|Date は日付です。
+
+|Func_weeknum_ArgDesc_1
+|ReturnType は、週の開始日を決定します。1 (デフォルト) = 日曜日が週の開始日です。2 = 月曜日が週の開始日です。
+
+|Func_weeknum_Category
+|DateAndTime
+
+|Func_weeknum_CategoryURL
+|DateAndTime
+
+|Func_weeknum_Desc
+|指定した日付が何週目かを返します。
+
+|Func_workday_Arg_0
+|startDate
+
+|Func_workday_Arg_1
+|days
+
+|Func_workday_Arg_2
+|holiday{0}
+
+|Func_workday_ArgDesc_0
+|StartDate は、開始する日付です。
+
+|Func_workday_ArgDesc_1
+|Days は、開始日からオフセットする稼働日数です。
+
+|Func_workday_ArgDesc_2
+|Holiday1、holiday2、...、holidayN は、日付または非稼働日とみなされる日付を含む参照範囲任意の数値です。
+
+|Func_workday_Category
+|DateAndTime
+
+|Func_workday_CategoryURL
+|DateAndTime
+
+|Func_workday_Desc
+|任意の指定した休日を除く、指定した日付から稼働日までの日数を返します。
+
+|Func_year_Arg_0
+|Date_value
+
+|Func_year_ArgDesc_0
+|date_value には、特定の日付を表す .NET DateTime 型の値を指定します。
+
+|Func_year_Category
+|DateAndTime
+
+|Func_year_CategoryURL
+|Date_and_Time
+
+|Func_year_Desc
+|日付値の年を返します。
+
+|Func_yearfrac_Arg_0
+|StartDate
+
+|Func_yearfrac_Arg_1
+|EndDate
+
+|Func_yearfrac_Arg_2
+|Basis
+
+|Func_yearfrac_ArgDesc_0
+|StartDate は、範囲内での開始日です。
+
+|Func_yearfrac_ArgDesc_1
+|EndDate は、範囲内での終了日です。
+
+|Func_yearfrac_ArgDesc_2
+|Basis は、日数計算の基準を決定します。0 (デフォルト) = 30日/360日（米国NASD方式） 1 = 実際の日数/実際の日数 2 = 実際の日数/360日 3 = 実際の日数/365日 4 = 30日/360日（ヨーロッパ方式）
+
+|Func_yearfrac_Category
+|DateAndTime
+
+|Func_yearfrac_CategoryURL
+|DateAndTime
+
+|Func_yearfrac_Desc
+|指定開始日と指定終了日の間で指定した年の一部を表す割合を返します。
+
+|NamedReference_Category_All
+|(すべて)
+
+|NamedReference_Category_Unassigned
+|(未割り当て)
+
+|Operand_Category_Controls
+|コントロール
+
+|Operand_Category_NamedReferences
+|名前付き参照
+
+|TokenPattern_ArgumentSeparator
+|ARG_SEP
+
+|TokenPattern_LeftParen
+|LEFT_PAREN
+
+|TokenPattern_Number
+|NUMBER
+
+|TokenPattern_OperatorConcatenate
+|OP_CONCAT
+
+|TokenPattern_OperatorDivide
+|OP_DIV
+
+|TokenPattern_OperatorDot
+|OP_DOT
+
+|TokenPattern_OperatorEqual
+|OP_EQUAL
+
+|TokenPattern_OperatorExponent
+|OP_EXPON
+
+|TokenPattern_OperatorGreaterThan
+|OP_GT
+
+|TokenPattern_OperatorGreaterThanEqual
+|OP_GE
+
+|TokenPattern_OperatorLessThan
+|OP_LT
+
+|TokenPattern_OperatorLessThanEqual
+|OP_LE
+
+|TokenPattern_OperatorMinus
+|OP_MINUS
+
+|TokenPattern_OperatorMultiply
+|OP_TIMES
+
+|TokenPattern_OperatorNotEqual
+|OP_NE
+
+|TokenPattern_OperatorNotEqualAlternate
+|OP_ALT_NE
+
+|TokenPattern_OperatorPercent
+|OP_PERCENT
+
+|TokenPattern_OperatorPlus
+|OP_PLUS
+
+|TokenPattern_QuotedString
+|QUOTED_STRING
+
+|TokenPattern_RangeSeparator
+|RANGE_SEP
+
+|TokenPattern_Reference
+|REFERENCE
+
+|TokenPattern_RightParen
+|RIGHT_PAREN
+
+|TokenPattern_Text
+|TEXT
+
+|TokenPattern_WhiteSpace
+|WHITESPACE
+
+|====

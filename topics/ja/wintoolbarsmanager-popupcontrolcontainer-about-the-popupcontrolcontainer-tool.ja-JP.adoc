@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupcontrolcontainer-about-the-popupcontrolcontainer-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{7E6234D6-7F2E-4BE9-9DDC-1B0D1827CF68}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupControlContainer ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== PopupControlContainer
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcontrolcontainertool.html[PopupControlContainerTool]"]
+
+派生元：Toolbase $$->$$ PopupToolBase $$->$$ TearawayToolBase $$->$$ PopupControlContainerToolBase
+
+説明：PopupControlContainer ツールで、ポップアップ ウィンドウに .NET コントロールを組み込むことができます。すべての TearawayToolBase 派生ツールと同様に、「AllowTearaway」と呼ばれるプロパティを持っています。このプロパティを使用すると、カラーピッカーを「切り離して」フローティングできます。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_11.png[]

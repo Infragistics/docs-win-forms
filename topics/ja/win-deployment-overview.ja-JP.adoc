@@ -1,0 +1,935 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-deployment-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "{00374AF4-A5DF-446D-BE33-D46BBC83552F}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= 配置の概要
+
+{ProductName} ツールセットのツールを含むアプリケーションを配備する最初の手順として、配備パッケージの一部として含む必要があるリソースを決定しなければなりません。以下のリンクをクリックすると、各要素が必要とするリソースを学習します。
+
+$$.NET$$ アプリケーションを配備する時、実行ファイルに加えて特定のファイルを配布する必要があります。アプリケーションに 1 つ以上の Infragistics 要素を含む場合、アプリケーションの一部として 1 つ以上の Infragistics アセンブリ ファイルを配布または配備する必要があります。このトピックでは、再配布する必要があるファイルの概要を述べます。
+
+[NOTE]
+====
+注: 以降の .NET Framework バージョン番号 (Infragistics3- など) で、このトピックにリストされたファイルは、再配布可能です。このトピックに記載されていないファイルは、再配布不可能と見なしてください。Infragistics 製品に含まれているファイルで一覧にないファイルは配布できません。Infagistics 製品のライセンスのない他のマシンへのコピー、移動、共有が禁止されています。
+====
+
+== すべてのコントロール/コンポーネントで必要なアセンブリ
+
+各コントロール/コンポーネントにリストされる個々のアセンブリ ファイルに加えて、{ProductName} コントロール/コンポーネントを配備するには次のファイルの再配布も必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Shared.v{ProductVersion}.dll
+|$$.NET$$ 用の Infragistics Shared サポート アセンブリ
+
+|{ApiPlatform}Win.v{ProductVersion}.dll
+|$$.NET$$ 用の {ProductName} サポート アセンブリ
+
+|====
+
+以下のコントロールおよびコンポーネントは Win または Shared アセンブリを必要としません。
+
+* Infragistics Syntax Parsing Engine
+* Infragistics ドキュメント エンジン
+* Infragistics Excel エンジン
+* Infragistics Word ライブラリ
+* WinChart
+* WinGauge (Shared は*必要*ですが、Win では*不要* )
+
+== インク対応アプリケーションで必要なアセンブリ
+
+TabletPC プラットフォームでのインクの使用をサポートするアプリケーションの場合には、インク機能を有効にするために次のアセンブリの配布も必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinInkProvider.Ink17.v{ProductVersion}.dll
+|Tablet PC Platform SDK *v1.7* に使用する Infragistics Ink Provider アセンブリです。
+
+|====
+
+== 配備オプション
+
+配備にどのリソースを含める必要があるかを決定したら、以下の配備オプションを使用してどのように配備するかを学ぶことができます。
+
+* link:win-using-xcopy-deployment.html[XCopy]
+* link:win-using-global-assembly-cache-gac-deployment.html[GAC を使用した配備]
+* link:win-using-no-touch-deployment.html[ノータッチ配備]
+
+== 個々のコントロール/コンポーネントで必要なアセンブリ
+
+以下の表は、それぞれの個々のコントロールまたはコンポーネントを配備する時にどのアセンブリが必要であるかを識別します。
+
+== AppStylistRuntime
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.AppStylistSupport.v{ProductVersion}.dll
+|AppStylistRuntime コンポーネントを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinMisc コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}.dll
+|WinEditor コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinListView.v{ProductVersion}.dll
+|WinListView コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}.dll
+|WinTab コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion}.dll
+|WinToolbarsManager コンポーネントを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinTree.v{ProductVersion}.dll
+|WinTree コントロールを含む .NET アセンブリ。
+
+|====
+
+== InboxControlStyler
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== Infragistics Document Engine
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Documents.v{ProductVersion}.dll
+|Infragistics Document Engine コード ライブラリを含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.Core.v{ProductVersion}.dll
+|OfficeML 互換ドキュメントのプロパティを含む .NET アセンブリ。
+
+|====
+
+== Infragistics Math Library
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Math.v{ProductVersion}.dll
+|Infragistics Math Library を含む .NET アセンブリ。
+
+|====
+
+== Infragistics Syntax Parsing Engine
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Documents.TextDocument.v{ProductVersion}.dll
+|Infragistics Syntax Parsing Engine を含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.TextDocument.CSharp.v{ProductVersion}.dll
+|Infragistics Syntax Parsing Engine の C# 言語の解析要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.TextDocument.TSql.v{ProductVersion}.dll
+|Infragistics Syntax Parsing Engine の TSQL 言語の解析要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.TextDocument.VisualBasic.v{ProductVersion}.dll
+|Infragistics Syntax Parsing Engine の Visual Basic 言語の解析要素を含む .NET アセンブリ。
+
+|====
+
+== Infragistics Undo/Redo Framework
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Undo.v{ProductVersion}.dll
+|Infragistics Undo/Redo Framework を含む .NET アセンブリ。
+
+|====
+
+== Infragistics Word ライブラリ
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Documents.Word.v{ProductVersion}.dll
+|Infragistics Word Library を含む .NET アセンブリ。
+
+|====
+
+== UltraDataChart™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}DataVisualization.Shared.dll
+|$$.NET$$ の Infragistics DataVisualization 共有サポート アセンブリ。
+
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion}.dll
+|UltraDataChart コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.Portable.Core.dll
+|$$.NET$$ の {ProductName} Portable Core アセンブリ。
+
+|====
+
+== WinActivityIndicator
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== WinAnimation
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinAnimation コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinButton
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinButton コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinCalcManager
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinCalcManager.v{ProductVersion}.dll
+|WebCalcManager CalcEngine を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinCalcManager.v{ProductVersion}.FormulaBuilder.dll
+|WebCalcManager FormulaBuilder を含む .NET アセンブリ。
+
+|====
+
+== WinCarousel™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinCarousel.v{ProductVersion}.dll
+|すべての WinCarousel 要素を含む .NET アセンブリ。
+
+|====
+
+== WinChart
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinChart.v{ProductVersion}.dll
+|WinChart 要素を含む .NET アセンブリ。
+
+|====
+
+== WinCombo
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinCombo 要素を含む .NET アセンブリ。
+
+|====
+
+== WinDataSource
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinDataSource.v{ProductVersion}.dll
+|WinDataSource コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinDesktopAlert
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinDesktopAlert コンポーネントを含む .NET アセンブリ。
+
+|====
+
+== WinDockManager
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinDock.v{ProductVersion}.dll
+|WinDockManager コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinDropDown
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinDropDown コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinEditors
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}.dll
+|WinEditor コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinExpandableGroupBox
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinExpandableGroupBox コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinExplorerBar
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinExplorerBar.v{ProductVersion}.dll
+|WinExplorerBar コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinFlowLayoutManager
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinFlowLayoutManager コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinFormattedLinkLabel
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinFormattedLinkLabelコントロールを含む .NET アセンブリ。
+
+|====
+
+== WinFormattedTextEditor
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinFormattedTextEditor コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinFormattedTextWordWriter
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinFormattedTextEditor コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.IO.v{ProductVersion}.dll
+|Word Library を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinFormattedText.WordWriter.v{ProductVersion}.dll
+|WinFormattedTextWordWriter コンポーネントを含む .NET アセンブリ。
+
+|====
+
+== WinGanttView
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Win.UltraWinGanttView.v{ProductVersion}.dll
+|WinGanttView 要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}.dll
+|WinSchedule コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGrid 要素を含む .NET アセンブリ。
+
+|====
+
+== WinGauge
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Win.UltraWinGauge.v{ProductVersion}.dll
+|WinGauge 要素を含む .NET アセンブリ。
+
+|====
+
+== WinGrid
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGrid 要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinMaskedEdit.v{ProductVersion}.dll
+|WinMaskedEdit 要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinGrid.ExcelExport.v{ProductVersion}.dll
+|Excel スプレッド シートのエクスポート機能を含む .NET アセンブリ。
+
+|{ApiPlatform}Excel.v{ProductVersion}.dll
+|Infragistics Excel Engine を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.v{ProductVersion}.SupportDialogs.dll
+|Infragistics Excel Engine の UltraGridFilterUIProvider コンポーネントを含む .NET アセンブリ。
+
+|====
+
+== WinGridBagLayoutManager
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinGridBagLayoutManager コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinGridBagLayoutPanel
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinGridBagLayoutPanel コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinGridCellProxy
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGridCellProxy コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinGridDocumentExporter
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGrid コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinGrid.DocumentExport.v{ProductVersion}.dll
+|PDF のエクスポート機能を含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.Reports.v{ProductVersion}.dll
+|Infragistics Document Engine を含む .NET アセンブリ。
+
+|====
+
+== WinGridExcelExporter
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGrid 要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinGrid.ExcelExport.v{ProductVersion}.dll
+|Excel スプレッド シートのエクスポート機能を含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.Excel.v{ProductVersion}.dll
+|Infragistics Excel Engine を含む .NET アセンブリ。
+
+|====
+
+== WinGridPrintDocument
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGrid コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinGridRowEditTemplate
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGridRowEditTemplate コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinGridWordWriter
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}.dll
+|WinGrid 要素を含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinGrid.WordWriter.v{ProductVersion}.dll
+|Word のライター機能を含む .NET アセンブリ。
+
+|{ApiPlatform}Documents.IO.v{ProductVersion}.dll
+|Infragistics Word Library を含む .NET アセンブリ。
+
+|====
+
+== WinGroupBox
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinGroupBox コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinInkProvider
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinInkProvider.Ink17.v{ProductVersion}.dll
+|Tablet PC Platform SDK *v1.7* に使用する Infragistics Ink Provider アセンブリです。 
+
+Tablet PC Platform SDK.
+
+|====
+
+== WinLabel
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinLabel コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinListBar
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinListbar.v{ProductVersion}.dll
+|WinListbar コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinListView
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinListView.v{ProductVersion}.dll
+|WinListView コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinLiveTileView™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinLiveTileView.v{ProductVersion}.dll
+|WinLiveTileView コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinMaskedEdit
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinMaskedEdit.v{ProductVersion}.dll
+|WinMaskedEdit コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinMessageBoxManager
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== WinNavigationBar
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinNavigationBar コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinPanel
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinPanel コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinPivotGrid™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Olap.Core.v{ProductVersion}.dll
+|OLAP クラスを含む .NET アセンブリ。
+
+|{ApiPlatform}Olap.DataProvider.Adomd.v{ProductVersion}.dll
+|OLAP ADOMD データ プロバイダーを表す .NET アセンブリ。
+
+|{ApiPlatform}Olap.DataSource.Mdx.v{ProductVersion}.dll
+|OLAP MDX データ セレクターを表す .NET アセンブリ。
+
+|{ApiPlatform}Olap.DataSource.v{ProductVersion}.dll
+|OLAP データ ソースの接続を表す .NET アセンブリ。
+
+|{ApiPlatform}Olap.DataSource.Xmla.v{ProductVersion}.dll
+|OLAP XMLA データ ソースを表す .NET アセンブリ。
+
+|{ApiPlatform}Olap.DataSource.Flat.v{ProductVersion}.dll
+|OLAP フラット データ ソースを表す .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinPivotGrid.v{ProductVersion}.dll
+|WinPivotGrid コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}.dll
+|WinEditor コントロールを表す .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinTree.v{ProductVersion}.dll
+|WinTree コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinPopupControlContainer
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinPopupControlContainer コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinPrintDocument
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== WinPrintPreview
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinPrintPreview コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinPrintPreviewDialog
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinPrintPreview コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinPrintPreviewDialog.v{ProductVersion}.dll
+|WinPrintPreviewDialog コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion}.dll
+|WinStatusBar コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion}.dll
+|WinToolbarsManager コンポーネントを含む .NET アセンブリ。
+
+|====
+
+== WinPrintPreviewThumbnail
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinPrintPreviewThumbnail コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinProgressBar
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== WinRadialMenu™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinRadialMenu.v{ProductVersion}.dll
+|WinRadialMenu コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinSchedule
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}.dll
+|WinSchedule コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinMisc コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}.dll
+|WinEditor コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}.dll
+|WinTab コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion}.dll
+|WinToolbarsManager コンポーネントを含む .NET アセンブリ。
+
+|====
+
+== WinScrollBar
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== WinSpellChecker
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinSpellChecker.v{ProductVersion}.dll
+|WinSpellChecker コンポーネントを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinMisc コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}.dll
+|WinEditor コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinListView.v{ProductVersion}.dll
+|WinListView コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinSplitter
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinSplitter コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinStatusBar
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion}.dll
+|WinStatusBar コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinTab
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}.dll
+|WinTab および WinTabStrip コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinTabbedMdiManager
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinTabbedMdi.v{ProductVersion}.dll
+|WinTabbedMDIManager コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinTabStrip
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}.dll
+|WinTab および WinTabStrip コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinTilePanel
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinTilePanel コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinTimelineView
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|
+
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}.dll
+|WinSchedule コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinToolbarsManager
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion}.dll
+|WinToolbarsManager コンポーネントを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinMisc コントロールおよびコンポーネントを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}.dll
+|WinEditors コントロールおよびコンポーネントを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion}.dll
+|WinStatusBar コントロールを含む .NET アセンブリ。
+
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}.dll
+|WinTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinToolTipManager
+
+Win アセンブリに配置されています。追加のファイルは不要です。
+
+== WinTree
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinTree.v{ProductVersion}.dll
+|WinTree コントロールを含む .NET アセンブリ。
+
+|====
+
+== WinValidator
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.Misc.v{ProductVersion}.dll
+|WinValidator コントロールを含む .NET アセンブリ。
+
+|====

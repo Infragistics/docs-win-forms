@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-2008-2-new-treemap-chart-added",
+    "controlName": [],
+    "tags": [],
+    "guid": "{68C3883B-174E-4C66-B0AA-2D3C0E31827C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 追加された新しい Treemap グラフ
+
+新しいツリーマップ グラフを WinChart™ コンポーネントに追加しました。
+
+ツリーマップ グラフは、四角形の領域に大きい階層のデータ セットを表示するために使用されます。ツリーマップ グラフは多くのディレクトリ レベルに数千のファイルが格納されているハードドライブのコンテンツを視覚化するために通常使用されます。
+
+image::images/Chart_About_Treemap_Chart_01.png[Chart_About_Treemap_Chart_01]
+
+== 関連トピック
+
+link:chart-treemap-chart-2d.html[ツリーマップ グラフ]

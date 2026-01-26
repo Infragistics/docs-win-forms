@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-navigation-toolbar-show-the-navigation-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Navigation"],
+    "guid": "{82402EA5-86E8-4C98-A4F5-CA9BAF7821FA}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-09T12:13:01Z"
+}
+|metadata|
+////
+
+= ナビゲーション ツールバーの表示
+
+デフォルトでは、ナビゲーション ツールバーの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~visible.html[Visible] プロパティは False に設定されます。これは、ツールバーが非表示という意味です。 link:wintoolbarsmanager-working-with-the-ribbon.html[リボン]または link:wintoolbarsmanager-creating-a-minitoolbar.html[ミニ ツールバー]と異なり、ナビゲーション ツールバーは link:wintoolbarsmanager-in-place-designer.html[WinToolbarsManager のインプレース デザイナ]にボタンを持たないので、ツールバーを素早く表示できます。ultraToolbarsManager1 コンポーネントを選択して、[プロパティ] ウィンドウで link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar.html[NavigationToolbar] オブジェクトから Visible プロパティを見つけて True に設定します。フォームの Load イベントまたはアプリケーションのロジックに適するメソッド呼び出しでランタイムにナビゲーション ツールバーの可視性を設定することもできます。
+
+以下のコードは、ナビゲーション ツールバーが表示できるようにします。
+
+[NOTE]
+====
+*注:* ナビゲーション ツールバーは、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~office2007uicompatibility.html[Office2007UICompatibility] プロパティが True に設定されリボンが表示される場合は表示されません。
+====
+
+*Visual Basic の場合：*
+
+----
+Me.UltraToolbarsManager1.NavigationToolbar.Visible = True
+----
+
+*C# の場合：*
+
+----
+this.ultraToolbarsManager1.NavigationToolbar.Visible = true;
+----

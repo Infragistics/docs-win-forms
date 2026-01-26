@@ -1,0 +1,214 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-formatting-and-appearance-based-performance-improvement",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Performance"],
+    "guid": "{F3AC6DA5-1787-402C-8D12-A36C8856F6EF}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= パフォーマンス改善にもとづくフォーマッティングおよび外観
+
+=== 描画
+
+Wingrid™ または任意のその他のコントロールを描画することは、真剣に考慮しないとパフォーマンスの問題の原因となる可能性があります。ランタイムに複数の操作がコード内のコントロールで実行されており、それぞれがコントロールを全体的にまたは部分的に無効化する原因となる場合にこれは特に可能性が高くなります。たとえば、グリッドの各行をループしてセルの値を更新するコードを想定します。
+
+*Visual Basic の場合：*
+[source, vb]
+For Each row As UltraGridRow In Me.ultraGrid1.Rows
+row.Cells("Price").Value = CDbl(row.Cells("Price").Value) + 1
+Next
+
+
+*C# の場合：*
+[source, csharp]
+foreach (UltraGridRow row in this.ultraGrid1.Rows)
+{
+row. Cells ["Price"].Value = (double) row. Cells ["Price"].Value + 1.0;
+}
+
+
+セルが更新されるたびに、グリッドのある部分は無効化されて何度も画面上で再描画できます。このような場合に、ループが開始する前に描画を無効にして、すべての操作が完了したら再度有効にすることによって、グリッドが明示的に描画されないようにできます。このロジックを使用することによって、何百回もグリッドを更新することができ、完了して描画を再度有効にする時に一度再描画するだけです。これだけで CPU の使用を大幅に節約し、パフォーマンスを大幅に高めます。これは pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~beginupdate.html[BeginUpdate]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~endupdate.html[EndUpdate]"]  メソッドですべて達成できます。
+
+.注:
+[NOTE]
+最後にここでブロックが使用されて、何が発生しようとも、グリッドの描画が最終的に常に戻ることを確認します。
+
+*Visual Basic の場合：*
+[source, vb]
+
+Me.ultraGrid1.BeginUpdate()
+Try
+For Each row As UltraGridRow In Me.ultraGrid1.Rows
+row.Cells("Price").Value = CDbl(row.Cells("Price").Value) + 1R
+Next
+Finally
+Me.ultraGrid1.EndUpdate()
+End Try
+
+*C# の場合：*
+[source, csharp]
+
+this.ultraGrid1.BeginUpdate();
+try
+{
+foreach (UltraGridRow row in this.ultraGrid1.Rows)
+{
+row.Cells["Price"].Value = (double)row.Cells["Price"].Value + 1.0;
+}
+}
+finally
+{
+this.ultraGrid1.EndUpdate();
+}
+
+
+
+. 行の同期
++
+グリッドの DataSource に直接変更を行った時に、ほとんどのデータ ソースはグリッドに変更を通知し、その結果描画しなくてもグリッドは内部処理を実行します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~suspendrowsynchronization.html[SuspendRowSynchronization]"] /pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~resumerowsynchronization.html[ResumeRowSynchronization]"]  メソッドを使用して、この内部処理をオフにして、パフォーマンスを取ることができます。これらのメソッドは、BeginUpdate と EndUpdate でブロック内で常に呼び出すべきです。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.ultraGrid1.BeginUpdate() 
+Me.ultraGrid1.SuspendRowSynchronization() 
+Try 
+' グリッドがバインドされる DataTable を取得します。これはデータ ソースが DataTable で
+' あることを前提とします。 
+Dim dt As DataTable = DirectCast(Me.ultraGrid1.DataSource, DataTable)
+    For Each row As DataRow In dt.Rows 
+        row("Price") = CDbl(row("Price")) + 1R 
+    Next 
+Finally 
+    Me.ultraGrid1.ResumeRowSynchronization() 
+    Me.ultraGrid1.EndUpdate() 
+End Try
++
+*C# の場合：*
+[source, csharp]
+this.ultraGrid1.BeginUpdate ();
+this.ultraGrid1.SuspendRowSynchronization ();
+try
+{
+// グリッドがバインドされる DataTable を取得します。これはデータ ソースが DataTable で
+// あることを前提とします。
+DataTable dt = (DataTable)this.ultraGrid1.DataSource;
+foreach (DataRow row in dt.Rows)
+{
+row["Price"] = (double)row["Price"] + 1.0;
+}
+}
+finally
+{
+this.ultraGrid1.ResumeRowSynchronization();
+this.ultraGrid1.EndUpdate();
+}
+
+
+. CellDisplayStyle プロパティ
++
+デフォルトで、グリッドのすべてのセルはエディターを使用して値を表示および編集します。エディターは多くの能力と柔軟性を持っており、valuelist、カラー ピッカー、日付ドロップダウン、マスキング、チェックボックス、ボタンおよびその他の多くのエディター スタイルを提供します。しかし、これらすべての機能のためにオーバーヘッドが余分にかかり、描画をより複雑にしています。アプリケーションがランタイムにどのような機能を必要とし、またどのような機能を必要としないのかをグリッドは知ることができないため、デフォルトですべての機能が有効となります。ただし、列で特定の機能を使用しないことが分かっている場合には、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~celldisplaystyle.html[CellDisplayStyle]"]  プロパティを使用して一部の機能をオフにできます。
+
+. *EditAreaDisplayStyle プロパティ*
++
+セルにアタッチされた WinDropDown (または WinCombo) から項目を選択すると、項目の外観が WinGrid にコピーされますたとえば、WinDropDown 項目リストに画像がある場合、DropDown から該当する項目を選択すると画像は WinGrid セルに表示されます。この操作を行う WinDropDown がリストから最大の画像を検索しセルを適切に配置しますこの検索プロセスは WinGrid の描画を遅延することがあります。したがって、WinDropDown の  pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~editareadisplaystyle.html[EditAreaDisplayStyle]"] プロパティを DisplayText に設定することによって、WinGrid セルがテキストのみを表示し、WinDropDown リストから選択された項目に基づいた画像の表示をしないようにできます。
+
+
+. ValueList
++
+グリッドにおけるスピードダウンのもうひとつの一般的な原因は ValueLists の不適切な使用です（ValueList、BindableValueList、UltraCombo、UltraComboEditor および UltraDropDown を含む）。ValueList はセルでドロップダウン リストを提供できます。特に DataValue/DisplayValue 機能が使用されグリッドが値をユーザー フレンドリーな表示テキストに変換する必要がある場合に、グリッドがリストを非常に頻繁に検索する必要があることを実現することが重要です。
+
+.. データ型が一致することを確認します
++
+ValueList の DataValue 値が実際に対応するグリッド セルの値と異なる DataType の場合、これはいくつかの理由でパフォーマンスの問題を発生する可能性があります。第一にグリッドはひとつのデータ型から別のデータ型に値を変換します。第二に、この変換プロセスの結果 InvalidCastException になる場合があります。これらの例外はグリッドによって取得および処理されますが、これらの例外が取得および処理される時でもパフォーマンスが非常に犠牲になります。ValueList の DataValues がグリッドの値と正確に同じデータ型であることを確認することが重要です。 
+
+.. すべてのグリッド セル値がリストに存在することを確認します
++
+もうひとつの一般的な ValueList の落とし穴は、グリッド セルの値がリストに存在しない時です。たとえば、1 から 100 の範囲の整数値を持つグリッドの列と 1 から 100 の値を持つ列に関連付けられた ValueList を検討してみましょう。これでいいのですが、平均で描画するセルごとにリスト内の一致する項目を見つけるためにグリッドは 50 回比較を実行することが必要となります。しかし今度は列のすべてのセルが 0 の値で開始することを想定します。この場合、項目がリストに存在しないことを判断する前に、グリッドは描画するセルごとにすべての 100 の値リストを検索する必要があります。0 の値を ValueList に追加するとこの問題を多少とも軽減します。 
+
+.. バイナリ検索
++
+UltraDropDown コントロールにはバイナリ検索機能があります。バイナリ検索を実行するために、DropDown はリストに DisplayValues の内部のソート済みリストを保持する必要があります。これは、リストをビルドしなければならないために初めてドロップダウンが使用される時に小さいパフォーマンス ヒットがあることを意味します。しかしその後のすべての検索はリニア検索よりも遙かに速くなります。したがって、UltraDropDown の使用は小さい初期のヒットを犠牲として大幅にアプリケーションのパフォーマンスを高めることができます。 
++
+.注:
+[NOTE]
+UltraDropDown コントロールには DropDownSearchMethod というプロパティがあり、デフォルトで Binary に設定されていますが、バイナリ検索が必要ではない場合には Linear に設定できます。
+
+
+. 再帰
++
+WinGrid はデータ ソースをドリルダウンして、すべてのレベルのために CurrencyManager を作成します。グリッドが再帰的データ ソースにバインドされる場合、これはグリッドがデフォルトで 100 レベルの CurrencyManagers を作成することを意味します。100 という数が pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~maxbanddepth.html[MaxBandDepth]"]  プロパティのデフォルトです。データ ソースの各レベルの深さは対数スケールの CurrencyManagers の数を増やします。したがって最初のレベルのグリッドが必要とする CurrencyManager はひとつだけです。二番目のレベルは最初のレベルの行ごとに CurrencyManager をひとつ必要とします。深さの第三のレベルは二番目のレベルの行ごとに CurrencyManager をひとつ必要とするというようになります。これはすぐに巨大なメモリー フットプリントとなる可能性があるため、グリッドが CurrencyManager の現在の位置と現在の行を同期することが非常に困難になります。
++
+この種類の問題を多少なりとも解決するために 2 つの対策を実行できます。
++
+.. 第一は MaxBandDepth をより適切な数に設定することです。データを 100 レベルの深さまでドリルダウンすることが有用だと思うエンド ユーザーは非常に少ないです。そこまで達するまでにどのレベルにいるのかわからなくなってしまいます。通常 5 から 8 の間の値が適切な深さのデータを表示することとうまく実行するグリッドを持つことの良好なバランスを提供します。
+
+.. 第二は link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~syncwithcurrencymanager.html[SyncWithCurrencyManager] を False に設定することです。これは CurrencyManager の現在の位置と現在の行を同期しないようにグリッドに指示します。これは、グリッドと同じデータ ソースにバインドされたその他のコントロールがアプリケーションにある場合、グリッドの現在の行を変更しても CurrencyManager を配置しないため、その他のコントロールを更新しないことを意味します。しかし非常に多くの場合これは必要ではありません。
+
+. BindingSource の使用
++
+Visual Studio 2005 (または .Net Framework CLR 2.0 ではよりはっきりと)では、.Net BindingManager にいくつかの変更が行われました。特定の条件下で DataTable または DataSet に直接バインドされるとグリッドでパフォーマンスの問題を発生させる場合があります。BindingSource でグリッドのデータ ソースをラップするとこれらの問題を修正します。
++
+*Visual Basic の場合：*
+[source, vb]
+BindingSource bs = new BindingSource(ds, "TableName");
+this.ultraGrid1.DataSource = bs;
+
++
+*C# の場合：*
+[source, csharp]
+BindingSource bs = new BindingSource(ds, "TableName");
+this.ultraGrid1.DataSource = bs;
+
+
+. 例外
++
+上記に簡単に述べたように（ValueLists で）、例外が取得および処理される場合であっても、スローされた例外はパフォーマンスに大きい影響がある場合があります。したがって、すべてのランタイムの例外でブレイクするように Visual Studio IDE を設定し、発生する可能性がある任意の例外を公開することが賢明な場合が多々あります。例外が発生する場合、発生場所が例外を回避する方法についての情報を提供することが多々あります。
+
+. 遅延スクロール
++
+WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~scrollstyle.html[Scrollstyle]"]  プロパティを Deferred に設定するよってスクロールが完了すると WinGrid は行を描画します。これで大量のレコードを処理する時にアプリケーションの使いやすさが大幅に向上します。
++
+遅延モードでは、スクロールバーがドラッグされるときに WinGrid の表示は更新されません。スクロールバーのドラッグを中止してスクロールボックス トラックを放した時のみに更新されます。スクロールボックス トラックが放されるまで行情報が分からないため、スクロール チップが代わりに提供されます。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.ultraGrid1.DisplayLayout.ScrollStyle = ScrollStyle.Deferred
+
++
+*C# の場合：*
+[source, csharp]
+this.ultraGrid1.DisplayLayout.ScrollStyle = ScrollStyle.Deferred;
+
+
+. 常に展開インジケータを表示
++
+子レコードが親行に存在するかどうかによって行展開インジケータを表示または非表示にできます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~expansionindicator.html[ShowExpansionIndicator]"]  プロパティを always に設定すると、すべてのバンドに対して展開インジケータを常に表示します。これによって任意の子レコードのチェックをするために親レコードごとのスキャニングを回避するため、WinGrid のパフォーマンスを改善します。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.ultraGrid1.DisplayLayout.Override.ExpansionIndicator= Infragistics.Win.UltraWinGrid.ShowExpansionIndicator.Always
+
++
+*C# の場合：*
+[source, csharp]
+this.ultraGrid1.DisplayLayout.Override.ExpansionIndicator =
+Infragistics.Win.UltraWinGrid.ShowExpansionIndicator.Always;
+
+
+. CellHottrackInvalidationStyle
++
+WinGrid は、マウスでセルを入力またはキャンセルすると、常にセルを無効にします。これはセル自体を再描画します。多くの場合、実際には何も変化がなく、無効化が一切必要でないことが分かります（視覚的または基本データにおいて）。パフォーマンスを向上するために、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~cellhottrackinvalidationstyle.html[CellHottrackInvalidationStyle]"]  を Never に設定することができます。これで WinGrid はセルを無効にしなくなるので、WinGrid はセルを再描画しません。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.ultraGrid1.DisplayLayout.CellHottrackInvalidationStyle= Infragistics.Win.UltraWinGrid.CellHottrackInvalidationStyle.Never
++
+*C# の場合：*
+[source, csharp]
+this.ultraGrid1.DisplayLayout.CellHottrackInvalidationStyle= 
+Infragistics.Win.UltraWinGrid.CellHottrackInvalidationStyle.Never;

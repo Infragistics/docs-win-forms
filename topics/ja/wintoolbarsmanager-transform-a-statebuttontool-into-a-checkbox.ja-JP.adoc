@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-transform-a-statebuttontool-into-a-checkbox",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{12D54D33-4C0D-440F-BEB8-4C79E0CC94F7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= StateButtonTool をチェックボックスに変換
+
+{ProductName} 2007 Volume 1 以前のバージョンでは、ツールバーにチェックボックスまたはオプション セットを配置する唯一の方法は、コントロール コンテナで WinCheckEditor または WinOptionSet コントロールを使用することでした。しかし、コントロール コンテナはリボンでサポートされませんでした。ただし、ひとつのシンプルなプロパティによって状況が変わりました。新しい pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool~toolbardisplaystyle.html[ToolbarDisplayStyle]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontoolbardisplaystyle.html[Glyph]"]  に設定することで、CheckBox に任意の StateButtonTool を変換することができます。StateButtonTool には既に pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool~checked.html[Checked]"]  プロパティが含まれているので、ツールは最小の作業で使用できるようになります。
+
+以下のコードは、'stateButtonTool1' という名前のリボン グループに StateButtonTool が存在することを想定しています。詳細は link:wintoolbarsmanager-add-a-tool-to-a-ribbon-group.html[「リボン グループにツールを追加」]を参照してください。コードの最初の行は、以前に作成された StateButtonTool のインスタンスを取得します。コードの 2 行目は、状態ボタンではなく StateButtonTool にチェックボックス グリフを強制的に表示させます。
+
+image::images/WinToolbarsManager_Transform_a_StateButtonTool_into_a_Checkbox_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub Form1_Load(sender As Object, e As System.EventArgs)
+	Dim Left As StateButtonTool = _
+	  CType(Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools("Left"), _
+	  StateButtonTool)
+	Left.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph
+	Dim Center As StateButtonTool = _
+	  CType(Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools("Center"), _
+	  StateButtonTool)
+	Center.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph
+	Dim Right As StateButtonTool = _
+	  CType(Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools("Right"), _
+	  StateButtonTool)
+	Right.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	StateButtonTool Left =
+	  this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools["Left"]
+	  as StateButtonTool;
+	Left.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph;
+	StateButtonTool Center =
+	  this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools["Center"]
+	  as StateButtonTool;
+	Center.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph;
+	StateButtonTool Right =
+	  this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools["Right"]
+	  as StateButtonTool;
+	Right.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph;
+}
+----

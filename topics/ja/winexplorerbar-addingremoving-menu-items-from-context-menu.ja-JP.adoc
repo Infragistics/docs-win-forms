@@ -1,0 +1,82 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-addingremoving-menu-items-from-context-menu",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{76E66F8F-D0E6-4CEC-9099-EADC51266834}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= メニュー項目をコンテキスト メニューに追加/削除
+
+WinExplorerBar™ に追加されたグループと項目を右クリックすると、デフォルトのコンテキスト メニューが表示します。状況によっては、デフォルトのコンテキスト メニューに加えてカスタムのメニュー項目を追加したい、またはカスタム メニューだけを含むコンテキスト メニューがほしい場合があります。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~contextmenuinitializing_ev.html[ContextMenuIntializing]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationcontextmenuinitializing_ev.html[NavigationContextMenuIntializing]"]  イベントをこの目的のために処理できます。
+
+[NOTE]
+====
+*注：* WinExplorerBar コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~style.html[Style]"]  プロパティが OutlookNavigationPane に設定されると、NavigationContextMenuIntializing イベントを処理する必要があります。その他すべての値で、contextMenuIntializing イベントを処理する必要があります。
+====
+
+以下のコード例は、ContextMenuIntializing イベントを処理することによって、コンテキスト メニューを追加/削除する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Dim customMenu As New IGMenuItem (“Custom Menu”) 
+'デフォルトのコンテキスト メニューを削除します
+ 'e.ContextMenu.Dispose () 
+If e.ClickArea = ClickArea.GroupHeader Then
+'イベントが前回発生した間に行った任意の変更を元に戻し、「デフォルト」のバージョンが表示されるように、ContextMenu をリセットします。 
+           e.ResetMenu () 
+           e.ContextMenu.MenuItems.Add (customMenu)
+ End If
+----
+
+*C# の場合：*
+
+----
+IGMenuItem customMenu= new IGMenuItem (“Custom Menu”);
+// デフォルトのコンテキスト メニューを削除します 
+//e.ContextMenu.Dispose ();
+if (e.ClickArea == ClickArea.GroupHeader)
+  {
+ //ContextMenuIntializing イベントが前回発生した間に行った任意の変更を元に戻し、「デフォルト」のバージョンが表示されるように、ContextMenu をリセットします。
+      	  e.ResetMenu ();
+      	  e.ContextMenu.MenuItems.Add (customMenu);
+   }
+----
+
+以下のコード例は、NavigationContextMenuIntializing イベントを処理することによって、コンテキスト メニューを追加/削除する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Dim outlooknavigationCustomMenu As IGMenuItem = New IGMenuItem (Outlook Navigation Custom Menu”) 
+'デフォルトのコンテキスト メニューを削除します 
+'e.ContextMenu.Dispose () 
+If e.ClickArea = NavigationPaneClickArea.GroupHeader Then
+ 'NavigationContextMenuInitializing イベントが前回発生した間に行った任意の変更を元に戻し、「デフォルト」のバージョンが表示されるように、NavigationContextMenu をリセットします。 
+    e.ResetMenu ()
+    e.NavigationContextMenu.MenuItems.Add (outlooknavigationCustomMenu)
+ End If
+----
+
+*C# の場合：*
+
+----
+IGMenuItem outlooknavigationCustomMenu= new IGMenuItem (“Outlook Navigation Custom Menu”);
+// デフォルトのコンテキスト メニューを削除します
+ //e.ContextMenu.Dispose ();
+if (e.ClickArea == NavigationPaneClickArea.GroupHeader)
+{ 
+// NavigationContextMenuInitializing イベントが前回発生した間に行った任意の変更を元に戻し、// 「デフォルト」のバージョンが表示されるように、NavigationContextMenu をリセットします。
+     e.ResetMenu ();
+     e.NavigationContextMenu.MenuItems.Add (outlooknavigationCustomMenu);
+}
+----

@@ -1,0 +1,77 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-reposition-a-tab-within-tab-groups",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{CB007579-3EC2-469B-A068-FB5FD3F95725}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブ グループ内でのタブの位置変更
+
+TabbedMDI インタフェースに表示されるタブ付きウィンドウは、常にタブ グループに属しています。使用中のタブ グループが 1 つしかないときはタブ グループの存在は意識されません。しかし、アプリケーションのユーザーは、任意のタブをドラッグまたは右クリックすることによってタブ グループを簡単に作成し、操作できます。
+
+タブ グループの方向は水平または垂直にできます（タブ グループの方向はタブ自体の方向とは独立しています。これら 2 つの概念は互いに無関係です）。タブ グループの方向は相互排他的です。グループは水平または垂直のどちらかにできますが、両方の方向が同時に共存することはできません。
+
+コントロール内にタブグループが 1 つしかないとき、ユーザーは 2 番目のタブ グループの方向をその作成時に指定できます。2 番目のタブ グループが作成されると、以降作成されるタブ グループはすべて 2 番目のタブ グループの方向を共有します。
+
+コントロールの Orientation プロパティは、ランタイムにプログラムによって作成される新しいタブ グループの方向を指定します。また、このプロパティを使用して、コントロール内のタブ グループの現在の方向を調べることもできます。ユーザーが作成できる方向を制限するには、エレメントの AllowHorizontalTabGroups プロパティと AllowVerticalTabGroups プロパティを使用します。
+
+複数のタブ グループがコントロールに設定されると、ユーザーはグループ間でタブをドラッグしてタブの位置を変更できます。また、タブを右クリックし、タブの現在のタブ グループの位置を基準として、次または前のタブ グループに移動することもできます。Tab オブジェクトの MoveToGroup メソッドと MoveToNewGroup を使用して、ランタイムにタブを再配置することも可能です。
+
+ランタイムにタブを新しいグループに移動する
+
+[start=1]
+. タブのヘッダをクリックし、タブ ヘッダ領域からフォームのクライアント領域にドラッグします。「ページのドラッグ中」を示すアイコンが表示されます。
+
+クライアント領域の任意の端にマウス ポインタを近づけると、タブがその端にスナップし、輪郭境界線が表示されて、マウス ボタンを離したときに作成されるタブ グループの位置と方向が示されます。マウス ボタンを離すと、新しいタブ グループが作成され、指示された領域にタブが格納されます。
+
+または
+
+マウス ポインタをクライアント領域内部の中立位置に移動します。マウス ボタンを離すと、新しいタブ グループの方向を指定するよう求めるポップアップ メニューが表示されます。使用する方向を選択すると、新しいタブ グループが作成され、ドラッグしていたタブが格納されます。
+
+コードでタブを新しいグループに移動
+
+*Visual Basic の場合：*
+
+----
+Private Sub RepositionaTabWithinTabGroups_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim i As Integer
+	For i = 0 To 5
+		Dim myForm As New SampleChildMDI()
+		myForm.MdiParent = Me
+		myForm.Name = "ChildForm" & i.ToString()
+		myForm.Text = "Child Form" & i.ToString()
+		myForm.Show()
+	Next i
+	' 新しいタブ グループの方向を設定します。
+	Me.UltraTabbedMdiManager1.Orientation = Orientation.Horizontal
+	' 現在アクティブなタブを新しいタブ グループに移動します。
+	Me.UltraTabbedMdiManager1.ActiveTab.MoveToNewGroup()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void RepositionaTabWithinTabGroups_Load(object sender, System.EventArgs e)
+{
+	for(int i=0; i$$<=$$5; i++)
+	{
+		SampleChildForm myform = new SampleChildForm();
+		myform.MdiParent = this;
+		myform.text = "Child Form" + i.ToString();
+		myform.Show();
+	}
+	// 現在アクティブなタブを新しいタブ グループに移動します。
+	this.ultraTabbedMdiManager1.Orientation = Orientation.Horizontal;
+	// 特定のタブを、既存の特定のタブ グループに移動します。
+	this.ultraTabbedMdiManager1.ActiveTab.MoveToNewGroup();
+}
+----

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-api-overview",
+    "controlName": ["WinToolTipManager"],
+    "tags": ["API"],
+    "guid": "{F9C0583C-3434-40D7-B993-F2A8ED30B7AA}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-09T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== UltraWinToolTip 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip_namespace.html[Infragistics.Win.UltraWinToolTip]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipinfo.html[UltraTooTipInfo]"]
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager.html[UltraToolTipManager]"]

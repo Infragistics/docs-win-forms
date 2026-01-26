@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-about-wincalcmanager",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Calculations","Extending"],
+    "guid": "{B7352217-9268-4883-9E78-8AF4F5BFBAF4}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalcManager について
+
+WinCalcManager アセンブリは、フォーム上にあるすべてのコントロールの機能を拡張する非表示コンポーネントです。数式をフォームに実装するには、UltraCalcManager コンポーネントをツールボックスからフォームにドラッグします。UltraCalcManager コンポーネントをフォームに実装すると、フォーム上のほぼすべてのコントロールに pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings.html[CalcSettings]"]  というプロパティが追加されます。WinGrid など、数式の特別な処理をサポートする一部のコントロールでは、CalcSettings プロパティは表示されません。このようなコントロールでは数式の取り扱い方法が異なります。たとえば、WinGrid には Column オブジェクトと SummarySettings オブジェクトに Formula プロパティがあります。CalcSettings は UltraCalcSettings 型で、以下のプロパティを持ちます。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ名|説明
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~alias.html[Alias]"] 
+|コントロールの別名を取得または設定します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~erroriconalignment.html[ErrorIconAlignment]"] 
+|計算でエラーが発生した場合に、ErrorProviderのErrorIcon をコントロールに対してどの位置に表示するかを取得または設定します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~errorvalue.html[ErrorValue]"] 
+|数式でエラーが発生したときに要素に表示する値を取得または設定します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~formula.html[Formula]"] 
+|このオブジェクトの値を設定する数式を取得または設定します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~propertyname.html[PropertyName]"] 
+|コントロールに関連する計算のソースまたはターゲットとして使用するプロパティ（Text、Tag、Value など。エレメントによって異なる）を取得または設定します。 
+
+[NOTE] 
+
+==== 
+
+*注:* コントロールを計算のソース値として使用するためには、プロパティの Changed イベントも必要です。たとえば、Text プロパティを使用する場合は、コントロールに TextChanged イベントが存在する必要があります。Changed イベントが存在しない場合、CalcManager はプロパティの変更を検出できません。 
+
+====
+
+|Tag
+|このオブジェクトに関連付ける追加情報を取得または設定します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings~treatastype.html[TreatAsType]"] 
+|UltraCalcManager がコントロールの値を解釈する際に変換の目的で使用する型を取得または設定します。
+
+|====
+
+[start=1]
+. 次の図は、CalcManager コンポーネントによって拡張された WinTextEditor コントロールのプロパティを示します。
+
+image::Images/WinCalcManager_Using_CalcManager_and_Formulas_01.png[]
+
+[start=2]
+. 数式をエレメントに追加するには、PropertyName を設定してから、Formula プロパティの省略ボタンをクリックして フォーミュラ ビルダーを起動します。
+
+image::Images/WinCalcManager_Using_CalcManager_and_Formulas_02.png[]
+
+[start=3]
+. Formula Builder が表示されたら、左の列にタブが 2 つ表示されます。1 つ目のタブには、数式の中で使用できるフォーム上のエレメントと、カスタムの名前付き参照のリストが表示されます。2 つ目のタブには、使用可能なすべての数式のリストが表示されます。
+
+image::Images/WinCalcManager_Using_CalcManager_and_Formulas_03.png[]
+
+[start=4]
+. 数式を作成するには、1 つ目のタブでエレメント名をダブルクリックするか、リスト中のエレメント名を数式エディタにドラッグ アンド ドロップします。数式エディタのツールバーを使用して、基本的な数学記号を数式に追加できます。数式エディタで数式を変更すると、バックグラウンドで構文エラーがチェックされます。入力した数式が無効な場合は、変更を行う必要がある列と行が通知されます。

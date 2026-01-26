@@ -1,0 +1,200 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-defining-the-appearance-of-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{8C6FCAE5-4F96-41DB-8CE2-A66375C55A8E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab と WinTabStrip の外観を定義
+
+== バックグラウンド
+
+WinTab および WinTabStrip エレメントは、エレメントの外観と動作を制御するための広範なオプションを備えています。色やフォント、イメージなどの基本的な機能に加えて、マウス動作に対するタブの応答方法や、タブ ヘッダ領域内でのタブの配置方法を指定できます。また、書式設定を支援するデザインタイム ツールや、コントロールの外観をアプリケーションの外観に合わせるのに役立つデザインタイム ツールも、これらのコントロールに含まれています。
+
+== 質問
+
+* 特定の書式スタイルを WinTab または WinTabStrip エレメントに適用するにはどうすればいいですか。
+* エレメントの外観を自分のアプリケーションの外観に合わせるにはどうすればいいですか。
+
+== 解決策
+
+エレメント自体の外観や動作に直接作用するプロパティには、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~interrowspacing.html[InterRowSpacing]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~intertabspacing.html[InterTabSpacing]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~maxtabwidth.html[MaxTabWidth]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~maxvisibletabrows.html[MaxVisibleTabRows]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~style.html[Style]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettingsresolved~tabbuttonstyle.html[TabButtonStyle]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tablayoutstyle.html[TabLayoutStyle]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~taborientation.html[TabOrientation]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~textorientation.html[TextOrientation]"]  など多数あります。Windows XP 実行されるアプリケーションでは、UseOsThemes も重要なプロパティです。
+
+これらのエレメント ベルのプロパティはエレメントの全般的な外観に作用しますが、エレメントの具体的な外観設定のほとんどは Appearance オブジェクトによって処理されます。Appearance ブジェクトにはエレメントの多数のプロパティからアクセスできます。Appearance ブジェクトには、フォントや色、透明度などの設定がカプセル化されています。エレメントの Appearance プロパティは、大部分のエレメントに適用されるメインの Appearance ブジェクトを返しますが、エレメントのさまざまな領域や状態に対して優先的に適用される pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~activetabappearance.html[ActiveTabAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~clientareaappearance.html[ClientAreaAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~hottrackappearance.html[HotTrackAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~selectedtabappearance.html[SelectedTabAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tabheaderareaappearance.html[TabHeaderAreaAppearance]"]  プロパティもあります。
+
+（Appearance オブジェクトは Infragistics プレゼンテーション層フレームワーク（PLF）の一部です。 link:ms-help://infragistics.win/win/plf-appearance-objects.htm[ここをクリック]すると簡単な概要が表示されます）。
+
+これらのプロパティは主に視覚的なものですが、エレメントを操作しているユーザーに対してエレメントをどのように表示するかを決める動作的なプロパティもあります。このようなプロパティには、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~allowtabmoving.html[AllowTabMoving]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~autoselect.html[AutoSelect]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~hottracking.html[HotTracking]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~maxtabwidth.html[MaxTabWidth]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~maxvisibletabrows.html[MaxVisibleTabRows]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~mintabwidth.html[MinTabWidth]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~multirowselectionstyle.html[MultiRowSelectionStyle]"]  などがあります。
+
+== サンプル プロジェクト
+
+この演習では、使用する可能性の最も高い外観関連のプロパティについて詳しく説明します。ここではすべてのプロパティを網羅しているわけではありません。コントロールの外観や動作に作用するプロパティは、ここで説明しているもの以外にも数多く存在します。
+
+== タブ スタイルその他のコントロール レベルのプロパティ
+
+[start=1]
+. Visual Studio で新しい Windows Application プロジェクトを開き、UltraWinTab エレメントをフォームに追加します。
+[start=2]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+[start=3]
+. 3 つのタブをエレメントに追加します（タブを追加するには、エレメントのコンテキスト メニューを呼び出すか、または Visual Studio のプロパティ シートの下部ペインを表示して [タブの追加] を選択します）。
+[start=4]
+. Visual Studio のプロパティ シートを開き（キーボードでは [F4] キーを押します）、Style プロパティを探します。Style プロパティの列挙体のリストをドロップダウンします。
+
+Style は、エレメントの外観を決める主要なプロパティです。いくつかの異なるスタイルをドロップダウンから選択します。すると、デザイン環境の中でスタイルの変更がすぐにエレメントに適用されます。
+
+スタイルのほとんどは単にタブの各種外観を提供するだけですが、スタイルによってはタブ インタフェースの性質が変更されるものもあります。タブでは一般に、ユーザーが操作することによって機能のグループにアクセスできるようになっていますが、このようなアクセス方式には連続性はありません。どのタブも他のタブより重要ということはなく、任意の順序で選択される可能性があります。NotePage、NotePageFlat、Wizard の各スタイルは、タブを決められた順序（シーケンス）で表示するもので、ユーザーは必ず連続的にタブ間を移動します。
+
+これらのスタイルの 1 つを選択すると、追加のインタフェース エレメントがコントロールのタブ ヘッダ領域に表示されます。このエレメントは、タブ シーケンスで現在のタブの位置を表示します。すなわち、3/5 です。Wizard スタイルを選択した場合は、シーケンス内を移動するためのナビゲーションボタンもこのエレメントに表示されます。このインタフェース エレメントはデザインタイムにのみ表示されます。これは、開発者がタブ エレメントを使用して連続的なスタイルのインタフェースを作成しやすいようにするためのものです。
+
+また、Wizard スタイルは、組み込みのナビゲーション インタフェースを備えていません（そのため、このスタイルではデザインタイムにナビゲーション用のインタフェースが提供されます。そうでないとデザインタイムにエレメント内のタブを選択できません）。Wizard スタイルを使用するときは、タブ ページに配置するコントロールを使用してナビゲーション インタフェースを提供する必要があります。たとえば、製品のインストールに見られるような一般的なウィザード インタフェースを複製するには、すべてのタブで共有される [Back]、[Next]、[Finish] の各ボタンを配置します（1 番目のタブでは [Back] ボタンを取り除くか、または無効にします）。そして、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~performaction.html[PerformAction]"]  メソッドを使用し、ActivatePreviousTab アクションまたは ActivateNextTab アクションを指定してタブ間を移動するコードを、[Back] ボタンと [Next] ボタンに関連付けます。[Finsish] ボタンでは、最後のタブに直接ジャンプする（VisibleTabs コレクションでタブの Index または Key を使用します）、あるいは単に現在の値を受け入れてダイアログを閉じる、などの動作が考えられます。
+
+コントロールの各スタイルについて確認を終えたら、Style を「StateButtons」に設定します。これで、コントロールのタブはタブ ヘッダ領域内で一連のボタンとして表示されるようになります。
+[start=5]
+. プロパティ シートで TabButtonStyle プロパティを選択し、リストをドロップダウンします。ボタンの描画に使用される、スタイルのオプションが表示されます。いくつかのスタイルを選択し、コントロールでの効果を確認します。
+
+これらのスタイルの効果は、そのすべてがデザインタイムにすぐに確認できるわけではありません。たとえば Popup スタイルでは、マウス ポインタに反応して外観が 3D になるボタンが作成されます。この動作はデザインタイムには確認できません。ボタンは平らに表示されたままです。
+
+TabButtonStyle の各設定について確認を終えたら、「Popup」を選択します。
+[start=6]
+. アプリケーションを実行し、タブ ヘッダをクリックします。選択したタブのボタンの表示は平らなままですが、他のタブのボタンはマウスがタブの上に来たときにポップアップ表示されることがわかります。他のタブを選択し、コントロールがどのように変化するかを確認します。次にプロジェクトを終了します。
+
+image::images\WinTab_Defining_the_Appearance_of_WinTab_and_WinTabStrip_01.png[]
+
+[start=7]
+. このように、タブがマウス ポインタに反応する機能のことを「ホット トラッキング」と呼びます。Popup ボタン スタイルではホット トラッキングが自動的に実装されますが、使用する任意のタブ スタイルに対してホット トラッキングを適用できます。ホット トラッキングを実装するには 2 つの作業を行います。まず、マウス ポインタがタブの上に来たときに表示されるタブの外観を定義します。そして、定義した外観が有効になるように、コントロールのホット トラッキング機能を有効にします。
+
+エレメントの Style を「PropertyPages」に変更します。そして、フォームにボタンを追加します。次のコードをボタンの Click イベントに入力します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.UltraTabControl1.HotTrackAppearance.ForeColor = Color.Red
+	Me.UltraTabControl1.UseHotTracking = DefaultableBoolean.True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	this.ultraTabControl1.HotTrackAppearance.ForeColor = Color.Red;
+	this.ultraTabControl1.UseHotTracking = DefaultableBoolean.True;
+}
+----
+
+このコードにより、ホット トラッキングされるタブの前景色が赤に設定され、エレメントのホット トラッキングが有効になります。
+[start=8]
+. プロジェクトを実行します。マウスをタブの上に移動して動作を確かめます。次に、ボタンをクリックして同じ操作を繰り返します。マウスがタブの上に来ると、タブのテキストが赤に変わることがわかります。作業が終わったら、プロジェクトを終了します。
+
+image::images\WinTab_Defining_the_Appearance_of_WinTab_and_WinTabStrip_02.png[]
+
+[start=9]
+. ホット トラッキングに関連する概念として、「オート セレクト」があります。オート セレクトを有効にすると、マウス ポインタがタブの上に来たときに、タブの外観が変わると同時にタブが実際に選択されます。
+
+== 外観の使用
+
+[start=1]
+. ここまで、エレメントの Appearance オブジェクトの 1 つ（HotTrackAppearance）の使用方法について説明しました。エレメントの視覚的な外観のほとんどは外観オブジェクトによって制御されます。
+
+次のコードをフォームの Load イベントに入力します。このコードは、エレメントの持ついくつかの Appearance オブジェクトを使用して、特定の書式テーマをエレメントに適用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub WorkingwithWinTabandWinTabStripAppearance_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraTabControl1.UseOsThemes = DefaultableBoolean.False
+	Me.UltraTabControl1.Appearance.BackColor = Color.BlanchedAlmond
+	Me.UltraTabControl1.Appearance.BackColorAlpha = Infragistics.Win.Alpha.Opaque
+	Me.UltraTabControl1.Appearance.ForeColor = Color.Sienna
+	Me.UltraTabControl1.ActiveTabAppearance.BackColor = Color.WhiteSmoke
+	Me.UltraTabControl1.ActiveTabAppearance.BackColorAlpha = Infragistics.Win.Alpha.Opaque
+	Me.UltraTabControl1.ActiveTabAppearance.ForeColor = Color.Firebrick
+	Me.UltraTabControl1.HotTrackAppearance.BackColor = Color.NavajoWhite
+	Me.UltraTabControl1.HotTrackAppearance.BackColorAlpha = Infragistics.Win.Alpha.Opaque
+	Me.UltraTabControl1.HotTrackAppearance.ForeColor = Color.IndianRed
+	Me.UltraTabControl1.ClientAreaAppearance.BackColor = _
+	Me.UltraTabControl1.ActiveTabAppearance.BackColor
+	Me.UltraTabControl1.Tabs(0).Appearance.ForeColor = Color.Black
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void WorkingwithWinTabandWinTabStripAppearance_Load(object sender, System.EventArgs e)
+{
+	this.ultraTabControl1.UseOsThemes = DefaultableBoolean.False;
+	this.ultraTabControl1.Appearance.BackColor = Color.BlanchedAlmond;
+	this.ultraTabControl1.Appearance.BackColorAlpha = 
+	  Infragistics.Win.Alpha.Opaque;
+	this.ultraTabControl1.Appearance.ForeColor = Color.Sienna;
+	this.ultraTabControl1.ActiveTabAppearance.BackColor = Color.WhiteSmoke;
+	this.ultraTabControl1.ActiveTabAppearance.BackColorAlpha = 
+	  Infragistics.Win.Alpha.Opaque;
+	this.ultraTabControl1.ActiveTabAppearance.ForeColor = Color.Firebrick;
+	this.ultraTabControl1.HotTrackAppearance.BackColor = Color.NavajoWhite;
+	this.ultraTabControl1.HotTrackAppearance.BackColorAlpha = 
+	  Infragistics.Win.Alpha.Opaque;
+	this.ultraTabControl1.HotTrackAppearance.ForeColor = Color.IndianRed;
+	this.ultraTabControl1.ClientAreaAppearance.BackColor = 
+	  this.ultraTabControl1.ActiveTabAppearance.BackColor;
+	this.ultraTabControl1.Tabs[0].Appearance.ForeColor = Color.Black;
+}
+----
+
+このコードでは、まずエレメント レベルの Appearance オブジェクトを使用して（Appearance プロパティを通じて）、エレメントの基本的な配色を設定します。次に、現在選択されているアクティブなタブに対して独自の外観を定義し、それから、ホット トラッキングが有効でマウス ポインタが上に来たときにタブに適用される設定を定義します。その次に、クライアント領域の設定をエレメントの Appearance オブジェクトから取得しますが、クライアント領域はアクティブなタブと視覚的に連続しています。そこで、クライアント領域の背景色を、アクティブなタブの Appearance オブジェクトの設定と同じに設定します。最後に、個々の Tab オブジェクトの Appearance オブジェクトを使用して、エレメント内の最初のタブに固有のテキスト色を設定します。
+[start=2]
+. コントロールの外観については 1 つ注意すべきことがあります。テクスチャやイメージを背景として持つフォーム上にエレメントを配置する際、タブ ヘッダ内のエレメントの背景領域を透明にしたい場合があります。つまり、タブそのものはすべて不透明にし、残りのタブ ヘッダ領域（タブのない領域）は透明にする、ということです。この操作は透明度を使用して実現することはできません。透明度はエレメントで直接サポートされていないからです。（.NET Framework ではネストされた透明コントロールは完全にはサポートされておらず、Tab コントロール自体がタブ ページ上の透明コントロールの格納をサポートする必要があります）。
+
+image::images\WinTab_Defining_the_Appearance_of_WinTab_and_WinTabStrip_03.png[]
+
+しかし、代わりの方法を使用して、透明コントロールの背景の視覚効果を実現することは可能です。Tab エレメントの置かれているコンテナが背景イメージを持っている場合は、同じイメージを Appearance の pick:[win-forms="link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.appearancebase~imagebackground.html[ImageBackground]"]  プロパティに設定し、Tab エレメントの pick:[win-forms="link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.linkedappearance~imagebackgroundorigin.html[ImageBackgroundOrigin]"]  を「Container」に設定します。こうすると、エレメントの背景イメージがコンテナの背景イメージに揃えて配置され、タブのないタブ ヘッダ領域の部分が見かけ上透明になります。
+
+== TabOrientation
+
+[start=1]
+. タブはエレメントの任意の端に沿って方向を指定でき、テキストをその方向に合わせて回転させたり、デフォルトの方向のまま表示したりできます。この変更は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~taborientation.html[TabOrientation]"]  プロパティの修正で行えます。
+
+== タブの配置と表示
+
+[start=1]
+. ユーザーがランタイムにタブの順序を再配置することを許可できます。また、タブの配置方法を制御し、作成される行数を指定することもできます。タブの並べ替えも可能です。
+
+フォーム上の Tab エレメントを選択し、そのプロパティ シートを表示します。
+[start=2]
+. リストで pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tablayoutstyle.html[TabLayoutStyle]"]  プロパティを探し、このプロパティで使用できるオプションのリストをドロップダウン表示します。これらのオプションは、タブを単一行または複数行のどちらで表示するか、および使用可能な領域に合わせてタブのサイズを変更するかどうかを決めます。
+[start=3]
+. 複数行オプションの 1 つを選択した場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~maxvisibletabrows.html[MaxVisibleTabRows]"]  プロパティによってコントロール内を占有できるタブの行数が決まり、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~multirowselectionstyle.html[MultiRowSelectionStyle]"]  プロパティによってユーザーがタブや行を操作したときにそれらを自動的に再配置するかどうかが決まります。pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~tabsperrow.html[TabsPerRow]"]  プロパティを使用すると、任意の行に表示するタブの数を指定できます。
+[start=4]
+. ユーザーが単純なドラッグ アンド ドロップを使用してタブの順序を再配置できるようにする場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~allowtabmoving.html[AllowTabMoving]"]  プロパティを True に設定します。
+[start=5]
+. 個々の Tab オブジェクトの設定もタブの配置や機能に作用します。たとえば、AllowTabMoving を True に設定していても、特定のタブの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~allowmoving.html[AllowMoving]"]  プロパティを False に設定してタブを移動できないようにすることが可能です。タブ レベルの設定は、Visible プロパティを False に設定することでタブの表示も制御することもできます。
+
+== まとめ
+
+この演習では、エレメントの書式設定やその視覚的な動作の制御に関するいくつかの重要な概念について説明しました。エレメント レベルのプロパティを使用してホット トラッキングやオート セレクトなどの機能を有効にする方法を示しました。Appearance オブジェクトを使用してエレメントのさまざまな部分に書式を適用する方法についても簡単に説明しました。方向設定を使用してタブの外観を変更する方法を示し、タブの配置、移動、および並べ替えに関連する重要なプロパティについても説明しました。

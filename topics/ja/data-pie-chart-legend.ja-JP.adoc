@@ -1,0 +1,79 @@
+﻿= 凡例
+
+このトピックでは、link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] を構成して、link:{ItemLegendLink}.ItemLegend.html[ItemLegend] を使用するための情報を提供します。
+
+=== 概要
+
+このトピックは、以下のセクションで構成されます。
+
+* <<Requirements,要件>>
+* <<UsingLegend,凡例の使用>>
+* <<CodeExample,コード例>>
+* <<RelatedContent,関連コンテンツ>>
+
+[[Requirements]]
+==== 要件
+
+前提条件としてlink:data-pie-chart-data-binding.html[データ バインディング] トピックを既に読み、{DataPieChartName}が既に何らかのデータにバインドされていること。
+
+[[UsingLegend]]
+
+=== 凡例の使用
+
+{DataPieChartName} の凡例を表示するには、ItemLegend を作成し、link:{DataPieChartLink}.{PieChartBase}{ApiProp}Legend.html[Legend] プロパティに割り当てます。ItemLegend はデフォルトでは項目を縦方向に表示しますが、これは `Orientation` プロパティを設定することで変更できます。
+
+デフォルトでは、ItemLegend は {DataPieChartName} の各スライスに表示されるラベルと同じ内容を表示します。これを変更するには、チャートの `LegendSliceLabelContentMode` プロパティを利用します。これにより、`RadialLabelMode` 列挙型が公開され、ラベル、値、パーセンテージ、またはそれらの組み合わせをデータ円チャート スライスごとの凡例の内容として表示できます。
+
+また、ItemLegend のバッジも変更可能です。デフォルトでは、関連するデータ円チャート スライスの色に対応する塗りつぶされた円として表示されます。これを設定するには、チャートの `LegendItemBadgeShape` プロパティを使用し、円、折れ線、棒、柱状などに設定できます。
+
+[[CodeExample]]
+=== コード例
+
+ifdef::wpf[]
+
+*XAML の場合:*
+
+[source, xaml]
+----
+TODO
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+TODO
+----
+
+endif::wpf[]
+
+
+ifdef::win-forms[]
+
+*C# の場合:*
+
+[source,csharp]
+----
+UltraItemLegend legend = new UltraItemLegend()
+{
+    Dock = DockStyle.Top,
+    Orientation = Orientation.Horizontal
+};
+
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    Dock = DockStyle.Fill,
+    DataSource = data,
+    Legend = legend
+};
+
+this.Controls.Add(dataPieChart);
+this.Controls.Add(legend);
+----
+
+endif::win-forms[]
+
+[[RelatedContent]]
+=== 関連コンテンツ
+
+* link:data-pie-chart-data-binding.html[データ バインディング]

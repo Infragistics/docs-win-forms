@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-modify-suppress-the-row-deletion-message-box",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{9C888D82-13C7-4827-81BF-1BB497B3B46B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= [行の削除] メッセージボックスの変更または抑止
+
+行が削除されたときに表示される独自に作成したメッセージ ボックスを作成したり、デフォルトのメッセージ ボックスを非表示にしたい場合に、1 行のコードだけで十分です。
+
+WinGrid エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforerowsdeleted_ev.html[BeforeRowsDeleted]"]  イベント内に以下のコードを記述します。このイベントは特定の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.beforerowsdeletedeventargs.html[BeforeRowsDeletedEventArgs]"]  を渡します。
+
+*Visual Basic の場合:*
+
+----
+Private Sub UltraGrid1_BeforeRowsDeleted(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.BeforeRowsDeletedEventArgs) _
+  Handles UltraGrid1.BeforeRowsDeleted
+	e.DisplayPromptMsg = False
+End Sub
+----
+
+*C# の場合:*
+
+----
+private void ultraGrid1_BeforeRowsDeleted(object sender, 
+  Infragistics.Win.UltraWinGrid.BeforeRowsDeletedEventArgs e)
+{
+	e.DisplayPromptMsg = false;
+}
+----

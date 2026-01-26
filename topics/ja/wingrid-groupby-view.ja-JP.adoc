@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-groupby-view",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Grouping"],
+    "guid": "{1AFBE586-8F92-4ECA-9DF0-D620B0046BE1}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= GroupBy ビュー
+
+WinGrid は、GroupBy ビューによる直感的かつパワフルなデータ整理方法をサポートしています。GroupBy ビューを使用すれば、ユーザーは迅速にレコードのカスタム グループを作成し、作業の対象となるレコードのみに的を絞ったカスタマイズされた「ミニデータセット」を利用することができます。
+
+GroupBy モードは Microsoft Outlook のコンセプトに類似しており、機能も同様です。GroupBy モードが有効になっているグリッドは、各バンドに GroupByBox という領域があります。ユーザーは列のヘッダをこの領域にドラッグすれば、カスタム グループを作成できます。GroupByBox に列を追加すると、その列はビューでは非表示となり（これはデフォルトで、この動作はオーバーライドできます）、バンドの各行は pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroupbyrow.html[UltraGridGroupByRows]"]  の外観によってグループに分割されます。GroupByRows には、データのグループ分けに使用されている列に含まれる情報が表示されます。GroupByRows はグループを構成する行を拡張および縮小するメカニズムを提供します。
+
+GroupBy モードは、エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  のpick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~viewstyleband.html[ViewStyleBand]"]  プロパティ（pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  プロパティを通してアクセスできます）を設定すれば有効化できます。
+
+次のスナップショットは、Groupby ビューの備わった WinGrid を表示しています。データはルート バンド内で Country 次いで City によって、また子バンド内で EmployeeID によってグループ化されます。
+
+image::Images/WinGrid_GroupBy_View_01.png[]

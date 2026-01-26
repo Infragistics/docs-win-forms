@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-markers",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{0D120A25-156C-4300-9B38-0DF9A86243EE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マーカー
+
+このセクションは、マーカーをゲージに追加する方法に関するタスクベースの手順だけでなく、WinGauge コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~markers.html[Markers]"]  プロパティについて役に立つ情報を提供します。
+
+* link:wingauge-bar-marker.html[バー マーカー]
+* link:wingauge-needle-marker.html[針マーカー]
+* link:wingauge-add-a-bar-marker-to-a-gauge.html[バー マーカーをゲージに追加]
+* link:wingauge-add-a-needle-marker-to-a-gauge.html[針マーカーをゲージに追加]

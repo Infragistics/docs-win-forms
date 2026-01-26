@@ -1,0 +1,34 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-separating-and-aligning-summaries-of-grouped-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Data Presentation","Grids","How Do I"],
+    "guid": "{4CDB9B23-2C3D-4346-B527-CF1BD7B4E27E}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= GroupBy 行の集計の分離と位置揃え
+
+デフォルトでは、WinGrid はグループ行の集計をグループ行の説明テキストに付加します。集計を表示するもうひとつの方法として、各集計を、グループ行の列に揃えて配置した異なる UI 要素として表示できます。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. この機能を有効にするには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbysummarydisplaystyle.html[GroupBySummaryDisplayStyle]"]  プロパティを SummaryCells または SummaryCellsAlwaysBelowDescription に設定します。SummaryCells と SummaryCellsAlwaysBelowDescription との違いは、集計セルの1つがグループ行の説明と重なっていた場合、SummaryCells オプションでは集計を自動的に改行することです。SummaryCellsAlwaysBelowDescription オプションでは、常に集計を改行するので、集計はいつもグループ行の説明の下方にあります。集計が改行されると、グループ行の高さが拡大し、集計セルがグループ行の説明の下に表示されます。

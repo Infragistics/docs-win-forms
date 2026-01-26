@@ -1,0 +1,18 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2020 Volume 1
+
+
+=== .NET Core 3.1 Support & Limitations
+
+A new environment to use Infragistics controls is now available! As of version 2020.1, our assemblies now have support for the .NET Core 3.1 environment through NuGet.
+For some advantages of .NET Core 3.1, see link:https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-core-3-1[This article on Microsoft's site].
+
+Please note since Microsoft has removed the Context Menu with the release of .NET Core 3.1 we have had to make changes to accommodate this. link:https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms[Documentation on 3.1 Breaking changes]

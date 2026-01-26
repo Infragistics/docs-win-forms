@@ -1,0 +1,125 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-set-up-wintooltipmanager-at-run-time",
+    "controlName": ["WinToolTipManager"],
+    "tags": ["How Do I"],
+    "guid": "{58E0C7AA-3873-4CCE-8136-493072068C71}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolTipManager をランタイムに設定
+
+WinToolTipManager は "UltraToolTip" というエクステンダ プロパティをコントロールに追加します。UltraToolTip プロパティは、WinToolTipManager でコントロールを管理することを目的とします。これにより、マウスがコントロールの上に置かれたときにツールヒントを自動的に表示できるようになります。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinToolTip
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinToolTip;
+----
+
+[start=2]
+. *フォームにコントロールを配置します。*
+
+どのようなコントロールを配置してもかまいませんが、この例では TextBox を使用します。
+[start=3]
+. *UltraToolTipManager コンポーネントをフォームに配置します。*
+
+image::images/WinToolTip_Walk_Through_Setting_Up_WinToolTips_At_Run-Time_01.png[]
+
+[start=4]
+. *コントロールの ToolTipInfo を取得します。*
+
+WinToolTip のプロパティを設定するためには、最初にコントロールの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipinfo.html[ToolTipInfo]"]  を取得する必要があります。これには WinToolTipManager の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~getultratooltip.html[GetUltraToolTip]"]  メソッドを使用します。次のコードを Form_Load イベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+' TextBox1 の ToolTipInfo を取得します。
+Dim toolTipInfo As UltraToolTipInfo = Me.ultraToolTipManager1.GetUltraToolTip(Me.textBox1)
+----
+
+*C# の場合：*
+
+----
+// TextBox1 の ToolTipInfo を取得します。
+UltraToolTipInfo toolTipInfo = this.ultraToolTipManager1.GetUltraToolTip(this.textBox1);
+----
+
+[start=5]
+. *ToolTipText を設定します。*
+
+ツールヒントを表示するためには、ToolTipText プロパティを何らかのテキストに設定する必要があります。次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+' ToolTipText を設定します。
+toolTipInfo.ToolTipText = "Enter some text here."
+----
+
+*C# の場合：*
+
+----
+// ToolTipText を設定します。
+toolTipInfo.ToolTipText = "Enter some text here.";
+----
+
+[start=6]
+. *オプションのプロパティを設定します。*
+
+ToolTipText を設定したら、ランタイムに TextBox の上にマウスを置いたときに TextBox のツールヒントが表示されます。ツールヒントにタイトルを表示する場合は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~tooltiptitle.html[ToolTipTitle]"]  プロパティを設定します。ツールヒントのタイトルにイメージを表示する場合は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~tooltipimage.html[ToolTipImage]"]  を設定します。ToolTipImage には一般的なイメージを表示するオプションがあります。カスタム イメージを表示するには、ToolTipImage プロパティを Custom に設定し、Appearance.Image プロパティまたは TitleAppearance.Image プロパティを設定します。この時点で、BackColor や ForeColor などの他の Appearance プロパティも設定できます。
+
+*Visual Basic の場合：*
+
+----
+' ToolTipTitle を設定します。
+toolTipInfo.ToolTipTitle = "This is textBox1"
+' イメージを適用します。
+toolTipInfo.ToolTipImage = ToolTipImage.Info
+' 外観を適用します。
+toolTipInfo.Appearance.BackColor = Color.White
+toolTipInfo.Appearance.BackColor2 = Color.Chartreuse
+toolTipInfo.Appearance.BackGradientStyle = GradientStyle.Circular
+toolTipInfo.Appearance.ForeColor = Color.Black
+' 外観をタイトルに適用します。
+toolTipInfo.ToolTipTitleAppearance.ForeColor = Color.Red
+----
+
+*C# の場合：*
+
+----
+// Set the ToolTipTitle
+toolTipInfo.ToolTipTitle = "This is textBox1";
+// イメージを適用します。
+toolTipInfo.ToolTipImage = ToolTipImage.Info;
+// 外観を適用します。
+toolTipInfo.Appearance.BackColor = Color.White;
+toolTipInfo.Appearance.BackColor2 = Color.Chartreuse;
+toolTipInfo.Appearance.BackGradientStyle = GradientStyle.Circular;
+toolTipInfo.Appearance.ForeColor = Color.Black;
+// 外観をタイトルに適用します。
+toolTipInfo.ToolTipTitleAppearance.ForeColor = Color.Red;
+----
+
+[start=7]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行して TextBox の上にマウスを置きます。WinToolTipManager の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~initialdelay.html[InitialDelay]"]  プロパティで指定された遅延時間（デフォルトは 0.5秒）が経過した後、ツールヒントが表示されます。
+
+image::images/WinToolTip_Walk_Through_Setting_Up_WinToolTips_At_Run-Time_02.png[]

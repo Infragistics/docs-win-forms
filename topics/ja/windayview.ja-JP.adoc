@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "windayview",
+    "controlName": ["WinDayView"],
+    "tags": ["Getting Started"],
+    "guid": "{A058CED0-D250-4DD0-BBFC-1425C16308FD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDayView
+
+以下のリンクをクリックすると、WinDayView コントロールに関する説明を読むことができます。
+
+* link:windayview-about-windayview.html[WinDayView について] -- WinDayView コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:windayview-smart-tag.html[WinDayView スマート タグ] -- WinDayView コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:win-windayview-using-windayview.html[WinDayView の使用] -- このセクションは、WinDayView コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:windayview-api-overview.html[API 概要] -- このトピックでは、WinDayView コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

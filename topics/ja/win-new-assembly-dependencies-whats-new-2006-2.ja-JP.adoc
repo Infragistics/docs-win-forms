@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-new-assembly-dependencies-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{DA1F29FD-8FFD-4323-A5DA-B2DC5D721F00}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しいアセンブリ従属性
+
+アプリケーション スタイリングは素晴らしい概念で、多くの開発者/グラフィック デザイナは利益を得ています。ただし、これらの利益を得るには、コントロールの一部を改善する必要があります。これらの変更のひとつには、 WinToolbarsManager および WinSchedule コントロールおよびコンポーネントにおける特有のダイアログ ボックスが関係します。これらのダイアログ ボックスの変更においては、他のいくつかの Infragistics アセンブリを参照しました。したがって、これらのコントロールを配備する場合、以前は必要ではなかった他のアセンブリを配備する必要があります。以下は、コントロールのアセンブリと共にこれらの 2 つのコントロールを配備する必要があるアセンブリのリストです。
+
+== Infragistics.Win.UltraWinToolbarsManager
+
+* Infragistics.Win.Misc
+* Infragistics.Win.UltraWinEditors
+* Infragistics.Win.UltraWinStatusBar
+* Infragistics.Win.UltraWinTabControl
+
+== Infragistics.Win.UltraWinSchedule
+
+* Infragistics.Win.Misc
+* Infragistics.Win.UltraWinEditors
+* Infragistics.Win.UltraWinTabControl
+* Infragistics.Win.UltraWinToolbars

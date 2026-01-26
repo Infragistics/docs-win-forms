@@ -1,0 +1,153 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-textdocumentsnapshot-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "4402879c-cfd7-49e9-a277-6059abb74907",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1118561Z"
+}
+|metadata|
+////
+
+= TextDocumentSnapshot の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、`TextDocumentSnapshot` オブジェクトのプロパティおよびメソッドの概要を提供します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref335166805,はじめに>>
+
+** <<_Ref335166821,TextDocumentSnapshot の概要>>
+
+* <<_Ref335166842,TextDocumentSnapshot 読み取り専用プロパティ>>
+
+** <<_Ref335166850,読み取り専用プロパティのリスト>>
+
+* <<_Ref335166856,TextDocumentSnapshot メソッド>>
+
+** <<_Ref335166864,メソッド リスト>>
+
+* <<_Ref335166870,関連コンテンツ>>
+
+** <<_Ref335166875,トピック>>
+
+[[_Append_Text_to]]
+[[_Ref335166805]]
+[[_Ref327861013]]
+[[_Ref324841253]]
+== はじめに
+
+[[_Ref335166821]]
+
+=== TextDocumentSnapshot の概要
+
+`TextDocumentSnaphot` はバージョンそれぞれでドキュメントの全体的な状態を表します。ドキュメントに変更を行うと新しいスナップショットが作成されます。各スナップショットはスレッドセーフで不変です。
+
+[[_Ref335166842]]
+== TextDocumentSnapshot 読み取り専用プロパティ
+
+[[_Description]]
+
+=== 読み取り専用プロパティのリスト
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|説明
+
+|Document
+|このプロパティは､関連付けられた TextDocument を返します。
+
+|Version
+|このプロパティは、バージョン番号、次の TextDocumentVersion への参照 (現在のスナップショットでない場合)、そして次のバージョンに移るためにバージョンに行われた変更を公開する TextDocumentVersion オブジェクトを返します。
+
+|Length
+|このプロパティは、TextDocument の長さを文字で返します。
+
+|LineCount
+|このプロパティは、TextDocument の行数を返します。
+
+|TokenCount
+|このプロパティは、TextDocument のトークン数を返します。
+
+|====
+
+[[_Code]]
+[[_Delete_Text_from]]
+[[_Ref335166856]]
+== TextDocumentSnapshot メソッド
+
+[[_Description_1]]
+
+=== メソッド リスト
+
+[options="header", cols="a,a"]
+|====
+|メソッド|説明
+
+|CreateScanner
+|このプロパティは、作成した `TextDocumentSnapshot` をターゲットとする `TextDocumentSnapshotScanner` のインスタンスを作成して返します。
+
+|GetLines
+|このプロパティは、ドキュメントで `Lines` の列挙子を取得します。
+
+|GetTokens
+|このプロパティは、ドキュメントで `Tokens` の列挙子を取得します。
+
+|LineFromIndex
+|このプロパティは、ゼロから始まるインデックスにあるテキストの行のために `SnapshotLineInfo` オブジェクトを取得します。
+
+|LineFromOffset
+|このプロパティは、指定されたオフセットにある文字を含むテキストの行のために `SnapshotLineInfo` オブジェクトを取得します。
+
+|TokenFromOffset
+|このプロパティは、指定されたオフセットにある文字を含む `Token` オブジェクトを取得します。
+
+|WordFromOffset
+|このプロパティは、指定されたオフセットにある文字を含む `Word` オブジェクトを取得します。
+
+|====
+
+[[_Code_1]]
+[[_Insert_Text_into]]
+[[_Description_2]]
+[[_Code_2]]
+[[_Replace_All_Occurrences]]
+[[_Description_3]]
+[[_Code_3]]
+[[_Replace_a_Single]]
+[[_Description_4]]
+[[_Code_4]]
+[[_Replace_Text_at]]
+[[_Description_5]]
+[[_Code_5]]
+
+[[_Related_Content]]
+[[_Ref335166870]]
+== 関連コンテンツ
+
+[[_Topics]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-textdocument-overview.html[TextDocument の概要]
+|このトピックでは、Infragistics Syntax Parsing Engine の主要なクラス、`TextDocument` について説明します。最も重要なメソッド、イベントおよびプロパティを概略するトピックへのリンクが含まれています。
+
+| link:ig-spe-textdocumentsnapshotscanner-overview.html[TextDocumentSnapshotScanner の概要]
+|このトピックでは、`TextDocumentSnapshotScanner` オブジェクトのプロパティおよびメソッドの概要を提供します。
+
+|====

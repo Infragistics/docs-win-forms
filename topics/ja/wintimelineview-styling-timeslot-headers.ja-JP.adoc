@@ -1,0 +1,124 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-styling-timeslot-headers",
+    "controlName": ["WinTimelineView"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{68FD61A1-91D5-4814-ABA3-3656E92FC1C7}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T15:35:02Z"
+}
+|metadata|
+////
+
+= タイムスロット ヘッダーのスタイル
+
+このトピックは、WinTimelineView™ で列ヘッダーをスタイルできる方法について示します。 列ヘッダーは時間/日の間隔を表します。 ヘッダー テキストの方向を修正、列ヘッダーの外観を変更、そして列ヘッダーのナビゲーション ボタンの外観を変えることができます。 これらは、WinTimelineView コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.datetimeinterval~headertextorientation.html[HeaderTextOrientation]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~columnheaderappearance.html[ColumnHeaderAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.datetimeinterval~datenavigationbuttonappearance.html[DateNavigationButtonAppearance]"]  プロパティから変更できます。
+
+このトピックは、オーナーおよびタイムスロットに関連付けられた ultraTimelineView コントロールがフォームにドロップされていることを前提とします。 オーナーおよびタイムスロットでの TimeLineView コントロールの作成についての詳細は、 link:wintimelineview-assign-multiple-owners-for-wintimelineview.html[「WinTimelineView に複数オーナーを指定」]および link:wintimelineview-set-time-and-date-intervals-for-wintimelineview.html[「WinTimelineView に時間/日の間隔を設定」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+#Region "Timeslots - Set Date and Time Intervals"
+' 第一のタイムスロットを設定します 
+Dim timeInterval As New TimeInterval(2, TimeIntervalUnits.Hours)
+' 追加のタイムスロットを設定します 
+Dim dayInterval As New DateInterval(1, DateIntervalUnits.Days)
+' もうひとつの追加のタイムスロットを設定します 
+Dim monthInterval As New DateInterval(1, DateIntervalUnits.Months)
+Me.ultraTimelineView1.PrimaryInterval = timeInterval 
+Me.ultraTimelineView1.AdditionalIntervals.Add(dayInterval) 
+Me.ultraTimelineView1.AdditionalIntervals.Add(monthInterval) 
+#End Region
+#Region "Timeslot Header Text Orientation"
+' 追加の間隔のヘッダー テキストの方向を設定します 
+dayInterval.HeaderTextOrientation = TextOrientationInfo.HorizontalNegative45Degrees 
+' 追加の間隔のヘッダー テキストの方向を設定します 
+monthInterval.HeaderTextOrientation = TextOrientationInfo.Horizontal45Degrees 
+' 第一の間隔のヘッダー テキストの方向を設定します 
+timeInterval.HeaderTextOrientation = TextOrientationInfo.Horizontal90Degrees 
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Timeslots - Set Date and Time Intervals
+// 第一のタイムスロットを設定します
+ TimeInterval timeInterval = new TimeInterval(2, TimeIntervalUnits.Hours);
+// 追加のタイムスロットを設定します
+ DateInterval dayInterval = new DateInterval(1, DateIntervalUnits.Days);
+ // もうひとつの追加のタイムスロットを設定します
+ DateInterval monthInterval = new DateInterval(1, DateIntervalUnits.Months);
+ this.ultraTimelineView1.PrimaryInterval = timeInterval;
+ this.ultraTimelineView1.AdditionalIntervals.Add(dayInterval);
+ this.ultraTimelineView1.AdditionalIntervals.Add(monthInterval);
+#endregion
+#region Timeslot Header Text Orientation
+// 追加の間隔のヘッダー テキストの方向を設定します
+ dayInterval.HeaderTextOrientation = TextOrientationInfo. HorizontalNegative45Degrees;
+ // 追加の間隔のヘッダー テキストの方向を設定します
+ monthInterval.HeaderTextOrientation = TextOrientationInfo.Horizontal45Degrees;
+// 第一の間隔のヘッダー テキストの方向を設定します
+timeInterval.HeaderTextOrientation = TextOrientationInfo.Horizontal90Degrees;
+#endregion
+----
+
+*Visual Basic の場合：*
+
+----
+#Region "Column Header fore and back color Appearances"
+Me.ultraTimelineView1.ColumnHeaderAppearance.ForeColor = Color.Maroon 
+Me.ultraTimelineView1.ColumnHeaderAppearance.BackColor = Color.LightYellow 
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Column Header fore and back color Appearances
+----
+
+----
+this.ultraTimelineView1.ColumnHeaderAppearance.ForeColor = Color. Maroon;
+this.ultraTimelineView1.ColumnHeaderAppearance.BackColor = Color.LightYellow;
+#endregion
+----
+
+*Visual Basic の場合：*
+
+----
+#Region "Timeslot Navigation Button Appearances"
+' すべての間隔のいずれかの側にナビゲーション ボタンを表示します 
+dayInterval.DateNavigationButtonVisibility = TimelineViewDateNavigationButtonVisibility.ShowOnAllHeaders 
+monthInterval.DateNavigationButtonVisibility = TimelineViewDateNavigationButtonVisibility.ShowOnAllHeaders 
+' ナビゲーション ボタンをクリックすると 1 間隔ずつスクロールします 
+dayInterval.DateNavigationButtonAction = TimelineViewDateNavigationButtonAction.ScrollByInterval 
+' ナビゲーション ボタンをクリックすると 1 ページずつスクロールします 
+monthInterval.DateNavigationButtonAction = TimelineViewDateNavigationButtonAction.ScrollByPage 
+' ナビゲーション ボタンの色を設定します 
+dayInterval.DateNavigationButtonAppearance.ForeColor = Color.Red 
+monthInterval.DateNavigationButtonAppearance.ForeColor = Color.Red 
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Timeslot Navigation Button Appearances
+// すべての間隔のいずれかの側にナビゲーション ボタンを表示します
+dayInterval.DateNavigationButtonVisibility = TimelineViewDateNavigationButtonVisibility.ShowOnAllHeaders;
+monthInterval.DateNavigationButtonVisibility = TimelineViewDateNavigationButtonVisibility.ShowOnAllHeaders;
+// ナビゲーション ボタンをクリックすると 1 間隔ずつスクロールします
+dayInterval.DateNavigationButtonAction = TimelineViewDateNavigationButtonAction.ScrollByInterval;
+//　ナビゲーション ボタンをクリックすると 1 ページずつスクロールします
+monthInterval.DateNavigationButtonAction = TimelineViewDateNavigationButtonAction.ScrollByPage;
+// ナビゲーション ボタンの色を設定します
+dayInterval.DateNavigationButtonAppearance.ForeColor = Color. Red;
+monthInterval.DateNavigationButtonAppearance.ForeColor = Color. Red;
+#endregion
+----
+
+image::Images/WinTimelineView_Styling_Timeslot_Headers_03.png[]

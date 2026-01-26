@@ -1,0 +1,227 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-known-issues-in-2013-volume-1",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "b4715e01-ca8d-4ce3-ac08-1669ac48d47c",  
+    "buildFlags": [],
+    "createdOn": "2013-03-01T19:06:40.2523103Z"
+}
+|metadata|
+////
+
+= 2013 Volume 1 の既知の問題
+
+== _コード化された UI テスト_   (CUIT) フレームワークの既知の問題と制限
+
+=== コントロール コンテナーの問題
+
+==== 問題:
+
+User Interface Automation (UIA) の  *コード化された UI テスト*  フレームワークを前提にした場合、コントロール コンテナーである Infragistics UIA 有効なコントロールは、このコンテナーに含まれている Infragistics コントロールで再生すると失敗する可能性があります。
+
+影響されるコンテナー:
+
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.ultracontrolcontainereditor_members.html[ControlContainerEditor] (埋め込みエディターの指定を許可する任意の Infragistics コントロール)
+* link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool_members.html[ControlContainerTool] および link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcontrolcontainertool_members.html[PopupControlContainerTool] ( link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager_members.html[UltraToolbarsManager])
+* コントロール コンテナー グループ ( link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar_members.html[UltraExplorerBar])
+
+==== 回避策:
+
+含まれているコントロールの正しい階層を確認するには、スクリプトを変更します。
+
+=== ツールバーのドラッグ
+
+==== 問題:
+
+基本の UIA 階層がドラッグ操作に変更するため、ドック領域から他のドック領域へツールバーを移動することはサポートされていません。ドラッグ操作のレコーディングで、 *コード化された UI テスト*  ビルダーはドロップ時の階層に基づいてドロップ ポイントを保存します。ただし、再生中にドロップ ポイント計算はドラッグ操作の前に実行します。そのため、UIA 階層は予期された階層と異なります。
+
+==== 回避策:
+
+現在、ご提供できる回避策はありません。解決策をいち早くご提供できるよう調査中です。
+
+=== クイック アクセス ツールバー QuickCustomizeButton 再生
+
+==== 問題:
+
+同じレコーディング セッションでクイック アクセス ツール バーを縮小したリボンの下に移動すると、 link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaraction.html[QuickCustomizeButton] で実行した操作の再生に失敗する場合があります。CUIT フレームワークでネイティブな要素のマッピングを変更せずに、別のオートメーション要素のために同じ `UITestControl` を使用するためです。
+
+==== 回避策:
+
+link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaraction.html[QuickCustomizeButton] の UltraUiaButton は `Microsoft.VisualStudio.TestTools.UITest.Extension` の link:http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.uitest.extension.searchconfiguration.aspx[SearchConfiguration] クラスの `AlwaysSearch` フィールド オプションを含むためにスクリプトを変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch)
+----
+
+=== UltraTrackBar
+
+==== 問題:
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar_members.html[UltraTrackBar] でマウス アップをつまみで実行しない場合、ドラッグの代わりにレコードがクリックされます。
+
+==== 回避策:
+
+つまみをドラッグした後に、つまみで `MouseUp` を実行するか、スクリプトで直接 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar_members.html[UltraTrackBar] の `SetValue` を実行します。
+
+=== UltraGrid
+
+==== 問題:
+
+グリッド セルのドロップダウンまたはエディター ボタンをクリックすると、正しく再生されません。
+
+==== 詳細:
+
+デフォルトでは、マウスをセル上に移動するまで、セルのボタンを表示しません。この動作を変更するには、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn_members.html[UltraGridColumn] の `CellDisplayStyle` プロパティを使用します。ただし、ボタンが表示されない場合、 *コード化された UI テスト* は再生中に検索できません。 *コード化された UI テスト* は各のマウス移動を保存しません。
+
+==== 回避策:
+
+記録時はボタンをクリックする前にマウスがセルの境界線内になるよう常にセル自身をクリックします。
+
+=== UltraGrid の列ドラッグ
+
+==== 問題:
+
+ドラッグ操作でドラッグ インジケーターとして使用される不透明なウィンドウのため、 *コード化された UI テスト*  フレームワークが正しくドロップ位置を決定できません。
+
+==== 回避策:
+
+これを回避するには、スクリプトでドラッグ先の UITestControl をデスクトップの代わりに他のヘッダーに変更する必要があります。
+
+生成されたコードは以下のようになります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 'Title' HeaderItem を (56, 11) から 'Desktop' クライアント (38, 14) へ移動
+uIDesktopClient.EnsureClickable(new Point(38, 14));
+Mouse.StartDragging(uITitleHeaderItem, new Point(56, 11));
+Mouse.StopDragging(uIDesktopClient, new Point(38, 14));
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 'Title' HeaderItem を (56, 11) から 'Desktop' クライアント (38, 14) へ移動
+uIDesktopClient.EnsureClickable(New Point(38, 14))
+Mouse.StartDragging(uITitleHeaderItem, New Point(56, 11))
+Mouse.StopDragging(uIDesktopClient, New Point(38, 14))
+----
+
+次に変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 'Title' HeaderItem を (56, 11) から 'LastName' HeaderItem (14, 16) へ移動
+uILastNameHeaderItem.EnsureClickable(new Point(14, 16));
+Mouse.StartDragging(uITitleHeaderItem, new Point(56, 11));
+Mouse.StopDragging(uILastNameHeaderItem, new Point(14, 16));
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 'Title' HeaderItem を (56, 11) から 'LastName' HeaderItem (14, 16) へ移動
+uILastNameHeaderItem.EnsureClickable(New Point(14, 16))
+Mouse.StartDragging(uITitleHeaderItem, New Point(56, 11))
+Mouse.StopDragging(uILastNameHeaderItem, New Point(14, 16))
+----
+
+上記コードでは、ドロップ ポイントはドロップ ヘッダー位置に相対します。
+
+列を link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~groupbybox.html[GroupByBox] からまたは列を link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~groupbybox.html[GroupByBox] までドラッグする場合にも問題があります。
+
+=== キャッシュされた DropDown ウィンドウ
+
+==== 問題:
+
+スクリプトを 2 つ以上の DropDown (`ValueList`) でレコーディングする場合、適切な `ValueListItem` プロパティを検索できないため失敗する可能性があります。新しいドロップダウン インスタンスを作成する代わりに、再生プロセスが同じドロップダウン ウィンドウをキャッシュして使用するためです。
+
+==== 回避策:
+
+DropDown ウィンドウの `WinWindow` (一般的に名前付き `UIValueListDropDownWindow`) は SearchConfiguration の `AlwaysSearch` オプションを含むためにスクリプトを変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch)
+----
+
+=== 複製のコントロール名
+
+==== 問題:
+
+同じコントロール名を持つ複数のコントロールが同じフォームにある場合 (同じユーザー コントロールの複数インスタンスを使用する場合など)、`UITestControl` が再生で正しいインスタンスと一致しない場合があります。
+
+==== 回避策:
+
+コントロールの親である `WinWindow` が正しいインスタンス数を含むためにスクリプトを変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.SearchProperties[UITestControl.PropertyNames.Instance] = instance_number;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.SearchProperties(UITestControl.PropertyNames.Instance) = instance_number
+----
+
+=== 表示されていない ValueListItems が UltraGrid で表示される (MDI アプリケーション)
+
+==== 問題:
+
+マルチドキュメント インターフェイス (MDI) の子フォームのグリッドがドロップダウン `ValueList` ( _FilterRow_   または  _EditorWithCombo_   を持つ _列_  など) を表示する場合、再生は `ValueList` で表示されない値リスト項目の検索または選択はできません。
+
+==== 回避策:
+
+`Mouse.Click` イベントの前に `UITestControl` のコントロール タイプ ListItem (UltraUiaListItem) に link:http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(Microsoft.VisualStudio.TestTools.UITesting.UITestControl.EnsureClickable)&rd=true[EnsureClickable] メソッドを呼び出すためにスクリプトを変更します。
+
+=== 無効なコントロール
+
+==== 問題:
+
+無効にしたコントロールに assert ステートメント (変更の認識) に追加する場合、マウス位置に最も下のプロバイダーの変わりにコントロール ラッパーの `UITestControl` が (`WinWindow`) を選択されます。Microsoft Active Accessibility: Architecture (MSAA) と UIA のトランジジョンおよびインタラクティブな UI オブジェクトを検索するフレームワークのためです。
+
+==== 回避策:
+
+アサーション ウィンドウでナビゲーション矢印を使用して子プロバイダーにアクセスできます。
+
+=== スクロールバー操作
+
+==== 問題:
+
+CUIT フレームワークは一般的にスクロールバーで実行した操作をレコードしません。ただし、識別メソッドのため、無視するスクロールバーとして Infragistics スクロールバーは設定されず、ユーザー インタラクションをレコーディングします。
+
+==== 回避策:
+
+ユーザーはレコードされたスクロールバー操作を削除できます。 link:http://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.uitest.extension.uitechnologymanager.aspx[TechnologyManager] が正しい UIA スクロール パターンを使用します。

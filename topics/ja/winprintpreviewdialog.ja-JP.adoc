@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintpreviewdialog",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5D20A912-BF1B-4F90-BD07-F1273C31D3E5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPrintPreviewDialog
+
+以下のリンクをクリックすると、WinPrintPreviewDialog コンポーネントに関する説明を読むことができます。
+
+* link:winprintpreviewdialog-about-winprintpreviewdialog.html[WinPrintPreviewDialog について] -- WinPrintPreviewDialog コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:win-winprintpreviewdialog-using-winprintpreviewdialog.html[WinPrintPreviewDialog の使用] -- このセクションは、WinPrintPreviewDialog コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:winprintpreviewdialog-api-overview.html[API の概要] -- WinPrintPreviewDialog コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

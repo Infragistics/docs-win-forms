@@ -1,0 +1,87 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-filtering-rows-with-errors",
+    "controlName": ["WinGrid"],
+    "tags": [],
+    "guid": "{B3EE3E2C-7ADF-4EDF-8466-8E3F4250C174}",  
+    "buildFlags": [],
+    "createdOn": "2009-06-08T14:28:49Z"
+}
+|metadata|
+////
+
+= エラーで行をフィルタリング
+
+WinGrid™ は元となるデータ ソースの IDataErrorInfo の実装によって決定されますが、セルにエラーがあるかどうかに基づいてフィルタリングをサポートします。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filteroperanddropdownitems.html[FilterOperandDropDownItems]"]  プロパティは、フィルター行またはヘッダー アイコンに存在するフィルター ドロップダウン リストに表示すべき項目を選択する方法を提供します。このプロパティは以下のフラグ付きのオプションで構成されます:
+
+All、Blanks、CellValues、Custom、Default、Errors、NonBlanks、NonErrors、ShowAll、ShowNone。
+
+以下のコードは、データ エラーを設定するために WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializerow_ev.html[InitializeRow]"]  イベントに配置されます。FilterOperandDropDownItems プロパティはドロップダウン リストに "Errors" フィルター オプションをリストするように構成されます。これは、エンドユーザーによって選択された時にセル値がエラー条件に一致するすべての行を表示します。
+
+このトピックは、UltraGrid コントロールをフォームにドラッグし、Northwind Database の Orders テーブルにバインドしてあることが前提となっています。
+
+*Visual Basic の場合：*
+
+----
+Imports System.Data.SqlClient
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+...
+----
+
+----
+Me.ultraGrid1.DisplayLayout.Override.SupportDataErrorInfo = SupportDataErrorInfo.RowsAndCells 
+Me.ultraGrid1.DisplayLayout.Override.FilterUIType = FilterUIType.HeaderIcons 
+Me.ultraGrid1.DisplayLayout.Override.AllowRowFiltering = DefaultableBoolean.[True] 
+Dim rowError As String = ""
+Dim cellError As String = ""
+Dim value As [Object] = e.Row.Cells("ShippedDate").Value
+' ShippedDate 列が空の場合、データ エラーを設定します。 
+If DBNull.Value = value Then 
+    rowError = "Row contains errors" 
+    cellError = "Shipped Date can not be empty" 
+End If 
+Dim drv As DataRowView = DirectCast(e.Row.ListObject, DataRowView)
+drv.Row.RowError = rowError 
+drv.Row.SetColumnError("ShippedDate", cellError) 
+' フィルター ドロップダウン リストに "Errors" フィルター オプションのみをリストします。 
+Me.ultraGrid1.DisplayLayout.Override.FilterOperandDropDownItems = FilterOperandDropDownItems.Errors
+----
+
+*C# の場合：*
+
+----
+using System.Data.SqlClient;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+...
+----
+
+----
+this.ultraGrid1.DisplayLayout.Override.SupportDataErrorInfo = SupportDataErrorInfo.RowsAndCells;
+this.ultraGrid1.DisplayLayout.Override.FilterUIType = FilterUIType.HeaderIcons;
+this.ultraGrid1.DisplayLayout.Override.AllowRowFiltering = DefaultableBoolean.True;
+string rowError = "";
+string cellError = "";
+Object value = e.Row.Cells["ShippedDate"].Value;
+// ShippedDate 列が空の場合、データ エラーを設定します。
+if (DBNull.Value == value)
+{
+  rowError = "Row contains errors";
+  cellError = "Shipped Date can not be empty";
+}
+DataRowView drv = (DataRowView)e.Row.ListObject;
+drv.Row.RowError = rowError;
+drv.Row.SetColumnError("ShippedDate", cellError);
+// フィルター ドロップダウン リストに "Errors" フィルター オプションのみをリストします。
+this.ultraGrid1.DisplayLayout.Override.FilterOperandDropDownItems = FilterOperandDropDownItems.Errors;
+----
+
+*エラー条件に一致する行を表示する WinGrid。*
+
+image::Images/WinGrid_Filtering_Rows_with_Errrors.png[]
+
+== 関連トピック
+* link:wingrid-displaying-row-cell-errors-using-idataerrorinfo.html[IDataErrorInfo を使用して行/セル エラーを表示]

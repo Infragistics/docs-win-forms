@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-smart-tag",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started"],
+    "guid": "{DA9B0E5D-5A97-417D-9D02-351E60DE87B2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、それぞれの {ProductName} コントロール/コンポーネントが固有のスマート タグを備えています。コントロール/コンポーネントを単に選択すると、Smart Tag のアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WinTab スマート タグには、以下のセクションと共にコントロールの名前が含まれます。
+
+* 外観 -- コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* 動作 -- フォーム上でのコントロールの動作を制御するプロパティに簡単にアクセスできます。
+* 配置 -- コントロールをフォームのどこに、どのように配置するかを指定するプロパティがあります。
+
+各セクションの項目（たとえば、フィールド、ドロップダウン リスト、チェックボックス）およびプロパティ グリッドの項目の対応するプロパティの説明については以下を参照してください。
+
+image::images/WinTabs_The_WinTabControl_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|TabOrientation
+|タブ コントロールのどこにタブを表示するのかをドロップダウンから選択します。
+| link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~taborientation.html[TabOrientation]
+
+|TextOrientation
+|タブのテキストの表示方法をドロップダウンから選択します。
+| link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~textorientation.html[TextOrientation]
+
+|ViewStyle
+|WinTabControl のスタイルを、Office 2003、Visual Studio 2005、または Office 2007 に似たスタイルに変更します。
+| link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~viewstyle.html[ViewStyle]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|動作|説明|対応するプロパティ
+
+|スタイル
+|タブの外観を、プロパティ ページ、Visual Studio、Excel、Visual Studio 2005 などに変更します。
+| link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~style.html[Style]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|レイアウト|説明|対応するプロパティ
+
+|ドック
+|コントロールを上、右、下、左、全体のどこにドッキングするか、またはどこにもドッキングしないかを選択します。
+|Dock
+
+|====

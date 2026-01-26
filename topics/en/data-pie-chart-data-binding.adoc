@@ -1,0 +1,203 @@
+﻿////
+|metadata|
+{
+    "name": "data-pie-chart-data-binding",
+    "controlName": ["{DataDataPieChartName}"],
+    "tags": ["Data Binding"],
+    "guid": "",
+    "buildFlags": ["WPF","WINFORMS"]
+}
+|metadata|
+////
+
+= Data Binding
+
+This topic demonstrates how to bind data to the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] control. At the end of the topic, a complete code sample is provided.
+
+The topic is organized as follows:
+
+* <<Introduction,Introduction>>
+* <<Requirements,Requirements>>
+* <<BindingData, Binding to Data>>
+* <<CodeExample,Code Example>>
+* <<RelatedTopics,Related Content>>
+
+[[Introduction]]
+== Introduction
+
+The procedure below demonstrates how to bind the {DataPieChartName} control to a data collection.
+
+[[Requirements]]
+== Requirements
+
+ifdef::wpf[]
+
+Add the following NuGet package to your main project:
+
+** Infragistics.WPF.Charts
+
+For more information on setting up the NuGet feed and adding NuGet packages, you can take a look at the following documentation: link:nuget-feeds.html[NuGet Feeds].
+
+endif::wpf[]
+
+ifdef::win-forms[]
+Add the following Infragistics assemblies to your main project:
+
+** {ApiPlatform}{DataPieChartAssembly}.{DllVersion}dll 
+** {ApiPlatform}{DataVizAssembly}.{DllVersion}dll
+** {ApiPlatform}Win.Portable.Core.{DllVersion}dll 
+endif::win-forms[]
+
+
+Also, add the following Infragistics namespaces:
+
+ifdef::wpf[]
+
+*In XAML:*
+[source,xaml]
+----
+xmlns:ig="http://schemas.infragistics.com/xaml"
+---- 
+*In C#:*
+[source,csharp]
+----
+using {DataPieChartNamespace};
+----
+
+*In VB:* 
+[source,vb]
+----
+Imports {DataPieChartNamespace}
+---- 
+
+endif::wpf[]
+ 
+ifdef::win-forms[] 
+
+*In C#:* 
+[source,csharp]
+----
+using {DataPieChartNamespace}; 
+using Infragistics.Win.DataVisualization.Shared; 
+using Infragistics.Win.Portable.Core;
+---- 
+
+*In VB:* 
+[source,vb]
+----
+Imports {DataPieChartNamespace} 
+Imports Infragistics.Win.DataVisualization.Shared 
+Imports Infragistics.Win.Portable.Core
+---- 
+
+endif::win-forms[]
+
+[[BindingData]]
+
+== Binding to Data
+
+The {DataPieChartName} requires a collection of data items that define at the least two properties: one that you want to use as a label, and a numeric one that you want to use as the value of each slice. Assuming that your data item only defines these minimum properties, you can simply set the `DataSource` property of the control, and it will pick up on these automatically.
+
+If you have more than the two minimum properties on your underlying data item, there are other ways to define which properties you want to use. The first is to use the `LabelMemberPath` and `ValueMemberPath` properties, and supply the names of the properties that you want to use for the label and value, respectively.
+
+You can also utilize the `IncludedProperties` or `ExcludedProperties` collections of the chart. These collections take a string array of the property names that you either want to include or exclude from the plot of the `{DataPieChartName}`.
+
+[[CodeExample]]
+== Code Example
+
+The following code creates a DataItem class representing simple value-label pairs, along with a third string property that we will use to demonstrate the `ExcludedProperties` collection. There is also a Data class representing a collection of this DataItem:
+
+*In C#:*
+
+----
+    public class DataItem
+    {
+        public string UnusedLabel { get; set; }
+        public string Label { get; set; }
+        public double Value { get; set; }
+    }
+    public class Data : ObservableCollection<DataItem>
+    {
+        public Data()
+        {
+            Add(new DataItem { UnusedLabel = "Unused 1", Label = "Item 1", Value = 5 });
+            Add(new DataItem { UnusedLabel = "Unused 2", Label = "Item 2", Value = 6 });
+            Add(new DataItem { UnusedLabel = "Unused 3", Label = "Item 3", Value = 3 });
+            Add(new DataItem { UnusedLabel = "Unused 4", Label = "Item 4", Value = 7 });
+            Add(new DataItem { UnusedLabel = "Unused 5", Label = "Item 5", Value = 5 });
+        }
+    }
+----
+
+The below code demonstrates the addition of the {DataPieChartName} and binding it to data with a code snippet for the `IncludedProperties` and `ExcludedProperties` as well as the `LabelMemberPath` and `ValueMemberPath`.
+
+ifdef::wpf[]
+
+*In XAML:*
+
+----
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Resources>
+            <local:Data x:Key="data" />
+        </Grid.Resources>
+        <ig:{DataPieChartName} Name="DataPieChart"
+                       DataSource="{StaticResource data}"
+                       ExcludedProperties="UnusedLabel"
+                       IncludedProperties="Label, Value" />
+    </Grid>
+----
+
+Alternatively:
+
+----
+    <Grid x:Name="LayoutRoot" >
+        <Grid.Resources>
+            <local:Data x:Key="data" />
+        </Grid.Resources>
+        <ig:{DataPieChartName} Name="DataPieChart"
+                       DataSource="{StaticResource data}"
+                       LabelMemberPath="Label"
+                       ValueMemberPath="Value" />
+    </Grid>
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*In C#:*
+
+[source,csharp]
+----
+UltraDataPieChart dataPieChart = new UltraDataPieChart()
+{
+    Dock = DockStyle.Fill,
+    DataSource = new Data(),
+    ExcludedProperties = new string[] { "UnusedLabel" },
+    IncludedProperties = new string[] { "Label", "Value" }
+};
+
+this.Controls.Add(dataPieChart);
+----
+
+Alternatively:
+
+[source,csharp]
+----
+UltraDataPieChart dataPieChart = new UltraDataPieChart()
+{
+    Dock = DockStyle.Fill,
+    DataSource = new Data(),
+    ValueMemberPath = "Value",
+    LabelMemberPath = "Label"
+};
+
+this.Controls.Add(dataPieChart);
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== Related Content
+
+* link:DataPieChart-others-category.html[Others Category]

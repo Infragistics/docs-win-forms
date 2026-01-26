@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-validate-during-a-specific-event",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{2DF84275-AD5C-4460-9BEB-60E4A93F1024}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 固有のイベント中に検証
+
+WinValidator™ は {ProductName} コントロールおよびコンポーネントのすべてを検証できるだけでなく、インボックス、Windows Forms コントロールまたはコンポーネントも検証できます。WinValidator は、特定の時間、または言い換えれば特定のイベント中にコントロールを検証します。ユーザーはどのイベント中に WinValidator が link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~validationtrigger.html[ValidationTrigger] プロパティでコントロールを検証するのかを選択できます。ValidationTrigger プロパティは、どのタイプのイベントがコントロールまたはコントロールのグループで検証を開始するのかを定義するために適切な名前が付けられています。コントロールがそれ自体の検証を開始できるいくつかの方法があります。
+
+* OnValidating – WinValidator は Validating イベントが発生する時にコントロールを検証します。
+* OnPropertyValueChanged – WinValidator は固有のプロパティの Changed イベントが発生する時にコントロールを検証します。WinValidator で各コントロールに拡張された ValidationSettings オブジェクトから ValidationPropertyName プロパティを設定することで検証を開始するプロパティを選択できます。詳細は、 link:winvalidator-validate-a-single-control.html[「単一のコントロールを検証」]を参照してください。
+* Programmatic – link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~validate.html[Validate] メソッドを明確に呼び出さない限り、WinValidator はコントロールを検証しません。
+
+これらの値の詳細は、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationtrigger.html[「ValidationTriggers 列挙体」]を参照してください。
+
+以下のコード例は、TextChanged イベント中に WinNumericEditor™ コントロールを検証する方法を示します。WinNumericEditor の TextChanged イベント中の検証は、エンド ユーザーが入力した時にエディタを検証する必要がある場合に役立ちます。
+
+*Visual Basic の場合：*
+
+----
+' WinNumericEditor が検証される方法を決定する 
+' 設定を取得します。
+Dim vs As Infragistics.Win.Misc.ValidationSettings = _
+	Me.ultraValidator1.GetValidationSettings(Me.UltraNumericEditor1)
+' 特定のプロパティが変更される時に検証するためのトリガーを設定します。
+vs.ValidationTrigger = _
+Infragistics.Win.Misc.ValidationTrigger.OnPropertyValueChanged
+' "changed" イベント（すなわち、TextChanged イベント）
+' が検証されるプロパティ
+vs.ValidationPropertyName = "Text"
+----
+
+*C# の場合：*
+
+----
+// WinNumericEditor が検証される方法を決定する 
+// 設定を取得します。
+Infragistics.Win.Misc.ValidationSettings vs =
+	this.ultraValidator1.GetValidationSettings(this.ultraNumericEditor1);
+// 特定のプロパティが変更される時に検証するためのトリガーを設定します。
+vs.ValidationTrigger = 
+Infragistics.Win.Misc.ValidationTrigger.OnPropertyValueChanged;
+// "changed" イベント（すなわち、TextChanged イベント）
+// が検証されるプロパティ
+vs.ValidationPropertyName = "Text";
+----

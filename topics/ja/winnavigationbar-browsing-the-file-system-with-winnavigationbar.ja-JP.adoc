@@ -1,0 +1,299 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-browsing-the-file-system-with-winnavigationbar",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{51BF580E-3580-44DA-865A-42B31D7E6009}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNavigationBar でファイル システムを参照
+
+== 始める前に
+
+WinNavigationBar™ は特にファイル システムなどの階層的な構造をナビゲートするために非常に役立つツールです。WinNavigationBar はユニークなデザインであるので、アドレス パスを分離して個別に使用できる位置に分割でき、それぞれがすべての子の宛先に単独でナビゲートできます。Windows® Vista™ に馴染みがある人は、WinNavigationBar が Windows Vista Windows Explorer のアドレス バーに非常に似ていることに気づくでしょう。馴染みがあることで、エンド ユーザーはファイル エクスプローラとして WinNavigationBar を簡単に使用することができます。
+
+== 達成すること
+
+この詳細なガイドは、WinNavigationBar でファイル参照アプリケーションを作成するために可能な限り最短のルートを提供することを目的としています。このアプリケーションは、WinNavigationBar および WinListView を同時に使用してファイルとフォルダを表示します。
+
+== 次の手順を実行します
+
+[start=1]
+. *フォームを設定します。*
+
+.. 新しい Visual Studio® Visual Basic または C# プロジェクトを作成後、Visual Studio ツールボックスで UltraNavigationBar コントロールを指定してダブルクリックします。WinNavigationBar がフォームに追加されます。
+.. WinNavigationBar が選択され、[プロパティ] ウィンドウで Dock プロパティを見つけて Top に設定します。
+.. Visual Studio ツールボックスで UltraListView コントロールを指定してダブルクリックします。WinListView がフォームに追加されます。
+.. WinListView が選択されたままの状態で、[プロパティ] ウィンドウで Dock プロパティを見つけて Fill に設定します。フォームは次のようになります。
+
+image::images/WinNavigationBar_Browsing_the_File_System_with_WinNavigationBar_01.png[]
+
+.. フォームのヘッダをダブルクリックします。これでコードビハインドが表示され、フォームの Load イベントのイベント ハンドラも追加されます。
+
+[start=2]
+. *ディレクティブを追加します。*
+
+以下の using/Imports のディレクティブを追加すれば、完全に記述された名前を常に入力する必要はありません。
+
+*Visual Basic の場合：*
+
+----
+Imports System.IO
+Imports Infragistics.Win
+Imports Infragistics.Win.Misc
+Imports Infragistics.Win.Misc.UltraWinNavigationBar
+Imports Infragistics.Win.UltraWinListView
+----
+
+*C# の場合：*
+
+----
+using System.IO;
+using Infragistics.Win;
+using Infragistics.Win.Misc;
+using Infragistics.Win.Misc.UltraWinNavigationBar;
+using Infragistics.Win.UltraWinListView;
+----
+
+[start=3]
+. *フォームの Load イベントにコードを追加します。*
+
+フォームの Load イベントで、WinNavigationBar のいくつかの基本的でありながら重要なプロパティを初期化します。このコードは、ハードコードが求められる唯一の位置であるため link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~rootlocation.html[RootLocation] にフォーカスを置きます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+' エンド ユーザーに対して表示されるテキストです。
+        Me.UltraNavigationBar1.RootLocation.DisplayText = "Local Disk (C:)"
+' 子の位置（またはそれ自体）のフル パスを解析する時に
+' WinNavigationBar が使用するテキストです。
+        Me.UltraNavigationBar1.RootLocation.Text = "C:"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, EventArgs e)
+{
+	// エンド ユーザーに対して表示されるテキストです。
+	this.ultraNavigationBar1.RootLocation.DisplayText = "Local Disk (C:)";
+	// 子の位置（またはそれ自体）のフル パスを解析する時に
+	// WinNavigationBar が使用するテキストです。
+	this.ultraNavigationBar1.RootLocation.Text = "C:";
+}
+----
+
+[start=4]
+. *WinNavigationBar の位置に各フォルダを遅延ロードするためのコードを書きます。*
+
+遅延ロードは、求められた時間で求められたデータ量のみをロードするという意味です。この概念はファイル システムからフォルダと同時に WinNavigationBar の位置すべてを完全にロードすることと対照的です。完全なロードは、フォームの Load イベント内の個別のメソッド呼び出しで発生する場合があります。WinNavigationBar の遅延ロードは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~initializelocations_ev.html[InitializeLocations] イベントで発生します。
+
+InitializeLocations は、特定の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation.html[Location] の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~locations.html[Locations] コレクションが初めてアクセスされた時に起動します。つまり、エンド ユーザーが位置のドロップダウン ボタンをクリックした時です。このイベントは、その位置の子の位置を移植する機会を与えてくれます。InitializeLocations は、イベント引数として現在アクセスされている位置を公開します。ファイル システムからのフォルダでその位置を満たすには、親位置の FullPath プロパティを使用して DirectoryInfo オブジェクトの配列をインスタンス化できます。ディレクトリの配列を取得したら、FOREACH ループでそれらを反復し、 link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.keyedsubobjectbase~key.html[キー]としてディレクトリの FullName そして link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~text.html[テキスト]としてその Name を使用して、親の位置に新しい位置を追加することができます。InitializeLocations イベントのハンドラを作成し、その中に以下のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraNavigationBar1_InitializeLocations(ByVal sender As Object, _
+  ByVal e As InitializeLocationsEventArgs) _
+  Handles UltraNavigationBar1.InitializeLocations
+' 親の位置のパスのサブディレクトリで DirectoryInfos
+' の配列を移植します。
+    Dim dirs As DirectoryInfo() = _
+        New DirectoryInfo _
+            (e.ParentLocation.GetFullPath _
+            (FullPathFormat.EditMode) _
+            + "\").GetDirectories()
+' 各サブディレクトリをループします。
+    For Each dir As DirectoryInfo In dirs
+' WinNavigationBar に新しい位置を追加します。
+' サブディレクトリのフル パスはキーで、 
+' 名前はテキストになります。
+        e.ParentLocation.Locations.Add(dir.FullName, dir.Name)
+    Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraNavigationBar1_InitializeLocations
+	(object sender, InitializeLocationsEventArgs e)
+{
+	// 親の位置のパスのサブディレクトリで DirectoryInfos
+	// の配列を移植します。
+	DirectoryInfo[] dirs =
+		new DirectoryInfo
+		(e.ParentLocation.GetFullPath
+			(FullPathFormat.EditMode)
+			+ "\\").GetDirectories();
+	// 各サブディレクトリをループします。
+	foreach (DirectoryInfo dir in dirs)
+	{
+		// WinNavigationBar に新しい位置を追加します。
+		// サブディレクトリのフル パスはキーで、 
+		// 名前はテキストになります。
+		e.ParentLocation.Locations.Add(dir.FullName, dir.Name);
+	}
+}
+----
+
+この時点でアプリケーションを実行する場合、フォームは以下のスクリーンショットのようになります。
+
+image::images/WinNavigationBar_Browsing_the_File_System_with_WinNavigationBar_02.png[]
+
+[start=5]
+. *ファイルおよびフォルダで WinListView を移植します。*
+
+ユーザーが行うことができるのがフォルダへのナビゲートだけである場合、ファイル エクスプローラは半分だけ完成で、フォルダのコンテンツを確認する必要もあります。エンド ユーザーが選択する各位置に関連付けられたファイルとフォルダで WinListView を移植します。これを行うには、WinListView を移植するメソッドを作成し、WinNavigationBar の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~selectedlocationchanged_ev.html[SelectedLocationChanged] イベント（次の手順で説明）でメソッドを呼び出します。SelectedLocationChanged イベントでのメソッドの呼び出しは、位置が有効であることを保証します。パスが無効だった場合には WinNavigationBar の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~navigationpathparseerror_ev.html[NavigationPathParsingError] は SelectedLocationChanged イベントの前に発生するからです。パス解析エラーの処理については、 link:winnavigationbar-handle-a-navigation-path-parsing-error.html[「ナビゲーション パス解析エラーを処理」]を参照してください。
+
+ファイルおよびフォルダで WinListView を移植することは実際は非常に単純です。WinListView を移植するパスへの参照が必要で、SelectedLocationChangedEventArgs.SelectedLocation. link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~getfullpath.html[GetFullPath] メソッドからこの参照を取得できます。この文字列をメソッドに渡すと、残りの作業は DirectoryInfos および FileInfos のコレクションでただ繰り返すことです。
+
+*Visual Basic の場合：*
+
+----
+Private Sub LoadFilesAndFolders(ByVal path As String)
+' 選択した位置のパスのサブディレクトリで DirectoryInfos
+' の配列を移植します。
+    Dim dirs As DirectoryInfo() = _
+      New DirectoryInfo _
+      (path + "\").GetDirectories()
+' 選択した位置に関連付けられたファイルを取得します。
+    Dim files As FileInfo() = _
+      New DirectoryInfo _
+      (path + "\").GetFiles()
+' WinListView から以前の位置の項目をクリアします。
+    Me.UltraListView1.Items.Clear()
+    Dim item As UltraListViewItem = Nothing
+' フォルダおよびファイルで WinListView を移植します。
+    For Each dir As DirectoryInfo In dirs
+        item = Me.UltraListView1.Items.Add(dir.FullName, dir.Name)
+        item.Tag = dir
+' この時点で、以下と似ている
+' コードの行でフォルダ項目に
+' 画像を指定できます。
+        'item.Appearance.Image = this.imageListLarge.Images[0];
+    Next
+    For Each file As FileInfo In files
+        item = Me.UltraListView1.Items.Add(file.FullName, file.Name)
+        item.Tag = file
+    Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void LoadFilesAndFolders( string path )
+{
+	// 選択した位置のパスのサブディレクトリで DirectoryInfos
+	// の配列を移植します。
+	DirectoryInfo[] dirs =
+		new DirectoryInfo
+		(path + "\\").GetDirectories();
+	// 選択した位置に関連付けられたファイルを取得します。
+	FileInfo[] files =
+		new DirectoryInfo
+		(path + "\\").GetFiles();
+	// WinListView から以前の位置の項目をクリアします。
+	this.ultraListView1.Items.Clear();
+	UltraListViewItem item = null;
+	// フォルダおよびファイルで WinListView を移植します。
+	foreach (DirectoryInfo dir in dirs)
+	{
+		item = this.ultraListView1.Items.Add(dir.FullName, dir.Name);
+		item.Tag = dir;
+		// この時点で、以下と似ている
+		// コードの行でフォルダ項目に
+		// 画像を指定できます。
+		//item.Appearance.Image = this.imageListLarge.Images[0];
+	}
+	foreach (FileInfo file in files)
+	{
+		item = this.ultraListView1.Items.Add(file.FullName, file.Name);
+		item.Tag = file;
+	}
+}
+----
+
+[start=6]
+. *SelectedLocationChanged イベントで LoadFilesAndFolders メソッドを呼び出します。*
+
+前の手順で説明したように、SelectedLocationChanged イベントで LoadFilesAndFolders メソッドを呼び出し、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrawinnavigationbar.selectedlocationchangedeventargs~selectedlocation.html[SelectedLocation] の FullPath を渡す必要があります。この時点でメソッドに FullPath を渡すと、エンド ユーザーがナビゲートしたばかりの位置のファイルとフォルダで WinListView を移植します。C# を使用している場合は [プロパティ] ウィンドウ、Visual Basic を使用している場合はコード表示の上のドロップダウン リストで WinNavigationBar の SelectedLocationChanged イベントのイベント ハンドラを作成します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraNavigationBar1_SelectedLocationChanging( _
+  ByVal sender As Object, _
+  ByVal e As SelectedLocationChangingEventArgs) _
+  Handles UltraNavigationBar1.SelectedLocationChanging
+    Me.LoadFilesAndFolders(e.NewSelectedLocation.GetFullPath _
+      (FullPathFormat.EditMode))
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraNavigationBar1_SelectedLocationChanged
+	(object sender, SelectedLocationChangedEventArgs e)
+{
+	this.LoadFilesAndFolders(e.NewSelectedLocation.GetFullPath
+		(Infragistics.Win.Misc.FullPathFormat.EditMode));
+}
+----
+
+この時点でアプリケーションを実行する場合、フォームは以下のスクリーンショットのようになります。
+
+image::images/WinNavigationBar_Browsing_the_File_System_with_WinNavigationBar_03.png[]
+
+[start=7]
+. *ファイルを開くかフォルダをナビゲートするために ItemDoubleClick イベントを処理します。*
+
+これまで、フォルダ構造をナビゲートして、ファイルおよびフォルダを表示する方法を学びましたが、エンド ユーザーがフォルダをダブルクリックしてナビゲートしたりファイルを開きたい場合はどうすればよいでしょうか。WinListView は、エンド ユーザーが項目をダブルクリックするたびに発生する link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~itemdoubleclick_ev.html[ItemDoubleClick] イベントを公開します。このイベントに適切なフォルダにナビゲートするか、適切なファイルを開くコードを配置できます。
+
+エンド ユーザーがフォルダまたはファイルをクリックしたかどうかを判断するために、この項目の link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.subobjectbase~tag.html[Tag] プロパティをテストします。Tag プロパティが DirectoryInfo オブジェクトである場合、エンド ユーザーはフォルダをダブルクリックしました。Tag プロパティが FileInfo オブジェクトの場合、エンド ユーザーはファイルをダブルクリックしました。エンド ユーザーがフォルダをダブルクリックした場合、WinNavigationBar の NavigateTo メソッドを呼び出し、パスとして項目のキーを渡します。エンド ユーザーがファイルをダブルクリックした場合、System.Diagnostics.Process.Start メソッドを使用してそのファイルを開きます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraListView1_ItemDoubleClick(ByVal sender As Object, _
+  ByVal e As ItemDoubleClickEventArgs) Handles UltraListView1.ItemDoubleClick
+    If TypeOf e.Item.Tag Is DirectoryInfo Then
+        Me.UltraNavigationBar1.NavigateTo(e.Item.Key, True)
+    ElseIf TypeOf e.Item.Tag Is FileInfo Then
+        System.Diagnostics.Process.Start(e.Item.Key)
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraListView1_ItemDoubleClick
+	(object sender, ItemDoubleClickEventArgs e)
+{
+	if (e.Item.Tag is DirectoryInfo)
+	{
+		this.ultraNavigationBar1.NavigateTo(e.Item.Key, true);
+	}
+	else if (e.Item.Tag is FileInfo)
+	{
+		System.Diagnostics.Process.Start(e.Item.Key);
+	}
+}
+----
+
+[start=8]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行する場合、WinNavigationBar または WinListView を使用してコンピュータの C: ドライブをナビゲートすることができます。両方のコントロールは、一方がナビゲートすると必ず更新されます。WinListView のフォルダをダブルクリックするとフォルダにナビゲートされます。WinListView のファイルをダブルクリックするとそのファイルが開きます。

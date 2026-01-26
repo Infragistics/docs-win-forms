@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-shadow-brush-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{DD140215-FF8D-43C6-81A8-4B43D989D037}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= シャドー ブラシ ペイン
+
+[シャドー ブラシ] ペインによって、プロパティ（例、針マーカー）に追加したシャドーのブラシ タイプと色を指定することができます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.shadow~brushelement.html[ブラシ タイプ]"]  -- このドロップダウン リストによって、プロパティのブラシ タイプを変更できます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.shadow~brushelement.html[ブラシの色]"]  -- 選択するブラシのタイプによって、ブラシの色のリストにそのブラシ タイプで使用可能な色が格納されます。
+
+image::images/Shadow_Brush_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-effects-tab.html[効果タブ]

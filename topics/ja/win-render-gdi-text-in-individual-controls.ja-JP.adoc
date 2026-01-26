@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-render-gdi-text-in-individual-controls",
+    "controlName": [],
+    "tags": ["Extending","How Do I","Styling","Tips and Tricks"],
+    "guid": "{A67D77EA-DE24-4A67-92C3-338ACD4F8733}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 個々のコントロールでの GDI+ でのテキスト レンダリング
+
+{ProductName} 2005 volume 3 （CLR 2.0）リリースでは、新しい TextRenderer クラスを使用して GDI テキストの描画を行えます。ただし、テキストを GDI+ で描画する場合は、DrawUtility.UseGDIPlusTextRendering プロパティを True に設定する必要があります。この結果、フォーム上のすべてのテキストが GDI+ で描画されます。テキストを GDI と GDI+ の両方のモードで描画することはできません。この問題を解決するために、TextRenderingMode プロパティがすべての基本クラスに追加されました。
+
+この TextRendering Mode プロパティを使用すると、フォーム内のコントロールに対し GDI と GDI+ のどちらで描画するかを指定できます。特定のコントロールでテキストを GDI+ で描画できるようにするには、[プロパティ] ウィンドウで TextRenderingMode プロパティを見つけ、ドロップダウン リストから [GDIPlus] を選択します。次のコードでは、WinListView コントロールでテキストを GDI+ レンダリングを使用して描画できます。
+
+[NOTE]
+====
+*注:* テキストの描画については、{ProductName} 2005 volume 3 リリースの制限事項が依然適用されます。回転させたテキストを描画するときには、GDI+ が TextRenderer クラスとして使用され、回転されたテキストはサポートされません。ドキュメントを印刷するには、GDI+ レンダリングを使用する必要があります。最後に、EditorWithMask クラスでは、描画には常に GDI+ が使用されます。詳しくは、「TextRenderer による GDI テキストの描画」を参照してください。
+====
+
+[Visual Basic]
+
+----
+Me.ultraListView1.TextRenderingMode = Infragistics.Win.TextRenderingMode.GDIPlus
+----
+
+[C#]
+
+----
+this.ultraListView1.TextRenderingMode = Infragistics.Win.TextRenderingMode.GDIPlus;
+----

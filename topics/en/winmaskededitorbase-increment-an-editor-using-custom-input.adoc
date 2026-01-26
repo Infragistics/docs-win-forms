@@ -1,0 +1,64 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": ["WinEditors"]
+}
+|metadata|
+////
+
+= Increment an Editor Using Custom Input
+
+The
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase.html[WinEditorMaskedControlBase]
+is able to increment/decrement its value on the up/down arrow key input. In order to allow this functionality for other forms of input, we can use the link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase~performaction.html[PerformAction()]
+method to perform the appropriate up or down arrow key action.
+
+Note that the editor must be in edit mode in order to spin, and if a spin is attempted while out of edit mode an `InvalidOperationException` is thrown. This scenario can be defended against by checking the editor's `Focused` property.
+
+The following code demonstrates a MouseWheel event handler causing the editor to increment/decrement according to the mouse wheel input.
+
+*In C#*
+[source, csharp]
+----
+private void MouseWheelIncrement(object sender, MouseEventArgs e)
+{
+    var editor = (UltraWinEditorMaskedControlBase)sender;
+    
+    // ignore if editor is not in edit mode
+    if (!editor.Focused)
+        return;
+
+    MaskedEditAction action;
+    bool positiveRoll = e.Delta > 0;
+    if (positiveRoll)
+        action = MaskedEditAction.UpKeyAction;
+    else
+        action = MaskedEditAction.DownKeyAction;
+
+    editor.PerformAction(action, false, false);
+}
+----
+
+*In VB*
+[source, vb]
+----
+Private Sub MouseWheelIncrement(sender As Object, e As MouseEventArgs)
+	Dim editor = DirectCast(sender, UltraWinEditorMaskedControlBase)
+	
+	' ignore if editor is not in edit mode
+	If Not editor.Focused Then
+		Return
+	End If
+
+	Dim action As MaskedEditAction
+	Dim positiveRoll As Boolean = e.Delta > 0
+	If positiveRoll Then
+		action = MaskedEditAction.UpKeyAction
+	Else
+		action = MaskedEditAction.DownKeyAction
+	End If
+
+	editor.PerformAction(action, False, False)
+End Sub
+----

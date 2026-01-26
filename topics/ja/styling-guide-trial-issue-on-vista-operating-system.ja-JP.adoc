@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-trial-issue-on-vista-operating-system",
+    "controlName": [],
+    "tags": ["Styling","Theming","Tips and Tricks"],
+    "guid": "{FFF7B108-DDBD-4738-9473-8B063D6C257D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Vista オペレーティング システムのトライアル版の問題
+
+Infragistics のトライアル版をインストールしてある場合、ユーザー アカウント制御（UAC）を有効にした状態で Windows® Vista™ で AppStylist for Windows Forms アプリケーションを実行するとライセンス エラーを受け取る場合があります。この問題は、以下のいずれかで回避することができます。
+
+* 管理者として（つまり高いセキュリティ権限で）AppStylist を実行する
+* Microsoft Visual Studio® を実行して、試用期間を開始するためにフォーム デザイナに Infragistics コントロールのいずれかのインスタンスを配置する

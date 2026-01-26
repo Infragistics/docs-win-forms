@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-resize-owners-and-timeslots-in-wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": ["How Do I"],
+    "guid": "{CAD84AE6-660B-4FB7-A68B-E599C9458579}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T17:12:13Z"
+}
+|metadata|
+////
+
+= WinTimelineView でオーナーとタイムスロットのサイズ変更
+
+WinTimelineView™ コントロールは、オーナーおよびタイムスロットを表示し、十分な機能の時間管理コントロールを提供します。 ユーザー インターフェイスをカスタマイズする能力をユーザーに許可または許可しないことが可能で、それによってオーナーまたはタイムスロットの変更が表示されます。 WinTimelineView コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~columnwidth.html[ColumnWidth]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~columnsizing.html[ColumnSizing]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultratimelineview~ownersizing.html[OwnerSizing]"]  プロパティでこれを実行できます。
+
+このトピックは、エンドユーザーが列ヘッダーまたは行ヘッダーをドラッグして表示されるオーナーおよびタイムスロットを変更できる方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' 表示されるタイムスロットを増減するために列の幅を設定します
+Me.ultraTimelineView1.ColumnWidth = 120 
+' タイムスロット ヘッダーをドラッグして表示されるタイムスロットのリサイズをエンドユーザーに許可します
+Me.ultraTimelineView1.ColumnSizing = TimelineViewColumnSizing.Header 
+' エンドユーザーが行のドラッグをできるようにし、それによってオーナー行をドラッグして表示されるオーナーを変更します 
+Me.ultraTimelineView1.OwnerSizing = TimelineViewOwnerSizing.Row
+----
+
+*C# の場合：*
+
+----
+// 表示されるタイムスロットを増減するために列の幅を設定します
+ this.ultraTimelineView1.ColumnWidth = 120;
+// タイムスロット ヘッダーをドラッグして表示されるタイムスロットのリサイズをエンドユーザーに許可します
+this.ultraTimelineView1.ColumnSizing = TimelineViewColumnSizing.Header;
+// エンドユーザーが行のドラッグをできるようにし、それによってオーナー行をドラッグして表示されるオーナーを変更します
+this.ultraTimelineView1.OwnerSizing = TimelineViewOwnerSizing.Row;
+----

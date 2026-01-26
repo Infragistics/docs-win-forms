@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-differences-between-winexplorerbar-and-winlistbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["FAQ"],
+    "guid": "{9AF4DB2A-8B79-4A77-8E29-37B829EB6056}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar と WinListBar の違い
+
+WinExplorerBar は、既存の Infragistics WinListBar エレメントの次世代版です。UltraExplorerBar は WinListbar エレメントの全機能（コントロールを水平方向に表示するオプションを除く）に加えて、数多くの追加機能を備えています。WinListbar エレメントとの後方互換性はありませんが、組み込みのユーティリティによって、既存の WinListbar エレメントでデザインタイムに定義したグループと項目を簡単にインポートできます。
+
+== WinExplorerBar エレメントの主な違いと新機能
+
+* 複数のエレメント スタイル - WinExplorerBar エレメントは、WinListBar スタイル（WinListbar エレメントでサポートされている唯一のスタイル）の他に XP ExplorerBar、Toolbox および OutlookNavigationPane スタイルをサポートしています。
+* 複数の表示スタイル - WinExplorerBar エレメントには、ひとつのプロパティ設定によってエレメントの外観を変更できる ViewStyle プロパティがあります。XPExplorerBar、XP、Office2000、Office2003 または Office2007 のいずれかの外観を選択できます。
+* エレメントがフォーカスを受け取ることが可能 - WinExplorerBar エレメントはキーボード ナビゲーションとニーモニックをサポートします。
+* 3 つの新しい項目タイプ - WinListbar で使用できる唯一の項目タイプである Button に加えて、StateButton、Label、および Separator という項目タイプが含まれています。
+* グループ スタイル - WinListbar で使用できる唯一のグループ スタイルは「下部テキスト付きの大きいアイコン」と「テキスト付きの小さいアイコン」だけですが、これに加えて、SmallIcons、LargeIcons、LargeIconsWithText、および ControlContainer というグループ スタイルが追加されました。
+* コントロール コンテナとしてのグループ - ControlContainer グループ スタイルを使用して、グループに他の WinForms コントロールを格納できるようになりました。このスタイルは、GroupSettings の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~style.html[Style]"]  プロパティを通じて、各グループに個別に、または全グループに適用できます。
+* ドラッグ アンド ドロップの完全なサポート - グループ間で項目を移動する際にドラッグ アンド ドロップが完全にサポートされます。ItemSettings オブジェクトの AllowItemDrag プロパティによって、ドラッグ可能な項目を指定できます。GroupSettings オブジェクトの AllowItemDrop プロパティによって、項目をグループにドロップできるかどうかを指定できます。開発者は ItemDragging、ItemOverDropLocation、ItemDroppped の各イベントを使用して、項目のドラッグ プロセスに関与できます。
+* Enabled プロパティと Visible プロパティ - 個々のグループおよび項目に Enabled ステータスと Visible ステータスを設定できます。
+* GroupSettings オブジェクトと ItemSettings オブジェクトの MaxLines プロパティを介して、項目とグループでテキストの折り返し（複数行テキスト）がサポートされます。
+* 複数列のサポート - WinExplorerBar エレメント スタイルの使用時に、グループを複数列で表示できます。
+* GroupSettings オブジェクトと ItemSettings オブジェクト - 新しい GroupSettings オブジェクトと ItemSettings オブジェクトにはグループと項目に関する重要なプロパティ設定が含まれています。GroupSettings オブジェクトは、グループ レベル（プロパティ名 Settings）とコントロール レベル（プロパティ名 GroupSettings）に存在します。そのため、コントロール レベルですべてのグループのグループ プロパティを設定しながら、グループ レベルで特定のグループのグループ プロパティをオーバーライドできます。同様に、ItemSettings オブジェクトは項目レベル（プロパティ名 Settings）、グループ レベル（プロパティ名 ItemSettings）、およびコントロール レベル（プロパティ名 ItemSettings）に存在します。そのため、コントロール レベルですべての項目の項目プロパティを設定しながら、グループ レベルで特定のグループに属する全項目の項目プロパティをオーバーライドし、さらに項目レベルで特定の項目の項目プロパティをオーバーライドできます。
+
+== UltraListbar エレメントと同じアプリケーションで UltraExplorerBar エレメントを使用する
+
+新しい WinExplorerBar エレメントは、古い WinListbar と同じアプリケーションの中で並行して使用できます。WinExplorerBar エレメントには WinListbar との後方互換性はありませんが、アプリケーションのアップグレードを容易にするため、WinExplorerBar オブジェクト モデルは元の WinListbar オブジェクト モデルをできるかぎり保持するように設計されています。
+
+組み込みのユーティリティによって既存の WinListbar コントロールから、デザインタイムに定義したグループと項目を簡単にインポートできます。詳細については、 link:winexplorerbar-replacing-winlistbar-with-winexplorerbar.html[「既存の WinListbar エレメントを UltraExplorerBar エレメントで置き換える」]を参照してください。

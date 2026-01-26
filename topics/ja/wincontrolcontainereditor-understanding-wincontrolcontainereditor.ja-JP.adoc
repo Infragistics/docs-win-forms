@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-understanding-wincontrolcontainereditor",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{BE1C40A9-E1AB-43A3-B9A9-A458AB549B7E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinControlContainerEditor の理解
+
+WinControlContainerEditor™ コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinControlContainerEditor を使用することの利点を理解できます。
+
+WinControlContainerEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wincontrolcontainereditor-about-wincontrolcontainereditor.html[WinControlContainerEditor について] -- WinControlContainerEditor コントロールを紹介します。
+* link:wincontrolcontainereditor-overview-of-controlcontainereditor-object.html[ControlContainerEditor オブジェクトの概要] -- ControlContainerEditor オブジェクトの概要を提供します。
+* link:wincontrolcontainereditor-wincontrolcontainereditor-embed-editing-or-rendering-control-within-wingrid-cell-using-controlcontainereditor-component-smart-tag.html[WinControlContainerEditor スマートタグ] -- WinControlContainerEditor コントロールのスマートタグで表示されるプロパティと設定について説明します。

@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-card-view",
+    "controlName": ["WinGrid"],
+    "tags": ["Data Presentation","Grids","Layouts"],
+    "guid": "{71B4C3E5-A79B-4893-B981-C41832E67C4A}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カード ビュー
+
+WinGrid のバンドの行と列による従来表示の代わりに CardView を選択することができます。カード ビューは Microsoft Outlook の連絡先画面に類似したインタフェースを表示します。そこでは各データ レコードは「インデックス カード」として表示され、複数のカードがスクリーン上に表示されます。カード ビューの WinGrid バージョンではカードの外観を設定したり画面領域の最大化を行うという一連のオプションが用意されています。
+
+カード ビューを使うにはいくつかの制限があります。ひとつはカード ビュー モードでそのレコードを表示するバンドは自動的に階層で最後のバンドになります。カードの子レコードを表示することはできません。もうひとつ制限は、それがデフォルト設定ではなくても、空のフィールドにデータを追加することができないようにカード ビューを設定することが可能だということです。
+
+カード ビューはグリッドのバンドを、バンドが占める場所をカードが入ったカード ビュー領域と置き換える形で置換します。カード ビュー領域は固定された高さ（開発者またはユーザーにより変更することができる）を持ち、横方向にスクロールしてバンドを構成するカードを表示します。
+
+カード ビューを有効にするには、Band オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~cardview.html[CardView]"]  プロパティを使用します。 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcardsettings.html[UltraGridCardSettings]"]  オブジェクトにアクセスするために使用する pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~cardsettings.html[CardSettings]"]  プロパティがあります。このオブジェクトはカード ビューの表示を制御し、カードがどのように動作するかを指定します。
+
+次のスナップショットは CardView のさまざまな設定の異なる UltraWinGrid を示します。
+
+image::Images/WinGrid_Card_View_Overview_02.png[]
+
+image::Images/WinGrid_Card_View_Overview_03.png[]
+
+image::Images/WinGrid_Card_View_Overview_04.png[]
+
+image::Images/WinGrid_Card_View_Overview_05.png[]

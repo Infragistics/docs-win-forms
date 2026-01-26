@@ -1,0 +1,426 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-terminal-symbols",
+    "controlName": [],
+    "tags": [],
+    "guid": "ffa5d977-1379-490f-bb22-f15061b8ccf7",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0518501Z"
+}
+|metadata|
+////
+
+= 終端記号
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、文章校正の終端記号を説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis-overview.html[字句解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349222014, 終端記号の概要 >>
+* <<_Ref349222032, 終端記号の定義 >>
+* <<_Ref349222036, 正規表現のサポート >>
+* <<_Ref349220598, 関連コンテンツ >>
+
+[[_Ref349222014]]
+== 終端記号の概要
+
+=== 終端記号のサマリー
+
+終端記号は、字句アナライザーがトークン作成時にユニットとして認識する文字グループを定義します。パーサーが他の記号と区別することができる一意の名前に加えて、場合によっては示すことができるテキストも定義します。たとえば、「;」のみを表すことができる「SemicolonToken」という名前の終端記号や、後ろにゼロまたはその他のアンダースコア、文字または数字が続くアンダースコアまたは文字を表すことができる「IdentifierToken」という名前の終端記号が、文章校正にあるかもしれません。
+
+終端記号は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing_namespace.html[Infragistics.Documents.Parsing] 名前空間の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol.html[TerminalSymbol] クラスで表されます。
+
+[[_Ref349222032]]
+== 終端記号の定義
+
+=== 終端記号の定義のサマリー
+
+各 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate.html[LexerState] には、その状態にある場合にレクサーによって一致できる `TerminalSymbol` インスタンスを含む link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate~symbols.html[Symbols] コレクションがあります。`Symbols` コレクションは、`TerminalSymbol` インスタンスを含むことに加えて、`TerminalSymbol` が公開用コンストラクターを持たないため新しい `TerminalSymbol` が作成される手段でもあります。以下は、`TerminalSymbol` を作成するSymbols コレクション上の追加メソッドのシグニチャです。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public TerminalSymbol Add(
+    string name,
+    string value = null,
+    TerminalSymbolComparison comparison = TerminalSymbolComparison.Literal,
+    bool isExitSymbol = false)
+----
+
+注:
+
+[NOTE]
+====
+`TerminalSymbol` インスタンスを取得する `Symbols` コレクションに link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstateterminalsymbolcollection~add.html[追加]メソッドがもう 1 つあります。複数のレクサー状態に `TerminalSymbol` を追加するために使用できます。1 つの `LexerState` に作成でき、その後、作成されたインスタンスは同じ link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar] 内の別の `LexerState` に追加できます。このようにして、`TerminalSymbol` は複数のレクサー状態に一致することができます。
+====
+
+[[_Ref349222036]]
+== 正規表現のサポート
+
+=== 概要
+
+`Symbols` コレクションの`追加`メソッドにおいて、新しい `TerminalSymbol` で指定された比較が `RegularExpression` の場合、値パラメータは正規表現文字列として解釈されます。正規表現は、一連の文字列の簡潔な説明を許可します。
+
+=== 基本機能
+
+式のリテラル文字列に加え、より大きく複雑なセットを定義するために正規表現を組み合わせ強化するのに使用することができる特定の演算子があります。以下は、Syntax Parsing Engine によってサポートされる非常に基本的な正規表現機能を分割したものです。
+
+[options="header", cols="a,a,a,a"]
+|====
+|*コンストラクト*|*説明*|*例*|* 実例によって記述される文字列セット*
+
+|_リテラル文字_
+|別の種類のコンストラクトとして予約されないリテラル文字これは、その文字のみのある文字列からなるセットを表します。
+|。
+|{ “A” }
+
+|( _expression_ )
+|グループ化カッコ内に正規表現をグループ化し、その表現で記述されるセットを変更しません。
+|(A)
+|{ “A” }
+
+|_expression1_ | _expression2_
+|代替。「|」によって分割される 2 つの正規表現最初または次の表現によって記述されるすべての文字列のセットを表します。
+|A|B
+|{ “A”, “B” }
+
+|_expression1 expression2_
+|連結別の正規表現が後ろに続く正規表現最初の式セット内のすべての文字列のセットが、2 つめの式セット内のすべての文字列と連結することを表します。
+|(A|B)C
+|{ “AC”, “BC” }
+
+|_expression_ $$*$$
+|クリーネ閉包後ろに「$$*$$」が続く正規表現「$$* $$」の前の式によって記述されるセットの 0 個以上の連結を表します。
+|(A|B)$$*$$
+|{ “”, “A”, “B”, “AA”, “AB”, “BA”, “BB”, “AAA”, “AAB”, … }
+
+|====
+
+=== 機能のサポート
+
+Syntax Parsing Engine は、 link:http://msdn.microsoft.com/en-us/library/hs600312.aspx[.NET Framework Regular Expressions] と同じ構文に準拠しますが、その機能のサブセットのみをサポートします。これにより、特定の正規表現を定義する能力のコストで、より高速な字句解析が可能になります。以下は、.NET Framework 正規表現機能および現在解析エンジンによってサポートされている機能のリストです (このリストは MSDN から取得したものであり、 link:http://msdn.microsoft.com/en-us/library/az24scfc.aspx[こちら]で閲覧可能)。
+
+[options="header", cols="a,a,a"]
+|====
+|*機能*|*説明*|*Syntax* *Parsing* *Engine* でのサポートの有無
+
+|*\a*
+|ベル文字 \u0007 に一致します。
+|image::images/Yes.png[]
+
+|*\b*
+|文字クラスでは、バックスペース \u0008 に一致します。
+|image::images/Yes.png[]
+
+|*\t*
+|タブ \u0009 に一致します。
+|image::images/Yes.png[]
+
+|*\r*
+|キャリッジリターン \u000D に一致します。
+|image::images/Yes.png[]
+
+|*\v*
+|垂直方向のタブ \u000B に一致します。
+|image::images/Yes.png[]
+
+|*\f*
+|フォーム フィード \u000C に一致します。
+|image::images/Yes.png[]
+
+|*\n*
+|新しい線 \u000A に一致します。
+|image::images/Yes.png[]
+
+|*\e*
+|エスケープ \u001B に一致します。
+|image::images/Yes.png[]
+
+|*\* _nnn_
+|8 進数表現を使用して文字を指定します (nnn は 2 桁以上から構成)。
+|image::images/Yes.png[]
+
+|*\x* _nn_
+|16 進数表現を使用して文字を指定します (nn は 2 桁で構成)。
+|image::images/Yes.png[]
+
+|*\c* _X_ 
+
+*\c* _x_
+|X で指定される ASCII 文字に一致します。X または x は制御文字です。
+|image::images/No.png[]
+
+|*\u* _nnnn_
+|16 進数表現を使用することによる一意な文字に一致します (nnnn と表現されるように 4 桁)。
+|image::images/Yes.png[]
+
+|*\*
+|このトピック内のこの表におけるエスケープ文字として認識されない文字が続く場合、その文字に一致します。たとえば、*\$$*$$* は *\x2A* と同じであり *\.* は *\x2E* と同じです。これにより、正規表現エンジンは言語要素 ($$*$$ や ? など) および文字リテラル (\$$* $$ または \?) の曖昧さをなくすことができます。
+|image::images/Yes.png[]
+
+|*[* _character_group_ * ]*
+|_character_group_ 内のいずれかの単一の文字に一致します。デフォルトでは、一致において大文字と小文字を区別します。例: [ae]
+|image::images/Yes.png[]
+
+|*[^* _character_group_ * ]*
+|否定: _character_group_ にない単一の文字に一致します。デフォルトでは、 _character_group_ 内の文字は大文字小文字を区別します。例: [^ae]
+|image::images/Yes.png[]
+
+|_first_ *-* _last_
+|文字の範囲: 最初から最後までの範囲内の単一の文字に一致します。文字グループまたは否定の文字グループ内でのみ使用できます。
+|image::images/Yes.png[]
+
+|*.*
+|ワイルドカード: \n 以外の単一の文字に一致します。 
+
+リテラルのピリオド文字 (. または *\u002E*) に一致させるには、その前にエスケープ文字 (*\.* ) を付けなければなりません。
+|image::images/Yes.png[]
+
+|*\p{* _name_ * }*
+|Unicode 全般カテゴリ内の単一文字、または name により指定される名前付きブロックに一致します。例: \p{IsCyrillic}
+|image::images/Yes.png[]
+
+|*\P{* _name_ * }*
+|Unicode 全般カテゴリ内にない単一文字、または name により指定される名前付きブロックに一致します。例: \P{Lu}
+|image::images/Yes.png[]
+
+|*\w*
+|いずれかのワード文字に一致します。
+|image::images/Yes.png[]
+
+|*\W*
+|いずれかの非ワード文字に一致します。
+|image::images/Yes.png[]
+
+|*\s*
+|いずれかの空白文字に一致します。
+|image::images/Yes.png[]
+
+|*\S*
+|いずれかの非空白文字に一致します。
+|image::images/Yes.png[]
+
+|*\d*
+|いずれかの 10 進数数字に一致します。
+|image::images/Yes.png[]
+
+|*\D*
+|10 進数数字以外の文字に一致します。
+|image::images/Yes.png[]
+
+|*^*
+|文字列または線の先頭で一致は開始しなければなりません。
+|image::images/No.png[]
+
+|*$*
+|一致は文字列の最後に、または線または文字列の最後で *\n* の前に発生しなければなりません。
+|image::images/No.png[]
+
+|*\A*
+|一致は文字列の先頭で発生しなければなりません。
+|image::images/No.png[]
+
+|*\Z*
+|一致は文字列の最後に、または文字列の最後で \n の前に発生しなければなりません。
+|image::images/No.png[]
+
+|*\z*
+|一致は文字列の最後で発生しなければなりません。
+|image::images/Yes.png[]
+
+|*\G*
+|一致は、前の一致が終了した時点で発生しなければなりません。
+|image::images/No.png[]
+
+|*\b*
+|一致は、*\w* (英数字) 文字と *\W* (非英数字) 文字の間の境界線で発生しなければなりません。
+|image::images/No.png[]
+
+|*\B*
+|一致は、*\b* 境界線で発生してはなりません。
+|image::images/No.png[]
+
+|*(* _部分式_ * )*
+|一致した部分式を取得し、ゼロから始まる序数に割り当てます。
+|image::images/Yes.png[]
+
+|**(?*<** _name_ *>* _subexpression_ *)* *
+|一致した部分式を名前付きグループにキャプチャします。
+|image::images/No.png[]
+
+|**(?<* _name1_ *-* _name2_ > _subexpression_ *)* *
+|バランスをとるグループ定義を定義します。
+|image::images/No.png[]
+
+|*(?:* _subexpression_ * )*
+|キャプチャしない グループを定義します。
+|image::images/Yes.png[]
+
+|*(?:imnsx-imnsx:* _subexpression_ * )*
+|部分式内で指定したオプションを適用または無効にします。使用可能なオプション: 
+
+* i – 大文字小文字を区別する一致を使用します。 
+
+* m – 複数行モードを使用します。^ および $ は、文字列の先頭と末尾でなく線の先頭と末尾に一致します。 
+
+* n – 名前のないグループはキャプチャしません。 
+
+* s – 単一行モードを使用します。 
+
+* x – 正規表現パターンの中でエスケープされない空白を無視します。 
+
+|[NOTE] 
+
+==== 
+
+(ただしオプション *i* のみ) 
+
+====
+
+|*(?=* _subexpression_ * )*
+|ゼロ幅の正の先読みアサーション
+|image::images/No.png[]
+
+|*(?!* _subexpression_ * )*
+|ゼロ幅の負の先読みアサーション
+|image::images/No.png[]
+
+|**(?$$<=$$* _subexpression_ *)* *
+|ゼロ幅の正の後読みアサーション
+|image::images/No.png[]
+
+|**(?<!* _subexpression_ *)* *
+|ゼロ幅の負の後読みアサーション
+|image::images/No.png[]
+
+|**(?>* _subexpression_ *)* *
+|非バックトラッキング (または「欲張り」) 部分式
+|image::images/No.png[]
+
+|*$$* $$*
+|以前の要素にゼロ回以上一致します。例: \d$$*$$\.\d
+|image::images/Yes.png[]
+
+|*+*
+|以前の要素に 1 回以上一致します。
+|image::images/Yes.png[]
+
+|*?*
+|以前の要素にゼロ回または 1 回一致します。
+|image::images/Yes.png[]
+
+|*{* _n_ * }*
+|以前の要素に n 回一致します。例: ,\d{3}
+|image::images/Yes.png[]
+
+|*{* _n_ * ,}*
+|以前の要素に n 回以上一致します。
+|image::images/Yes.png[]
+
+|*{* _n_ *,* _m_ * }*
+|以前の要素に n 回以上、m 回未満一致します。
+|image::images/Yes.png[]
+
+|*$$* $$?*
+|以前の要素にゼロ回以上一致しますが、できるかぎり少なくします。
+|image::images/No.png[]
+
+|*+?*
+|以前の要素に 1 回以上一致しますが、できるかぎり少なくします。
+|image::images/No.png[]
+
+|*??*
+|以前の要素にゼロ回または 1 回一致しますが、できるかぎり少なくします。
+|image::images/No.png[]
+
+|*{* _n_ * }?*
+|先行要素に n 回一致します。
+|image::images/No.png[]
+
+|*{* _n_ * ,}?*
+|先行要素に n 回以上一致しますが、できるかぎり少なくします。
+|image::images/No.png[]
+
+|*{* _n_ *,* _m_ * }?*
+|以前の要素に n 回から m 回一致しますが、できるかぎり少なくします。
+|image::images/No.png[]
+
+|*\* _number_
+|後方参照番号付き部分式の値に一致します。例: (\w)\1
+|image::images/No.png[]
+
+|*\k*<** _name_ * >*
+|名前付き後方参照名前付き式の値に一致します。例: (?<char>\w)\k<char>
+|image::images/No.png[]
+
+|*|*
+|縦棒 (|) 文字で分割されたいずれかの 1 つの要素に一致します。例: th(e|is|at)
+|image::images/Yes.png[]
+
+|*(?(* _expression_ *)* _yes_ *|* _no_ * )*
+|expression によって指定された正規表現パターンが一致する場合は yes に一致します。そうでない場合はオプションの no 部分に一致します。expression は、ゼロ幅アサーションとして解釈されます。例: (?(A)A\d{2}\b|\b\d{3}\b)
+|image::images/No.png[]
+
+|*(?(* _name_ *)* _yes_ *|* _no_ * )*
+|名前、名前付きまたは番号付きのキャプチャグループに一致がある場合は yes、そうでない場合はオプションの no に一致します。例: (?<quoted>")?(?(quoted).+?"|\S+\s)
+|image::images/No.png[]
+
+|**(?#* _comment_ *)* *
+|インライン コメントコメントは最初の終わりかっこで終わります。
+|image::images/Yes.png[]
+
+|*#* _[to end of line]_
+|X モードのコメントコメントはエスケープされない # で開始し、行の終わりまで続きます。
+|image::images/No.png[]
+
+|====
+
+[[_Ref349220598]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-non-terminal-symbols.html[非終端記号]
+|このトピックは、文章校正の非終端記号について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+|====

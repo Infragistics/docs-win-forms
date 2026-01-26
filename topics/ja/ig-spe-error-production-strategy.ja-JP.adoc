@@ -1,0 +1,121 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-error-production-strategy",
+    "controlName": [],
+    "tags": [],
+    "guid": "67e855ed-99f7-4ed8-977c-fc87a68a0e60",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0748524Z"
+}
+|metadata|
+////
+
+= エラー生産方法
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、エラー生産によるエラー処理方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-syntax-errors.html[構文エラー]
+|このグループのトピックでは、Syntax Parsing Engine が検出した構文エラーについて説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349580233, エラー生産方法 >>
+* <<_Ref349580237, 概要 >>
+* <<_Ref349579066, 関連コンテンツ >>
+
+[[_Ref349580233]]
+== エラー生産方法
+
+[[_Ref349580237]]
+
+=== 概要
+
+文章校正ライターがユーザーが入力しがちなよくあるエラーを識別すると、非終端記号を定義してそのエラーを表現し、ユーザーが使用する可能性のある構造のオルタナティブとして使用します。次に、文章校正ライターはその記号の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~iserror.html[NonTerminalSymbol.IsError] を True に設定できます。エラーのないドキュメントを解析する場合、パーサーは、エラーとしてマークされる非終端記号にまで生産本文を小さくしようとはしません。非終端記号が定義されたことがないかのようにします。しかしエラーが発生すると、エラー生産のエラー処理方法は、機会があればエラーの非終端記号を小さくできるかどうかを判断します。その場合、こうした軽減は実施されエラーの非終端記号を表すために作成されたノードは自動的にエラーとマーク付けされます。
+
+たとえば、C# ではユーザーがクラス内にメンバーを入力し始めたもののしばらく入力をやめ、入力が終わる前にパーサーがドキュメントの解析を始めてしまうのはよくあることです。このため文章校正ライターは、以下の偽生産で非終端記号を定義します。
+
+IncompleteMember → [Attributes] [Modifiers] Type
+
+そして、他のメンバーが使用される場所で使用します。
+
+ClassMember →
+
+FieldDeclaration | MethodDeclaration | PropertyDeclaration | *IncompleteMember*
+
+ここでユーザーがこのようなものを入力した場合、
+
+*C# の場合:*
+
+[source,csharp]
+----
+class X
+{
+    private int 
+}
+----
+
+エラー生産本文では「IncompleteMember」が作成され、文章校正ライターは「クラスまたは構造体内でのメンバー定義が不完全」というカスタム エラー メッセージを提供します。
+
+注:
+
+[NOTE]
+====
+エラー メッセージのカスタマイズの詳細は、 link:ig-spe-customize-error-messages.html[「エラー メッセージのカスタマイズ」]トピックを参照してください。
+====
+
+これは、おそらく以下のようなエラー メッセージが生成されるため、シンクロナイザー記号方法にエラーを処理させるよりも良いといえます。
+
+* 識別子が必要です。
+* ‘;’ が必要です。
+
+これはあいまいに正しいといえますが、この方法では、不明なノードに対してもっともシンプルなツリー構造を生産したのみであるため、ユーザーはデフォルト宣言を入力しようとしていると推測します。ユーザーはプロパティまたはメソッドの宣言を簡単に入力しています。
+
+[[_Ref349579066]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[cols="a,a"]
+|====
+| link:ig-spe-synchronizer-symbol-strategy.html[シンクロナイザー記号方法]
+|このトピックは、シンクロナイザー記号によるエラー処理方法について説明します。
+
+| link:ig-spe-synchronizer-pair-strategy.html[シンクロナイザー ペア方法]
+|このトピックは、シンクロナイザーのペアによるエラー処理方法について説明します。
+
+| link:ig-spe-backtracking-strategy.html[バックトラッキング方法]
+|このトピックは、バックトラッキングによるエラー処理方法について説明します。
+
+|====

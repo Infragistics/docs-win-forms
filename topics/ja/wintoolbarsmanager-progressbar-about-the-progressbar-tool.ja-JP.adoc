@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-progressbar-about-the-progressbar-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{903BEC98-3377-4552-8046-B1BD5611D6C8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ProgressBar ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== ProgressBar ツール
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.progressbartool.html[ProgressBarTool]"]
+
+派生元：Toolbase $$->$$ EditorToolBase
+
+説明：ProgressBar ツールは、WinProgressBar のような外観と動作をします。このツールをツールバーに配置すると、一定のプロセスの進捗状況が表示されます。このツールは編集モードでは使用できませんが、ToolClick および ToolDoubleClick イベントは、クリックおよびダブルクリックすると起動します。ProgressBar ツールはツールの外観を制御する複数のプロパティも公開します。
+
+サンプル：
+
+image::images/WinToolbarsManager_About_Tools_19.png[]

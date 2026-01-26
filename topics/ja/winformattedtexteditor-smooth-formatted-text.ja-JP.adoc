@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-smooth-formatted-text",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{80A529D1-6C94-4BBA-857D-9BCD99ADF53A}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:24:56Z"
+}
+|metadata|
+////
+
+= テキストを滑らかにフォーマット
+
+WinFormattedTextEditor コントロールは、アンチエイリアスとして知られている技術を使用してテキストを滑らかにできます。この滑らかにする機能は、文字のぎざぎざのエッジ（エイリアス）を滑らかな曲線（アンチエイリアス）に切り替えます。実際に何が起こっているかというと、グレーのピクセルがエッジを滑らかにする効果を与えるために文字に追加されます。これは、コンテンツの視覚的な見栄えがコンテンツ自体よりも重要である場合に非常に便利です。
+
+デザイン タイムでは、[プロパティ] ウィンドウで pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditorbase~textsmoothingmode.html[TextSmoothingMode]"]  プロパティをアンチエイリアスに設定できます。そうすることで、アンチエイリアスされた状態でテキストをレンダリングします。ラン タイムに同じ効果を達成するためには、以下のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraFormattedTextEditor1.TextSmoothingMode =_
+  Infragistics.Win.FormattedLinkLabel.TextSmoothingMode.AntiAlias
+----
+
+*C# の場合：*
+
+----
+this.ultraFormattedTextEditor1.TextSmoothingMode =
+  Infragistics.Win.FormattedLinkLabel.TextSmoothingMode.AntiAlias;
+----
+
+link:winformattedtexteditor-style-attribute.html[Style 属性]を使用して Value プロパティ内に特定のテキストで滑らかにする技術を使用するオプションもあります。テキストの一部だけをアンチエイリアスしたい場合、以下の <span> タグでテキストをカプセル化します。
+
+----
+<span >Text to be anti-aliased</span>
+----

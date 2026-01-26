@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-prevent-text-from-being-edited",
+    "controlName": [],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{B732D14E-BF8A-4255-AC55-E91962DC698A}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:01:10Z"
+}
+|metadata|
+////
+
+= テキストが編集されることを防止
+
+WinFormattedTextEditor は、素晴らしい編集機能を備えたフォーマットされたテキスト エディタです。しかし、エンド ユーザーがコンテンツを編集したくない場合はどうなりますか。また、開発者がエンド ユーザーにコンテンツを選択してクリップボードにコピーできるようにしたい場合はどうなりますか。これが現実になる状況がいくつかあります。たとえば、Microsoft® Visual SourceSafe にバウンドされているドキュメントまたはアプリケーションの [バージョン情報] ダイアログ ボックスの製品キーなどです。WinFormattedTextEditor を読み取り専用モードに設定することは、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor~readonly.html[ReadOnly]"]  プロパティを True に設定することで達成できます。[プロパティ] ウィンドウでデザイン タイムにプロパティを設定します。または以下のコードでラン タイムに設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraFormattedTextEditor1.ReadOnly = True
+----
+
+*C# の場合：*
+
+----
+this.ultraFormattedTextEditor1.ReadOnly = true;
+----

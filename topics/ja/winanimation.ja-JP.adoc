@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winanimation",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{F06A3DB9-9D08-43DA-9EE4-AC0A1655D6CF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinAnimation
+
+以下のリンクをクリックすると、Animation コントロールに関する説明を読むことができます。
+
+* link:winanimation-about-winanimation.html[Animation コントロールについて] -- Animation コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winanimation-smart-tag.html[AnimationControl スマート タグ] -- Animation コントロールの スマート タグで表示されるプロパティと設定について説明しています。
+* link:winanimation-api-overview.html[API の概要] -- Animation コントロールを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

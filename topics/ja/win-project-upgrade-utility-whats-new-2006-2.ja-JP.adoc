@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-project-upgrade-utility-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4538DF93-39C8-4CF7-A1C2-ADCAA8F71AC8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プロジェクト アップグレード アドイン 2006.2
+
+2006 Volume 2 リリースで Infragistics .NET プロジェクト アップグレード ユーティリティに行われた改善については、以下を参照してください。
+
+* link:win-projects-can-now-be-upgraded-using-an-xml-file-whats-new-2006-2.html[XML ファイルを使用してプロジェクトをアップグレードできる]

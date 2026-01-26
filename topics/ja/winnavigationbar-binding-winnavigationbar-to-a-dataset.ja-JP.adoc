@@ -1,0 +1,171 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-binding-winnavigationbar-to-a-dataset",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["How Do I"],
+    "guid": "{66DF3CF4-99C2-4807-9189-5EDDB88FCF8B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNavigationBar を DataSet にバインド
+
+== 始める前に
+
+WinNavigationBar™ は任意のタイプの階層的なデータを表示できます。最も一般的なデータのフォームは DataSet です。DataSet は単一テーブルまたは複雑なデータ関係を持つ複数のテーブルを構成することができます。WinNavigationBar を単一データ テーブルにバインドすることはあまり印象的ではありませんが、そのデータ テーブルがデータ リレーションを含む場合、行の子行を比較的簡単に表示することができます。データ リレーションの表示は、DataRows、DataRelations、および DataRows（子行を表す）をループするためにいくつかの FOREACH ループを必要とします。どれぐらい多くのリレーションがあるか分からない場合、行の子行を再帰的に取得するメソッドを作成できます。ただし、このトピックは行とその子の間のひとつのデータ リレーションをフォーカスするだけです。
+
+== 達成すること
+
+この詳細なガイドを読み終わる時には、Northwind データ ソース（特に Customers テーブルと Orders テーブル）でフォームを設定したり、WinNavigationBar の位置に階層的なデータをロードできます。
+
+== 次の手順を実行します
+
+[start=1]
+. *データ ソースを構成します。*
+
+.. 新しい C# または Visual Basic プロジェクトで、Visual Studio IDE の上部のメイン メニューで [データ] メニュー項目をクリックします。結果のメニューから [新しいデータ ソースを追加] をクリックします。[データ ソース構成] ウィザードが表示します。
+.. データベースがウィザードで選択されていることを確認して [次へ] をクリックします。
+.. [データ接続を選択] ページで、[新しい接続] ボタンをクリックします。[接続を追加] ダイアログ ボックスが表示します。
+.. [変更] ボタンをクリックします。[データ ソースを変更] ダイアログ ボックスが表示します。
+.. データ ソースのリストから [Microsoft Access Database File] を選択して [OK] をクリックし、ダイアログ ボックスを閉じます。
+.. [参照] ボタンをクリックします。[Microsoft Access Database File を選択] ダイアログ ボックスが表示します。この例では、Northwind データベース（NWind.mdb）を使用します。これは Infragistics SDK インストールの一部として使用できます。デフォルトで、NWind.mdb ファイルは、オペレーティング システムによって、以下のインストール フォルダに配置されています。
+
+*** XP -- {InstallPathXP}{ProductNameVersion}\Samples\WinForms\Data
+*** Vista -- {InstallPathVista}{ProductNameVersion}\Samples\WinForms\Data
+
+.. [OK] をクリックして [接続を追加] ダイアログ ボックスを閉じます。
+.. [データ ソース構成] ウィザードで [次へ] をクリックします。ダイアログ ボックスが表示され、データベース ファイルをプロジェクトにコピーして接続を変更するかどうかを尋ねられます。[はい] をクリックして、先に進みます。
+.. [次へ] をクリックして NWindConnectionString として接続を保存します。
+[start=10]
+.. ウィザードの次のページで、データベース オブジェクトを選択できます。テーブルを展開して、Customers と Orders の両方を選択します。
+[start=11]
+.. [完了] をクリックしてウィザードを閉じます。NWindDataSet がソリューション エクスプローラのプロジェクトに追加されます。
+[start=12]
+.. F6 を押してプロジェクトをビルドします。Visual Studio ツールボックスで、3 つのコンポーネントが [ProjectName コンポーネント] タブの下に作成されます。
+[start=13]
+.. NWindDataSet、CustomersTableAdapter、および OrdersTableAdapter をダブルクリックし、3 つのコンポーネントすべてがコンポーネント トレイに追加されます。
+
+[start=2]
+. *WinNavigationBar をフォームに追加します。*
+
+.. Visual Studio ツールボックスで UltraNavigationBar を指定してダブルクリックします。UltraNavigationBar がフォームに追加されます。
+.. UltraNavigationBar が選択され、[プロパティ] ウィンドウで Dock プロパティを指定して Top に設定します。フォームは以下のスクリーンショットのようになります。
+
+image::images/WinNavigationBar_Binding_WinNavigationBar_to_a_DataSet_01.png[]
+
+.. フォームのヘッダをダブルクリックしてフォームの Load イベントを作成します。Load イベントが作成され、コード表示されます。
+
+[start=3]
+. *データセットを満たします。*
+
+コードの以下の 2 行がフォームの Load イベントになければ追加してください。Customers テーブルと Orders テーブルをデータで埋めるためには、これらの 2 行のコードが必要になります。
+
+*Visual Basic の場合：*
+
+----
+Me.CustomersTableAdapter1.Fill(Me.NWindDataSet1.Customers)
+Me.OrdersTableAdapter1.Fill(Me.NWindDataSet1.Orders)
+----
+
+*C# の場合：*
+
+----
+this.customersTableAdapter1.Fill(this.nWindDataSet1.Customers);
+this.ordersTableAdapter1.Fill(this.nWindDataSet1.Orders);
+----
+
+[start=4]
+. *WinNavigationBar の位置にデータをロードします。*
+
+WinNavigationBar の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~rootlocation.html[RootLocation] の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~displaytext.html[DisplayText] を「Customers」に設定します。これはエンド ユーザーが見る最初の位置で、ツリータイプのコントロールとまったく同じようにあらゆる位置はこの位置から始まります。ルート位置の複数の位置を移植するには、Customers テーブルで各行を反復し、行ごとに新しい link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation.html[Location] オブジェクトをインスタンス化する必要があります。FOREACH ループを使用してこの作業を達成できます。
+
+各行を適切な位置にロードすると、別の FOREACH ループを使用して現在の行と子行のデータ リレーションを識別することができます。現在の行とその子行で見つける各 DataRelation については、ユーザーは子行をループし、現在の行の下に個別の位置としてそれぞれを追加します。深く進むことができるのはひとつのレベルだけですが、OrderDetails テーブルも持っている場合、Orders テーブルと OrderDetails テーブル間により多くの子行を含む別の DataRelation を持つことができます。
+
+[NOTE]
+====
+*注:* 移植する必要があるレベルの数が不確かな場合、WinNavigationBar を再帰的に移植するメソッドを作成するのが最善です。
+====
+
+テーブル アダプタ Fill メソッドの後に以下のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraNavigationBar1.RootLocation.DisplayText = "Customers"
+' 位置をインスタンス化しますが、未だ設定していません。
+Dim location As Infragistics.Win.Misc.UltraNavigationBarLocation
+' Customers テーブルで各行をループします。
+For Each row As DataRow In NWindDataSet1.Tables("Customers").Rows
+	' 現在の行の項目の配列を取得します。
+	Dim items As Object() = row.ItemArray
+	' 位置を作成し、顧客名にキーを設定します。
+	location = New Infragistics.Win.Misc.UltraNavigationBarLocation _
+		(items(1).ToString())
+	' WinNavigationBar のルートに位置を追加します。
+	Me.UltraNavigationBar1.RootLocation.Locations.Add(location)
+	' 現在の行とその子のすべてのデータ リレーション
+	' をループします。
+	For Each relation As DataRelation In row.Table.ChildRelations
+		' 現在の行の子行すべてを含む
+		' DataRows の配列を作成します。
+		Dim childRows As DataRow() = row.GetChildRows(relation)
+		' 子行をループし、現在の行を表す 
+		' 位置コレクションに子行を
+		' 追加します。
+		For Each childRow As DataRow In childRows
+			' 子行の項目の配列を取得します。
+			Dim childItems As Object() = childRow.ItemArray
+			' 子の位置のキーとしてオーダー番号を追加します。
+			location.Locations.Add(childItems(0).ToString())
+		Next
+	Next
+Next
+----
+
+*C# の場合：*
+
+----
+this.ultraNavigationBar1.RootLocation.DisplayText = "Customers";
+// 位置をインスタンス化しますが、未だ設定していません。
+Infragistics.Win.Misc.UltraNavigationBarLocation location;
+// Customers テーブルで各行をループします。
+foreach (DataRow row in nWindDataSet1.Tables["Customers"].Rows)
+{
+	// 現在の行の項目の配列を取得します。
+	object[] items = row.ItemArray;
+	// 位置を作成し、顧客名にキーを設定します。
+	location = new Infragistics.Win.Misc.UltraNavigationBarLocation
+		(items[1].ToString());
+	// WinNavigationBar のルートに位置を追加します。
+	this.ultraNavigationBar1.RootLocation.Locations.Add(location);
+	// 現在の行とその子のすべてのデータ関係
+	// をループします。
+	foreach (DataRelation relation in row.Table.ChildRelations)
+	{
+		// 現在の行の子行すべてを含む
+		// DataRows の配列を作成します。
+		DataRow[] childRows = row.GetChildRows(relation);
+		// 子行をループし、現在の行を表す 
+		// 位置コレクションに子行を
+		// 追加します。
+		foreach (DataRow childRow in childRows)
+		{
+			// 子行の項目の配列を取得します。
+			object[] childItems = childRow.ItemArray;
+			// 子の位置のキーとしてオーダー番号を追加します。
+			location.Locations.Add(childItems[0].ToString());
+		}
+	}
+}
+----
+
+[start=5]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行すると、Customers という名前のひとつの位置を持つ WinNavigationBar が表示されます。Customers の右の矢印をクリックすると、顧客名が移植されたドロップダウン リストが表示されます。顧客名をクリックすると、その名前は上のテキスト ボックスに入れられます。顧客名の右の矢印をクリックすると、ドロップダウン リストには顧客のオーダーが移植されます。
+
+image::images/WinNavigationBar_Binding_WinNavigationBar_to_a_DataSet_02.png[]

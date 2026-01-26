@@ -1,0 +1,82 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-cursor-filter",
+    "controlName": [],
+    "tags": ["API","Application Blocks","Application Scenarios","Grids","Tips and Tricks"],
+    "guid": "{8D89768C-63E3-440A-B684-E6BED9BE4253}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カーソル フィルタ
+
+カーソルは通常、コントロールのプロパティ設定として指定するか、またはコントロールかそのオブジェクトのひとつが提供している Appearance オブジェクトのプロパティ設定として指定します。しかし、まれにこのような方法では対応できない場合があります。 たとえば開発者が要素のサイズ変更時に使用されるカスタム カーソルを指定したいときなどです。このレベルの拡張性を提供するため、PLF をベースとするコントロールはすべて、CursorFilter プロパティを提供しています。 このプロパティには、IUIElementCursorFilter インタフェースを実装しているオブジェクトを設定できます。
+
+IUIElementCursorFilter インタフェースには次のひとつのメソッドがあります。
+
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iuielementcursorfilter~beforesetcursor.html[BeforeSetCursor]"]  - カーソルがエレメントから設定される前に呼び出されます。このメソッドには、そのエレメント自体、マウスがエレメントの調整可能領域の上にあるかどうかを示すブール値、およびカーソル オブジェクトへの参照が渡されます。カーソルはこの要素のデフォルト カーソルに初期化されますが、別のカーソルを用意するように変更することができます。
+
+以下のサンプル コードは、列ヘッダにカスタムのサイズ変更カーソルを指定する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+' IUIElementCursorFilter インタフェースをクラスに実装します
+' （この場合はフォームです）。
+Public Class Form1
+    Inherits System.Windows.Forms.Form
+    Implements Infragistics.Win.IUIElementCursorFilter
+Private myCustomCursor As Cursor
+Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+' 埋め込みリソースからサイズ変更カーソルをロードし、キャッシュします。 
+    Me.myCustomCursor = New Cursor(Me.GetType(), "MyResizeCursor.cur")
+' IUIElementCursorFilter インタフェースを実装するオブジェクトに
+' グリッドの CursorFilter プロパティを設定します。
+    Me.UltraGrid1.CursorFilter = Me
+End Sub
+Public Sub BeforeSetCursor(ByVal element As Infragistics.Win.UIElement, ByVal adjustableCursor As Boolean, ByRef cursor As System.Windows.Forms.Cursor) Implements Infragistics.Win.IUIElementCursorFilter.BeforeSetCursor
+' マウスが HeaderUIElement の調整可能領域の上にある場合は、 
+' カスタムのサイズ変更カーソルを返します。
+    If adjustableCursor = True Then
+        If TypeOf (element) Is HeaderUIElement Then
+            cursor = Me.myCustomCursor
+        End If
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+// IUIElementCursorFilter インタフェースをクラスに実装します
+// （この場合はフォームです）。
+public class Form1 : System.Windows.Forms.Form, Infragistics.Win.IUIElementCursorFilter
+{
+        private Cursor myCustomCursor = null;
+private void Form1_Load(object sender, System.EventArgs e)
+{
+// 埋め込みリソースからサイズ変更カーソルをロードし、キャッシュします。 
+    this.myCustomCursor = new Cursor(this.GetType(), "MyResizeCursor.cur");
+// IUIElementCursorFilterインタフェースを実装するオブジェクトに
+// グリッドの CursorFilter プロパティを設定します。
+    this.ultraGrid1.CursorFilter = this;
+}
+public void BeforeSetCursor(Infragistics.Win.UIElement element, bool adjustableCursor, ref System.Windows.Forms.Cursor cursor)
+{
+// マウスが HeaderUIElement の調整可能領域の上にある場合は、 
+// カスタムのサイズ変更カーソルを返します。
+        if ( adjustableCursor && 
+                element is HeaderUIElement )
+        {
+                cursor = this.myCustomCursor;
+        }
+}
+----

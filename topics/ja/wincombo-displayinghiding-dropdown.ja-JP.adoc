@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-displayinghiding-dropdown",
+    "controlName": ["WinCombo"],
+    "tags": ["How Do I"],
+    "guid": "5a76aafa-d9d9-48ed-b2b8-fc5623dd8991",  
+    "buildFlags": [],
+    "createdOn": "2012-03-26T18:42:28.819617Z"
+}
+|metadata|
+////
+
+= デフォルト ドロップダウン ボタンをコードで表示/非表示する
+
+== トピックの概要
+
+=== 目的
+
+WinCombo™ コントロールでドロップダウン ボタンの可視性の動作をどのようにカスタマイズするかを説明します。
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Ref319929269,コントロールの構成の概要>>
+* <<_Ref319929275,関連コンテンツ>>
+
+[[_Ref319929269]]
+== コントロールの構成の概要
+
+=== コントロール構成集計チャート
+
+以下の表では、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~dropdownbuttondisplaystyle.html[DropDownButtonDisplayStyle] プロパティを通じて WinCombo コントロールのドロップダウン ボタン可視性の構成可能な側面を示します。
+
+[options="header", cols="a,a,a,a"]
+|====
+|構成可能な項目|詳細|列挙値|例
+
+|ドロップダウン ボタンを常に表示します
+|ドロップダウン ボタンは、Microsoft が提供する汎用の ComboBox コントロールの場合と同様に、常に表示されます。
+|
+* `ButtonDisplayStyle.Always` 
+
+|image::images/WinCombo_-_Default_Dropdown_Button_Visibility_1.png[]
+
+|ドロップダウン ボタンを常に表示しません
+|ドロップダウン ボタンを決して表示しません
+|
+* `ButtonDisplayStyle.Never` 
+
+|image::images/WinCombo_-_Default_Dropdown_Button_Visibility_2.png[]
+
+|ドロップダウン ボタン OnMouseEnter を表示します
+|カーソルがコントロールの境界に移動するとドロップダウン ボタンが表示され、外に移動すると非表示になります
+|
+* `ButtonDisplayStyle.OnMouseEnter` 
+
+|image::images/WinCombo_-_Default_Dropdown_Button_Visibility_3.png[]
+
+|====
+
+[[_Ref319929275]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincombo-binding-wincombo-to-a-data-table.html[WinCombo をデータ テーブルにバインド]
+|このトピックでは、WinCombo をデータベース中のデータ テーブルにバインドする方法を示します。
+
+| link:wincombo-selecting-multiple-values-within-wincombo.html[WinCombo 内で複数の値を選択]
+|このトピックでは、WinCombo で複数の項目選択をサポートする方法を示します。
+
+|====

@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-clickcell-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{E04C6CB7-E6F7-4440-82CA-00D70ED0CFF9}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-09T11:14:03Z"
+}
+|metadata|
+////
+
+= ClickCell イベント
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~clickcell_ev.html[ClickCell]"]  イベントは、どのセルをエンド ユーザーがクリックしたかを監視するために役立ちます。このイベントを使用すれば、個々のセル値で他のフォーム エレメントを移植するなどの個別のセルを対象とするロジックを実行できます。以下の例は処理されるイベントを示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_ClickCell (ByVal sender As System. Object, _
+   ByVal e As ClickCellEventArgs) Handles UltraGrid1.ClickCell
+Me.Text = string.Format("{0}: {1}", e.Cell.Column.Header.Caption, e.Cell.Value.ToString())
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_ClickCell (
+   object sender, 
+   ClickCellEventArgs e)
+{
+this.Text = string.Format("{0}: {1}", e.Cell.Column.Header.Caption, e.Cell.Value.ToString());
+}
+----

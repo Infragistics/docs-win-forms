@@ -1,0 +1,114 @@
+﻿////
+|metadata|
+{
+    "name": "winribboncustomizationprovider-adding-custom-tab-to-ribbon-customization-dialog",
+    "controlName": ["WinRibbonCustomizationProvider"],
+    "tags": ["Editing","Extending","Getting Started","How Do I"],
+    "guid": "f7c09ffc-4a38-47fa-9211-317bed1217b7",
+    "buildFlags": [],
+    "createdOn": "2011-04-26T21:43:44.2504987Z"
+}
+|metadata|
+////
+
+= カスタム タブをリボン カスタマイズ ダイアログに追加
+
+リボン カスタマイズ ダイアログにはデフォルトで、リボンをカスタマイズとクイック アクセス ツール バー（QAT）をカスタマイズの 2 つのタブが表示されます（詳細は、「リボン カスタマイズ ダイアログを使用」を参照してください）。ただし、これらのデフォルト タブに加えてカスタム タブを追加できます。このトピックは、コードを使用してカスタム タブを実装する方法を示します。
+
+== 概要
+
+* <<Intro,はじめに>>
+* <<BeforeCustDialogDisplay,BeforeCustomizationDialogDisplayed イベント>>
+* <<CreateCustTab,カスタム タブを作成>>
+* <<RelatedTopics,関連トピック>>
+
+[[Intro]]
+== はじめに
+
+WinRibbonCustomizationProvider™ コンポーネントは、ダイアログを変更するためにリボン カスタマイズ ダイアログを公開するカスタムのイベント引数とともに、 link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider.ultraribboncustomizationprovider~beforecustomizationdialogdisplayed_ev.html[BeforeCustomizationDialogDisplayed] と link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider.ultraribboncustomizationprovider~aftercustomizationdialogclosed_ev.html[AfterCustomizationDialogClosed] という 2 つのイベントを公開します。UltraTabControl はダイアログで公開され、カスタム タブを追加する機能を提供します。
+
+以下のコードは、カスタム タブをダイアログに追加する方法を示します。フォームにリボンとツールで設定された UltraToolbarsManager と UltraRibbonCustomizationProvider コンポーネントが含まれていることを前提とします。ランタイムにリボンをカスタマイズするために、UltraRibbonCustomizationProvider コンポーネントを UltraToolbarsManager コンポーネントに接続しなければなりません。詳細は、 link:winribboncustomizationprovider-using-the-ribbon-customization-dialog.html[「リボン カスタマイズ ダイアログを使用」]の「実装」セクションを参照してください。
+
+.注:
+[NOTE]
+====
+コードが適切に機能するには、以下のアセンブリへの参照が必要です。
+====
+
+* {ApiPlatform}Win.UltraWinToolbarsManager
+* {ApiPlatform}Win.UltraWinTabControl
+* {ApiPlatform}Win.UltraWinSchedule
+
+[[BeforeCustDialogDisplay]]
+== BeforeCustomizationDialogDisplayed イベント
+
+*Visual Basic の場合:*
+[source,vb]
+
+Imports Infragistics.Win.UltraWinToolbars
+' BeforeCustomizationDialogDisplayed イベントのハンドラーを追加します
+Me.ultraRibbonCustomizationProvider1.BeforeCustomizationDialogDisplayed += New Infragistics.Win.SupportDialogs.RibbonCustomizationProvider.BeforeCustomizationDialogDisplayedEventHandler(ultraRibbonCustomizationProvider1_BeforeCustomizationDialogDisplayed)
+Private Sub ultraRibbonCustomizationProvider1_BeforeCustomizationDialogDisplayed(sender As Object, e As Infragistics.Win.SupportDialogs.RibbonCustomizationProvider.BeforeCustomizationDialogDisplayedEventArgs)
+    CreateCustomTabs(e.Dialog.TabControl)
+End Sub
+
+
+*C# の場合:*
+[source,csharp]
+
+using Infragistics.Win.UltraWinToolbars;
+// BeforeCustomizationDialogDisplayed イベントのハンドラーを追加します
+this.ultraRibbonCustomizationProvider1.BeforeCustomizationDialogDisplayed +=new Infragistics.Win.SupportDialogs.RibbonCustomizationProvider.BeforeCustomizationDialogDisplayedEventHandler(ultraRibbonCustomizationProvider1_BeforeCustomizationDialogDisplayed);
+private void ultraRibbonCustomizationProvider1_BeforeCustomizationDialogDisplayed(object sender, Infragistics.Win.SupportDialogs.RibbonCustomizationProvider.BeforeCustomizationDialogDisplayedEventArgs e)
+{
+      CreateCustomTabs(e.Dialog.TabControl);
+}
+
+
+[[CreateCustTab]]
+== カスタム タブを作成
+
+*Visual Basic の場合:*
+[source,vb]
+
+Imports Infragistics.Win.UltraWinToolbars
+Imports Infragistics.Win.UltraWinTabControl
+Imports Infragistics.Win.UltraWinSchedule
+Private Sub CreateCustomTabs(tabControl1 As UltraTabControl)
+    ' カスタム タブをダイアログのタブ コントロールに追加します
+    Dim custTab As UltraTab = tabControl1.Tabs.Add("customTab1", "Custom Tab 1")
+    tabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2007
+    Dim ultraMonthView1 As New UltraMonthViewSingle()
+    ultraMonthView1.Size = New Size(500, 300)
+    ultraMonthView1.Location = New Point(90, 150)
+    ultraMonthView1.Dock = DockStyle.Fill
+    ' MonthViewSingle コントロールをカスタム タブに追加します
+    custTab.TabPage.Controls.Add(ultraMonthView1)
+End Sub
+
+
+*C# の場合:*
+[source,csharp]
+
+using Infragistics.Win.UltraWinToolbars;
+using Infragistics.Win.UltraWinTabControl;
+using Infragistics.Win.UltraWinSchedule;
+private void CreateCustomTabs(UltraTabControl tabControl1)
+        {
+            // カスタム タブをダイアログのタブ コントロールに追加します
+            UltraTab custTab = tabControl1.Tabs.Add("customTab1", "Custom Tab 1");
+            tabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2007;
+                UltraMonthViewSingle ultraMonthView1 = new UltraMonthViewSingle();
+                ultraMonthView1.Size = new Size(500, 300);
+                ultraMonthView1.Location = new Point(90,150);
+                ultraMonthView1.Dock = DockStyle.Fill;            
+               // MonthViewSingle コントロールをカスタム タブに追加します
+                custTab.TabPage.Controls.Add(ultraMonthView1);
+        }
+
+
+[[RelatedTopics]]
+== 関連トピック
+
+* link:winribboncustomizationprovider-about-winribboncustomizationprovider.html[WinRibbonCustomizationProvider について]
+* link:winribboncustomizationprovider-using-the-ribbon-customization-dialog.html[リボン カスタマイズ ダイアログを使用]

@@ -1,0 +1,133 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-style-attribute",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["Extending","Styling"],
+    "guid": "{B670FC04-E2F9-440A-824D-63163BBDB286}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T15:41:10Z"
+}
+|metadata|
+////
+
+= Style 属性
+
+2006 Volume 3 では、スタイル属性を FormattedLinkEditor に追加しました。この属性によって、複数のスタイルをフォーマットされたテキストに適用できます。すべてのタグはスタイル属性をサポートしますが、すべてのタグがすべてのサブ属性をサポートするわけではありません。たとえば、<br> と <p> タグの両方にスタイル属性を適用できます。ただし、両方のタグに Height サブ属性を適用すると、<p> タグだけに高さを設定することになります。
+
+スタイルのサブ属性のひとつを使用するには、タグ内にスタイル属性を配置します。各サブ属性はコロン ":" で設定され、セミコロン ";" で分離されます。以下の例は、<p> タグの高さと幅を設定する方法と、背景色を青、前景色を白に変更する方法を示しています。
+
+----
+<p >Text</p>
+----
+
+image::images/WinFormattedLinkLabel_The_Style_Attribute_01.png[]
+
+以下の表は、開発者が使用できるサブ属性、それらが何を実行し、どのようなタグが影響を受けるかなどを識別します。
+
+[options="header", cols="a,a,a"]
+|====
+|STYLE サブ属性|サポートするタグ|説明
+
+|Background-color
+|<p>、<span>、<img>、<br>、<hr>
+|エレメントの背景色を指定します。可能な値は、.NET の色（System.Drawing.Color）および 16 進数値（たとえば、#rrggbb）です。 
+
+[NOTE] 
+
+==== 
+
+*注：* これらの値は色を指定するサブ属性で有効です。 
+
+====
+
+|Background-color2
+|<p>、<span>、<img>、<br>、<hr>
+|グラデーションを使用する場合、エレメントの 2 番目の背景色を指定します。
+
+|Background-gradient-style
+|<p>、<span>、<img>、<br>、<hr>
+|グラデーション背景を描画する時に使用するためのグラデーションを指定します。可能となる値はpick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.gradientstyle.html[Infragistics.Win.GradientStyle]"] 列挙体で見つかります。
+
+|Border-color
+|<p>、<img>
+|エレメントの境界線の色を指定します。
+
+|Border-color-3d-base
+|<p>、<img>
+|立体境界線の立体部分の色を設定します。
+
+|Border-sides
+|<p>、<img>
+|Border-style サブ属性が設定されている場合、エレメントのどの側が境界線を描画するかを決定します。可能となる値は、 None、All、Left、Right、Top、および Bottom です。スペースで値を分離することで複数の境界線を指定できます。
+
+|Border-style
+|<p>、<img>
+|エレメントの周囲の境界線を描画する時に使用する境界線スタイルを指定します。可能となる値は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementborderstyle.html[Infragistics.Win.UIElementBorderStyle]"] 列挙体で見つかります。
+
+|Clear
+|<p>、<span>、<br>、<hr>、<img>
+|以下のエレメントは、フローティング オブジェクトの後に配置されることを保証します。可能となる値は、left、right、および all です。
+
+|Color
+|
+|エレメントの前景色（通常はテキスト）を指定します。
+
+|Float
+|<p>、<img>
+|タグのコンテンツの隣にオブジェクト（たとえば、画像）をフロートします。タグのコンテンツは、オブジェクトの周囲に折り返します。可能となる値は left と right です。
+
+|Font-family
+|すべてのタグ
+|エレメントに使用するフォントを指定します。
+
+|Font-size
+|すべてのタグ
+|フォントをどれぐらいの大きさにするかを指定します。ポイントまたは相対サイズでフォント サイズを指定できます。フォントの相対サイズ（マイナスまたはプラスの記号で始まる 1 ～ 6）は、親タグではなくコントロールの基本フォントを使用して計算されます。
+
+|Font-style
+|すべてのタグ
+|テキストを斜体にします。可能な値は italics と normal です。
+
+|Font-weight
+|すべてのタグ
+|テキストを太字にします。可能な値は bold と normal です。
+
+|Height
+|<p>、<img>
+|エレメントの高さを指定します。
+
+|Margin
+|<p>、<img>
+|エレメントのマージンの高さと幅を制御します。マージンは、エレメントの境界線の外に表示されます。スペースで区切って 1 ～ 4 の値を指定することができます。ひとつの値を指定すると、4 つのマージンすべてに影響があります。2 つの値を指定すると、最初の値は上下のマージンに影響を及ぼし、2 番目の値は左右のマージンに影響を及ぼします。3 つの値を指定すると、最初の値は上のマージンに影響を及ぼし、2 番目の値は左右のマージンに影響を及ぼし、3 番目の値は下のマージンに影響を及ぼします。4 つの値を指定すると、上下左右のそれぞれのマージンに影響を及ぼします。
+
+|Margin-left、Margin-right、Margin-top、Margin-bottom
+|<p>、<img>
+|個々のマージンのサイズを指定します。
+
+|Padding
+|<p>、<img>
+|エレメントのパディングの高さと幅を制御します。パディングはエレメントの境界線の内側に表示されます。マージンのサブ属性で 1 ～ 4 の値を指定することもできます。
+
+|Padding-left、Padding-right、Padding-top、Padding-bottom
+|<p>、<img>
+|エレメントの個別の側のパディングのサイズを指定します。
+
+|Text-align
+|<p>、<hr>
+|テキストを揃える方法を指定します。可能となる値は、left、center、right、および justify です。
+
+|Text-Smoothing-Mode
+|すべてのタグ
+|テキストをアンチエイリアスで描画します。可能な値は AntiAlias と None です。
+
+|Verical-align
+|テキストと画像をインライン処理します。
+|エレメントのコンテンツをどのように垂直方向に揃えるかを指定します。可能な値は baseline、middle、top、および bottom です。
+
+|Width
+|<p>、<img>
+|エレメントの幅を指定します。パーセント '%' 記号で値に追加できます。そうすれば、幅が使用できる幅のパーセントになります。
+
+|====

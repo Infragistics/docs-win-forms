@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingroupbox-place-an-image-next-to-a-caption",
+    "controlName": ["WinGroupBox"],
+    "tags": ["Design Environment","Grouping","How Do I"],
+    "guid": "{57BBCFFC-6AEA-4694-B450-A3E3B0FD1933}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= キャプションの横に画像を配置する
+
+== キャプションの横に画像を配置する
+
+最後に、ヘッダ内のキャプション領域に画像を配置する方法について説明します。まず、プロパティグリッドで pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~headerappearance.html[HeaderAppearance]"]  プロパティを探して展開します。このプロパティの中で Image プロパティを探して選択します。右の列にボタンが表示されるので、このボタンをクリックします。外観イメージ エディタが起動します。このエディタで [ファイルから選択...] を選択し、画像が存在する場所に移動します。画像を選択して [開く] をクリックしてから、エディタの [OK] ボタンをクリックします。そうすると、デザインタイムのキャプション領域に画像が表示されます。
+
+image::Images/WinMisc_Introduction_to_the_WinGroupBox_08.png[]

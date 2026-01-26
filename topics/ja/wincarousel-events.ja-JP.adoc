@@ -1,0 +1,112 @@
+﻿////
+|metadata|
+{
+    "name": "wincarousel-events",
+    "controlName": [],
+    "tags": [],
+    "guid": "175e4576-0e4f-48f4-b788-950ebf8ad2b2",
+    "buildFlags": [],
+    "createdOn": "2014-09-12T21:04:50.5114841Z"
+}
+|metadata|
+////
+
+= WinCarousel イベント
+
+このトピックでは、 link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel_members.html[UltraCarousel] コントロールで一般的に使用されるイベントの概要を説明します。
+
+== イベント サマリー
+
+[options="header", cols="a,a"]
+|====
+|イベント名|説明
+
+|AnimationCompleted
+
+|このイベントは、カルーセル項目がスクロールまたはパスに沿った回転を停止した後に発生します。
+
+.注:
+[NOTE]
+====
+link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~animationstarting_ev.html[AnimationStarting] イベントがキャンセルされると、このイベントは発生しません。
+
+
+====
+
+|AnimationStarting
+
+|このイベントは、カルーセル項目がスクロールまたはパスに沿った回転を開始する前に発生します。
+
+|DataItemsCollectionPopulated
+
+|このイベントは、_UltraCarousel_ が `DataSet` オブジェクトにバインドされているデータ バインディングによって、カルーセル項目が生成されたときに発生します。
+
+|DataItemsCollectionPopulating
+
+|このイベントは、_UltraCarousel_ が `DataSet` オブジェクトにバインドされているデータ バインディングによって、カルーセル項目が生成されている間に発生します。
+
+|InitializeDataItem
+
+|このイベントは、_UltraCarousel_ の `DataSet` オブジェクトへのデータ バインディングによってカルーセル項目が生成されたときに発生します。
+
+.注:
+[NOTE]
+====
+コントロールに項目を追加しても、このイベントは発生しません。
+====
+
+|ItemActivated
+
+|このイベントは、アクティブなカルーセル項目が変更されたときに発生します。クリックすると、任意の項目をアクティブにすることができます。
+
+.注:
+[NOTE]
+====
+link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~itemactivating_ev.html[ItemActivating] イベントがキャンセルされると、このイベントは発生しません。
+====
+
+|ItemActivating
+
+|このイベントは、パスに沿って項目が回転されるなど、アクティブなカルーセル項目が変更される前に発生します。
+
+|ItemClick
+
+|このイベントは、ルーセル項目がクリックされたときに発生します。
+
+.注:
+[NOTE]
+====
+このイベントは、コントロールの link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~selectiontype.html[SelectionType] が  _None_ に設定されている場合に限り発生します (その他のオプションは _Extended_ と _Single_  です)。それ以外の場合は、`ItemSelectionChanging` と `ItemSelectionChanged`  イベントが発生します。
+====
+
+|ItemSelectionChanged
+
+|このイベントは、項目選択が変更されたときに発生します。
+
+.注:
+[NOTE]
+====
+link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~itemselectionchanging_ev.html[ItemSelectionChanging] イベントがキャンセルされると、このイベントは発生しません。
+
+
+====
+
+|ItemSelectionChanging
+
+|このイベントは、ユーザー インタラクションにより項目選択が変更される前に発生します。
+
+.注:
+[NOTE]
+====
+このイベントは、コントロールの link:{ApiPlatform}win.ultrawincarousel{ApiVersion}~infragistics.win.ultrawincarousel.ultracarousel~selectiontype.html[SelectionType] が _Single_ または _Extended_ に設定されている場合に限り発生します。
+====
+|====
+
+
+
+== 関連コンテンツ
+
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+* link:wincarousel.html[WinCarousel] -- このセクションには、WinCarousel コントロールについてのヘルプトピックが含まれています。

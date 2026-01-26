@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-namedreferences-formula",
+    "controlName": ["WinCalcManager"],
+    "tags": [],
+    "guid": "{F15CE551-FC38-49F9-8D8F-4E889C82A50F}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= NamedReferences フォーミュラ
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.namedreference.html[NamedReference]"] とは、実質的にはコントロールに依存しない数式です。NamedReferences にはさまざまな用途があります。たとえば、計算式の中だけで使用し、エンド ユーザーに見せる必要がない定数や数式を定義する際に使用できます。
+
+NamedReferences の最も重要なプロパティを以下に示します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ名|説明
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.namedreference~category.html[Category]"] 
+|フォーミュラ ビルダーによって NamedReferences を分類するために使用します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.namedreference~key.html[Key]"] 
+|この NamedReference の一意のキー。Key は、数式内で NamedReference を参照するときに使用します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.namedreference~formula.html[Formula]"] 
+|この NamedReference の数式。NamedReference を定数として使用するため、Formula にはリテラルを指定できます。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.namedreference~formularesult.html[FormulaResult]"] （ランタイムのみ）
+|FormulaResult は数式の計算結果を返します。
+
+|====
+
+NamedReference を追加するには、WinCalcManager コンポーネントの NamedReferences プロパティで、省略（...）ボタンをクリックしてコレクション エディタを開きます。[追加] ボタンをクリックすると、新しい NamedReference がコレクションに追加されます。
+
+定数を作成するには、単にリテラル値を Formula に割り当てます。たとえば、"Pi" という Key を持つ NamedReference を定義し、Formula を "3.1415" に設定します。
+
+image::Images/WinCalcManager_Named_References_Overview_01.png[]
+
+数式の中で名前付き参照を使用するには、名前付き参照の Key を角カッコで囲み、二重のスラッシュを付けます（例："[//Pi] $$*$$ [//Radius]^2"）。

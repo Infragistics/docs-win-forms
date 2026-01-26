@@ -1,0 +1,187 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-customizing-the-focus-rectangle-on-an-active-element-using-drawfilter",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Styling"],
+    "guid": "{9F4320A4-B08A-4263-9D29-86E72552D11B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DrawFilter を使用してアクティブなエレメントでフォーカスを示す四角形をカスタマイズ
+
+*始める前に*
+
+WinGrid™ コントロールのアクティブ エレメントはアクティブ セルまたは行を囲むフォーカスを示す四角形（点線）を表示します。WinGrid はこのフォーカスを示す四角形を変更する組み込みの方法がありません。ただし、Infragistics™ Presentation Layer Framework (PLF)™ を利用して、この四角形の描画を変更する方法はあります。
+
+*達成すること*
+
+この詳細なガイドでは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.iuielementdrawfilter.html[IUIElementDrawFilter] インタフェースを実装する Draw Filter Class を作成することによって、アクティブ セルまたは行を囲むフォーカスを示す四角形（点線）をカスタマイズする方法を学習します。
+
+*以下の手順を実行します。*
+
+[start=1]
+. UltraGrid コントロールを Visual Studio® Toolbox から Form にドラッグ アンド ドロップします。
+[start=2]
+. WinGrid コントロールを Northwind データベースの Customers テーブルにバインドします。この詳細は、「WinGrid をフラット データ ソースにバインドする」トピックを参照してください。
+[start=3]
+. IUIElementDrawFilter インタフェースを実装する ActivationObjectDrawFilter という名前のクラスを作成します。この Draw Filter 実装で、2 つのメソッド pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~drawelement.html[DrawElement]"]  と pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iuielementdrawfilter~getphasestofilter.html[GetPhasesToFilter]"]  が定義されます。DrawElement メソッドは、UIElementDrawParams 構造体と単一描画フェーズが実行中であることを示すビット フラグを受け取ります。このメソッドはブール値を返します。False が返された場合、そのフェーズのデフォルトの描画が実行されます。'Before' フェーズに対して True が返された場合は、そのフェーズに対するデフォルトの描画が省略されます。ActivationObjectDrawFilter クラス内で以下のコードを記述します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Private _theFocusPen As Pen = Nothing
+Private _xOffset As Integer = 0
+Private _yOffset As Integer = 0
+Private _wOffset As Integer = 0
+Private _hOffset As Integer = 0
+Public Sub New(ByVal theFocusPen As Pen, ByVal xOffset As Integer, ByVal yOffset As Integer, ByVal wOffset As Integer, ByVal hOffset As Integer)
+    _theFocusPen = theFocusPen
+    _xOffset = xOffset
+    _yOffset = yOffset
+    _wOffset = wOffset
+    _hOffset = hOffset
+End Sub
+Public Function DrawElement(ByVal drawPhase As Infragistics.Win.DrawPhase, ByRef drawParams As Infragistics.Win.UIElementDrawParams) As Boolean Implements Infragistics.Win.IUIElementDrawFilter.DrawElement
+    Dim retVal As Boolean = False
+    'FALSE を返す場合、 
+    'このカスタム コードはこの Draw Filter のユーザーによって一切使用されなくなります。 
+    'True を返す場合にはこのカスタム コードが使用されることを保証します。 
+    'どの DrawPhase がこのメソッドを呼び出すのかをテストするのは 
+    '賢明です。複数の DrawPhase で使用されるように
+    'この DrawFilter を構成してあるかもしれません。 
+    If drawPhase = Infragistics.Win.DrawPhase.BeforeDrawFocus Then
+        Dim regularRect As Rectangle = drawParams.Element.Rect
+        'これは Element の完全な矩形です 
+        Dim clippedRect As Rectangle = drawParams.Element.ClipRect
+        'エレメントがその他のエレメントによってクリップされる場合、これは矩形からクリップされる部分です 
+        Dim theFocusRectangle As Rectangle
+        'エレメントがその他のエレメントによってクリップされるかどうかを 
+        '確認するためにテストします 
+        If (clippedRect.Width < regularRect.Width) OrElse (clippedRect.Height < regularRect.Height) Then
+            theFocusRectangle = clippedRect
+        Else
+            theFocusRectangle = regularRect
+        End If
+        'これによって実際の矩形を変更して、そのサイズを調整することができます。調整できるようにするには
+        'これが必要です 
+        theFocusRectangle = New Rectangle(theFocusRectangle.X + _xOffset, theFocusRectangle.Y + _yOffset, theFocusRectangle.Width + _wOffset, theFocusRectangle.Height + _hOffset)
+        'この時点でその上部にフォーカスを示す矩形を 
+        '描画するエレメントの輪郭を描く矩形を 
+        '取得します。 
+        drawParams.Graphics.DrawRectangle(_theFocusPen, theFocusRectangle)
+        retVal = True
+        'このカスタム コードが適用されることを保証します。 
+    End If
+    Return retVal
+End Function
+----
+
+*C# の場合：*
+[source,csharp]
+----
+        private Pen _theFocusPen = null;
+        private int _xOffset = 0;
+        private int _yOffset = 0;
+        private int _wOffset = 0;
+        private int _hOffset = 0;
+        public ActivationObjectDrawFilter(Pen theFocusPen, int xOffset, int  yOffset, int wOffset, int hOffset)
+        {
+            _theFocusPen = theFocusPen;
+            _xOffset = xOffset;
+            _yOffset = yOffset;
+            _wOffset = wOffset;
+            _hOffset = hOffset;
+        }
+        #region IUIElementDrawFilter Members
+        public bool DrawElement(Infragistics.Win.DrawPhase drawPhase, ref Infragistics.Win.UIElementDrawParams drawParams)
+        {
+            bool retVal = false; //FALSE を返す場合、 
+            //このカスタム コードはこの Draw Filter のユーザーによって一切使用されなくなります。
+            //True を返す場合にはこのカスタム コードが使用されることを保証します。 
+            //どの DrawPhase がこのメソッドを呼び出すのかをテストするのは
+            //賢明です。複数の DrawPhase で使用されるように
+            //この DrawFilter を構成してあるかもしれません。
+            if (drawPhase == Infragistics.Win.DrawPhase.BeforeDrawFocus)
+            {
+                Rectangle regularRect = drawParams.Element.Rect; //これは Element の完全な矩形です
+                Rectangle clippedRect = drawParams.Element.ClipRect; //エレメントがその他のエレメントでクリップされる場合、これは矩形からクリップされる部分です
+                Rectangle theFocusRectangle;
+                //エレメントがその他のエレメントによってクリップされるかどうかを
+                //確認するためにテストします 
+                if (
+                    (clippedRect.Width < regularRect.Width)
+                    ||
+                    (clippedRect.Height < regularRect.Height)
+                   )
+                {
+                    theFocusRectangle = clippedRect;
+                }
+                else
+                {
+                    theFocusRectangle = regularRect;
+                }
+                //これによって実際の矩形を変更して、そのサイズを調整することができます。調整できるようにするには
+                //これが必要です
+                theFocusRectangle = 
+                    new Rectangle(
+                        theFocusRectangle.X + _xOffset, theFocusRectangle.Y + _yOffset,
+                        theFocusRectangle.Width + _wOffset, theFocusRectangle.Height + _hOffset);
+                //この時点でその上部にフォーカスを示す矩形を
+                //描画するエレメントの輪郭を描く矩形を
+                //取得します。 
+                drawParams.Graphics.DrawRectangle(_theFocusPen, theFocusRectangle);
+                retVal = true; //このカスタム コードが適用されることを保証します。
+            }
+            return retVal;
+        }
+----
+
+[start=4]
+. GetPhasesToFilter メソッドは UIElementDrawParams 構造体を受け取り、DrawPhase というビット フラグ列挙体を返します。返された DrawPhase ビット フラグは、描画操作のどの段階でこのエレメントに対してフィルタリングを実行するのかを指定します。ActivationObjectDrawFilter クラス内でも以下のコードを記述します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Public Function GetPhasesToFilter(ByRef drawParams As Infragistics.Win.UIElementDrawParams) As Infragistics.Win.DrawPhase Implements Infragistics.Win.IUIElementDrawFilter.GetPhasesToFilter
+    'この DrawFilter の DrawElement メソッドが呼び出される場合に、 
+    'このメソッドから返す DrawPhases は  
+    'DrawPhases になります。 
+    Return Infragistics.Win.DrawPhase.BeforeDrawFocus
+End Function
+----
+
+*C# の場合：*
+[source,csharp]
+----
+public Infragistics.Win.DrawPhase GetPhasesToFilter(ref Infragistics.Win.UIElementDrawParams drawParams)
+        		{
+            //この DrawFilter の DrawElement メソッドが呼び出される場合に、
+            //このメソッドから返す DrawPhases は  
+            //DrawPhases になります。 
+            return Infragistics.Win.DrawPhase.BeforeDrawFocus;
+        }
+----
+
+[start=5]
+. Form1 クラスで、作成された ActivationObjectDrawFilter クラスを UltraGrid の DrawFilter プロパティに割り当てます。気を付けてみると、Draw Filter のコンストラクターはさらなる柔軟性と調整を可能にするためにいくつかのパラメーターを受け付けるように設計されています。これらのパラメーターはフォーカスを示す四角形を描画するために使用される Brush、ならびに X および Y の開始点オフセットだけでなく、Width および Height オフセットを表す 4 つのさらなるパラメーターを表します。これらによって、高度な精度で矩形の開始点を微調整することができます。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Me.ultraGrid1.DrawFilter = New ActivationObjectDrawFilter(New Pen(Brushes.Red, 1F), 1, 1, -3, -3)
+----
+
+*C# の場合：*
+[source,csharp]
+----
+ this.ultraGrid1.DrawFilter = new ActivationObjectDrawFilter(new Pen(Brushes.Red, 1f), 1, 1, -3, -3);
+----
+
+[start=6]
+. アプリケーションを実行します。WinGrid は Northwind データベースのカスタマー テーブルを表示します。任意の行またはセルをクリックすると、デフォルトの点線のフォーカスを示す四角形の代わりに、アクティブ行またはセルを囲む赤の実線の矩形を取得します。
+
+image::Images/WinGrid_Removing_Focus_Rectangle_on_an_Active_Element_USing_Draw_Filter.png[]

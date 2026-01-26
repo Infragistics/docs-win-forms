@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-using-the-infragistics-word-library",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting","How Do I"],
+    "guid": "9f99d92b-ee57-4ff4-9765-d21cac62c3eb",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T14:00:31.085061Z"
+}
+|metadata|
+////
+
+= Infragistics Word ライブラリの使用
+
+このセクションは、Word ライブラリの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+* link:word-create-a-word-document.html[Word ドキュメントの作成]
+* link:word-apply-formatting-to-word-document.html[書式設定を Word ドキュメントに適用]
+* link:word-add-table-to-word-document.html[テーブルを Word ドキュメントに追加]
+* link:word-add-images-to-word-document.html[画像を Word ドキュメントに追加]
+* link:word-headers-footers-and-page-numbers.html[ヘッダー、フッター、ページ番号]
+* link:word-creating-word-document-using-object-model-approach.html[オブジェクト モデル アプローチで Word ドキュメントを作成]

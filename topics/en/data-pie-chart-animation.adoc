@@ -1,0 +1,73 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= Animation
+
+This topic provides information about the different animations that can be enabled in the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] control. 
+
+The topic contains the following sections:
+
+* <<Requirements,Requirements>>
+* <<Overview,Animation in {DataPieChartName}>>
+* <<RelatedTopics,Related Content>>
+
+[[Requirements]]
+== Requirements
+
+This article assumes you have already read the link:data-pie-chart-data-binding.html[Data Binding] topic, and uses the code within it as a starting point.
+
+[[Animation]]
+== Animation in {DataPieChartName}
+
+The {DataPieChartName} supports animating its slices into view, as well as when a value changes.
+
+TODO...
+
+[[CodeExample]]
+
+== Code Example
+
+ifdef::wpf[]
+
+*In XAML:*
+
+[source,xaml]
+----
+TODO
+----
+
+*In C#:*
+
+[source, csharp]
+----
+TODO
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*In C#:*
+
+[source,csharp]
+----
+TODO
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== Related Content
+
+* link:data-pie-chart-data-binding.html[Data Binding]
+* link:data-pie-chart-others-category.html[Others Category]

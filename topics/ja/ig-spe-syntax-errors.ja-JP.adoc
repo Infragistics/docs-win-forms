@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-syntax-errors",
+    "controlName": [],
+    "tags": [],
+    "guid": "c984ae73-aab0-4557-b44a-9f2efbebdd3c",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0638513Z"
+}
+|metadata|
+////
+
+= 構文エラー
+
+== トピックの概要
+
+=== 目的
+
+このグループのトピックでは、Syntax Parsing Engine が検出した構文エラーについて説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349568126, 構文エラー >>
+* <<_Ref349568130, 概要 >>
+* <<_Ref349568133, 例 >>
+* <<_Ref349568137, 関連コンテンツ >>
+
+[[_Ref349568126]]
+== 構文エラー
+
+[[_Ref349568130]]
+
+=== 概要
+
+解析中のドキュメント内のテキストが、文章校正で定義された必要な構造に準拠しない場合に構文エラーが発生します。構文エラーの検出は字句エラー検出より複雑です。これは、意味のあるエラーメッセージを提供できるように、アナライザーは問題が何かを推測するだけでなく解決法を推測する必要があるためです。
+
+[[_Ref349568133]]
+
+=== 例
+
+名前が VariableDeclarationStatement の非終端記号の生成例:
+
+VariableDeclarationStatement → Type IdentifierToken SemicolonToken
+
+VariableDeclarationStatement → Type IdentifierToken EqualsToken Expression SemicolonToken
+
+VariableDeclarationStatement → VarKeyword IdentifierToken EqualsToken Expression SemicolonToken
+
+解析対象のドキュメント コンテンツ: “int x = ;”
+
+字句解析の間、以下の重要なトークンが作成されます。
+
+* <IdentifierToken, “int”>
+* <IdentifierToken, “x”>
+* <EqualsToken, “=”>
+* <SemicolonToken, “;”>
+
+Syntax Parsing Engine は、重要なトークンを解析する構文を開始し、「SemicolonToken」に到達すると、上記の生産文のいずれにも処理されたトークンが一致しないためエラーが検出されたとみなします。Syntax Parsing Engine は、テキストに足りないものは何か、またはそこにあるべきでないものは何かを探し出します。そのためには、パーサーは現在の状態に組み込むことができる、可能性のあるすべての生産を特定し、解析されたトークンでそのすべてを一致させようとします。
+
+注:
+
+[NOTE]
+====
+この時点では、最初の「IdentifierToken」は使用されるコンテキストのために非終端記号の型まで縮小されます。
+====
+
+その生成には識別子のすぐ後ろにセミコロンがあるため、最初の生産が作成すべきものでないことは明らかです (サンプル テキストには等号もありません)。また、3 番目の生産は「var」キーワードで始まるため、作成すべきものでないことが明らかです。この場合、唯一の可能性のある生産は 2 番目です。その定義に基づいて、この場合のエラーは、式の抜けであることが明白です。
+
+[[_Ref349568137]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-lexical-errors.html[字句エラー]
+|このグループのトピックでは、Syntax Parsing Engine で検出された字句エラーについて説明します。
+
+| link:ig-spe-error-handling-strategies.html[エラー処理方法]
+|このグループのトピックでは、構文エラーを識別するためにドキュメントの構文解析中に使用する方法について説明します。
+
+| link:ig-spe-semantic-errors.html[セマンティック エラー]
+|このトピックは、Syntax Parsing Engine によって処理されないセマンティック エラーについて説明します。
+
+|====

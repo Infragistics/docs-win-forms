@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-marker-movement",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{AA6EB372-042F-40F6-BBBE-6E244775CAF3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マーカーの移動
+
+スケール上の異なる値を指し示すためにマーカーの値を構成できます。
+
+これによって、エンド ユーザーはゲージを操作できます。エンド ユーザーはラジアル ゲージで針をドラッグしてスケール上の異なる値を指し示すことができます。ラジアル ゲージの針マーカーは、以下の方法で移動できます。
+
+* 手動 -- エンド ユーザーが手動で針を移動できるように構成できます。これによって、針がスケールで指し示している値をエンド ユーザーが変更することが可能となります。
+* 自動 -- スケールで特定の時間の間隔と距離でゲージ上の針を自動的に移動するように構成できます。
+
+リニア ゲージでは、マーカーは自動でしか動かすことができません。
+
+== 関連トピック
+
+link:wingauge-allow-manual-movement-of-the-needle.html[針の手動による移動を可能にする]
+
+link:wingauge-move-the-needle-marker-automatically.html[針を自動的に移動]
+
+link:wingauge-move-the-bar-marker-automatically.html[バー マーカーを自動的に移動]

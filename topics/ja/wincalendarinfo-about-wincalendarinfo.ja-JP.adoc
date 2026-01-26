@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-about-wincalendarinfo",
+    "controlName": ["WinCalendarInfo"],
+    "tags": ["Getting Started"],
+    "guid": "{8F897C80-B7FC-4A11-905C-649121830F73}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalendarInfo について
+
+WinCalendarInfo は、Windows Formsのコンポーネントで、WinSchedule コントロールとコンポーネントのさまざまなビューで使用でき、データを提供し、そのデータの操作を可能にします。
+
+* スケジュールの操作 -- バインドされている WinSchedule ビューに表示された日の操作を可能にします。
+* データの操作 -- 予約、メモなどのシリアル化を可能にします。シリアル化は異なる WinSchedule ビュー間でも可能です。
+* オーナー -- WinSchedule ビューに表示された使用可能なオーナーの操作を可能にします。
+* アクティブ日 -- WinSchedule のすべてのビューにアクティブ日を設定します。
+
+image::images/WinCalendarInfo_About_WinCalendarInfo_01.png[]

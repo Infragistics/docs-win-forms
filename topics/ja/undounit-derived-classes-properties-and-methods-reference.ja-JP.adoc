@@ -1,0 +1,125 @@
+﻿////
+
+|metadata|
+{
+    "name": "undounit-derived-classes-properties-and-methods-reference",
+    "controlName": [],
+    "tags": ["API","Editing","How Do I"],
+    "guid": "67e5c26c-3448-40bc-857e-494fb8546f3d",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3750125Z"
+}
+|metadata|
+////
+
+= UndoUnit 派生クラス、プロパティおよびメソッド参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320656474, UndoUnit クラス参照 >>
+** <<_Ref320801583,はじめに>>
+** <<_derived,派生クラス参照の概要>>
+** <<_Ref320801594,プロパティ参照の概要>>
+** <<_Ref320801601,メソッド参照の概要>>
+
+* <<_Ref320656481, 関連コンテンツ >>
+
+[[_Ref320656474]]
+== UndoUnit クラス参照
+
+[[_Ref320801583]]
+
+=== はじめに
+
+UndoUnit は、元に戻す/やり直し履歴に追加される元に戻すことができる操作の基本クラスです。
+
+これは、操作の文字列説明を取得し、操作を実行し、オプションで操作の結果を結合するためのメソッドを公開します。
+
+[[_derived]]
+
+=== 派生クラス参照の概要
+
+以下の表で、UndoUnit 派生クラスの目的を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|クラス|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.collectionchangeundounit`1.html[CollectionChangeUndoUnit] 
+|このクラスは、 _ICollection_ __ への変更を元に戻すために使用されます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.propertychangeundounit`2.html[PropertyChangeUndoUnit]
+|このクラスは、単一の CLR プロパティへの変更を元に戻すために使用されます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.propertychangeundounitbase_members.html[PropertyChangeUndoUnitBase]
+|このクラスは、`UndoUnit` の基本クラスで、単一のプロパティ値の変更を表します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undotransaction_members.html[UndoTransaction]
+|このクラスは、1 つまたはそれ以上の UndoUnit を含むカスタムの UndoUnit クラスです。 
+
+詳細は、「トランザクションを実行するためのメソッドおよびプロパティ参照」のトピックを参照してください。
+
+|====
+
+[[_Ref320801594]]
+
+=== プロパティ参照の概要
+
+以下の表で、UndoUnit クラスのキー プロパティの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit~target.html[Target]
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit_members.html[UndoUnit] によって影響を受けるターゲット オブジェクトを返します。
+
+|====
+
+[[_Ref320801601]]
+
+=== メソッド参照の概要
+
+以下の表で、UndoUnit クラスのキー メソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit~getdescription.html[GetDescription]
+|これが元に戻すまたはやり直し操作のためであるかどうかに基づいてアクションの文字列表現を返します。
+
+|====
+
+[[_Ref320656481]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:observablecollectionextendedwithundo-properties-reference.html[ObservableCollectionExtendedWithUndo プロパティ参照]
+|このトピックは、ObservableCollectionExtendedWithUndo クラスの重要なプロパティをいくつかリストします。
+
+| link:undohistoryitem-properties-and-methods-reference.html[UndoHistoryItem プロパティおよびメソッド参照]
+|このトピックは、UndoHistoryItem クラスのプロパティおよびメソッドをリストします。
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounitfactory-properties-and-methods-reference.html[UndoUnitFactory プロパティおよびメソッド参照]
+|このトピックは、UndoUnitFactory クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+|====

@@ -1,0 +1,1126 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-resource-strings",
+    "controlName": [],
+    "tags": ["Grids","Localization","Resource Strings"],
+    "guid": "{F6A4CCD0-2F17-4EE8-BB78-B79CC2BB7227}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleActionPush
+|押す
+
+|AccessibleName_AddNewBoxArea
+|AddNew 領域
+
+|AccessibleName_AddRow
+|行の追加
+
+|AccessibleName_Caption
+|キャプション
+
+|AccessibleName_ChildBands
+|子行
+
+|AccessibleName_ColumnHeaders
+|列ヘッダー
+
+|AccessibleName_DataArea
+|データ領域
+
+|AccessibleName_FilterRow
+|フィルター行
+
+|AccessibleName_GroupByBox
+|グループ化ボックス
+
+|AccessibleName_Row
+|{0}行 {1}
+
+|AccessibleName_RowColRegion
+|スクロール領域
+
+|AccessibleName_TemplateAddRow
+|テンプレート行の追加
+
+|AddNewBoxDefaultPrompt
+|追加...
+
+|AllRowsFilteredOut
+|0 項目
+
+|CheckedListSettings_E_CheckStateMemberCannotEqualValueMember
+|ValueMember プロパティはその値に解決するので、CheckStateMember プロパティは '{0}' に設定できません。CheckStateMember プロパティはコントロールの値を定義する同じ列を参照できません。
+
+|ColumnChooserAllBandsItem
+|すべて
+
+|ColumnChooserButtonToolTip
+|[フィールドの選択] ダイアログを表示するにはここをクリックしてください。
+
+|ColumnChooserDialogCaption
+|フィールドの選択
+
+|ColumnsUITypeEditorList_None_Entry
+|なし
+
+|DataError_CellValueRetrieval
+|セル値を取得できません。PropertyDescriptor.GetValue の呼び出しに失敗しました。これはさまざまな理由から発生します。原因のひとつとして、UltraGridRow のリスト オブジェクトが基本のデータ リストと同期していないことが考えられます。これは、基になるデータ リストがそのデータ リストでバインドされているコントロール (UltraGrid) の変更を通知するための適切なイベントを発生させるのに失敗した場合に起こります。カスタム IList データ ソースを使用している場合には、IBindingList インターフェイスをデータ リストに実装し、ListChanged イベントを適切に発生するように試行します。データ リストが IBindingList をすでに実装している場合には、適切な通知を発生できない場合があります。グリッドのリスト オブジェクトをデータ リストと同期させるために、グリッドの rows コレクションで RowsCollection.Refresh を呼び出すことを試行することも可能です。UltraGrid が正常に動作を続行するかを確認してください。
+
+|DataError_CurrencyManagerRetrievalFailure
+|BindingContext から CurrencyManager を取得できません。BindingContext がインデクサーから例外をスローしました。これはさまざまな理由から発生します。子バンドの currency manager を作成するときに、親の list オブジェクトから IList のインスタンスを取得できないために currency manager のインスタンス化に失敗することが原因のひとつとして挙げられます。親リストにある項目が 0 であるために子リストを取得するための親リスト オブジェクトがないときにこれが発生します。このような場合には、子の currency manager が一時的な項目を親リストに追加しようとします。これによって、親リスト オブジェクトから子リストのインスタンスを取得できます。たとえばリストが読み取り専用であったり、追加をサポートしていないために、これに失敗すると、urrency manager のインスタンス化に失敗し、その結果 BindingContext インデクサーによって例外がスローされます。UltraGrid はデータ構造のさらなる取得を処理します。ただし、UltraGrid がこの時点でこのバンドの適切なデータ構造を取得できないために、この特定の項目バンドレベルとその子孫を表示できなくなります。ただし、親リストオブジェクトでの項目の追加や先祖の currency manager の現在の項目の変更に対応して、親の currency manager が PositionChanged 通知を発生する場合のように、UltraGrid が適切な条件下で取得をさらに試行します。対応策としては、IBindingList インターフェイスをまだ実装していないのであれば、データ ソースに IBindingList を実装することが挙げられます。UltraGrid は、BindingContext から CurrencyManager を取得できない場合に、このインターフェイスを使用してデータ構造を取得します。このような障害が親リストが読み取り専用でひとつも項目を持っていないために発生する場合、データ ソースのバインディングが発生中に一時的に追加を可能にすることができます。
+
+|DataError_RowListObjectRetrieval
+|行のリスト オブジェクトを取得できません。通常、UltraGrid の row コレクションが基本のデータ リストと同期していない時にこの障害が発生します。基本のデータ リストがデータ リスト内の変更、特に行の追加/削除をバウンド コントロール（UltraGrid）に通知する適切なイベントを発生できない場合に、これが発生する可能性があります。UltraGrid は row コレクションをデータ リストと再度同期して、必要に応じてグリッド行を追加/削除して正常に作業を続行します。ただし、行が多数ある場合には再同期プロセスは十分でない可能性があります。カスタムの IList をデータ ソースとして使用しており、このエラー メッセージに関連してパフォーマンスの問題が発生している場合には、データ リストでの変更についての適切な通知をデータ リストが実行することを確認したくなります。通知を実行するには、データ リストで IBindingList インターフェイスを実装し、IBindingList の ListChanged 通知を発生させます。
+
+|DataErrorCalculatedValueDoesntMatchDataType
+|数式の結果を列のデータ タイプに変換できませんでした。
+
+|DataErrorCellUpdateDateNotInMinMaxRange
+|データ値が無効です: 指定された日付値が MinDate と MaxDate の範囲外です。
+
+|DataErrorCellUpdateEmptyValueNotAllowed
+|列 {0} のセルへの空の値の設定は許可されていません。
+
+|DataErrorCellUpdateInvalidDataValue
+|データ値が無効です。
+
+|DataErrorCellUpdateInvalidDateFormat
+|日付形式が無効です。
+
+|DataErrorCellUpdateUnableToConvert
+|{0} から {1} へ変換できません。
+
+|DataErrorCellUpdateUnableToUpdateValue
+|データ値を更新できません:{0}
+
+|DataErrorDeleteRowUnableToDelete
+|次の行を削除できません: {0}
+
+|DataErrorMessageTitle
+|データ エラー
+
+|DataErrorRowAddMessage
+|行を追加できません: {0}
+
+|DataErrorRowUpdateUnableToUpdateRow
+|次の行を更新できません: {0}
+
+|DefaultAction_Cell
+|アクティブ化
+
+|DefaultAction_Cell_Editable
+|編集
+
+|DefaultAction_Collapse
+|縮小
+
+|DefaultAction_Expand
+|展開
+
+|DefaultAction_Row
+|アクティブ化
+
+|DefaultAction_RowColRegion
+|アクティブ化
+
+|DefaultAction_SortColumn
+|並べ替え
+
+|DeleteMultipleRowsPrompt
+|削除対象として {0} 行を選択しました。[はい] を選択すると行が削除され、[いいえ] を選択すると終了します。
+
+|DeleteRowsMessageTitle
+|行の削除
+
+|DeleteSingleRowMessageTitle
+|行の削除
+
+|DeleteSingleRowPrompt
+|削除対象として 1 行を選択しました。[はい] を選択すると行が削除され、[いいえ] を選択すると終了します。
+
+|ErrMSgEditorValNotValid
+|エディターの値は無効です。
+
+|Error_Cell_ReadOnly
+|'{0}' セルは読み取り専用です。
+
+|FilterClearButtonToolTip_FilterCell
+|{0} のフィルター条件をクリアするにはここをクリックしてください。
+
+|FilterClearButtonToolTip_RowSelector
+|ここをクリックして、すべてのフィルター基準をクリアします。
+
+|FilterDialogAllComboItem
+|すべて
+
+|FilterDialogAnyComboItem
+|いずれか
+
+|FilterDialogApplyLabelText
+|次の条件の {0} に従ってフィルターする:
+
+|FilterDialogCancelButtonText
+|キャンセル(&C)
+
+|FilterDialogConditionAddButtonText
+|追加(&A)
+
+|FilterDialogConditionDeleteButtonText
+|削除(&D)
+
+|FilterDialogDeleteButton_AccessibleDescription
+|選択された条件を削除します。
+
+|FilterDialogOkButtonNoFiltersText
+|フィルターなし(&O)
+
+|FilterDialogOkButtonText
+|&OK
+
+|FilterDialogTitle
+|カスタム フィルター
+
+|FixedHeaders_FixHeaderSwapItem
+|[ヘッダーの固定]
+
+|FixedHeaders_UnfixAllHeadersSwapItem
+|[すべてのヘッダー固定を解除]
+
+|FixedHeaders_UnfixHeaderSwapItem
+|[ヘッダー固定を解除]
+
+|GroupByBoxDefaultPrompt
+|その列でグループ化するために列ヘッダーをここにドラッグします。
+
+|GroupByBoxDefaultPromptMultiBandCardView
+|その列でグループ化するために列ヘッダーまたはカード ラベルをここにドラッグします。
+
+|GroupByBoxDefaultPromptSingleBandCardView
+|その列でグループ化するためにカード ラベルをここにドラッグします。
+
+|GroupByButtonToolTip
+|クリックしてソート方向を切り替えます。
+
+|HeadersAreTooTallToPrint_Text
+|印刷操作は失敗しました。Header の領域がページより高いので、行データを印刷するスペースがありません。ヘッダーの高さを減らして、もう一度試してください。
+
+|Invalid_DataSource_RowEditTemplate
+|グリッドの DataSource はグリッドのバンドに設定される RowEditTemplate に設定できません。
+
+|LDR_Column_AllowRowFiltering
+|列で行のフィルターを許可するかどうかを示す値を取得または設定します。このプロパティにデフォルト以外の値を設定することで、バンドおよびレイアウトのオーバーライド オブジェクトの設定をオーバーライドすることができます。
+
+|LDR_Column_AllowRowSummaries
+|列で要約の指定を許可するかどうかを示す値を取得または設定します。このプロパティにデフォルト以外の値を設定することで、バンドおよびレイアウトのオーバーライド オブジェクトの設定をオーバーライドすることができます。
+
+|LDR_Column_P_UseEditorMaskSettings
+|列のマスク関連の設定の代わりにエディターのマスク関連の設定を使用するかどうかを指定します。
+
+|LDR_ColumnEditorDialog_Add
+|追加(&A)
+
+|LDR_ColumnEditorDialog_Cancel
+|キャンセル
+
+|LDR_ColumnEditorDialog_Members
+|メンバー(&M)
+
+|LDR_ColumnEditorDialog_OK
+|OK
+
+|LDR_ColumnEditorDialog_Properties
+|プロパティ(&P)
+
+|LDR_ColumnEditorDialog_Remove
+|削除(&R)
+
+|LDR_ColumnEditorDialog_Reset
+|リセット
+
+|LDR_ColumnEditorDialog_ShowDescription
+|説明の表示
+
+|LDR_ColumnEditorDialog_ShowToolBar
+|ツールバーの表示
+
+|LDR_ColumnEditorDialog_Title
+|列コレクション エディター
+
+|LDR_EmptyRowSettings_P_CellAppearance
+|空行のセルに適用される外観。
+
+|LDR_EmptyRowSettings_P_EmptyAreaAppearance
+|空行のセルに適用される外観。
+
+|LDR_EmptyRowSettings_P_RowAppearance
+|空行に適用される外観。
+
+|LDR_EmptyRowSettings_P_RowSelectorAppearance
+|空行の行セレクターに適用される外観。
+
+|LDR_EmptyRowSettings_P_RowSelectors
+|空行の行セレクターを表示するかどうかを指定します。
+
+|LDR_EmptyRowSettings_P_ShowEmptyRows
+|最終行の後にある空の領域を空行で埋めるかどうかを指定します。
+
+|LDR_EmptyRowSettings_P_Style
+|空行をどのように表示するかを指定します。
+
+|LDR_FilterDropDownButtonImage
+|行フィルターの有効時に列ヘッダーに表示されるフィルター ドロップダウン ボタンの画像。
+
+|LDR_FilterDropDownButtonImageActive
+|行フィルターが有効でアクティブな行フィルターを持っている列ヘッダーに表示されるフィルター ドロップダウン ボタンの画像。
+
+|LDR_FixedHeaderOffImage
+|ヘッダーが固定されていないときの固定ヘッダー インジケーターの描画に使用される画像。
+
+|LDR_FixedHeaderOnImage
+|ヘッダーが固定されているときの固定ヘッダー インジケーターの描画に使用される画像。
+
+|LDR_FixedRowOffImage
+|行が固定されていないときに、固定行インジケーターを描画するのに使用される画像。
+
+|LDR_FixedRowOnImage
+|行が固定されているときに、固定行インジケーターを描画するのに使用される画像。
+
+|LDR_Groups_AddViaCustomProps
+|('UltraGrid Designer'を利用して追加)
+
+|LDR_Layout_mask
+|[caption] : [value] ([count] [count,つの項目,つの項目,つの項目])
+
+|LDR_Override_P_AllowRowLayoutCellSizing
+|行レイアウト モードで、ユーザーがセルのサイズを変更できるかどうかを示します。
+
+|LDR_Override_P_AllowRowLayoutLabelSizing
+|行レイアウト モードで、ユーザーがラベルのサイズを変更できるかどうかを示します。
+
+|LDR_Override_P_BorderStyleRowSelector
+|行セレクターの境界線のスタイル。
+
+|LDR_Override_P_RowSelectorWidth
+|行セレクターの幅。
+
+|LDR_RowLayout_P_ColumnInfos
+|すべての列の行レイアウト情報オブジェクトを含みます。
+
+|LDR_RowLayout_P_RowLayoutLabelPosition
+|列のラベルが表示される場所を指定します。
+
+|LDR_RowLayoutColumnInfo_P_AllowCellSizing
+|ユーザーがセルのサイズを変更できるかどうかを示します。
+
+|LDR_RowLayoutColumnInfo_P_AllowLabelSizing
+|ユーザーがラベルのサイズを変更できるかどうかを示します。
+
+|LDR_RowLayoutColumnInfo_P_CellInsets
+|セルの周囲の内側のスペースを指定します。
+
+|LDR_RowLayoutColumnInfo_P_Column
+|関連付けられた列を返します。
+
+|LDR_RowLayoutColumnInfo_P_Context
+|関連付けられた列またはグループを返します。
+
+|LDR_RowLayoutColumnInfo_P_Group
+|関連するグループ、またはこの RowLayoutColumnInfo が列と関連している場合は Null を返します。
+
+|LDR_RowLayoutColumnInfo_P_LabelInsets
+|ラベルの周囲の内側のスペースを指定します。
+
+|LDR_RowLayoutColumnInfo_P_LabelPosition
+|ラベルの表示位置を指定します。
+
+|LDR_RowLayoutColumnInfo_P_MinimumCellSize
+|最小セル サイズ。
+
+|LDR_RowLayoutColumnInfo_P_MinimumLabelSize
+|最小ラベル サイズ。
+
+|LDR_RowLayoutColumnInfo_P_OriginX
+|行レイアウト内の水平座標。
+
+|LDR_RowLayoutColumnInfo_P_OriginY
+|行レイアウト内の垂直座標。
+
+|LDR_RowLayoutColumnInfo_P_ParentGroup
+|このグループを含む親グループを返します。これは UltraGridBand.RowLayoutStyle が GroupLayout に設定された場合にだけ適用されます。
+
+|LDR_RowLayoutColumnInfo_P_PreferredCellSize
+|セルの最適なサイズを指定します。
+
+|LDR_RowLayoutColumnInfo_P_PreferredLabelSize
+|ラベルの最適なサイズを指定します。
+
+|LDR_RowLayoutColumnInfo_P_RowLayoutColumnInfoContext
+|この RowLayoutColumnInfo は Group または Column に関連付けられているかどうかを示す列挙型を返します。
+
+|LDR_RowLayoutColumnInfo_P_SpanX
+|この項目が行レイアウト内で左右にまたがるセルの数。
+
+|LDR_RowLayoutColumnInfo_P_SpanY
+|この項目が行レイアウト内で上下にまたがるセルの数。
+
+|LDR_RowLayoutColumnInfo_P_WeightX
+|左右の余分なスペースを項目間でどのように配分するかを示します。
+
+|LDR_RowLayoutColumnInfo_P_WeightY
+|上下の余分なスペースを項目間でどのように配分するかを示します。
+
+|LDR_SelectSummaries
+|集計の選択
+
+|LDR_SelectSummaries_AccessibleDescription
+|列を表示するための集計情報を選択します。
+
+|LDR_SortIndicatorAscendingImage
+|グリッド列の昇順並べ替えインジケーターの描画に使用される画像を取得または設定します。
+
+|LDR_SortIndicatorDescendingImage
+|グリッド列の降順並べ替えインジケーターの描画に使用される画像を取得または設定します。
+
+|LDR_SummaryButtonImage
+|列集計の有効時に列のヘッダーに表示する列集計ボタンの画像。
+
+|LDR_SummaryFooterCaption
+|集計フッターのキャプションの代替文字列を取得または設定します。
+
+|LDR_SummaryFooterCaptionVisible
+|集計フッターのキャプションを非表示にするには、このプロパティを False に設定します。
+
+|LDR_SummarySettings_P_ShowCalculatingText
+|UltraCalcManager コンポーネントで計算されている集計に "#Calculating" メッセージを表示するかどうかを指定します。
+
+|LDR_UltraGrid_E_AfterBandHiddenChanged
+|ユーザーが [列の選択] ダイアログからバンドを非表示にした後に発生します。
+
+|LDR_UltraGrid_E_AfterCardCompressedStateChanged
+|カード行が展開または縮小された後に発生します。
+
+|LDR_UltraGrid_E_AfterCardsScroll
+|カード領域をスクロールしたときに発生します。
+
+|LDR_UltraGrid_E_AfterPerformAction
+|キー アクションが実行された後にイベントが発生します。
+
+|LDR_UltraGrid_E_AfterRowFilterChanged
+|ユーザーが列の行フィルターを変更した後に発生します。
+
+|LDR_UltraGrid_E_AfterRowFilterDropDownPopulate
+|フィルター ドロップダウンが UltraGrid によって移植された後で発生します。
+
+|LDR_UltraGrid_E_AfterRowLayoutItemResized
+|このイベントは、行レイアウト モードでユーザーが列ヘッダーまたはセルのサイズを変更した後に発生します。
+
+|LDR_UltraGrid_E_AfterSummaryDialog
+|集計行のダイアログを閉じた後に発生します。
+
+|LDR_UltraGrid_E_BeforeBandHiddenChanged
+|ユーザーが [列の選択] ダイアログからバンドを非表示にしたときに発生します。
+
+|LDR_UltraGrid_E_BeforeCardCompressedStateChanged
+|カード行が展開または縮小される前に発生します。
+
+|LDR_UltraGrid_E_BeforeDisplayDataErrorTooltip
+|データ エラーのツールチップが表示される前に発生します。
+
+|LDR_UltraGrid_E_BeforeMultiCellOperation
+|ユーザーがマルチセル操作を実行する前に発生します。
+
+|LDR_UltraGrid_E_BeforePerformAction
+|キー アクションが実行される直前に発生するイベントです。
+
+|LDR_UltraGrid_E_BeforeRowFilterChanged
+|ユーザーが列の行フィルターを変更したときに発生します。
+
+|LDR_UltraGrid_E_BeforeRowFilterDropDownPopulate
+|フィルター ドロップダウンが UltraGrid によって移植される前に発生します。
+
+|LDR_UltraGrid_E_BeforeRowLayoutItemResized
+|行レイアウト モードでユーザーがヘッダーまたはセルのサイズを変更するときに発生します。
+
+|LDR_UltraGrid_E_InitializeTemplateAddRow
+|テンプレート追加行が初期化されるときに発生します。
+
+|LDR_UltraGrid_P_ExitEditModeOnLeave
+|グリッドがフォーカスを失ったときに、編集モードを終了するかどうかを示す値を示します。
+
+|LDR_UltraGridBand_P_RowLayoutLabelPosition
+|列のラベルが表示される場所を指定します。
+
+|LDR_UltraGridBand_P_RowLayouts
+|行レイアウトのコレクション。
+
+|LDR_UltraGridBand_P_RowLayoutStyle
+|バンド内の行レイアウト機能を有効にします。
+
+|LDR_UltraGridBand_P_UseRowLayout
+|行レイアウト機能を有効にします。
+
+|LDR_UltraGridColumn_P_ColumnChooserCaption
+|[列の選択] ダイアログに表示されるキャプションです。
+
+|LDR_UltraGridColumn_P_ExcludeFromColumnChooser
+|[列の選択] ダイアログから列を除外するかどうかを指定します。
+
+|LDR_UltraGridColumn_P_IgnoreMultiCellOperation
+|この列内のセルでマルチセル操作を無視するかどうかを指定します。
+
+|LDR_UltraGridColumn_P_ShowCalculatingText
+|UltraCalcManager コンポーネントで計算されているセルに "#Calculating" メッセージを表示するかどうかを指定します。
+
+|LDR_UltraGridColumn_P_ShowInkButton
+|セルにインク エディター ボタンを表示するかどうかを指定します。
+
+|LDR_UltraGridColumn_P_SpellChecker
+|この列のセルでスペル チェックを実行するコンポーネントを取得または設定します。
+
+|LDR_UltraGridColumn_P_TabIndex
+|TAB キーでセルを移動する際の順番を指定します。
+
+|LDR_UltraGridLayout_P_CellHottrackInvalidationStyle
+|マウスが入ったとき、または離れたときにセルを無効かするかどうかを指定します。
+
+|LDR_UltraGridLayout_P_ClipboardCellDelimiter
+|クリップボードにデータをコピーする時のセル値の区切り記号を示します。
+
+|LDR_UltraGridLayout_P_ClipboardCellSeparator
+|クリップボードにデータをコピーする時のセル値のセパレーターを指定します。
+
+|LDR_UltraGridLayout_P_ClipboardRowSeparator
+|クリップボードにデータをコピーする時の論理行セパレーターを指定します。
+
+|LDR_UltraGridLayout_P_ColumnChooserEnabled
+|このプロパティは、UltraGrid で [列の選択] ダイアログを有効にすることを指定します。
+
+|LDR_UltraGridLayout_P_EmptyRowSettings
+|空行機能のプロパティが含まれます。
+
+|LDR_UltraGridLayout_P_LoadStyle
+|必要に応じて行を事前にロードするかどうかを指定します。
+
+|LDR_UltraGridLayout_P_NewBandLoadStyle
+|新しいバンドをデータ ソースでどのようにロードするかを指定します。
+
+|LDR_UltraGridLayout_P_NewColumnLoadStyle
+|新しい列をデータ ソースでどのようにロードするかを指定します。
+
+|LDR_UltraGridLayout_P_ScrollBounds
+|最終行が表示された時点でスクロールを停止するかどうかを設定します。
+
+|LDR_UltraGridLayout_P_SplitterBarHorizontalAppearance
+|水平方向のスプリッタ バーまたは分割ボックスの外観を設定します。
+
+|LDR_UltraGridLayout_P_SplitterBarVerticalAppearance
+|垂直方向のスプリッタ バーまたは分割ボックスの外観を設定します。
+
+|LDR_UltraGridLayout_P_SplitterIntersectionAppearance
+|垂直スクロールバーと垂直スクロールバーが交わる右下端の正方形領域の外観。
+
+|LDR_UltraGridOverride_P_ActiveRowCellAppearance
+|アクティブな行のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_AddRowAppearance
+|追加行の外観を決定します。
+
+|LDR_UltraGridOverride_P_AddRowCellAppearance
+|追加行内のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_AllowMultiCellOperations
+|ユーザーがマルチセルの処理できるかどうか、またはどの処理ができるかを指定します。
+
+|LDR_UltraGridOverride_P_BorderStyleTemplateAddRow
+|テンプレート追加行の境界線のスタイルを決定する値を返すか設定します。
+
+|LDR_UltraGridOverride_P_CellDisplayStyle
+|セルの描画方法を指定します。このプロパティを FormattedText または PlainText に設定すると、セルの描画速度が向上します。Default は FullEditorDisplay に解決されます。
+
+|LDR_UltraGridOverride_P_ColumnAutoSizeMode
+|列の自動サイズ調整のモードを指定します。AllowColSizing が None の場合、これは無視されます。
+
+|LDR_UltraGridOverride_P_ColumnSizingArea
+|グリッドのインターフェイスのどの部分を使用して列のサイズを変更するかを決定する値を取得または設定します。
+
+|LDR_UltraGridOverride_P_DataErrorCellAppearance
+|データ エラーを含むセルの外観を決定します（IDataErrorInfo によって示されるように）。
+
+|LDR_UltraGridOverride_P_DataErrorRowAppearance
+|データ エラーを含む行の外観を決定します（IDataErrorInfo によって示されるように）。
+
+|LDR_UltraGridOverride_P_DataErrorRowSelectorAppearance
+|データ エラーを含む行の行セレクターの外観を決定します（IDataErrorInfo によって示されるように）。
+
+|LDR_UltraGridOverride_P_FilterCellAppearance
+|フィルター行のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterCellAppearanceActive
+|アクティブ フィルターを含むフィルター行のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterClearButtonAppearance
+|フィルター行のフィルター クリア ボタンの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilteredInCellAppearance
+|フィルター行のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilteredInRowAppearance
+|フィルター行の外観を設定します。
+
+|LDR_UltraGridOverride_P_FilteredOutCellAppearance
+|フィルターによって除外された行のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilteredOutRowAppearance
+|フィルターによって除外された行の外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterOperatorAppearance
+|フィルター行の演算子インジケーターの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterRowAppearance
+|フィルター行の外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterRowAppearanceActive
+|アクティブ フィルターを含むフィルター行の外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterRowPromptAppearance
+|フィルター行プロンプトの外観を決定します。
+
+|LDR_UltraGridOverride_P_FilterRowSelectorAppearance
+|フィルター行の行セレクターの外観を決定します。
+
+|LDR_UltraGridOverride_P_FixedCellAppearance
+|固定されているヘッダーに関連付けられたセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_FixedCellSeparatorColor
+|固定ヘッダーのセルと非固定ヘッダーのセルを区切るセパレーター ラインの色を指定します。
+
+|LDR_UltraGridOverride_P_FixedHeaderAppearance
+|固定されているヘッダーの外観を決定します。
+
+|LDR_UltraGridOverride_P_FixedHeaderIndicator
+|ヘッダーを固定または固定解除が可能かどうかを指定します。
+
+|LDR_UltraGridOverride_P_FixedRowAppearance
+|固定行の外観を決定します。
+
+|LDR_UltraGridOverride_P_FixedRowCellAppearance
+|固定行のセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_FixedRowSelectorAppearance
+|固定行の行セレクターの外観を決定します。
+
+|LDR_UltraGridOverride_P_FormulaErrorAppearance
+|数式エラーが生じているセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_GroupBySummaryValueAppearance
+|グループ行の集計の外観を決定します。
+
+|LDR_UltraGridOverride_P_HeaderPlacement
+|ヘッダーを表示するかどうか、またどのように表示するかを指定します。
+
+|LDR_UltraGridOverride_P_HotTrackCellAppearance
+|現在ホットトラッキングされているセルに適用される外観を決定します。
+
+|LDR_UltraGridOverride_P_HotTrackHeaderAppearance
+|現在ホットトラッキングされているヘッダーに適用される外観を決定します。
+
+|LDR_UltraGridOverride_P_HotTrackRowAppearance
+|現在ホットトラッキングされている行に適用される外観を決定します。
+
+|LDR_UltraGridOverride_P_HotTrackRowCellAppearance
+|現在ホットトラッキングされている行のセルに適用される外観を決定します。
+
+|LDR_UltraGridOverride_P_HotTrackRowSelectorAppearance
+|現在ホットトラッキングされている行の行セレクターに適用される外観を決定します。
+
+|LDR_UltraGridOverride_P_InvalidValueBehavior
+|ユーザーが無効な値を入力してセルを離れようとしたときの動作を指定できます。
+
+|LDR_UltraGridOverride_P_MergedCellAppearance
+|マージしたセルの外観を決定します。
+
+|LDR_UltraGridOverride_P_MergedCellContentArea
+|マージされたセルの内容を、マージされたセルの表示領域に配置するか、またはマージされたセルの仮想領域に配置するかを指定します。
+
+|LDR_UltraGridOverride_P_MergedCellEvaluationType
+|値と表示テキストのどちらに基づいてセルをマージするかを指定します。
+
+|LDR_UltraGridOverride_P_MergedCellStyle
+|セルのマージの実行方法を指定します。
+
+|LDR_UltraGridOverride_P_MinRowHeight
+|行の最小の高さを指定します。
+
+|LDR_UltraGridOverride_P_MultiCellSelectionMode
+|複数のセルがマウスやキーボードでどのように範囲選択されるかを指定します。
+
+|LDR_UltraGridOverride_P_ReadOnlyCellAppearance
+|読み取り専用セルに適用される外観。
+
+|LDR_UltraGridOverride_P_RowFilterAction
+|フィルターによって除外された列で実行するアクションを指定します。
+
+|LDR_UltraGridOverride_P_RowLayoutCellNavigationVertical
+|上下矢印キーを使用したときのセルの移動方法を指定します。
+
+|LDR_UltraGridOverride_P_ShowCalculatingText
+|UltraCalcManager コンポーネントで計算されているセルまたは集計に "#Calculating" メッセージを表示するかどうかを指定します。
+
+|LDR_UltraGridOverride_P_ShowInkButton
+|セルにインク エディター ボタンを表示するかどうかを指定します。
+
+|LDR_UltraGridOverride_P_SpecialRowSeparatorAppearance
+|特殊行セパレーター要素に適用される外観を決定します。
+
+|LDR_UltraGridOverride_P_SupportDataErrorInfo
+|IDataErrorInfo を使用してデータ エラー アイコンを表示するかどうかを指定します。
+
+|LDR_UltraGridOverride_P_TemplateAddRowAppearance
+|テンプレートの追加行の外観を決定します。
+
+|LDR_UltraGridOverride_P_TemplateAddRowCellAppearance
+|テンプレート追加行のセルの外観を設定します。
+
+|LDR_UltraGridOverride_P_TemplateAddRowPromptAppearance
+|テンプレート追加行プロンプトの外観を決定します。
+
+|LDR_UltraGridOverride_P_TemplateAddRowSpacingAfter
+|テンプレート追加行の前に描画されるスペース量をピクセル単位で設定します。
+
+|LDR_UltraGridOverride_P_TemplateAddRowSpacingBefore
+|テンプレート追加行の後に描画されるスペース量をピクセル単位で設定します。
+
+|LDR_UseFixedHeaders
+|固定ヘッダー機能を有効にします。
+
+|MultiCell_Copy_Error_MsgBox_Message
+|コピー操作の実行エラー。{0} {1}
+
+|MultiCell_Copy_Error_MsgBox_Title
+|コピー エラー
+
+|MultiCell_Cut_Error_MsgBox_Message
+|切り取り操作の実行エラー。{0} {1}
+
+|MultiCell_Cut_Error_MsgBox_Title
+|切り取りエラー
+
+|MultiCell_Delete_Error_MsgBox_Message
+|削除操作の実行エラー。{0} {1}
+
+|MultiCell_Delete_Error_MsgBox_Title
+|削除のエラー
+
+|MultiCell_Paste_Error_MsgBox_Message
+|貼り付け操作の実行エラー。{0} {1}
+
+|MultiCell_Paste_Error_MsgBox_Title
+|貼り付けエラー
+
+|MultiCell_Paste_Error_TooManyColumns
+|アンカー セルから開始する使用可能な列よりも多くの列が貼り付けられているコンテンツ。貼り付けた内容は {0} 列ですが、アンカー セルから開始する使用可能な列は {1} 列です。
+
+|MultiCell_Paste_Error_TooManyRows
+|アンカー セルから開始する使用可能な行よりも多くの行が貼り付けられているコンテンツ。貼り付けた内容は {0} 行ですが、アンカー セルから開始する使用可能な行は {1} 行です。
+
+|MultiCell_Redo_Error_MsgBox_Message
+|取り消し操作の実行エラー。{0} {1}
+
+|MultiCell_Redo_Error_MsgBox_Title
+|取り消しエラー
+
+|MultiCell_Undo_Error_MsgBox_Message
+|元に戻す操作の実行エラー。{0} {1}
+
+|MultiCell_Undo_Error_MsgBox_Title
+|元に戻すエラー
+
+|MultiCellOperation_Error_ConversionError
+|'{0}' 値を列のデータ型に変換することができません。{1}
+
+|MultiCellOperation_Error_CrossParentSelection
+|cross-parent セレクションで、この処理を行うことはできません。
+
+|MultiCellOperation_Error_MsgBox_ContinueQuestion
+|残りのセルで続行しますか?
+
+|MultiCellOperation_Error_MsgBox_FurtherInformation
+|さらに詳しい情報： {0}
+
+|MultiCellOperation_Error_NoCellsSelected
+|選択されたセルはありません。
+
+|MultiCellOperation_Error_NonRectangularSelection
+|選択が無効です。選択は四角形にする必要があります。
+
+|Outlook_GroupByMode_Description_BeyondNextMonth
+|翌月以降
+
+|Outlook_GroupByMode_Description_DayOfWeekFormatString
+|{0:dddd}
+
+|Outlook_GroupByMode_Description_EarlierThisMonth
+|今月上旬
+
+|Outlook_GroupByMode_Description_LastMonth
+|先月
+
+|Outlook_GroupByMode_Description_LastWeek
+|先週
+
+|Outlook_GroupByMode_Description_LaterThisMonth
+|今月下旬
+
+|Outlook_GroupByMode_Description_NextMonth
+|翌月
+
+|Outlook_GroupByMode_Description_NextWeek
+|翌週
+
+|Outlook_GroupByMode_Description_None
+|なし
+
+|Outlook_GroupByMode_Description_Older
+|2 カ月前以前
+
+|Outlook_GroupByMode_Description_ThreeWeeksAgo
+|3 週間前
+
+|Outlook_GroupByMode_Description_ThreeWeeksAway
+|3 週間後
+
+|Outlook_GroupByMode_Description_Today
+|今日
+
+|Outlook_GroupByMode_Description_TwoWeeksAgo
+|2 週間前
+
+|Outlook_GroupByMode_Description_TwoWeeksAway
+|2 週間後
+
+|Outlook_GroupByMode_Description_Yesterday
+|昨日
+
+|PrintingError_Dialog_Title
+|印刷操作は失敗しました。
+
+|PropertyPageCaptionGroupsAndColumns
+|グループと列
+
+|RowFilterDialogBlanksItem
+|(空白)
+
+|RowFilterDialogDBNullItem
+|(DBNull)
+
+|RowFilterDialogEmptyTextItem
+|(空文字)
+
+|RowFilterDropDown_Operator_Contains
+|～を含む
+
+|RowFilterDropDown_Operator_DoesNotContain
+|～を含まない
+
+|RowFilterDropDown_Operator_DoesNotEndWith
+|～で終わらない
+
+|RowFilterDropDown_Operator_DoesNotMatch
+|一致しない
+
+|RowFilterDropDown_Operator_DoesNotStartWith
+|～で開始しない
+
+|RowFilterDropDown_Operator_EndsWith
+|～で終わる
+
+|RowFilterDropDown_Operator_Equals
+|*
+
+|RowFilterDropDown_Operator_GreaterThan
+|>
+
+|RowFilterDropDown_Operator_GreaterThanOrEqualTo
+|>=
+
+|RowFilterDropDown_Operator_LessThan
+|<
+
+|RowFilterDropDown_Operator_LessThanOrEqualTo
+|>=
+
+|RowFilterDropDown_Operator_Like
+|パターンと一致 (LIKE)
+
+|RowFilterDropDown_Operator_Match
+|一致
+
+|RowFilterDropDown_Operator_NotEquals
+|>=
+
+|RowFilterDropDown_Operator_NotLike
+|パターンと一致しない (NOT LIKE)
+
+|RowFilterDropDown_Operator_StartsWith
+|～で始まる
+
+|RowFilterDropDownAllItem
+|(すべて)
+
+|RowFilterDropDownBlanksItem
+|(空白)
+
+|RowFilterDropDownCustomItem
+|(カスタム)
+
+|RowFilterDropDownEquals
+|等しい
+
+|RowFilterDropDownErrorsItem
+|(Errors)
+
+|RowFilterDropDownGreaterThan
+|～より大きい
+
+|RowFilterDropDownGreaterThanOrEqualTo
+|～以上で
+
+|RowFilterDropDownLessThan
+|～より小さい
+
+|RowFilterDropDownLessThanOrEqualTo
+|～以下で
+
+|RowFilterDropDownLike
+|パターンと一致 (LIKE)
+
+|RowFilterDropDownMatch
+|正規表現の一致
+
+|RowFilterDropDownNonBlanksItem
+|(空白以外)
+
+|RowFilterDropDownNonErrorsItem
+|(NonErrors)
+
+|RowFilterDropDownNotEquals
+|等しくない
+
+|RowFilterLogicalOperator_And
+|AND
+
+|RowFilterLogicalOperator_Or
+|OR
+
+|RowFilterPatternCaption
+|不正な検索パターン
+
+|RowFilterPatternError
+|解析エラー パターン {0}。正しい検索パターンを入力してください。
+
+|RowFilterPatternException
+|不正な検索パターン {0}
+
+|RowFilterRegexError
+|正規表現解析エラー {0}。正しい正規表現文字列を指定してください。
+
+|RowFilterRegexErrorCaption
+|不正な正規表現
+
+|RowFilterRegexException
+|不正な正規表現です: {0}
+
+|SpecialFilterOperand_April
+|4 月(&A)
+
+|SpecialFilterOperand_August
+|8 月(&T)
+
+|SpecialFilterOperand_December
+|12 月(&D)
+
+|SpecialFilterOperand_February
+|2 月(&F)
+
+|SpecialFilterOperand_January
+|1 月(&J)
+
+|SpecialFilterOperand_July
+|7 月(&L)
+
+|SpecialFilterOperand_June
+|6 月(&U)
+
+|SpecialFilterOperand_LastMonth
+|先月(&N)
+
+|SpecialFilterOperand_LastQuarter
+|前四半期(&R)
+
+|SpecialFilterOperand_LastWeek
+|先週(&L)
+
+|SpecialFilterOperand_LastYear
+|昨年(&Y)
+
+|SpecialFilterOperand_March
+|3 月(&M)
+
+|SpecialFilterOperand_May
+|5 月(&Y)
+
+|SpecialFilterOperand_NextMonth
+|翌月(&M)
+
+|SpecialFilterOperand_NextQuarter
+|翌四半期(&Q)
+
+|SpecialFilterOperand_NextWeek
+|来週(&K)
+
+|SpecialFilterOperand_NextYear
+|来年(&X)
+
+|SpecialFilterOperand_November
+|11 月(&N)
+
+|SpecialFilterOperand_October
+|10 月(&O)
+
+|SpecialFilterOperand_Quarter1
+|四半期 1(&2)
+
+|SpecialFilterOperand_Quarter2
+|四半期 2(&2)
+
+|SpecialFilterOperand_Quarter3
+|四半期 3(&2)
+
+|SpecialFilterOperand_Quarter4
+|四半期 4(&2)
+
+|SpecialFilterOperand_September
+|9 月(&S)
+
+|SpecialFilterOperand_ThisMonth
+|今月(&S)
+
+|SpecialFilterOperand_ThisQuarter
+|今四半期(&U)
+
+|SpecialFilterOperand_ThisWeek
+|今週(&H)
+
+|SpecialFilterOperand_ThisYear
+|今年(&I)
+
+|SpecialFilterOperand_Today
+|今日(&O)
+
+|SpecialFilterOperand_Tomorrow
+|明日(&T)
+
+|SpecialFilterOperand_YearToDate
+|年度累計
+
+|SpecialFilterOperand_Yesterday
+|昨日(&D)
+
+|SummaryDialog_Button_Cancel
+|キャンセル(&C)
+
+|SummaryDialog_Button_OK
+|&OK
+
+|SummaryDialogAverage
+|平均値
+
+|SummaryDialogAverage_AccessibleDescription
+|列内の値の平均を表示します。
+
+|SummaryDialogCount
+|カウント
+
+|SummaryDialogCount_AccessibleDescription
+|列内の値の数を表示します。
+
+|SummaryDialogMaximum
+|最大
+
+|SummaryDialogMaximum_AccessibleDescription
+|列内の最大値を表示します。
+
+|SummaryDialogMinimum
+|最小
+
+|SummaryDialogMinimum_AccessibleDescription
+|列内の最小値を表示します。
+
+|SummaryDialogNone
+|なし
+
+|SummaryDialogNone_AccessibleDescription
+|列の集計情報をひとつも表示しません。
+
+|SummaryDialogSum
+|合計
+
+|SummaryDialogSum_AccessibleDescription
+|列内の値の合計を表示します。
+
+|SummaryFooterCaption_ChildBandNonGroupByRows
+|[BANDHEADER]: [SCROLLTIPFIELD] の集計
+
+|SummaryFooterCaption_GroupByChildRows
+|[GROUPBYROWVALUE] の集計
+
+|SummaryFooterCaption_RootRows
+|総集計
+
+|SummaryTypeAverage
+|平均値
+
+|SummaryTypeCount
+|カウント
+
+|SummaryTypeCustom
+|カスタム
+
+|SummaryTypeMaximum
+|最大
+
+|SummaryTypeMinimum
+|最小
+
+|SummaryTypeSum
+|合計
+
+|SummaryValueInvalidDisplayFormat
+|無効な表示形式: {0}。詳細情報: {1}
+
+|UltraCombo_E_ValueMemberAndCheckStateMemberAreSame
+|ValueMember および CheckStateMember の両プロパティは、列 '{0}' を参照します。CheckStateMember プロパティはコントロールの値を定義する同じ列を参照できません。
+
+|UltraCombo_E_ValueMemberCannotEqualCheckStateMember
+|CheckStateMember プロパティはその値に現在設定されているので、ValueMember プロパティは '{0}' に設定できません。CheckStateMember プロパティはコントロールの値を定義する同じ列を参照できません。
+
+|UltraCombo_P_AutoCompleteMode
+|編集部分で入力されたテキストのオート コンプリート モードを取得または設定します。
+
+|====

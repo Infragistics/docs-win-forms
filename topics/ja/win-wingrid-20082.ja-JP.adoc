@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingrid-20082",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6093FF7C-0517-4690-96F4-53C2549690C1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 2008.2
+
+2008 Volume 2 の WinGrid™ コントロールに追加された新機能を確認するには、以下のリンクをクリックしてください。
+
+* link:win-rotating-column-headers.html[列ヘッダの回転表示]
+* link:win-you-can-now-print-wingrid-in-cardview.html[CardView で WinGrid を印刷できる]
+* link:win-you-can-now-set-the-ime-mode-on-a-wingrid-column.html[WinGrid 列で IME モードを設定できる]

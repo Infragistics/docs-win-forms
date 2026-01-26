@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2006-volume-3",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{54883031-0D6E-4C40-AC96-47CC2B4D1E4D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2006 Volume 3 の重大な変更
+
+== WinFormattedLinkLabel
+
+=== ラン タイムで FormattedLinkEditor をインスタンス化
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"]  は、WinFormattedLinkLabel および WinFormattedTextEditor™ コントロールの両方の基本クラスです。WinFormattedLinkLabel が開発されたので、FormattedLinkEditor クラスに関わる編集機能はなくなりました。2006 Volume 3 では、編集機能を持つ WinFormattedTextEditor を追加しました。このため、基本クラス FormattedLinkEditor に編集機能を追加する必要がありました。
+
+この重大な変更点はユーザーのプロジェクトに影響はありません。プロジェクトをビルドしてエラーなしでコンパイルできれば、心配ありません。ビルド中にコンパイル エラーがあった場合、何が問題であるかを発見してください。
+
+FormattedLinkEditor にはコンストラクタに余分なパラメータがあります。ブール値（supportsEditing）は、インスタンスが編集をサポートするかどうかを識別します。以前のプロジェクトでこのクラスをインスタンス化する場合、この余分なパラメータを追加する必要があります。FormattedLinkEditor に編集機能を持たせる場合は True、編集機能が不要な場合は False にします。

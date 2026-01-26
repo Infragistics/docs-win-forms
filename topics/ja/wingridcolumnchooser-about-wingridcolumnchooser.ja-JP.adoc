@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridcolumnchooser-about-wingridcolumnchooser",
+    "controlName": [],
+    "tags": ["Extending","Getting Started","Grids"],
+    "guid": "{23691E06-9DAC-47C6-9309-BFFA4A259753}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridColumnChooser について
+
+WinGridColumnChooser コントロールは、エンド ユーザーが、Microsoft® Outlook® のフィールドの選択の動作と同様の方法で、列の表示と非表示を切り替えられるグリッド列のリストを提供します。エンド ユーザーは、各列の前にあるチェックボックスの選択または選択解除を行うことで、列の表示と非表示を切り替えられます。さらに、エンド ユーザーは、列を列の選択からグリッドに、またはその逆のドラッグを行うことにより、列を配置できます。
+
+image::images/WinGridColumnChooser_About_WinGridColumnChooser.png[]

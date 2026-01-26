@@ -1,0 +1,119 @@
+﻿////
+
+|metadata|
+{
+    "name": "undounitfactory-properties-and-methods-reference",
+    "controlName": [],
+    "tags": ["API","Tips and Tricks"],
+    "guid": "6d8bab7e-67d6-49a0-bd96-502f4687a295",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3790125Z"
+}
+|metadata|
+////
+
+= UndoUnitFactory プロパティおよびメソッド参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、UndoUnitFactory クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320690863, UndoUnitFactory クラス参照 >>
+** <<_Ref320801062,はじめに>>
+** <<_Ref320801069,プロパティ参照の概要>>
+** <<_Ref320801075,メソッド参照の概要>>
+
+* <<_Ref320690868, 関連コンテンツ >>
+
+[[_Ref320690863]]
+== UndoUnitFactory クラス参照
+
+[[_Ref320801062]]
+
+=== はじめに
+
+link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory_members.html[UndoUnitFactory] は、 link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit_members.html[UndoUnit] インスタンスを作成するために使用されるファクトリ クラスです。
+
+UndoUnitFactory クラスは link:undounit-derived-classes-properties-and-methods-reference.html#_derived[派生 UndoUnit クラス]を使用してメソッドを提供します。これらは、カスタム `UndoUnit` クラスを提供するためにオーバーライドされる場合があります。
+
+image::images/About_UndoUnitFactory_1.png[]
+
+[[_Ref320801069]]
+
+=== プロパティ参照の概要
+
+以下の表で、UndoUnitFactory クラスの主なプロパティの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory~current.html[Current]
+|UndoManager で使用するために `UndoUnit` インスタンスを作成するために使用するデフォルトのファクトリを返します。 
+
+注: 
+
+[NOTE] 
+
+==== 
+
+Current プロパティはスレッド静的ではなく、すべてのスレッドに影響するため、UndoUnitFactory クラスはスレッドセーフにします。 
+
+====
+
+|====
+
+[[_Ref320801075]]
+
+=== メソッド参照の概要
+
+以下の表で、UndoUnitFactory クラスの主なメソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory~createchange.html[CreateChange]
+|指定したメソッドの `UndoUnit` を作成します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory~createcollectionchange.html[CreateCollectionChange]
+|指定した `System.Collections.Specialized.NotifyCollectionChangedEventArgs` に基づいてコレクション変更の `UndoUnit` を作成します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory~createpropertychange.html[CreatePropertyChange]
+|指定したプロパティ変更の link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.propertychangeundounitbase_members.html[PropertyChangeUndoUnitBase] を作成します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory~createtransaction.html[CreateTransaction]
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undotransaction_members.html[UndoTransaction] を作成します。
+
+|====
+
+[[_Ref320690868]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:observablecollectionextendedwithundo-properties-reference.html[ObservableCollectionExtendedWithUndo プロパティ参照]
+|このトピックは、ObservableCollectionExtendedWithUndo クラスの重要なプロパティをいくつかリストします。
+
+| link:undohistoryitem-properties-and-methods-reference.html[UndoHistoryItem プロパティおよびメソッド参照]
+|このトピックは、UndoHistoryItem クラスのプロパティおよびメソッドをリストします。
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+|====

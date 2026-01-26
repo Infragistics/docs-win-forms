@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winscheduleprintdocument-about-winscheduleprintdocument",
+    "controlName": ["WinSchedulePrintDocument"],
+    "tags": ["Getting Started","Scheduling"],
+    "guid": "{4ACE9D08-A5DB-49A9-B56D-25AABA1FD036}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedulePrintDocument について
+
+WinSchedulePrintDocument は、WinSchedule ビューを簡単に印刷するための Windows Forms コンポーネントです。
+
+* 印刷プレビュー -- この WinSchedulePrintDocument コンポーネントを WinPrintPreviewDialog コンポーネントとともに使用して、印刷前に WinSchedule ドキュメントのプレビューを確認できます。詳しくは、 link:winprintpreviewdialog-winscheduleprintdocument-using-winprintpreviewdialog-with-winscheduleprintdocument.html[「WinSchedulePrintDocument で WinPrintPreviewDialog を使用」]を参照してください。
+* ヘッダ/フッタ -- WinSchedule ビューとともにカスタムのヘッダとフッタを印刷するように指定できます。
+
+image::images/WinSchedulePrintDocument_About_WinSchedulePrintDocument_01.png[]

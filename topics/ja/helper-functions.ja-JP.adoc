@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "helper-functions",
+    "controlName": [],
+    "tags": ["Application Scenarios","Charting","Grids"],
+    "guid": "{90E80DFB-619F-4EA9-915E-4CD96EEA546B}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-10T13:57:49Z"
+}
+|metadata|
+////
+
+= ヘルパー関数
+
+HelperFunctions クラスには、ChartLayout オブジェクトに Chart プロパティを持続したり、ChartLayout プロパティ値をグラフに適用することに責任を持つ 2 つの静的/共有メソッドが含まれます。
+
+=== ChartToLayout メソッド
+
+ChartToLayout メソッドは、WinChart を受け付け、ChartLayout オブジェクト インスタンスを返します。ChartLayout クラスは、持続および順に回す複数の Chart プロパティを含むクラスです。ChartLayout クラスをグラフの状態を持続するクラスとして考えます。ChartToLayout メソッドは、渡されたグラフを見て、ChartLayout オブジェクトのインスタンスに持続したい特定のプロパティの一部をコピーします。注意すべきひとつの重要なことは、渡されたグラフの画像表示を保存するために使用されるテクニックです。これが実行されると最後の状態でグラフの画像スナップショットを使用できるので、すべての非アクティブ グリッド セルが画像の代わりにグラフを持ちます。このテクニックは、最高のパフォーマンスおよびメモリ節約のために使用されます。これの代用策は、グリッド セルごとに個別の新しい Chart インスタンスを表示させることですが、リソースの点から言うと費用が高くなり、活気がないエンド ユーザーのエクスペリエンスとなります。
+
+*Visual Basic の場合：*
+
+----
+Public Shared Function ChartToLayout(ByVal theChart As UltraChart) As ChartLayout
+	Dim theLayout As New ChartLayout()
+	theChart.Data.DataBind()
+	theLayout.ChartType = theChart.ChartType
+	theLayout.DataSource = theChart.Data.DataSource
+	theLayout.X = theChart.Transform3D.XRotation
+	theLayout.Y = theChart.Transform3D.YRotation
+	theLayout.Z = theChart.Transform3D.ZRotation
+	theLayout.Scale = theChart.Transform3D.Scale
+	theLayout.TitleTop = theChart.TitleTop.Text
+	Dim m As New MemoryStream()
+	theChart.SaveTo(m, ImageFormat.Png)
+	theLayout.Image = Image.FromStream(m)
+	Return theLayout
+End Function
+----
+
+*C# の場合：*
+
+----
+public static ChartLayout ChartToLayout(UltraChart theChart)
+{
+	ChartLayout theLayout = new ChartLayout();
+	theChart.Data.DataBind();
+	theLayout.ChartType = theChart.ChartType;
+	theLayout.DataSource = theChart.Data.DataSource;
+	theLayout.X = theChart.Transform3D.XRotation;
+	theLayout.Y = theChart.Transform3D.YRotation;
+	theLayout.Z = theChart.Transform3D.ZRotation;
+	theLayout.Scale = theChart.Transform3D.Scale;
+	theLayout.TitleTop = theChart.TitleTop.Text;
+	MemoryStream m = new MemoryStream();
+	theChart.SaveTo(m, ImageFormat.Png);
+	theLayout.Image = Image.FromStream(m);
+	return theLayout;
+}
+----
+
+=== LayoutToChart メソッド
+
+LayoutToChart メソッドは ChartToLayout の逆を行い、ChartLayout インスタンスだけでなく Chart インスタンスを受け付けます。このメソッドは、対応する Chart プロパティに ChartLayout プロパティを適用するだけです。最終結果は、以前に保持された状態にリストアされたグラフとなります。
+
+*Visual Basic の場合：*
+
+----
+Public Shared Sub LayoutToChart(ByVal theLayout As ChartLayout, ByVal theChart As UltraChart)
+	theChart.TitleTop.Text = theLayout.TitleTop
+	theChart.Transform3D.XRotation = theLayout.X
+	theChart.Transform3D.YRotation = theLayout.Y
+	theChart.Transform3D.ZRotation = theLayout.Z
+	theChart.Transform3D.Scale = theLayout.Scale
+	theChart.Data.DataSource = theLayout.DataSource
+	theChart.Data.DataBind()
+End Sub
+----
+
+*C# の場合：*
+
+----
+public static void LayoutToChart(ChartLayout theLayout, UltraChart theChart)
+{
+	theChart.TitleTop.Text = theLayout.TitleTop;
+	theChart.Transform3D.XRotation = theLayout.X;
+	theChart.Transform3D.YRotation = theLayout.Y;
+	theChart.Transform3D.ZRotation = theLayout.Z;
+	theChart.Transform3D.Scale = theLayout.Scale;
+	theChart.Data.DataSource = theLayout.DataSource;
+	theChart.Data.DataBind();
+}
+----
+
+次のトピックは、Windows Forms Application 内でこのすべてを開発者がどのように使用するかについて説明します： link:using-the-winchart-inside-wingrid-drawfilter.html[WinGrid Draw Filter 内で WinChart を使用]

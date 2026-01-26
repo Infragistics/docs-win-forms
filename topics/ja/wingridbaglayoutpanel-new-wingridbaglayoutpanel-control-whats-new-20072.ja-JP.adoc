@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridbaglayoutpanel-new-wingridbaglayoutpanel-control-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6887BAE1-33C0-4F3C-81CA-1A30B01022E5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinGridBagLayoutPanel コントロール
+
+WinGridBagLayoutManager™ コンポーネントに詳しい人に、WinGridBagLayoutPanel™ コントロールは新しい風を吹き込みます。WinGridBagLayoutManager と異なり、デザインタイムにコントロールを配置およびリサイズするためのデザイナを提供することによって、パネルは単一行のコードを記述しないオプションを提供します。
+
+=== 表示可能な仮想グリッド
+
+仮想グリッドにコントロールを仮想的に配置するために WinGridBagLayoutPanel を使用します。これによって各コントロールが配置する場所を完全に制御することができます。自分の目でレイアウトを確認できるため、コントロールが正しい場所に配置されていることを簡単に確認できます。仮想グリッドで線をクリック アンド ドラッグすることによって、アプリケーションが求めるどのようなサイズにでも行と列のサイズを変更できます。コントロールのスパンのリサイズ記号をドラッグすることによって、コントロールは行と列をスパンすることも可能です。赤いアウトラインが表示して、行または列をスパンする時にコントロールがどのようにリサイズするのかを正確に示します。
+
+image::images/WinGridBagLayoutPanel_New_WinGridBagLayoutPanel_Control_Whats_New_20072_01.png[仮想グリッドを形成する点線の画像]
+
+=== 事前に何が起こるのかが分かる
+
+WinGridBagLayoutPanel コントロールには、コントロールをパネルにドラッグするだけで 1 回で正しい結果を生成できるいくつかの仮想的な支援が含まれています。コントロールをパネル上にドラッグすると、赤い矢印または赤い矩形のボックスのいずれかが表示して、その場所にドロップした場合にコントロールがどこで終了するかを正確に示します。この機能は、WinGrid™ デザイナと WinTree™ デザイナに似ているため、親しみやすいという利点を得ることができます。
+
+image::images/WinGridBagLayoutPanel_New_WinGridBagLayoutPanel_Control_Whats_New_20072_02.png[コントロールをドロップする時に表示する赤い矢印の画像]
+
+=== 同じオブジェクト モデルであるため同じようにカスタマイズ可能
+
+WinGridBagLayoutPanel は WinGridBagLayoutManager コンポーネントと同じ基本クラスに基づいて構築されているため、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint.html[GridBagConstraint]"]  オブジェクトによって提供されているのと同じように詳細に制御できます。したがって、仮想グリッドまたは仮想グリッド内のコントロールの配置を修正する必要がある場合には、WinGridBagLayoutManager コンポーネントの場合とまったく同じようにランタイムに実行できます。
+
+== 関連トピック
+
+link:wingridbaglayoutpanel-about-wingridbaglayoutpanel.html[WinGridBagLayoutPanel について]
+
+link:wingridbaglayoutpanel-arranging-controls-in-wingridbaglayoutpanel.html[コントロールを WinGridBagLayoutPanel に配置] 

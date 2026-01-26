@@ -1,0 +1,51 @@
+﻿////
+|metadata|
+{
+    "name": "wintab-display-a-close-button-on-a-tab",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{85FBE8D8-5F1D-49AA-B84B-6530D75825E7}",
+    "buildFlags": [],
+    "createdOn": "2008-09-01T10:09:08Z"
+}
+|metadata|
+////
+
+= タブに [閉じる] ボタンを表示
+
+WinTab、WinTabStrip、および WinTabbedMdiManager すべてには、各タブでユーザーが表示できる [閉じる] ボタンが含まれます。[閉じる] ボタンを使用して、タブ自体の枠から離れずにエンド ユーザーは個々のタブを閉じることができます。マウス中央ボタンでタブをクリックすることで閉じることもできます。デフォルトでは、[閉じる] ボタンは非表示なので、エンド ユーザーにボタンを公開したい場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~closebuttonlocation.html[CloseButtonLocation]"]  プロパティを Tab に設定する必要があります。
+
+.注:
+[NOTE]
+====
+2008 Volume 1 以前は、すべてのタブの [閉じる] ボタンはヘッダ領域に置かれていました。CloseButtonLocation プロパティを HeaderArea に設定することで、以前と同様にヘッダ領域に [閉じる] ボタンを配置できます。
+====
+
+それぞれの [閉じる] ボタンがどのように表示されるかで重要な役割を果たす 2 つの関連プロパティがあります。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~closebuttonalignment.html[CloseButtonAlignment]"]  -- CloseButtonAlignment プロパティは、[閉じる] ボタンがタブのどちら側に表示されるのかを決定しますTabCloseButtonAlignment プロパティは AfterContent にデフォルト設定されます。したがって、[閉じる] ボタンはテキストの後に表示されます。TabCloseButtonAlignment を BeforeContent に設定すると、[閉じる] ボタンはタブのテキストの前に配置されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~closebuttonvisibility.html[CloseButtonVisibility]"]  -- CloseButtonVisibility プロパティは、どのような状況で [閉じる] ボタンがエンド ユーザーに表示されるのかを決定します。デフォルトでは、TabCloseButtonVisibility は Always に解決されるので、すべてのタブは固有の [閉じる] ボタンを含みます。ただし、Microsoft® Internet Explorer® 7 のように選択されたタブだけに [閉じる] ボタンを配置したい場合、CloseButtonVisibility を WhenSelected に設定する必要があります。
+
+これらの 2 つのプロパティは、メインのコントロール/コンポーネント自体からだけでなく、それぞれの個々のタブからも公開されます。この便利なオブジェクト モデルによって、アプリケーションのロジックに基づきすべてのタブを個別化する機会が得られます。
+
+以下のコード例は、選択したタブのみで [閉じる] ボタンを有効にすることで Internet Explorer 7 のタブ付けされたインタフェースを完成する方法を示します。この機能は WinTab、WinTabStrip、および WinTabbedMdiManager と同じです。
+
+image::images/WinTab_Display_a_Close_Button_on_a_Tab_01.png[UltraTabControl のタブで閉じる ボタンを表示]
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTabControl1.CloseButtonLocation = _
+ 	Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab
+Me.UltraTabControl1.TabCloseButtonVisibility = _
+ 	Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.WhenSelected
+----
+
+*C# の場合：*
+
+----
+this.ultraTabControl1.CloseButtonLocation =
+  	Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab;
+this.ultraTabControl1.TabCloseButtonVisibility =
+ 	Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.WhenSelected;
+----

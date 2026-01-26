@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-multi-stop-linear-gradient-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{1B523BF0-ECD6-44B7-9025-F39E2E8ACF33}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マルチストップ線形グラデーション ブラシ エレメント
+
+ゲージのプロパティの 3 色以上を線形に混ぜたい場合には、ブラシ エレメントを MultiStopLinearGradient に設定します。MultiStopLinearGradient ブラシ エレメントを選択すると、3 色以上の色と各色の位置のオフセットを指定できます。以下を使用してマルチストップ線形グラデーション ブラシ エレメントをゲージのプロパティに適用することができます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、マルチストップ線形グラデーション ブラシ エレメントの設定に設定されたリニア ゲージを示しています。
+
+* カラー ストップ 1: Offset = 0, Color = Color.FromArgb(254, 42, 0)
+* カラー ストップ 2: Offset =0.637, Color=Color.FromArgb( 212, 254, 0)
+* カラー ストップ 3: Offset = 1, Color = Color.FromArgb(0, 118, 0)
+* 角度 -- 90
+
+image::images/Gauge_Multi_Stop_Linear_Gradient_02.png[]

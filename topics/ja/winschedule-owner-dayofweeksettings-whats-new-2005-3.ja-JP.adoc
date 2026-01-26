@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-owner-dayofweeksettings-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9928B779-D37E-42F0-BD3A-E79F3E2B7E7C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= オーナー DayOfWeekSettings
+
+{ProductName} 2005 Volume 3 のオーナー曜日設定機能は、既存の Owner クラスで公開されている DayOfWeekSettings コレクション プロパティを通じて実現されています。このコレクションには、WinCalendarInfo コンポーネントの DaysOfWeek コレクションと同じように、特定の曜日を表す 7 つのメンバが含まれます。この DayOfWeekSettings コレクションのメンバは DayOfWeekSettings 型のオブジェクトで、IsWorkDay、WorkDayStartTime、および WorkDayEndTime という 3 つのプロパティを公開しています。
+
+MS Outlook のエミュレーションである WinDayView コントロールは、タイムスロットが表す時間区分が「就業時間」に含まれるかどうかに基づいて、TimeSlots に異なる色を割り当てます。この就業時間はこれまで、各曜日に対応する WinCalendarInfo の DaysOfWeek メンバによって排他的に定義されていました。{ProductName} 2005 Volume 3 のオーナー曜日設定機能を使用すると、この処理に新しい切り口が追加されます。これは、WinDayView コントロールでオーナーを個別に表示する場合に適用できます。
+
+タイムスロットが「就業時間」に含まれるかどうかを判断する際、まずそのタイムスロット領域がオーナー別に表示されたものであるかどうかが評価されます。オーナー別に表示されたものである場合は、該当する曜日の DayOfWeekSettings オブジェクトがオーナーの DayOfWeekSettings コレクションから取得されます。そのオブジェクトの IsWorkDay プロパティを問い合わせた結果、その値が「Default」である場合は、WinCalendarInfo の DaysOfWeek コレクションの対応するメンバを問い合わせて最終的な判断が下されます。IsWorkDay プロパティの値がどちらのオブジェクトでも False に設定されている場合、タイムスロットは「非就業時間」に含まれていると見なされ、非就業時間に固有の外観が適用されます。
+
+IsWorkDay プロパティが True に評価された場合は、WorkDayStartTime プロパティと WorkDayEndTime プロパティを問い合わせて、そのタイムスロットが表す時間区分が就業時間に含まれているかどうかが判断されます。たとえば、WorkDayStartTime プロパティが 10:00AM、WorkDayEndTime プロパティが 3:00PM に設定されている場合は、10:00AM～2:59PM の範囲内にあるタイムスロットに就業時間タイムスロットの色が割り当てられ、それ以外のタイムスロットはすべて非就業時間タイムスロットの色になります。WorkDayStartTime プロパティと WorkDayEndTime プロパティは、前の段落の IsWorkDay プロパティと同じようにチェックされます。つまり、オーナー固有の設定が優先され、最終的な判断には WinCalendarInfo の DaysOfWeek コレクションのメンバが使用されます。
+
+image::Images/WinSchedule_How_To_Set_Working_Hours_For_An_Owner_03.png[]
+
+_明るい色のタイムスロットが就業時間を表します。_ 
+
+== 関連トピック:
+
+link:windayview-setting-different-working-hours-for-different-owners.html[オーナーごとに異なる就業時間を設定]

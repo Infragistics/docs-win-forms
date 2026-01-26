@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-use-a-file-buffer-when-exporting",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": ["Exporting"],
+    "guid": "{3B69C319-29B0-4579-9F30-E9E794BBE9C9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エクスポートするときにファイル バッファを使用
+
+WinGrid™ を PDF または XML Paper Specification（XPS）ドキュメントにエクスポートすると、WinGridDocumentExporter™ はメイン メモリではなくファイル バッファに画像を格納します。システムの RAM が限られている、または日常的に RAM の完全な使用が求められる場合には、この代替えの格納方法は役に立ちます。ファイル バッファはシステムの Temp フォルダに作成されます。ただし、アプリケーションがこのフォルダにアクセスできないようにすることができます。アプリケーションが持っているセキュリティ権限が不確かな場合には、 link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~filebuffer.html[FileBuffer] プロパティを使用して、ファイル バッファのファイル名とパスを指定することができます。これによってアプリケーションがアクセス権を持っていることが確認されているフォルダにファイル バッファを配置することができます。さらに、 link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~usefilebuffer.html[UseFileBuffer] プロパティを False に設定することによってファイル バッファも一緒に無効にすることができます。
+
+以下のコードを使用して、ファイル バッファのパスをアプリケーションの開始パスに設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGridDocumentExporter1.FileBuffer = Application.StartupPath + "\Temp.tmp"
+----
+
+*C# の場合：*
+
+----
+this.ultraGridDocumentExporter1.FileBuffer = Application.StartupPath + "\\Temp.tmp";
+----

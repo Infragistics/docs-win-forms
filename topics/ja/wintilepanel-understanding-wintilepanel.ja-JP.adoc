@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-understanding-wintilepanel",
+    "controlName": ["WinTilePanel"],
+    "tags": ["Getting Started"],
+    "guid": "{39BE7C3D-3695-48EC-8ED7-8F4109315049}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTilePanel の理解
+
+WinTilePanel™ コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinTilePanel コントロールを使用することの利点を理解できます。
+
+WinTilePanel コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintilepanel-about-wintilepanel.html[WinTilePanel について] -- WinTilePanel コントロールの概要を説明しています。
+* link:wintilepanel-wintilepanel-smart-tag.html[WinTilePanel のスマートタグ] -- WinTilePanel コントロールのスマートタグで表示されるプロパティと設定値について説明しています。

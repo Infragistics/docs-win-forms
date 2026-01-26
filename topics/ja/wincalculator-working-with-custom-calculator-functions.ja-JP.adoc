@@ -1,0 +1,110 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalculator-working-with-custom-calculator-functions",
+    "controlName": ["WinCalculator"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{180F94B8-EE72-4548-BF04-1B47E43AC649}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム計算機機能の操作
+
+== バックグラウンド
+
+WinCalculator コントロールには基本的な数学関数が組み込まれていますが、計算機ドロップダウンの機能を拡張したい場合がよくあります。たとえば、コサインやタンジェントの計算、ポンドヤード法とメートル法の間の換算、10 進数から 8 進数への変換など、コントロールに表示されている数に対してカスタムの計算を実行するボタンを追加する場合などです。このような機能を追加するには、カスタム ボタンを作成して計算機ドロップダウンに追加し、それらをクリックしたときに呼び出されるカスタム機能を実装します。
+
+== 質問
+
+* 数を 2 乗するなどのカスタム関数を計算機に追加するにはどうすればいいですか。
+* 最初の数を 2 番目の数だけ累乗するなど、2 つの数に対してカスタム関数を実行するにはどうすればいいですか。
+
+== 解決策
+
+カスタム ボタン機能を実装するためには、いくつかのイベントを使用します。pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculator~beforeactionbuttonpressed_ev.html[BeforeActionButtonPressed]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculator~beforecalculateimmediate_ev.html[BeforeCalculateImmediate]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculator~beforecalculatepending_ev.html[BeforeCalculatePending]"]  イベントが、この種の関数を実装するための方法を提供します。
+
+== コードの説明
+
+[start=1]
+. 最初にデザイナで、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculator~showcustombuttons.html[ShowCustomButtons]"]  プロパティを True に設定します。
+[start=2]
+. 個々のカスタムボタンの Key プロパティと Type プロパティを変更します。
+
+* アクション ボタンの使用
+
+ボタンの Type プロパティを ActionButton に設定します。
+
+カスタム ボタンのキーを「A1」にします。アクション ボタンは希望のどのようなものにも使用できます。アクション ボタンはどのような動作に対しても使用できます。 たとえば、値をデータベースに保存するボタンが必要な場合は、ユーザーに確認メッセージを表示します。BeforeActionButtonPressed イベントに次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraCalculator1_BeforeActionButtonPressed(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinEditors.UltraWinCalc.OnCalculateImmediateEventArgs) _
+  Handles UltraCalculator1.BeforeActionButtonPressed
+	' 押されたボタンのキーをチェックします。
+	If e.Operation = "A1" Then
+		' ここでコードを実装して、データベースに保存しユーザー用にデータを
+		' 印刷します
+		Me.UltraLabel1.Text = "The current Value, " + e.CurrentValueDecimal.ToString() + _
+		  ", has been saved to your database."
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraCalculator1_BeforeActionButtonPressed(object sender, 
+  Infragistics.Win.UltraWinEditors.UltraWinCalc.OnCalculateImmediateEventArgs e)
+{
+	// 押されたボタンのキーをチェックします。
+	if(e.Operation == "A1")
+		// ここでコードを実装して、データベースに保存しユーザー用にデータを 
+		//  印刷します
+		this.ultraLabel1.Text = "The current Value, "+ e.CurrentValueDecimal + 
+		  ", has been saved to your database.";
+}
+----
+
+* OperatorImmediateAction ボタンの使用
+
+カスタム ボタンのキーは「SQ」で、現在の値を 2 乗します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraCalculator1_BeforeCalculateImmediate(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinEditors.UltraWinCalc.OnCalculateImmediateEventArgs) _
+  Handles UltraCalculator1.BeforeCalculateImmediate
+	' カスタム ボタンが押されたかどうかチェックします。押された場合は値を 2 乗し、 
+	' 計算機に送ります
+	If e.Operation = "SQ" Then
+		e.CurrentValueDecimal = e.CurrentValueDecimal $$*$$ e.CurrentValueDecimal
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraCalculator1_BeforeCalculateImmediate(object sender, 
+  Infragistics.Win.UltraWinEditors.UltraWinCalc.OnCalculateImmediateEventArgs e)
+{
+	// カスタム ボタンが押されたかどうかチェックします。押された場合は値を 2 乗し、 
+	// 計算機に送ります
+	if(e.Operation=="SQ")
+	{
+		e.CurrentValueDecimal=e.CurrentValueDecimal$$*$$e.CurrentValueDecimal;
+		this.ultraLabel1.Text = e.CurrentValueDecimal.ToString();
+	}
+}
+----
+
+== まとめ
+
+ここでは単に 3 つの例を取り上げただけに過ぎません。カスタム計算はすべて同じように動作します。どのようなカスタム計算を実装する場合でも、特定のタイプのボタンに対してどのイベントが発生するかを確認し、演算子と共に渡された値を取得して計算を実行し、結果を表示するために計算機の Value に設定する必要があります。

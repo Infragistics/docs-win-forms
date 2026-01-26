@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpanel-about-winpanel",
+    "controlName": ["WinPanel"],
+    "tags": ["Getting Started"],
+    "guid": "{17010279-11F7-4C23-A8F6-1D352CAC89EC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPanel について
+
+WinPanel™ コントロールは、他のコントロール用のコンテナーです。これはコントロールのグループを非表示/表示したい場合に特に役立ちます。WinPanel コントロールは境界線なしでデフォルト表示されます。フォームで他の領域とパネルの領域を区別するために pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapanel~borderstyle.html[BorderStyle]"]  プロパティを使用して境界線を提供できます。AppStyling を完全にサポートする UltraControl 派生のスクロール可能なコンテナー コントロールを提供することによって、WinPanel はパネルの外観およびスクロールバーを制御するための機能を提供します。 pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapanel~autoscroll.html[AutoScroll]"]  プロパティは、WinPanel コントロールでスクロールバーを有効にします。AutoScroll プロパティが true に設定される場合、WinPanel 内に（ただし表示可能な領域の外）配置されているコントロールは、提供されたスクロールバーでスクロールして表示できます。以下をはじめとするいくつかの追加機能だけでなく、組み込みパネルに含まれる多くの機能が提供されます。
+
+* 外観のサポート – AppStylist によるスタイル設定、Alpha Blending、ViewStyle プロパティ設定を介した類似の既存スタイル（Office 2007、Vista など）に対する完全な外観サポート。
+* スクロールバーのサポート - AppStyling をサポートする忠実性の高いスクロールバー。
+* すべての Infragistics® Layout Managers 用のコンテナー コントロールとして Winpanel が選択されるように設定されます。
+
+以下は組み込み WinGrid および WinMonthViewSingle コントロール付きのスクロール可能な UltraPanel の画像です。
+
+image::Images/WinPanel_About_WinPanel.png[]

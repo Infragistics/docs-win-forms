@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-turn-off-spell-checking",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["How Do I","Validation"],
+    "guid": "{22C29F5B-75CF-4193-9810-F20BE01BBDA1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スペルチェックをオフにする
+
+スペル チェック機能の特定のサブセットをオフにするオプションをエンド ユーザーに与えたい場合があります。入力時またはテキスト ボックスがフォーカスを失っている時に WinSpellChecker にスペル チェックをさせないようにすることができます。以下のコードを使用してこの機能をオフにします。
+
+[NOTE]
+====
+*注：* エンド ユーザーは、依然としてスペル チェック ダイアログ ボックスを起動できるだけでなく、他のほとんどの WinSpellChecker の機能を使用することができます。これらの他の機能は個々に無効にする必要があります。たとえば、ボタンでスペル チェック ダイアログ ボックスを起動する場合、Enabled プロパティを False に設定します。
+====
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSpellChecker
+...
+Me.UltraSpellChecker1.Mode = SpellCheckingMode.None
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSpellChecker;
+...
+this.ultraSpellChecker1.Mode = SpellCheckingMode.None;
+----

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid",
+    "controlName": ["WinGrid"],
+    "tags": [],
+    "guid": "{658EC698-B2DB-402A-8B13-C46ED8980D48}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid
+
+WinGrid コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、このコンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順に至るまで、WinGrid に関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、WinGrid コントロールに関する重要な情報にアクセスします。
+
+== link:wingrid-understanding-wingrid.html[WinGrid の理解]
+
+このセクションでは、WinGridコントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:wingrid-getting-started-with-wingrid.html[WinGrid の概要]
+
+WinGrid コントロールを使った処理をできるだけ早く準備、実行できるように、WinGrid コントロールの利用を開始する方法（WinGrid のフォームへの追加など）を説明しています。
+
+== link:wingrid-using-wingrid.html[WinGrid の使用]
+
+このセクションは、WinGrid コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:wingrid-api-overview.html[API 概要]
+
+このトピックでは、WinGrid コンポーネントを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

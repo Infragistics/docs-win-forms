@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-add-sound-to-the-desktop-alert-window",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{1AC6BB74-078A-4AFA-B3E4-048B46E4D30E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= サウンドをデスクトップ アラート ウィンドウに追加
+
+WinDesktopAlert™ がエンド ユーザーの注意を捉えることができるもうひとつの方法は聴覚の使用です。各デスクトップ アラート ウィンドウは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~show.html[Show] メソッドが呼び出された時に Windows® XP の警告音のようなサウンドを再生できます。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo.html[UltraDesktopAlertShowWindowInfo] クラスのインスタンスを作成して、次に link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~sound.html[Sound] プロパティをサウンドへのパスを表す文字列に設定することによって、アラート ウィンドウにサウンドを再生させることができます。Sound プロパティを設定したら、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert.html[UltraDesktopAlert] クラスの Show メソッドを呼び出してパラメータとして UltraDesktopAlertShowWindowInfo オブジェクトを渡すことができます。
+
+以下のコードを使用して、デスクトップ アラート ウィンドウにサウンドを追加します。このコードは UltraDesktopAlertShowWindowInfo をインスタンス化して、Sound プロパティをローカルの WAV ファイルに設定します。次に Show メソッドが呼び出され、UltraDesktopAlertShowWindowInfo オブジェクトがパラメータとして渡されます。
+
+*Visual Basic の場合：*
+
+----
+' UltraDesktopAlertShowWindoInfo クラスの新しいインスタンスを作成し、
+' サンプル テキストを提供します。
+Dim windowInfo As UltraDesktopAlertShowWindowInfo = _
+  New UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.")
+' プロジェクトのルート フォルダ内に配置された WAV ファイルに
+' Sound プロパティを設定します。
+windowInfo.Sound = Application.StartupPath + "..\Windows XP Exclamation.wav"
+' 上記の提供した情報が表示されたデスクトップ アラート
+' ウィンドウを表示します。
+Me.UltraDesktopAlert1.Show(windowInfo)
+----
+
+*C# の場合:*
+
+----
+// UltraDesktopAlertShowWindoInfo クラスの新しいインスタンスを作成し、
+// サンプル テキストを提供します。
+UltraDesktopAlertShowWindowInfo windowInfo =
+  new UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.");
+// プロジェクトのルート フォルダ内に配置された WAV ファイルに
+// Sound プロパティを設定します。
+windowInfo.Sound = Application.StartupPath +
+  @"..\Windows XP Exclamation.wav";
+// 上記の提供した情報が表示されたデスクトップ アラート
+// ウィンドウを表示します。
+this.ultraDesktopAlert1.Show(windowInfo)
+----

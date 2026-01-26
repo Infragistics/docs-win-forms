@@ -1,0 +1,108 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-accessibility-overview",
+    "controlName": [],
+    "tags": ["Application Blocks"],
+    "guid": "{52415C83-DAE9-4583-AB12-042E18E3DF3C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクセシビリティ概要
+
+Windows Forms でビルドされたアプリケーションは、障害を持つ人に優れた対応力があります。 Windows® Narrator はドキュメント全文を朗読できます。 Windows Magnifier は、マウス カーソルで拡大して焦点を合わせることができます。 これらの各アプリケーションは、.NET Framework の AccessibleObject クラスのため、ユニークな方法で他のアプリケーションと相互作用します。 AccessibleObject を通して、アプリケーションは Narrator および Magnifier を開き、画面の各オブジェクト内に何が含まれているかを確認することができます。 AccessibleObject の他のインスタンスは、次に来る補助的な技術の小さい UI 要素を表すために作成されます。
+
+コントロールのいくつかは AccessibleObject を使用し、Narrator および Magnifier などのアプリケーションにアクセスできます。 この技術はビジュアル コントロールおよびコンポーネントに限って有益です。一部の {ProductName} コントロールおよびコンポーネントは視覚的ではないので、アクセシビリティは実装されません。
+
+以下は、アクセシビリティを実装するコントロール/コンポーネント/ダイアログ ボックスのリストです。
+
+* AnimationControl™
+* WinButton™
+* WinActivityIndicator™
+* WinCalcManager (FormulaBuilder)™
+* WinCalculatorDropDown™
+* WinCalendarCombo™
+* WinCalendarInfo (run-time dialog boxes)™
+* WinCheckEditor™
+* WinColorPicker™
+* WinCombo™
+* WinComboEditor™
+* WinCurrencyEditor™
+* WinDateTimeEditor™
+* WinDayView™
+* WinDropDown™
+* WinDropDownButton™
+* WinExpandableGroupBox™
+* WinExplorerBar™
+* WinFontNameEditor™
+* WinFormattedLinkLabel™
+* WinFormattedTextEditor™
+* WinGanttView™
+* WinGrid™
+* WinGridColumnChooser™
+* WinGroupBox™
+* WinLabel™
+* WinListView™
+* WinMaskedEdit™
+* WinMessageBoxManager™
+* WinMonthViewMulti™
+* WinMonthViewSingle™
+* WinNavigationBar™
+* WinNumericEditor™
+* WinOptionSet™
+* WinPanel™
+* WinPictureBox™
+* WinPrintPreviewControl™
+* WinPrintPreviewDialog™
+* WinPrintPreviewThumbnail™
+* WinProgressBar™
+* WinScrollBar™
+* WinSpellChecker™
+* WinSplitter™
+* WinStatusBar™
+* WinTabbedMdiManager™
+* WinTabControl™
+* WinTabStripControl™
+* WinTextEditor™
+* WinTilePanel™
+* WinTimelineView™
+* WinTimeZoneEditor™
+* WinToolbarsManager™
+* WinTrackBar™
+* WinTree™
+* WinWeekView™
+
+以下は、アクセシビリティを実装しないコントロール/コンポーネント/ダイアログ ボックスのリストです。
+
+* AppStylist® (ユーザーではなく主に開発者用)
+* AppStylistRunTime (ダイアログ ボックスは、ユーザーではなく主に開発者用)
+* WinCarousel™
+* WinDockManager™
+* WinGrid (条件フォーマッティング ダイアログ ボックス)
+* WinGridCellProxy™
+* WinGridRowEditTemplate™
+* WinLiveTileView™
+* WinRadialMenu™
+* WinValidator™
+
+以下は、ユーザ インターフェイスをもたない（したがって、アクセシビリティを実装しない）コントロール/コンポーネント/ダイアログ ボックスのリストです。
+
+* DiagnosticsSupport
+* InboxControlStyler™
+* WinCalcManager™
+* WinCalendarLook™
+* WinControlContainerEditor™
+* WinDataSource™
+* WinFlowLayoutManager™
+* WinGridBagLayoutManager™
+* WinGridExcelExport™
+* WinGridFilterUIProvider™
+* WinGridPrintDocument™
+* WinPopupControlContainer™
+* WinPrintDocument™
+* WinSchedulePrintDocument™
+* WinToolTipManager™（ツールチップは技術的には UI を持ちませんが、それらをクリックしたりマウスを重ねることができないので、アクセシビリティは不要です）

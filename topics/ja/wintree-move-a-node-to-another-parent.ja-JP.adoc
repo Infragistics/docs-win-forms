@@ -1,0 +1,105 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-move-a-node-to-another-parent",
+    "controlName": ["WinTree"],
+    "tags": ["Events","How Do I"],
+    "guid": "{EA36C817-D993-4FE5-94B8-D49B7540D8E1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードを他の親に移動する
+
+ここでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~reposition.html[Reposition]"]  メソッドを使用して、ツリーの中でノードを別の親に移動する方法を説明します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+----
+
+[start=2]
+. フォーム上に UltraTree コントロールを配置します。
+[start=3]
+. ツリーを取り込むために、以下のコードをフォームの Load イベントに追加します。これによって、Parent A と Parent B という 2 つの親が作成されます。Parent A には Child 1 という子が 1 つあります。Parent Bにも Child 2 という子が 1 つあります。
+
+*Visual Basic の場合：*
+
+----
+Dim aNode As UltraTreeNode
+aNode = Me.UltraTree1.Nodes.Add("Parent A")
+aNode.Expanded = True
+aNode.Nodes.Add("Child Node 1")
+aNode = Me.UltraTree1.Nodes.Add("Parent B")
+aNode.Expanded = True
+aNode.Nodes.Add("Child Node 2")
+----
+
+*C# の場合：*
+
+----
+UltraTreeNode aNode;
+aNode = this.ultraTree1.Nodes.Add("Parent A");
+aNode.Expanded = true;
+aNode.Nodes.Add("Child Node 1");
+aNode = this.ultraTree1.Nodes.Add("Parent B");
+aNode.Expanded = true;
+aNode.Nodes.Add("Child Node 2");
+----
+
+[start=4]
+. フォーム上にボタンを配置します。
+[start=5]
+. ボタンの Click イベントへ移動します。
+[start=6]
+. Child Node 2 を Parent B からParent A に移動する以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Dim ParentNodeA As UltraTreeNode
+	Dim ChildNode As UltraTreeNode
+	ChildNode = Me.UltraTree1.GetNodeByKey("Child Node 2")
+	ParentNodeA = Me.UltraTree1.GetNodeByKey("Parent A")
+	ChildNode.Reposition(ParentNodeA.Nodes)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	UltraTreeNode ParentNodeA;
+	UltraTreeNode ChildNode;
+	ChildNode = this.ultraTree1.GetNodeByKey("Child Node 2");
+	ParentNodeA = this.ultraTree1.GetNodeByKey("Parent A");
+	ChildNode.Reposition(ParentNodeA.Nodes);
+}
+----
+
+[start=7]
+. プログラムを実行します。
+
+2 つの親ノードが表示されます。Parent B には子ノードがあります。
+[start=8]
+. ボタンをクリックします。
+
+Child Node 2 が Parent B から Parent A へ移動し、親が変わります。
+[start=9]
+. Child Node 2 が最後の子ノードにならないようにするには、Reposition メソッドで index 引数を指定して、Child Node 2 を特定のインデックスに移動します。

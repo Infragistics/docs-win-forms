@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-tile-dragging-and-drop-area-appearances",
+    "controlName": ["WinTilePanel"],
+    "tags": ["Events","How Do I","Styling"],
+    "guid": "{400D679C-0231-4D97-AF8E-9583D97A3921}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タイルのドラッグ アンド ドロップ領域の外観
+
+WinTilePanel™ によってエンドユーザーはタイルの順序を変更できます。これはタイルをドラッグするだけで実行できます。タイルをドラッグして対象のタイル位置の上にホバーすると、両方のタイルの位置が置き換わりますが、元のタイルと対象のタイルだけがこの交換動作に関わります。タイルがドラッグされたり、位置が変更されないようにすることもできます。詳細は、 link:wintilepanel-prevent-tile-dragging.html[「タイルのドラッグを防止」]トピックを参照してください。
+
+タイルのドラッグ中またはドラッグ後に必要となる動作のために以下のタイル レベル イベントとパネル レベル イベントを処理できます。
+
+=== UltraTile レベル イベント：
+
+* Dragging - UltraTile がドラッグされようとする時に発生します。
+* Dragged - UltraTile がドラッグされた時に発生します。
+* DragOverPosition – UltraTile が新しいタイルの位置の上にドラッグされた時に発生します。
+
+=== UltraTilePanel レベル イベント：
+
+* TileDragging - UltraTile がドラッグされようとする時に発生します。
+* TileDragged - UltraTile がドラッグされた時に発生します。
+* TileDragOverPosition – UltraTile が新しいタイルの位置の上にドラッグされた時に発生します。
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~dropareaappearance.html[DropAreaAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~dropareaborderstyle.html[DropAreaBorderStyle]"]  プロパティによって、タイルがドラッグされる時に新しいタイル位置をスタイルすることができます。これらの外観設定は、タイルがドロップされる場所の視覚的な手掛かりを提供します。WinTilePanel へのタイルの追加については、 link:wintilepanel-add-and-remove-tiles-through-code.html[「コードでタイルを追加および削除」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraTilePanel1.DropAreaAppearance.BackColor = Color.Gray 
+Me.ultraTilePanel1.DropAreaBorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4Thick
+----
+
+*C# の場合：*
+
+----
+this.ultraTilePanel1.DropAreaAppearance.BackColor = Color.Gray;
+this.ultraTilePanel1.DropAreaBorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4Thick;
+----
+
+image::Images/WinTilePanel_Tile_Dragging_and_Drop_Area_Appearances_01.png[]

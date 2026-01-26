@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpopupcontrolcontainer-about-winpopupcontrolcontainer",
+    "controlName": ["WinPopupControlContainer"],
+    "tags": ["Getting Started"],
+    "guid": "{F023F535-FFA8-46CE-9EB1-EFBE1361461E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPopupControlContainer について
+
+WinPopupControlContainer エレメントは、ドロップダウン ウィンドウ内に任意の Windows Formsのコントロールを表示できる、Windows Formsのコンポーネントです。このエレメントは、ランタイムにユーザー インターフェイスを提供しませんが、DropDown メソッドが呼び出されたときに、指定されたコントロールを表示します。エレメントはドロップダウン ウィンドウを提供するために WinDropDownButton エレメントと使用されます。

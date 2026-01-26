@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new-wintimespaneditor-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "09871fa0-71dd-4c21-8a25-514ad642e1be",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T15:55:53.2710575Z"
+}
+|metadata|
+////
+
+= 新しい WinTimeSpanEditor コントロール
+
+Infragistics® Windows Forms コントロールの本リリースでは、新しい WinTimeSpanEditor™ コントロールを提供します。TimeSpan データ タイプを編集するために、このエディターを使用できるようになりました。WinTimeSpanEditor コントロールは、IProvidesEmbeddableEditor インターフェイスを実装しているので、WinGrid™、WinTree、および WinSchedule コントロールのような Infragistics コントロール内に組み込むことができます。このコントロールには、タイム スパン値を増減するために使用できる組み込みのスピン ボタンがあります。
+
+image::Images/WinTimeSpanEditor_About_WinTimeSpanEditor_01.png[]
+
+== *関連トピック*
+
+link:wintimespaneditor-understanding-wintimespaneditor.html[WinTimeSpanEditor の理解]

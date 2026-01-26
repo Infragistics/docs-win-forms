@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-getting-started-with-windatasource",
+    "controlName": ["WinDataSource"],
+    "tags": ["Getting Started"],
+    "guid": "{29C6B4C5-F6B5-4CE1-8BEF-2682E870C216}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource で開始
+
+以下のリンクをクリックすると、WinDataSource コンポーネントをすばやく起動して実行する方法についての説明を読むことができます。
+
+link:windatasource-using-the-windatasource-designer.html[WinDataSource デザイナの使用] -- WinDataSource デザイナを使用してデータ スキーマを定義する方法を説明しています。

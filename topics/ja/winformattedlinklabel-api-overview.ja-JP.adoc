@@ -1,0 +1,43 @@
+﻿////
+|metadata|
+{
+    "name": "winformattedlinklabel-api-overview",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["API"],
+    "guid": "{86D613A5-71D4-45FB-B6C5-E05A0B67B44B}",
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+[cols="a,a"]
+|====
+|*WinFormattedLinkLabel 名前空間:* + 
+(Misc アセンブリ)
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel_namespace.html[Infragistics.Win.FormattedLinkLabel]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedlinklabel.html[UltraFormattedLinkLabel]"]
+
+|*WinFormattedLinkLabel 名前空間:* 
+
+(Win アセンブリ)
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel_namespace.html[Infragistics.Win.FormattedLinkLabel]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.linkclickedeventargs.html[LinkClickedEventArgs]"] 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.parseerroreventargs.html[ParseErrorEventArgs]"] 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.visitedlinkscollection.html[VisitedLinksCollection]"]
+
+|====

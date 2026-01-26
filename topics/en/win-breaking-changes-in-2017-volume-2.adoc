@@ -1,0 +1,21 @@
+﻿= Breaking Changes in 2017 Volume 2
+
+== UltraGeographicMap
+
+==== Removal of CloudMade Support
+
+The link:geographicmap.html[UltraGeographicMap] control used CloudMade imagery and tile sources. However, the CloudMade company made their image and tile sources unavailable. As a result, we have removed support for them in the `UltraGeographicMap` control by removing the CloudMadeMapImagery class from the map's API.
+
+== Version Utility
+
+==== Cannot install on Windows 7 with Visual Studio 2017
+
+An issue where the Version Utility may not install correctly on Win7 machines using VS 2017 has been resolved but you may still require additional steps to use the Version Utility.
+
+After you install the latest version of Version Utility successfully, if you still don't see it under VS 2017, do the following:
+
+** Close Visual Studio 2017 if it is open
+** Navigate to "[VS2017 install folder]\Common7\IDE" folder on your machine and run command prompt as administrator
+** Run the following command: "devenv.exe /setup /nosetupvstemplates"
+
+Now Version Utility should be available in VS 2017.

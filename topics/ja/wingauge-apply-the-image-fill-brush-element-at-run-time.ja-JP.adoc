@@ -1,0 +1,78 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-image-fill-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{766F1797-82E7-4660-A9AF-46801181A9FC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムに画像塗りつぶしブラシ エレメントを適用
+
+画像塗りつぶしブラシ エレメントをゲージのプロパティに適用すると、プロパティを画像として描画します。
+
+*デザインタイムに画像塗りつぶしブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成して、次のコードを追加します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+Dim imageBrushElement1 As New ImageBrushElement()
+----
+
+*C# の場合：*
+
+----
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+ImageBrushElement myImageBrushElement = new ImageBrushElement();
+----
+
+[start=4]
+. 画像塗りつぶしブラシ エレメントを *Dial* プロパティに適用します。
+
+*Visual Basic の場合：*
+
+----
+imageBrushElement1.Image = Image.FromFile("infragisitics_LOGO_140.gif")
+imageBrushElement1.ImageFit = Infragistics.UltraGauge.Resources.ImageFit.Tile
+myRadialGauge.Dial.BrushElement = imageBrushElement1
+----
+
+*C# の場合：*
+
+----
+myImageBrushElement.Image = Image.FromFile("infragisitics_LOGO_140.gif");
+myImageBrushElement.ImageFit = Infragistics.UltraGauge.Resources.ImageFit.Tile;
+myRadialGauge.Dial.BrushElement = myImageBrushElement;
+----
+
+== 関連トピック
+
+link:wingauge-image-fill-brush-element.html[画像塗りつぶしブラシ エレメント]
+
+link:wingauge-apply-the-image-brush-element-at-design-time.html[デザインタイムに画像塗りつぶしブラシ エレメントを適用]

@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-developers-guide",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{36F48414-36F0-4C3E-B189-452602566C27}",  
+    "buildFlags": [],
+    "createdOn": "2005-02-12T00:00:00Z"
+}
+|metadata|
+////
+
+= 開発者ガイド
+
+「開発者ガイド」は、その名が示すように、開発者のためのガイドです。ヘルプのこの重要なセクションには、Infragistics の Windows Forms のコントロールとコンポーネントについての重要な情報がたくさん含まれています。このセクションには、コントロール/コンポーネントの重要な特性と機能の説明から、一般的なタスクを実行するためにコントロール/コンポーネントを使用する方法に関する手順ごとの説明まで複数百のトピックが含まれています。「開発者ガイド」のセクションで説明されている知識は、コントロールを活用して Windows ベースのアプリケーション用のプロフェッショナルな豊富な機能を持った UI を開発するために非常役立つはずです。
+
+以下のリンクは、「開発者ガイド」の主要なセクションを参照するための入口です。
+
+== link:win-assemblies.html[アセンブリ]
+
+Windows Forms コントロール/コンポーネントはいずれも、Visual Studio® .NET 開発システムが使用するダイナミックリンクライブラリ（DLL）に格納されています。複数のコントロール/コンポーネントからなるアセンブリもあれば、ひとつしかコントロール/コンポーネントを持たないアセンブリもあります。このセクションは、アセンブリを対するコントロール/コンポーネントにマッピングします。
+
+== link:win-presentation-layer-framework-plf.html[Presentation Layer Framework (PLF)]
+
+フレームワークは特定のツールセットの基礎を形成する .NET オブジェクトのコレクションです。弊社の場合、すべての {ProductName} コントロール/コンポーネントは、 link:win-presentation-layer-framework-plf.html[Presentation Layer Framework™（PLF）]に基づいて構築されています。
+
+== link:win-controls.html[コントロール]
+
+これはヘルプ内の重要なセクションで、極めて頻繁に参照することになるセクションです。ここには Windows Forms のコントロール/コンポーネントのすべてに関する情報が含まれています。このセクションでは、特定なコントロール/コンポーネントの使用方法について情報があります。
+
+== link:styling-guide.html[アプリケーションのスタイリング]
+
+Infragistics の Windows Forms コントロールおよびコンポーネントは、その外観を定義するための方法を多数提供します。このセクションでは、プリセット、テーマ、 link:styling-guide-application-styling-framework-asf.html[Application Styling Framework (ASF)] 、および外観オブジェクトを使用して、コントロールとコンポーネントの表示スタイルと動作を設定して、アプリケーションに洗練された仕上がりを与える方法を説明します。
+
+== link:win-upgrading-your-windows-forms-projects.html[Windows Forms プロジェクトのアップグレード]
+
+このセクションでは、既存の Windows Forms プロジェクトを {ProductName} の最新のボリューム リリースにアップグレードする方法について説明します。このセクションは、Infragistics .NET バージョン ユーティリティまたは link:win-using-command-line.html[コマンドライン プログラム]を使用して、または link:win-upgrading-a-project-manually.html[手動によるプロジェクトのアップグレードによりアップグレード]を行う方法に関する情報を提供します。
+
+== link:win-deploying-your-application.html[アプリケーションの配備]
+
+このセクションでは、Infragistics の Windows Forms コントロールとコンポーネントをひとつ以上使用しているアプリケーションを配備する方法について検討します。さまざまな配備方法（ link:win-using-xcopy-deployment.html[XCOPY]、 link:win-using-global-assembly-cache-gac-deployment.html[グローバルアセンブリキャッシュ（GAC）]、および link:win-using-no-touch-deployment.html[ノータッチ]）を説明します。

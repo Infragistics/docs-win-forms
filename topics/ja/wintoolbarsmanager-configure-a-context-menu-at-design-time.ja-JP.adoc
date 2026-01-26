@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-configure-a-context-menu-at-design-time",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Design Environment","Layouts"],
+    "guid": "{D13C0BD0-A278-4D4A-AAA9-3A1806E3B40E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン タイムのコンテキスト メニューの構成
+
+デザインタイムで [ユーザー設定] ダイアログ内から pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  のツールを追加および削除するための 2 つの方法があります。ツールがツールバーにあり、ツールをクリックしてドロップ ダウンし、[新しいツールを挿入] プレースホルダをクリックするか、メニューにすでにあるツールを右クリックし、[ツールの追加] サブメニューを開きます。その代わりに、[ユーザー設定] ダイアログの PopupMenuTool デザイナを使用します。
+
+image::Images/WinToolbars_Configure_Context_Menu_Design_Time_01.png[]
+
+[start=1]
+. WinToolbarsManager コンポーネントを設定するため、UltraToolbarManager エレメント上で右クリックし、［ユーザー設定］ を選択して、ユーザー設定ダイアログを開きます。
+[start=2]
+. カスタマイザの [PopupMenuTool デザイナ] タブをクリックします。
+[start=3]
+. 現在のメニュー コンボボックスから既存の PopupMenuTool を選択するか、[新規] ボタンをクリックして新しい PopupMenuTool を作成します。現在のメニュー コンボ ボックスのリストボックスは、メニュー ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolscollection.html[Tools]"]  コレクションの現在の内容を表示します。
+[start=4]
+. 右側の使用できるツールのリストボックスには、選択されたメニュー ツールの Tools コレクションに追加されるツールすべてが含まれます。リストを空にすると、新しいツールを作成するために [ツール] タブに移動できます。このリストボックスからメニューの Tools コレクションにツールを追加するには、リストボックスでひとつ以上の項目を選択し、右側のリストにドラッグします。ドロップ インジケータは、ツールが挿入された場所を表示します。
+[start=5]
+. 作成した PopupMenuTool に、コンテキスト メニューとして PopupMenuTool を表示したいコントロールの ContextMenuUltra プロパティを設定します。

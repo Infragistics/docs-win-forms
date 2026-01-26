@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-common-tool-tasks",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{4B77D295-90D0-48F1-90A1-12CD82B5A034}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 共通のツール タスク
+
+すべてのツール タイプが行うことができる共通の事柄についての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-add-separators-between-tools.html[ツールの間へのセパレータの追加]
+* link:wintoolbarsmanager-change-a-tools-appearance.html[ツールの外観の変更]
+* link:wintoolbarsmanager-control-mdi-tool-merging-with-mergeorder-and-mergetype.html[MDI ツールの MergeOrder および MergeType とのマージの制御]
+* link:wintoolbarsmanager-create-and-add-tools-at-run-time.html[ラン タイムにツールを作成および追加]
+* link:wintoolbarsmanager-customize-tool-captions-in-the-run-time-customizer.html[ランタイム カスタマイザのツール キャプションのカスタマイズ]
+* link:wintoolbarsmanager-display-tooltips-for-tools.html[ツールのツールチップの表示]
+* link:wintoolbarsmanager-distinguish-between-root-tools-and-instance-tools.html[ルート ツールとインスタンス ツールの区別]
+* link:wintoolbarsmanager-prevent-a-tool-from-being-activated.html[ツールのアクティブ化の禁止]
+* link:wintoolbarsmanager-prevent-the-creation-of-multiple-tool-instances.html[複数のツール インスタンスの作成の禁止]
+* link:wintoolbarsmanager-process-toolclick-events.html[ToolClick イベントの処理]
+* link:wintoolbarsmanager-set-shortcut-mnemonic-keys-for-a-tool.html[ツールのショートカット（ニーモニック）キーの設定]
+* link:wintoolbarsmanager-using-the-notification-badge.html[通知バッジの使用]

@@ -1,0 +1,46 @@
+﻿////
+|metadata|
+{
+    "name": "winradialmenu-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "17462720-2063-45a8-bdce-efcbf237d98d",
+    "buildFlags": [],
+    "createdOn": "2013-09-25T19:22:50.8402608Z"
+}
+|metadata|
+////
+
+////
+|metadata|
+{
+    "name": "winradialmenu-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "17462720-2063-45a8-bdce-efcbf237d98d",
+    "buildFlags": [],
+    "createdOn": "2013-09-25T19:22:50.8402608Z"
+}
+|metadata|
+////
+
+= WinRadialMenu リソース文字列
+
+このトピックでは、`WinRadialMenu` アセンブリの内部的に定義されたテキスト要素をカスタマイズするために使用される `WinRadialMenu` アセンブリ リソース文字列のリストを提供します。
+
+以下の表に、このアセンブリで使用されるリソース文字列の名前および文字列の既定の値をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|CenterButtonDefaultKeyTip
+|0
+
+|Designer_AddNewTool
+|新しいツール
+
+|UltraRadialMenu_Description
+|ラジアル メニューを表示する Windows Forms コンポーネントです。
+
+|====

@@ -1,0 +1,374 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-special-sequence-format",
+    "controlName": [],
+    "tags": [],
+    "guid": "a0a57c08-f88e-4559-9afd-459c662f2589",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0858535Z"
+}
+|metadata|
+////
+
+= 特殊なシーケンス形式
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、文章校正を構成するために必要な EBNF ファイル内の特殊なシーケンス セクションの形式について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+| link:ig-spe-ebnf-file-format-overview.html[EBNF ファイル形式の概要]
+|このトピックは、文章校正を定義するために使用する EBNF ファイル形式の概要を説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349919800, 特殊なシーケンス セクションの概要 >>
+* <<_Ref350444319, 特殊なシーケンス セクションの型 >>
+* <<_Ref349918716, 文章校正プロパティ セクション >>
+* <<_Ref349918723, 非終端記号属性セクション >>
+* <<_Ref349919577, 関連コンテンツ >>
+
+[[_Ref349919552]]
+[[_Ref349919800]]
+== 特殊なシーケンス セクションの概要
+
+=== 特殊なシーケンス セクションのサマリー
+
+Syntax Parsing Engine でサポートされる EBNF 形式を使用することにより、文章校正インスタンス、レクサー状態、終端記号および非終端記号に関する多くの説明的な情報を供給できます。
+
+この情報は、EBNF ファイルの特殊なシーケンス内で XML を使用して指定されます。
+
+[[_Ref350444319]]
+== 特殊なシーケンス セクションの型
+
+=== 特殊なシーケンス セクションの要点チャート
+
+[options="header", cols="a,a"]
+|====
+|セクション|詳細
+
+|<<_Ref349918716,文章校正プロパティ セクション>>
+|文章校正プロパティ セクションでは、文章校正、レクサー状態および終端記号を定義し、EBNF ファイルの一番上でのみ許可されます。
+
+|<<_Ref349918723,非終端記号属性セクション>>
+|このセクションは、次のルールで定義される `NonTerminalSymbol` インスタンス上で特殊なプロパティを設定するために使用されます。
+
+|====
+
+[[_Ref349918716]]
+== 文章校正プロパティ セクション
+
+=== 概要
+
+文章校正プロパティ セクションでは、文章校正、レクサー状態および終端記号を定義し、EBNF ファイルの一番上でのみ許可されます。1 つの文章校正プロパティ セクションのみが可能です。
+
+=== 要素
+
+以下の表は、それぞれの親/子関係を持ち文章校正プロパティ セクションで許可されるすべての要素のリストです。
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar] 要素:
+
+説明: 非終端記号および構文ルールツリーを除いて Grammar インスタンスですべてを定義します。これは通常の EBNF 形式で実施されます。
+
+親要素: (なし)
+
+[options="header", cols="a,a,a"]
+|====
+|*属性*|*タイプ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~endofstreamsymbolname.html[EndOfStreamSymbolName]
+|文字列
+|(オプション) Grammar.EndOfStreamSymbolName プロパティの値指定されない場合、値は「EndOfStreamToken」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~name.html[名前]
+|文字列
+|(オプション) Grammar.Name プロパティの値指定されない場合、値は「Null」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~newlinesymbolname.html[NewLineSymbolName]
+|文字列
+|(オプション) Grammar.NewLineSymbolName プロパティの値指定されない場合、値は「NewLineToken」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~startsymbol.html[StartSymbol]
+|文字列
+|(オプション) Grammar.StartSymbol 値として設定される NonTerminalSymbol の名前指定されない場合、ファイルで定義される最初の非終端記号は開始記号として使用されます。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~supportsparsing.html[SupportsParsing]
+|ブール値
+|(オプション) Grammar.SupportsParsing プロパティの値指定されない場合、値は「True」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~syntaxtreepruningmode.html[SyntaxTreePruningMode]
+|SyntaxTreePruningMode
+|(オプション) Grammar.SyntaxTreePruningMode プロパティの値指定されない場合、値は「BasedOnChildrenAndName」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~unrecognizedsymbolname.html[UnrecognizedSymbolName]
+|文字列
+|(オプション) Grammar.UnrecognizedSymbolName プロパティの値指定されない場合、値は「UnrecognizedToken」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~whitespacesymbolname.html[WhitespaceSymbolName]
+|文字列
+|(オプション) Grammar.WhitespaceSymbolName プロパティの値指定されない場合、値は「WhitespaceToken」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~whitespacepattern.html[WhitespacePattern]
+|文字列
+|(オプション) Grammar.WhitespacePattern プロパティの値指定されない場合、値は「[ \t]+」になります。
+
+|====
+
+[options="header", cols="a,a"]
+|====
+|*子要素*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol.html[TerminalSymbol]
+|終端記号を定義し、文章校正のデフォルトの LexerState (Grammar.LexerStates.DefaultLexerState) に追加します。
+
+|`TerminalSymbolReference`
+|既存の TerminalSymbol を文章校正のデフォルトの LexerState に追加します。
+
+|====
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol.html[TerminalSymbol] 要素:
+
+説明: 新しい `TerminalSymbol` インスタンスを作成し、独自のレクサー状態に追加します。
+
+親要素: `Grammar`、`LexerState`
+
+[options="header", cols="a,a,a"]
+|====
+|*属性*|*タイプ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~comparison.html[Comparison]
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbolcomparison.html[TerminalSymbolComparison]
+|(オプション) Value 属性がどのように解釈されるかを示す値とりうる値は、`Literal`、`LiteralIgnoreCase` および `RegularExpression` です。指定されない場合、値はリテラルになります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstateterminalsymbolcollection~isexitsymbol.html[IsExitSymbol]
+|ブール値
+|(オプション) 新しい `TerminalSymbol` が終了記号として独自のレクサー状態に追加するかどうかを示します。終了記号の詳細については、「 link:ig-spe-lexical-analysis-overview.html[字句解析の概要]」トピックを参照してください。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~islookaheadnegative.html[IsLookaheadNegative]
+|ブール値
+|(オプション) `TerminalSymbol` の値`IsLookaheadNegative` property, which indicates whether the `LookaheadPattern` specifies a positive or negative lookahead.指定されない場合、値は False になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~issignificant.html[IsSignificant]
+|ブール
+|(オプション) `TerminalSymbol.IsSignificant` プロパティの値指定されない場合、値は「Null」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol~isstartoferrorrecoverypair.html[IsStartOfErrorRecoveryPair]
+|ブール値
+|(オプション) `TerminalSymbol.IsStartOfErrorRecoveryPair` プロパティの値指定されない場合、値は False になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~languageelementname.html[LanguageElementName]
+|文字列
+|(オプション) `TerminalSymbol` の値`LanguageElementName` プロパティ指定されない場合、値は「Undefined」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~lexerstatetoenter.html[LexerStateToEnter]
+|文字列
+|(オプション) `TerminalSymbol` として設定される既存の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate.html[LexerState] の名前`LexerStateToEnter` プロパティ指定されない場合、値は「Null」になります。 
+
+注: 
+
+[NOTE] 
+
+==== 
+
+名前の指定されたレクサー状態は、ドキュメント内の `LexerStateToEnter` 属性の前または後ろに定義されます。 
+
+====
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~lookaheadpattern.html[LookaheadPattern]
+|文字列
+|(オプション) `TerminalSymbol.LookaheadPattern` プロパティの名前。この終端記号に関連づけられたトークンに準拠すべき、または準拠すべきでないテキストに関してアサーションを行う正規表現です。指定されない場合、値は「Null」になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol~name.html[名前]
+|文字列
+|(必須) `TerminalSymbol.Name` プロパティの値
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~value.html[値]
+|文字列
+|(オプション) `TerminalSymbol.Value` プロパティの値指定されなければ、`Name` から得られた値が使用されます。
+
+|====
+
+[options="header", cols="a,a"]
+|====
+|*子要素*|*説明*
+
+|`LexerState`
+|`LexerState` を定義し、 `Grammar.LexerStates` コレクションに追加し、そして `LexerState` インスタンスを `TerminalSymbol.LexerStateToEnter` 値として設定します。
+
+|====
+
+`TerminalSymbolReference` 要素
+
+説明: 既存の `TerminalSymbol` インスタンスを独自のレクサー状態に追加します。
+
+注:
+
+[NOTE]
+====
+参照された `TerminalSymbol` の定義が、ドキュメント内のこの要素の前または後に発生します。
+====
+
+親要素: `Grammar`、`LexerState`
+
+[options="header", cols="a,a,a"]
+|====
+|*属性*|*タイプ*|*説明*
+
+|`IsExitSymbol`
+|ブール値
+|(オプション) 新しい TerminalSymbol が終了記号として独自のレクサー状態に追加するかどうかを示します。終了記号の詳細については、「 link:ig-spe-lexical-analysis-overview.html[字句解析の概要]」トピックを参照してください。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol~name.html[名前]
+|文字列
+|(必須) 独自のレクサー状態に追加する既存の `TerminalSymbol` インスタンスの名前
+
+|====
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate.html[LexerState] 要素
+
+説明: 新しい `LexerState` インスタンスを定義し、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~lexerstates.html[Grammar.LexerStates] コレクションに追加します。
+
+親要素: `TerminalSymbol`
+
+[options="header", cols="a,a,a"]
+|====
+|*属性*|*タイプ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate~name.html[名前]
+|文字列
+|(必須) 新しい `LexerState` インスタンスの名前
+
+|====
+
+[options="header", cols="a,a"]
+|====
+|*子要素*|*説明*
+
+|`TerminalSymbol`
+|`TerminalSymbol` を定義し、親 `LexerState` に追加します。
+
+|`TerminalSymbolReference`
+|既存の `TerminalSymbol` を親 `LexerState` に追加します。
+
+|====
+
+=== 例
+
+以下は、文章校正プロパティ セクションの例です。
+
+----
+?
+<Grammar Name="My Custom Grammar" NewLineSymbolName="LineBreakToken">
+    <TerminalSymbolReference Name="LineBreakToken" />
+    <TerminalSymbolReference Name="WhitespaceToken" />
+    <TerminalSymbol Name="Word" Value="[\w]+" Comparison="RegularExpression" />
+    <TerminalSymbol Name="Punctuation" Value="\W" Comparison="RegularExpression" />
+    <TerminalSymbol Name="DoubleQuote" Value=""" LanguageElementName="StringLiteral">
+        <LexerState Name="StringLiteral">
+            <TerminalSymbol Name="StringLiteralContent" Value="([^"\\\r\n]|(\\[^\r\n]))+"
+                Comparison="RegularExpression"LanguageElementName="StringLiteral" />
+            <TerminalSymbolReference Name="LineBreakToken" IsExitSymbol="true" />
+            <TerminalSymbolReference Name="DoubleQuote" IsExitSymbol="true" />
+        </LexerState>
+    </TerminalSymbol>
+</Grammar>
+?
+----
+
+[[_Ref349918723]]
+== 非終端記号属性セクション
+
+=== 概要
+
+非終端記号属性セクションは、非終端記号の定義のすぐ前に許可されます。このセクションは、定義された次の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol.html[NonTerminalSymbol] インスタンスに対してのみ適用する特殊プロパティを設定するために使用します。
+
+=== 要素
+
+以下の表は、NonTerminalSymbolOptions 要素のすべての属性のリストです。
+
+[options="header", cols="a,a,a"]
+|====
+|*属性*|*タイプ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~haspriority.html[HasPriority]
+|ブール値
+|(オプション) `NonTerminalSymbol.HasPriority` プロパティの値指定されない場合、値は False になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~iserror.html[IsError]
+|ブール値
+|(オプション) `NonTerminalSymbol.IsError` プロパティの値指定されない場合、値は False になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbol~isstartoferrorrecoverypair.html[IsStartOfErrorRecoveryPair]
+|ブール値
+|(オプション) `NonTerminalSymbol.IsStartOfErrorRecoveryPair` プロパティの値指定されない場合、値は False になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~preventpruning.html[PreventPruning]
+|ブール値
+|(オプション) `NonTerminalSymbol.PreventPruning` プロパティの値指定されない場合、値は False になります。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~suppressambiguitywarnings.html[SuppressAmbiguityWarnings]
+|ブール値
+|(オプション) `NonTerminalSymbol.SuppressAmbiguityWarnings` プロパティの値指定されない場合、値は False になります。
+
+|`SuppressErrorRecoveryForSymbols`
+|文字列
+|(オプション) link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~suppresserrorrecoveryforsymbol.html[NonTerminalSymbol.SuppressErrorRecoveryForSymbol] メソッドに渡さなければならない記号名のコンマ区切りリスト名前付き記号は、`NonTerminalSymbol` の前または後に定義できます。
+
+|====
+
+=== 例
+
+以下は、「?」文字間で XML で定義した属性セクションに沿った非終端記号定義の例です。
+
+----
+Document = {Sentence};
+?<NonTerminalSymbolOptions SuppressErrorRecoveryForSymbols="Punctuation" />?
+Sentence = {Word | StringLiteral}-, Punctuation;
+StringLiteral = DoubleQuote, [StringLiteralContent], DoubleQuote;
+----
+
+[[_Ref349919577]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-ebnf-specification-deviations.html[EBNF 仕様の逸脱]
+|このトピックは、Syntax Parsing Engine が使用する EBNF 形式での ISO 14977 仕様からの逸脱について説明します。
+
+| link:ig-spe-generate-grammar-from-an-ebnf-file.html[EBNF ファイルからの文章校正の生成]
+|このトピックでは、EBNF コンテンツから文章校正を作成するプロセスを説明します。
+
+| link:ig-spe-generate-ebnf-file-from-a-grammar.html[文章校正からの EBNF ファイルの生成]
+|このトピックでは、文章校正から EBNF コンテンツを作成するプロセスを説明します。
+
+|====

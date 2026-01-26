@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "wngroupbox-changing-the-style-and-appearance-of-wingroupbox",
+    "controlName": ["WinGroupBox"],
+    "tags": ["Design Environment","Grouping","How Do I","Styling"],
+    "guid": "{2DF9A314-99AB-4155-9A37-4167B2B91737}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGroupBox のスタイルと外観の変更
+
+2005 Volume 1 では、Infragistics が提供する Windows Forms コントロールのリストに WinGroupBox コントロールが追加されました。このコントロールは、XP、Office2000、Office2003、および VisualStudio 2005、Office2007 のスタイルをとることができます。また、キャプションやキャプション付きの画像を表示する機能もあり、フォーム上のコントロールを含めるのに役立ちます。
+
+== スタイルと外観
+
+[start=1]
+. 新しい C# または VB.NET Windows アプリケーションを作成します。デザインビューでフォームを開き、ツールボックスで UltraGroupBox コントロールを探してフォームにドラッグします。このコントロールをプロジェクトに追加すると、次の 3 つの参照が参照リストに追加されます。
+
+** Infragistics.Shared.v{ProductVersion}
+** Infragistics.Win.Misc.v{ProductVersion}
+** Infragistics.Win.v{ProductVersion}
+
+[start=2]
+. UltraGroupBox の最初の重要なプロパティは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraexpandablegroupbox~viewstyle.html[ViewStyle]"]  です。このプロパティを切り替えるとコントロールの外観が変わります。
+
+____
+XP スタイルにすると、キャプション テキストが青になり、角が丸くなります。
+
+image::Images/WinMisc_Introduction_to_the_WinGroupBox_01.png[]
+____
+
+[start=3]
+. 次のプロパティは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~headerposition.html[HeaderPosition]"]  です。このプロパティは、UltraGroupBox 上でのヘッダの表示位置を決定します。次のようなオプションがあります。
+
+** *Default* - コントロールの ViewStyle に基づくデフォルトの位置にヘッダが描画されます。
+** *TopOnBorder* - コントロールの上端の境界線の上にヘッダが描画されます。
+** *TopInsideBorder* - コントロールの上端の境界線の内側にヘッダが描画されます。
+** *TopOutsideBorder* - コントロールの上端の境界線の外側にヘッダが描画されます。
+** *RightOnBorder* - コントロールの右端の境界線の上にヘッダが描画されます。
+** *RightInsideBorder* - コントロールの右端の境界線の内側にヘッダが描画されます。
+** *RightOutsideBorder* - コントロールの右端の境界線の外側にヘッダが描画されます。
+** *BottomOnBorder* - コントロールの下端の境界線の上にヘッダが描画されます。
+** *BottomInsideBorder* - コントロールの下端の境界線の内側にヘッダが描画されます。
+** *BottomOutsideBorder* - コントロールの下端の境界線の外側にヘッダが描画されます。
+** *LeftOnBorder* - コントロールの左端の境界線の上にヘッダが描画されます。
+** *LeftInsideBorder* - コントロールの左端の境界線の内側にヘッダが描画されます。
+** *LeftOutsideBorder* - コントロールの左端の境界線の外側にヘッダが描画されます。
+
+次のスクリーンショットは、HeaderPosition プロパティを RightOnBorder に設定したグループボックスを示します。
+
+image::Images/WinMisc_Introduction_to_the_WinGroupBox_05.png[]
+
+[start=4]
+. また、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~captionalignment.html[CaptionAlignment]"]  プロパティを変更することによってキャプションの位置を変更することもできます。次の 3 つのオプションがあります。
+
+** *近い*
+** *遠い*
+** *中央*

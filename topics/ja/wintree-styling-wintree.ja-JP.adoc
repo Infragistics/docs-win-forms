@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-styling-wintree",
+    "controlName": ["WinTree"],
+    "tags": ["Styling"],
+    "guid": "{0C843C46-1B2F-43BB-94EC-86325CAB4D54}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree のスタイル
+
+以下のリンクをクリックして、™ コントロールのスタイルについて学習します。
+
+* link:wintree-add-multiple-images-to-a-node.html[ノードに複数のイメージ画像を追加する]
+* link:wintree-add-images-to-wintree-with-columns.html[列を持つ WinTree に画像を追加]
+* link:wintree-change-the-image-of-nodes-when-expanded-or-collapsed.html[展開または縮小の時にノードの画像を変更]
+
+* link:wintree-highlight-the-active-node.html[アクティブなノードを強調表示する]
+* link:wintree-style-the-scrollbars-of-wintree.html[WinTree のスクロールバーのスタイル]

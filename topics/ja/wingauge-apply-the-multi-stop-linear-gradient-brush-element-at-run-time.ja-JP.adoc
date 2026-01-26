@@ -1,0 +1,105 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-multi-stop-linear-gradient-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{FEAEF449-649B-41B4-9032-7231E7D665E2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにマルチストップ線形グラデーション ブラシ エレメントを適用
+
+ゲージのプロパティの 3 色以上を線形に相互に混ぜたい場合には、マルチストップ線形グラデーション ブラシ エレメントをプロパティに適用します。
+
+*コードを使用してマルチストップ線形グラデーション ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myMultiStopLinearGradientBrushElement As New MultiStopLinearGradientBrushElement()
+Dim colorStop1 As New ColorStop()
+Dim colorStop2 As New ColorStop()
+Dim colorStop3 As New ColorStop()
+Dim myLinearGauge As LinearGauge = Me.UltraGauge1.Gauges(0)
+----
+
+*C# の場合：*
+
+----
+MultiStopLinearGradientBrushElement myMultiStopLinearGradientBrushElement = new MultiStopLinearGradientBrushElement();
+ColorStop colorStop1 = new ColorStop();
+ColorStop colorStop2 = new ColorStop();
+ColorStop colorStop3 = new ColorStop();
+LinearGauge myLinearGauge = this.ultraGauge1.Gauges[0] as LinearGauge;
+----
+
+[start=4]
+. 以下のプロパティを設定します。
+
+** 開始色 -- 254, 42, 0,
+** 終了色 -- 0, 118, 0
+** カラー ストップ -- オフセット:0.637; 色: 212, 254, 0
+** 角度 -- 90
+
+*Visual Basic の場合：*
+
+----
+myMultiStopLinearGradientBrushElement.Angle = 90.0F
+colorStop1.Color = System.Drawing.Color.FromArgb(CInt(CByte(254)), CInt(CByte(42)), CInt(CByte(0)))
+colorStop2.Color = System.Drawing.Color.FromArgb(CInt(CByte(212)), CInt(CByte(254)), CInt(CByte(0)))
+colorStop2.Stop = 0.637931F
+colorStop3.Color = System.Drawing.Color.FromArgb(CInt(CByte(0)), CInt(CByte(118)), CInt(CByte(0)))
+colorStop3.Stop = 1.0F
+myMultiStopLinearGradientBrushElement.ColorStops.Add(colorStop1)
+myMultiStopLinearGradientBrushElement.ColorStops.Add(colorStop2)
+myMultiStopLinearGradientBrushElement.ColorStops.Add(colorStop3)
+myLinearGauge.BrushElement = myMultiStopLinearGradientBrushElement
+----
+
+*C# の場合：*
+
+----
+myMultiStopLinearGradientBrushElement.Angle = 90F;
+colorStop1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(42)))), ((int)(((byte)(0)))));
+colorStop2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(254)))), ((int)(((byte)(0)))));
+colorStop2.Stop = 0.637931F;
+colorStop3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(118)))), ((int)(((byte)(0)))));
+colorStop3.Stop = 1F;
+myMultiStopLinearGradientBrushElement.ColorStops.Add(colorStop1);
+myMultiStopLinearGradientBrushElement.ColorStops.Add(colorStop2);
+myMultiStopLinearGradientBrushElement.ColorStops.Add(colorStop3);
+myLinearGauge.BrushElement = myMultiStopLinearGradientBrushElement;
+----
+
+== 関連トピック
+
+link:wingauge-multi-stop-linear-gradient-brush-element.html[マルチストップ線形グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-multi-stop-linear-gradient-brush-element-at-design-time.html[デザインタイムにマルチストップ線形グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-multi-stop-linear-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してマルチストップ線形グラデーション ブラシ エレメントを適用]

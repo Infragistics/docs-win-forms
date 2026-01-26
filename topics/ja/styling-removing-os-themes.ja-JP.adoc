@@ -1,0 +1,16 @@
+= OS テーマをアプリケーション全体から削除
+
+link:appstylistruntime.html[AppStylist] は、アプリケーション全体から OS テーマを削除する簡単な方法を提供します。ISL ファイル作成の際、すべての UIElements でテーマ描画を使用しないようプロンプトされます。
+
+[source, csharp]
+Infragistics.Win.AppStyling.StyleManager.Load(pathToISL);
+
+コントロール レベルでテーマの描画を無効にするには、UseOSThemes プロパティを False に設定します。
+
+[source, csharp]
+this.ultraCheckEditor1.UseOsThemes = Infragistics.Win.DefaultableBoolean.False;
+
+特定のコントロールのテーマ描画を無効にする場合は、外観の ThemedElementAlpha プロパティを Transparent に設定します。
+
+[source, csharp]
+this.ultraCheckEditor1.Appearance.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent;

@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-error-handling",
+    "controlName": [],
+    "tags": [],
+    "guid": "5f3ca3fc-17ed-48aa-ba69-3ea6800fd6eb",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0118461Z"
+}
+|metadata|
+////
+
+= エラー処理
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックでは、Infragistics Syntax Parsing Engine が実施するエラー処理について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-lexical-errors.html[字句エラー]
+|このグループのトピックでは、Syntax Parsing Engine で検出された字句エラーについて説明します。
+
+| link:ig-spe-syntax-errors.html[構文エラー]
+|このグループのトピックでは、Syntax Parsing Engine が検出した構文エラーについて説明します。
+
+| link:ig-spe-error-handling-strategies.html[エラー処理方法]
+|このグループのトピックでは、構文エラーを識別するためにドキュメントの構文解析中に使用する方法について説明します。
+
+| link:ig-spe-semantic-errors.html[セマンティック エラー]
+|このトピックは、Syntax Parsing Engine によって処理されないセマンティック エラーについて説明します。
+
+|====

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmessageboxmanager-about-winmessageboxmanager",
+    "controlName": ["WinMessageBoxManager"],
+    "tags": ["Getting Started"],
+    "guid": "{E9DB34F3-9A4D-4F48-B1DB-A4D0F977C2D4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMessageBoxManager について
+
+WinMessageBoxManager™ コンポーネントによってスタイルおよびカスタマイズ可能なメッセージ ボックスを通してエンドユーザーに情報を提供することができます。 メッセージ ボックスに表示される情報は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxinfo.html[UltraMessageBoxInfo]"]  オブジェクトのインスタンスを通して定義できます。 WinMessageBoxManager コンポーネントの主要な機能は以下の通りです。
+
+* アプリケーションに合うように、Appearance オブジェクトと AppStylist を使用してスタイルします。
+* メッセージ ダイアログ ウィンドウ内のテキストは異なる色、フォントを適用する、画像を追加する、URL を設定するなどによってフォーマットできます。
+* 個別のヘッダー、コンテンツ、フッターの各セクションはカスタマイズ可能な情報の表示のために個々にフォーマットできます。
+
+== 関連トピック
+
+* link:winmessageboxmanager-working-with-winmessageboxmanager.html[WinMessageBoxManager の操作]

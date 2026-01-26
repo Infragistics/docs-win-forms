@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-display-a-checkbox-for-the-statebutton-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{C816B700-A191-4373-A2AA-A63AD501ED51}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= StateButton ツール用のチェックボックスの表示
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool.html[StateButton]"]  ツールを使用すると、ユーザーは 2 つの異なる状態を切り替えるツールを選択できます。StateButton をメニューに配置するときは、現在選択されている状態をユーザーに示すために、ツールの横にチェックボックスを表示しなければならない場合があります。
+
+ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool~menudisplaystyle.html[MenuDisplayStyle]"]  プロパティは、デザインタイムまたはランタイムのどちらでも設定できます。デザインタイムには、UltraToolbarsManager を右クリックして ［ユーザー設定］ を選択します。[ツール] タブに移動し、StateButton ツールをまだ追加していなければ新規に追加します。ツールを選択してから、右側の MenuDisplayStyle プロパティを「DisplayCheckmark」に変更します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub DisplayaCheckboxforStateButtonTool_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 状態ボタン ツールとメニュー ツールを作成します。
+	Dim statebuttontool1 As New StateButtonTool("Align")
+	Dim menu1 As New PopupMenuTool("Layout")
+	' 各ツールにキャプションを設定します。
+	menu1.SharedProps.Caption = "Layout"
+	statebuttontool1.SharedProps.Caption = "Align"
+	' Add the tools to the Tool collection
+	Me.UltraToolbarsManager1.Tools.Add(statebuttontool1)
+	Me.UltraToolbarsManager1.Tools.Add(menu1)
+	' 状態ボタン ツールをメニューに追加します。
+	menu1.Tools.Add(statebuttontool1)
+	' メニュー ツールをメイン メニュー バーに追加します。
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(menu1)
+	' イメージではなくチェックボックスを表示するために表示スタイルを設定します。
+	statebuttontool1.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void DisplayaCheckboxforStateButtonTool_Load(object sender, System.EventArgs e)
+{
+	// 状態ボタン ツールとメニュー ツールを作成します。
+	StateButtonTool statebuttontool1 = new StateButtonTool("Align");
+	PopupMenuTool menu1 = new PopupMenuTool("Layout");
+	// 各ツールにキャプションを設定します。
+	menu1.SharedProps.Caption = "Layout";
+	statebuttontool1.SharedProps.Caption = "Align";
+	// ツールを Tool コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(statebuttontool1);
+	this.ultraToolbarsManager1.Tools.Add(menu1);
+	// 状態ボタン ツールをメニューに追加します。
+	menu1.Tools.Add(statebuttontool1);
+	// メニュー ツールをメイン メニュー バーに追加します。
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(menu1);
+	// イメージではなくチェックボックスを表示するために表示スタイルを設定します。
+	statebuttontool1.MenuDisplayStyle = StateButtonMenuDisplayStyle.DisplayCheckmark;
+}
+----

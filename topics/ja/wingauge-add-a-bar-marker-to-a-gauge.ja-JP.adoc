@@ -1,0 +1,179 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-add-a-bar-marker-to-a-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{D2EC7150-5936-4FCC-B9A2-7EFE05804379}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= バー マーカーをゲージに追加
+
+バー マーカーは、スケールに開始点と終了点を持つバーとして表示されます。
+
+[NOTE]
+====
+*注：* このトピックは、リニア ゲージを作成済みであることを前提としています。作成方法については、pick:[win-forms="link:wingauge-getting-started-with-wingauge.html[「WinGauge で開始」]"] を参照してください。
+====
+
+以下でバー マーカーをゲージに追加できます。
+
+* <<gaugeDesigner,ゲージ デザイナを使用して>>
+* <<designTime,デザインタイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、ゲージは以下のゲージのようになります。
+
+image::images/Gauge_How_Do_I_Add_Bar_Marker_01.png[]
+
+[[gaugeDesigner]]
+*ゲージ デザイナを使用してバー マーカーを既存のリニア ゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラで、[マーカー] を展開します。
+[start=2]
+. [マーカーの追加] をクリックして、[新しいバー マーカー] を選択します。
+[start=3]
+. link:wingauge-properties-panel.html[[プロパティ] パネル]で、 link:wingauge-bar-marker-layout-tab.html[[バー マーカー レイアウト] タブ]をクリックします。 link:wingauge-bar-marker-extent-pane.html[[範囲] ペイン]で、以下のプロパティを設定します。
+
+** 内側 -- 10
+** 外側 -- 70
+
+[start=4]
+. [バー マーカー レイアウト] タブの link:wingauge-bar-marker-value-pane.html[[値] ペイン]で、以下のプロパティを設定します。
+
+** 値 -- 65
+
+[start=5]
+. link:wingauge-appearance-tab.html[[外観] タブ]をクリックします。 link:wingauge-brush-pane.html[[ブラシ] ペイン]で、以下のプロパティを設定します。
+
+** タイプ -- 単色
+** 色 -- 赤
+
+[[designTime]]
+*デザインタイムにバー マーカーを既存のリニア ゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ コレクション エディタ内で、[リニア ゲージ] をクリックします。
+[start=2]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargauge~scales.html[Scales]"]  プロパティを指定して、省略記号（…）をクリックして、スケール コレクション エディタを起動します。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugescale~markers.html[Markers]"]  プロパティを指定して、省略記号（…）をクリックして、マーカー コレクション エディタを起動します。
+[start=4]
+. [追加] をクリックして、[バー マーカーを追加] を選択します。
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.brushelement.html[BrushElement]"]  プロパティを指定します。BrushElement ドロップダウン リストから、[単色塗りつぶし] を選択します。これによって、新しい単色塗りつぶしブラシ エレメントが作成されます。
+[start=6]
+. 新しく作成された BrushElement プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを指定します。Color プロパティを Red に設定します。
+[start=7]
+. 以下のプロパティを設定します。
+
+** InnerExtent -- 10
+** OuterExtent -- 70
+** 値 -- 65
+
+[[runTime]]
+*ランタイムにバー マーカーをゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myLinearGauge As LinearGauge = Me.UltraGauge1.Gauges(0)
+Dim myScale As LinearGaugeScale = myLinearGauge.Scales(0)
+Dim myBarMarker As New LinearGaugeBarMarker()
+Dim mySolidFillBrushElement As New SolidFillBrushElement()
+----
+
+*C# の場合：*
+
+----
+LinearGauge myLinearGauge = this.ultraGauge1.Gauges[0] As LinearGauge;
+LinearGaugeScale myScale = myLinearGauge.Scales[0];
+LinearGaugeBarMarker myBarMarker = new LinearGaugeBarMarker();
+SolidFillBrushElement mySolidFillBrushElement = new SolidFillBrushElement();
+----
+
+[start=4]
+. 以下の色のプロパティを設定します。
+
+** タイプ -- 単色
+** 色 -- 赤
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Red
+myMarker.BrushElement = mySolidFillBrushElement
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Red;
+myBarMarker.BrushElement = mySolidFillBrushElement;
+----
+
+[start=5]
+. 以下のプロパティを設定します。
+
+** InnerExtent -- 10
+** OuterExtent -- 70
+** 精度 -- 0
+** 値 -- 65
+
+*Visual Basic の場合：*
+
+----
+myBarMarker.InnerExtent = 10
+myBarMarker.OuterExtent = 70
+myBarMarker.Precision = 0
+myBarMarker.Value = 65
+----
+
+*C# の場合：*
+
+----
+myBarMarker.InnerExtent = 10;
+myBarMarker.OuterExtent = 70;
+myBarMarker.Precision = 0;
+myBarMarker.Value = 65;
+----
+
+[start=6]
+. バー マーカーを Scales コレクションに追加します。
+
+*Visual Basic の場合：*
+
+----
+myScale.Markers.Add(myBarMarker)
+----
+
+*C# の場合：*
+
+----
+myScale.Markers.Add(myBarMarker);
+----

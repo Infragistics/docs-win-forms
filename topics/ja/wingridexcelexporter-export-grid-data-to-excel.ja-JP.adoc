@@ -1,0 +1,163 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter-export-grid-data-to-excel",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": ["Exporting"],
+    "guid": "{4584FD12-8313-49AF-9973-C52B0BE3086C}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グリッドデータを Excel にエクスポートする
+
+WinGrid コントロールは、データを Microsoft Excel スプレッドシート形式でエクスポートできます。コレクションを実行するには WinGridExcelExporter を使用します。Excel 形式にエクスポートするプロセスは、エクスポート前にレイアウトと外観をデータにどのように適用するか、およびどのデータを含めてどのデータを除外するかを制御する点で、グリッド データを印刷するプロセスに似ています。
+
+== グリッド データを Microsoft Excel形式にエクスポート:
+
+[start=1]
+. アプリケーション内のフォームに UltraWinGrid を追加します。または、既存のアプリケーションを開き、UltraWinGrid を含むフォームを表示します。
+[start=2]
+. Visual Studio のツールボックスで UltraGridExcelExporter コンポーネントを指定してダブルクリックし、フォームに追加します。これは非表示エレメントなので、フォームのコンポーネント トレイに表示されます。
+[start=3]
+. エクスポート機能を開始するコントロール（コマンド ボタンなど）またはメニュー項目をフォームに追加します。
+[start=4]
+. エクスポートを開始するコントロールの Click イベントに、次のコードを入力します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.UltraGridExcelExporter1.Export(Me.UltraGrid1, "C:\GridData.xls")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	this.ultraGridExcelExporter1.Export(this.ultraGrid1, "C:\\GridData.xls");
+}
+----
+
+このコードは、UltraGridExcelExporter エレメントの Export メソッドを呼び出してエクスポート プロセスを開始します。このメソッドを呼び出すときは、データをエクスポートする元の UltraWinGrid と、データのエクスポート先となるファイルの名前を渡します。
+
+現在の書式設定を維持しながら、すべてのグリッド データを Excel ファイルにダンプするのみである場合は、ここで終了できます。
+[start=5]
+. エクスポート データを微調整する場合は、ExcelExporter コントロールによって発生するイベントを使用します。最初に発生するイベントは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~beginexport_ev.html[BeginExport]"]  イベントです。このイベントを使用して、すべてのエクスポート データに適用される条件を設定できます。
+
+次のコードは、BeginExport イベントの使用例を示します。このコードは Excel ワークブックに特定の名前を持つワークシートを最初に作成して、エクスポートされたデータを保持します。次に、新しく追加したワークシートにエクスポート データを取り込むため、そのワークシートをカレント ワークシートにします。最後に、新しいワークシートをアクティブにします。これで、ユーザーが XLS ファイルを開いたときにこのワークシートが最初に表示されます。
+
+*Visual Basic の場合：*
+
+----
+ Private Sub UltraGridExcelExporter1_BeginExport(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.BeginExportEventArgs) _
+  Handles UltraGridExcelExporter1.BeginExport
+	e.CurrentWorksheet = _
+	e.Workbook.Worksheets.Add("Exported Grid Data")
+	e.Workbook.ActiveWorksheet = e.CurrentWorksheet
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGridExcelExporter1_BeginExport(object sender, 
+  Infragistics.Win.UltraWinGrid.ExcelExport.BeginExportEventArgs e)
+{
+	e.CurrentWorksheet = 
+	  e.Workbook.Worksheets.Add("Exported Grid Data");
+	e.Workbook.ActiveWorksheet = e.CurrentWorksheet;
+}
+----
+
+[start=6]
+. エクスポート中に、書き出されるデータを制御するために使用できるイベントは他にもあります。次のコードは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~cellexporting_ev.html[CellExporting]"]  イベントで使用します。このコードは、エクスポートされる各セルが文字列データ型かどうかを確認します。"Owner" というワードで始まる文字列はアプリケーションからエクスポートされません。このためこのコードは、Excel ファイルに表示されるメッセージの代わりを果たします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGridExcelExporter1_CellExporting(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.CellExportingEventArgs) _
+  Handles UltraGridExcelExporter1.CellExporting
+	Dim sCellType As String
+	Dim sCellContents As String
+	sCellType = e.Value.GetType().FullName
+	If sCellType = "System.String" Then
+		sCellContents = e.Value
+		If sCellContents.StartsWith("Owner") = True Then
+			e.Value = "Position Confidential data $$*$$NOT$$* $$ exported."
+		End If
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGridExcelExporter1_CellExporting(object sender, 
+  Infragistics.Win.UltraWinGrid.ExcelExport.CellExportingEventArgs e)
+{
+	string sCellType = e.Value.GetType().FullName;
+	if (sCellType == "System.String") 
+	{
+		string sCellContents = e.Value.ToString();
+		if (sCellContents.StartsWith("Owner")) 
+		{
+			e.Value = "Position Confidential data $$*$$NOT$$* $$ exported.";
+		}
+	}
+}
+----
+
+[start=7]
+. CellExporting イベント（またはその他の ...Exporting イベント）を使用すると、Excel ファイルに書き込まれる前のグリッド データにアクセスできます。これにより、事前処理を実行できます。CellExported イベントを使用して、ファイルにデータが書き込まれた後の事後処理を実行することもできます。たとえば次のコードは、Excel ワークシート内の偶数行のセルの下側に、二重線の境界線スタイルを適用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGridExcelExporter1_CellExported(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.ExcelExport.CellExportedEventArgs) _
+  Handles UltraGridExcelExporter1.CellExported
+	If e.CurrentRowIndex Mod 2 = 0 Then
+		Dim cfCellFmt As Infragistics.Documents.Excel.IWorksheetCellFormat
+		Dim iRdex As Integer
+		Dim iCdex As Integer
+		iRdex = e.CurrentRowIndex
+		iCdex = e.CurrentColumnIndex
+		' 現在のセルの CellFormat オブジェクトへの参照を取得します。
+		cfCellFmt = _
+		e.CurrentWorksheet.Rows(iRdex).Cells(iCdex).CellFormat
+		' 下の境界線の書式オブジェクト プロパティを設定します。
+		cfCellFmt.BottomBorderStyle = _
+		Infragistics.Documents.Excel.CellBorderLineStyle.Double
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGridExcelExporter1_CellExported(object sender, 
+  Infragistics.Win.UltraWinGrid.ExcelExport.CellExportedEventArgs e)
+{
+	if(e.CurrentColumnIndex%2==0)
+	{
+		Infragistics.Documents.Excel.IWorksheetCellFormat cfCellFmt;
+		int iRdex = e.CurrentRowIndex;
+		int iCdex = e.CurrentColumnIndex;
+		// 現在のセルの CellFormat オブジェクトへの参照を取得します。
+		cfCellFmt = 
+		e.CurrentWorksheet.Rows[iRdex].Cells[iCdex].CellFormat;
+		// 下の境界線の書式オブジェクト プロパティを設定します。
+		cfCellFmt.BottomBorderStyle = 
+		Infragistics.Documents.Excel.CellBorderLineStyle.Double;
+	}
+}
+----

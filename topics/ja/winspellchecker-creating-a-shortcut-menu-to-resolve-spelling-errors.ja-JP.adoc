@@ -1,0 +1,310 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-creating-a-shortcut-menu-to-resolve-spelling-errors",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["How Do I","Validation"],
+    "guid": "{0BE9E30D-377C-475D-BFF1-528FF870156C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スペルミスを解決するためにショートカット メニューを作成する
+
+== 始める前に
+
+WinSpellChecker コンポーネントは、ショートカット メニューで Microsoft® Word のスペルチェック オプションと同様の機能を提供します。Word のショートカット メニューとは異なる見栄えと機能の同じショートカット メニューを作成することもできます。これが {ProductName} コントロールおよびコンポーネントのパワーと柔軟性です。WinSpellChecker コンポーネントと共に、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.igcontrols.igcontextmenu.html[IGContextMenu]"]  コントロールを使用します。いいえ、これはツールボックスにはありません。これはスタイルすることが可能なシンプルなショートカット メニューで、この状況にぴったりです。使用する最後のコントロールは、インボックス RichTextBox コントロールです。他のスペルチェックが可能なコントロールを実際に使用することができますが、この詳細なガイドのためには RichTextBox コントロールを使用します。
+
+== 達成すること
+
+この詳細なガイドは、複数のスペルチェック オプションを持つショートカット メニューを作成する手順を紹介します。このショートカット メニューは、[すべてを無視] および [辞書に追加] などのオプションによって、後続のスペルに誤りのあるワードに対して最大 5 つの修正候補を含みます。ユーザー辞書は、この詳細なガイドで推奨されます（必須ではありません）。完了したら、これに似た RichTextBox コントロールにショートカット メニューができます。
+
+image::images/WinSpellChecker_Creating_a_Shortcut_Menu_to_Resolve_Spelling_Errors_01.png[]
+
+== 以下の手順を実行します。
+
+[start=1]
+. コードの記述を開始する前にコードビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.IGControls
+Imports Infragistics.Win.UltraWinSpellChecker
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.IGControls;
+using Infragistics.Win.UltraWinSpellChecker;
+----
+
+[start=2]
+. *フォームを設定します。*
+
+コードを書く前に必要となるコントロールとコンポーネントをフォームに追加する必要があります。スペルチェックするテキストのブロックも必要です。フォームに RichTextBox コントロールを追加し、その Dock プロパティを Fill に設定します。次に、フォームに WinSpellChecker コンポーネントを追加します（コンポーネント トレイに表示されます）。RichTextBox の SpellCheckerSettings の Enabled プロパティを True に設定します。RichTextBox の Text に以下のテキストのブロックを使用します（詳細なガイドの目的のため、一部のワードは意図的にスペルミスがあります）。
+
+[source]
+----
+This toppic will help you create a context memu to use on a richtextbox that will offer speling sugestions and other spelling related feachures when a mispelled word is right-clicked. The context menu will contain up to five sugestions for the mispelled word as well as the options to Ignor or Add to Dictionary.
+----
+
+[start=3]
+. *グローバル変数と Load イベントを初期化します。*
+
+すべてのメソッドとイベントがそれらにアクセスできるように作成する必要がある 2 つの変数があります。最初はショートカット メニュー自体で、2 番目はスペル エラー オブジェクトです。[コード ビュー] に移動し、すべての事前に生成されたコードの後に以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+' richtextbox のコンテキスト メニューと
+' エラー オブジェクトを作成します。
+Dim shortcut As New IGContextMenu()
+Dim spellingError As [Error]
+----
+
+*C# の場合：*
+
+----
+// richtextbox のコンテキスト メニューと
+// エラー オブジェクトを作成します。
+IGContextMenu menu = new IGContextMenu();
+Error spellingError;
+----
+
+グローバル編集のすぐ後ろに、Load イベントを追加します。デザイン ビューのフォームのヘッダをダブルクリックしてこれを行うことができます。Load イベントで 3 行のコードを追加します。コードの最初の行は、ショートカット メニューのスタイルを設定するので、Word 2003 ショートカット メニューのように見えます。コードの 2 行目は、RichTextBox のショートカット メニューを以前に作成したショートカット メニューに設定します。コードの 3 行目はユーザー辞書を設定します。希望があれば、このプロジェクトがユーザー辞書に関係ない場合、コードの 3 行目を省略できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' Microsoft Word 2003 のように見せるために
+	' コンテキスト メニューのスタイルを設定します。
+	Me.shortcut.Style = MenuStyle.Office2003
+	' richtextbox のコンテキスト メニューが 
+	' 以前に作成したコンテキスト メニューになるように設定します。
+	Me.RichTextBox1.ContextMenu = Me.shortcut
+	' ユーザー辞書を設定します。辞書がない場合、
+	' この行は除外して、ユーザー辞書を
+	' 後でテストします。 
+	Me.UltraSpellChecker1.UserDictionary = "C:\chris\chris.dict"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	// Microsoft Word 2003 のように見せるために
+	// コンテキスト メニューのスタイルを設定します。
+	this.menu.Style = MenuStyle.Office2003;
+	// richtextbox のコンテキスト メニューが 
+	// 以前に作成したコンテキスト メニューになるように設定します。
+	this.richTextBox1.ContextMenu = this.menu;
+	// ユーザー辞書を設定します。辞書がない場合、 
+	// この行は除外して、ユーザー辞書を
+	// 後でテストします。
+	this.ultraSpellChecker1.UserDictionary = @"C:\chris\chris.dict";
+}
+----
+
+[start=4]
+. *ショートカット メニューを移植するメソッドを作成します。*
+
+このメソッドでは、Suggestions コレクションから最大 5 つのスペル修正候補があるショートカット メニューを移植します。ワードを右クリックして発生することを無視するオプションを追加し、ユーザー辞書にも追加します（ユーザー辞書が設定されている場合）。ショートカット メニューの最初の目的は、以前に右クリックしたワードの修正候補をクリアすることです。白紙の状態であれば、Suggestions コレクションからループして修正候補を追加できます。すべての修正候補を追加後、テキストの "-" の MenuItem を追加してメニューに区切り線を追加します。区切りの後、ワードのすべての発生を無視するために後で使用される [すべてを無視] ボタンを追加します。最後に、[辞書に追加] ボタンを追加すれば、ユーザー辞書に右クリックしたワードを追加できます。これは、使用されているユーザー辞書があるかどうかを確認するためのテストをすることもできます。ユーザー辞書がなければ、このボタンは役に立たず、無効になります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub PopulateContextMenu(ByVal [error] As [Error])
+	' コンテキスト メニューですべてのメニュー項目をクリアします。
+	Me.shortcut.MenuItems.Clear()
+	' WinSpellChecker に添付されている最初の 5 つのスペル修正候補
+	' でコンテキスト メニューを埋めます。
+	Dim i As Integer
+	For i = 0 To [error].Suggestions.Count - 1
+		If i = 5 Then
+			Exit For
+		End If
+		Dim menuItem As IGMenuItem = New IGMenuItem([error].Suggestions(i).ToString(), _
+		  New EventHandler(AddressOf menuItem_Click))
+		Me.shortcut.MenuItems.Add(menuItem)
+	Next i
+	' 区切りをコンテキスト メニューに追加します。
+	Dim barBreak As New IGMenuItem("-")
+	Me.shortcut.MenuItems.Add(barBreak)
+	' 右クリックしたワードのすべての発生を
+	' 無視するために後で使用するコンテキスト メニューに
+	' メニュー項目を追加します。
+	Dim ignoreAll As IGMenuItem = New IGMenuItem("Ignore All", _
+	  New System.EventHandler(AddressOf ignoreAll_Click))
+	Me.shortcut.MenuItems.Add(ignoreAll)
+	' 右クリックしたワードを
+	' ユーザー辞書に追加するために後で使用するコンテキスト メニューに
+	' メニュー項目を追加します。
+	Dim addToDictionary As New IGMenuItem("Add to Dictionary", _ 
+	  New System.EventHandler(AddressOf addToDictionary_Click))
+	Me.shortcut.MenuItems.Add(addToDictionary)
+	' ユーザー辞書がない場合、[辞書に追加] メニュー
+	' 項目を無効にします。
+	If Me.ultraSpellChecker1.UserDictionary = "" Then
+	    Me.shortcut.MenuItems(Me.shortcut.MenuItems.Count - 1).Enabled = False
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void PopulateContextMenu(Error error)
+{
+	// コンテキスト メニューですべてのメニュー項目をクリアします。
+	this.menu.MenuItems.Clear();
+	// WinSpellChecker の最初の 5 つのスペル修正候補
+	// でコンテキスト メニューを埋めます。
+	for (int i = 0; i < error.Suggestions.Count; i++)
+	{
+		if (i == 5) break;
+		IGMenuItem menuItem = new IGMenuItem(error.Suggestions[i].ToString(), 
+		  new EventHandler(this.menuItem_Click));
+		this.menu.MenuItems.Add(menuItem);
+	}
+	// 区切りをコンテキスト メニューに追加します。
+	IGMenuItem barBreak = new IGMenuItem("-");
+	this.menu.MenuItems.Add(barBreak);
+	// 右クリックしたワードのすべての発生を
+	// 無視するために後で使用するコンテキスト メニューに
+	// メニュー項目を追加します。
+	IGMenuItem ignoreAll = new IGMenuItem("Ignore All", 
+	  new EventHandler(this.ignoreAll_Click));
+	this.menu.MenuItems.Add(ignoreAll);
+	// 右クリックしたワードを
+	// ユーザー辞書に追加するために後で使用するコンテキスト メニューに
+	// メニュー項目を追加します。
+	IGMenuItem addToDictionary = new IGMenuItem("Add to Dictionary", 
+	  new EventHandler(this.addToDictionary_Click));
+	this.menu.MenuItems.Add(addToDictionary);
+	// ユーザー辞書がない場合、[辞書に追加] メニュー
+	// 項目を無効にします。
+	if (this.ultraSpellChecker1.UserDictionary == "")
+		this.menu.MenuItems[this.menu.MenuItems.Count - 1].Enabled = false;
+}
+----
+
+[start=5]
+. *RichTextBox 用の MouseDown イベントを作成します。*
+
+MouseDown イベントの内部は、WinSpellChecker にどの修正候補を取得するか、無視または辞書に追加するかを指示する場所です。右マウス ボタンがクリックされると検証によってイベントのオフを開始します。クリックされると、マウスの X および Y 座標が検索され、新しい Point が作成されます。この Point は WinSpellChecker コンポーネントの GetErrorAtPoint メソッドに渡されます。この詳細なガイドの最初で作成したスペルエラー オブジェクトを覚えていますか？ここで、GetErrorAtPoint メソッドで新しい Error にこれを設定します。このメソッドは 2 つのパラメータを取ります。スペルチェックするオブジェクト（このケースでは RichTextBox）およびスペルチェックされるワードの座標（マウスの X および Y 座標から作成した Point）です。指定したポイントでエラーがなければ、メソッドは Null/Nothing を返します。メソッドが Null を返すと、ショートカット メニューをクリアし、ショートカット メニューが表示されることを防止します。メソッドが Null を返さない場合、手順 3 で作成した PopulateContextMenu メソッドに GetErrorAtPoint メソッドから取得した Error を渡します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub RichTextBox1_MouseDown(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) Handles RichTextBox1.MouseDown
+	If e.Button = MouseButtons.Right Then
+		' spellingError の新しいポイントを作成し、
+		' そのポイントでスペルエラーを取得するために使用します。このポイントは
+		' マウス座標になります。
+		Dim point As New Point(e.X, e.Y)
+		' マウスの座標でスペルエラーを取得します。
+		Me.spellingError = Me.UltraSpellChecker1.GetErrorAtPoint(Me.RichTextBox1, point)
+		' 指定した座標にスペルエラーがない場合、
+		' コンテキスト メニューをクリアしてキャンセルします。
+		If spellingError Is Nothing Then
+			Me.shortcut.MenuItems.Clear()
+			Return
+		Else
+			Me.PopulateContextMenu(spellingError)
+		End If
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void richTextBox1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+{			
+	if (e.Button == MouseButtons.Right)
+	{
+		// spellingError の新しいポイントを作成し、
+		// そのポイントでスペルエラーを取得するために使用します。このポイントは
+		// マウス座標になります。
+		Point point = new Point(e.X,e.Y);
+		// マウスの座標でスペルエラーを取得します。
+		this.spellingError = this.ultraSpellChecker1.GetErrorAtPoint(this.richTextBox1, point);
+		// 指定した座標にスペルエラーがない場合、
+		// コンテキスト メニューをクリアしてキャンセルします。
+		if (spellingError == null)
+		{
+			this.menu.MenuItems.Clear();
+			return;
+		}
+		else this.PopulateContextMenu(spellingError);
+	}
+}
+----
+
+[start=6]
+. *ショートカット メニューで MenuItems の Click イベントを作成します。*
+
+最後の手順は、修正候補ボタン、[すべてを無視] ボタン、および [辞書に追加] ボタン用の Click イベントを作成することです。[すべてを無視] ボタンおよび [辞書に追加] ボタンは基本的に自己説明型です。ただし、修正候補の Click イベントは、何が起こっているかを理解すれば考えるよりも簡単です。これらの Click イベントは、PopulateContextMenu メソッドで作成したイベント ハンドラを使用します。ご存知のように、新しい IGMenuItems を作成した時に、項目名と EventHandler の 2 つのパラメータを渡しました。これらのイベントで行う必要がある最初のことは、新しい IGMenuItems を宣言して送る側のオブジェクトを表すことです。表すことができれば、送る側（menuItem としても知られている）のテキストは、オリジナルの右クリックしたワードのテキストを置き換えるために使用されます。行うことは、RichTextBox の Select メソッドでオリジナルのワードのテキストを選択です。選択したテキストを SelectedText メソッドを使用して menuItem のテキストに設定します。以下の修正候補の 3 つの Click イベント、[すべてを無視]、および [辞書に追加] を RichTextBox の MouseDown イベントの後のプロジェクトに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub menuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
+	Dim menuItem As IGMenuItem = sender
+	Dim selectSpellingError As Integer = _
+	  (Me.spellingError.EndIndex - Me.spellingError.StartIndex) + 1
+	' Select メソッドは、このオーバーライドで 2 つの引数を取ります。
+	' 選択の開始インデックスと選択の長さです。
+	' プロパティ テキストが選択されると、ユーザーがクリックした
+	' メニュー項目のテキストで置き換えられます。
+	Me.RichTextBox1.Select(Me.spellingError.StartIndex, selectSpellingError)
+	Me.RichTextBox1.SelectedText = menuItem.Text
+End Sub
+Private Sub ignoreAll_Click(ByVal sender As Object, ByVal e As EventArgs)
+	' 右クリックしたワードのすべての発生を無視します。
+	Me.UltraSpellChecker1.IgnoreAll(Me.spellingError.CheckedWord.ToString())
+End Sub
+Private Sub addToDictionary_Click(ByVal sender As Object, ByVal e As EventArgs)
+	' 右クリックしたワードをユーザー辞書に追加します。
+	Me.UltraSpellChecker1.AddWordToUserDictionary(Me.spellingError.CheckedWord.ToString())
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void menuItem_Click(object sender, EventArgs e)
+{
+	IGMenuItem menuItem = sender as IGMenuItem;
+	int selectSpellingError = 
+	  (this.spellingError.EndIndex - this.spellingError.StartIndex) + 1;
+	// Select メソッドは、このオーバーライドで 2 つの引数を取ります。
+	// 選択の開始インデックスと選択の長さです。
+	// プロパティ テキストが選択されると、ユーザーがクリックした
+	// メニュー項目のテキストで置き換えられます。
+	this.richTextBox1.Select(this.spellingError.StartIndex, selectSpellingError);
+	this.richTextBox1.SelectedText = menuItem.Text;
+}
+private void ignoreAll_Click(object sender, EventArgs e)
+{
+	// 右クリックしたワードのすべての発生を無視します。
+	this.ultraSpellChecker1.IgnoreAll(this.spellingError.CheckedWord.ToString());
+}
+private void addToDictionary_Click(object sender, EventArgs e)
+{
+	// 右クリックしたワードをユーザー辞書に追加します。
+	this.ultraSpellChecker1.AddWordToUserDictionary(this.spellingError.CheckedWord.ToString());
+}
+----

@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmaskededit-resource-strings",
+    "controlName": [],
+    "tags": ["Editing","Localization","Resource Strings"],
+    "guid": "{246AEA9E-EC7C-4C71-B6FC-5A691F7E5EBA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMaskedEdit リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。 リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列の名前を示しています。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|LDR_InvalidTextForMask
+|インプットマスクにテキストが合っていない設定
+
+|LDR_MaxValue
+|コントロールに入力可能な最大値
+
+|LDR_MinValue
+|コントロールに入力可能な最小値
+
+|LDR_Nullable
+|マスクエディット内の空テキストの許可インジケータ
+
+|LDR_NullText
+|値が Null でコントロールにフォーカスがないときに表示されるテキスト
+
+|LDR_UltraMaskedEdit_E_ValueChanged
+|値が変更されたときに起こります
+
+|LDR_UltraMaskedEdit_P_AllowShiftingAcrossSections
+|キャラクタを削除するとき、セクション境界の向こう側にキャラクタを移動させるかどうか指定します。
+
+|LDR_UltraMaskedEdit_P_DisplayStyle
+|コントロールの総合的な外観を指定します
+
+|====

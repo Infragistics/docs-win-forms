@@ -1,0 +1,55 @@
+﻿////
+|metadata|
+{
+    "name": "wineditors-api-overview",
+    "controlName": ["WinEditors"],
+    "tags": ["API"],
+    "guid": "{9E0FF8E9-6B79-4882-882F-215387905673}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。WinEditor コントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+[cols="a,a"]
+|====
+|*WinEditors 名前空間:* +
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinEditors]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracheckeditor.html[UltraCheckEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracolorpicker.html[UltraColorPicker]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor.html[UltraComboEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracurrencyeditor.html[UltraCurrencyEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultradatetimeeditor.html[UltraDateTimeEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrafontnameeditor.html[UltraFontNameEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor.html[UltraNumericEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraoptionset.html[UltraOptionSet]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrapicturebox.html[UltraPictureBox]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratexteditor.html[UltraTextEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimezoneeditor.html[UltraTimeZoneEditor]"]
+
+|*WinCalc 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc_namespace.html[Infragistics.Win.UltraWinEditors.UltraWinCalc]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculator.html[UltraCalculator]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawincalc.ultracalculatordropdown.html[UltraCalculatorDropDown]"]
+
+|====

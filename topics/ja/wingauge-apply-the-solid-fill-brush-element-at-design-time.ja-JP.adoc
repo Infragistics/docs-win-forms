@@ -1,0 +1,39 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-solid-fill-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{98FCDDEA-A809-4ED1-815C-465CFAD794FE}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 塗りつぶしのブラシ エレメントの作成
+
+ゲージのプロパティが単色になるようにしたい場合には、単色ブラシ エレメントをプロパティに適用します。
+
+*デザインタイムに単色ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[単色塗りつぶし] を選択します。これによって、新しい単色塗りつぶしブラシ エレメントが作成されます。
+[start=5]
+. 新しく作成された BrushElement プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[Color]"]  プロパティを指定します。
+[start=6]
+. Color プロパティを黒に設定します。
+
+== 関連トピック
+
+link:wingauge-solid-brush-element.html[単色ブラシ エレメント]
+
+link:wingauge-apply-the-solid-brush-element-at-run-time.html[ランタイムに単色ブラシ エレメントを適用]
+
+link:wingauge-apply-the-solid-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用して単色ブラシ エレメントを適用]

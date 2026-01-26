@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winscheduleprintmanager-api-overview",
+    "controlName": ["WinSchedulePrintDocument"],
+    "tags": ["API","Getting Started","Scheduling"],
+    "guid": "{A02F6BE5-EE41-4043-9D2F-A5968A3AB6E2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinSchedule 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule_namespace.html[Infragistics.Win.UltraWinSchedule]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument.html[UltraSchedulePrintDocument]"]

@@ -1,0 +1,217 @@
+﻿////
+|metadata|
+{
+    "name": "win-breaking-changes-in-2012-volume-1",
+    "controlName": [],
+    "tags": ["Breaking Changes"],
+    "guid": "cb75e42c-736c-4998-b256-07cf7fa27a18",
+    "buildFlags": [],
+    "createdOn": "2012-03-30T16:05:33.5920411Z"
+}
+|metadata|
+////
+
+= 2012 Volume 1 の重大な変更
+
+== IDropDownResizeHandleOwner インタフェース
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.idropdownresizehandleowner~displaystyle.html[DisplayStyle] と呼ばれる link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableelementdisplaystyle.html[EmbeddableElementDisplayStyle] という新しいプロパティ タイプが link:{ApiPlatform}win{ApiVersion}~infragistics.win.idropdownresizehandleowner_members.html[IDropDownResizeHandleOwner] インターフェイスに追加されました。この追加プロパティは link:{ApiPlatform}win{ApiVersion}~infragistics.win.dropdownresizehandleuielement_members.html[DropDownResizeHandleUIElement] に適用される適切なスタイルを決めるために使われます。新しいプロパティは、UltraPopupControlContainer、ValueList、EditorButonBase、UltraDropDownBase を含む link:{ApiPlatform}win{ApiVersion}~infragistics.win.idropdownresizehandleowner_members.html[IDropDownResizeHandleOwner] インターフェイスを実装するものには導入されなければなりません。
+
+== Infragistics Excel Engine
+
+=== 概要
+
+以下の表で、Excel ライブラリ書式サポートの重大な変更点を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|変更|説明
+
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetcellcomment~_ctor.html[WorksheetCellComment] は link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] タイプのテキスト プロパティを定義するようになりました。
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetcellcomment~_ctor.html[WorksheetCellComment] は link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] タイプのテキスト プロパティを定義するようになり、 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext_members.html[WorksheetShapeWithText] ではなく link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshape_members.html[WorksheetShape] から得られます。この変更は、さまざまな link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext_members.html[WorksheetShapeWithText] タイプ内の link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetcellcomment~_ctor.html[WorksheetCellComment] インスタンスを保存する人にのみ影響があります。
+
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext_members.html[WorksheetShapeWithText] link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext~text.html[Text] プロパティは、 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] ではなく link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtext_members.html[FormattedText] タイプのものになりました。
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext_members.html[WorksheetShapeWithText] link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext~text.html[Text] プロパティは、 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] ではなく link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtext_members.html[FormattedText] タイプのものになりました。 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtext_members.html[FormattedText] クラスは link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] と同じ link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring~getfont.html[GetFont] メソッドを定義し、それらは link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstringfont_members.html[FormattedStringFont]の代わりに link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtextfont_members.html[FormattedTextFont] を返す以外は同じ機能を実行します。 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtextfont_members.html[FormattedTextFont] は、定義するフォント プロパティが同じである link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstringfont_members.html[FormattedStringFont] と同じ方法で使用できます。 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] クラスとは違い、 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtext_members.html[FormattedText] クラスは link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring~unformattedstring.html[UnformattedString] プロパティを持っていません。しかし、未フォーマットの文字列は link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedtext_members.html[FormattedText] インスタンス上の `ToString()` を呼ぶことで得ることができます。
+
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat_members.html[IWorksheetCellFormat] コレクションが変更されました。
+|このインターフェイスのカスタム実装をする場合、これはビルド エラーの原因となります。
+
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworkbookfont_members.html[IWorkbookFont] インターフェイスが変更されました。
+|このインターフェイスのカスタム実装をする場合、これはビルド エラーの原因となります。
+
+|組み込みのスタイル名による Workbook Styles コレクションへのインデックス付けはもう正しく機能しません。
+|組み込みのスタイルの名前が Microsoft Excel で使用される機能を反映するために変更されました。以前のバージョンで、組み込みのスタイルを保存して、スタイル名による Styles コレクションへのインデックス付けをして、既存のファイルを読み込んだ場合、コードは有効な `WorkbookStyle` インスタンスを返していましたが、今後は null を返す場合があります。 場合によっては、コードが壊れてランタイム エラーが発生する可能性があります。
+
+|ワークブック パレットは自動的に生成されません。
+|今回、ワークブック パレットは自動的に生成されません。詳細は、以下の<<_Ref320781747, ワークブック パレット自動生成の廃止 >>を参照してください。
+
+| link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.workbook~styles.html[Styles] コレクションは事前に生成されます。
+|`Styles` コレクションはすべての組み込みのスタイルで事前に生成され、コレクションをクリアすると、以前のバージョンで削除されたように _Normal_ スタイルは削除されません。
+
+|`WorkbookPaletteMode` の列挙は廃止とマークされました。
+|`WorkbookPaletteMode` の列挙と、 `WorkbookPaletteMode` をとる `Workbook` コンストラクタは廃止とマークされました。 
+
+`WorkbookPaletteMode` を取得する `Workbook` コンストラクターが使用されると、値が無視されます。
+
+|`FillPatternStyle.Default` は廃止とマークされました。
+|`FillPatternStyle` `Default` 値は廃止とマークされました。不要とされた `IWorksheetCellFormat.FillPattern` プロパティは未設定値を示すためにまだ使うことができます。
+
+|`IWorksheetCellFormat` と `IWorkbookFont` インターフェイス上のカラー プロパティは、廃止とマークされました。
+|`IWorksheetCellFormat` と `IWorkbookFont` インターフェイス上のカラー プロパティは、廃止とマークされました。古いプロパティを設定すると、新しいプロパティを同等に値に設定します。 
+
+詳細は、以下の <<_Ref320781793, 廃止されたカラー プロパティ >>を参照してください。
+
+|`IWorksheetCellFormat` インスタンスの塗りつぶし関連のプロパティは廃止されました。
+|`IWorksheetCellFormat` インスタンスの塗りつぶし関連のプロパティは廃止となり、`IWorksheetCellFormat` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat~fill.html[Fill] プロパティによってすべて置き換えられました。 
+
+詳細は、以下の <<_Ref320781827, 廃止された CellFormat >> を参照してください。
+
+|`Workbook.DefaultFontHeight` プロパティは廃止されました。
+|`Workbook` `DefaultFontHeight` プロパティは廃止されました。既定のフォントの高さをワークブックの _Normal_ スタイルで設定できることは今回冗長となっています。古いプロパティを設定および取得すると、 _Normal_ スタイルのフォントの高さを設定および取得します。
+
+|`Workbook.MaxExcelColorCount` コンスタントは廃止されました。
+|`Workbook` `MaxExcelColorCount` 定数は廃止されました。ワークブックで使用可能な一意の色の数は制限されなくなりました。
+
+|セルの値が link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring_members.html[FormattedString] のとき、関連付けられたフォントは完全に解決されなければなりません。
+|FormattedString がセルの値である場合、FormattedString インスタンスの link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedstring~getfont.html[GetFont] メソッド付で得られたそれに関連するフォントはそれらのフォントに対し完全な解決をしていなければなりません。
+
+|`FormattedString` がセルの値であり、フォント プロパティがセルで変更されるとき、フォントプロパティは `FormattedString` の完全なコピーとなります。
+|`FormattedString` がセルの値であり、フォント プロパティがセルで変更されるとき、フォントプロパティは `FormattedString` の完全なコピーとなります。 
+
+たとえば、セル内のフォーマットされた文字列が、 _F_ *o* _r_ *m* _a_ *t* _t_ *e* _d_ *S* _t_ *r* _i_ *n* _g_ のようだったとすると、`cell.CellFormat.Font.Bold` 値は `True` に設定され、セル内のフォーマットされた文字列は、*_F_ o _r_ m _a_ t _t_ e _d_ S _t_ r _i_ n _g_* のようになります。Excel の機能をより模倣するためにこの変更が行われました。
+
+|ワークブックの既定のフォントは現在 Calibri 11 pt です。
+|ワークブックの既定のフォントはもはや Arial 10 pt ではなく、Calibri 11 pt です。 
+
+作成された後でワークブックの _Normal_ スタイルを修正することによってこれを変更して戻すことができます。
+
+|====
+
+[[_Ref320781747]]
+
+=== ワークブック パレット自動生成の廃止
+
+これまで、ワークブックが作成された場合にデフォルトでカスタム パレット モードが使用されていました。つまり、セル書式で設定された色とフォントがパレットに自動的に追加されていました。
+
+12.1 では、ワークブック パレットは自動的に生成されません。カスタム カラーが使用され、Excel 2003 またはそれ以前のバージョンでファイルを開くと、ユーザーは使用された色を見ることはできません。ファイル作成時にカラー パレットに存在した最も近い色が表示されます。
+
+これは、ワークブックを保存する前にワークブックのパレットで使用した色を手動で追加することで修正できます。これは Microsoft Excel 2007 または以降のバージョンでは問題ありません。
+
+[[_Ref320781793]]
+
+=== 廃止された Color プロパティ
+
+以下の Color プロパティのセットが廃止とマークされました。古いプロパティを設定すると、新しいプロパティを同等に値に設定します。古いプロパティを取得すると、ユーザーに表示される実際の色を取得します。
+
+[options="header", cols="a,a"]
+|====
+|廃止されたプロパティ|新しいプロパティ
+
+|`FormattedFontBase.Color`
+|`FormattedFontBase` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.formattedfontbase~colorinfo.html[ColorInfo]
+
+|`IWorkbookFont.Color`
+|`IWorkbookFont` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworkbookfont~colorinfo.html[ColorInfo]
+
+|`IWorksheetCellFormat.BottomBorderColor`
+|`IWorksheetCellFormat` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat~bottombordercolorinfo.html[BottomBorderColorInfo]
+
+|`IWorksheetCellFormat.DiagonalBorderColor`
+|`IWorksheetCellFormat` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat~diagonalbordercolorinfo.html[DiagonalBorderColorInfo]
+
+|`IWorksheetCellFormat.LeftBorderColor`
+|`IWorksheetCellFormat` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat~leftbordercolorinfo.html[LeftBorderColorInfo]
+
+|`IWorksheetCellFormat.RightBorderColor`
+|`IWorksheetCellFormat` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat~rightbordercolorinfo.html[RightBorderColorInfo]
+
+|`IWorksheetCellFormat.TopBorderColor`
+|`IWorksheetCellFormat` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.iworksheetcellformat~topbordercolorinfo.html[TopBorderColorInfo]
+
+|`WorksheetDisplayOptions.TabColor`
+|`WorksheetDisplayOptions` link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetdisplayoptions~tabcolorinfo.html[TabColorInfo]
+
+|====
+
+[[_Ref320781827]]
+
+=== IWorksheet のプロパティのセット 廃止された CellFormat
+
+`IWorksheetCellFormat` の次のプロパティは廃止されました。その機能は新しいプロパティに替えられました。
+
+++++
+<table cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <th>
+                <p>廃止されたプロパティ</p>
+            </th>
+
+            <th>
+                <p>新しいプロパティ</p>
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                <p><span class="ig-code-in-text">FillPattern</span></p>
+            </td>
+
+            <td rowspan="3">
+                <p><a href=
+                "%%ProductAssemblyName%%.Documents.Excel.v%%ProductVersionShort%%~Infragistics.Documents.Excel.IWorksheetCellFormat~Fill.html">
+                Fill</a></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><span class="ig-code-in-text">FillPatternBackgroundColor</span></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><span class="ig-code-in-text">FillPatternForegroundColor</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table><br />
+++++
+
+古いプロパティをデフォルトではない値に設定すると、設定された値に対応する link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.cellfillpattern_members.html[CellFillPattern] インスタンスに `Fill` プロパティを設定します。プロパティを取得すると、現在の `Fill` プロパティ値から最も近い一致する色を取得します。`CellFillPattern` インスタンスの場合、これらは正確な値となりますが、新しいグラデーションの塗りつぶしが使用される場合、古いプロパティは最初のグラデーション境界の背景色でベタ一色の塗りつぶしを反映します。
+
+[[_Ref320017114]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:excelengine-excel-format-support.html[Excel 書式設定のサポート]
+|このトピックは、セル書式に対する Infragistics Excel ライブラリのサポートを説明します。
+
+| link:excelengine-excel-2007-color-model.html[Excel 2007 カラー モデル]
+|このトピックは、さまざまなセル書式プロパティで色を設定する方法を説明します。
+
+| link:excelengine-using-the-infragistics-excel-engine.html[Infragistics Excel Engine の使用]
+|このセクションでは、Infragistics Excel Engine が提供する様々な特徴と機能を効果的に使用するための、タスク ベースの重要な情報について説明します。
+
+|====
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+|新しいカラー モデル
+|このサンプルは、セル書式の新しい色モデルを紹介します。RGB 色を指定して、セル書式のすべての色プロパティに濃淡値を指定できます。セルで線状グラデーションと矩形グラデーションを使用できます。
+
+|====

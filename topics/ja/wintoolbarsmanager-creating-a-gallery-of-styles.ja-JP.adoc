@@ -1,0 +1,391 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-creating-a-gallery-of-styles",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Styling"],
+    "guid": "{75D5417A-3380-41E2-85F9-D9712F7C30AF}",  
+    "buildFlags": [],
+    "createdOn": "2006-06-10T10:52:25Z"
+}
+|metadata|
+////
+
+= スタイルのギャラリーを作成
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.comにお問い合わせください。
+====
+
+== 始める前に
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool.html[PopupGalleryTool]"]  の目的は、エンド ユーザーが素早く表示および選択する視覚的な項目のコレクションを紹介することです。PopupGalleryTool は、プレビューおよびプレビュー上でドロップダウンを表示します。プレビューで一度に表示できるのは、一部の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.gallerytoolitem.html[GalleryToolItems]"]  のみですが、スクロールすることができます。ドロップダウンは、一度に複数の GalleryToolItems を表示できますが、より多くの項目またはより少ない項目を表示するようにサイズを変更することもできます。
+
+オリジナルの Popup Gallery は、スタイル ギャラリーとしてマイクロソフトの Office 2007 リボンで使用されます。このギャラリーはどのスタイルをテキストに適用できるかをエンド ユーザーに示します。ギャラリー項目は、スタイルのサンプルそしてどのスタイルであるかを下側に示すキャプション付きで表示されます。これらのギャラリー項目はシンプルなスタイル画像です。これらの画像作成の唯一の困難な部分は、これらのスタイルをエミュレートする WinFormattedLinkLabel コントロールの画像をキャプチャする必要があることです。スタイルの画像が準備できれば、画像の下にキャプションを追加できます。
+
+== 達成すること
+
+この詳細なガイドは PopupGalleryTool の作成とそれに複数の項目を追加する手順を説明します。PopupGalleryTool を項目で完成すれば、WinFormattedLinkLabel コントロールで作成したスタイルに基づく項目に画像を追加します。これは文字通りコントロールのスクリーンショットを撮る方法の作成に関わります。このケースでは、WinFormattedLinkLabel コントロールです。このメソッドは、画像の下に配置するためにスクリーンショットを撮るためのコントロール、スタイルの文字列、そしてキャプション用の文字列を受け付けます。このメソッドは GalleryToolItem 用の画像として使用可能なビットマップを返します（これは手順 4 で詳細を説明します）。
+
+[NOTE]
+====
+*注：* この詳細なガイドは、タブ内の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbontab.html[RibbonTab]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbongroup.html[RibbonGroup]"]  付きのフォームにリボンがあると想定しています。そうでなければ、詳細は link:wintoolbarsmanager-add-a-group-to-a-ribbon-tab.html[「リボン タブにグループを追加」]を参照してください。
+====
+
+== 次の手順を実行します
+
+[start=1]
+. コードの記述を開始する前にコードビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinToolbars
+Imports Infragistics.Win.Misc
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinToolbars;
+using Infragistics.Win.Misc;
+----
+
+[start=2]
+. スタイル ギャラリー自体を作成し、それをメインの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolscollection.html[Tools]"]  コレクションに追加し、さらにグループの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ribbongroup~tools.html[Tools]"]  コレクションに追加する必要があります。こうすれば、動作を制限するギャラリーで複数のプロパティを設定できます。これらのプロパティの詳細は触れませんが、プロパティの説明および変更点についてはコードのコメントを読んでください。FormLoad イベントに、次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい PopupGalleryTool を作成します。
+Dim styleGallery As PopupGalleryTool = New PopupGalleryTool("StyleGallery")
+' 新しい PopupGalleryTool をメインの Tools コレクションに追加します。
+Me.UltraToolbarsManager1.Tools.Add(styleGallery)
+' 新しい PopupGalleryTool をグループの Tools コレクションに追加します。
+Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools.
+  AddTool("StyleGallery")
+----
+
+*C# の場合：*
+
+----
+// 新しい PopupGalleryTool を作成します。
+PopupGalleryTool styleGallery = new PopupGalleryTool("StyleGallery");
+// 新しい PopupGalleryTool をメインの Tools コレクションに追加します。
+this.ultraToolbarsManager1.Tools.Add(styleGallery);
+// 新しい PopupGalleryTool をグループの Tools コレクションに追加します。
+this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools.
+  AddTool("StyleGallery");
+----
+
+[start=3]
+. これでスタイル ギャラリーが作成されました。いくつかの項目を作成し、ギャラリー内部に配置する必要があります。以下のコードは 5 つの GalleryToolItems を作成し、それらを PopupGalleryToolの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.gallerytoolitemcollection.html[Items]"]  コレクションに追加します。以下のコードを FormLoad イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+' スタイル情報を表示する 5 つのギャラリー項目を作成します。
+Dim normalItem As GalleryToolItem = New GalleryToolItem("Normal")
+Dim emphasisItem As GalleryToolItem = New GalleryToolItem("Emphasis")
+Dim heading1Item As GalleryToolItem = New GalleryToolItem("Heading 1")
+Dim heading2Item As GalleryToolItem = New GalleryToolItem("Heading 2")
+Dim titleItem As GalleryToolItem = New GalleryToolItem("Title")
+' 5 つのギャラリー項目をギャラリーの Items コレクションに追加します。
+styleGallery.Items.AddRange(New GalleryToolItem() {normalItem,_
+                                                   emphasisItem,_
+                                                   heading1Item,_
+                                                   heading2Item,_
+                                                   titleItem})
+' スタイルはフォーマットされたテキストを入れることができる 
+' 特定の状態と考慮されるので、通常のボタンではなくスタイル 
+' ギャラリー状態ボタンにすべての項目を作成します。この方法
+' で、スタイル情報を収集するために WinFormattedTextEditor
+' の EditStateChanged イベントを使用することを後で決定した場合、
+' 正しい状態ボタンを選択してカーソルが置かれているテキストの
+' スタイルを表示できます。
+styleGallery.ItemStyle = ItemStyle.StateButton
+' 項目のキャプションは常にドロップダウンで表示されるので、 
+' 表示からすべてのテキストを削除する必要があります。
+' テキストはプレビュー領域には表示されません。表示したい
+' すべては常に画像です。
+styleGallery.ShowItemText = ShowGalleryItemText.Never
+' 以下のプロパティを設定すれば、プレビューとドロップダウン
+' の両方で一度で表示される列が 4 つ以上にも 4 つ未満にもなりません。 
+' もちろん、アプリケーションの要件に基づいてこれを
+' 変更できます。
+styleGallery.MinPreviewColumns = 4
+styleGallery.MaxPreviewColumns = 4
+styleGallery.MinDropDownColumns = 4
+styleGallery.MaxDropDownColumns = 4
+----
+
+*C# の場合：*
+
+----
+// スタイル情報を表示する 5 つのギャラリー項目を作成します。
+GalleryToolItem normalItem   = new GalleryToolItem("Normal");
+GalleryToolItem emphasisItem = new GalleryToolItem("Emphasis");
+GalleryToolItem heading1Item = new GalleryToolItem("Heading 1");
+GalleryToolItem heading2Item = new GalleryToolItem("Heading 2");
+GalleryToolItem titleItem    = new GalleryToolItem("Title");
+// 5 つのギャラリー項目をギャラリーの Items コレクションに追加します。
+styleGallery.Items.AddRange(new GalleryToolItem[] {normalItem,
+                                                   emphasisItem,
+                                                   heading1Item,
+                                                   heading2Item,
+                                                   titleItem});
+// スタイルはフォーマットされたテキストを入れることができる 
+// 特定の状態と考慮されるので、通常のボタンではなくスタイル 
+// ギャラリー状態ボタンにすべての項目を作成します。この方法
+// で、スタイル情報を収集するために WinFormattedTextEditor
+// の EditStateChanged イベントを使用することを後で決定した場合、
+// 正しい状態ボタンを選択してカーソルが置かれているテキストの
+// スタイルを表示できます。
+styleGallery.ItemStyle = ItemStyle.StateButton;
+// 項目のキャプションは常にドロップダウンで表示されるので、
+// 表示からすべてのテキストを削除する必要があります。
+// テキストはプレビュー領域には表示されません。表示したい
+// すべては常に画像です。
+styleGallery.ShowItemText = ShowGalleryItemText.Never;
+// 以下のプロパティを設定すれば、プレビューとドロップダウン
+// の両方で一度で表示される列が 4 つ以上にも 4 つ未満にもなりません。 
+// もちろん、アプリケーションの要件に基づいてこれを
+// 変更できます。
+styleGallery.MinPreviewColumns = 4;
+styleGallery.MaxPreviewColumns = 4;
+styleGallery.MinDropDownColumns = 4;
+styleGallery.MaxDropDownColumns = 4;
+----
+
+[start=4]
+. さらに説明を続ける前に、「達成すること」のセクションで説明したスクリーンショットのメソッドを作成する必要があります。このメソッドは、WinFormattedLinkLabel のスクリーンショットを撮ることと、そのスクリーンショットの下にキャプションを追加するという 2 つのタスクを実行します。スクリーンショットをキャプチャする最初のタスクは非常に直接的です。
+
+.. 新しいビットマップ オブジェクトを作成し、画像情報を保持します。
+.. ビットマップから Paint イベントに引き渡すグラフィック オブジェクトを作成します。
+.. グラフィック オブジェクトを使用してビットマップ内にコントロールをペイントする WinFormattedLinkLabel コントロールの Paint イベントを発生します。
+
+次のタスクは、メソッドが実行することは、画像の下にキャプションを描画することです。上記のタスクで作成したグラフィック オブジェクトの DrawString メソッドを起動してこれを行うことができます。使用する DrawString メソッドの特定のオーバーロードは、5 つの引数を許可します。
+
+** *string* – 単純に、描画したいテキスト行です。
+** *System.Drawing.Font* – フォント ファミリ、サイズ、およびスタイルなどのテキストの特徴を定義するフォント オブジェクトです。
+** *System.Drawing.Brush* – ペインタ ブラシとしてブラシを考えます。一度に一色だけをペイントできます。ここでテキストの色を決定します。
+** *System.Drawing.RectangleF* – この四角形は、画像に配置されるテキストの場所を定義します。この引数には、四角形の場所とそのサイズが含まれます。
+** *System.Drawing.StringFormat* - 行配置と感覚などのテキスト フォーマッティング特徴を定義できます。
+
+FormLoad イベントの後に次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Dim styleImage As UltraFormattedLinkLabel = New UltraFormattedLinkLabel()
+Private Function PaintControl(ByVal control As Control,_
+                              ByVal text As String,_
+                              ByVal caption As String) As Bitmap
+	'********************** *
+	'** コントロールのペイント * *
+	'********************** *
+	' テキストのスタイルです。
+	Me.styleImage.Value = Text
+	' メソッドに渡すコントロールの次元で新しいビットマップを作成します。
+	' このケースでは、WinFormattedLinkLabel です。
+	Dim bmp As Bitmap = New Bitmap(Control.Width, Control.Height)
+	' 上記のビットマップから Graphics オブジェクトを作成します。
+	Dim g As Graphics = Graphics.FromImage(bmp)
+	' WinFormattedLinkLabel コントロールの Paint イベントを起動します。
+	' このメソッドは、Graphics オブジェクトでビットマップのコントロールを 
+	' ペイントします。 
+	Me.InvokePaint(control, New PaintEventArgs(g, New Rectangle(Point.Empty, bmp.Size)))
+	'********************** *
+	'** キャプションのペイント * *
+	'********************** *
+	' フォントの種類とサイズを定義するために Font オブジェクトを作成します。
+	Dim font As Font = New Font("Verdana", 8)
+	' Brush オブジェクトを作成し、テキストの色を定義します。
+	Dim brush As SolidBrush = New SolidBrush(Color.Gray)
+	' RectangleF オブジェクトを作成します。この四角形は場所とサイズで定義されます。
+	' 四角形の場所（PointF）は、体系が左上角のに置かれる場所です。
+	' サイズ（SizeF）は、ピクセルの
+	' 幅と高さです。
+	Dim rect As RectangleF = New RectangleF(New PointF(1, 33), New SizeF(64, 15))
+	' 新しい StringFormat オブジェクトを作成します。このオブジェクトを使用して
+	' 四角形でテキストを中央に揃えます。
+	Dim stringFormat As StringFormat = New StringFormat()
+	stringFormat.Alignment = StringAlignment.Center
+	' DrawString メソッドは、作成してキャプションを
+	' 描画したすべてのパラメータを使用します（PaintControl
+	' メソッドに渡される文字列パラメータ）。
+	g.DrawString(caption, font, brush, rect, stringFormat)
+	Return bmp
+End Function
+----
+
+*C# の場合：*
+
+----
+UltraFormattedLinkLabel styleImage = new UltraFormattedLinkLabel();
+private Bitmap PaintControl(Control control, string text, string caption)
+{
+	//********************** *
+	//** コントロールのペイント * *
+	//********************** *
+	// テキストのスタイルです。
+	this.styleImage.Value = text;
+	// メソッドに渡すコントロールの次元で新しいビットマップを作成します。
+	// このケースでは、WinFormattedLinkLabel です。
+	Bitmap bmp = new Bitmap(control.Width, control.Height);
+	// 上記のビットマップから Graphics オブジェクトを作成します。
+	Graphics g = Graphics.FromImage(bmp);
+	// WinFormattedLinkLabel コントロールの Paint イベントを起動します。
+	// このメソッドは、Graphics オブジェクトでビットマップのコントロールを 
+	// ペイントします。 
+	this.InvokePaint(control, new PaintEventArgs(g, new Rectangle(Point.Empty, bmp.Size)));
+	//********************** *
+	//** キャプションのペイント * *
+	//********************** *
+	// フォントの種類とサイズを定義するために Font オブジェクトを作成します。
+	Font font = new Font("Verdana", 8);
+	// Brush オブジェクトを作成し、テキストの色を定義します。
+	SolidBrush brush = new SolidBrush(Color.Gray);
+	' RectangleF オブジェクトを作成します。この四角形は場所とサイズで定義されます。
+	// 四角形の場所（PointF）は、体系が左上角のに置かれる場所です。
+	// サイズ（SizeF）は、ピクセルの
+	// 幅と高さです。
+	RectangleF rect = new RectangleF(new PointF(1,33), new SizeF(64,15));
+	// 新しい StringFormat オブジェクトを作成します。このオブジェクトを使用して
+	// 四角形でテキストを中央に揃えます。
+	StringFormat stringFormat = new StringFormat();
+	stringFormat.Alignment = StringAlignment.Center;
+	// DrawString メソッドは、作成してキャプションを
+	// 描画したすべてのパラメータを使用します（PaintControl
+	// メソッドに渡される文字列パラメータ）。
+	g.DrawString(caption, font, brush, rect, stringFormat);
+	return bmp;
+}
+----
+
+インスタンス化した WinFormattedLinkLabel コントロールで複数のプロパティを設定する必要もあります。そのサイズと pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcolor.html[BackColor]"]  を設定する必要があります。次のコードを FormLoad イベントの最後に追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.styleImage.Size = New Size(64, 48)
+Me.styleImage.Appearance.BackColor = Color.White
+----
+
+*C# の場合：*
+
+----
+this.styleImage.Size = new Size(64, 48);
+this.styleImage.Appearance.BackColor = Color.White;
+----
+
+[start=5]
+. これでコントロールの画像をキャプチャする方法が準備できました。GalleryToolItems にデフォルト値を設定できます。WinFormattedLinkLabel コントロールが判読できるフォーマットされたテキスト行に文字列を設定するメソッドを作成します。次に各 GalleryToolItem の画像を PrintImage メソッドに設定できます（ビットマップ オブジェクトを返すので）。以下の 3 つのパラメータを渡します。
+
+.. ペイントされるコントロール（
+
+[source]
+----
+this.styleImage/Me.styleImage
+----
+
+）
+.. 描画するテキストのフォーマットされた行
+.. 画像の下に描画するキャプション。
+
+PaintControl メソッドの後に次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Function SetStyles()
+	' 既存の PopupGalleryTool のインスタンスを作成します。
+	Dim styleGallery As PopupGalleryTool =_
+	  Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools(0)
+	' 通常の GalleryToolItem のフォーマットされたテキストを作成します。
+	Dim normalText As String =_
+	  "<p style='height:56px; color:black; font-family:calibri; text-smoothing-mode:antialias; font-size:12pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>"
+	' 通常のフォーマットされたテキストを使用して、
+	' GalleryToolItem の PaintControl を起動します。
+	styleGallery.Items(0).Settings.Appearance.Image =_
+	  Me.PaintControl(Me.styleImage, normalText, "Normal")
+	' GalleryToolItem を強調します。
+	Dim emphasisText As String =_
+	  "<p style='color:black; font-style:italic; font-family:calibri; text-smoothing-mode:antialias; font-size:12pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>"
+	styleGallery.Items(1).Settings.Appearance.Image =_
+	  Me.PaintControl(Me.styleImage, emphasisText, "Emphasis")
+	' heading1 GalleryToolItem
+	Dim heading1Text As String =_
+	  "<p style='color:#1F497D; font-weight:bold; font-family:cambria; text-smoothing-mode:antialias; font-size:14pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>"
+	styleGallery.Items(2).Settings.Appearance.Image =_
+	  Me.PaintControl(Me.styleImage, heading1Text, "Heading 1")
+	' heading2 GalleryToolItem
+	Dim heading2Text As String =_
+	  "<p style='color:#4f81bd; font-weight:bold; font-family:cambria; text-smoothing-mode:antialias; font-size:13pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>"
+	styleGallery.Items(3).Settings.Appearance.Image =_
+	  Me.PaintControl(Me.styleImage, heading2Text, "Heading 2")
+	' タイトル GalleryToolItem
+	Dim titleText As String =_
+	  "<p style='color:black; font-style:italic; font-family:cambria; text-smoothing-mode:antialias; font-size:26pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>"
+	styleGallery.Items(4).Settings.Appearance.Image =_
+	  Me.PaintControl(Me.styleImage, titleText, "Title")
+End Function
+----
+
+*C# の場合：*
+
+----
+private void SetStyles()
+{
+	// 通常の GalleryToolItem のフォーマットされたテキストを作成します。
+	string normalText = 
+	  "<p style='height:56px; color:black; font-family:calibri; text-smoothing-mode:antialias; font-size:12pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>";
+	// 通常のフォーマットされたテキストを使用して、
+	// GalleryToolItem の PaintControl を起動します。
+	((PopupGalleryTool)this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools[0]).Items[0].Settings.Appearance.Image = 
+	  this.PaintControl(this.styleImage, normalText, "Normal");
+	// GalleryToolItem を強調します。
+	string emphasisText = 
+	  "<p style='color:black; font-style:italic; font-family:calibri; text-smoothing-mode:antialias; font-size:12pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>";
+	((PopupGalleryTool)this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools[0]).Items[1].Settings.Appearance.Image = 
+	  this.PaintControl(this.styleImage, emphasisText, "Emphasis");
+	// heading1 GalleryToolItem
+	string heading1Text =
+	  "<p style='color:#1F497D; font-weight:bold; font-family:cambria; text-smoothing-mode:antialias; font-size:14pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>";
+	((PopupGalleryTool)this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools[0]).Items[2].Settings.Appearance.Image =
+	  this.PaintControl(this.styleImage, heading1Text, "Heading 1");
+	// heading2 GalleryToolItem
+	string heading2Text =
+	  "<p style='color:#4f81bd; font-weight:bold; font-family:cambria; text-smoothing-mode:antialias; font-size:13pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>";
+	((PopupGalleryTool)this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools[0]).Items[3].Settings.Appearance.Image =
+	  this.PaintControl(this.styleImage, heading2Text, "Heading 2");
+	// タイトル GalleryToolItem
+	string titleText =
+	  "<p style='color:black; font-style:italic; font-family:cambria; text-smoothing-mode:antialias; font-size:26pt; vertical-align:bottom;'>AaBbCcDdEeFfGg</p>";
+	((PopupGalleryTool)this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools[0]).Items[4].Settings.Appearance.Image =
+	  this.PaintControl(this.styleImage, titleText, "Title");
+}
+----
+
+これで SetStyles メソッドが作成できました。FormLoad イベントに呼び出す必要があります。次のコードを FormLoad イベントの最後に追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.SetStyles()
+----
+
+*C# の場合：*
+
+----
+this.SetStyles();
+----
+
+[start=6]
+. アプリケーションを実行します。プレビューに 4 つの項目でスタイル ギャラリーが表示されます。これらの項目にはフォーマットされたテキストと、下にキャプションがあるはずです。何も表示されなければ、プレビューを表示するためにウィンドウが十分な幅でない可能性があります。プレビューが表示されるまでウィンドウを拡張してください。 
+
+image::images/WinToolbarsManager_Creating_a_Gallery_of_Styles_01.png[]

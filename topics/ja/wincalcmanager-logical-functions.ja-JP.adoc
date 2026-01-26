@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-logical-functions",
+    "controlName": ["WinCalcManager"],
+    "tags": [],
+    "guid": "{E162473C-977D-452A-B2C5-694C9AC39C75}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 論理関数
+
+以下は WinCalcManager コントロールで提供されるすべての Microsoft® Excel® スタイルの論理関数のリストです。
+
+[[FUNC_AND]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionand.html[AND]"] 
+[[FUNC_FALSE]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionfalse.html[FALSE]"] 
+[[FUNC_IF]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionif.html[IF]"] 
+[[FUNC_NOT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionnot.html[NOT]"] 
+[[FUNC_OR]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionor.html[OR]"] 
+[[FUNC_TRUE]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiontrue.html[TRUE]"] 
+
+*関連トピック：*
+
+* link:wincalcmanager-date-and-time-functions.html[日付&時間関数]
+* link:wincalcmanager-financial-functions.html[財務関数]
+* link:wincalcmanager-information-functions.html[情報関数]
+* link:wincalcmanager-math-functions.html[算術関数]
+* link:wincalcmanager-statistical-functions.html[統計関数]
+* link:wincalcmanager-text-and-data-functions.html[テキスト&データ関数]

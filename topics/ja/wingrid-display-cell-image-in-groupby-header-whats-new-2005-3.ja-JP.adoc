@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-display-cell-image-in-groupby-header-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{14BBD2BA-4681-42A1-9B01-A20132E6ED96}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= GroupBy ヘッダでのセル画像の表示
+
+これまで、WinGrid には Appearance クラスに属する UltraGridGroupByRow の Image プロパティを設定してグループ行に画像を表示する機能がありました。現在、この機能は実装され、WinGrid によって自動的に表示されるようになっています。行が列によってグループ化されると、WinGrid は自動的に各グループ行の Appearance オブジェクトの Image にグループ内の最初のセルの画像を設定します。
+
+この機能を有効にするプロパティは公開しませんでした。この機能は自動的に有効になります。以前の動作に戻すには、InitializeGroupByRow イベント内で e.Row.Appearance.Image に Null を設定します。このイベント内で、Image プロパティに別の画像を設定すれば、グループ行に表示される画像をオーバーライドすることもできます。
+
+なお、行が列によってグループ化されているとき、単一のグループ行のグループ列セルには複数の画像を含めることができます。たとえば、ある列に国の最初の文字で行をグループ化するカスタム GroupByEvaluator（UltraGridColumn の GroupByEvaluator プロパティを介して設定可能）設定がなされている場合、Argentina と Australiaは同じ "A" グループ行に入ることになります（どちらの国も文字 A で始まり、グループ化がセル値の最初の文字でなされるからです）。このケースでは、2 つのセルは異なるフラグ画像を持つことになります。このような場合、WinGrid は最初のセルから画像を取り出し、グループ行内に表示します。
+
+image::Images/WinGrid_How_To_Display_Cell_Images_in_Group-by_Rows_01.png[]

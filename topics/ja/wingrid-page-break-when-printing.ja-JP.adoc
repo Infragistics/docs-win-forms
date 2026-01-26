@@ -1,0 +1,619 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-page-break-when-printing",
+    "controlName": [],
+    "tags": [],
+    "guid": "a3b74206-d03c-4ce4-9d2f-0ddc4dddd9d3",
+    "buildFlags": [],
+    "createdOn": "2013-09-15T16:15:16.837973Z"
+}
+|metadata|
+////
+
+= 印刷中の改ページ
+
+[[_Ref364357058]]
+== トピックの概要
+
+=== 目的
+
+このトピックは、設定された条件に一致する行の直前に改ページを挿入する  _WinGrid_™ の印刷機能の概要について紹介します。
+
+[[_Ref364352141]]
+
+=== 前提条件
+
+_WinGrid_   の使用やドキュメント印刷のコンセプトに慣れていない場合は、この手順を進める前に、以下のトピックを十分理解する必要があります。
+
+* link:wingrid-using-wingrid.html[WinGrid の使用]
+* link:wingridprintdocument.html[WinGridPrintDocument]
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref364356844,概要>>
+** <<_Ref364356862,WinGrid の改ページの概要>>
+** <<_Ref365532021,特定の行での改ページ>>
+** <<_Ref365532361,グループ行での改ページ>>
+
+* <<OLE_LINK48,コード例>>
+** <<_Ref364356902,コード例: 新しいプロジェクトの作成>>
+** <<_Ref364357104,コード例: グリッドの初期化>>
+** <<_Ref364356926,コード例: 改ページの設定>>
+** <<_Ref364356936,コード例: 印刷プレビュー>>
+** <<_Ref364356947,サンプル データ>>
+
+* <<_Ref364356955,関連コンテンツ>>
+
+[[_Ref364356844]]
+== 概要
+
+[[_Ref364356862]]
+
+=== WinGrid の改ページの概要
+
+_WinGrid_   コントロールの印刷機能が拡張され、印刷プレビューおよび印刷中に特定の行またはグループ行で、改ページができる改ページオプションがサポートされています。
+
+新しいページを開始するための行が設定されていない場合、この機能拡張は既存の処理を変更しません。
+
+.注:
+[NOTE]
+====
+グリッドが CardView モードの場合、この機能は機能しません。WinGrid カード ビューの印刷処理およびレコードは、通常の印刷になります。
+====
+
+[[_Ref365532021]]
+
+=== 特定の行での改ページ
+
+特定の行で改ページを行うには、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid_members.html[UltraGrid] 印刷プレビューまたは印刷設定プロジェクトを使用する必要があります。上記を使用しない場合には、作業を続行する前に<<_Ref364352141,前提条件>>のセクションを参照してください。
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~viewstyleband.html[ViewStyleBand] 設定の代わりに link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow_members.html[UltraGridRow] オブジェクトの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~startsnewprintedpage.html[StartsNewPrintedPage] を設定して、新しいページの開始行を指定します。
+
+たとえば、子行の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~viewstyleband.html[ViewStyleBand] を link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~startsnewprintedpage.html[StartsNewPrintedPage] 設定を使用して水平方向に設定すると、その子行は新しいページを開始します。その子行が子の中で最初に表示される行である場合は、親行が新しいページの開始行になります。この処理のための完全なコード例は、このトピックの末尾にあります。
+
+[[_Ref364356874]]
+
+=== グループ行での改ページ
+
+グループ行での改ページは、複数行の複数グループを個別のページに印刷できるアプリケーションでは、より効果的で、最も一般的な方法です。グループ行での改ページを行うには、 _InitializeGroupByRow_   イベントを処理する必要があります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraGrid1InitializeGroupByRow(object sender, InitializeGroupByRowEventArgs e)
+{
+    // グループ行に親がない場合、この行が最初のレベルのグループ
+    // このグループから新しいページを開始
+    if (e.Row.ParentRow == null)
+    {
+        e.Row.StartsNewPrintedPage = true;
+        e.Row.ExpandAll();
+    }
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub UltraGrid1InitializeGroupByRow(sender As Object, e As InitializeGroupByRowEventArgs)
+      ' グループ行に親がない場合、この行が最初のレベルのグループ
+      ' このグループから新しいページを開始
+      If e.Row.ParentRow Is Nothing Then
+            e.Row.StartsNewPrintedPage = True
+            e.Row.ExpandAll()
+      End If
+End Sub
+----
+
+== コード例
+
+=== コード例の概要
+
+以下の表は、このトピックで使用したコード例をまとめたものです。
+
+[options="header", cols="a,a"]
+|====
+|例|説明
+
+|<<_Ref364356902,新しいプロジェクトの作成>>
+|新しい Windows Forms プロジェクトを作成します。
+
+|<<_Ref364357104,グリッドの初期化>>
+|プロパティ設定でグリッドを初期化し、グリッドとデータをバインドします。
+
+|<<_Ref364356926,改ページの設定>>
+|グリッドの _InitalizeRow_ イベントを処理して改ページを設定します。
+
+|<<_Ref364356936,印刷プレビュー>>
+|印刷プレビュー ダイアログを開き印刷前に表示します。
+
+|<<_Ref364356947,サンプル データ>>
+|
+
+|====
+
+[[_Ref364356902]]
+== コード例:新しいプロジェクトの作成
+
+=== 説明
+
+新しいプロジェクトを作成し、以下のコントロールやコンポーネントをフォームに追加します:
+
+* _UltraWinGrid_
+
+* _UltraPrintPreviewDialog_
+
+* _UltraGridPrintDocument_
+
+* _UltraButton_   (または Microsoft Button)
+
+=== コード
+
+フォームに以下の名前空間を追加します:
+
+*C# の場合:*
+
+[source,csharp]
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+[[_Ref364356914]]
+[[_Ref364357104]]
+== コード例: グリッドの初期化
+
+=== 説明
+
+以下のコード例は、フォームの Load イベントで  _WinGrid_   の初期プロパティを設定して<<_Ref365532021,特定の行での改ページ>> を実装します。
+
+=== コード
+
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Private Sub Form1Load(sender As Object, e As EventArgs)
+      ultraGrid1.DataSource = New MovieDataModel().MovieCategories
+      ultraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.Horizontal
+      ' Set the UltraGridPrintDocument's Grid property to the Grid to print
+      ultraGridPrintDocument1.Grid = ultraGrid1
+      ' Set the UltraPrintPreviewDialog's Document property to the UltraGridPrintDocument
+      ultraPrintPreviewDialog1.Document = ultraGridPrintDocument1
+      ' Expand all rows for printing
+      ultraGrid1.Rows.ExpandAll(True)
+End Sub
+----
+
+*C# の場合:*
+[source,csharp]
+----
+private void Form1Load(object sender, EventArgs e)
+{
+    ultraGrid1.DataSource = new MovieDataModel().MovieCategories;
+    ultraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.Horizontal;
+    // UltraGridPrintDocument のグリッドプロパティを設定しグリッドを印刷
+    ultraGridPrintDocument1.Grid = ultraGrid1;
+    // UltraPrintPreviewDialog のドキュメント プロパティを UltraGridPrintDocument に設定
+    ultraPrintPreviewDialog1.Document = ultraGridPrintDocument1;
+    // 印刷のために、すべての行を展開
+    ultraGrid1.Rows.ExpandAll(true);
+}
+----
+
+[[_Ref364356926]]
+== コード例: 改ページの設定
+
+=== 説明
+
+以下のコード例は、子行が「PG」と評価されたムービーで、グリッドの  _InitializeRow_   イベントに設定されている対象箇所に改ページを挿入する方法を示します。
+
+.注:
+[NOTE]
+====
+すべての行が  _InitializeRow_   イベントを発生させるため、`IsPrintLayout` を使用して印刷対象の行を確認しておくと、不要なプロパティの設定を回避できます。
+====
+
+=== コード
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Private Sub UltraGrid1InitializeRow(sender As Object, e As InitializeRowEventArgs)
+      Dim column As UltraGridColumn = ultraGrid1.DisplayLayout.Bands(1).Columns(2)
+      Dim cellText As String = e.Row.GetCellText(column)
+      ' The InitializeRow event is raised for on-screen rows as well, therefore 
+      ' we need to make sure the row is a print row with the following condition.
+      If e.Row.Band.Layout.IsPrintLayout Then
+            If cellText = "PG" Then
+                  e.Row.StartsNewPrintedPage = True
+            End If
+      End If
+End Sub
+----
+
+*C# の場合:*
+[source,csharp]
+----
+private void UltraGrid1InitializeRow(object sender, InitializeRowEventArgs e)
+{
+    UltraGridColumn column = ultraGrid1.DisplayLayout.Bands[1].Columns[2];
+    string cellText = e.Row.GetCellText(column);
+    // InitializeRow イベントが画面上の行でも発生ため、 
+    // 以下の条件で印刷対象の行を確認
+    if (e.Row.Band.Layout.IsPrintLayout)
+    {
+        if (cellText == "PG")
+            e.Row.StartsNewPrintedPage = true;
+    }
+}
+----
+
+
+[[_Ref364356936]]
+== コード例: 印刷プレビュー
+
+=== 説明
+
+以下のコード例は、印刷前にページの確認を行うための印刷プレビュー ダイアログ画面の表示方法を示します。
+
+=== コード
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Private Sub BtnPrintPreviewClick(sender As Object, e As EventArgs)
+      ultraPrintPreviewDialog1.ShowDialog(Me)
+End Sub
+----
+
+*C# の場合:*
+[source,csharp]
+
+----
+private void BtnPrintPreviewClick(object sender, EventArgs e)
+{
+    ultraPrintPreviewDialog1.ShowDialog(this);
+}
+----
+
+
+[[_Ref364356947]]
+== サンプル データ
+
+=== サンプル データ
+
+以下のサンプル データに、特定の行で改ページを実行する例を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public MovieDataModel()
+        {
+            _movieCategories = new List<MovieCategories>();
+            // ドラマ
+            var category1 = new MovieCategories("Drama");
+            category1.AddTitles("Movie Title...", "Description", "PG");
+            category1.AddTitles("Movie Title...", "Description", "R");
+            category1.AddTitles("Movie Title...", "Description", "PG-13");
+            category1.AddTitles("Movie Title...", "Description", "PG");
+            category1.AddTitles("Movie Title...", "Description", "R");
+            category1.AddTitles("Movie Title...", "Description", "R");
+            category1.AddTitles("Movie Title...", "Description", "PG-13");
+            category1.AddTitles("Movie Title...", "Description", "PG-13");
+            category1.AddTitles("Movie Title...", "Description", "NR");
+            category1.AddTitles("Movie Title...", "Description", "NR");
+            // Categories コレクションに追加
+            _movieCategories.Add(category1);
+            // アクション
+            var category2 = new MovieCategories("Action");
+            category2.AddTitles("Movie Title...", "Description", "R");
+            category2.AddTitles("Movie Title...", "Description", "PG-13");
+            category2.AddTitles("Movie Title...", "Description", "PG-13");
+            category2.AddTitles("Movie Title...", "Description", "R");
+            category2.AddTitles("Movie Title...", "Description", "PG");
+            category2.AddTitles("Movie Title...", "Description", "PG-13");
+            category2.AddTitles("Movie Title...", "Description", "PG-13");
+            category2.AddTitles("Movie Title...", "Description", "NR");
+            category2.AddTitles("Movie Title...", "Description", "R");
+            category2.AddTitles("Movie Title...", "Description", "NR");
+            // Categories コレクションに追加
+            _movieCategories.Add(category2);
+            // コメディ
+            var category3 = new MovieCategories("Commedy");
+            category3.AddTitles("Movie Title...", "Description", "PG-13");
+            category3.AddTitles("Movie Title...", "Description", "R");
+            category3.AddTitles("Movie Title...", "Description", "R");
+            category3.AddTitles("Movie Title...", "Description", "R");
+            category3.AddTitles("Movie Title...", "Description", "PG-13");
+            category3.AddTitles("Movie Title...", "Description", "PG-13");
+            category3.AddTitles("Movie Title...", "Description", "PG-13");
+            category3.AddTitles("Movie Title...", "Description", "PG");
+            category3.AddTitles("Movie Title...", "Description", "R");
+            category3.AddTitles("Movie Title...", "Description", "NR");
+            // Categories コレクションに追加
+            _movieCategories.Add(category3);
+            // ドキュメンタリー
+            var category4 = new MovieCategories("Documentary");
+            category4.AddTitles("Movie Title...", "Description", "PG");
+            category4.AddTitles("Movie Title...", "Description", "R");
+            category4.AddTitles("Movie Title...", "Description", "PG");
+            category4.AddTitles("Movie Title...", "Description", "PG");
+            category4.AddTitles("Movie Title...", "Description", "PG-13");
+            category4.AddTitles("Movie Title...", "Description", "PG-13");
+            category4.AddTitles("Movie Title...", "Description", "PG-13");
+            category4.AddTitles("Movie Title...", "Description", "PG");
+            category4.AddTitles("Movie Title...", "Description", "R");
+            category4.AddTitles("Movie Title...", "Description", "NR");
+            // Categories コレクションに追加
+            _movieCategories.Add(category4);
+        }
+        private List<MovieCategories> _movieCategories;
+        public List<MovieCategories> MovieCategories
+        {
+            get { return _movieCategories; }
+            set
+            {
+                if (_movieCategories != null && _movieCategories == value) return;
+                _movieCategories = value;
+            }
+        }
+    }
+    // MovieCategories クラス
+    public class MovieCategories
+    {
+        // コンストラクター
+        public MovieCategories(string movieCategory)
+        {
+            _movieCategory = movieCategory;
+        }
+        public void AddTitles(string title, string description, string rating)
+        {
+            _movieList.Add(new MovieList(title, description, rating));
+        }
+        private string _movieCategory;
+        public string MovieCategory
+        {
+            get { return _movieCategory; }
+            set
+            {
+                if (_movieCategory != null && _movieCategory == value) return;
+                _movieCategory = value;
+            }
+        }
+        private List<MovieList> _movieList =
+            new List<MovieList>();
+        public List<MovieList> MovieList
+        {
+            get { return _movieList; }
+            set
+            {
+                if (_movieList != null && _movieList == value) return;
+                _movieList = value;
+            }
+        }
+    }
+    // MovieList クラス
+    public class MovieList
+    {
+        private string _movieTitle;
+        public string MovieTitle
+        {
+            get { return _movieTitle; }
+            set
+            {
+                if (_movieTitle != null && _movieTitle == value) return;
+                _movieTitle = value;
+            }
+        }
+        private string _movieDescription;
+        public string MovieDescription
+        {
+            get { return _movieDescription; }
+            set
+            {
+                if (_movieDescription != null && _movieDescription == value) return;
+                _movieDescription = value;
+            }
+        }
+        private string _movieRating;
+        public string MovieRating
+        {
+            get { return _movieRating; }
+            set
+            {
+                if (_movieRating != null && _movieRating == value) return;
+                _movieRating = value;
+            }
+        }
+        public MovieList(string movieTitle, string movieDescription, string movieRating)
+        {
+            _movieTitle = movieTitle;
+            _movieDescription = movieDescription;
+            _movieRating = movieRating;
+        }
+    }
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Public Class MovieDataModel
+      Public Sub New()
+            _movieCategories = New List(Of MovieCategories)()
+            ' ドラマ
+            Dim category1 = New MovieCategories("Drama")
+            category1.AddTitles("Movie Title...", "Description", "PG")
+            category1.AddTitles("Movie Title...", "Description", "R")
+            category1.AddTitles("Movie Title...", "Description", "PG-13")
+            category1.AddTitles("Movie Title...", "Description", "PG")
+            category1.AddTitles("Movie Title...", "Description", "R")
+            category1.AddTitles("Movie Title...", "Description", "R")
+            category1.AddTitles("Movie Title...", "Description", "PG-13")
+            category1.AddTitles("Movie Title...", "Description", "PG-13")
+            category1.AddTitles("Movie Title...", "Description", "NR")
+            category1.AddTitles("Movie Title...", "Description", "NR")
+            ' Categories コレクションに追加
+            _movieCategories.Add(category1)
+            ' アクション
+            Dim category2 = New MovieCategories("Action")
+            category2.AddTitles("Movie Title...", "Description", "R")
+            category2.AddTitles("Movie Title...", "Description", "PG-13")
+            category2.AddTitles("Movie Title...", "Description", "PG-13")
+            category2.AddTitles("Movie Title...", "Description", "R")
+            category2.AddTitles("Movie Title...", "Description", "PG")
+            category2.AddTitles("Movie Title...", "Description", "PG-13")
+            category2.AddTitles("Movie Title...", "Description", "PG-13")
+            category2.AddTitles("Movie Title...", "Description", "NR")
+            category2.AddTitles("Movie Title...", "Description", "R")
+            category2.AddTitles("Movie Title...", "Description", "NR")
+            ' Categories コレクションに追加
+            _movieCategories.Add(category2)
+            ' コメディ
+            Dim category3 = New MovieCategories("Commedy")
+            category3.AddTitles("Movie Title...", "Description", "PG-13")
+            category3.AddTitles("Movie Title...", "Description", "R")
+            category3.AddTitles("Movie Title...", "Description", "R")
+            category3.AddTitles("Movie Title...", "Description", "R")
+            category3.AddTitles("Movie Title...", "Description", "PG-13")
+            category3.AddTitles("Movie Title...", "Description", "PG-13")
+            category3.AddTitles("Movie Title...", "Description", "PG-13")
+            category3.AddTitles("Movie Title...", "Description", "PG")
+            category3.AddTitles("Movie Title...", "Description", "R")
+            category3.AddTitles("Movie Title...", "Description", "NR")
+            ' Categories コレクションに追加
+            _movieCategories.Add(category3)
+            ' ドキュメンタリー
+            Dim category4 = New MovieCategories("Documentary")
+            category4.AddTitles("Movie Title...", "Description", "PG")
+            category4.AddTitles("Movie Title...", "Description", "R")
+            category4.AddTitles("Movie Title...", "Description", "PG")
+            category4.AddTitles("Movie Title...", "Description", "PG")
+            category4.AddTitles("Movie Title...", "Description", "PG-13")
+            category4.AddTitles("Movie Title...", "Description", "PG-13")
+            category4.AddTitles("Movie Title...", "Description", "PG-13")
+            category4.AddTitles("Movie Title...", "Description", "PG")
+            category4.AddTitles("Movie Title...", "Description", "R")
+            category4.AddTitles("Movie Title...", "Description", "NR")
+            ' Categories コレクションに追加
+            _movieCategories.Add(category4)
+      End Sub
+      Private _movieCategories As List(Of MovieCategories)
+      Public Property MovieCategories() As List(Of MovieCategories)
+            Get
+                  Return _movieCategories
+            End Get
+            Set
+                  If _movieCategories IsNot Nothing AndAlso _movieCategories = value Then
+                        Return
+                  End If
+                  _movieCategories = value
+            End Set
+      End Property
+End Class
+Public Class MovieCategories
+      ' コンストラクター
+      Public Sub New(movieCategory As String)
+            _movieCategory = movieCategory
+      End Sub
+      Public Sub AddTitles(title As String, description As String, rating As String)
+            _movieList.Add(New MovieList(title, description, rating))
+      End Sub
+      Private _movieCategory As String
+      Public Property MovieCategory() As String
+            Get
+                  Return _movieCategory
+            End Get
+            Set
+                  If _movieCategory IsNot Nothing AndAlso _movieCategory = value Then
+                        Return
+                  End If
+                  _movieCategory = value
+            End Set
+      End Property
+      Private _movieList As New List(Of MovieList)()
+      Public Property MovieList() As List(Of MovieList)
+            Get
+                  Return _movieList
+            End Get
+            Set
+                  If _movieList IsNot Nothing AndAlso _movieList = value Then
+                        Return
+                  End If
+                  _movieList = value
+            End Set
+      End Property
+End Class
+Public Class MovieList
+      Private _movieTitle As String
+      Public Property MovieTitle() As String
+            Get
+                  Return _movieTitle
+            End Get
+            Set
+                  If _movieTitle IsNot Nothing AndAlso _movieTitle = value Then
+                        Return
+                  End If
+                  _movieTitle = value
+            End Set
+      End Property
+      Private _movieDescription As String
+      Public Property MovieDescription() As String
+            Get
+                  Return _movieDescription
+            End Get
+            Set
+                  If _movieDescription IsNot Nothing AndAlso _movieDescription = value Then
+                        Return
+                  End If
+                  _movieDescription = value
+            End Set
+      End Property
+      Private _movieRating As String
+      Public Property MovieRating() As String
+            Get
+                  Return _movieRating
+            End Get
+            Set
+                  If _movieRating IsNot Nothing AndAlso _movieRating = value Then
+                        Return
+                  End If
+                  _movieRating = value
+            End Set
+      End Property
+      Public Sub New(movieTitle As String, movieDescription As String, movieRating As String)
+            _movieTitle = movieTitle
+            _movieDescription = movieDescription
+            _movieRating = movieRating
+      End Sub
+End Class
+----
+
+[[_Ref364356955]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-printing.html[印刷]
+|このセクションには、 _WinGrid_ の印刷機能について説明する複数のトピックが含まれています。
+
+|====

@@ -1,0 +1,36 @@
+﻿////
+|metadata|
+{
+    "name": "winpopupcontrolcontainer-resize-drop-down-in-winpopupcontrolcontainer",
+    "controlName": ["WinPopupControlContainer"],
+    "tags": ["How Do I"],
+    "guid": "97bbdba4-6be1-4990-98f2-70a1d35877b0",
+    "buildFlags": [],
+    "createdOn": "2010-06-08T13:59:35.4410211Z"
+}
+|metadata|
+////
+
+= WinPopupControlContainer でドロップダウンをリサイズ
+
+WinPopupControlContainer™ コンポーネントのドロップダウンは、ハンドルを使用してリサイズできます。ハンドルはドロップダウンの一番下に垂直または水平に配置できます。このハンドルによって、ドロップダウンをリサイズし、コントロールのサイズのために切り詰められたドロップダウン内のテキストや項目を表示できます。デフォルトで link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapopupcontrolcontainer~dropdownresizehandlestyle.html[DropDownResizeHandleStyle] プロパティは 'None' に設定されます。ランタイムに特定のスタイルに設定されてリサイズされると、ドロップダウンのリサイズされた高さと幅はアプリケーションのその実行に対して保存されます。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapopupcontrolcontainer~dropdownresizehandleappearance.html[DropDownResizeHandleAppearance] プロパティを使用してハンドルをスタイルすることもできます。
+
+以下のコードは、UltraPopupControlContainer コンポーネント、UltraButton コントロールおよび UltraDropDown コントロールがフォームにドロップされていることを前提とします。UltraDropDown コントロールは発注データ テーブルにバインドされ、UltraPopupControlContainer の PopupControl プロパティに指定されます。UltraPopupControlContainer コンポーネントの設定の詳細は、 link:winpopupcontrolcontainer-creating-a-popup-container-control.html[「ポップアップ コンテナー コントロールの作成」]を参照してください。
+
+*Visual Basic の場合：*
+[source, vb]
+----
+' UltraPopupControlContainer のドロップダウン リサイズ ハンドルのスタイルを設定します。
+Me. ultraPopupControlContainer1.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.DiagonalResize 
+' ハンドルの背景色を設定します 
+Me. ultraPopupControlContainer1.DropDownResizeHandleAppearance.BackColor = Color.Blue
+----
+
+*C# の場合：*
+[source, csharp]
+----
+// UltraPopupControlContainer のドロップダウン リサイズ ハンドルのスタイルを設定します。
+this. ultraPopupControlContainer1.DropDownResizeHandleStyle = Infragistics.Win.DropDownResizeHandleStyle.DiagonalResize;
+// ハンドルの背景色を設定します
+this. ultraPopupControlContainer1.DropDownResizeHandleAppearance.BackColor = Color.Blue;
+----

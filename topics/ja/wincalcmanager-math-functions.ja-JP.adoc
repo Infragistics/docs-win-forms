@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-math-functions",
+    "controlName": ["WinCalcManager"],
+    "tags": [],
+    "guid": "{69D318FA-8127-4A15-A9AF-2DB1F1B68B08}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 算術関数
+
+以下は WinCalcManager コントロールで提供されるすべての Microsoft® Excel® スタイルの算術関数のリストです。
+
+[[FUNC_ABs]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionabs.html[ABS]"] 
+[[FUNC_ACOs]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionacos.html[ACOS]"] 
+[[FUNC_ACOSH]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionacosh.html[ACOSH]"] 
+[[FUNC_ASIN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionasin.html[ASIN]"] 
+[[FUNC_ASINH]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionasinh.html[ASINH]"] 
+[[FUNC_ATAN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionatan.html[ATAN]"] 
+[[FUNC_ATAN2]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionatan2.html[ATAN2]"] 
+[[FUNC_ATANH]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionatanh.html[ATANH]"] 
+[[FUNC_CEILING]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionceiling.html[CEILING]"] 
+[[FUNC_COs]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctioncos.html[COS]"] 
+[[FUNC_COSH]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctioncosh.html[COSH]"] 
+[[FUNC_EVEN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctioneven.html[EVEN]"] 
+[[FUNC_Odd]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionodd.html[ODD]"] 
+[[FUNC_EXp]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionexp.html[EXP]"] 
+* pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionexpon.html[EXPON]"] 
+[[FUNC_FLOOR]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionfloor.html[FLOOR]"] 
+[[FUNC_INT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionint.html[INT]"] 
+[[FUNC_LN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionln.html[LN]"] 
+[[FUNC_LOG]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionlog.html[LOG]"] 
+[[FUNC_LOG10]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionlog10.html[LOG10]"] 
+[[FUNC_MOD]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionmod.html[MOD]"] 
+[[FUNC_Pi]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionpi.html[PI]"] 
+[[FUNC_POWER]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionpower.html[POWER]"] 
+[[FUNC_PRODUCT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionproduct.html[PRODUCT]"] 
+[[FUNC_QUOTIENT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionquotient.html[QUOTIENT]"] 
+[[FUNC_RAND]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionrand.html[RAND]"] 
+[[FUNC_ROUND]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionround.html[ROUND]"] 
+[[FUNC_SQRT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionsqrt.html[SQRT]"] 
+[[FUNC_SIN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionsin.html[SIN]"] 
+[[FUNC_SINH]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionsinh.html[SINH]"] 
+[[FUNC_SUM]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionsum.html[SUM]"] 
+[[FUNC_TAN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiontan.html[TAN]"] 
+[[FUNC_TANH]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiontanh.html[TANH]"] 
+[[FUNC_TRUNC]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiontrunc.html[TRUNC]"] 
+
+*関連トピック：*
+
+* link:wincalcmanager-date-and-time-functions.html[日付&時間関数]
+* link:wincalcmanager-financial-functions.html[財務関数]
+* link:wincalcmanager-information-functions.html[情報関数]
+* link:wincalcmanager-logical-functions.html[論理関数]
+* link:wincalcmanager-statistical-functions.html[統計関数]
+* link:wincalcmanager-text-and-data-functions.html[テキスト&データ関数]

@@ -1,0 +1,156 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-digital-gauge-using-code",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{BA0C9C4A-0A2D-47A2-AA08-F230FBA7B46C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードを使用してデジタル ゲージを作成
+
+このチュートリアルは、コードを使用してデジタル ゲージを作成するプロセスを説明します。この詳細なガイドを完了すると、デジタル ラジオを表すデジタル ゲージが作成されます。
+
+*コードを使用してデジタル ゲージを作成するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. デジタル ゲージのインスタンスとブラシ エレメントのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim ultraGauge1 As New Infragistics.Win.UltraWinGauge.UltraGauge()
+Dim myDigitalGauge As New SegmentedDigitalGauge()
+Dim mySolidFillBrushElement As New SolidFillBrushElement()
+Dim mySolidFillBrushElement1 As New SolidFillBrushElement()
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.UltraWinGauge.UltraGauge ultraGauge1 = new Infragistics.Win.UltraWinGauge.UltraGauge();
+SegmentedDigitalGauge myDigitalGauge = new SegmentedDigitalGauge();
+SolidFillBrushElement mySolidFillBrushElement = new SolidFillBrushElement();
+SolidFillBrushElement mySolidFillBrushElement1 = new SolidFillBrushElement();
+----
+
+[start=3]
+. 背景色を黒に設定します。
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Black
+myDigitalGauge.BrushElement = mySolidFillBrushElement
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Black;
+myDigitalGauge.BrushElement = mySolidFillBrushElement;
+----
+
+[start=4]
+. 桁数を設定します。
+
+*Visual Basic の場合：*
+
+----
+myDigitalGauge.Digits = 8
+----
+
+*C# の場合：*
+
+----
+myDigitalGauge.Digits = 8;
+----
+
+[start=5]
+. フォントの色を赤に設定します。
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement1.Color = System.Drawing.Color.Red
+myDigitalGauge.FontBrushElement = mySolidFillBrushElement1
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement1.Color = System.Drawing.Color.Red;
+myDigitalGauge.FontBrushElement = mySolidFillBrushElement1;
+----
+
+[start=6]
+. モードを 14 セグメント、デジタルのテキストを FM : 96.4 に設定します。
+
+*Visual Basic の場合：*
+
+----
+myDigitalGauge.Mode = SegmentMode.FourteenSegment
+myDigitalGauge.Text = "FM : 96.4"
+----
+
+*C# の場合：*
+
+----
+myDigitalGauge.Mode = SegmentMode.FourteenSegment;
+myDigitalGauge.Text = "FM : 96.4";
+----
+
+[start=7]
+. デジタル ゲージを Gauges コレクションに追加します。ゲージの以下のプロパティを設定します。
+
+** 位置 = (4, 4)
+** 名前 = ultraGauge
+** サイズ = (270, 150)
+** TabIndex = 0
+
+*Visual Basic の場合：*
+
+----
+ultraGauge1.Gauges.Add(myDigitalGauge)
+ultraGauge1.Location = New System.Drawing.Point(4, 4)
+ultraGauge1.Name = "ultraGauge1"
+ultraGauge1.Size = New System.Drawing.Size(270, 150)
+ultraGauge1.TabIndex = 0
+Me.Controls.Add(ultraGauge1)
+----
+
+*C# の場合：*
+
+----
+ultraGauge1.Gauges.Add(myDigitalGauge);
+ultraGauge1.Location = new System.Drawing.Point(4, 4);
+ultraGauge1.Name = "ultraGauge1";
+ultraGauge1.Size = new System.Drawing.Size(270, 150);
+ultraGauge1.TabIndex = 0;
+this.Controls.Add(ultraGauge1);
+----
+
+[start=8]
+. アプリケーションを保存して実行します。以下のフォームのように表示されるはずです。
+
+image::images/Gauge_Creating_a_Digital_Gauge_Using_Code_01.png[]

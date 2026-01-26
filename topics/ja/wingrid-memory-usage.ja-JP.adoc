@@ -1,0 +1,108 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-memory-usage",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Tips and Tricks"],
+    "guid": "{8DE224B5-7507-461E-BF62-76D9A69BEA33}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= メモリの使用
+
+以下のヒントや秘訣を Wingrid™ のプログラム的な使用に適用すると、システムに課せられるメモリー フットプリントを削減することでパフォーマンスを改善できます。
+
+. セル値を直接参照する代わりに GetCellValue メソッドを使用
++
+WinGrid は、データのすべての行に pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトを作成するわけではありません。セルは必要な時だけ作成されます。したがって可能な時はいつでも、セルのアクセスは回避すべきです。たとえば、合計を計算することを意図してグリッドの InitializeRow イベントに配置された以下のコードを検討しましょう。このコードは行ごとに 3 つのセルを直接参照するので、参照される各セルはメモリーで遅延作成されます。
++
+*Visual Basic の場合：*
+[source,vb]
+Private Sub ultraGrid1_InitializeRow(ByVal sender As Object, ByVal e As InitializeRowEventArgs)
+    e.Row.Cells("Total").Value = CDbl(e.Row.Cells("Quantity").Value) * CDbl(e.Row.Cells("Price").Value)
+End Sub
++
+*C# の場合：*
+[source,csharp]
+private void ultraGrid1_InitializeRow(object sender, InitializeRowEventArgs e)
+        {
+            e.Row.Cells["Total"].Value = (double)e.Row.Cells["Quantity"].Value * (double)e.Row.Cells["Price"].Value;
+        }
++
+これらのセルの遅延作成を回避したい場合、行に置かれた pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~getcellvalue.html[GetCellValue]"]  メソッドを使用できます。このメソッドはメモリーでセル オブジェクト全体を遅延作成しないようにすると同時に、特定のセル値をただ返すように設計されているため、メモリーを節約することになります。
++
+*Visual Basic の場合：*
+[source,vb]
+Private Sub ultraGrid1_InitializeRow(ByVal sender As Object, ByVal e As InitializeRowEventArgs)
+    Dim quantityColumn As UltraGridColumn = e.Row.Band.Columns("Quantity")
+    Dim priceColumn As UltraGridColumn = e.Row.Band.Columns("Price")
+    e.Row.Cells("Total").Value = CDbl(e.Row.GetCellValue(quantityColumn)) * CDbl(e.Row.GetCellValue(priceColumn))
+      End Sub
++
+*C# の場合：*
+[source,csharp]
+private void ultraGrid1_InitializeRow(object sender, InitializeRowEventArgs e)
+                {
+            UltraGridColumn quantityColumn = e.Row.Band.Columns["Quantity"];
+            UltraGridColumn priceColumn = e.Row.Band.Columns["Price"];
+            e.Row.Cells["Total"].Value = (double)e.Row.GetCellValue(quantityColumn) * (double)e.Row.GetCellValue(priceColumn);
+                }
+
+
+. 外観の再利用
++
+カスタム pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  をそのセルの値に基づいてセルに適用することを検討しましょう。セルに Appearance を適用するには、UltraGridCell への参照の取得が必要なので、これは回避できません。ただし、複数のセルに同じ Appearance オブジェクトを再利用することでメモリーを節約できます。たとえば、セルの ForeColor を負の数では赤に、正の数では黒に変更したい場合を検討しましょう。ここでより大きな問題は、セルの Appearance プロパティも遅延作成されることです。これは、ユーザーが具体的にアクセスする各セルごとに、メモリーが割り当てられて使用され、行ごとに新しい Appearance オブジェクトも作成されることを意味します。また、可能な色は 2 色だけなのに、多くの同一の外観オブジェクトを作成することになります。
++
+この種の操作のメモリー フットプリントを削減したい場合には、前もって必要な Appearances オブジェクトを作成し、必要となった時には必ずそれを再利用する方が賢明です。このアプローチのもうひとつの利点は、単一の Appearance インスタンスのプロパティを変更する場合、その Appearance を使用するオブジェクトが変更されることです。言い換えると、同じ Appearance オブジェクトを参照するセルが 200 ある場合、ひとつの Appearance オブジェクトのプロパティ値を変更することによって、200 のセルすべてが変更されます。たとえば、正の数を黒にする代わりに緑を使用したい場合があります。Positive Appearance オブジェクトの ForeColor はランタイムに設定でき、その Appearance を参照するすべてのセルは自動的に更新されます。
++
+*Visual Basic の場合：*
+[source,vb]
+Private Sub ultraGrid1_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs)
+    ' 負の値の外観を作成します 
+    Dim negativeAppearace As Infragistics.Win.Appearance = e.Layout.Appearances.Add("Negative")
+    negativeAppearace.ForeColor = Color.Red
+    ' 正の値の外観を作成します 
+    Dim positiveAppearace As Infragistics.Win.Appearance = e.Layout.Appearances.Add("Positive")
+    positiveAppearace.ForeColor = Color.Black
+End Sub
+Private Sub ultraGrid1_InitializeRow(ByVal sender As Object, ByVal e As InitializeRowEventArgs)
+    Dim grid As UltraGrid = DirectCast(sender, UltraGrid)
+    ' 合計列の値を取得します 
+    Dim totalColumn As UltraGridColumn = e.Row.Band.Columns("Total")
+    Dim total As Double = CDbl(e.Row.GetCellValue(totalColumn))
+    If total < 0 Then
+        ' グリッドの Appearances コレクションで既に定義された Negative Appearance を使用します 
+        e.Row.Cells("Total").Appearance = grid.DisplayLayout.Appearances("Negative")
+    Else
+        ' グリッドの Appearances コレクションで既に定義された Positive Appearance を使用します 
+        e.Row.Cells("Total").Appearance = grid.DisplayLayout.Appearances("Positive")
+    End If
+End Sub
++
+*C# の場合：*
+[source,csharp]
+private void ultraGrid1_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+        {
+            // 負の値の外観を作成します
+            Infragistics.Win.Appearance negativeAppearace = e.Layout.Appearances.Add("Negative");
+            negativeAppearace.ForeColor = Color.Red;
+            // 正の値の外観を作成します
+            Infragistics.Win.Appearance positiveAppearace = e.Layout.Appearances.Add("Positive");
+            positiveAppearace.ForeColor = Color.Black;
+        }
+        private void ultraGrid1_InitializeRow(object sender, InitializeRowEventArgs e)
+        {
+            UltraGrid grid = (UltraGrid)sender;            
+            // 合計列の値を取得します
+            UltraGridColumn totalColumn = e.Row.Band.Columns["Total"];
+            double total = (double)e.Row.GetCellValue(totalColumn);
+            if (total < 0)
+                // グリッドの Appearances コレクションで既に定義された Negative Appearance を使用します
+                e.Row.Cells["Total"].Appearance = grid.DisplayLayout.Appearances["Negative"];
+            else
+                // グリッドの Appearances コレクションで既に定義された Positive Appearance を使用します
+                e.Row.Cells["Total"].Appearance = grid.DisplayLayout.Appearances["Positive"];
+        }

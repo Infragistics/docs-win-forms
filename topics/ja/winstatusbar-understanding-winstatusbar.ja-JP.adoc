@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-understanding-winstatusbar",
+    "controlName": ["WinStatusBar"],
+    "tags": [],
+    "guid": "{FEB8E5DF-F3E8-4C7A-9114-9B6B45BC4EE2}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinStatusBar の理解
+
+WinStatusBar コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinStatusBar コントロールを使用することの利点を理解できます。
+
+WinStatusBar コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winstatusbar-about-winstatusbar.html[WinStatusBarについて] -- WinStatusBar コントロールの概要を説明しています。
+* link:winstatusbar-panel-styles.html[Panel スタイル] -- WinStatusBar コントロールで使用できる各種パネル スタイルについて説明しています。
+* link:winstatusbar-panel-sizing-modes.html[Panel サイズ設定モード] -- WinStatusBar コントロールで使用できる各種パネル サイズ設定モードについて説明しています。
+* link:winstatusbar-smart-tag.html[WinStatusBar スマート タグ] -- WinStatusBar コントロールのスマート タグで表示されるプロパティと設定値について説明しています。

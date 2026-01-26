@@ -1,0 +1,142 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-working-with-selected-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","How Do I"],
+    "guid": "{EE0B3554-49A9-49D8-A61C-7534A5B29D1B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択された行の操作
+
+== バックグラウンド
+
+WinGrid はユーザーまたはアプリケーションによって選択されされているすべての行の一覧を持つ Selected.Rows コレクションを提供します。この Selected.Rows コレクションを処理して、アプリケーションのニーズを満たすことができます。
+
+== 質問
+
+* 行が選択されているかどうかを知るにはどうすればいいですか?
+* どの行が選択されているのかを知るにはどうすればいいですか?
+* 同じコレクションにある異なるバンドで選択をすることはできますか?
+
+== 解決策
+
+行が選択されているかを確認するためには .Selected.Rows.Count プロパティを確認してください。
+
+選択された各行を処理するには .Selected.Rows コレクションをループしてください。
+
+RowSelectors をクリックしている場合、ユーザーはひとつのバンドからのみ選択できます。ただし、アプリケーションは任意のバンドから行を .Selected.Rows コレクションに追加できます。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは選択されている Band と Row のインデックスを表示し、Band0 の行 1 を選択するためのボタン、またすべて選択された行をクリアするためのボタンを提供しています。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Working_with_Selected_Rows_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.AfterSelectChange - AfterSelectChange イベントのコードは、Selected.Rows コレクションにある行を渡し、バンドと行のインデックス値をテキスト ボックスに配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_AfterSelectChange(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.AfterSelectChangeEventArgs) _
+  Handles UltraGrid1.AfterSelectChange
+	If Me.UltraGrid1.Selected.Rows.Count > 0 Then
+		Dim rowSelected As UltraGridRow
+		Me.UltraTextEditor1.Text = "Band, Row" + vbCrLf
+		For Each rowSelected In Me.UltraGrid1.Selected.Rows
+			Me.UltraTextEditor1.Text += rowSelected.Band.Index.ToString _
+			  + ", " + rowSelected.Index.ToString + vbCrLf
+		Next
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_AfterSelectChange(object sender, 
+  Infragistics.Win.UltraWinGrid.AfterSelectChangeEventArgs e)
+{
+	if(this.ultraGrid1.Selected.Rows.Count > 0)
+	{
+		this.ultraTextEditor1.Text = "Band, Row \n";
+		foreach(UltraGridRow rowSelected in this.ultraGrid1.Selected.Rows)
+		{
+			this.ultraTextEditor1.Text += rowSelected.Band.Index.ToString() +
+			  " , " + rowSelected.Index.ToString() + "\n";
+		}
+	}
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します。
+
+* btnSelectBand0Row1.Click - SelectBand0Row1 Click イベントのコードは、Selected.Rows コレクションに行を追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSelectBand0Row1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSelectBand0Row1.Click
+	Me.UltraGrid1.Rows(1).Selected = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSelectBand0Row1_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.Rows[1].Selected = true;
+}
+----
+
+* btnClearSelectedRows.Click - ClearSelectedRows Click イベントのコードは、各選択された行を Selected.Rows コレクションから削除し、テキスト ボックスに "$$*$$ クリアされました $$* $$" テキストを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnClearSelectedRows_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnClearSelectedRows.Click
+	Me.UltraGrid1.Selected.Rows.Clear()
+	Me.UltraTextEditor1.Text = "$$*$$cleared$$* $$"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnClearSelectedRows_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.Selected.Rows.Clear();
+	this.ultraTextEditor1.Text = "$$*$$cleared$$* $$";
+}
+----
+
+== まとめ
+
+このサンプル プログラムは WinGrid の SelectedRows の基本的な使い方を紹介しました。

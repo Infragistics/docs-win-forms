@@ -1,0 +1,273 @@
+﻿////
+|metadata|
+{
+    "name": "plf-animated-gif-support",
+    "controlName": [],
+    "tags": [],
+    "guid": "108b8326-af97-46be-86b4-8693606672c4",
+    "buildFlags": [],
+    "createdOn": "2015-03-04T19:31:25.1066207Z"
+}
+|metadata|
+////
+
+= アニメーション GIF のサポート
+
+== アニメーション GIF サポートと AnimatedImageManager
+
+=== 目的
+
+このトピックは、{ProductName} コントロールのアニメーション GIF サポートについて説明します。
+
+=== 前提条件
+
+このトピックを理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:win-plf-overview.html[PLF 概要]
+|開発者とエンドユーザーの両方に一貫性があることが生産性向上のキーとなります。Infragistics Presentation Layer Framework (PLF) は、すべてのインフラジスティックス要素がビルドされる共通サブストレートを提供します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<AnimatedGIFSupport,アニメーション GIF のサポート>>
+
+** <<Overview,概要>>
+
+* <<UsingtheAnimatedImageManager,AnimatedImageManager の使用>>
+
+** <<AnimatedImageManagerOverview,概要>>
+** <<SuspendingtheAnimation,アニメーションを一時停止>>
+** <<ResumingtheAnimation,アニメーションの再開>>
+** <<ReactingtoFrameChanges,フレームの変更に応答>>
+** <<DisablingAnimationSupport,アニメーション サポートの無効化>>
+
+* <<RecommendationsandConsiderations,推奨事項および注意点>>
+* <<RelatedContent,関連コンテンツ>>
+
+[[AnimatedGIFSupport]]
+== アニメーション GIF のサポート
+
+[[Overview]]
+
+=== 概要
+
+既存の静的画像サポートの他、Infragistics のプレゼンテーション層フレームワーク (PLF) はすべてのコンポーネントでアニメーション画像の表示をサポートします。時間ベースのフレームを含む画像の表示を自動的に処理する、新たな AnimatedImageManager クラスをフレームワークに追加しました。
+
+[[UsingtheAnimatedImageManager]]
+== AnimatedImageManager の使用
+
+[[AnimatedImageManagerOverview]]
+
+AnimatedImageManager は、Presentation Layer Framework 内のアニメーション画像を管理する静的マネージャーです。マネージャーの主要機能は、特定の画像インスタンスでアニメーションを一時停止し再開する機能を公開する際に、すべてのアニメーション画像をインフラジスティックスのコンポーネント内でトラッキングし続ける機能です。
+
+[[SuspendingtheAnimation]]
+
+=== アニメーションを一時停止
+
+SuspendAnimation() メソッドは、アニメーションがすべての登録画像または特定の画像のインスタンスで中止される際に使用されます。一時停止されると、画像は現在のフレームのみを使用して描画されます。
+
+[options="header", cols="a,a"]
+|====
+|メソッド名|説明
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager~suspendanimation().html[SuspendAnimation()]
+|AnimatedImageManager で登録済みのすべての画像でアニメーションを一時停止します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager~suspendanimation(image).html[SuspendAnimation(Image)]
+|指定した画像インスタンスでアニメーションを一時停止します。
+
+|====
+
+以下のコード スニペットは、単一画像インスタンスのアニメーションを一時停止する方法を示します。
+
+
+
+*C# の場合:* 
+[source]
+---- 
+AnimatedImageManager.SuspendAnimation(this.imageInstance);
+---- 
+
+*Visual Basic の場合:* 
+[source]
+---- 
+AnimatedImageManager.SuspendAnimation(Me.imageInstance)
+---- 
+
+
+
+[[ResumingtheAnimation]]
+
+=== アニメーションの再開
+
+アニメーションを一時停止した後に、現在のフレームを開始するすべての停止画像でアニメーションを再開するために ResumeAnimation() メソッドを使用できます。
+
+[options="header", cols="a,a"]
+|====
+|メソッド名|説明
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager~resumeanimation().html[ResumeAnimation()]
+|すべての停止画像のアニメーションを再開します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager~resumeanimation(image).html[ResumeAnimation(Image)]
+|指定した画像インスタンスでアニメーションを再開します。
+
+|====
+
+以下のコード スニペットは、単一画像インスタンスのアニメーションを再開する方法を示します。
+
+
+*C# の場合:* 
+[source]
+---- 
+AnimatedImageManager.ResumeAnimation(this.imageInstance);
+---- 
+
+*Visual Basic の場合:* 
+[source]
+---- 
+AnimatedImageManager.ResumeAnimation(Me.imageInstance)
+---- 
+
+
+
+[[ReactingtoFrameChanges]]
+
+=== フレームの変更に応答
+
+アニメーション画像の現在のフレームを変更する際に、AnimatedImageManager は ImageFrameChanged イベントを発生し、フレーム変更のすべてのリスナーに通知します。このイベントの ImageFrameChangedEventArgs は、画像、現在のフレームのインデックス、および画像の時間に基づいたフレームの合計数を公開します。イベント ハンドラー内で停止される画像でアニメーションを許可する SuspendAnimation プロパティを公開します。
+
+[options="header", cols="a,a,a"]
+|====
+|EventArgs プロパティ名|プロパティ タイプ|説明
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager+imageframechangedeventargs~image.html[Image]
+|`Image`
+| 
+
+現在のフレームが変更される画像を取得します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager+imageframechangedeventargs~framecount.html[FrameContent]
+|`Integer`
+| 
+
+画像の時間に基づいたフレームの総数を取得します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager+imageframechangedeventargs~currentframe.html[CurrentFrame]
+|`Integer`
+| 
+
+画像の現在のフレームのインデックスを取得または設定します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager+imageframechangedeventargs~islastframe.html[IsLastFrame]
+|`Boolean`
+| 
+
+現在のフレームがアニメーションの最後のフレームかどうかを示します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.animatedimagemanager+imageframechangedeventargs~suspendanimation.html[SuspendAnimation]
+|`Boolean`
+| 
+
+アニメーションを停止するかどうかを指定します。
+
+|====
+
+*C# の場合:* 
+
+---- 
+// ImageFrameChanged イベントにサブスクライブします (現在フォームの Load イベント ハンドラーの中) 
+AnimatedImageManager.ImageFrameChanged += AnimatedImageManager_ImageFrameChanged; 
+// ImageFrameChanged イベント ハンドラー 
+void AnimatedImageManager_ImageFrameChanged(object sender, AnimatedImageManager.ImageFrameChangedEventArgs e) 
+{ 
+ // これは画像の最後のフレームで画像が UltraButton の画像の場合、 
+ // アニメーションを中止します (または、画像を Appearance から割り当て解除します) 
+ if (e.IsLastFrame && 
+ e.Image == this.ultraButton1.Appearance.Image) 
+ { 
+ e.SuspendAnimation = true; 
+ } 
+}
+---- 
+
+*Visual Basic の場合:* 
+
+---- 
+' ImageFrameChanged イベントにサブスクライブします (現在フォームの Load イベント ハンドラーの中) 
+AddHandler AnimatedImageManager.ImageFrameChanged, AddressOf AnimatedImageManager_ImageFrameChanged 
+' ImageFrameChanged イベント ハンドラー 
+Private Sub AnimatedImageManager_ImageFrameChanged(sender As Object, e As AnimatedImageManager.ImageFrameChangedEventArgs) 
+' これは画像の最後のフレームで画像が UltraButton の画像の場合、 
+' アニメーションを中止します (または、画像を Appearance から割り当て解除します) 
+ If e.IsLastFrame AndAlso e.Image Is Me.UltraButton1.Appearance.Image Then 
+ e.SuspendAnimation = True 
+ End If 
+End Sub
+---- 
+
+
+[[DisablingAnimationSupport]]
+
+=== アニメーション サポートの無効化
+
+画像アニメーションがインフラジスティックス フレームワーク以外で実装されている場合などでは、画像アニメーションを PLF 内でオフにする必要があります。AnimatedImageManager が有効なプロパティで行うことができます。
+
+[options="header", cols="a,a,a"]
+|====
+|EventArgs プロパティ名|プロパティ タイプ|説明
+
+|Enabled
+|`Boolean`
+| 
+
+AnimatedImageManager がアニメーションを使用して画像を描画するために使用されるかどうかを示します。
+
+|====
+
+
+*C# の場合:* 
+
+[source]
+---- 
+AnimatedImageManager.Enabled = false;
+---- 
+
+*Visual Basic の場合:* 
+
+[source]
+---- 
+AnimatedImageManager.Enabled = false
+---- 
+
+
+
+[[RecommendationsandConsiderations]]
+
+=== 推奨事項および注意点
+
+* Window Forms のデザインにより、画像のフレームを変更するときは画像が描画されるコントロールの一部を無効にする必要があります。そのため、同時に多数のアニメーション画像を使用する場合に、結果として CPU の使用が増加します。
+* AnimatedImageManager は、画像がインフラジスティックスコントロールによって使用されているかどうかに関係なく、画像のアニメーションがいつ一時停止したかをトラッキングします。これにより、画像の初期レンダリングの前にアニメーションを停止することを許可します。ただし、現在停止している画像はコントロールによって使用されないため、画像のアニメーションを再開することを推奨します。それにより、AnimatedImageManager が画像をトラックする必要がなくなり、画像をメモリからリリースします。
+
+[[RelatedContent]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:win-plf-overview.html[PLF 概要]
+|開発者とエンドユーザーの両方に一貫性があることが生産性向上のキーとなります。Infragistics Presentation Layer Framework (PLF) は、すべてのインフラジスティックス要素がビルドされる共通サブストレートを提供します。
+
+|====

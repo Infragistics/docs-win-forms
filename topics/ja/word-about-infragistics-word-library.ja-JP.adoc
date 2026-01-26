@@ -1,0 +1,250 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-about-infragistics-word-library",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting","Getting Started","How Do I"],
+    "guid": "40b8339c-c63f-4e39-b52b-71229e928a95",  
+    "buildFlags": [],
+    "createdOn": "2011-04-01T18:56:52.4713805Z"
+}
+|metadata|
+////
+
+= Infragistics Word ライブラリについて
+
+このトピックは、フォーワードのみのストリーマー アプローチとオブジェクト モデル アプローチという、Word ドキュメントの作成に使用可能なアプローチを例を挙げて説明します。
+
+トピックは以下のとおりです。
+
+* <<Approaches,Word ドキュメントを生成するためのアプローチ>>
+
+** <<Streamer,フォーワードのみのストリーマー アプローチの実装>>
+
+*** <<WordDocumentWriterIntro,WordDocumentWriter オブジェクトの紹介>>
+*** <<StreamerReq,要件>>
+*** <<Instance,インスタンスの作成>>
+*** <<BlankDoc,ブランクの Word ドキュメントの作成>>
+*** <<StreamerPara,段落の追加>>
+
+** <<DOM,オブジェクト モデル アプローチの実装>>
+
+*** <<DocumentIntro,Document クラスの紹介>>
+*** <<DOMReq,要件>>
+*** <<CreateTopic,ブランクの Word ドキュメントの作成と保存>>
+*** <<DOMPara,Paragraph クラスの紹介>>
+*** <<AddPara,段落の追加>>
+
+* <<RelatedTopics,関連トピック>>
+
+[[Approaches]]
+== Word ドキュメントを生成するためのアプローチ
+
+Word ライブラリによって、Microsoft® Word® ドキュメントを作成できます。Word ドキュメントは、フォーワードのみのストリーマー アプローチまたはオブジェクト モデル アプローチのいずれかを適用することで作成できます。それぞれのアプローチの長所と短所を以下に説明します。
+
+フォーワードのみのストリーマー アプローチでは、パフォーマンスが向上しますが、使いやすさが劣ります。これは、ひとつのメソッドへの呼び出しと別のメソッドの呼び出しのバランスを取らなければならないためです。このエラーの結果は通常、実行を再開できない例外となります。もう一方のオブジェクト指向のアプローチは使いやすいのですが、データ量が多い場合大量のシステム メモリを使用します。
+
+[[Streamer]]
+=== フォーワードのみのストリーマー アプローチの実装
+
+[[WordDocumentWriterIntro]]
+===== WordDocumentWriter オブジェクトの紹介
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] は、ワード プロセッシング データを含むストリームやファイルを生成する、高速で、キャッシュを使用しないフォーワードのみの方法を提供するストリーマー オブジェクトです。このオプションは Infragistics.Documents.IO アセンブリで利用できます。WordDocumentWriter オブジェクトによって、フォーワードのみのストリーマー アプローチを使用して、Word ドキュメントを優れたパフォーマンスで作成できます。
+
+WinGridWordWriter™ コンポーネントと WinFormattedTextWordWriter™ コンポーネントは、Word 機能にエクスポートするために WordDocumentWriter オブジェクトを使用します。これらのコンポーネントによってエクスポートされるコンテンツは、メモリにドキュメントを作成することなく、ファイルに直接エクスポートされます。このため、 RAM の使用量を抑え、大量のデータのエクスポートの間に発生するメモリの問題を回避します。
+
+以下のセクションでは、コード例を使用して WordDocumentWriter クラスを使用する方法を示します。
+
+[[StreamerReq]]
+===== 要件
+
+Infragistics3.Documents.IO アセンブリへの参照が必要とされます。
+
+[[Instance]]
+===== インスタンスの作成
+
+WordDocumentWriter クラスは抽象で、直接的なインスタンス作成をサポートしません。このため、派生クラスのインスタンスを作成するために link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter~create.html[Create] メソッドを公開します。
+
+*C# の場合:*
+
+----
+//  ファイル名をコンパイルします
+string filename = "C:\\SampleWordDoc";
+//  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+using ( WordDocumentWriter writer = WordDocumentWriter.Create(filename) )
+{
+}
+----
+
+*Visual Basic の場合:*
+
+----
+' ファイル名をコンパイルします
+Dim filename As String = "C:\SampleWordDoc"
+'  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+Using writer As WordDocumentWriter = WordDocumentWriter.Create(filename)
+End Using
+----
+
+[[BlankDoc]]
+===== ブランクの Word ドキュメントの作成
+
+Word ドキュメントを作成する時に最初に実行することは、ドキュメントの開始を指示することです。これは出力ストリームに and タグを書いて、さらなる入力のためにライターを準備します。以下のコードは、ブランクの Word ドキュメントを開始および閉じる方法を示します。
+
+*C# の場合:*
+
+----
+//  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+string filename = "C:\\SampleWordDoc";
+ using ( WordDocumentWriter writer = WordDocumentWriter.Create(filename) )
+{
+// ドキュメントを開始します。StartDocument への各呼び出しは
+// EndDocument への対応する呼び出しとバランスを取らなければならないことに留意します
+writer.StartDocument();
+//  TODO: 興味深い何か
+// ドキュメントを終了します
+writer.EndDocument();
+}
+----
+
+*Visual Basic の場合:*
+
+----
+'  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+Dim filename As String = "C:\SampleWordDoc"
+Using writer As WordDocumentWriter = WordDocumentWriter.Create(filename)
+    '   ドキュメントを開始します。StartDocument への各呼び出しは
+    '  EndDocument への対応する呼び出しとバランスを取らなければならないことに留意します
+    writer.StartDocument()
+    '  TODO: 興味深い何か
+    '  ドキュメントを終了します
+    writer.EndDocument()
+End Using
+----
+
+[[StreamerPara]]
+===== 段落の追加
+
+以下のコード サンプルは、特定のフォントを使用して、テキスト ランで段落を追加する方法を示します。
+
+*C# の場合:*
+
+----
+private void WriteParagraph(
+    WordDocumentWriter writer,
+    string text,
+    Infragistics.Documents.Word.Font font )
+{
+    // 段落を開きます
+    writer.StartParagraph();
+    // 指定したテキストとフォントでテキスト ランを追加します
+    writer.AddTextRun( text, font );
+    // 段落を閉じます
+    writer.EndParagraph();
+}
+----
+
+*Visual Basic の場合:*
+
+----
+Private Sub WriteParagraph(writer As WordDocumentWriter, text As String, font As Infragistics.Documents.Word.Font)
+    '  段落を開きます
+    writer.StartParagraph()
+    '  指定したテキストとフォントでテキスト ランを追加します
+    writer.AddTextRun(text, font)
+    '  段落を閉じます
+    writer.EndParagraph()
+End Sub
+----
+
+[[DOM]]
+=== オブジェクト モデル アプローチの実装
+
+[[DocumentIntro]]
+===== Document クラスの紹介
+
+link:{ApiPlatform}documents.word{ApiVersion}~infragistics.documents.word.document.html[Document] クラスは、Word ドキュメントに関連付けられたすべてのコンテンツをカプセル化します。オブジェクト階層のルート レベルのエンティティで、この下にすべての他のオブジェクトがグループ化されています。Microsoft Word ドキュメントを生成するには、 link:{ApiPlatform}documents.word{ApiVersion}~infragistics.documents.word.document.html[Document] クラスのインスタンスを作成し、公開されているプロパティとメソッドを使用して作業し、そして link:{ApiPlatform}documents.word{ApiVersion}~infragistics.documents.word.document~save.html[Save] メソッドを呼び出します。
+
+[[DOMReq]]
+===== 要件
+
+オブジェクト モデル アプローチは、Infragistics3.Documents.IO アセンブリに加えて、Infragistics.Documents.Word アセンブリへの参照を必要とします。
+
+[[CreateTopic]]
+===== ブランクの Word ドキュメントの作成と保存
+
+以下のコードは、Document クラスを使用して空のWord ドキュメントを作成し、特定の場所に保存する方法を示します。
+
+*C# の場合:*
+
+----
+//  新しいWord ドキュメントを作成します
+Document doc = new Document();
+string filename = "C:\\SampleDoc";
+// ドキュメントを保存します
+doc.Save(filename);
+----
+
+*Visual Basic の場合:*
+
+----
+'  新しいWord ドキュメントを作成します
+Dim doc As New Document()
+Dim filename As String = "C:\SampleDoc"
+'   ドキュメントを保存します
+doc.Save(filename)
+----
+
+[[AddPara]]
+===== 段落の追加
+
+以下のコード サンプルは、 link:{ApiPlatform}documents.word{ApiVersion}~infragistics.documents.word.paragraph.html[Paragraph] クラスを使用してテキストをドキュメントに追加して、印刷可能な領域の中央にテキストを配置する方法を示します。
+
+[[DOMPara]]
+===== Paragraph クラスの紹介
+
+Paragraph クラスはドキュメントで単一の段落をカプセル化します。ドキュメントのコンテンツ ブロック コレクションにメンバーを追加することで、段落が作成されます。Paragraph は揃えて配置またはインデントが可能なテキスト ブロックを表示する機能を提供します。Paragraph クラスは、 link:{ApiPlatform}documents.word{ApiVersion}~infragistics.documents.word.paragraph~contentruns.html[ContentRuns] コレクションを公開します。これはコンテンツをパラグラフに追加する方法を提供します。
+
+*C# の場合:*
+
+----
+ //  新しいWord ドキュメントを作成します
+Document doc = new Document();
+string filename = "C:\\SampleDoc";
+// 段落をドキュメントに追加します
+Paragraph p = doc.ContentBlocks.AddParagraph();
+//  段落を中央揃えします
+p.Properties.Alignment = ParagraphAlignment.Center;
+//  現在の段落にテキスト ランを追加します
+p.ContentRuns.AddTextRun("Hello World");
+// ドキュメントを保存します
+doc.Save(filename);
+----
+
+*Visual Basic の場合:*
+
+----
+'  新しいWord ドキュメントを作成します
+Dim doc As New Document()
+Dim filename As String = "C:\SampleDoc"
+'  段落をドキュメントに追加します
+Dim p As Paragraph = doc.ContentBlocks.AddParagraph()
+'  段落を中央揃えします
+p.Properties.Alignment = ParagraphAlignment.Center
+'  現在の段落にテキスト ランを追加します
+p.ContentRuns.AddTextRun("Hello World")
+'   ドキュメントを保存します
+doc.Save(filename)
+----
+
+[[RelatedTopics]]
+== 関連トピック
+
+* link:word-using-the-infragistics-word-library.html[Infragistics Word ライブラリの使用]
+* link:word-word-document-generation-references-and-dependencies.html[Word ドキュメント生成び参照と依存関係]

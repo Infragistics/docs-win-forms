@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "undo-redo-framework-methods-and-properties-reference-by-class",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "a7b8708e-03a7-4691-93d4-9f8dd2de2362",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3470125Z"
+}
+|metadata|
+////
+
+= クラスによる Undo/Redo Framework メソッドおよびプロパティ参照
+
+=== はじめに
+
+このセクションには、Infragistics Undo/Redo Framework™ のキー クラス メソッドおよびプロパティに関する参照情報が含まれます。
+
+=== トピック
+
+クラスによる Infragistics Undo/Redo Framework メソッドおよびプロパティ参照についての情報は、以下のトピックで解説します。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:observablecollectionextendedwithundo-properties-reference.html[ObservableCollectionExtendedWithUndo プロパティ参照]
+|このトピックは、ObservableCollectionExtendedWithUndo クラスの重要なプロパティをいくつかリストします。
+
+| link:undohistoryitem-properties-and-methods-reference.html[UndoHistoryItem プロパティおよびメソッド参照]
+|このトピックは、UndoHistoryItem クラスのプロパティおよびメソッドをリストします。
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounitfactory-properties-and-methods-reference.html[UndoUnitFactory プロパティおよびメソッド参照]
+|このトピックは、UndoUnitFactory クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+|====

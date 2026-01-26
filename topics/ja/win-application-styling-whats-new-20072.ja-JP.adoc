@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-application-styling-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{59A2B68E-E982-46E7-BA65-A0BD4D12F655}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーション スタイリング 2007.2
+
+以下のリンクをクリックすることによって、2007 Volume 2 のリリースで Infragistics AppStylist for Windows Forms に追加されたアプリケーション スタイリングへの新しい拡張を学習してください。
+
+* link:win-new-style-library-wizard-whats-new-20072.html[新しいスタイル ライブラリ ウィザード]

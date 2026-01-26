@@ -1,0 +1,218 @@
+﻿////
+|metadata|
+{
+    "name": "winformattedlinklabel-formatting-text-and-hyperlinks",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{5931F8D4-0556-4295-9EBF-657CC06467CE}",
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テキストとハイパーリンクのフォーマッティング
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]  を使用して、書式設定されたテキストとハイパーリンクを埋め込みエディタをサポートする任意の {ProductName} コントロールに表示できます。埋め込みエディタをサポートするコントロールには、WinFormattedLinkLabel™、WinFormattedTextEditor™、および WinTooltipManager™ が含まれます。さらに、WinToolbarsManager™  ツールで使用できるツールチップでも、書式設定されたテキストとハイパーリンクを表示できます。
+
+次の例は、FormattedLinkEditor で複数のリンクとリンクされていないテキストを表示したものです。
+
+<a title="例のリンク" href="">abc</a> *または* <a title="例のリンク" href="">xyz</a> を*クリックします。*
+
+この例では、「クリックします」、「または」 および「。」はリンクのないテキストです。"abc" と "xyz" は、リンクされたテキストです。この 2 つのリンクは、さまざまな URL を指すことができます。また、テキストの中で複数のフォーマット (フォント、太字、斜体、色) を併用することも可能です。このようなフォーマットは、WinFormattedLinkLabel のlink:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor~value.html[Value] プロパティで設定します。WinToolbarsManager ツールのツールチップは、各ツールの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]  オブジェクトの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~tooltiptextformatted.html[ToolTipTextFormatted] プロパティを設定して、link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~tooltipdisplaystyle.html[ToolTipDisplayStyle] を Formatted に設定して書式設定します。
+WinTooltipManager  の場合は、link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipinfo~tooltiptextstyle.html[ToolTipTextStyle]  を Formatted に設定し、link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipinfo~tooltiptitle.html[ToolTipText] プロパティを設定して書式を指定します。
+
+
+属性を持つフォーマットタグがタグに関連付けられたテキストのフォーマット方法を指定します。関連付けられている XML スキーマは、HTML タグ <i>、<b>、<u>、<font>、<a>、<br>、および <p> と同じタグを使用します。これにより、すでに HTML に精通しているエンド ユーザーが簡単に書式を設定できます。
+
+.注:
+[NOTE]
+====
+FormattedLinkEditor クラスでサポートされている HTML 機能のサブセットは非常に限られているので、HTML のレンダリングには使用できません。
+====
+
+次の表は、サポートされているタグと属性、その説明を示したものです。
+
+[options="header", cols="a,a"]
+|====
+|タグ|説明
+
+|<b>text</b>
+|タグに囲まれたテキストを太字にします。
+
+|<strong>text</strong>
+|<b> タグと同様に囲まれたテキストを太字にします。このタグは、HTML でもよく使われます。
+
+|<i>text</i>
+|タグに囲まれたテキストを斜体にします。
+
+|<em>text</em>
+|<i> タグと同様に囲まれたテキストを斜体にします。このタグは、HTML でもよく使われます。
+
+|<u>underline</u>
+|タグに囲まれたテキストに下線を引きます。
+
+|<font face="xxx">text</font>
+|タグに囲まれたテキストを "xxx" フォントで表示。
+
+|<font color="red">text</font> 
+
+<font color="#FF0000">text</font> 
+
+<font color="255,000,000">text</font>
+|タグに囲まれたテキストを指定された色で表示します（たとえば、左に示した例のように赤で）。.NET Color Name、16 進数値、RGB 値のいずれかを使用できます。
+
+|<font size="1">text</font> 
+
+<font size="+1">text</font> 
+
+<font size="1pt">text</font> 
+
+<font size="+1pt">text</font>
+|タグに囲まれたテキストを指定されたサイズで表示します。フォントのサイズは、いくつかの方法で指定できます。1～7 のスケールや 1～72 の範囲のポイント数（点が最後に付加されます）で指定したり、ベース フォントのサイズの前に "+" または "-" の記号を付けて相対的に指定したりすることもできます。この場合、"-" 記号はベース フォントよりも小さいフォントを使用するように指定し、'+' 記号はベース フォントよりも大きなフォントを使用するように指定します。相対的なフォント サイズは、両方のポイントサイズが 1～7 のスケール サイズである場合に有効です。ただし、相対的なサイズを指定する場合には、スケール ベースのフォント サイズについては変更範囲は -3～+3 となり、ポイント ベースのフォント サイズでは -72～+72 の範囲となります。 
+
+.注:
+[NOTE] 
+==== 
+
+相対的なフォント サイズは、ベース フォントに対して相対的なサイズであって、その範囲のすべての値が実際のフォントと異なる指定されたサイズになるわけではありません。たとえば、ベース ポイントが 10 pt で、相対的なサイズとして -15 pt を指定した場合、結果は -5 pt となります。しかし、これは無効なサイズなので、それに近い有効なサイズが選択されます。この場合は、1pt サイズのフォントで表示されます。 
+
+====
+
+|<p>text</p>
+|新しい段落を開始します。段落タグは、その前に何らかの内容がある場合には、空行を 1 行作成します。 
+
+.注:
+[NOTE] 
+==== 
+
+<p> タグをネストして使用することはできません。未定義のレンダリングとなります。 
+====
+
+|<p align="left\|center\|right\|justify">text</p>
+|タグに囲まれたテキストを左端、中央、右端、または両端に揃えます (一度に 1 つのみ指定できます)。
+
+|<p wraptext="true">text</p>
+|True に設定されている場合、テキストが行の終わりに達すると、次の行に折り返されます。False の場合、折り返されずに次の行に続きます (必要であれば水平のスクロールバーを使用します)。
+
+|<hr/> 
+
+<hr size="10px"/> 
+
+<hr width="50%" align="center"/> 
+
+<hr NoShade="true" size="1px"/>
+|水平方向の罫線を表示します。ALIGN 属性を左、右、中央に設定すると配置を変更できます。WIDTH 属性を使用して、属性をパーセント (50%) または固定した量 (1px) のいずれかに設定することによって線の幅を変更できます。SIZE 属性を固定した量 (1px) に設定することによって、水平方向の罫線の高さを変更します。NoShade 属性を False に設定することで、立体シェードを削除します。
+
+|<img src="smiley.png"/> 
+
+<img src="smiley.png" align="left"/> 
+
+<img src="smiley.png" width="32px" height="32px"/> 
+
+<img src="smiley.png" border="solid"/> 
+
+<img src="smiley.png" HSpace="10px" VSpace="10px"/>
+|インライン画像を表示します。
+SRC 属性を使用してファイルまたは URL を指す、またはエンコードされた画像データを使用して DATA 属性で画像を表示できます。ALIGN 属性を左または右に設定すると、画像はフロートします。
+ALIGN 属性を設定しないと、画像はテキストとともにインラインで表示されます。WIDTH および HEIGHT 属性を使用して、画像の幅と高さを指定します。この属性は、パーセントまたは固定値のいずれかによって指定できます。BORDER 属性を使用して境界線の表示方法を設定できます。BORDER 属性の有効な値は、link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementborderstyle.html[UIElementBorderStyle] 列挙体と同じ値です。HSPACE および VSPACE 属性を使用して画像の左、右、上、下に追加するスペースを増やします。SHADOW 属性を使用して画像に影を描画します。
+
+|====
+
+次の表は、特定の FormattedLinkEditor の値がどのように表示されるかを示したものです。
+
+[options="header", cols="a,a"]
+|====
+|FormattedLinkEditor の例|表示されるテキスト
+
+|<a href="http://jp.infragistics.com"> Infragistics</a> にリンクします。
+|+++<a href="">Infragistics</a> にリンクします。+++
+
+|2 つのリンク:<a href="http://www.yahoo.com>Yahoo </a> and <a href="http://www.google.com">Google</a>.
+|+++2 つのリンク: <a href="">Yahoo</a> と <a href="">Google</a>。+++
+
+|<i>斜体</i> 
+
+<b>太字</b> 
+
+<u>下線</u> 
+
+<b><i><u>斜線、太字と下線</u></i></b>
+
+|
+++++
+<i>斜体</i>
+
+<b>太字</b>
+
+<u>下線</u>
+
+<b><i><u>斜線、太字と下線</u></i></b> 
+++++
+
+|<font color="red">赤いテキスト</font> font color="green">緑のテキスト</font> <font color="blue">青いテキスト</font> font
+|+++<font color="red">赤いテキスト</font> <font color="green">緑のテキスト</font> <font color="#0000ff">青いテキスト</font>+++
+
+|<p align="left">左揃えのテキスト</p> <p align="center">中央揃えのテキスト</p> <p align="right">右揃えのテキスト</p>
+|+++<p align="left">左揃えのテキスト</p> <p align="center">中央揃えのテキスト</p> <p align="right">右揃えのテキスト</p>+++
+
+|<p>これは第 1 段落です。段落内のテキストは折り返されています。 
+
+</p> 
+
+<p>新しい段落の開始では、テキストは新行で開始されます。 
+
+</p>
+|++++
+<p>これは第 1 段落です。段落内のテキストは折り返されます。
+
+</p>
+
+<p>新しい段落の開始では、テキストは新行で開始されます。
+
+</p>
+++++
+
+|<hr/>  
+
+<hr size="10px"/> 
+
+<hr align="center"/> 
+
+<hr NoShade="true" size="1px"/>
+|++++
+<hr/> 
+<hr size="10px"/> 
+
+<hr align="center"/> 
+
+<hr NoShade="true" size="1px"/>
+++++
+
+|<img src="smiley.png"/> 
+
+<img src="smiley.png" align="left"/> 
+
+<img src="smiley.png" width="32px" height="32px"/> 
+
+<img src="smiley.png" border="solid"/> 
+
+<img src="smiley.png" HSpace="10px" VSpace="10px"/>
+|画像は +++<img src="images/smiley.png"/>+++
+
+テキストテキストとともにインラインで表示されています。 
+
++++<img src="images/smiley.png" align="left"/>+++
+画像は左端にフロートされています。 
+ +
+ +
+ +
+ +
+
++++<img src="images/smiley.png" width="64px" height="64px"/>+++ 画像サイズは 32x32 から 64x64 に倍増しています。
+
++++<img src="images/smiley.png" border="solid"/>+++ 画像に 1px の実線が指定されています。 
+
++++<img src="images/smiley.png" HSpace="10px" VSpace="10px"/>+++　画像の境界線の外側に水平および垂直方向のスペースが追加されています。
+
+|====

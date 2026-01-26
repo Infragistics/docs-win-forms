@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-ipersistcomponentsettings-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E02C3267-B377-48FA-ABDD-6133682FCF5E}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= IPersistComponentSettings
+
+IPersistComponentSettings は Visual Studio 2005（.NET Framework 2.0）で新しく追加されたインタフェースで、ユーザーの設定を自動的にシリアル化/逆シリアル化する場合に使用します。SaveSettings プロパティを True に設定するときには、オブジェクトの LoadComponentSettings メソッドを呼び出すコード行を InitializeComponent コードの最後に記述します。コンポーネントは破棄されるときに、SaveComponentSettings メソッドを起動し、その中で呼び出しはコンポーネントの ApplicationSettings インスタンスに保存します。情報の実際的な保存の実装は、.NET Framework（特に ApplicationSettings クラス）によって処理されます。これは現在、レイアウト情報のストリームへの保存をサポートするすべてのコンポーネント/コントロール（UltraPrintDocument、UltraDockManager、UltraExplorerBar、UltraCalendarInfo、UltraCalendarLook、UltraTabbedMdiManager、UltraToolbarsManager、UltraTreeなど）で実装されています。

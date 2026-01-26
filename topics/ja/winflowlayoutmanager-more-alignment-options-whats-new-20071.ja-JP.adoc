@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winflowlayoutmanager-more-alignment-options-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{DE36B3CA-8E60-40F8-B73B-A5E12323F134}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 配置オプションが増えた
+
+WinFlowLayoutManager コントロールは、水平または垂直のパターンでフォームの複数の子コントロールをきちんと整列できます。これまでは、WinFlowLayoutManager はお互いではなく、フォームに関する子コントロールの配置をサポートしていました。今は廃止された Alignment プロパティは、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraflowlayoutmanager~orientation.html[Orientation]"]  プロパティに関して WinFlowLayoutManager によって管理されるコントロールを配置するために使われていました。Orientation が Horizontal に設定されると、レイアウトはフォーム（または親コンテナ）に対して水平に配置されます。
+
+2 つのプロパティが追加されました。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraflowlayoutmanager~horizontalalignment.html[HorizontalAlignment]"]  と pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraflowlayoutmanager~verticalalignment.html[VerticalAlignment]"]  です。これらのプロパティは、名前が示す方向で常に配置するため作業がより簡単になります。Orientation に基づいて、HorizontalAlignment は ContainerControl に関してすべてのコントロールを水平に配置するか、互いにすべてのコントロールを揃えます。たとえば、Orientation を Horizontal に設定すると、子コントロールは左から右に配置されます。HorizontalAlignment を Center に設定すると、すべてのコントロールは ControlContainer の中央に配置されます。VerticalAlignment を Near（上）に設定すると、子コントロールの上に揃います。
+
+これらの 2 つの新しいプロパティは、互いに対して子コントロールを常に中央に揃える場合に必要です。これは、コントロールの名前が意味するように「フロー」でなく雑な実装を引き起こす場合があります。
+
+== 関連トピック
+
+link:winflowlayoutmanager-aligning-controls-with-winflowlayoutmanager.html[WinFlowLayoutManager でコントロールを配置]

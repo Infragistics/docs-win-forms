@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-create-a-link-using-winformattedlinklabel",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{8D821E1F-49CB-4CBA-9553-2287C413AF8A}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel によるリンクの作成
+
+WinFormattedLinkLabel コントロールを使用すると、埋め込みエディタを使用するすべての {ProductName} コントロールにクリック可能なリンクを作成できます。また、このコントロールを単独で使用してフォームに単純なリンクを作成できます。WinFormattedLinkLabel コントロールを使用してフォームにリンクを作成するには、フォーム上のツールボックスからコントロールをフォーム上にドラッグします（コントロールをダブルクリックしても、フォーム上のデフォルト位置に置くことができます）。コントロールをフォームに配置したら、コントロールを選択して、[プロパティ] ウィンドウに行きます。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor~value.html[Value]"]  プロパティを "<a href=""www.infragistics.com"">Infragistics</a>" に設定します。Value プロパティの値をコードで設定するには、以下のコードを参照してください。
+
+[NOTE]
+====
+*注：* 以下のコードでは、バックスラッシュを忘れると、ビルド エラーが発生するので注意が必要です（Visual Basic では引用符のペア）。URL を囲む引用符の前にバックスラッシュ/引用符を置かないと、コンパイラは "<a href=" の後にセミコロンがあるか探します。このバックスラッシュ/引用符は、[プロパティ] ウィンドウで Value プロパティを設定した場合には付ける必要はありません。
+====
+
+WinFormattedLinkLabel は、<strong>、<em>、<u>、<font> などのいくつかの HTML タグを認識します。サポートされているすべての HTML タグのリストは、 link:winformattedlinklabel-formatting-text-and-hyperlinks.html[「テキストとハイパーリンクのフォーマット」]を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraFormattedLinkLabel1.Value = "<a href=""www.infragistics.com"">Infragistics</a>"
+----
+
+*C# の場合：*
+
+----
+this.ultraFormattedLinkLabel1.Value = "<a href=\"www.infragistics.com\">Infragistics</a>";
+----

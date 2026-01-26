@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-common-toolbar-tasks",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{9C37846E-2C9F-4205-A68B-82AC60173CC1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 一般的なツールバー タスク
+
+すべてのツールバーの共通機能についての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-align-tool-gradients-with-the-toolbar.html[ツールバーとツール グラデーションを整列]
+* link:wintoolbarsmanager-change-the-position-of-toolbars.html[ツールバーの位置の変更]
+* link:wintoolbarsmanager-change-the-orientation-of-tools-on-a-toolbar.html[ツールバー上のツールの方向の変更]
+* link:wintoolbarsmanager-change-the-placement-of-tool-text.html[ツール テキストの配置の変更]
+* link:wintoolbarsmanager-dock-toolbars-to-a-non-form-container.html[非フォーム コンテナにツールバーをドッキング]
+* link:wintoolbarsmanager-enable-and-disable-end-user-customization.html[エンド ユーザによるカスタマイズの許可と禁止]
+* link:wintoolbarsmanager-hide-toolbars.html[ツール バーを非表示にする]
+* link:wintoolbarsmanager-hide-tooltips-in-a-specific-toolbar.html[特定のツールバーでツールチップを非表示にする]
+* link:wintoolbarsmanager-prevent-toolbar-merging.html[ツールバーのマージの禁止]
+* link:wintoolbarsmanager-specify-a-different-appearance-for-a-tool-on-the-toolbar-and-menu.html[ツールバーとメニュー上のツールに別の外観を指定]
+* link:wintoolbarsmanager-specify-image-size-on-toolbars-and-menus.html[ツールバーとメニューでのイメージ サイズの指定]

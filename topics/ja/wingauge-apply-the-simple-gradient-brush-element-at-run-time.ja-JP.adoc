@@ -1,0 +1,87 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-simple-gradient-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{571D0EC5-6B24-46E4-B94A-88C536488920}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにシンプル グラデーション ブラシ エレメントを適用
+
+ゲージのプロパティを特定の方法でひとつの色で開始して別の色にフェードインするようにしたい場合には、シンプル グラデーション ブラシ エレメントをプロパティに適用します。
+
+*コードを使用してシンプル グラデーション ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+[source,csharp]
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. シンプル グラデーション ブラシ エレメントのインスタンスを作成します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+Dim simpleGradientBrushElement1 As New SimpleGradientBrushElement()
+----
+
+*C# の場合：*
+[source,csharp]
+----
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+SimpleGradientBrushElement simpleGradientBrushElement1 = new SimpleGradientBrushElement();         
+----
+
+[start=4]
+. 以下のプロパティを設定します。
+
+** 開始色 -- 192, 0, 0
+** 終了色 -- 黒
+** グラデーション スタイル -- BackwardDiagonal
+
+*Visual Basic の場合：*
+[source,vb]
+----
+simpleGradientBrushElement1.EndColor = System.Drawing.Color.Black
+simpleGradientBrushElement1.RelativeBounds = New System.Drawing.Rectangle(3, 3, 94, 94)
+simpleGradientBrushElement1.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent
+simpleGradientBrushElement1.StartColor = System.Drawing.Color.FromArgb(CInt(CByte(192)), CInt(CByte(0)), CInt(CByte(0)))
+myRadialGauge.Dial.BrushElement = simpleGradientBrushElement1
+----
+
+*C# の場合：*
+[source,csharp]
+----
+simpleGradientBrushElement1.EndColor = System.Drawing.Color.Black;
+simpleGradientBrushElement1.RelativeBounds = new System.Drawing.Rectangle(3, 3, 94, 94);
+simpleGradientBrushElement1.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent;
+simpleGradientBrushElement1.StartColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+myRadialGauge.Dial.BrushElement = simpleGradientBrushElement1;
+----
+
+== 関連トピック
+
+link:wingauge-simple-gradient-brush-element.html[シンプル グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-simple-gradient-brush-element-at-design-time.html[デザインタイムにシンプル グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-simple-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してシンプル グラデーション ブラシ エレメントを適用]

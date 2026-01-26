@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "winfontnameeditor-changing-the-font-of-text-of-the-selectedrows",
+    "controlName": ["WinEditors"],
+    "tags": ["Application Scenarios","Editing","Grids","How Do I"],
+    "guid": "{4D275A2C-8F85-44D9-BC47-EE4958C2075F}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベルのテキストのフォントを変更
+
+WinFontNameEditor はテキスト項目の現在のフォントを変更します。ドロップダウン ボックスのボタンをクリックすると、現在のコンピュータにインストールされているすべてのフォントがリストされます。ユーザーがいずれかのフォントをクリックすると、そのフォント名がテキスト文字列として返されます。フォントを変更するには、新しいフォント オブジェクトを作成し、新しいフォントの設定を変更対象のテキストのフォント オブジェクトに適用します。
+
+以下のサンプル コードは、新しいフォントが選択された時に WinGrid で選択された行のフォントを変更する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraFontNameEditor1_ValueChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraFontNameEditor1.ValueChanged
+	Me.categoriesUltraGrid.UseAppStyling = False
+	Me.categoriesUltraGrid.DisplayLayout.Override.SelectedRowAppearance.FontData.Name = _
+	  Me.UltraFontNameEditor1.Value
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraFontNameEditor1_ValueChanged(object sender, EventArgs e)
+{
+	this.categoriesUltraGrid.UseAppStyling = false;
+	this.categoriesUltraGrid.DisplayLayout.Override.SelectedRowAppearance.FontData.Name =
+	  this.ultraFontNameEditor1.Value.ToString();
+}
+----
+
+FontEditor の値を変更すると、新しいフォントが作成され、その新しいフォントにコントロールのテキスト（書体）とフォントのサイズ（12ポイント）が渡されます。これで FontEditor はラベルのフォントを新しいフォント オブジェクトに設定します。
+
+image::images\WinEditors_Changing_the_Font_of_Text_of_the_SelectedRows_01.png[]

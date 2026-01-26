@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter-about-wingridexcelexporter",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": [],
+    "guid": "{967BCD02-E6E0-430C-8694-33BCEB878AB0}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridExcelExporter について
+
+このトピックでは、Excel エクスポート プロセスの概要と、関係するエレメントについて説明します。Excel データをエクスポートする方法の手順の詳細については、チュートリアルの link:wingridexcelexporter-export-grid-data-to-excel.html[「グリッド データを Excel にエクスポート」]を参照してください。
+
+このリリースでは、WinGrid はデータを Microsoft Excel スプレッド シート形式にエクスポートできます。Excel 形式にエクスポートするプロセスは、エクスポート前にレイアウトと外観をデータにどのように適用するか、およびどのデータを含めてどのデータを除外するかを制御する点で、グリッド データを印刷するプロセスに似ています。Excel エクスポートでは、Excel の高度な書式機能を多数利用できます。また、エクスポートにはグリッド データだけでなく、ヘッダ、列グループ、集計行などを含めることができます。
+
+Excel エクスポートは 2 つの新しいアセンブリによって処理されます。Infragistics.Win.UltraWinGrid.ExcelExport アセンブリは WinGrid と対話して、エクスポートの間に発生するすべての通信を管理します（このアセンブリは Infragistics.Win.UltraWinGrid アセンブリに依存します）。Infragistics.Documents.Excel アセンブリは、Infragistics.Win.UlltraWinGrid.ExcelExport アセンブリとのみ通信し、Excel 形式へのデータ エクスポートに関する基本的な処理を行います。UltraWinGrid からセル データをエクスポートするためには、WinGridExcelExporter エレメントをアプリケーションに追加する必要があります。エレメントを追加すると、Infragistics.Documents.Excel アセンブリへの参照がプロジェクトに自動的に追加されます。
+
+エクスポート プロセスは、UltraGridExcelExporter の Export メソッドを呼び出すことで開始されます。その際このメソッドに、エクスポート元の WinGrid と、作成する Excel ファイルのファイル名を渡します。WinGrid と WinGridExcelExporter は、エクスポート プロセス中に大量の通信を行います。通信は pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.iultragridexporter.html[IUltraGridExporter]"]  インタフェースによって処理されます。このインタフェースは WinGrid によって公開され、データを汎用的な方式でエクスポートするために使用されます。グリッドは、このインタフェースのメソッドを呼び出し、行、ヘッダ、集計などのグリッド オブジェクトをエクスポートします。WinGridExcelExporter は、これらのメソッドを実装し、グリッドからのデータを対応する Excel 書式の「オブジェクト」に変換します。
+
+[NOTE]
+====
+*注:* これらは厳密な意味ではオブジェクトではないかもしれません。これらはひとつまたは複数の Excel セルに適用されるテキストと書式属性として単純に表現できます。
+====
+
+グリッドからのデータが処理される間、WinGridExcelExporter によって各種のイベントが発生するため、開発者はこれらのイベントによってエクスポート プロセスを制御できます。これらのイベントでは、エクスポートに含まれるデータを制御したり、生成される Excel ファイル内でのデータの配置を制御したりできます。イベントには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~beginexport_ev.html[BeginExport]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~initializerow_ev.html[InitializeRow]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~initializecolumn_ev.html[InitializeColumn]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~cellexporting_ev.html[CellExporting]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~cellexported_ev.html[CellExported]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~rowexporting_ev.html[RowExporting]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~rowexported_ev.html[RowExported]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~endexport_ev.html[EndExport]"]  が含まれます。これらはイベントの一部にすぎません。エクスポートに含まれるオブジェクトのタイプごとに複数のイベントが存在します。完全なリストについては、 link:ms-help://infragistics.win.ultrawingrid/ultrawingrid/infragistics.win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter_members.html[「UltraGridExcelExporter クラス メンバ」]を参照してください。
+
+内部的には、UltraGridExcelExporter は WinGrid に IUltraGridExplorer インタフェースを実装するヘルパー クラスを渡します。WinGrid は、（pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[IntializeLayout]"]  イベントを発生させて）pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[DisplayLayout]"]  のクローンを作成し、行ごとに InitializeRow イベントを発生させてデータ ソースから行をロードします。完全なレイアウトのクローンが作成されると、WinGrid は、渡されたヘルパー クラスのインタフェースのメソッドを呼び出し、各種タイプのグリッド オブジェクトをエクスポートします。ヘルパー クラス内のこれらのメソッドの実装は、WinGridExcelExporter 内の対応するメソッドを呼び出します。これにより、WinGridExcelExporter によってグリッド データが Excel データに変換され、そのエレメントでイベントが発生します。グリッド全体がエクスポートされるまでこのプロセスが続くか、またはイベントのひとつがキャンセルされることによってプロセスが終了します。最後に、Excel データがファイルに書き込まれ、WinGridExcelExporter の Export メソッドが戻ります。

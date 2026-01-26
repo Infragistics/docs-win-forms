@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator-winactivityindicator-animation",
+    "controlName": ["WinActivityIndicator"],
+    "tags": ["How Do I","Performance","Styling"],
+    "guid": "{CF2C39A6-6F43-43DE-B987-355BF2461847}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinActivityIndicator アニメーション
+
+コントロールで使用可能なさまざまな設定によって、WinActivityIndicator™ でアニメーションを有効にできます。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~animationenabled.html[AnimationEnabled] プロパティを True に設定する、または link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~start.html[Start] メソッドを呼び出すだけでアニメーションを有効にできます。 AnimationEnabled プロパティを False に設定する、または link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~stop.html[Stop] メソッドを呼び出すことによってアニメーションを中止できます。 さらに、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~animationspeed.html[AnimationSpeed] を 0 に設定することによってもアニメーションを無効にできます。
+
+中止すると、コントロールはマーキーを現在の状態で描き続けます。 アニメーションを再び開始する場合には、現在の状態に基づいて再開されます。 Start および Stop メソッドには Boolean 値を認めて True に設定されるとアニメーションを初期状態に戻すオーバーロードがあります。 アニメーションを初期状態に戻すことは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~resetanimation.html[ResetAnimation] メソッドを使用しても実行できます。
+
+以下のコードは、UltraActivityIndicator コントロールがフォームにドロップされていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+' Animation Enabled プロパティの使用で Animation を開始します。 
+Me.ultraActivityIndicator1.AnimationEnabled = True 
+' Start メソッドで Animation を開始します。 
+' this.ultraActivityIndicator1.Start() 
+' アニメーションの高速を変更します。 
+Me.ultraActivityIndicator1.AnimationSpeed = 50 
+' Animation を中止し、元の状態に戻します 
+' this.ultraActivityIndicator1.Stop(true) 
+' 中止し、再開始したときに Animation を元の状態に戻します。
+Me.ultraActivityIndicator1.ResetAnimation()
+----
+
+*C# の場合：*
+
+----
+// Animation Enabled プロパティの使用で Animation を開始します。
+this.ultraActivityIndicator1.AnimationEnabled = true;
+// Start メソッドで Animation を開始します。
+// this.ultraActivityIndicator1.Start();
+// アニメーションの高速を変更します。
+this.ultraActivityIndicator1.AnimationSpeed = 50;
+// Animation を中止し、元の状態に戻します
+// this.ultraActivityIndicator1.Stop(true);
+// // 中止し、再開始したときに Animation を元の状態に戻します。
+this.ultraActivityIndicator1.ResetAnimation();
+----
+
+image::images/WinActivityIndicator_WinActivityIndicator_Animation_01.png[]
+
+== 関連トピック
+
+* link:winactivityindicator-marquee-animation-style-settings.html[マーキー アニメーション スタイルの設定]
+* link:winactivityindicator-styling-winactivityindicator.html[WinActivityIndicator のスタイリング]

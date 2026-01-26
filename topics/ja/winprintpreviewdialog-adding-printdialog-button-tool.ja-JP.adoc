@@ -1,0 +1,91 @@
+﻿////
+|metadata|
+{
+    "name": "winprintpreviewdialog-adding-printdialog-button-tool",
+    "controlName": [],
+    "tags": [],
+    "guid": "28ada2fc-d5fc-4367-9314-2c08be3a2c9b",
+    "buildFlags": [],
+    "createdOn": "2015-02-24T19:38:35.7259456Z"
+}
+|metadata|
+////
+
+= PrintDialog ボタン ツールの追加
+
+このトピックでは、プリンターの選択、その他の印刷設定を変更するために、PrintDialog ボタン ツールを追加する方法を説明します。
+
+== 前提条件
+
+このトピックを理解するために、以下のトピックを参照することをお勧めします。
+
+link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[WinPrintPreviewDialog の使用] -- WinPrintPreviewDialog コンポーネントの使用方法を説明するチュートリアルを含みます。
+
+[[AddingPrintDialogButtonTool]]
+== PrintDialog ボタン ツール
+
+PrintDialog ボタン ツールでは、プリンターの選択、印刷部数の選択、ページ範囲の設定、その他のプリンター設定を選択します。
+
+以下のスクリーンショットでは、ホバー操作で表示されたツールチップのもつ PrintDialog ボタン ツールを示します。
+
+image::images/PrintPreviewDialogButton_01.png[]
+
+[[PrintDialogButtonToolPropertyandEvents]]
+== プロパティおよびイベント
+
+=== プロパティの概要
+
+PrintDialogButtonVisible プロパティでは、WinPrintPreviewDialog の ツール バーに PrintDialog ボタン ツールを表示/非表示します。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|プロパティ タイプ|説明
+
+| link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}~infragistics.win.printing.ultraprintpreviewdialog~printdialogbuttonvisible.html[PrintDialogButtonVisble]
+|`Boolean`
+|PrintDialog ボタン ツールが表示されるかどうかを返すか、設定します。
+
+|====
+
+=== イベントの概要
+
+以下のイベントが UltraPrintPreviewDialog クラスに追加されました。
+
+[options="header", cols="a,a"]
+|====
+|イベント|イベントの説明
+
+| link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}~infragistics.win.printing.ultraprintpreviewdialog~printdialogdisplaying_ev.html[PrintDialogDisplaying]
+|このイベントは、印刷ダイアログが表示される前に発生し、EventArgs 引数の *PrintDialog* プロパティで設定をオーバーライドします。PrintDialog を表示しないようにするには、EventArgs 引数の Cancel プロパティを True に設定します。
+
+| link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}~infragistics.win.printing.ultraprintpreviewdialog~printdialogclosed_ev.html[PrintDialogClosed]
+|子にベントは、PrintDialog の [閉じる] ボタン、または [キャンセル] ボタンをクリックすると発生します。
+
+|====
+
+[[Example]]
+== PrintDialog ボタン ツールの有効化
+
+image::images/PrintPreviewDialogButton_02.png[]
+
+
+以下の例で、PrintDialogButtonVisible プロパティをプログラムによって設定する方法を表します。
+
+*C# の場合:* 
+
+[source,csharp]
+---- 
+ultraPrintPreviewDialog1.PrintDialogButtonVisible = true;
+---- 
+
+*Visual Basic の場合:* 
+
+[source,vb]
+---- 
+ultraPrintPreviewDialog1.PrintDialogButtonVisible = true
+----
+
+[[RelatedContent]]
+== 関連コンテンツ
+
+* link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[WinPrintPreviewDialog の使用] -- このセクションでは、WinPrintPreviewDialog™ コンポーネント使用時の一般的なシナリオについて説明します。

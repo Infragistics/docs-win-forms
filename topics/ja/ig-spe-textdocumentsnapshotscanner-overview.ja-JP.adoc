@@ -1,0 +1,192 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-textdocumentsnapshotscanner-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "82cb105a-cc18-4259-afbf-2f5d8696f17f",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1148564Z"
+}
+|metadata|
+////
+
+= TextDocumentSnapshotScanner の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、`TextDocumentSnapshotScanner` オブジェクトのプロパティおよびメソッドの概要を提供します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref335166805,はじめに>>
+
+** <<_Ref335166821,TextDocumentSnapshotScanner の概要>>
+
+* <<_Ref335166842,TextDocumentSnapshotScanner プロパティ>>
+
+** <<_Ref335166850,プロパティのリスト>>
+
+* <<_Ref335166856,TextDocumentSnapshotScanner メソッド>>
+
+** <<_Ref335166864,メソッド リスト>>
+
+* <<_Ref335166870,関連コンテンツ>>
+
+** <<_Ref335166875,トピック>>
+
+[[_Append_Text_to]]
+[[_Ref335166805]]
+[[_Ref327861013]]
+[[_Ref324841253]]
+== はじめに
+
+[[_Ref335166821]]
+
+=== TextDocumentSnapshotScanner の概要
+
+スナップショットの `CreateScanner` メソッドを介して作成された `TextDocumentSnapshotScanner` クラスは `TextDocumentSnaphot` の特定のインスタンスをターゲットとして、スナップショットの線、トークンおよびワードを効率的にスキャンするために役に立ちます。
+
+.注:
+[NOTE]
+====
+対象のスナップショットはスレッドセーフですが、スキャナーはスレッドセーフではありません。したがって、それを使用して同じスレッドでスキャナーを作成します (名目上、スキャナーにアクセスする各スレッドは固有に作成します)。別のスレッドで作成されたスキャナーのプロパティとメソッドにアクセスしようとすると、InvalidOperationException が起動します。
+====
+
+[NOTE]
+====
+`TextDocumentSnapshotScanner` クラスは IDisposable を実装し、‘using’ ブロック内で使用されるか明示的に破棄されるべきであることにも留意してください。
+====
+
+[[_Ref335166842]]
+== TextDocumentSnapshotScanner プロパティ
+
+[[_Description]]
+
+=== プロパティのリスト
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|説明
+
+|CurrentOffset
+|これはスキャナーの現在の位置を表します。スキャナーを最初に作成した時、初期プロパティはゼロに設定されます。明示的に設定する、または以下のメソッド リスト表の ‘SeekTo’ メソッドを呼び出すことによって操作されます。
+
+|CurrentCharacter
+|`CurrentOffset` の文字を返します。
+
+|CurrentLine
+|`CurrentOffset` を含む線を返します。
+
+|CurrentToken
+|`CurrentOffset` を含むトークンを返します。 
+
+.注: 
+
+[NOTE] 
+
+==== 
+
+`CurrentOffset` をスナップショットの Length に設定すると、特別な EOS (ストリームの最後) トークンが返されます。 
+
+====
+
+|CurrentWord
+|`CurrentOffset``` を含むワードを返す、または `CurrentOffset` がワード内にない場合 null 値を返します。
+
+|Snapshot
+|関連付けられた `TextDocumentSnapshot` を返します。(読み取り専用)
+
+|====
+
+[[_Code]]
+[[_Delete_Text_from]]
+[[_Ref335166856]]
+== TextDocumentSnapshotScanner メソッド
+
+[[_Description_1]]
+
+=== メソッド リスト
+
+[options="header", cols="a,a"]
+|====
+|メソッド|説明
+
+|PeekNextToken
+|このメソッドは `CurrentOffset` を変更せずに次のトークンを返します。このメソッドのオプション フィルター (Func<Token, bool>) パラメーターを使用して、重要ではないトークン (たとえば空白、コメント、改行) をスキップします。
+
+|PeekPreviousToken
+|このメソッドは `CurrentOffset` を変更せずに前のトークンを返します。このメソッドのオプション フィルター (Func<Token, bool>) を使用して、重要ではないトークン (たとえば空白、コメント、改行) をスキップします。
+
+|PeekNextWord
+|このメソッドは `CurrentOffset` を変更せずに次のワードを返します。
+
+|PeekPreviousWord
+|このメソッドは `CurrentOffset` を変更せずに前のワードを返します。
+
+|SeekToEnd
+|このメソッドは `CurrentOffset` をドキュメントの最後に移動します。
+
+|SeekToLine
+|このメソッドは `CurrentOffset` をドキュメントの特定のラインに移動します。
+
+|SeekToStart
+|このメソッドは `CurrentOffset` をドキュメントの先頭に移動します。
+
+|SeekToToken
+|このメソッドは `CurrentOffset` をドキュメントの特定のトークンに移動します。
+
+|SeekToWord
+|このメソッドは `CurrentOffset` をドキュメントの特定のワードに移動します。
+
+|LineFromOffset
+|このメソッドは指定されたオフセットにある文字を含むテキストの行のための `SnapshotLineInfo` オブジェクトを取得します。
+
+|TokenFromOffset
+|このメソッドは指定されたオフセットにある文字を含む `Token` オブジェクトを取得します。
+
+|WordFromOffset
+|このメソッドは指定されたオフセットにある文字を含む `Word` オブジェクトを取得します。
+
+|====
+
+[[_Code_1]]
+[[_Insert_Text_into]]
+[[_Description_2]]
+[[_Code_2]]
+[[_Replace_All_Occurrences]]
+[[_Description_3]]
+[[_Code_3]]
+[[_Replace_a_Single]]
+[[_Description_4]]
+[[_Code_4]]
+[[_Replace_Text_at]]
+[[_Description_5]]
+[[_Code_5]]
+
+[[_Related_Content]]
+[[_Ref335166870]]
+== 関連コンテンツ
+
+[[_Topics]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-textdocument-overview.html[TextDocument の概要]
+|このトピックでは、Infragistics Syntax Parsing Engine の主要なクラス、`TextDocument` について説明します。最も重要なメソッド、イベントおよびプロパティを概略するトピックへのリンクが含まれています。
+
+| link:ig-spe-textdocumentsnapshot-overview.html[TextDocumentSnapshot の概要]
+|このトピックでは、`TextDocumentSnapshot` オブジェクトのプロパティおよびメソッドの概要を提供します。
+
+|====

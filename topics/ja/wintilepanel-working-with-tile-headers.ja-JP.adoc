@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-working-with-tile-headers",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I"],
+    "guid": "{0439BEBA-CCC7-4882-A61F-7ED5C70B0292}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タイル ヘッダーでの作業
+
+WinTilePanel™ コントロールの各タイルは、デフォルトでヘッダーを表示します。ヘッダーは画像とテキストを表示でき、ヘッダーには状態変更ボタンと閉じるボタンの両方またはいずれか一方が含まれます。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~settings.html[ultraTile.Settings]"]  または pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~tilesettings.html[UltraTilePanel.TileSettings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~headerposition.html[HeaderPosition]"]  プロパティを設定することでヘッダーを非表示または配置することができます。
+
+[NOTE]
+====
+*注：* タイル ヘッダーを非表示にすることを選択すると、エンドユーザーはそのタイルをドラッグおよび非表示にしたり、タイルの状態を変更できません。
+====
+
+ヘッダーに表示されるテキストは UltraTile オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~caption.html[Caption]"]  プロパティによって制御でき、タイル ヘッダーのサイズは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~headerextent.html[HeaderExtent]"]  プロパティによって制御できます。デフォルトのヘッダー サイズは、UltraTilePanel オブジェクトの TileSettings.HeaderExtent プロパティを設定することで UltraTilePanel のすべてのタイルに設定することもできます。ヘッダーがタイルの上または下に表示される時に、範囲はヘッダーの高さを示します。
+
+ヘッダーの外観は、ultraTile.Settings または UltraTilePanel.TileSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~headerappearance.html[HeaderAppearance]"]  プロパティを使用して設定できます。TilePanel へのタイルの追加については、 link:wintilepanel-add-and-remove-tiles-through-code.html[「コードでタイルを追加および削除」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+tile1.Settings.HeaderPosition = TileHeaderPosition.Bottom 
+tile1.Caption = "Header-Positioned Bottom" 
+tile1.Settings.HeaderExtent = 50 
+tile1.Settings.HeaderAppearance.BackColor = Color.LightPink
+tile2.Settings.HeaderPosition = TileHeaderPosition.Top
+tile2.Caption = "Header-Positioned Top" 
+tile2.Settings.HeaderExtent = 30 
+tile2.Settings.HeaderAppearance.BackColor = Color.Aqua
+----
+
+*C# の場合：*
+
+----
+tile1.Settings.HeaderPosition = TileHeaderPosition.Bottom;
+tile1.Caption = "Header-Positioned Bottom";
+tile1.Settings.HeaderExtent = 50;
+tile1.Settings.HeaderAppearance.BackColor = Color.LightPink;
+tile2.Settings.HeaderPosition = TileHeaderPosition.Top;
+tile2.Caption = "Header-Positioned Top";
+tile2.Settings.HeaderExtent = 30;
+tile2.Settings.HeaderAppearance.BackColor = Color.Aqua;
+----
+
+image::Images/WinTilePanel_Working_with_Tile_Headers_01.png[]

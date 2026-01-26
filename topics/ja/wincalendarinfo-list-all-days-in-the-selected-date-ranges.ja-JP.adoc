@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-list-all-days-in-the-selected-date-ranges",
+    "controlName": ["WinCalendarInfo"],
+    "tags": ["How Do I"],
+    "guid": "{332E0FF0-59D4-4379-911C-5C239EBA4A9A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択した日付範囲のすべての曜日のリストアップ
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo.html[UltraCalendarInfo]"]  オブジェクトは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~selecteddateranges.html[SelectedDateRanges]"]  コレクションを含みます。以下のコードは、WinSchedule pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.daterange.html[DateRange]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.day.html[Day]"]  オブジェクトを使用してすべての選択された日をリストする方法を示します。

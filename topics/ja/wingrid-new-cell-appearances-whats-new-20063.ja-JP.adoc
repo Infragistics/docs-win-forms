@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-new-cell-appearances-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{20422B33-0C4D-478F-A691-AD1BE7A72599}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T13:39:02Z"
+}
+|metadata|
+////
+
+= 新しいセルの外観
+
+2 つの新しい外観が WinGrid に追加されました。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~readonlycellappearance.html[ReadOnlyCellAppearance]"]  はセルの外観を定義し、読み取り専用で編集はできません。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~selectedappearance.html[SelectedAppearance]"]  は、それらが選択された時にセルの外観を定義します。他の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトのようにこれらの外観を変更することができます。詳細については、 link:win-appearance-objects.html[「Appearance オブジェクト」]を参照してください。

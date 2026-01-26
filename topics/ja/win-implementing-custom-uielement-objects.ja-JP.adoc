@@ -1,0 +1,544 @@
+﻿////
+|metadata|
+{
+    "name": "win-implementing-custom-uielement-objects",
+    "controlName": [],
+    "tags": ["API","Styling","Templating"],
+    "guid": "{54430BD2-794C-4CCC-AB4E-AF2796366641}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム UIElement オブジェクトの実装
+
+Infragistics コントロールのユーザーは、プロジェクトでコントロールを使用する際に、UIElement の実装の仕組みを知っておく必要はありません。
+
+しかし、PLF に基づいてカスタム コントロールを作成したり、UIElementCreationFilter を使用してエレメントを追加または置換したりするためには、この実装の仕組みについて、より詳細に理解しておく必要があります。独自のコントロールや UIElement を作成する予定がなければ、このセクションは読み飛ばしても構いません。
+
+このセクションでは、UIElement の実装の仕組みについて簡単に説明します。ここでは、エレメントの動作を制御するためにオーバーライドできる仮想のプロパティやメソッドについて詳しく説明します。
+
+カスタムのエレメントを作成するためには、UIElement の基本クラスかその派生クラスから、クラスを派生する必要があります。そして、そのクラスの仮想プロパティやメソッドをオーバーライドし、エレメントの希望の外観や動作を実現します。
+
+PLF に実装されているエレメント クラスのうち、基本クラスとして役立つものを次に示します。
+
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.adjustableuielement.html[AdjustableUIElement]"]  - ユーザーによる移動やサイズ変更が可能なエレメント（列ヘッダなど）の基本クラスとして便利です。このクラスは、エレメントが左右や上下の調整をサポートしているかどうか、あるいは調整範囲の制限をサポートしているかどうかを指定する、追加の仮想メソッドおよびプロパティを提供しています。また、サイズ変更操作中にマウスのキャプチャと適切な線/四角形の反転を行うためのロジックを備えています。さらに、ElementAdjusted イベントを提供しているほか、デルタ値を渡す ApplyAdjustment 仮想メソッドもあります。このメソッドをオーバーライドして実際の調整を実行します。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.buttonuielement.html[ButtonUIElement]"]  - このクラスはそのまま、または基本クラスとして使用できます。このクラスはボタンの機能をすべて実装しており、さらに十数個のボタン スタイルをサポートできるように列挙体の ButtonStyle プロパティを提供しています。
+* CheckBoxUIElement - このクラスはそのまま、または基本クラスとして使用できます。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controluielementbase.html[ControlUIElementBase]"]  - このクラスは、コントロールのメイン UIElement に対する基本クラスとして使用する必要があります。コントロールは、このエレメントの単一のインスタンスを自身のプライマリ UIElement として持つ必要があります。つまり、ControlUIElementBase から派生したエレメントが親エレメントを持つことは許されません。このクラスには OnPreMouseDown 仮想メソッドがあります。このメソッドはユーザーがマウスをクリックしたときに呼び出されます。このメソッドをオーバーライドすることで、特定のロジック（コントロールへのフォーカスの設定など）を実行したり、True の戻り値によってデフォルトのマウスダウン ロジックを省略したりできます。また、コントロールで KeyActionMappings（「キーボード処理」のセクションを参照）を利用する場合は、読み取り専用の CurrentState プロパティと PerformKeyAction メソッドをオーバーライドする必要があります。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableuielementbase.html[EmbeddableUIElementBase]"]  - このクラスは、埋め込みエディタのエレメント クラスの派生元となる基本クラスです（「埋め込みエディタ」のセクションを参照）。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.imageuielement.html[ImageUIElement]"]  - このクラスはそのまま、または基本クラスとして使用できます。このクラスは背景や境界線は描画しません。前景イメージを表示するだけです。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.splitteruielement.html[ pick:[win-forms="SplitterUIElement"] ] - このクラスは AdjustableUIElement から派生したもので、スプリッタ バーの機能をすべて実装しています。通常、派生クラスでは ApplyAdjustment メソッドをオーバーライドするだけで済みます。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.splitterintersectionuielement.html[ pick:[win-forms="SplitterIntersectionUIElement"] ] - このエレメントは、垂直 SplitterUIElement と水平 SplitterUIElement との交点を表します。このクラスは、ユーザーが交点エレメントを対角線上にドラッグしたときに両方のスプリッタに適切な調整を適用するためのロジックを備えています。また、両方のスプリッタ エレメントの ElementAdjusted イベントをリスニングし、自身の位置を自動的に調整します。
+* link:{ApiPlatform}win{ApiVersion}~infragistics.win.textuielement.html[ pick:[win-forms="TextUIElement"] ] - このクラスはそのまま、または基本クラスとして使用できます。このクラスは背景や境界線は描画しません。テキストを表示するだけです。
+
+次の 2 つの表は、UIElement 基本クラスにより提供されている仮想のプロパティおよびメソッドについてまとめたものです。
+
+== UIElement の仮想プロパティ
+
+[options="header", cols="a,a,a,a"]
+|====
+|プロパティ名|タイプ|説明|UIElement 基本クラスにより返される値
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~adjustable.html[Adjustable]
+|ブール値
+|ユーザーがこのエレメントを移動またはサイズ変更できる場合は True を返します。このプロパティは読み取り専用です。
+|False
+
+|link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~bordersides.html[BorderSides]
+|Border3DSide
+|上下左右のどの側に境界線に描画すべきかを示すビット フラグです。
+|All
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~borderstyle.html[BorderStyle]
+|UIElementBorderStyle
+|描画する境界線のスタイルを指定します（実線、点線、インセット、浮き出し、なし、など）。このプロパティは読み取り専用です。
+|なし
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~cancelcaptureonescape.html[CancelCaptureOnEscape]
+|ブール値
+|[Esc] キーが押されたときにこのエレメントのキャプチャを終了するかどうかを示します。このプロパティは読み取り専用です。
+|True
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~ChildElementArrayCapacity.html[ChildElementArrayCapacity]
+|整数
+|このエレメントに対して想定される子エレメントの数を返します。子コレクションの割り当てを最適化するために多数の子エレメントを使用する場合は、親エレメントのこのプロパティをオーバーライドしてください。 このプロパティは読み取り専用です。
+|3
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~ClipChildren.html[ClipChildren]
+|ブール値
+|このエレメントの子エレメントの描画が、このエレメントの境界線内部でクリップされるかどうかを決めます。このプロパティでは、このようなクリップ処理を必要とするエレメントに対してのみ true を返すようにしてください。 これは、クリップ リージョンが交差すると実行オーバーヘッドが発生するためです。このプロパティは読み取り専用です。
+|False
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~ClipRectChildren.html[ClipRectChildren]
+|四角形 - 外枠
+|ClipChildren が true を返す場合に、子エレメントをクリップするために使用される四角形を返します。このプロパティは読み取り専用です。
+|RectInsideBorders
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~ClipSelf.html[ClipSelf]
+|ブール値
+|エレメントの描画をクリップして領域外に描画されないようにするかどうかを決定します。このプロパティでは、このようなクリップ処理を必要とするエレメントに対してのみ True を返すようにしてください。 これは、クリップ リージョンが交差すると実行オーバーヘッドが発生するためです。このプロパティは読み取り専用です。
+|False
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.controluielementbase~control.html[Control] 
+|Windows.Forms.Control
+|このエレメントに関連付けられたコントロールを返します。このプロパティは読み取り専用です。
+|メインのコントロール エレメントに達するまで親チェーンをたどり、関連付けられたコントロールを返します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.controluielementbase~cursor.html[Cursor] 
+|Windows.Forms.Cursor
+|マウスがエレメントの上に移動したときに使用されるカーソルを返します。
+|InitAppearance を呼び出して、割り当てられているすべてのカーソルを取得します。none が設定された場合はその親エレメントのカーソルを返します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~DrawsFocusRect.html[DrawsFocusRect]
+|ブール値
+|描画操作中にこのプロパティが True を返し、コントロールが入力フォーカスを持っている場合（または Draw メソッド呼び出しの forceDrawAsFocused パラメータが True だった場合）は、エレメントの DrawFocus メソッドが呼び出されます。このプロパティは読み取り専用です。
+|False
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.buttonuielementbase~enabled.html[Enabled] 
+|ブール値
+|エレメントが有効な場合に True を返します。このプロパティは読み取りと書き込みが可能です。
+|Enabled が False の場合は false を返します。Enabled が False でなければ、その親エレメントのプロパティを返します。これは実質的には、メインのコントロール エレメントに達するまで親チェーンをたどることを示します。 メインのコントロール エレメントはこのプロパティをオーバーライドして、関連付けられたコントロールの Enabled プロパティを返します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~iselementdrawn.html[IsElementDrawn] 
+|ブール値
+|このエレメントを描画する必要がある場合に True を返します。このプロパティは読み取り専用です。注:このプロパティが false を返す場合、このエレメントとそのすべての子エレメントは描画されません。
+|True
+
+|link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~rect.html[Rect] 
+|四角形 - 外枠
+|コントロールのクライアント座標で示されるエレメントのバウンディング四角形です。このプロパティは読み取りと書き込みが可能です。
+|エレメントの四角形を返します。このプロパティを設定すると、子エレメント コレクションがダーティとマークされ、次回の描画時に PositionChildElements が呼び出されます。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~rectinsideborders.html[RectInsideBorders] 
+|四角形 - 外枠
+|コントロールのクライアント座標で示されるエレメントの境界線内部の四角形です。このプロパティは読み取り専用です。
+|BorderStyle プロパティと BorderSides プロパティに基づき、エレメントの境界線にあわせて調整されたエレメントの四角形を返します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~region.html[Region] 
+|System.Drawing.Region
+|エレメントのリージョンです。描画操作中に ClipSelf プロパティが true を返した場合に呼び出されます。不規則な形のリージョンを返すには、このプロパティをオーバーライドします。
+|呼び出し側が破棄しなければならない四角形リージョンを返します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~selectableitem.html[SelectableItem] 
+|ISelectableItem
+|ISelectableItem インタフェースを実装しているオブジェクトか、または null を返します。SelectionStrategy では、SelectableItem を使用して個々の項目や項目範囲を選択します。このプロパティは読み取り専用です。
+|PrimaryContext が ISelectableItem インタフェースを実装していればその PrimaryContext を返します。実装していなければ、その親エレメントの SelectableItem プロパティを返します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~SupportsHorizontalMousePanning.html[SupportsHorizontalMousePanning]
+|ブール値
+|マウスによる水平方向のパニングをサポートするエレメントでは、True を返します。このプロパティをオーバーライドする場合は、パニング操作を実行するために OnMousePanHorizontal メソッドもオーバーライドしてください。このプロパティは読み取り専用です。
+|False
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~SupportsVerticalMousePanning.html[SupportsVerticalMousePanning]
+|ブール値
+|マウスによる垂直方向のパニングをサポートするエレメントでは、True を返します。このプロパティをオーバーライドする場合は、パニング操作を実行するために OnMousePanVertical メソッドもオーバーライドしてください。このプロパティは読み取り専用です。
+|False
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~WantsMouseHoverNotification.html[WantsMouseHoverNotification]
+|ブール値
+|エレメントまたはその子エレメントのひとつの上でマウスが停止しているときに、エレメント自身の OnMouseHover メソッドを呼び出す場合は、True を返します。このプロパティは読み取り専用です。注:マウスがエレメントの上で停止しているとき、PLF ロジックは最初にエレメントのこのプロパティをチェックします。プロパティが false を返した場合は、エレメントの親チェーンをたどり、このプロパティで True を返す最初のエレメントの OnMouseHover を呼び出します。
+|False
+
+|====
+
+== UIElement の仮想メソッド
+
+[options="header", cols="a,a,a"]
+|====
+|メソッド名|説明|UIElement 基本クラスにおけるデフォルトの実装
+
+|*Contains* 
+
+戻り値: 
+
+- ブール値 
+
+パラメータ: 
+
+- Point（クライアント座標） 
+
+|不規則な形のリージョンをサポートするにはこのメソッドをオーバーライドします。
+|ポイントがエレメントの四角形の内部にあれば True を返します。
+
+|*DrawBackColor* 
+
+戻り値: 
+
+- Void 
+
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントの背景色を描画するために、描画操作中に DrawTheme の後に呼び出されます。通常、このメソッドは、エレメントの背景を描画しない null 実装となるようにオーバーライドされます（たとえば TextUIElement はこのように動作します）。このメソッドを使用してカスタムの描画を実行することもできます。
+|渡された UIElementDrawParams 構造体の DrawBackColor メソッドを呼び出して、無効な領域を塗りつぶします。
+
+|*DrawBorders* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントの境界線を描画するために、描画操作中に DrawImageBackground の後に呼び出されます。実際には、このメソッドをオーバーライドしなければならないケースは非常にまれです。 これは、BorderStyleとBorderSides の各プロパティによって境界線を非常に柔軟に制御できるためです。しかし、カスタムの境界線描画を実行するためにこのメソッドをオーバーライドすることもできます。
+|渡された UIElementDrawParams 構造体の DrawBorders メソッドを呼び出します。このメソッドは、エレメントの BorderStyle プロパティと BorderSides プロパティに基づいて境界線を描画します。
+
+|*DrawChildElements* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントの子エレメントを描画するために、描画操作中に DrawForeground の後に呼び出されます。通常、このメソッドは、エレメントの子エレメントを描画しない null 実装となるようにオーバーライドされます。
+|子エレメントを描画します。
+
+|*DrawFocus* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントのフォーカス インジケータを描画するために、描画操作中に呼び出されます。エレメントとすべてのその子エレメントの描画が完了した後に呼び出されます。コントロールがフォーカスを持っていて（または Draw メソッドの呼び出し時に forceDrawAsFocused パラメータが True に設定されていて）、エレメントが DrawsFocusRect プロパティから True を返す場合にだけ、呼び出されます。
+|RectInsideBorders プロパティを使用して、エレメントの境界線内部のフォーカス四角形を描画します。
+
+|*DrawForeground* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントの前景を描画するために、描画操作中に DrawImage の後に呼び出されます（たとえば TextUIElement はこのメソッドでテキストを描画します）。
+|何もしません。
+
+|*DrawImage* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントの前景イメージを描画するために、描画操作中に DrawBorders の後に呼び出されます（たとえば UIElement はこのメソッドでイメージを描画します）。
+|何もしません。
+
+|*DrawImageBackground* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントの背景イメージを描画するために、描画操作中に DrawBackColor の後に呼び出されます。通常、このメソッドは、エレメントの背景を描画しないように null 実装を提供するためにオーバーライドされます（たとえば TextUIElement はこのように動作します）。このメソッドを使用してカスタムの描画を実行することもできます。
+|渡された UIElementDrawParams 構造体により提供されている、解決された外観の ImageBackground を描画します。
+
+|*DrawTheme* 
+
+戻り値: 
+
+- Boolean - True を返した場合は、DrawChildElements を除く他の「Draw...」メソッドの実行が省略されます。 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|このメソッドは、エレメントを XP テーマ エレメントとして描画するために描画操作中に最初に呼び出される「Draw...」メソッドです。ドロップダウン ボタンエレメントやスクロールバー エレメントなどのテーマ エレメントはこのメソッドをオーバーライドし、XPThemes クラスを使用してエレメントを適切に表示します。そして、他の描画メソッドが省略されるように True を返します。
+|何もせず、他の「Draw…」メソッドが呼び出されるように False を返します。
+
+|*GetAdjustableCursor* 
+
+戻り値: 
+
+- カーソル 
+
+パラメータ: 
+
+- Point（クライアント座標） 
+
+|このメソッドは、Adjustable プロパティから True が返されるエレメントによってオーバーライドされ、マウスがエレメントの調整可能領域の上にあるときに適切なカーソルを供給します。
+|Null を返します。
+
+|*GetAdjustmentRange* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- Point（クライアント座標）、out UIElementAdjustmentRangeParams range 
+
+|range パラメータには、エレメントを縦横方向またはどちらか一方の方向に調整する際の範囲の限界を含む構造体が設定されます。また、マウスのドラッグ操作中に反転させる必要のある垂直バーおよび水平バーに対応した四角形の初期値も返します。
+|range パラメータに、0 で満たされた構造体を設定します。
+
+|*GetContext* 
+
+戻り値: 
+
+- 要求された型のオブジェクト、または null 
+
+パラメータ: 
+
+- タイプ 
+
+|このメソッドはエレメントのコンテキストを返します。一般に、このメソッドをオーバーライドすることはあまりありません。通常は、コンテキスト オブジェクトを複数持つエレメントによってのみオーバーライドされます（つまり、基本クラスの PrimaryContext プロパティでは十分でないことを意味します）。たとえば、UltraGrid でこのメソッドをオーバーライドするエレメントは RowColRegionIntersectionUIElement のみです。 このエレメントは RowScrollRegion オブジェクトと ColScrollRegion オブジェクトの両方の参照を維持する必要があります。
+|コンテキスト オブジェクトがすでに設定されているかどうか、およびその型と要求された型とが一致するかどうかをチェックします。どちらも成立する場合はコンテキスト オブジェクトを返します。 どちらかが成立しない場合は、このメソッドをその親で呼び出します（これは実質的には、一致するものが見つかるまで、またはコントロールのメイン エレメントに達するまで、親チェーンをたどることを示します）。この動作は重要です。たとえば、アプリケーションが CellUIElement の子 TextUIElement の Row コンテキストを要求した場合、このメソッドは RowUIElement に達するまで親エレメント チェーンをたどり、適切な Row コンテキストを返します。
+
+|*InitAppearance* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- AppearanceData、AppearancePropFlags 
+
+|エレメントが自身の前景色、背景色、境界線の色などを指定できるように、要素が描画される前に呼び出されます。注:デフォルト値のままの外観設定には、すべて親エレメントの設定が適用されます（ImageBackground、BackGradientStyle、BackHatchStyle の各プロパティを除く）。
+|何もしません。
+
+|*Offset* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- Integer deltaX、Integer deltaY、Boolean recursive 
+
+|通常はこのメソッドをオーバーライドすることはありません。
+|エレメントの四角形のオフセットを設定します。 recursive フラグが True であれば、各子エレメントについてこのメソッドを呼び出します。
+
+|*OnAfterDraw* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- UIElementDrawParams 
+
+|エレメントが描画された後に呼び出されます。
+|何もしません。
+
+|*OnBeforeDraw* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|エレメントが描画される直前に呼び出されます。
+|何もしません。
+
+|*OnCaptureAborted* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|OnMouseDown 内など、マウスをキャプチャしたエレメントでマウスのキャプチャがキャンセルされたときに呼び出されます。
+|パニング タイマーをすべて停止し、カーソルをリセットした後、エレメントの親エレメントでこのメソッドを呼び出します。これは実質的には親チェーンをたどることを示します。
+
+|*OnClick* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|マウスがエレメントの上でクリックされたときに呼び出されます。
+|エレメントの親エレメントでこのメソッドを呼び出します。これは実質的には親チェーンをたどることを示します。
+
+|*OnDoubleClick* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|マウスがエレメントの上でダブルクリックされたときに呼び出されます。
+|エレメントの親エレメントでこのメソッドを呼び出します。これは実質的には親チェーンをたどることを示します。
+
+|*OnMouseDown* 
+
+戻り値: 
+
+- Boolean - True を返した場合はデフォルトのロジックが省略されます。 
+
+パラメータ: 
+
+- MouseEventArgs e、Boolean adjustableAreaRef UIElement captrueMouseForElement 
+
+|このメソッドは、マウスがエレメントの上にある間にマウス ボタンが押されたときに呼び出されます。通常は、何らかのアクションを実行したりマウスをキャプチャするようにオーバーライドされます。このメソッドから戻る前に、captureMouseForElement　パラメータにエレメント（通常はこのエレメント）を設定すると、そのエレメントに対してマウスがキャプチャされ、続いて OnMouseMove が呼び出されます。
+|マウス中央のボタンが押されて SupportsHorizontalMousePanning または SupportsVerticalMousePanning プロパティが True を返すと、適切なマウスのパンニング カーソルが表示され、OnMousePanHorizontal または OnMousePanVertical メソッドの呼び出しを生成するタイマーが始まり、メソッドが True を返します。それ以外の場合は、エレメントがメソッドをオーバーライドするか、またはメイン エレメントに達するまで、その親エレメントでこのメソッドを呼び出し（実質的には親チェーンをたどり）、False を返します。
+
+|*OnMouseEnter* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|このメソッドは、マウスがエレメントの四角形に入ったときに呼び出されます。
+|何もしません。
+
+|*OnMouseHover* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|通常、このメソッドはツールチップを表示するようにオーバーライドされます。このメソッドはマウスがエレメントの上で停止したときに呼び出されます。このメソッドをオーバーライドする場合は、WantsMouseHoverNotification プロパティもオーバーライドし、True を返してください。
+|エレメントの親エレメントでこのメソッドを呼び出します。これは実質的には親チェーンをたどることを示します。
+
+|*OnMouseLeave* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|このメソッドは、マウスがエレメントの四角形から出たときに呼び出されます。
+|何もしません。
+
+|*OnMouseMove* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- MouseEventArgs e 
+
+|マウスがエレメントの上に移動したとき、またはマウスが移動してエレメントが OnMouseDown でマウスをキャプチャしたときに呼び出されます。
+|エレメントの親エレメントでこのメソッドを呼び出します。これは実質的には親チェーンをたどることを示します。
+
+|*OnMousePanHorizontal* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- 整数 
+
+|このメソッドは、水平パニング操作中に、SupportsHorizontalMousePanning プロパティに対して True を返すエレメントによって呼び出されます。カーソル位置と基点マーク間のピクセル数がこのメソッドに渡されます。この値は、カーソルが基点マークよりも右にある場合は正、基点マークよりも左にある場合は負、基点マークのしきい値内にある場合は 0 になります。
+|何もしません。SupportsHorizontalMousePanning プロパティに対して True を返すエレメントで、オーバーライドしてください。
+
+|*OnMousePanVertical* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- 整数 
+
+|このメソッドは、垂直パニング操作中に、SupportsVerticalMousePanning プロパティに対して True を返すエレメントによって呼び出されます。カーソル位置と基点マーク間のピクセル数がこのメソッドに渡されます。この値は、カーソルが基点マークよりも下にある場合は正、基点マークよりも上にある場合は負、基点マークのしきい値内にある場合は 0 になります。
+|何もしません。SupportsVerticalMousePanning プロパティに対して True を返すエレメントで、オーバーライドしてください。
+
+|*OnMouseUp* 
+
+戻り値: 
+
+- ブール値 
+
+パラメータ: 
+
+- MouseEventArgs e 
+
+|マウス ボタンがエレメントの上で離されたとき、またはマウスボタンが離されてエレメントが OnMouseDown でマウスをキャプチャしたときに呼び出されます。注:このメソッドから True が返されると、次回のクリック イベントが無視されます。
+|パニング タイマーをすべて停止し、カーソルをリセットした後、エレメントの親エレメントでこのメソッドを呼び出します。これは実質的には親チェーンをたどることを示します。
+
+|*PointInAdjustableArea* 
+
+戻り値: 
+
+- ブール値 
+
+パラメータ: 
+
+- Point（クライアント座標） 
+
+|このメソッドは、Adjustable プロパティから True を返すエレメントによってオーバーライドされ、ポイントがエレメントの調整可能領域の上にあるかどうかを調べます。 たとえば、列ヘッダ エレメントでユーザーが右側の境界線の 3 ピクセル以内をクリックした場合に列ヘッダ エレメントの幅を変更できるようにする、という動作を実現できます。この場合、このメソッドは、ポイントが右側の境界線の 3 ピクセル以内にある場合に True を返します。
+|False を返します。
+
+|*PositionChildElements* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- なし 
+
+|このメソッドは、エレメントがその子エレメントの作成や配置を必要とするときに呼び出されます。子エレメントを持つエレメントはすべて、このメソッドをオーバーライドする必要があります。
+|何もしません（子エレメントは作成されません）。
+
+|*VerifyChildElements* 
+
+戻り値: 
+
+- Void 
+
+パラメータ: 
+
+- ControlUIElementBase controlElement、Boolean recursive 
+
+
+|すべての子エレメントが適切に作成されて配置されることを保証するために、描画操作中に呼び出されます。通常はこのメソッドをオーバーライドする必要はありません。
+|ChildElementsDirty フラグが True の場合は、デフォルトの実装によって PositionChildElements が呼び出され、フラグがリセットされます。
+
+|====

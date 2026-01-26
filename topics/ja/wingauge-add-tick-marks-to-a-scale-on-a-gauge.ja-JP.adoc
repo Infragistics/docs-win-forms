@@ -1,0 +1,204 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-add-tick-marks-to-a-scale-on-a-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{F7D5EEAA-EE37-45AE-BB8D-F04C021F36EC}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ上のスケールに目盛を追加
+
+Gauge コントロールの *Tickmark* プロパティは、ラジアル ゲージまたはリニア ゲージのスケールに値を視覚的に表示するために使用されます。
+
+[NOTE]
+====
+*注:* このトピックは、スケールの付いたラジアル ゲージを作成済みであることを前提としています。作成方法についての詳細は、 link:wingauge-add-a-scale-to-a-gauge.html[「スケールをゲージに追加」]を参照してください。
+====
+
+目盛をゲージ上のスケールに追加した後の次の手順は、 link:wingauge-add-labels-to-a-gauge.html[「ラベルをゲージに追加」]です。
+
+以下で目盛をスケールに追加できます。
+
+* <<gaugeDesigner,ゲージ デザイナを使用して>>
+* <<designTime,デザインタイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、ゲージは以下のゲージのようになります。
+
+image::images/Gauge_Add_Scales_01.png[]
+
+[[gaugeDesigner]]
+*ゲージ デザイナを使用して目盛をスケールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラで、[スケール] を展開します。
+[start=2]
+. [主目盛] を選択します。
+[start=3]
+. link:wingauge-properties-panel.html[[プロパティ] パネル]の link:wingauge-tickmark-layout-tab.html[[目盛レイアウト] タブ]の link:wingauge-tickmark-extent-pane.html[[範囲] ペイン]で、以下のプロパティを設定します。
+
+** 開始 -- 85
+** 終了 -- 95
+
+[start=4]
+. [目盛レイアウト] タブの link:wingauge-widths-pane.html[[幅] ペイン]で、以下のプロパティを設定します。
+
+** 開始 -- 3
+** 終了 -- 3
+
+[start=5]
+. [目盛レイアウト] タブの link:wingauge-tickmark-orientation-pane.html[[方向] ペイン]で、以下のプロパティを設定します。
+[start=6]
+. ゲージ エクスプローラで、[副目盛] を選択します。
+[start=7]
+. [プロパティ] パネルの [範囲] ペインで、以下のプロパティを設定します。
+
+** 開始 -- 85
+** 終了 -- 90
+
+[start=8]
+. [目盛レイアウト] タブの [幅] ペインで、以下のプロパティを設定します。
+
+** 開始 -- 1
+** 終了 -- 1
+
+[start=9]
+. [目盛レイアウト] タブの [方向] ペインで、[頻度] を 2.00 を設定します。
+
+[[designTime]]
+*デザインタイムに目盛をスケールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ コレクション エディタ ウィンドウで、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティをクリックします。次に省略記号（...）ボタンをクリックして、スケール エディタを開きます。
+[start=2]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~majortickmarks.html[MajorTickmarks]"]  プロパティを展開します。pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.brushelement.html[BrushElement]"]  プロパティをクリックして、ドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=3]
+. BrushElement プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを 189, 189, 189 に設定します。
+[start=4]
+. MajorTickmarks プロパティで、以下のプロパティを設定します。
+
+** StartExtent -- 75
+** StartWidth -- 3
+** Frequency -- 10
+** EndExtent -- 85
+** EndWidth -- 3
+
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~minortickmarks.html[MinorTickmarks]"]  プロパティを展開します。次に BrushElement プロパティをクリックして、ドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=6]
+. BrushElement プロパティを展開します。次に Color プロパティを 240, 240, 240 に設定します。
+[start=7]
+. MinorTickmarks プロパティで、以下のプロパティを設定します。
+
+** StartExtent -- 85
+** StartWidth -- 1
+** Frequency -- 2
+** EndExtent -- 90
+** EndWidth -- 1
+
+[[runTime]]
+*ランタイムに目盛をスケールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. 以下の手順を Load イベントに追加します。
+[start=2]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Dim mySolidFillBrushElementMajor As New SolidFillBrushElement()
+Dim mySolidFillBrushElementMinor As New SolidFillBrushElement()
+Dim mySolidFillBrushElementMinorStroke As New SolidFillBrushElement()
+Dim myStrokeElement As New StrokeElement()
+----
+
+*C# の場合：*
+[source,csharp]
+----
+SolidFillBrushElement mySolidFillBrushElementMajor = new SolidFillBrushElement();
+SolidFillBrushElement mySolidFillBrushElementMinor = new SolidFillBrushElement();
+SolidFillBrushElement mySolidFillBrushElementMinorStroke = new SolidFillBrushElement();
+StrokeElement myStrokeElement = new StrokeElement();
+----
+
+[start=3]
+. 以下の *MajorTickmarks* プロパティを設定します。
+
+** Color -- 189, 189, 189
+** StartExtent -- 75
+** StartWidth -- 3
+** Frequency -- 10
+** EndExtent -- 85
+** EndWidth -- 3
+
+*Visual Basic の場合：*
+[source,vb]
+----
+mySolidFillBrushElementMajor.Color = System.Drawing.Color.FromArgb(CInt(CByte(189)),CInt(CByte(189)), CInt(CByte(189)))
+myScale.MajorTickmarks.BrushElement = mySolidFillBrushElementMajor
+myScale.MajorTickmarks.EndExtent = 95
+myScale.MajorTickmarks.EndWidth = 3
+myScale.MajorTickmarks.Frequency = 10
+myScale.MajorTickmarks.StartExtent = 85
+myScale.MajorTickmarks.StartWidth = 3
+----
+
+*C# の場合：*
+[source,csharp]
+----
+mySolidFillBrushElementMajor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+myScale.MajorTickmarks.BrushElement = mySolidFillBrushElementMajor;
+myScale.MajorTickmarks.EndExtent = 95;
+myScale.MajorTickmarks.EndWidth = 3;
+myScale.MajorTickmarks.Frequency = 10;
+myScale.MajorTickmarks.StartExtent = 85;
+myScale.MajorTickmarks.StartWidth = 3;
+----
+
+[start=4]
+. 以下の *MinorTickmarks* プロパティを設定します。
+
+** Color -- 240, 240, 240
+** StartExtent -- 85
+** StartWidth -- 1
+** Frequency -- 2
+** EndExtent -- 90
+** EndWidth -- 1
+
+*Visual Basic の場合：*
+[source,vb]
+----
+mySolidFillBrushElementMinor.Color = System.Drawing.Color.FromArgb(CInt(CByte(240)), CInt(CByte(240)), CInt(CByte(240)))
+myScale.MinorTickmarks.BrushElement = mySolidFillBrushElementMinor
+myScale.MinorTickmarks.EndExtent = 90
+myScale.MinorTickmarks.EndWidth = 1
+myScale.MinorTickmarks.Frequency = 2
+myScale.MinorTickmarks.StartExtent = 85
+mySolidFillBrushElementMinorStroke.Color = System.Drawing.Color.FromArgb(CInt(CByte(135)), CInt(CByte(135)), CInt(CByte(135)))
+myStrokeElement.BrushElement = mySolidFillBrushElementMinorStroke
+myScale.MinorTickmarks.StrokeElement = myStrokeElement
+----
+
+*C# の場合：*
+[source,csharp]
+----
+mySolidFillBrushElementMinor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+myScale.MinorTickmarks.BrushElement = mySolidFillBrushElementMinor;
+myScale.MinorTickmarks.EndExtent = 90;
+myScale.MinorTickmarks.EndWidth = 1;
+myScale.MinorTickmarks.Frequency = 2;
+myScale.MinorTickmarks.StartExtent = 85;
+mySolidFillBrushElementMinorStroke.Color = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(135)))), ((int)(((byte)(135)))));
+myStrokeElement.BrushElement = mySolidFillBrushElementMinorStroke;
+myScale.MinorTickmarks.StrokeElement = myStrokeElement;          
+----
+
+== 関連トピック
+
+link:wingauge-add-labels-to-a-gauge.html[ラベルをゲージに追加]

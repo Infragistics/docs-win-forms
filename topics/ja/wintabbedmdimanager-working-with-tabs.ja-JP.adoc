@@ -1,0 +1,72 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-working-with-tabs",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{6708E865-36DB-493C-9F96-0EB2E5569B1D}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの操作
+
+== タブ
+
+個々の pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab.html[MdiTab]"]  オブジェクトはそれぞれ、タブ付き MDI インタフェース内の 1 つのタブを表し、特定の MDI 子フォームに関連付けられています。MDI 子フォームが作成および破棄されると、MdiTab オブジェクトが自動的に作成および削除されます。
+
+MDI 子フォームが初めて作成されると、そのフォームを表すための MdiTab オブジェクトが作成され、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~initializetab_ev.html[InitializeTab]"]  イベントが発生します。この時点でフォームが表示されている場合、MdiTab は必ず pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup.html[MdiTabGroup]"]  オブジェクトに関連付けられます。表示されていないフォームに対応する MdiTab オブジェクトは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.hiddenmditabscollection.html[HiddenMdiTabs]"]  コレクションに格納されます。フォームが非表示状態または表示状態になると、関連付けられている MdiTab が、HiddenTabs コレクションと MdiTabGroup オブジェクトとの間で移動します。フォームが表示状態になると、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabdisplaying_ev.html[TabDisplaying]"]  イベントと pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabdisplayed_ev.html[TabDisplayed]"]  イベントが発生します（TabDisplaying イベントは表示が更新される前に発生します）。
+
+MdiTab のタブ部分には、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab~text.html[Text]"]  プロパティで明示的に設定されないかぎり、関連付けられたフォームのキャプション テキストが表示されます。デフォルトでは、MDI タブにイメージは表示されません。イメージは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~tabappearance.html[TabAppearance]"]  オブジェクトの Image プロパティを使用するか、または pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~displayformicon.html[DisplayFormIcon]"]  プロパティを True に設定することによって指定できます。タブのツールチップは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager.html[UltraTabbedMdiManager]"]  クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~showtooltips.html[ShowToolTips]"]  プロパティが True で、ToolTip プロパティに文字列が設定されているか、またはタブの Text を表示するだけのスペースがない場合にのみ表示されます。
+
+== タブ グループ
+
+MdiTabGroup オブジェクトは、表示されている 1 つまたは複数の MdiTab オブジェクトを格納するためのコンテナです。複数のタブ グループは、エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~maxtabgroups.html[MaxTabGroups]"]  プロパティで定義された最大数を上限として作成できます。タブ グループの方向は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~orientation.html[Orientation]"]  プロパティを使用して垂直または水平に設定できます。
+
+タブ グループは、MdiTab オブジェクトの位置が変更されるたびに作成および破棄されます。MdiTabGroup が作成されると、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~initializetabgroup_ev.html[InitializeTabGroup]"]  イベントが発生します。ひとつの MdiTabGroup に属するすべての MdiTab オブジェクトが他のタブ グループに移動すると、そのタブ グループは削除され、残りのタブ グループのサイズが調整されます。
+
+[NOTE]
+====
+*注：* タブまたは MDI 子フォームが 1 つでも表示されている場合は、MdiTabGroup が必ず少なくとも 1 つ存在します。
+====
+
+== タブの移動
+
+プログラムから、またはユーザー インターフェイスを通じて、タブをタブ グループの内外に移動できます。ユーザー インターフェイスを通じてタブを移動する方法には、タブを右クリックしたときに表示されるコンテキスト メニューを使用する方法と、タブをドラッグする方法の 2 つがあります。pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings.html[MdiTabGroupSettings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~allowdrop.html[AllowDrop]"]  プロパティを使用すると、グループにドロップできるタブを制限できます。MdiTabSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings~allowdrag.html[AllowDrag]"]  プロパティを使用すると、特定のタブの位置をどこに変更できるかを指定できます。また、ドラッグ操作の開始前（pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabdragging_ev.html[TabDragging]"]  イベント）および操作中（pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabdragover_ev.html[TabDragOver]"]  イベント）に発生するイベントが公開されており、それらのイベントを使用して特定のポイントが有効なドロップ位置かどうかを調べることができます。pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabdropped_ev.html[TabDropped]"]  イベントは、ドラッグ操作が完了したときに発生します。
+
+MdiTab、MdiTabGroup、および UltraTabbedMdiManager には、タブの位置変更をプログラムから行うためのメソッドがあります。MdiTab の pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab~reposition.html[Reposition]"]  メソッドを使用すると、別のタブを基準にしてタブの位置を変更できます。MoveToGroup メソッドは、タブを別の MdiTabGroup に移動する場合に使用します。pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab~movetonewgroup.html[MoveToNewGroup]"]  メソッドは、移動対象のタブを格納する新しい MdiTabGroup を作成する場合に使用します（新しいグループが作成されてタブがその中に移動されます）。
+
+ある MdiTabGroup から別の MdiTabGroup にタブが移動する直前に、TabMoving イベントが発生します。このイベントをキャンセルして、移動操作が行われないようにすることもできます。移動操作が成功すると、TabMoved イベントが発生します。
+
+== タブの選択
+
+タブの選択は、タブに関連付けられた MDI 子フォームのアクティブ化と密接に結び付いています。これは、アクティブな MDI 子フォームを表すタブは必ず、そのタブを含むタブ グループ内の選択されたタブであるためです。それ以外のタブ グループでは、選択されたタブは MDI 子フォームの Z オーダーが基準になります。
+
+タブが選択される直前に、TabSelecting イベントが発生します。イベントがキャンセルされた場合は、タブは選択されず、アクティブ化されません。それ以外の場合は、タブが選択され、タブに関連付けられたフォームがアクティブ化されます。その後、TabSelected イベントが発生します。
+
+[NOTE]
+====
+*注：* ほとんどの場合、TabSelecting イベントはキャンセルできますが、新しい MDI 子フォームが作成されるときなど、アクティブ化が外部で制御されていてキャンセルできない場合もあります。
+====
+
+== タブ グループのサイズ設定またはサイズ変更
+
+MdiTabGroup のサイズはその pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup~extent.html[Extent]"]  に基づいて決まります。pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup~clientextent.html[ClientExtent]"]  は、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~splitterwidth.html[SplitterWidth]"]  を除いたタブ グループの範囲です。最後のタブ グループを除くすべてのタブ グループには分割バーがあり、タブ グループのサイズ変更に使用できます。タブ グループのサイズは、Extent または ClientExtent を設定することによってプログラムから調整することもできます。また、MDI クライアント領域のサイズが変更されると、タブ グループの範囲が必ず更新されます。
+
+分割バーの使用によってタブ グループのサイズが変更される直前に、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~splitterdragging_ev.html[SplitterDragging]"]  イベントが発生します。このイベントがキャンセルされると、ドラッグ操作は開始されません。イベントがキャンセルされなければ、ユーザーは分割バーのあるタブ グループとその後に隣接しているタブ グループとの境界で分割バーの位置を変更できます。分割バーが離されると、タブ グループの範囲が更新され、その後 pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~splitterdragged_ev.html[SplitterDragged]"]  イベントが発生します。
+
+1 つまたは複数のタブ グループの範囲が変更されると、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabgroupresizing_ev.html[TabGroupResizing]"]  イベントが発生します。このイベントでは、範囲が変更されようとしているタブ グループが、新しい範囲と共に指定されます。表示が変更される前に、このイベントでタブ グループの範囲を変更することもできます。範囲の合計が MDI クライアント領域の範囲と一致しない場合は、使用可能領域を占めるように範囲が調整されます。グループのサイズ変更が完了すると、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabgroupresized_ev.html[TabGroupResized]"]  イベントが発生します。
+
+[NOTE]
+====
+*注：* すべてのタブグループの Extent 値の合計は、必ず MDI クライアント領域の範囲に等しくなります。タブ グループの方向が垂直に設定されている場合、範囲の値は MdiClient のクライアント領域の幅になります。タブ グループの方向が水平に設定されている場合、範囲の値は MdiClient のクライアント領域の高さになります。
+====
+
+== タブのスクロール
+
+表示可能な数よりも多くのタブがタブ グループの使用可能領域にあるときは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~tabsizing.html[TabSizing]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~scrollbuttons.html[ScrollButtons]"]  プロパティの設定に応じて、スクロール ボタンが表示されます。表示されるスクロール ボタンは pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroupsettings~scrollbuttontypes.html[ScrollButtonTypes]"]  プロパティを使用して制御できます。スクロール ボタンが押されると、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabgroupscrolling_ev.html[TabGroupScrolling]"]  イベントと pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~tabgroupscrolled_ev.html[TabGroupScrolled]"]  イベントが発生します。
+
+タブをプログラムからスクロールするには、MdiTabGroup の Scroll メソッドを使用します。また、MdiTab オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab~ensuretabinview.html[EnsureTabInView]"]  メソッドを使用すると、タブがタブ グループの表示可能領域に必ず表示されるようにできます。

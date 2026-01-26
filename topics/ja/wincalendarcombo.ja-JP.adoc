@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarcombo",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{32AF59F8-5749-4043-AF6F-CAB4A348F94E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalendarCombo
+
+以下のリンクをクリックすると、WinCalendarCombo コントロールに関する説明を読むことができます。
+
+* link:wincalendarcombo-about-wincalendarcombo.html[WinCalendarCombo について] -- WinCalendarCombo コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+link:wincalendarcombo-smart-tag.html[WinCalendarCombo スマート タグ] -- WinCalendarCombo コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+
+* link:win-wincalendarcombo-using-wincalendarcombo.html[WinCalendarCombo の使用] -- このセクションは、WinCalendarCombo コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。

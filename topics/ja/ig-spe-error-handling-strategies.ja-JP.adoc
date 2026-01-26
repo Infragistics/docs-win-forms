@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-error-handling-strategies",
+    "controlName": [],
+    "tags": [],
+    "guid": "f0ac097d-31d6-4f4f-b544-d9e184f818a0",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0658515Z"
+}
+|metadata|
+////
+
+= エラー処理方法
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックでは、構文エラーを識別するためにドキュメントの構文解析中に使用する方法について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-synchronizer-symbol-strategy.html[シンクロナイザー記号方法]
+|このトピックは、シンクロナイザー記号によるエラー処理方法について説明します。
+
+| link:ig-spe-error-production-strategy.html[エラー生産方法]
+|このトピックは、エラー生産によるエラー処理方法について説明します。
+
+| link:ig-spe-synchronizer-pair-strategy.html[シンクロナイザー ペア方法]
+|このトピックは、シンクロナイザーのペアによるエラー処理方法について説明します。
+
+| link:ig-spe-backtracking-strategy.html[バックトラッキング方法]
+|このトピックは、バックトラッキングによるエラー処理方法について説明します。
+
+|====

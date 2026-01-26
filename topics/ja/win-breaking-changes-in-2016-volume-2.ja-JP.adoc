@@ -1,0 +1,22 @@
+﻿= 2016 Volume 2 の重大な変更
+
+== WinColorPicker
+
+以前のバージョンの link:wincolorpicker.html[WinColorPicker]
+エディターでは、プロパティ グリッドにある Visual Studio のカラー
+ピッカーと同様に色のセットからの色を選択しました。色の作成を簡単にする
+WinColorPalette UI の追加により、WinColorPicker でも
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracolorpicker~style.html[Style]
+プロパティを ColorPalette
+に設定して、同様のエクスペリエンスを提供できるようになりました。
+
+現在 WinColorPicker のスタイルはデフォルトで ColorPalette
+に設定されているため、WinColorPickers
+を使用するアプリケーションにおいて重大な変更となります。この変更をリセットして以前のスタイルを保持するためには、WinColorPicker
+スタイルを VisualStudio に設定します。
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.colorpickereditor~defaultstyle.html[ColorPickerEditor.DefaultStyle]
+を使用し、フォーム内のすべての WinColorPicker のデフォルト
+スタイルを容易に設定できます。詳細は
+link:wincolorpicker-set-the-default-style-to-visualstudio.html[DefaultStyle
+を VisualStudio に設定]をご参照ください。

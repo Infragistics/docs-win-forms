@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winribboncustomizationprovider-using-winribboncustomizationprovider",
+    "controlName": ["WinRibbonCustomizationProvider"],
+    "tags": ["Editing","Extending"],
+    "guid": "996938cd-4fdb-4d9b-b241-27a285d2b34a",  
+    "buildFlags": [],
+    "createdOn": "2011-04-26T19:19:03.9441273Z"
+}
+|metadata|
+////
+
+= WinRibbonCustomizationProvider の使用
+
+このセクションには、WinRibbonCustomizationProvider™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+以下のリンクをクリックします。
+
+* link:winribboncustomizationprovider-using-the-ribbon-customization-dialog.html[リボン カスタマイズ ダイアログを使用]
+* link:winribboncustomizationprovider-adding-custom-tab-to-ribbon-customization-dialog.html[カスタム タブをリボン カスタマイズ ダイアログに追加]

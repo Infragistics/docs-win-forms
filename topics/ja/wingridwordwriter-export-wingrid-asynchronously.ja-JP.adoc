@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridwordwriter-export-wingrid-asynchronously",
+    "controlName": ["WinGridWordWriter"],
+    "tags": ["Exporting","Grids","Reporting"],
+    "guid": "793491bf-846d-46a9-8d27-31b24bbdab6d",  
+    "buildFlags": [],
+    "createdOn": "2011-08-08T13:45:09.2718754Z"
+}
+|metadata|
+////
+
+= WinGrid を非同期でエクスポート
+
+WinGridWordWriter™ コンポーネントによって、WinGrid™ 全体を直接 Microsoft Word ドキュメントに非同期にエクスポートできます。UltraGridWordWriter オブジェクトの link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~exportasync.html[ExportAsync] メソッドを呼び出すことによって、これを実行します。
+
+== はじめに
+
+非同期エクスポートでは、エクスポート中にアプリケーションのユーザー インターフェイスを操作できます。非同期エクスポートが実行中に、アプリケーションは WinGrid にもデータ ソースにもアクセスできないことを保証しなければなりません。WinGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~isexportasyncinprogress.html[IsExportAsyncInProgress] プロパティを使用して、アクセス競合を回避するために非同期エクスポートがまだ処理中かどうかを判断できます。
+
+== 要件
+
+* .NET Framework 3.0 以降を使用した Microsoft Visual Studio ソリューション
+* WinGrid とデータへのバインドを使用した Windows Forms アプリケーション ソリューション
+* フォームでの WinGridWordWriter コントロール
+
+== 概要
+
+[start=1]
+. <<Anchor4154,WinGrid を非同期でエクスポート>>
+[start=2]
+. <<Anchor828,(オプション) 結果を検証します。>>
+
+== 手順
+
+[[Anchor4154]]
+[start=1]
+. WinGrid を非同期でエクスポート
+
+*C# の場合：*
+
+----
+this.ultraGridWordWriter1.ExportAsync(this.ultraGrid1, "C:\\Reports\\WordExport.doc");
+----
+
+*Visual Basic の場合:*
+
+----
+Me.UltraGridWordWriter1.ExportAsync(Me.UltraGrid1, "C:\Reports\WordExport.doc")
+----
+
+[[Anchor828]]
+[start=2]
+. (オプション) 結果を検証します。結果を検証するには、アプリケーションを実行してエクスポートを実行します (図 1) 。
+
+image::images/WinGridWordWriter_Export_WinGrid_Asynchronously_01.png[]
+
+図 1: Microsoft Word ドキュメントに非同期でエクスポートする WinGrid
+
+== 関連トピック
+
+* link:wingridwordwriter-export-wingrid-with-paragraphs-to-word.html[段落がある WinGrid を Word にエクスポート]
+* link:wingridwordwriter-export-multiple-wingrid-to-word.html[複数の WinGrids を Word にエクスポート]

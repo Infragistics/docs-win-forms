@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wintooltipmanager-using-wintooltipmanager",
+    "controlName": ["WinToolTipManager"],
+    "tags": [],
+    "guid": "{CC1E0B36-5736-4FEA-ADB9-476688D931DC}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-11T09:05:51Z"
+}
+|metadata|
+////
+
+= WinToolTipManager の使用
+
+このセクションには、WinToolTipManager™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintooltipmanager-control-the-timing-of-a-tooltips-appearance.html[ツールチップの外観のタイミングを制御]
+* link:wintooltipmanager-creating-a-formatted-tooltip.html[フォーマットされたツールチップを作成]
+* link:wintooltipmanager-set-up-wintooltipmanager-at-design-time.html[WinToolTipManager をデザインタイムに設定]
+* link:wintooltipmanager-set-up-wintooltipmanager-at-run-time.html[WinToolTipManager をランタイムに設定]

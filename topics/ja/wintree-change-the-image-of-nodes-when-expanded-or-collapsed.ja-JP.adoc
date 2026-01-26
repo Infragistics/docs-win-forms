@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-change-the-image-of-nodes-when-expanded-or-collapsed",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{247D7C5D-7E28-4F3A-9914-4B7249DA5875}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードが展開または縮小される時にノードの画像を変更
+
+ここでは、イメージ画像を表示する WinTree でノードを設定する方法、およびノードが展開されたときそのイメージ画像を変更する方法について説明します。
+
+ImageList コントロール有り/無しで行うことができます。
+
+[start=1]
+. ImageList をフォームに追加し、少なくとも 2 つの画像を追加します。わかりやすくするために、縮小画像を Image 0、展開画像を Image 1 とします。
+[start=2]
+. 次に、UltraTree に ImageList を添付する必要があります。
+
+このためにはフォーム上で UltraTree コントロールを選択して、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~imagelist.html[ImageList]"]  プロパティを設定します。
+
+リストをドロップ ダウンして、適切な ImageList コントロールを選択します。
+[start=3]
+. フォームの Load イベントへ移動します。
+[start=4]
+. 以下のコードでは、ツリーにあるすべてのノードの画像を設定します。この画像には、縮小画像を使用します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTree1.Override.NodeAppearance.Image = 0
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.Override.NodeAppearance.Image = 0;
+----
+
+[start=5]
+. 次に、展開画像をノードに適用します。これは pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~expandednodeappearance.html[ExpandedNodeAppeance]"]  を使用して実行できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTree1.Override.ExpandedNodeAppearance.Image = 1
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.Override.ExpandedNodeAppearance.Image = 1;
+----
+
+[start=6]
+. プログラムを実行します。
+[start=7]
+. デフォルトでは、UltraTree のすべてのノードに縮小画像が表示されます。
+[start=8]
+. ノードが展開されていると、展開画像が表示されます。
+[start=9]
+. ノードを展開すると、その画像は展開画像に変わります。
+[start=10]
+. ノードを縮小すると、その画像は縮小画像に変わります。

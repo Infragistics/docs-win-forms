@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-styling-editors",
+    "controlName": [],
+    "tags": [],
+    "guid": "574b7c0e-2e02-4d7f-92d8-beef39815027",  
+    "buildFlags": [],
+    "createdOn": "2014-01-28T20:31:42.8159875Z"
+}
+|metadata|
+////
+
+= エディターのスタイル設定
+
+=== はじめに
+
+このグループのトピックは、エディター コントロールのスタイル設定を紹介します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wineditors-choosing-an-appearance.html[外観の選択]
+|このトピックでは、アプリケーションでエディター コントロールの外観をカスタマイズする方法を紹介します。
+
+| link:wineditors-modifying-the-drop-down-list-and-appearance.html[ドロップダウン リストおよび外観の変更]
+|このトピックでは、エディター コントロールのドロップダウン項目の外観を変更する方法を紹介します。
+
+|====

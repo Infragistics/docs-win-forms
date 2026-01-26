@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "introduction-getting-support",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{5FA9BB45-07E4-4EE2-9A7A-2AD6AEB89596}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= サポートについて
+
+インフラジスティックスでは、Infragistics のユーザーに対するさまざまなサポートをご提供しています。
+
+== メンバー プロフィールの作成
+
+link:http://jp.infragistics.com[Infragistics ホームページ]のトップメニューから登録者情報 > プロフィールへアクセスし [新規メンバー] ボタンをクリックして link:https://jp.infragistics.com/Membership/NewMemberSignUp.aspx?ReturnUrl=/Membership/Default.aspx?Panel=Downloads?id=REGHISTORY[新規アカウント]を作成してください。新規メンバー フィールドにお客様の最新の情報を入力してください。サポート部門は、お客様の情報に基づいて適切なサポート情報をお送りします。
+
+== 製品キーの登録
+
+メンバー プロファイルを作成したら、 link:http://jp.infragistics.com/Support/RegisterProduct.aspx[製品の登録]ページで製品キーを MemberID に登録します。この登録により、当社の技術サポート サービスを迅速に、簡単に受けることができます。MemberID はユーザー アカウントに紐付いています。登録を行ったユーザーは、登録した Infragistics 製品に対するサポートを受けることができます。
+
+== MemberID 情報の取得
+
+登録ユーザーは、1 日 24 時間、1 年 365 日、いつでも自分の link:https://jp.infragistics.com/Membership/Default.aspx?Panel=Downloads?id=REGHISTORY#Downloads[登録内容]へアクセスし、購入内容、発行された購読アップグレード、登録キーをオンラインで確認できます。MemberID を使用してログインすると、製品キー、購読サービスとステータスなどの詳細情報を確認できます。
+
+== サポート
+
+link:http://forums.infragistics.com/[フォーラム サイト (英語)] では、多くの貴重な情報が提供されています。コミュニティ サイトは、フォーラム、ナレッジベース、 サポート情報、技術関連記事、参照アプリケーションなどその他多くの情報を提供するためのサイトです。インフラジスティックス製品についての最新情報もご覧いただけます。
+
+カスタマー サポート ページでは、link:http://jp.infragistics.com/support/support-policies[サポート ポリシー]他、各種サポート連絡先をご確認いただけます。
+
+注: 電話での技術サポートのご利用は、プライオリティ サポート (有料) が必要です。
+
+Infragistics のいずれかの製品を登録したユーザーは、Infragistics の Web サイトから技術サポートを要求することができます。インシデントをログに記録したり、新しいサポート要求を開始するには、DevCenter にログオンして link:http://jp.infragistics.com/support/default.aspx#6045[サポート要求を提出]し、MemberID を入力します。サンプル プロジェクトを添付する必要があると考える場合は、添付してください。
+
+== 製品のライフ サイクル
+
+インフラジスティックス製品の link:http://jp.infragistics.com/support/product-lifecycle[ライフ サイクル]情報は、PDF ファイルで提供されており、次の情報が記載されています。
+
+* Infragistics ツールの名前とバージョン
+* 製品保守 (バグ フィックス適用) 期間
+* 製品サポート期間
+* 製品の状態
+
+アカウント、製品の所有権、登録に関する問題は、link:mailto:JapanSalesGroup@Infragistics.com[JapanSalesGroup@infragistics.com] 宛てに電子メールでご連絡ください。その際には、ユーザー名と製品キー (お分かりの場合) を明記されると、迅速な対応が可能です。また、月曜～金曜 9:00～12:00、13:00～18:00 に 050-1745-6258 (IP 電話) までお電話いただくことも可能です。

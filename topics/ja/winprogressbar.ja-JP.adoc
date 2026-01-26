@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprogressbar",
+    "controlName": ["WinProgressBar"],
+    "tags": [],
+    "guid": "{BC653E66-6834-49C1-95D2-071BD16D0170}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinProgressBar
+
+以下のリンクをクリックすると、WinProgressBar コントロールに関する説明を読むことができます。
+
+* link:winprogressbar-about-winprogressbar.html[WinProgressBar について] -- WinProgressBar コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winprogressbar-smart-tag.html[WinProgressBar スマート タグ] -- WinProgressBar コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winprogressbar-defining-the-style-of-winprogressbar.html[WinProgressBar のスタイルの定義] -- プログレスバーの色をパーセント値の変化に応じて変化させる方法を説明しています。
+* link:winprogressbar-api-overview.html[API 概要] -- このトピックでは、WinProgressBar コントロールを使ってプログラミングする際に作業する名前空間とクラスをリストします。

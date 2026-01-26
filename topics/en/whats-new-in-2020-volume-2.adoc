@@ -1,0 +1,20 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2020 Volume 2
+
+
+=== .NET 5.0 Support
+
+A new environment to use Infragistics controls is now available! As of version 2020.2, our assemblies now have support for the .NET 5.0 environment through NuGet. 
+NET 5.0 is the next major release of .NET Core following 3.1.
+
+For some advantages of .NET 5.0, see link: https://docs.microsoft.com/en-us/dotnet/core/dotnet-five[this article on Microsoft's site].
+
+You can read about configuring your environment to use Infragistics NuGet packages at our link:nuget-feeds.html[NuGet Feed] and link:nuget-packages.html[NuGet Packages] topics.

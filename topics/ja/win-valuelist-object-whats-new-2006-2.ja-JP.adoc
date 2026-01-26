@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-valuelist-object-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{24C06EDA-16D6-439B-9B48-F28CC5C9CF8B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ValueList オブジェクト 2006.2
+
+ValueList オブジェクトは、ドロップダウン リストを含む多くのコントロールに対する重要なコンポーネントです。2006 Volume 2 リリースの ValuList オブジェクトに追加された新しい機能を学習してください。
+
+* link:win-valuelist-scrollbars-are-now-stylable-whats-new-2006-2.html[ValueList スクロールバーはスタイル可能]

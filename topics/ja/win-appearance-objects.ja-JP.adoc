@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "name": "win-appearance-objects",
+    "controlName": [],
+    "tags": ["API","How Do I","Styling","Templating"],
+    "guid": "{62637E5A-E2C5-4895-8180-70D5A4027822}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Appearance オブジェクト
+
+Appearance オブジェクトは、BackColor、ForeColor、BorderColor のような色プロパティを公開しています。
+
+また、イメージ関連のプロパティ、テキストのトリミングや位置調整のプロパティのほか、グラデーション、ハッチ ブラシ、アルファ ブレンディングなどをサポートするためのプロパティもあります。
+
+Appearance オブジェクトはグリッドの行やセルなど任意のオブジェクトのプロパティとして公開され、そのオブジェクトの外観を細かく制御するために使用できます。
+
+たとえばグリッド内の行などのエレメントが描画されるとき、その直前に適切な外観設定やデフォルト設定が解決されます。たとえば、ある行の Appearance オブジェクトの BackColor プロパティを赤に設定し、BorderColor プロパティを未設定のままにしたとします。この場合、その行が描画されるときに、背景は赤になりますが、境界線の色は行に対してより高いレベル（グリッドの Appearance オブジェクトやシステム デフォルトなど）で設定されているデフォルトの色になります。
+
+次のトピックがすべてのコントロールの外観に pick:[win-forms="適用"] されます。
+
+* link:win-change-an-images-stretch-margins-at-run-time.html[ランタイムにおける引き伸ばしマージンの変更]
+
+* link:win-render-gdi-text-in-individual-controls.html[個々のコントロールでの GDI+ でのテキスト レンダリング]
+

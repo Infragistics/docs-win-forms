@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-define-the-appearance-of-toolbars-and-tools",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Styling"],
+    "guid": "{5AB3410B-9C34-4889-89F1-3C535347B87A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーとツールの外観の定義
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[ToolBars]"]  では、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~settings.html[Settings]"]  プロパティは、UltraToolBar の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings.html[ToolBarSettings]"]  オブジェクトを返しますが、このメンバには pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~appearance.html[Appearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~dockedappearance.html[DockedAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~floatingappearance.html[FloatingAppearance]"]  の各プロパティが含まれています。これらを使用して、ツールバーに適用する外観のプロパティを個々に設定できます。
+
+ツールでは、AppearancesSmall プロパティと AppearancesLarge プロパティ（どちらも pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances.html[ToolAppearances]"]  型）に Appearance が含まれており、これを使用して個々のツールの外観を制御できます。AppearancesSmall には、小さなイメージが表示されるときにツールに使用される外観設定があります。AppearancesLarge は、Menu の Large Icons オプションまたは ToolBar の Large Icon を選択するときに使用します。AppearancesSmall および AppearancesLarge は、ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.instanceprops.html[InstanceProps]"]  の両方のオブジェクトにあります。
+
+== デザインタイム
+
+UltraToolBarsManager を右クリックして ［ユーザー設定］ を選択します。ここではツールバーとツールがすでに作成済みであるとします。[ツールバー] タブでツールバーを選択し、Settings プロパティを開きます。各種の Appearance プロパティが表示されます。これらを開き、必要な外観になるように設定します。
+
+ツールタブでボタンツールの 1 つを選択します。SharedProps クラスを開くと、AppearanceSmall または AppearancesLarge プロパティに、Appearance、AppearanceOnToolBar、AppearanceOnMenu などの各種 Appearance プロパティが表示されます。これらのプロパティのいくつかを、必要な効果が得られるように設定します。
+
+== ランタイム
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub UsingAppearancesforToolbarsandTools_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.BorderStyleDocked = UIElementBorderStyle.Dashed
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.Appearance.BorderColor = Color.LimeGreen
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.DockedAppearance.BorderColor = Color.Goldenrod
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.FloatingAppearance.BackColor = Color.Aquamarine
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.FloatingAppearance.BackColor2 = Color.Cyan
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.FloatingAppearance.BackGradientStyle = _
+	  GradientStyle.Circular
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall.AppearanceOnToolbar. _
+	  BackColor = Color.Beige
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  AppearanceOnToolbar.BackColor2 = Color.Beige
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  AppearanceOnToolbar.BackGradientStyle = GradientStyle.ForwardDiagonal
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  HotTrackAppearance.BackColor = Color.Blue
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void UsingAppearancesforToolbarsandTools_Load(object sender, System.EventArgs e)
+{
+	this.ultraToolbarsManager1.Toolbars[0].Settings.BorderStyleDocked = UIElementBorderStyle.Dashed;
+	this.ultraToolbarsManager1.Toolbars[0].Settings.Appearance.BorderColor = Color.LimeGreen;
+	this.ultraToolbarsManager1.Toolbars[0].Settings.DockedAppearance.BorderColor = Color.Goldenrod;
+	this.ultraToolbarsManager1.Toolbars[0].Settings.FloatingAppearance.BackColor = Color.Aquamarine;
+	this.ultraToolbarsManager1.Toolbars[0].Settings.FloatingAppearance.BackColor2 = Color.Cyan;
+	this.ultraToolbarsManager1.Toolbars[0].Settings.FloatingAppearance.BackGradientStyle = GradientStyle.Circular;
+	this.ultraToolbarsManager1.Toolbars[0].Tools[1].SharedProps.AppearancesSmall.AppearanceOnToolbar.BackColor = 
+	  Color.Beige;
+	this.ultraToolbarsManager1.Toolbars[0].Tools[1].SharedProps.AppearancesSmall.HotTrackAppearance.BackColor = 
+	  Color.Blue;
+}
+----
+
+image::images/WinToolbarsManager_Define_the_Appearance_of_Toolbars_and_Tools_01.png[]

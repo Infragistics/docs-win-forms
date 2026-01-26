@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-using-the-winexplorerbar-designer",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["FAQ","How Do I"],
+    "guid": "{76C3A403-A63B-4A0B-8CED-93C97369231A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar デザイナの使用
+
+WinExplorerBar デザイナは、デザインタイムに WinExplorerBar のプロパティを構成するための便利なインタフェースを提供します。デザイナを使用することで、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[Group]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[Item]"]  の追加と削除、コントロールのスタイルに関する変更、コントロールのレイアウトのロードと保存、グループと項目のレイアウトの管理、および WinListbar コントロールからの Group と Item のインポートを容易に行うことができます。
+
+== UltraExplorerBar デザイナへのアクセス
+
+UltraExplorerBar デザイナを起動するには、コントロールのコンテキスト メニュー（デザインタイムに Visual Studio IDE でフォーム上の UltraExplorerBar コントロールを右クリックすると表示されます）、または Visual Studio IDE のプロパティ ブラウザ内にあるリストから、[UltraExplorerBar デザイナ...] オプションを選択します（下図を参照）。
+
+image::Images/WinExplorerBar_WinExplorerBar_Designer_01.png[]
+
+UltraExplorerBar デザイナは 5 つのタブがあるタブ付きダイアログです。以下のタブがあります。
+
+* *コントロールのスタイル* - コントロールの外観と基本動作を制御するプロパティを表示します。
+
+image::Images/WinExplorerBar_WinExplorerBar_Designer_02.png[]
+
+* *グループと項目* - グループと項目を容易に追加、削除できる機能を提供します。グループと項目のプロパティを編集するためのプロパティ グリッドもあります。
+
+image::Images/WinExplorerBar_WinExplorerBar_Designer_03.png[]
+
+* *マージン/スペース* - グループと項目の周囲のマージン、および ExplorerBar コントロール スタイルを使用する場合のグループ列のレイアウトを管理するのに役立ちます。
+
+image::Images/WinExplorerBar_WinExplorerBar_Designer_04.png[]
+
+* *レイアウトのロード/保存* - UltraExplorerBar の状態をロードおよび保存するための機能を提供します。
+
+image::Images/WinExplorerBar_WinExplorerBar_Designer_05.png[]
+
+* *グループ/項目のインポート* - UltraListbar を使用している既存のアプリケーションを、UltraExplorerBar を使用するように改造する場合に役立ちます。この機能は、UltraListbar コントロールに設定されているすべてのグループと項目の定義を、同じフォーム上の UltraExplorerBar コントロールにコピーします。
+
+image::Images/WinExplorerBar_WinExplorerBar_Designer_06.png[]

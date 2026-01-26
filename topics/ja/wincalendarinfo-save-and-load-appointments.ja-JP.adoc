@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-save-and-load-appointments",
+    "controlName": ["WinCalendarInfo"],
+    "tags": ["Data Binding","Sample Data Source"],
+    "guid": "{04881FD4-2A1E-4B2C-880C-613BD3541559}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 予約の保存と読み込み
+
+WinCalendarInfo を使用して、データをストリームに保存し、ストリームからロードできます。次のコードは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointments]"]  の保存方法とロード方法を示しています。情報の保存時とロード時に使用できるリスト カテゴリについては、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarinfocategories.html[CalendarInfoCategories]"]  列挙体を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+Imports System.IO
+...
+Private Sub SaveAppointments()
+	' EXE と同じフォルダに新しい FileStream を作成します。
+	Dim SaveFileStream As New IO.FileStream("Appointments.sav", IO.FileMode.OpenOrCreate)
+	' FileStream の先頭に移動します。
+	SaveFileStream.Position = 0
+	' CalendarInfo を保存します。
+	Me.UltraCalendarInfo1.Save(SaveFileStream, CalendarInfoCategories.Appointments)
+	' FileStream を閉じます。
+	SaveFileStream.Close()
+End Sub
+Private Sub LoadAppointments()
+	Dim LoadFileStream As IO.FileStream
+	Try
+		' FileStream のロードを試みます。
+		LoadFileStream = New IO.FileStream(System.IO.Path.Combine(Application.StartupPath(), _
+		  "..\ExtraFiles\Appointments.sav"), IO.FileMode.Open)
+	Catch When LoadFileStream Is Nothing
+		' FileStream のロードに失敗した場合は、おそらくファイルが存在していません。 
+		MsgBox("Error opening Appointments file. The file may not exist", _
+		  MsgBoxStyle.OKOnly, "Error")
+		Exit Sub
+	End Try
+	' FileStream の先頭に移動します。 
+	LoadFileStream.Position = 0
+	' Load the FileStream 
+	Me.UltraCalendarInfo1.Load(LoadFileStream, CalendarInfoCategories.Appointments)
+	' FileStream を閉じます。 
+	LoadFileStream.Close()
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+using System.IO;
+...
+private void SaveAppointments()
+{
+	// EXE と同じフォルダに新しい FileStream を作成します。
+	FileStream SaveFileStream = new FileStream("Appointments.sav", FileMode.OpenOrCreate);
+	// FileStream の先頭に移動します。
+	SaveFileStream.Position = 0;
+	// CalendarInfo を保存します。
+	ultraCalendarInfo1.Save(SaveFileStream, CalendarInfoCategories.Appointments);
+	// FileStream を閉じます。
+	SaveFileStream.Close();
+}
+private void LoadAppointments()
+{
+	FileStream LoadFileStream;
+	try
+	{
+		// FileStream のロードを試みます。
+		LoadFileStream = new FileStream(System.IO.Path.Combine(Application.StartupPath, 
+		  @"..\..\ExtraFiles\Appointments.sav"), FileMode.Open);
+	}
+	catch 
+	{
+		// FileStream のロードに失敗した場合は、おそらくファイルが存在していません。
+		MessageBox.Show("Error opening Appointments file. The file may not exist", 
+		  "Error", MessageBoxButtons.OK);
+		return;
+	}
+	// FileStream の先頭に移動します。
+	LoadFileStream.Position = 0;
+	// FileStream をロードします。
+	ultraCalendarInfo1.Load(LoadFileStream, CalendarInfoCategories.Appointments);
+	// FileStream を閉じます。
+	LoadFileStream.Close();
+}
+----

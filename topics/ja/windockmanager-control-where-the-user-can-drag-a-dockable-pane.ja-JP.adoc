@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-control-where-the-user-can-drag-a-dockable-pane",
+    "controlName": ["WinDockManager"],
+    "tags": ["Layouts"],
+    "guid": "{EB6D5ACE-2865-4D92-8ABB-8B76273A0127}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドッキング可能ペインをどこにドラッグできるかを制御する
+
+ドック可能な pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase.html[Pane]"]  を移動することができる場所を制限する必要がある場合があります。各ペインには Allow プロパティを持つ pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase~settings.html[Settings]"]  オブジェクトがあり、ペインをドックできる場所を制御できます。
+
+以下のコードは 2 つのコントロールを持つフォームを使用します。ひとつのコントロールは左にドックされ、もうひとつは右にドックされます。コードの最初の 2 行は左にコントロールをドックするので（pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~dockareas.html[DockArea]"]  - 0）、下端にドッキングしたりフローティング ペインに変えることはできません。コードの最後の行は右側にコントロールをドックするので（DockArea - 1）、再ドックするために周囲にドラッグできません。
+
+[NOTE]
+====
+*注:* 右側のコントロールはドラッグできませんが、ドックを解除することは可能です。このドックを解除した状態でドラッグできません。
+====
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub ControllingWhereaDockablePaneCanBeDragged_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 下にドックできないまたはフローティング ペインにできないようにペインを設定します。
+	Me.UltraDockManager1.DockAreas(0).Panes(0).Settings.AllowDockBottom = _
+	  DefaultableBoolean.False
+	Me.UltraDockManager1.DockAreas(0).Panes(0).Settings.AllowFloating = _
+	  DefaultableBoolean.False
+	' ペインをドッグ不可能にします
+	' このペインはドックを解除できますが、ドックを解除したモードでも 
+	' ペインをドラッグできません
+	Me.UltraDockManager1.DockAreas(1).Panes(0).Settings.AllowDragging = _
+	  DefaultableBoolean.False
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void ControllingWhereaDockablePaneCanBeDragged_Load(object sender, System.EventArgs e)
+{
+	// 下にドックできないまたはフローティング ペインにできないようにペインを設定します。
+	this.ultraDockManager1.DockAreas[0].Panes[0].Settings.AllowDockBottom = 
+	  DefaultableBoolean.False;
+	this.ultraDockManager1.DockAreas[0].Panes[0].Settings.AllowFloating = 
+	  DefaultableBoolean.False;
+	// ペインをドッグ不可能にします
+	// このペインはドックを解除できますが、ドックを解除したモードでも
+	// ペインをドラッグできません
+	this.ultraDockManager1.DockAreas[1].Panes[0].Settings.AllowDragging = 
+	  DefaultableBoolean.False;
+}
+----

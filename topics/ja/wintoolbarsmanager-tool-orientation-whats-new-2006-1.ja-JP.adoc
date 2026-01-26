@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-tool-orientation-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B2D875CB-65F4-4AB8-8A47-4647367516D4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールの配置方向
+
+{ProductName} の以前のバージョンでは、上または下がドッキングされている（またはフローティングの）ツールバーでは、ツールが左から右に並び、そのテキストは水平に表示されました。ツールバーが左端または右端でドッキングされている場合は、ツールは上から下に並び、テキストは縦に表示されました。これは、Microsoft® Office および Visual Studio® のツールバーの動作と同じです。
+
+ToolbarSettings クラスの新しい ToolOrientation プロパティを使用すると、ツールバーのドッキング位置にかかわらず、ツールを水平に表示するか垂直に表示するかを指定できます。ToolOrientationプ ロパティを Horizontal に設定すると、ツール（ツールのテキストも）は、垂直ツールバーに接続された場合でも、水平ツールバーに接続されたように表示されます。ToolOrientation プロパティを Vertical に設定した場合は、ツール（ツールのテキストも）は垂直ツールバーに接続されたように配置されます。
+
+image::images/WinToolbarsManager_Tool_Orientation_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:wintoolbarsmanager-change-the-orientation-of-tools-on-a-toolbar.html[ツールバー上のツールの方向の変更]

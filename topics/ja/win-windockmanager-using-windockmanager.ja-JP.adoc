@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-windockmanager-using-windockmanager",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{143411F5-3058-4DB8-9FB9-2A677BAA5E01}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:12:58Z"
+}
+|metadata|
+////
+
+= WinDockManager の使用
+
+このセクションには、WinDockManager™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:windockmanager-change-windockmanagers-style.html[WinDockManager のスタイルを変更]
+* link:windockmanager-control-where-the-user-can-drag-a-dockable-pane.html[ドッキング可能ペインをどこにドラッグできるかを制御する]
+* link:windockmanager-determine-whether-a-pane-is-docked.html[ペインをドックするかどうかを判断]
+* link:windockmanager-float-a-dockable-pane.html[ドック可能ペインをフロート]
+* link:windockmanager-group-multiple-windows-together.html[複数のウィンドウをグループ化する]
+* link:windockmanager-locate-a-specific-pane.html[ペインを特定する]
+* link:windockmanager-minimize-and-maximize-a-window.html[ウィンドウを最大化および最小化]
+* link:windockmanager-pin-and-unpin-a-window.html[ウィンドウのピンおよびピンの解除]
+* link:windockmanager-prevent-the-navigator-from-being-displayed.html[ナビゲータの非表示化]
+* link:windockmanager-save-and-load-dock-settings.html[ドッキング設定の保存とロード]
+* link:windockmanager-show-or-hide-the-preview-in-the-navigator.html[ナビゲータでプレビューを表示/非表示]
+* link:windockmanager-show-the-navigator-programmatically.html[プログラミングによるナビゲータの表示]

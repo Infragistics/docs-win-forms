@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9FF916ED-51DD-4481-BD1D-CB64B010F745}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalcManager 2005.1
+
+== FormulaBuilder はラインタイムで使用可能
+
+数式ビルダーはデザイン時の開発者入力や link:wincalcmanager-using-formulabuilder-at-run-time.html[実行時]のユーザー入力のどちらでも使用することができます。
+
+image::images/Whats_New_UltraWinCalcManager_2005_1_01.gif[]

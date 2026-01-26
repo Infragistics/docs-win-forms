@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtextwordwriter",
+    "controlName": ["WinFormattedTextWordWriter"],
+    "tags": ["Exporting"],
+    "guid": "6377c535-8e1b-4738-a91a-6713bc6d5015",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T12:39:43.3419578Z"
+}
+|metadata|
+////
+
+= WinFormattedTextWordWriter
+
+以下のリンクをクリックすると、WinFormattedTextWordWriter™ コントロールに関する説明を読むことができます。
+
+* link:winformattedtextwordwriter-about-winformattedtextwordwriter.html[WinFormattedTextWordWriter について] -- WinFormattedTextWordWriter コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winformattedtextwordwriter-export-formattedtexteditor-text-to-word.html[FormattedTextEditor テキストを Word にエクスポート] -- 書式設定されたテキストを Word にエクスポートする方法を示します。
+* link:winformattedtextwordwriter-api-overview.html[API の概要] -- このトピックでは、WinFormattedTextWordWriter コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「Infragistics Windowsフォームヘルプ」の「API参照ガイド」セクションへリンクしていて便利です。

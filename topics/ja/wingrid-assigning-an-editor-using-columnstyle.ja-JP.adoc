@@ -1,0 +1,33 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-assigning-an-editor-using-columnstyle",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{1721A544-7827-47DA-AB5D-005865176D2D}",
+    "buildFlags": [],
+    "createdOn": "2008-12-06T16:21:47Z"
+}
+|metadata|
+////
+
+= ColumnStyle を使用してエディタの割り当て
+
+各 WinGrid™ pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Column]"]  は埋め込みエディタを使用して、エンド ユーザーがセルの値を変更することを可能にします。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnstyle.html[ColumnStyle]"]  プロパティを設定することで埋め込みエディタのタイプを変更できます。詳細については、 link:wingrid-embeddable-editors.html[埋め込みエディタ]を参照してください。
+
+以下のコード例は、ドロップダウン カレンダーで列を編集する方法を示します。
+
+*Visual Basic の場合：*
+
+[source,vb]
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Style = Infragistics.Win.UltraWinGrid.ColumnStyle.DropDownCalendar
+
+----
+
+*C# の場合：*
+
+[source,csharp]
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Style = Infragistics.Win.UltraWinGrid.ColumnStyle.DropDownCalendar;
+----

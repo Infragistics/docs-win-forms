@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-print-wingrid-in-cardview",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6EAF48FE-BAFA-4351-A690-9F5CCE2089A8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CardView に WinGrid を印刷できる
+
+これまで WinGrid™ の印刷は表形式に限られていました。つまり、WinGrid は link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~cardview.html[CardView] ではバンドであるにもかかわらず、データの行を印刷します。ところが、弊社は CardView モードでグリッドを印刷するための WinGrid 用の機能を追加しました。この機能を有効ために必要なのは、新しい link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~allowcardprinting.html[AllowCardPrinting] プロパティを RootBandOnly に設定するだけです（もちろん、バンドの CardView プロパティを True に設定）。
+
+CardView Style オプションのすべてが尊重されます。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcardsettings~maxcardareacols.html[MaxCardAreaCols] および link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcardsettings~maxcardarearows.html[MaxCardAreaRows] プロパティは、ページ当たりのカード数を決定し、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcardsettings~autofit.html[AutoFit] プロパティは、各カードがページで使用できる領域全部を使用しない場合に自動的に各カードを拡張します。さらに、新しい CompressedCardExpansionState 値も link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowpropertycategories.html[RowPropertyCategories] 列挙体に追加しました。これによってカードが縮小されて印刷することができます。
+
+== 関連トピック
+
+link:wingrid-printing-wingrid-in-card-view.html[カード ビューで WinGrid を印刷]

@@ -1,0 +1,57 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-applying-presets-at-run-time",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Persistence"],
+    "guid": "{0DE4043F-01F0-4949-AD88-79332FBA51AA}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムのプリセットの適用
+
+WinGrid の外観に作用するプロパティ設定をプリセットファイルに保存できます。これにより、各企業のアプリケーションで使用されている WinGrid の標準設定を簡単に保存し、配布できます。これまで WinGrid にプリセットを適用できたのはデザインタイムのみでした。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~applypresetfromxml.html[ApplyPresetFromXml]"]  メソッドまたは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~applypresetfrombinary.html[ApplyPresetFromBinary]"]  メソッドを使用することでランタイムにもプリセットを簡単に適用できるようになりました。
+
+各メソッドにはそれぞれ 2 つのオーバーロードがあります。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~applypresetfromxml(string).html[ApplyPresetFromXml(string filename)]"]  - ロードする XML プリセット ファイルの名前を引数としてとります。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~applypresetfromxml(string,boolean).html[ApplyPresetFromXml(string filename, bool clearAllSettings)]"]  - ロードする XML プリセット ファイルの名前と、指定したプリセットをロードする前に既存の"プリセット可能な"プロパティ設定をクリアするかどうかを示すブール値を引数としてとります。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~applypresetfrombinary(string).html[ApplyPresetFromBinary(string filename)]"]  - ロードするバイナリ プリセット ファイルの名前を引数としてとります。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~applypresetfrombinary(string,boolean).html[ApplyPresetFromXml(string filename, bool clearAllSettings)]"]  - ロードするバイナリ プリセット ファイルの名前と、指定したプリセットをロードする前に既存の"プリセット可能な"プロパティ設定をクリアするかどうかを示すブール値を引数としてとります。
+
+WinGrid デザイナを使用して独自のプリセットを作成できます。WinGrid デザイナで [プリセットの管理] セクションに移動し、タブ コントロールの [新規] ボタンをクリックすると、[プリセットを追加] ダイアログが開きます。このダイアログでは、WinGrid の"プリセット可能な"プロパティをすべて変更できます。カスタム プリセットの作成が完了したら、[名前] テキストボックスに名前を入力して [追加] ボタンをクリックします。
+
+.注：
+[NOTE]
+
+インストールされているプリセットのデフォルトの場所は次のとおりです。C:\Program Files\Common Files\Infragistics\Presets\Win\UltraGridBase\Standard
+
+
+次の例は、FlatGreen プリセットを WinGrid に適用します。次のコードをボタンの Click イベント ハンドラに配置します。2 番目の引数は、新しいプリセットを適用する前に既存のプリセット テーブルの設定をクリアすることを指定しています。
+
+*Visual Basic の場合:*
+[source, vb]
+Private Sub Apply_Presets_at_Run_Time_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraGrid1.ApplyPresetFromXml("C:\Program Files\Common Files\Infragistics" & _
+          "\Presets\20082\CLR2x\Win\UltraGridBase\Standard\FlatGreen.xml", True)
+End Sub
+
+*C# の場合:*
+[source, csharp]
+private void Apply_Presets_at_Run_Time_Load(object sender, EventArgs e)
+{
+        this.ultraGrid1.ApplyPresetFromXml(@"C:\Program Files\Common Files\Infragistics" +
+          @"\Presets\20082\CLR2x\Win\UltraGridBase\Standard\FlatGreen.xml", true);
+}
+
+このコードを含むプロジェクトをビルドして実行すると、最初は次のような外観のフォームが表示されます。
+
+image::images\WinGrid_Apply_Presets_at_Run_Time_01.png[alt=""]
+
+フォームの [プリセットを適用] ボタンをクリックすると、WinGrid の外観が以下のスクリーンショットのように変わります。
+
+image::images\WinGrid_Apply_Presets_at_Run_Time_02.png[alt=""]

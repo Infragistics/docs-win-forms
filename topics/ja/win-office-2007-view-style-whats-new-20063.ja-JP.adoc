@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-office-2007-view-style-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F064FA50-A453-4237-AD4F-15C91073C9FF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Office 2007 表示スタイル
+
+2006 Volume 3 では、コントロールの外観を変更するために、弊社の一部のコントロールに Office 2007 表示スタイルを追加しました。このスタイルを使用するには、ViewStyle、DisplayStyle、ButtonStyle プロパティのいずれか（コントロールによって異なる）を Office2007 に変更します。
+
+弊社は 2 つの Office 2007 カラー スキームである Windows XP（青）、Windows XP Silver（シルバー）、および Windows Vista（黒）もサポートします。これらの 3 つのカラー スキームの切り替えは簡単で、実行すべきことは静的プロパティである pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.office2007colortable~colorscheme.html[Infragistics.Win.Office2007ColorTable.ColorScheme]"]  を青、シルバー、または黒に設定するだけです。新しい Office 2007 のルック アンド フィールによって影響を受けるコントロールとコンポーネントの完全なリストについては、 link:styling-guide-office-2007-look-and-feel.html[「Office 2007 のルック アンド フィール」]を参照してください。
+
+image::images/Win_Office_2007_View_Style_Whats_New_20063_01.png[Microsoft Office 2007 のルック アンド フィールの画像]

@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-show-or-hide-the-preview-in-the-navigator",
+    "controlName": ["WinDockManager"],
+    "tags": ["Layouts"],
+    "guid": "{49125503-D685-4617-BA86-58EC78DBBBF5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲータでプレビューを表示/非表示
+
+link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.navigatorsettings~navigatorstyle.html[NavigatorStyle] プロパティを設定することで 3 つの異なるスタイルで WinDockManager™ コントロールの Navigator を表示できます。Visual Studio 2008 Windows® XP および Vista™ の両方のスタイルには、選択されたウィンドウのプレビュー領域が含まれます。ただし、デフォルトで Visual Studio 2005 スタイルにはプレビュー領域は含まれません。 link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.navigatorsettings~ispreviewvisible.html[IsPreviewVisible] プロパティを True に設定するだけで Visual Studio 2005 スタイルでプレビュー領域を表示することができます。IsPreviewVisible プロパティを False に設定することで Visual Studio 2008 スタイルの両方でプレビュー領域を非表示にすることもできます。
+
+以下のコード例は、IsPreviewVisible プロパティを True に設定することで Visual Studio 2005 スタイルのプレビュー画面を表示します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraDockManager1.NavigatorSettings.IsPreviewVisible = _
+	Infragistics.Win.DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+this.ultraDockManager1.NavigatorSettings.IsPreviewVisible = 
+	Infragistics.Win.DefaultableBoolean.True;
+----

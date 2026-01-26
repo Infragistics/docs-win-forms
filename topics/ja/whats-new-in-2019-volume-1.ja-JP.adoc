@@ -1,0 +1,37 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2019 Volume 1 の新機能
+
+toc::[]
+
+=== DPI スケーリング (CTP)
+
+高 DPI スケーリングをサポートするためにいくつかのコントロールが更新されました。高 DPI スケーリングは、高解像度モニターでは一般的ですが、これに限定されません。使用されている解像度に関係なく、エンドユーザーにより自然なエクスペリエンスを提供するために、インフラジスティックス コントロールの全体的な品質と解像度を維持します。 
+
+*関連トピック:*
+
+* link:dpi-scaling-support.html[DPI スケーリング サポート (CTP)]
+
+== {SpreadsheetName} 機能
+=== チャート サポート
+
+image:images/charts.png[]
+
+Excel の人気機能が追加され、高パフォーマンスなデータ可視化を実現できるようになりました。新しく追加された SpreadsheetChartAdapter クラスが {SpreadsheetName} に統合されたことにより、設定がより簡単にできるようになりました。さらに、チャート アダプターは Excel エンジンによって補完されています。link:excelengine-adding-a-chart-to-an-excel-worksheet.html[18.2 で追加されたチャート サポート]をご覧ください。 
+
+Spreadsheet ChartAdapter は、折れ線、エリア、柱状、ドーナツを含む 35 以上のチャート タイプがサポートされます。
+
+{SpreadsheetName}の Excel チャートの詳細については、リンクを参照してください。link:spreadsheet-adding-chart.html[{SpreadsheetName} コントロールのチャートの表示]トピック
+
+=== コンビネーション チャート
+
+コンビネーション チャートは、1 つのチャートに複数の種類のチャートを組み合わせたチャートです。
+
+image:images/whats_new_combination_charts.png[]

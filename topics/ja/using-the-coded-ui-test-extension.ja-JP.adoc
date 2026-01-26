@@ -1,0 +1,182 @@
+﻿////
+|metadata|
+{
+    "name": "using-the-coded-ui-test-extension",
+    "controlName": [],
+    "tags": [],
+    "guid": "2d13ff83-6931-45ca-b4ea-1c3000b9adb9",
+    "buildFlags": [],
+    "createdOn": "2012-09-14T17:18:18.2456217Z"
+}
+|metadata|
+////
+
+= コード化された UI テストの拡張子の使用
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、シンプルな WinGrid サンプルでコード化された UI テストの拡張子を使用する方法を説明します。
+
+=== 本トピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Record_and_Replay,記録と再生: WinGrid のセルの編集>>
+* <<_Related_Content,関連コンテンツ>>
+
+[[_Introduction]]
+[[_Supported_Controls]]
+[[_System_Requirements]]
+[[_Licensing_Requirements]]
+[[_Record_and_Replay]]
+== 記録と再生: WinGrid のセルの編集
+
+=== 概要
+
+コード化された UI テストの拡張子は、コード化された UI テストで Infragistics コントロール上のアクションを記録および再生できます。この方法は、Microsoft コード化された UI テストの基本的な操作を理解していることを前提としています。この例では、コード UI 拡張で WinGrid でセルのテキスト編集操作を記録および再生します。
+
+=== プレビュー
+
+以下のスクリーンショットは、結果のプレビューです。最初の Customer セルの値は、コード化された UI テストの再生によって “The New MegaMart” に変更されています。図の下のテスト結果ウィンドウではテストがパスしたことを示しています。
+
+image::images/Using_the_Coded_UI_Test_Extension_1.png[]
+
+=== 前提条件
+
+この手順を実行するには、以下が必要です。
+
+* link:coded-ui-test-extension-overview.html#_System_Requirements[システム要件 (コード化された UI テスト拡張概要)]
+* link:coded-ui-test-extension-overview.html#_Licensing_Requirements[ライセンス要件 (コード化された UI テスト拡張子概要)]
+
+=== 手順
+
+以下は、WinGrid セル内でコード化された UI テスト拡張子でテキスト編集操作を記録と再生し、セルの値を正しく変更するための手順です。
+
+=== 1.コード化された UI テストを作成します。
+
+通常の手順に従うか新しいコード化された UI テストを作成します。
+
+ヒント: メニュー オプションを開始: テスト  _新しいテスト_  _…_   _コード化された UI テスト_
+
+注: コード化された UI テスト プロジェクト参照は、以下のようにシステムに存在する Infragistics コード化された UI テストの拡張子アセンブリのすべてのバージョンを自動的にを含みます。
+
+image::images/Using_the_Coded_UI_Test_Extension_2a.png[]
+
+=== 2.アプリケーション アンダー テスト (AUT) の実行
+
+アプリケーション アンダー テストの実行
+
+WinGrid を含むアプリケーションがデータ ソースへバインドされます。記録されているテストは、WinGrid セルの編集を含みます。
+
+=== 3.記録セッションを開始します。
+
+コード化された UI テストを使用して WinGrid の操作を記録します。
+
+image::images/Using_the_Coded_UI_Test_Extension_3.png[]
+
+=== 4.セルを編集します。
+
+テキスト セルをクリックして値を変更します。次にタブまたは他のセルから最後のセルまでをクリックして編集モードを終了します。
+
+=== 5.記録を終了します。
+
+コード化された UI テスト ビルダーで停止ボタンをクリックして記録を終了します。
+
+=== 6.コードを生成します。
+
+この記録の再生するためにコード ボタンの生成をクリックしてコードメソッドを作成します。結果コードは以下のようになります。
+
+*記録/再生コード*
+
+*C# の場合:*
+
+[source,csharp]
+----
+public void RecordedMethod1()
+{
+  #region Variable Declarations
+  UltraUiaEdit uICustomerEdit = this.UIV112ExcelStyleFilterWindow.UIUltraGrid1Window.UIGridDataCustom.UIDataAreaCustom.UIColScrollRegion0RowSTree.UIItem01012011DataItem.UICustomerEdit;
+  UltraUiaCustom uIGridDataCustom1 = this.UIV112ExcelStyleFilterWindow.UIUltraGrid1Window.UIGridDataCustom1;
+  UltraUiaEdit uICustomerEdit1 = this.UIV112ExcelStyleFilterWindow.UIUltraGrid1Window.UIGridDataCustom.UIDataAreaCustom.UIColScrollRegion0RowSTree.UIItem01032011DataItem.UICustomerEdit;
+#endregion
+// 'Customer' テキスト ボックスをクリックします
+Mouse.Click(uICustomerEdit, new Point(5, 8));
+// 'gridData' カスタム ツールをクリックします
+Mouse.Click(uIGridDataCustom1, new Point(168, 33));
+// 'gridData' カスタム コントロールのタイプ 'The{Space}New{Space}'
+Keyboard.SendKeys(uIGridDataCustom1, this.RecordedMethod2Params.UIGridDataCustom1SendKeys, ModifierKeys.None);
+// 'Customer' テキスト ボックスをクリックします
+Mouse.Click(uICustomerEdit1, new Point(80, 6));
+}
+----
+
+ユーザーがキーを押下する順序を記録するコード化された UI テストを含む “RecordedMethod2Params” クラスで自動的に生成されるフィールド “UIGRidCustom1SendKeys” を監視します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public class RecordedMethod2Params
+    {
+        #region Fields
+        /// <summary>
+        /// 'gridData' カスタム コントロールのタイプ 'The{Space}New{Space}'
+        /// </summary>
+        public string UIGridDataCustom1SendKeys = "The{Space}New{Space}";
+        #endregion
+    }
+----
+
+=== 7.アサーションを追加します
+
+新しい値に変更されているセルの値を確認するためにアサーションを追加します。
+
+以下のスクリーンショットは、セルのテキストが MegaMart から The New MegaMart へ変更されていることを確認するために追加されているアサーションです。
+
+image::images/Using_the_Coded_UI_Test_Extension_4.png[]
+
+アサーション オブジェクト ツリーの UltraGrid1Window を監視します。これは WinGrid コントロール周りのラッパーです。コード化された UI テストの拡張子の実装は、UIGridDataCustom オブジェクトとその子を公開します。これらは、以下のスクリーンショットで強調表示されています。
+
+image::images/Using_the_Coded_UI_Test_Extension_5.png[]
+
+=== 8.コードを生成します。
+
+[コードの生成] ボタンをクリックして、テストで変更された後のテキスト値のアサーションに使用されるコード メソッドを作成します。結果コードは以下のようになります。
+
+アサーション コード:
+
+*C# の場合:*
+
+[source,csharp]
+----
+public void AssertMethod1()
+{
+    #region Variable Declarations
+    UltraUiaEdit uICustomerEdit = this.UIV112ExcelStyleFilterWindow.UIUltraGrid1Window1.UIGridDataCustom.UIDataAreaCustom.UIColScrollRegion0RowSTree.UIItem01012011DataItem.UICustomerEdit;
+    #endregion
+    // 'Customer' テキスト ボックス プロパティ 'Text' が 'The New MegaMart' と等しいことを確認します。
+    Assert.AreEqual(this.AssertMethod1ExpectedValues.UICustomerEditText, uICustomerEdit.Text);
+}
+----
+
+=== 9.テストの再生
+
+AUT を開始するか元の状態に戻ります。次に Visual Studio でコード化された UI テストを実行します。
+
+[[_Related_Content]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:coded-ui-test-extension-overview.html[コード化された UI テストの拡張機能の概要]
+|このトピックでは、コード化された UI テストの拡張子でサポートされるコントロールの一覧、システムの提供、および許可要件について説明します。
+
+|====

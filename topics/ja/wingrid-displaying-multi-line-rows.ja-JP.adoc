@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-multi-line-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{015FF967-6154-4ADD-B98E-B9B719C2B812}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数行の表示
+
+== バックグラウンド
+
+列のテキストが利用できる領域より長いとき、テキストはデフォルトで切り捨てられます。WinGrid では、2 行のコードを使用して長くなったテキストを複数行で表示するように構成できます。
+
+== 質問
+
+* 複数行でセルのテキストを表示するためには、どのようにグリッドに指示すればいいのでしょうか?
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、利用可能な表示領域内に列を収め、複数行ですべてのテキスト情報を表示するように、グリッドに指示します。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Displaying_Multi_Line_Rows_01.png[]
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベント内のコードは、グリッドに対して利用できる表示領域に列が収まるように指示し、行のサイズ指定を "AutoFree" に設定し、さらに CellMultiLine を True に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+	e.Layout.Override.RowSizing = RowSizing.AutoFree
+	e.Layout.Override.CellMultiLine = DefaultableBoolean.True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+	e.Layout.Override.RowSizing = RowSizing.AutoFree;
+	e.Layout.Override.CellMultiLine = DefaultableBoolean.True;
+}
+----
+
+== まとめ
+
+このサンプル プログラムでは、列テキストを複数行に表示するように UltraWinGrid に指示しています。

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-understanding-wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": ["Getting Started"],
+    "guid": "{0879AD3A-E3B1-43D1-97BF-B9254E11CD30}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView の理解
+
+WinTimelineView™ コントロール、その主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinTimelineView コンポーネントを使用することの利点を理解できます。
+
+WinTimelineView コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintimelineview-about-wintimelineview.html[WinTimelineView について]-- WinTimelineView コントロールの概要を説明しています。
+* link:wintimelineview-wintimelineview-smart-tag.html[WinTimelineView スマートタグ] -- WinTimelineView コントロールのスマートタグで表示されるプロパティと設定値について説明しています。

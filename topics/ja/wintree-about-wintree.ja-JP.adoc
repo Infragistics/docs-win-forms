@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-about-wintree",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{176AA872-820D-4EFD-A07F-A170060384CC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree について
+
+WinTree は、Windows Formsのアプリケーションまたはプロジェクトでナビゲートと構築を行うための Windows Forms コントロールです。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、完全な外観がサポートされます。
+* ノードの編集 -- エンド ユーザーによるノードの編集を管理できます。
+* 複数列グリッド -- {ProductName} 2005 Volume 2 リリースの WinTree では、WinGrid コントロールに似た列とセルを表示できるようになりました。
+* ViewStyle -- 標準ツリー、複数列のツリー、フリーフォームのツリーを切り替えられます。
+* セルの編集 -- {ProductName} 2005 Volume 3 リリースから、WinTree がデータにバインドされ、複数の列を有する場合に、セルを編集できるようになりました。
+
+image::images/WinTree_About_WinTree_01.png[]
+
+image::images/WinTree_About_WinTree_02.png[]

@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2013-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "f417c68b-31bd-4100-b8f6-671662a75625",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T22:27:46.426458Z"
+}
+|metadata|
+////
+
+= 2013 Volume 2 の重大な変更
+
+== タッチ サポート
+
+=== 重大な変更点
+
+_Infragistics_   のタッチ対応コントロールおよびコンポーネントは、タッチ アプリケーションおよび非タッチ アプリケーションの両方をサポートします。タッチ機能は、フォームに link:{ApiPlatform}win{ApiVersion}~infragistics.win.touch.ultratouchprovider_members.html[UltraTouchProvider]™ を追加すると即座にフォーム (個別のコントロールではなく) 上でアクティブ化されます。デフォルトでは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.touch.ultratouchprovider_members.html[UltraTouchProvider] コンポーネントの  _Enabled_   プロパティは `True` に設定されています。タッチ対応モードのコントロールは、タッチ画面での操作が容易になるように少し大きく表示されます。タッチ対応コンポーネントの場合も同様ですが、コンポーネントにはデザイン ビュー表現がないため実行時に大きく表示されます。
+
+現在 1 つのコントロールのみがこれに対応できません。 _WinToolbarsManager_™ コントロールには、 _UltraTouchProvider_   の状態をオーバーライドする独自の プロパティがありますが、 _WinToolbarsManager_   コントロールの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~touchenabled.html[TouchEnabled] プロパティが`デフォルト`に設定されている場合、このコントロールもまた  _UltraTouchProvider_   の状態になります。
+
+_UltraTouchProvider_   の  _Enabled_   プロパティを `False` に設定し、タッチ機能を無効にします。この操作はフォーム上のすべてのタッチ対応コントロールとコンポーネントに影響しますが、 _WinToolbarsManager_   コントロールの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~touchenabled.html[TouchEnabled] プロパティを明示的に `True` に設定していると、WinToolbarsManagerコントロールは除外されます。
+
+== Infragistics Excel ライブラリ
+
+Infragistics Excel ライブラリには、`Documents.Core` アッセンブリの参照が必要です。
+
+以前は、`Infragistics.Documents.Excel` アッセンブリで定義されていた以下のパブリック型は、現在 `Infragistics.Documents.Core` アッセンブリで定義されています。元の名前空間の `Infragistics.Documents.Excel` から `Infragistics.Documents.Core.Packaging` の名前空間に移動しています。
+
+* IPackage
+
+* IPackageFactory
+
+* IPackagePart
+
+* IPackageRelationship
+
+* RelationshipTargetMode
+
+_IPackage_   インターフェイスに追加された _GetRelationship(string)_   という名前のメソッドは、現在 `Infragistics.Documents.Core.Packaging` 名前空間にあります。

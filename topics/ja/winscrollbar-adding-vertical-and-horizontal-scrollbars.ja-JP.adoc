@@ -1,0 +1,235 @@
+﻿////
+
+|metadata|
+{
+    "name": "winscrollbar-adding-vertical-and-horizontal-scrollbars",
+    "controlName": ["WinScrollBar"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{A883AFFB-04DD-4EF3-BDD2-A5C617EF2EE8}",  
+    "buildFlags": [],
+    "createdOn": "2005-09-09T00:00:00Z"
+}
+|metadata|
+////
+
+= 垂直スクロールバーと水平スクロールバーの追加
+
+WinScrollBar コントロールは、インボックスの Scrollbar コントロールのすべての機能だけでなく、テーマやカスタマイズ可能な色（グラデーションやイメージなど）といった Infragistics プレゼンテーション層フレームワークの付加機能もすべて備えています。この例では、パネルの中に別のパネルを配置し、それをスクロールバーの値に基づいて動かすことによって、スクロール パネルを作成します。
+
+[start=1]
+. *Visual Studio で新しいプロジェクトを作成します。*
+
+Panel コントロールをフォームに追加し、名前を 'pnlContainer'にします。これは、スクロール バー、内部パネル、および外部パネルを格納するコンテナ パネルです。
+[start=2]
+. *水平スクロールバーを追加します。*
+
+UltraWinScrollBar コントロールを 'pnlContainer' に追加し、名前を 'usbHorizontal' にします。これはパネル用の水平スクロールバーです。スクロールバーの Dock プロパティを Bottom に設定します。
+[start=3]
+. *垂直スクロール バーを追加します。*
+
+パネルを 'pnlContainer' の中に追加し、名前を 'pnlScrollBar' にします。このパネルは垂直スクロール バーを含み、スクロール バーが通常は伸長されない右下隅のスペースを提供します。
+
+'pnlScrollBar' の Dock プロパティを Right に設定します。
+
+'pnlScrollBar' が選択されていることを確認し、Visual Studio ツールバーの [Send To Back] ボタンをクリックします。これで、下部にドッキングされているスクロール バーよりもパネルの方が優先順位が高くなります。
+
+この時点でフォームは次のようになります。
+
+image::images/WinScrollBar_Walk_Through_Scrolling_with_WinScrollBar_01.png[]
+
+次に、UltraWinScrollBar コントロールを 'pnlScrollBar' に追加します。名前を"usbVertical"に指定します。usbVertical で Orientation を Vertical に設定します。'pnlScrollBar' の Width を 'usbVertical' の Width に設定します。'usbVertical' の Height を、水平スクロール バーの上端にほぼ達する値に設定します。この時点でフォームは次のようになります。
+
+image::images/WinScrollBar_Walk_Through_Scrolling_with_WinScrollBar_02.png[]
+
+[start=4]
+. *外部パネルを追加します。*
+
+パネルを 'pnlContainer' の中に追加し、名前を 'pnlOuter' にします。Dock プロパティを Fill に設定します。
+[start=5]
+. *内部パネルを追加します。*
+
+'pnlInner' は、'pnlOuter' の内部でスクロール バーの位置に基づいて移動します。そのため、'pnlInner' がスクロールしていることがわかるようにする必要があります。簡単な方法は、'pnlInner' の BackgroundImage プロパティを設定することです。スクロールする対象が存在するように、'pnlContainer' より大きいイメージを使用してください。BackgroundImage を 'pnlInner' に割り当てます。このヘルプ トピックでは、Windows XP に付属する Vinca.jpg というサンプル イメージを使用します。'pnlInner' の Size をイメージのサイズ（Vinca.jpg の場合は 1024×768）と同じ値に設定します。'pnlInner' の Location プロパティを 0, 0 に設定します。フォームは次のようになります。'pnlInner' の Location プロパティは、スクロール バーの場所を決定します。スクロール バーを移動すると、このプロパティが変わりスクロールが発生します。
+
+image::images/WinScrollBar_Walk_Through_Scrolling_with_WinScrollBar_03.png[]
+
+[start=6]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinScrollBar
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinScrollBar;
+----
+
+[start=7]
+. *水平スクロール バーを初期化します。*
+
+水平スクロール バーは pnlContainer 内で pnlInner の左を決定します。右にスクロールすると、内部パネルを左に移動します。最小値は 0 に設定されます。
+
+インボックス スクロール バーを使用して最大値を決定する場合は注意が必要です。パネルが完全にスクロールされて表示されなくならないようにすることを考慮し、またつまみを右の端までドラッグできるようにすることも考慮する必要があります。ただし、WinScrollBar の Initialize メソッドは多くの計算を処理します。
+
+内部パネルの幅から外側のパネルを単に差しことによって最大値を決定します。このコードは SmallChange と LargeChange も設定します。
+
+最後に、コードは AutoDisable プロパティを設定します。これによってスクロールするものがない時にはスクロール バーは無効にされます。
+
+水平スクロール バーを初期化するためにメソッドを作成します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub InitializeHorizontalScrollBar()
+	' 水平スクロール バーの最小値は 0 になります。
+	Dim minHorizontal As Integer = 0
+	' 水平スクロール バーの最大値を決定します。
+	' pnlInner の幅から開始します。
+	' pnlOuter の幅を引きます。
+	Dim maxHorizontal As Integer = Me.pnlInner.Width - Me.pnlOuter.Width
+	' SmallChange は通常 1% です。
+	Dim smallChangeHorizontal As Integer = Math.Max(CInt(maxHorizontal / 100), 1)
+	' LargeChange は通常 1 ページです。
+	Dim largeChangeHorizontal As Integer = Me.pnlOuter.Width
+	' 水平スクロール バーを初期化します。
+	Me.usbHorizontal.Initialize(minHorizontal, maxHorizontal, smallChangeHorizontal, largeChangeHorizontal)
+	' AutoDisable を True に設定すると何もなくなります。
+	Me.usbHorizontal.AutoDisable = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void InitializeHorizontalScrollBar()
+{
+	// 水平スクロール バーの最小値は 0 になります。
+	int minHorizontal = 0;
+	// 水平スクロール バーの最大値を決定します。
+	// pnlInner の幅から開始します。
+	// pnlOuter の幅を引きます。  
+	int maxHorizontal = this.pnlInner.Width - this.pnlOuter.Width;
+	// SmallChange は通常 1% です。
+	int smallChangeHorizontal = Math.Max((int)(maxHorizontal / 100), 1);
+	// LargeChange は通常 1 ページです。
+	int largeChangeHorizontal = this.pnlOuter.Width;
+	// 水平スクロール バーを初期化します。
+	this.usbHorizontal.Initialize(minHorizontal, maxHorizontal, smallChangeHorizontal, largeChangeHorizontal);
+	// AutoDisable を True に設定すると何もなくなります。
+	this.usbHorizontal.AutoDisable = true;
+}
+----
+
+[start=8]
+. *水平スクロール バーを初期化します。*
+
+垂直スクロール バーの初期化は水平とほぼ同じです。唯一の違いは、Width の代わりに Height を使用することです。
+
+*Visual Basic の場合：*
+
+----
+Private Sub InitializeVerticalScrollBar()
+	' 垂直スクロール バーの最小値は 0 になります。
+	Dim minVertical As Integer = 0
+	' 垂直スクロール バーの最大値を決定します。 
+	' pnlInner の高さから開始します。
+	' pnlOuter の高さを引きます。
+	Dim maxVertical As Integer = Me.pnlInner.Height - Me.pnlOuter.Height
+	' SmallChange は通常 1% です。
+	Dim smallChangeVertical As Integer = Math.Max(CInt(maxVertical / 100), 1)
+	' LargeChange は通常 1 ページです。
+	Dim largeChangeVertical As Integer = Me.pnlOuter.Height
+	' 垂直スクロール バーを初期化します。
+	Me.usbVertical.Initialize(minVertical, maxVertical, smallChangeVertical, largeChangeVertical)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void InitializeVerticalScrollBar()
+{
+	//　垂直スクロール バーの最小値は 0 になります。
+	int minVertical = 0;
+	// 垂直スクロール バーの最大値を決定します。
+	// pnlInner の高さから開始します。
+	// pnlOuter の高さを引きます。
+	int maxVertical = this.pnlInner.Height - this.pnlOuter.Height;
+	// SmallChange は通常 1% です。
+	int smallChangeVertical = Math.Max((int)(maxVertical / 100), 1);
+	// LargeChange は通常 1 ページです。
+	int largeChangeVertical = this.pnlOuter.Height;
+	// 垂直スクロール バーを初期化します。
+	this.usbVertical.Initialize(minVertical, maxVertical, smallChangeVertical, largeChangeVertical);
+}
+----
+
+[start=9]
+. *Initialize メソッドを呼び出します。*
+
+Form_Load から作成したばかりの 2 つのメソッドを呼び出します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Adding_Vertical_and_Horizontal_Scrollbars_Load( _
+  ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.InitializeHorizontalScrollBar()
+	Me.InitializeVerticalScrollBar()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Adding_Vertical_and_Horizontal_Scrollbars_Load(object sender, EventArgs e)
+{
+	this.InitializeHorizontalScrollBar();
+	this.InitializeVerticalScrollBar();
+}
+----
+
+[start=10]
+. *スクロールします。*
+
+各スクロール バーの scroll イベント内で、pnlInner で Top または Left を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub usbHorizontal_Scroll(ByVal sender As System.Object, _
+  ByVal e As System.Windows.Forms.ScrollEventArgs) Handles usbVertical.Scroll
+	Dim scrollBar As UltraScrollBar = DirectCast(sender, UltraScrollBar)
+	Me.pnlInner.Left = -scrollBar.Value
+End Sub
+Private Sub usbVertical_Scroll(ByVal sender As System.Object, _
+  ByVal e As System.Windows.Forms.ScrollEventArgs) Handles usbVertical.Scroll
+	Dim scrollBar As UltraScrollBar = DirectCast(sender, UltraScrollBar)
+	Me.pnlInner.Top = -scrollBar.Value
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void usbHorizontal_Scroll(object sender, System.Windows.Forms.ScrollEventArgs e)
+{
+	UltraScrollBar scrollBar = sender as UltraScrollBar;
+	this.pnlInner.Left = -scrollBar.Value;
+}
+private void usbVertical_Scroll(object sender, System.Windows.Forms.ScrollEventArgs e)
+{
+	UltraScrollBar scrollBar = sender as UltraScrollBar;
+	this.pnlInner.Top = -scrollBar.Value;
+}
+----
+
+[start=11]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行してスクロール バーを移動します。pnlInner で画像をスクロールできるようになります。コントロールを追加したい場合には、コントロールを pnlInner に追加して、画像とまったく同じようにスクロールします。
+
+image::images/WinScrollBar_Walk_Through_Scrolling_with_WinScrollBar_04.png[]

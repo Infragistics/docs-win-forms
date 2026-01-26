@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-xlsx-format",
+    "controlName": [],
+    "tags": [],
+    "guid": "{66E25F1C-78A5-46C8-AE13-BE7CEBC82CD8}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-09T13:39:42Z"
+}
+|metadata|
+////
+
+= XLSX フォーマット
+
+Microsoft®Office 2007® で新しい Excel® ファイル フォーマットが採用されました。新しい xlsx ファイル タイプは業界で標準になっています。Workbook オブジェクトをファイル システムに保存するかどうかにかかわらず、または Excel Exporter を使用する場合には、新しい xlsx ファイル フォーマットを使用して Excel ファイルを作成およびロードすることが可能となりました。
+
+== *関連トピック*
+
+link:excelengine-creating-a-workbook-in-office-2007-xlsx-format.html[Office® 2007 xlsx フォーマットでワークブックを作成]
+
+link:excelengine-read-an-excel-2007-xlsx-file-into-a-workbook.html[Excel 2007 XLSX ファイルをワークブックに読み込む]
+
+link:wingridexcelexporter-exporting-to-xlsx-format-(using-clr-3-5).html[xlsx フォーマットにエクスポート（CLR 3.5 を使用）]

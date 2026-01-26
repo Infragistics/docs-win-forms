@@ -1,0 +1,399 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-working-with-matrices",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "fb28f3df-2599-4fbd-b5fc-f40468838f13",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:12:46.9889024Z"
+}
+|metadata|
+////
+
+= 行列での作業
+
+このトピックは行列で実行できる演算を示します。このトピックでは link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] インスタンスのみを対象としますが、この情報はすべての行列タイプ ( link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix]、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[BooleanMatrix] および link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexMatrix]) に適用されます。
+
+== 行列演算のタイプ
+
+行列によってサポートされる演算は以下の基本的な分類項目に分類されます。
+
+* <<Indexing,インデックス付け>>
+* <<Arithmetical,算術演算 (+、-、$$*$$、/、%) - *Matrix* と *ComplexMatrix* のみ>>
+* <<Logical,論理演算 (!、&、|) - *BooleanMatrix* のみ>>
+* <<Comparison,比較演算 (<、$$<=$$、>、>=、==、!=)>>
+
+それぞれを個々のセクションで説明します。
+
+[[Indexing]]
+== インデックス付け
+
+インデックス付けは行列の特定の位置で要素を取得します。
+
+== 配列としてインデックスを付ける (デフォルト)
+
+Infragistics Math Library では、行列は配列としてインデックス付けできます。
+
+*Visual Basic の場合:*
+
+----
+Dim x As New Matrix(New Double() {1, 2, 3, 4}, New Integer() {2, 2})
+Dim e0 As Double = x(0)
+' 1
+Dim e3 As Double = x(3)
+' 4
+----
+
+*C# の場合：*
+
+----
+Matrix x = new Matrix(new double[] { 1, 2, 3, 4 }, new int[] { 2, 2 });
+double e0 = x[0]; // 1
+double e3 = x[3]; // 4
+----
+
+== ベクトルでインデックス付け
+
+行列はインデックスのベクトルで 1 次元でインデックス付けできます。これはベクトルによって定義された位置にあった初期の行列からの要素を含む 1 次元行行列になります。
+
+*Visual Basic の場合:*
+
+----
+'x
+' 1 4 7
+' 2 5 8
+' 3 6 9
+Dim dimensions As Integer() = New Integer() {3, 3}
+Dim elements As Double() = New Double() {1, 2, 3, 4, 5, 6, 7, 8, 9}
+Dim x As New Matrix(elements, dimensions)
+Dim ind As Vector = New Double() {0, 3, 8}
+Dim y As Matrix = x(ind)
+' x[0]=1, x[3]=4, x[8]=9
+' y={  1,      4,      9 }
+----
+
+*C# の場合：*
+
+----
+//x
+// 1 4 7
+// 2 5 8
+// 3 6 9
+int[] dimensions = new int[] { 3, 3 };
+double[] elements = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+Matrix x = new Matrix(elements, dimensions);
+Vector ind = new double[] { 0, 3, 8 };
+Matrix y = x[ind];
+// x[0]=1, x[3]=4, x[8]=9
+// y={  1,      4,      9 }
+----
+
+== 多次元インデックス
+
+多次元インデックスでは、要素は行列の座標の通りに取得されます (2 次元行列では、座標は行番号と列番号になります) 。
+
+*Visual Basic の場合:*
+
+----
+Dim x As New Matrix(New Double() {1, 2, 3, 4}, New Integer() {2, 2})
+Dim c0 As Double = x(0, 0)
+' 1
+Dim c3 As Double = x(1, 1)
+' 4
+----
+
+*C# の場合：*
+
+----
+Matrix x = new Matrix(new double[] { 1, 2, 3, 4 }, new int[] { 2, 2 });
+double c0 = x[0,0]; // 1
+double c3 = x[1,1]; // 4
+----
+
+== ベクトルによる多次元インデックス付け
+
+ベクトルによる多次元インデックス付けでは、要素は座標の通りに取得され、座標は 2 つのベクトルによって作成されます。
+
+たとえば、2 つのベクトルがあるとします。
+
+_ind1 = { 0, 1, 1 }_
+
+_ind2 = { 2, 1 }_
+
+これらのベクトルでインデックスのペアを含む新しい行列を形成します (図 1) 。
+
+image::images/Math_Working_With_Matrices_01.png[]
+
+図 1: インデックスのペアを含む行列
+
+ベクトルでターゲット行列を多次元インデックス付けすると、新しい行列が形成されます。これは図 1 の行列の次元を持ち、その要素は {0, 2}、{1, 2} … というように位置を持つターゲット行列の要素になります。
+
+以下のコードはひとつの行列と 2 つのベクトルを作成し、ベクトルを使用して多次元的に行列から要素を取得します。
+
+*Visual Basic の場合:*
+
+----
+'x
+' 1 4 7
+' 2 5 8
+' 3 6 9
+Dim dimensions As Integer() = New Integer() {3, 3}
+Dim elements As Double() = New Double() {1, 2, 3, 4, 5, 6, 7, 8, 9}
+Dim x As New Matrix(elements, dimensions)
+Dim ind1 As Vector = New Double() {0, 1, 1}
+Dim ind2 As Vector = New Double() {2, 1}
+’2 つのベクトルはインデックス付けの行列を形成します
+' 0,2 0,1
+' 1,2 1,1
+' 1,2 1,1
+Dim y As Matrix = x(ind1, ind2)
+'最初の     行列   結果
+'行列       インデックス
+' 1 4 7       0,2 0,1       7 4
+' 2 5 8       1,2 1,1       8 5
+' 3 6 9       1,2 1,1       8 5
+----
+
+*C# の場合：*
+
+----
+//x
+// 1 4 7
+// 2 5 8
+// 3 6 9
+int[] dimensions = new int[] { 3, 3 };
+double[] elements = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+Matrix x = new Matrix(elements, dimensions);
+Vector ind1 = new double[] { 0, 1, 1 };
+Vector ind2 = new double[] { 2, 1 };
+//2 つのベクトルはインデックス付けの行列を形成します
+// 0,2 0,1
+// 1,2 1,1
+// 1,2 1,1
+Matrix y = x[ind1, ind2];
+//最初の     行列   結果
+//行列       インデックス
+// 1 4 7       0,2 0,1       7 4
+// 2 5 8       1,2 1,1       8 5
+// 3 6 9       1,2 1,1       8 5
+----
+
+[[Arithmetical]]
+== 算術演算
+
+算術演算をサポートするのは Matrix および ComplexMatrix タイプのみです。
+
+== サポートされる演算
+
+Infragistics Math Library の行列は、以下の算術演算をサポートします。
+
+* 加算 (+)
+* 減算 (-)
+* 乗算 ($$* $$)
+* 除算 (/)
+* 余りのある除算 (%)
+
+算術演算は行列の対応する要素で実行されます。
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] クラスは行列と複素数間の算術演算もサポートします。
+
+== 要件
+
+行列は同じ次元でなければなりません。
+
+== コード例
+
+=== 行列と数の追加
+
+以下のコードは double を行列に追加します。
+
+*Visual Basic の場合:*
+
+----
+'x
+' 1 3
+' 2 4
+Dim x As New Matrix(New Double(,) {{1, 2}, {3, 4}})
+'y
+' (1+2) (3+2)
+' (2+2) (4+2)
+Dim y As Matrix = x + 2
+----
+
+*C# の場合：*
+
+----
+//x
+// 1 3
+// 2 4
+Matrix x = new Matrix(new double[,] { { 1, 2 }, { 3, 4 } });
+//y
+// (1+2) (3+2)
+// (2+2) (4+2)
+Matrix y = x + 2;
+----
+
+=== 2 つの行列を掛ける
+
+Infragistics Math Library で行列を掛けると、$$*$$ 演算子を使用して同じ次元の行列内の対応する要素を掛けることになります。これらの演算は、数学に定義されているように、本当の行列の乗算とは異なります。
+
+*注:*
+
+本当の行列の乗算をしたい場合には、ここで示す乗算ではなく、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~matrixproduct.html[Compute.MatrixProduct] メソッドを使用します。
+
+以下の例は $$*$$ 演算子を使用して 2 つの行列を掛けます。
+
+*Visual Basic の場合:*
+
+----
+'x
+' 1 3
+' 2 4
+Dim x As New Matrix(New Double(,) {{1, 2}, {3, 4}})
+'y
+' 1 2
+' 1 2
+Dim y As New Matrix(New Double(,) {{1, 1}, {2, 2}})
+'z
+' (1*1) (3* 2)
+' (2*1) (4* 2)
+Dim z As Matrix = x * y
+----
+
+*C# の場合：*
+
+----
+//x
+// 1 3
+// 2 4
+Matrix x = new Matrix(new double[,] { { 1, 2 }, { 3, 4 } });
+//y
+// 1 2
+// 1 2
+Matrix y = new Matrix(new double[,] { { 1, 1 }, { 2, 2 } });
+//z
+// (1*1) (3* 2)
+// (2*1) (4* 2)
+Matrix z = x * y;
+----
+
+[[Logical]]
+== 論理演算
+
+論理演算をサポートするのは BooleanMatrix だけです。論理演算は以下のように実行できます。
+
+* 行列間
+* ブール行列とブール変数間
+
+行列間で実行する時:
+
+* 論理 AND および OR は対応する要素で実行されます。
+* 論理 NOT は各要素で実行されます。
+
+ブール行列とブール変数間で実行する場合、演算は行列と変数の各要素で実行されます。
+
+論理演算は新しいブール行列を返します。
+
+== サポートされる演算
+
+* AND (&)
+* OR (|)
+* NOT (!)
+
+== 要件
+
+行列は同じ次元でなければなりません。
+
+== コード例
+
+以下の例は 2 つの BooleanMatrix インスタンスを作成して、論理演算 NOT、AND および OR で使用する方法を示します。
+
+*Visual Basic の場合:*
+
+----
+'x
+' true false
+' true false
+Dim x As New BooleanMatrix(New Boolean(,) {{True, True}, {False, False}})
+'y
+' true true
+' false false
+Dim y As New BooleanMatrix(New Boolean(,) {{True, False}, {True, False}})
+'NOT
+' false true
+' false true 
+Dim NOT_x As BooleanMatrix = Not x
+'AND
+' true false
+' false false
+Dim x_AND_y As BooleanMatrix = x And y
+'OR
+' true true
+' true false
+Dim x_OR_y As BooleanMatrix = x Or y
+----
+
+*C# の場合：*
+
+----
+//x
+// true false
+// true false
+BooleanMatrix x = new BooleanMatrix(new bool[,] { { true, true }, { false, false } });
+//y
+// true true
+// false false
+BooleanMatrix y = new BooleanMatrix(new bool[,] { { true, false }, { true, false } });
+//NOT
+// false true
+// false true
+BooleanMatrix NOT_x = !x;
+//AND
+// true false
+// false false
+BooleanMatrix x_AND_y = x & y;
+//OR
+// true true
+// true false
+BooleanMatrix x_OR_y = x | y;
+----
+
+[[Comparison]]
+== 比較演算
+
+== サポートされる演算
+
+Infragistics Math Library の行列は、以下の比較演算をサポートします。
+
+* 等しい (==)
+* 等しくない (!=)
+* ～より大きい (>)
+* ～より小さい (<)
+* 以上 (>=)
+* 以下 ($$<=$$)
+
+これらの演算は行列の対応する要素で実行されます。
+
+== 演算子と != 演算子は行列の要素と次元を比較してブール値を返します。
+
+<、$$<=$$、> および >= 演算子は行列の対応する値を比較します。これらの演算子は link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[BooleanMatrix] インスタンスを返しますが、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] と link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexMatrix] のみに対して定義されます。返されたブール行列の各要素は最初の行列の対応する要素の比較の結果となります。
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] と link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexMatrix] は互いに、また *double* および link:{ApiPlatform}math{ApiVersion}~infragistics.math.complex.html[Complex] と比較することができます。 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[BooleanMatrix] はブール値とも比較できます。
+
+== 要件
+
+行列は同じ次元でなければなりません。
+
+== 関連トピック
+
+link:infragistics-math-creating-matrices.html[行列の作成]
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-vectors.html[ベクトル]
+
+link:infragistics-math-mathematical-functions.html[数学関数]
+
+link:infragistics-math-api-overview.html[API の概要]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-radial-gauges",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Getting Started"],
+    "guid": "{807FBBBD-7626-4C56-A911-AD0409A4B676}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラジアル ゲージ
+
+ラジアル ゲージは、円形にデータを視覚化します。ラジアル ゲージを四角形にすることもできますが、現在の値を表す針および棒マーカーは四角形に（時計の針と同じように）回転します。
+
+通常、ラジアル ゲージを完全な円形、半円、または円の 4 分の 1 になるように設計できます。可能な値の範囲を表すためにひとつまたは複数のセクションを追加できます。これらの値が配置されているセクション内の場所を指し示すために、特定の値を表すマーカーを追加できます。
+
+image::images/Gauge_About_Radial_Gauges_01.png[]
+
+ラジアル ゲージで作業する場合の詳細は、以下のリンクをクリックしてください。
+
+* link:wingauge-working-with-radial-gauges.html[ラジアル ゲージでの作業]

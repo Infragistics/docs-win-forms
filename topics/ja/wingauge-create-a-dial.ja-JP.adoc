@@ -1,0 +1,155 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-create-a-dial",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{41FD1256-F2BC-42C8-BA2F-2F1325651870}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 目盛盤の作成
+
+Dial プロパティはラジアル ゲージの形状を決定します。デフォルトで、目盛盤は 360 度を描くため、円として表示されます。
+
+このトピックは新しいラジアル ゲージの作成の最初の手順を説明します。このトピックに概略された手順を完了すると、Dial プロパティを単色の黒の背景に設定した新しいラジアル ゲージを作成したことになります。
+
+目盛盤の作成後の次の手順は、 link:wingauge-add-a-scale-to-a-gauge.html[「スケールをゲージに追加」]です。
+
+以下でゲージの Dial プロパティを構成できます。
+
+* <<gaugeDesigner,ゲージ デザイナを使用して>>
+* <<designTime,デザインタイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、ゲージは以下のゲージのようになります。
+
+image::images/Gauge_Add_Dial_01.png[]
+
+[[gaugeDesigner]]
+*ゲージ デザイナを使用してラジアル ゲージの Dial プロパティを構成するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラで、*Gauges* プロパティを展開します。
+[start=2]
+. [ゲージの追加...] をクリックして、[新しいラジアル ゲージ] を選択します。
+[start=3]
+. [ラジアル ゲージ] を展開して、[目盛盤] を選択します。
+[start=4]
+. link:wingauge-properties-panel.html[[プロパティ] パネル]の link:wingauge-appearance-tab.html[[外観] タブ]で、[タイプ] ドロップダウン リストから [単色] を選択します。
+[start=5]
+. [詳細] ドロップダウン矢印をクリックします。
+[start=6]
+. カラー ピッカーが表示します。左側で、[Web] をクリックし、次に [黒] を選択します。
+
+[[designTime]]
+*デザインタイムにラジアル ゲージの Dial プロパティを構成するには、次の手順に従ってください。*
+
+[start=1]
+. デザイン ビューで、フォーム上の UltraGauge コントロールをクリックします。
+[start=2]
+. [プロパティ] ウィンドウで、[ゲージ] プロパティをクリックします。次に省略記号（...）ボタンをクリックして、ゲージ コレクション エディタを開きます。
+[start=3]
+. ゲージ コレクション エディタで、[追加] をクリックして、[ラジアル ゲージを追加] を選択します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  プロパティをクリックして、新しい BrushElement オブジェクトを作成します。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=6]
+. BrushElement プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを Black に設定します。
+
+[[runTime]]
+*ランタイムにラジアル ゲージの Dial プロパティを構成するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. Gauge コレクション、ラジアル ゲージ、ブラシ エレメントを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim ultraGauge1 As New Infragistics.Win.UltraWinGauge.UltraGauge()
+Dim myRadialGauge As New RadialGauge()
+Dim mySolidFillBrushElement As New SolidFillBrushElement()
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.UltraWinGauge.UltraGauge ultraGauge1 = new Infragistics.Win.UltraWinGauge.UltraGauge();
+RadialGauge myRadialGauge = new RadialGauge();
+SolidFillBrushElement mySolidFillBrushElement = new SolidFillBrushElement();
+----
+
+[start=4]
+. 以下の色のプロパティを設定します。
+
+** タイプ -- 単色
+** 色 -- 黒
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Black
+myRadialGauge.Dial.BrushElement = mySolidFillBrushElement
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Black;
+myRadialGauge.Dial.BrushElement = mySolidFillBrushElement;
+----
+
+[start=5]
+. ラジアル ゲージを Gauges コレクションに追加します。以下のプロパティを設定します。
+
+** 位置 -- (30, 4)
+** 名前 -- ultraGauge1
+** サイズ -- (250, 250)
+** TabIndex -- 0
+
+*Visual Basic の場合：*
+
+----
+ultraGauge1.Gauges.Add(myRadialGauge)
+ultraGauge1.Location = New System.Drawing.Point(30, 4)
+ultraGauge1.Name ="ultraGauge1"
+ultraGauge1.Size = New System.Drawing.Size(250, 250)
+ultraGauge1.TabIndex = 0
+Me.Controls.Add(ultraGauge1)
+----
+
+*C# の場合：*
+
+----
+ultraGauge1.Gauges.Add(myRadialGauge);
+ultraGauge1.Location = new System.Drawing.Point(30, 4);
+ultraGauge1.Name = "ultraGauge1";
+ultraGauge1.Size = new System.Drawing.Size(250, 250);
+ultraGauge1.TabIndex = 0;
+this.Controls.Add(ultraGauge1);
+----
+
+== 関連トピック
+
+link:wingauge-add-a-scale-to-a-gauge.html[スケールをゲージに追加]

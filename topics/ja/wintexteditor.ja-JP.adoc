@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintexteditor",
+    "controlName": ["WinTextEditor"],
+    "tags": [],
+    "guid": "{386A76F2-6A44-4FAA-AC7F-C70810B48BBD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTextEditor
+
+WinTextEditor コントロール固有の情報を検索するために以下のリンクをクリックします。
+
+* link:wintexteditor-about-wintexteditor.html[WinTextEditorについて] -- WinTextEditorコントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wintexteditor-smart-tag.html[WinTextEditor スマート タグ] -- WinTextEditor コントロールのスマートタグで表示されるプロパティと設定値について説明しています。
+* link:wintexteditor-api-overview.html[API 概要] -- このトピックでは、WinTextEditor コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

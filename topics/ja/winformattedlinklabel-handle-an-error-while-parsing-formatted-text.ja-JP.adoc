@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-handle-an-error-while-parsing-formatted-text",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["How Do I"],
+    "guid": "{A904FF22-7713-4F92-9418-3D00C98A30D4}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フォーマットされたテキストの解析中のエラーの処理
+
+フォーマットされたテキストを解析すると、解析エラーが発生することがあります。その原因は、タグの閉じ忘れや、対のタグの不一致などです。たとえば、フォームにテキスト ボックス、ボタン、WinFormattedLinkLabel コントロールを配置したとします。ボタンをクリックすると、テキストボックスが WinFormattedLinkLabel コントロールに渡されます。この場合、テキストを誤って入力するミスを犯しやすく、この結果、ボタンをクリックしたときに pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor~parseerror_ev.html[ParseError]"]  イベントがスローされます。
+
+ParseError イベントは、WinFormattedLinkLabel コントロールのいくつかの処理でオプションを提供します。特定のエラーを pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.parseerroreventargs.html[Exception]"]  パラメータで示すことができます。Value に pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.parseerroreventargs.html[Value]"]  パラメータを使用して分かりやすい値を設定することができます。
+
+次のコード例は、ParseError イベントを使用して例外を示すメッセージ ボックスを表示するものです。WinFormattedLinkLabel コントロールの Value は、Parsing Error に変わります。
+
+image::images/WinFormattedLinkLabel_Handle_an_Error_While_Parsing_Formatted_Text_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraFormattedLinkLabel1_ParseError(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.FormattedLinkLabel.ParseErrorEventArgs) _
+  Handles UltraFormattedLinkLabel1.ParseError
+	' 例外を示すメッセージ ボックスを表示します。
+	MessageBox.Show(e.Exception.Message.ToString(), "Parsing Error")
+	' LinkLabel の値を Parsing Error に設定します。
+	e.Value = "Parsing Error"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraFormattedLinkLabel1_ParseError(object sender, 
+  Infragistics.Win.FormattedLinkLabel.ParseErrorEventArgs e)
+{
+	// 例外を示すメッセージ ボックスを表示します。
+	MessageBox.Show(e.Exception.Message.ToString(), "Parsing Error");
+	// LinkLabel の値を Parsing Error に設定します。
+	e.Value = "Parsing Error";
+}
+----

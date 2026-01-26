@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-working-with-the-ribbon",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{1237878F-74E9-4032-ABA9-EB4FADA0EB8A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リボンの操作
+
+リボンについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-using-microsoft-office-2007-ui-capabilities.html[Microsoft Office 2007 UI 機能を使用する]
+* link:wintoolbarsmanager-ribbon-about-the-ribbon.html[リボンについて]
+* link:wintoolbarsmanager-using-the-ribbon.html[リボンの使用]

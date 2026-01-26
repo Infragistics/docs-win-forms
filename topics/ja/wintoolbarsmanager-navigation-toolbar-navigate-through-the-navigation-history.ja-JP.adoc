@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-navigation-toolbar-navigate-through-the-navigation-history",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Navigation"],
+    "guid": "{75FE974D-439B-4638-B039-647F9F6C6DB7}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-09T12:10:46Z"
+}
+|metadata|
+////
+
+= ナビゲーション履歴からナビゲート
+
+ナビゲーション履歴は、戻る履歴、次の履歴、そして現在の項目で構成されます。これらのオブジェクトは link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~backhistory.html[BackHistory] コレクション、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~forwardhistory.html[ForwardHistory] コレクション、および link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationhistoryitem.html[NavigationHistoryItem] にそれぞれ保存されます。BackHistory コレクションに向かって後ろにナビゲートするには、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~navigateback.html[NavigateBack] メソッドを呼び出すことができます。その反対に、ForwardHistory コレクションに向かって前にナビゲートするには、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~navigateforward.html[NavigateForward] メソッドを呼び出すことができます。これらのメソッドは、ナビゲーション履歴でエンド ユーザーが前後にナビゲートできる特定のキーまたはキーの組み合わせをバインドしたい場合に非常に役立ちます。もちろん、このナビゲーションは KeyPress イベントに制限されません。WinToolbarsManager™ の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick] イベントまたはそのための他のイベントからもこれらのメソッドを呼び出すことができます。
+
+以下のコードは、in-box WebBrowser コントロールの PreviewKeyDown イベントによってナビゲーション履歴で前後にナビゲートできる方法を示します。エンド ユーザーが Ctrl-[ キーの組み合わせを押すと、入力フォーカスが WebBrowser コントロールにある場合、ナビゲーション ツールバーは後ろにナビゲートし、Ctrl-] キーの組み合わせを押すと前にナビゲートします。
+
+[NOTE]
+====
+*注:* NavigateBack および NavigateForward メソッドを呼び出す前に、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~cannavigateback.html[CanNavigateBack] および link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.navigationtoolbar~cannavigateforward.html[CanNavigateForward] プロパティで前後にナビゲートできるかどうかを確認することが大切です。特定の方向にナビゲートできないので関連付けられた Navigate メソッドを呼び出す場合、例外がスローされます。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub WebBrowser1_PreviewKeyDown(ByVal sender As System.Object, _
+  ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) _
+  Handles WebBrowser1.PreviewKeyDown
+' "Ctrl-[" を押すと...
+    If e.Control AndAlso e.KeyCode = Keys.OemOpenBrackets Then
+' ...後ろにナビゲートします（可能である場合）。
+        If Me.UltraToolbarsManager1.NavigationToolbar.CanNavigateBack Then
+            Me.UltraToolbarsManager1.NavigationToolbar.NavigateBack()
+        End If
+    End If
+' "Ctrl-]" を押すと... 
+    If e.Control AndAlso e.KeyCode = Keys.OemCloseBrackets Then
+' ...前にナビゲートします（可能である場合）。
+        If Me.UltraToolbarsManager1.NavigationToolbar.CanNavigateForward Then
+            Me.UltraToolbarsManager1.NavigationToolbar.NavigateForward()
+        End If
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void webBrowser1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+{
+	// "Ctrl-[" を押すと...
+	if (e.Control && e.KeyCode == Keys.OemOpenBrackets)
+	{
+		// ...後ろにナビゲートします（可能である場合）。
+		if (this.ultraToolbarsManager1.NavigationToolbar.CanNavigateBack)
+			this.ultraToolbarsManager1.NavigationToolbar.NavigateBack();
+	}
+	// "Ctrl-]" を押すと... 
+	if (e.Control && e.KeyCode == Keys.OemCloseBrackets)
+	{
+		// ...前にナビゲートします（可能である場合）。
+		if (this.ultraToolbarsManager1.NavigationToolbar.CanNavigateForward)
+			this.ultraToolbarsManager1.NavigationToolbar.NavigateForward();
+	}
+}
+----

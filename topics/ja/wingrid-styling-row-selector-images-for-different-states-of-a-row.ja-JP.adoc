@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-styling-row-selector-images-for-different-states-of-a-row",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{007D26B9-5C0B-4F14-B71E-18CF6D8E5F73}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T11:53:46Z"
+}
+|metadata|
+////
+
+= 行のさまざまな状態の行セレクター画像をスタイリング
+
+WinGrid™ コントロールは、アクティブ行、保留中の変更がある行、新しい行を追加するための状態、保留中の変更があるアクティブ行、およびアクティブな新規行追加のような行の特定の状態を示すために行セレクターのデフォルト画像を表示します。これらのデフォルト画像を置き換えたり、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~rowselectorimages.html[RowSelectorImages]"]  プロパティを使用してそれらを null に設定することさえできます。画像プロパティ（デフォルト画像と共に）は、行の状態ごとに存在します。
+
+[NOTE]
+====
+*注：* .NET Image Editor の制限のために画像プロパティを null に設定できるのはランタイムのみです。
+====
+
+*Visual Basic の場合：*
+
+----
+' 行がアクティブの状態である時にカスタム画像を行セレクターに設定します 
+Me.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveRowImage = Image.FromFile("C:\Images\Tickmark.gif")
+----
+
+*C# の場合：*
+
+----
+// 行がアクティブの状態である時にカスタム画像を行セレクターに設定します
+this.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveRowImage = Image.FromFile(@"C:\Images\Tickmark.gif");
+----
+
+image::Images/WinGrid_Styling_Row_Selector_Images_for_Different_States_of_a_Row_01.png[]
+
+*Visual Basic の場合：*
+
+----
+' デフォルトのアクティブ行セレクター画像を削除します 
+Me.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveRowImage = Nothing
+----
+
+*C# の場合：*
+
+----
+// デフォルトのアクティブ行セレクター画像を削除します
+ this.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveRowImage = null;
+----
+
+*Visual Basic の場合：*
+
+----
+' 新しい行が追加されてアクティブの状態である時にカスタム画像を行セレクターに設定します 
+Me.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveAndAddNewRowImage = Image.FromFile("C:\Images\flower.jpg")
+----
+
+*C# の場合：*
+
+----
+// 新しい行が追加されてアクティブの状態である時にカスタム画像を行セレクターに設定します
+this.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveAndAddNewRowImage = Image.FromFile(@"C:\Images\flower.jpg");
+----
+
+image::Images/WinGrid_Styling_Row_Selector_Images_for_Different_States_of_a_Row_02.png[]
+
+*Visual Basic の場合：*
+
+----
+' アクティブ行が編集されている時にカスタム画像を行セレクターに設定します
+Me.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveAndDataChangedImage = Image.FromFile(@"C:\Images\pencil.jpg")
+----
+
+*C# の場合：*
+
+----
+// アクティブ行が編集されている時にカスタム画像を行セレクターに設定します
+this.ultraGrid1.DisplayLayout.RowSelectorImages.ActiveAndDataChangedImage = Image.FromFile(@"C:\Images\pencil.jpg");
+----
+
+image::Images/WinGrid_Styling_Row_Selector_Images_for_Different_States_of_a_Row_03.png[]

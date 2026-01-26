@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-information-functions",
+    "controlName": ["WinCalcManager"],
+    "tags": [],
+    "guid": "{2FA1F8B4-154E-4F24-A0ED-EE3666FF9819}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 情報関数
+
+以下は WinCalcManager コントロールで提供されるすべての Microsoft® Excel® スタイルの情報関数のリストです。
+
+[[FUNC_ERROR]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionerrortype.html[ERRORTYPE]"] 
+[[FUNC_DBNULL]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiondbnull.html[DBNULL]"] 
+[[FUNC_NULL]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionnull.html[NULL]"] 
+[[FUNC_ISBLANK]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisblank.html[ISBLANK]"] 
+[[FUNC_ISDBNULL]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisdbnull.html[ISDBNULL]"] 
+[[FUNC_ISERR]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctioniserr.html[ISERR]"] 
+[[FUNC_ISERROR]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctioniserror.html[ISERROR]"] 
+[[FUNC_ISLOGICAL]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionislogical.html[ISLOGICAL]"] 
+[[FUNC_ISEVEN]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctioniseven.html[ISEVEN]"] 
+[[FUNC_ISNa]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisna.html[ISNA]"] 
+[[FUNC_ISNONTEXT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisnontext.html[ISNONTEXT]"] 
+[[FUNC_ISNULL]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisnull.html[ISNULL]"] 
+[[FUNC_ISNUMBER]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisnumber.html[ISNUMBER]"] 
+[[FUNC_ISOdd]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisodd.html[ISODD]"] 
+[[FUNC_ISREF]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionisref.html[ISREF]"] 
+[[FUNC_ISTEXT]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionistext.html[ISTEXT]"] 
+[[FUNC_Na]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctionna.html[NA]"] 
+[[FUNC_TYPE]]pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunctiontype.html[TYPE]"] 
+
+*関連トピック：*
+
+* link:wincalcmanager-date-and-time-functions.html[日付&時間関数]
+* link:wincalcmanager-financial-functions.html[財務関数]
+* link:wincalcmanager-logical-functions.html[論理関数]
+* link:wincalcmanager-math-functions.html[算術関数]
+* link:wincalcmanager-statistical-functions.html[統計関数]
+* link:wincalcmanager-text-and-data-functions.html[テキスト&データ関数]

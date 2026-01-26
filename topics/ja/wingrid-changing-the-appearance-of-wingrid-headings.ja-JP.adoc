@@ -1,0 +1,358 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-appearance-of-wingrid-headings",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{0CB7FD00-3CFF-4BD2-A859-E8326FF98990}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid Headings の外観変更
+
+== バックグラウンド
+
+WinGrid はさまざまなヘッダ（キャプション）を表示します。ヘッダの内容と外観はコードで制御できます。
+
+== 質問
+
+* グリッドのキャプションの外観を変更するにはどうすればいいですか?
+* 列ヘッダの外観を変更するにはどうすればいいですか?
+* 表示するバンド ヘッダを取得し、そのヘッダの外観を変更するにはどうすればいいですか?
+
+== 解決策
+
+上記の質問に対する答えは、ヘッダ情報がどこにあるかによって異なります。このサンプル プロジェクトでは、UltraWinGrid で見られるさまざまなヘッダの外観を変更する方法を示します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、対応するボタンをクリックしてヘッダを設定できます。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+image::Images/WinGrid_Changing_the_Appearance_of_WinGrid_Headings_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeRow - InitializeRow イベントのコードで、バンド 0 の行が展開します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' バンド 0 の行を展開します
+	If e.Row.Band.Index = 0 Then
+		e.Row.ExpandAll()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// バンド 0 の行を展開します
+	if(e.Row.Band.Index == 0)
+		e.Row.ExpandAll();
+}
+----
+
+Checkbox イベント
+
+Checkbox イベント領域には以下のイベント ハンドラがあります。
+
+* chkSupportThemes.CheckedChanged - このイベントのコードでは、チェックボックスの値に基づいて、グリッドの .UseOsThemes プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub chkSupportThemes_CheckedChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles chkSupportThemes.CheckedChanged
+	' チェックボックスの値に基づいて、UltraGrid1 のテーマを設定します
+	If chkSupportThemes.Checked = True Then
+		Me.UltraGrid1.UseOsThemes = DefaultableBoolean.True
+	Else
+		Me.UltraGrid1UseOsThemes = DefaultableBoolean.False
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void chkSupportThemes_CheckedChanged(object sender, System.EventArgs e)
+{	
+	// チェックボックスの値に基づいて、UltraGrid1 のテーマを設定します
+	if(this.chkSupportThemes.Checked == true)
+		this.ultraGrid1.UseOsThemes = DefaultableBoolean.True;
+	else
+		this.ultraGrid1.UseOsThemes = DefaultableBoolean.False;
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します。
+
+* btnGridHeading.Click - Grid Heading Button Click イベントのコードでは、テーマを無効にし、グリッドのキャプション テキストを設定し、グリッド ヘッダ領域の背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnGridHeading_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnGridHeading.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.Text = "Test Grid"
+	Me.UltraGrid1.DisplayLayout.CaptionAppearance.BackColor = Color.LightYellow
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnGridHeading_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.Text = "Test Grid";
+	this.ultraGrid1.DisplayLayout.CaptionAppearance.BackColor = Color.LightYellow;
+}
+----
+
+* btnSetBand0Heading.Click - Set Band 0 Heading Button Click イベントのコードでは、テーマを無効にし、バンドのヘッダを有効にし、キャプション テキストを設定し、バンド ヘッダ領域の背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetBand0Heading_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetBand0Heading.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.DisplayLayout.Bands(0).HeaderVisible = True
+	Me.UltraGrid1.DisplayLayout.Bands(0).Header.Caption = "Band 0 Header"
+	Me.UltraGrid1.DisplayLayout.Bands(0).Header.Appearance.BackColor = Color.LightYellow
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSetBand0Heading_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.DisplayLayout.Bands[0].HeaderVisible = true;
+	this.ultraGrid1.DisplayLayout.Bands[0].Header.Caption = "Band 0 Header";
+	this.ultraGrid1.DisplayLayout.Bands[0].Header.Appearance.BackColor = 
+	  Color.LightYellow;
+}
+----
+
+* btnSetBand1Heading.Click - Set Band 1 Heading Button Click イベントのコードでは、テーマを無効にし、バンドのヘッダを有効にし、キャプション テキストを設定し、バンド ヘッダ領域の背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetBand1Heading_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetBand1Heading.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.DisplayLayout.Bands(1).HeaderVisible = True
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Caption = "Band 1 Header"
+	Me.UltraGrid1.DisplayLayout.Bands(1).Header.Appearance.BackColor = 
+	  Color.LightYellow
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SetBand1Heading_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.DisplayLayout.Bands[1].HeaderVisible = true;
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Caption = "Band 1 Header";
+	this.ultraGrid1.DisplayLayout.Bands[1].Header.Appearance.BackColor = 
+	  Color.LightYellow;
+}
+----
+
+* btnSetBand0ColumnHeaders.Click - Set Band 0 Column Headers Button Click イベントのコードでは、テーマを無効にし、バンド 0 の列ヘッダの背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetBand0ColumnHeaders_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetBand0ColumnHeaders.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.DisplayLayout.Bands(0).Override.HeaderAppearance.BackColor = Color.LightYellow
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSetBand0ColumnHeaders_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.DisplayLayout.Bands[0].Override.HeaderAppearance.BackColor = 
+	  Color.LightYellow;
+}
+----
+
+* btnSetBand1ColumnHeaders.Click - Set Band 1 Column Headers Button Click イベントのコードでは、テーマを無効にし、バンド 1 の列ヘッダの背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetBand1ColumnHeaders_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetBand1ColumnHeaders.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.DisplayLayout.Bands(1).Override.HeaderAppearance.BackColor = 
+	  Color.LightYellow
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSetBand1ColumnHeaders_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.DisplayLayout.Bands[1].Override.HeaderAppearance.BackColor = 
+	  Color.LightYellow;
+}
+----
+
+* btnSetOrderIDColumnHeader.Click - Set OrderID Column Header Button Click イベントのコードでは、テーマを無効にし、列ヘッダのキャプション テキストを設定し、列ヘッダ領域の背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetOrderIDColumnHeader_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetOrderIDColumnHeader.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("OrderID").Header.Caption = "Order ID"
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("OrderID").Header.Appearance.BackColor = _
+	  Color.LightCoral
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSetOrderIDColumnHeader_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["OrderID"].Header.Caption = "Order ID";
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["OrderID"].Header.Appearance.BackColor = 
+	  Color.LightCoral;
+}
+----
+
+* btnCardViewHeader.Click - Card View Header Button Click イベントのコードでは、テーマを無効にし、バンド 1 をカード ビューを使用するように設定し、キャプション フィールド名として OrderID フィールドを使用し、ShowCaptions を有効にし、カード キャプションの外観の背景色と前景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetCardViewHeader_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetCardViewHeader.Click
+	Me.chkSupportThemes.Checked = False
+	Me.UltraGrid1.DisplayLayout.Bands(1).CardView = True
+	Me.UltraGrid1.DisplayLayout.Bands(1).CardSettings.CaptionField = "OrderID"
+	Me.UltraGrid1.DisplayLayout.Bands(1).CardSettings.ShowCaption = True
+	Me.UltraGrid1.DisplayLayout.Bands(1).Override.CardCaptionAppearance.BackColor = Color.Blue
+	Me.UltraGrid1.DisplayLayout.Bands(1).Override.CardCaptionAppearance.ForeColor = Color.White
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnCardViewHeader_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	this.ultraGrid1.DisplayLayout.Bands[1].CardView = true;
+	this.ultraGrid1.DisplayLayout.Bands[1].CardSettings.CaptionField = "OrderID";
+	this.ultraGrid1.DisplayLayout.Bands[1].CardSettings.ShowCaption = true;
+	this.ultraGrid1.DisplayLayout.Bands[1].Override.CardCaptionAppearance.BackColor = 
+	  Color.Blue;
+	this.ultraGrid1.DisplayLayout.Bands[1].Override.CardCaptionAppearance.ForeColor = 
+	  Color.White;
+}
+----
+
+* btnGroupHeader.Click - Group Header Button Click イベントのコードでは、テーマを無効にし、グループを作成し、レベル数を 2 に設定し、グループとレベルを列に適用し、グループ ヘッダ領域の背景色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetGroupHeader_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetGroupHeader.Click
+	Me.chkSupportThemes.Checked = False
+	If Me.UltraGrid1.DisplayLayout.Bands(1).Groups.Exists("Orders") = True Then Exit Sub
+	Me.UltraGrid1.DisplayLayout.Bands(1).Groups.Add("Orders")
+	Me.UltraGrid1.DisplayLayout.Bands(1).LevelCount = 2
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("CustomerID").Group = _
+	  Me.UltraGrid1.DisplayLayout.Bands(1).Groups("Orders")
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("CustomerID").Level = 0
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("OrderID").Group = _
+	  Me.UltraGrid1.DisplayLayout.Bands(1).Groups("Orders")
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("OrderID").Level = 0
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("EmployeeID").Group = _
+	  Me.UltraGrid1.DisplayLayout.Bands(1).Groups("Orders")
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("EmployeeID").Level = 1
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("OrderDate").Group = _
+	  Me.UltraGrid1.DisplayLayout.Bands(1).Groups("Orders")
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns("OrderDate").Level = 1
+	Me.UltraGrid1.DisplayLayout.Bands(1).Groups("Orders").Header.Appearance.BackColor = _
+	  Color.LightSteelBlue
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnGroupHeader_Click(object sender, System.EventArgs e)
+{
+	this.chkSupportThemes.Checked = false;
+	if(this.ultraGrid1.DisplayLayout.Bands[1].Groups.Exists("Orders") == true)
+		return;
+	this.ultraGrid1.DisplayLayout.Bands[1].Groups.Add("Orders");
+	this.ultraGrid1.DisplayLayout.Bands[1].LevelCount = 2;
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["CustomerID"].Group = 
+	  this.ultraGrid1.DisplayLayout.Bands[1].Groups["Orders"];
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["CustomerID"].Level = 0;
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["OrderID"].Group = 
+	  this.ultraGrid1.DisplayLayout.Bands[1].Groups["Orders"];
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["OrderID"].Level = 0;
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["EmployeeID"].Group = 
+	  this.ultraGrid1.DisplayLayout.Bands[1].Groups["Orders"];
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["EmployeeID"].Level = 1;
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["OrderDate"].Group = 
+	  this.ultraGrid1.DisplayLayout.Bands[1].Groups["Orders"];
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns["OrderDate"].Level = 1;
+	this.ultraGrid1.DisplayLayout.Bands[1].Groups["Orders"].Header.Appearance.BackColor = 
+	  Color.LightSteelBlue;
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、UltraWinGrid に表示されるさまざまなヘッダを操作する方法を示しました。

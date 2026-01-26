@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-recursive-rows-enumerator-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{22275776-6819-4181-A7BE-49414B8D298D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 反復行列挙体
+
+新しい列挙体を使用すると、グリッド内のすべての行とバンドに対し簡単にループ処理を行えます。以前は、この操作を行うためには、全体的な再帰メソッドを作成しなければなりませんでした。今では、GetRowsEnumerator メソッドを使用すると、グリッド内のすべての行とバンドに 1 つの FOREACH ループを走らせることができます。
+
+== 関連トピック
+
+link:wingrid-looping-through-the-entire-grid.html[グリッド全体のループ処理]

@@ -1,0 +1,86 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-set-timeline-intervals-in-chart-area-of-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{138B7285-C2FE-4C01-82B9-199993497627}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGanttView のチャート領域でタイムライン間隔を設定
+
+WinGanttView™ コントロールはカスタマイズ可能なコントロールのチャート領域内の列ヘッダーにタイムラインを表示します。 デフォルトで表示される第一の間隔を変更できますが、 link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelinesettings.html[TimelineSettings] オブジェクトを使用して追加の間隔を追加することも可能です。
+
+link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeinterval.html[TimeInterval] オブジェクトと link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dateinterval.html[DateInterval] オブジェクトによって時間と日付の間隔を定義することができます。 整数型の link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.datetimeinterval~interval.html[Interval] プロパティは周期的な期間の数を定義し、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dateinterval~intervalunits.html[IntervalUnits] プロパティは分または時間（TimeInterval オブジェクト用）、または日、週、月、または年（DateInterval オブジェクト用）で表される値で、時間の単位を定義します。
+
+列に提示される時間の各区分の期間は PrimaryInterval プロパティで定義できます。 AdditionalIntervals コレクションにメンバーを追加することによって、任意の数の追加の日付または時間の間隔を第一の間隔の上に表示できます。 AdditionalIntervals コレクションにひとつ以上のメンバーが存在する時に、複数の日/時間の間隔が上から下に降順で表示されます。たとえば、期間が長い時間の間隔は、期間が短い時間の間隔の上に表示されます。 TimeInterval および DateInterval オブジェクト（またはどちらか一方）が構成されると、それらを GanttView コントロールの TimelineSettings.PrimaryInterval または TimelineSettings.AdditionalIntervals プロパティに指定できます。
+
+以下のコードは第一間隔とコントロールのチャート セクションのタイムライン列ヘッダーに追加される追加間隔をカスタマイズします。
+
+*Visual Basic の場合：*
+
+----
+' TimeInterval オブジェクトを定義し、Interval および IntervalUnits を Primary 間隔を設定するパラメーターとして渡します
+Dim ganttTimeInterval As New TimeInterval(30, TimeIntervalUnits.Minutes)
+Me.ultraGanttView1.TimelineSettings.PrimaryInterval = ganttTimeInterval
+ganttTimeInterval.HeaderAppearance.BackColor = Color.Silver
+ganttTimeInterval.HeaderTextFormat = "T"
+ganttTimeInterval.HeaderTextFormatStyle = TimelineViewHeaderTextFormatStyle.FullRange
+' DateInterval オブジェクトを定義し、Interval および IntervalUnits を追加の間隔を設定するパラメーターとして渡します
+Dim ganttAddInterval1 As New DateInterval(1, DateIntervalUnits.Days)
+Me.ultraGanttView1. TimelineSettings.AdditionalIntervals.Add(ganttAddInterval1)
+ganttAddInterval1.HeaderTextFormat = "dddd"
+Me.ultraGanttView1.TimelineSettings.WorkingHourAppearance.BackColor = Color.LightBlue
+Me.ultraGanttView1.TimelineSettings.NonWorkingHourAppearance.BackColor = Color.BlanchedAlmond
+Me.ultraGanttView1.TimelineSettings.ColumnAutoSizing = TimelineViewColumnAutoSizing. PrimaryIntervalOnly
+Me.ultraGanttView1.TimelineSettings.ColumnWidth = 180
+----
+
+*C# の場合：*
+
+----
+// TimeInterval オブジェクトを定義し、Interval および IntervalUnits を Primary 間隔を設定するパラメーターとして渡します
+TimeInterval ganttTimeInterval = new TimeInterval(30, TimeIntervalUnits.Minutes);
+this.ultraGanttView1.TimelineSettings.PrimaryInterval = ganttTimeInterval;
+ganttTimeInterval.HeaderAppearance.BackColor = Color.Silver;
+ganttTimeInterval.HeaderTextFormat = "T";
+ganttTimeInterval.HeaderTextFormatStyle = TimelineViewHeaderTextFormatStyle.FullRange;
+// DateInterval オブジェクトを定義し、Interval および IntervalUnits を追加の間隔を設定するパラメーターとして渡します
+DateInterval ganttAddInterval1 = new DateInterval(1, DateIntervalUnits.Days);
+this.ultraGanttView1.TimelineSettings.AdditionalIntervals.Add(ganttAddInterval1);
+ganttAddInterval1.HeaderTextFormat = "dddd";
+this.ultraGanttView1.TimelineSettings.WorkingHourAppearance.BackColor = Color.LightBlue;
+this.ultraGanttView1.TimelineSettings.NonWorkingHourAppearance.BackColor = Color.BlanchedAlmond;
+this.ultraGanttView1.TimelineSettings.ColumnAutoSizing = TimelineViewColumnAutoSizing.PrimaryIntervalOnly;
+this.ultraGanttView1.TimelineSettings.ColumnWidth = 180;
+----
+
+コントロールのチャート領域の列ヘッダーに適用される時間と日付の間隔をカスタマイズするために処理できるイベントがいくつかあります。 これらのイベントの一部を以下に列挙します。
+
+link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelinecolumnheaderinitializing_ev.html[TimelineColumnHeaderInitializing]
+
+link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelinecolumnheadertooltipdisplaying_ev.html[TimelineColumnHeaderToolTipDisplaying]
+
+link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelinedatenavigationbuttonclicked_ev.html[TimelineDateNavigationButtonClicked]
+
+link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelineprimaryintervalchanged_ev.html[TimelinePrimaryIntervalChanged]
+
+link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelinevisibledatetimerangechanged_ev.html[TimelineVisibleDateTimeRangeChanged]
+
+image::Images/WinGanttView_Set_Timeline_Intervals_in_Chart_Area_of_WinGanttView_01.png[]
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started"],
+    "guid": "{1B0207D9-0A10-4A90-9881-E2842B871479}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab と WinTabStrip
+
+WinTab コントロールと WinTabStrip コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinTab と WinTabStrip についての有益な情報を含んでいます。
+
+以下のリンクをクリックすると、WinTab コントロールと WinTabStrip コントロールに関する重要な情報にアクセスします。
+
+== link:wintab-understanding-wintab-and-wintabstrip.html[WinTab と WinTabStrip の理解]
+
+このセクションでは、WinTab コントロールと WinTabStrip コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:wintab-using-wintab-and-wintabstrip.html[WinTab と WinStrip の使用]
+
+このセクションは、WinTab と WinTabStrip コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:wintab-api-overview.html[API 概要]
+
+このトピックでは、WinTab コントロールと WinTabStrip コントロールを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」にリンクしています。

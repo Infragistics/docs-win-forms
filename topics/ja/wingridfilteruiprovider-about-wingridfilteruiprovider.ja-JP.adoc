@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridfilteruiprovider-about-wingridfilteruiprovider",
+    "controlName": [],
+    "tags": ["Filtering","Getting Started"],
+    "guid": "{01453BF0-8668-4D88-BAB5-0A6FE919B565}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridFilterUIProvider について
+
+このトピックは WinGridFilterUIProvider とその拡張されたフィルタリング機能を紹介します。
+
+== はじめに
+
+WinGridFilterUIProvider™ コンポーネントは、UltraGrid™ 列のために拡張されたフィルタリングのユーザー インターフェイス (UI) を提供します。これは Microsoft Excel® のフィルタリング機能を真似て、UltraGrid 列データに適したさまざまな定数 (Text Filters、Number Filters および Date Filters) を表示します。たとえば、日付の列で、次の週、月、四半期および日付の範囲でも値をフィルターすることが可能です。WinGrid™ コントロールの  link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filteruiprovider.html[FilterUIProvider] プロパティを link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider.html[UltraGridFilterUIProvider] に設定することによって、WinGrid 列のデータは WinGridFilterUIProvider の拡張されたフィルタリング UI を使用してフィルタリングできます (図 1) 。
+
+image::Images/WinGridFilterUIProvider_About_WinGridFilterUIProvider.png[]
+
+図 1: WinGrid で UltraGridFilterUIProvider が有効になり、ドロップダウンされている
+
+== フィルタリング インターフェイス
+
+WinGridFilterUIProvider コントロールによって提供されるフィルタリング インターフェイスに示されるすべてのフィルタリング比較演算子 (たとえば、Equals、DoesNotEqual、Begins With など) は、FilterTool の概念を通して作成された、メニューとして表示されるツールです (図 1) 。これらのツールは再配置、削除することができますが、新しいツールは  link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider~beforemenupopulate_ev.html[BeforeMenuPopulate] イベントと  link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider~aftermenupopulate_ev.html[AfterMenuPopulate] イベントを処理することで追加できます。
+
+== デフォルト動作
+
+Microsoft Excel では、セル値のリストがフィルターされ、他の列にフィルター アウトされていない値のみが表示されます。WinGridFilterUIProvider のデフォルト動作はこの動作を真似ています。
+
+== 後方互換性
+
+このコントロールの 2011 Volume 2 以前のバージョンは、フィルター アウトされたかどうかにかかわらず、フィルタリング ドロップダウンに値を表示しました。古い機能との後方互換性のために、UltraGridFilterUIProvider では link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.operandlistfilterbehavior.html[OperandListFilterBehavior] という名前の新しいプロパティが使用可能になりました。
+
+== 関連トピック
+
+* link:wingridfilteruiprovider-enabling-enhanced-filtering-on-wingrid.html[WinGrid で拡張フィルタリングを有効にする]
+* link:wingridfilteruiprovider-adding-a-custom-filter-to-enhanced-filtering-ui-on-a-wingrid.html[WinGrid でカスタムのフィルターを拡張フィルタリング UI に追加]

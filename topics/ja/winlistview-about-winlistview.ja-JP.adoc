@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-about-winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["Getting Started"],
+    "guid": "{E4AE9EE7-D163-4BC1-87D3-A196E8E17270}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView について
+
+Microsoft® ListView はさまざまなビューで項目のグループを表示するためのコントロールで、多くの開発者にとって馴染み深い機能です。Windows® Explorer で現在のディレクトリのファイルを表示すると、それが ListView コントロールが機能している状態です。ただし、開発者の中には気付いていない人もいますが、Visual Studio™ に組み込まれている ListView コントロールは、実は Visual Basic 6.0 とともに提供されている同じ COM ListView コントロールのラッパなのです。
+
+Infragistics WinListView コントロールは、ネイティブの .NET コントロールで、完全に C# プログラミング言語で記述されており、CLR と完全な互換性を持ちます。他のすべての Infragistics のコントロールと同様に、WinListView も link:win-presentation-layer-framework-plf.html[Infragistics Presentation Layer Framework™] 上に構築されています。また、このコントロールは、他の Infragistics のコントロールと整合性を持ったオブジェクト モデル アプローチを使用しており、既存の Infragistics コントロールのユーザーが期待する次のような機能を備えています。
+
+* DrawFilter プロパティと CreationFilter プロパティ。コントロールの個々のエレメントの表示方法に対し非常に柔軟な制御を可能にします。
+* WinGrid や WinTree などのコントロールで使用されるような選択パラダイム（行やノードの選択方法に似た項目の選択）。
+* EventManager プロパティ。特定のイベントが発生中かどうかを判断したり、すべてのイベントまたは特定のひとつのイベントの発生を抑制したりすることを可能にします。
+* UIElement ベースのコントロールのユーザー インターフェイスの作成。
+* KeyActionMappings コレクション。コントロールのデフォルトのキーボード動作を定義したり、キーボードの動作をカスタマイズする方法を拡張したりすることができます。
+* Windows XP のテーマのサポート、およびこれらのテーマを視覚的に描画するコントロールの機能に対するきめ細かい制御。
+* コントロールのすべてのビジュアルな機能は、よく使用する Infragistics の Appearance オブジェクト モデルによって決定されます。
+* 項目とサブアイテムの値の編集とレンダリングは、よく使用する Infragistics 埋め込みエディタ アーキテクチャによって処理されます。
+
+image::images/WinListView_About_WinListView_01.png[]

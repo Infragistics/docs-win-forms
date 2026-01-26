@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-upgrading-a-project-manually",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{65FA2105-DB14-41E8-9AA2-E1866251318D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プロジェクトを手動でアップグレード
+
+以下の手順を実行して、Windows Forms プロジェクト内の Infragistics ツールを手動でアップグレードします。
+
+[start=1]
+. Visual Studio でプロジェクトを開きます。
+[start=2]
+. プロジェクトの設定フォルダーを右クリックし、[参照の追加] を選択して [参照の追加] ダイアログ ボックスを開きます。
+[start=3]
+. 参照フォルダーにリストされた Infragistics アセンブリごとに、[参照の追加] ダイアログ ボックスで新規のアセンブリ バージョンを指定します。Infragistics アセンブリを見つけるたびに、[選択] をクリックしてそのアセンブリを [選択されたコンポーネント] リストに追加します。
+[start=4]
+. 新規のアセンブリをすべて見つけたら、[OK] をクリックして [参照の追加] ダイアログ ボックスを終了します。
+[start=5]
+. 古いアセンブリ バージョンへの参照をすべてプロジェクトの参照フォルダーから削除します。
+[start=6]
+. プロジェクトを再構築します。
+
+*関連トピック:*
+
+* link:win-upgrading-a-project-to-infragistics-windows-forms-11-1-(and-above)-using-version-utility.html[バージョン ユーティリティの使用方法]
+* link:win-using-command-line.html[コマンドラインの使用]

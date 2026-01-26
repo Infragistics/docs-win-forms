@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-change-the-placement-of-tool-text",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{5777D896-1541-4880-942C-6C448D20F0A3}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツール テキストの配置の変更
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[Toolbar]"]  ボタンは、テキスト、イメージ、またはその両方と共に表示できます。両方が表示されるときは、デフォルトでテキストがイメージの右側に表示されます。この動作はデザインタイムまたはランタイムに変更できます。テキストは、ツールバーの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings.html[Settings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings~captionplacement.html[CaptionPlacement]"]  プロパティを設定してイメージの右、左、上、または下に表示できます。
+
+== デザインタイムの場合
+
+[start=1]
+. WinToolbarsManager コンポーネントを設定するため、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolbarsManager]"]  エレメント上で右クリックし、［ユーザー設定］ を選択して、[ユーザー設定] ダイアログを開きます。
+[start=2]
+. ユーザー設定の [ツールバー] タブをクリックし、ツールバーを選択します。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~settings.html[Settings]"] プロパティについては、CaptionPlacement プロパティを選択し、テキストを表示する位置を設定します。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub ChangethePlacementofToolText_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.Tools("ButtonTool1").SharedProps.DisplayStyle = _
+	  ToolDisplayStyle.ImageAndText
+	Me.UltraToolbarsManager1.Toolbars(0).Settings.CaptionPlacement = TextPlacement.BelowImage
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinToolbars;
+...
+private void ChangethePlacementofToolText_Load(object sender, System.EventArgs e)
+{
+	this.ultraToolbarsManager1.Tools["ButtonTool1"].SharedProps.DisplayStyle = 
+	  ToolDisplayStyle.ImageAndText;
+	this.ultraToolbarsManager1.Toolbars[0].Settings.CaptionPlacement = TextPlacement.BelowImage;
+}
+----

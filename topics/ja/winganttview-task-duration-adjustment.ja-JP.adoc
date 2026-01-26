@@ -1,0 +1,123 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-task-duration-adjustment",
+    "controlName": ["WinGanttView"],
+    "tags": ["How Do I"],
+    "guid": "e908c27b-8c8a-42e6-9b14-a977bfe62b55",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T18:49:58.3349664Z"
+}
+|metadata|
+////
+
+= タスク期間の調整
+
+link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~taskworkinghourmode.html[TaskWorkingHourMode] プロパティの値は、終了日付時刻を計算する時に、非稼働時間/非稼働日をタスクの期間に含むべきかどうかを決定します。デフォルト値である「Manual」に設定すると、非稼働時間および非稼働日はスキップされません。「AutoAdjust」に設定すると、非稼働時間および非稼働日はスキップされ、終了日付時刻は直近の稼働時間または稼働日にプッシュされます。たとえば、金曜日に開始し、期間が 2 日間の「AutoAdjust」で設定されたタスクは、土曜日の代わりに月曜日に終了します(土曜日と日曜日の両日は非稼動日として設定されることが前提です)。
+
+TaskWorkingHoourMode プロパティが「AutoAdjust」に設定された状態で、エンドユーザーが日の期間の時間単位を表すと、有効な期間は稼働日の長さを使用して稼働時間に変換されます。期間を、たとえば 2 日の値に設定し稼働時間を 8 時間にすると、2 x 8 時間=16 時間に変換され、有効な期間は 16 時間となります。タスクの終了日付時刻を決定する時にタスクは非稼働時間をスキップするので、タスクは 2 稼働日に及びます。
+
+エンドユーザーが時間または分で期間の値を表すと、期間は稼働時間のリテラル割り当てとして解釈されます。たとえば、期間の値が 48 時間に設定されると、タスクは 1 日当たり 8 時間として 6 稼働日に及びます。
+
+期間の時間の単位は、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~setduration(timespan,timespanformat).html[SetDuration] メソッドを使用して設定できます。これは TimeSpanFormat パラメーターを受け付けます。
+
+link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~taskdurationworkingtimeperday.html[TaskDurationWorkingTimePerDay] プロパティは UltraCalendarInfo オブジェクトで公開されます。これは稼働日の稼働時間数を指定するための方法を提供します。
+
+link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendardatesettings.html[CalendarDateSettings] コレクション オブジェクトは、特定の日付の稼働日のステータスおよび稼働時間をカスタマイズするための方法を提供します。
+
+以下のコード例は、期間に非稼働日および非稼働時間を含め、それに応じて終了日付時刻が調整される方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' プロジェクトを作成して、タスクをそれに追加します
+CreateTasks() 
+' TaskWorkingHourMode を AutoAdjust に設定して、期間に非稼働時間を含めます
+Me.ultraCalendarInfo1.TaskWorkingHourMode = Infragistics.Win.UltraWinSchedule.TaskWorkingHourMode.AutoAdjust 
+' TaskDurationWorkingTimePerDay プロパティを設定して、稼働日の長さを 8 時間に定義します
+Me.ultraCalendarInfo1.TaskDurationWorkingTimePerDay = TimeSpan.FromHours(8) 
+Dim enumValues As Array = [Enum].GetValues(GetType(System.DayOfWeek))
+For Each enumValue As Object In enumValues 
+Dim dayOfWeek As DayOfWeekEnum = DirectCast(enumValue, DayOfWeekEnum)
+' 稼働日の午前中に 8AM から 12PM の時間範囲を追加します
+Dim morning As New TimeRange(TimeSpan.FromHours(8), TimeSpan.FromHours(12))
+    Me.ultraCalendarInfo1.DaysOfWeek(dayOfWeek).WorkingHours.Add(morning) 
+' 稼働日の午後に 1PM から 5PM の時間範囲を追加します
+Dim afternoon As New TimeRange(TimeSpan.FromHours(13), TimeSpan.FromHours(17))
+    Me.ultraCalendarInfo1.DaysOfWeek(dayOfWeek).WorkingHours.Add(afternoon) 
+Next 
+' UltraCalendarInfo を GanttView calendarInfo プロパティに指定します
+Me.ultraGanttView1.CalendarInfo = Me.ultraCalendarInfo1 
+' 新しいプロジェクトを GanttView に指定します 
+Me.ultraGanttView1.Project = Me.ultraGanttView1.CalendarInfo.Projects(1)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+... 
+// プロジェクトを作成して、タスクをそれに追加します
+CreateTasks();
+// TaskWorkingHourMode を AutoAdjust に設定して、期間に非稼働時間を含めます
+this.ultraCalendarInfo1.TaskWorkingHourMode = Infragistics.Win.UltraWinSchedule.TaskWorkingHourMode.AutoAdjust;
+//  TaskDurationWorkingTimePerDay プロパティを設定して、稼働日の長さを 8 時間に定義します
+this.ultraCalendarInfo1.TaskDurationWorkingTimePerDay = TimeSpan.FromHours(8);
+Array enumValues = Enum.GetValues(typeof(System.DayOfWeek));
+foreach (object enumValue in enumValues)
+{
+DayOfWeekEnum dayOfWeek = (DayOfWeekEnum)enumValue;
+//  稼働日の午前中に 8AM から 12PM の時間範囲を追加します
+TimeRange morning = new TimeRange(TimeSpan.FromHours(8), TimeSpan.FromHours(12));
+this.ultraCalendarInfo1.DaysOfWeek[dayOfWeek].WorkingHours.Add(morning);
+//  稼働日の午後に 1PM から 5PM の時間範囲を追加します
+TimeRange afternoon = new TimeRange(TimeSpan.FromHours(13), TimeSpan.FromHours(17));
+this.ultraCalendarInfo1.DaysOfWeek[dayOfWeek].WorkingHours.Add(afternoon);
+}
+// UltraCalendarInfo を GanttView calendarInfo プロパティに指定します
+this.ultraGanttView1.CalendarInfo = this.ultraCalendarInfo1;
+// 新しいプロジェクトを GanttView に指定します
+this.ultraGanttView1.Project = this.ultraGanttView1.CalendarInfo.Projects[1];
+----
+
+以下のコードは、プロジェクトを作成して、タスクをそれに追加します。期間に指定された時間の単位はタスクごとに変わることに注意してください。
+
+*Visual Basic の場合：*
+
+----
+Private Sub CreateTasks()
+    ' 未指定のプロジェクト以外の新しいプロジェクトを作成します
+    Dim quarterlyProject As Project = Me.ultraCalendarInfo1.Projects.Add("QuartlerlyProject", DateTime.Today)
+    quarterlyProject.Key = "projkey1"
+    ' サマリーまたは親タスクを作成します
+    Dim requirementsTask As Task = Me.ultraCalendarInfo1.Tasks.Add(DateTime.Today, TimeSpan.FromDays(5), "Requirements", "projkey1")
+    ' 子タスクを作成します
+    Dim budgetTask As Task = requirementsTask.Tasks.Add(DateTime.Today, TimeSpan.FromDays(2), "Budget Analysis")
+    Dim teamTask As Task = requirementsTask.Tasks.Add(DateTime.Today.AddDays(3), TimeSpan.FromDays(3), Infragistics.Win.TimeSpanFormat.Days, "Team Allocation")
+    ' サマリーまたは親タスクを作成します
+    Dim implemetationTask As Task = Me.ultraCalendarInfo1.Tasks.Add(DateTime.Today.AddDays(5), TimeSpan.FromDays(1), "Implementation", "projkey1")
+    ' 子タスクを作成します 
+    Dim frontendTask As Task = implemetationTask.Tasks.Add(DateTime.Today.AddDays(5), TimeSpan.FromDays(2), Infragistics.Win.TimeSpanFormat.Hours, "GUI Design")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void CreateTasks()
+{
+// 未指定のプロジェクト以外の新しいプロジェクトを作成します
+Project quarterlyProject = this.ultraCalendarInfo1.Projects.Add("QuartlerlyProject", DateTime.Today);
+quarterlyProject.Key = "projkey1";
+// サマリーまたは親タスクを作成します
+Task requirementsTask = this.ultraCalendarInfo1.Tasks.Add(DateTime.Today, TimeSpan.FromDays(5), "Requirements", "projkey1");
+// 子タスクを作成します
+Task budgetTask = requirementsTask.Tasks.Add(DateTime.Today, TimeSpan.FromDays(2), "Budget Analysis");
+Task teamTask = requirementsTask.Tasks.Add(DateTime.Today.AddDays(3), TimeSpan.FromDays(3), Infragistics.Win.TimeSpanFormat.Days, "Team Allocation");
+// サマリーまたは親タスクを作成します
+Task implemetationTask = this.ultraCalendarInfo1.Tasks.Add(DateTime.Today.AddDays(5), TimeSpan.FromDays(1), "Implementation", "projkey1");
+// 子タスクを作成します
+Task frontendTask = implemetationTask.Tasks.Add(DateTime.Today.AddDays(5), TimeSpan.FromDays(2), Infragistics.Win.TimeSpanFormat.Hours, "GUI Design");
+}
+----

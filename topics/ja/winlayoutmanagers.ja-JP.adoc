@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlayoutmanagers",
+    "controlName": ["WinLayoutManagers"],
+    "tags": ["Layouts"],
+    "guid": "{2828174E-B375-4C48-8D39-F59344E9870B}",  
+    "buildFlags": [],
+    "createdOn": "2006-05-09T11:26:26Z"
+}
+|metadata|
+////
+
+= WinLayoutManagers
+
+以下のリンクをクリックすると、WinGridBagLayoutManager コンポーネントに関する説明を読むことができます。
+
+* link:winlayoutmanagers-about-winlayoutmanager-components.html[WinLayoutManager コンポーネントについて] -- このグループ化を構成するコンポーネントを説明します。
+* link:winlayoutmanager-using-the-winlayoutmanager-components.html[WinLayout マネージャ コンポーネントを使用] -- GridBagLayout クラスと FlowLayoutManager クラスを説明します。
+* link:winlayoutmanagers-api-overview.html[API 概要] -- このトピックでは、WinLayoutManagers コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。
+
+以下のリンクをクリックして、WinLayoutManager コンポーネントについての情報にアクセスします。
+
+* link:winflowlayoutmanager.html[WinFlowLayoutManager]
+* link:wingridbaglayoutmanager.html[WinGridLayoutManager]

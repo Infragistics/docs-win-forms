@@ -1,0 +1,103 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-selecting-multiple-values-within-wincombo",
+    "controlName": ["WinCombo"],
+    "tags": ["Selection"],
+    "guid": "{D74E4F70-840A-4CF2-930C-C18585A17FAA}",  
+    "buildFlags": [],
+    "createdOn": "2009-07-12T16:39:36Z"
+}
+|metadata|
+////
+
+= WinCombo 内で複数の値を選択
+
+WinCombo™ コントロールはドロップダウン リスト内の列に配置されているチェックボックスによって複数項目の選択をサポートします。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.propertyids.html[CheckStateMember] プロパティによって、チェックボックスが表示される列名を指定することが可能です。このプロパティによって、WinCombo が複数選択モードに実際的に移行することになります。 列オブジェクトのデータ タイプは Boolean でなければなりません。 あるいは、列のデータ タイプは Boolean データタイプ間で解析可能なものにすることもできます。 たとえば、列オブジェクトの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.propertyids.html[style] プロパティを CheckBox に設定してタイプ String の列を使用できます。この構成で、その列のセル値は "True" または " のいずれかでなければなりません。これにより Boolean に解析できます。 最後に、固有のバインドされていない列を WinCombo に単に追加し、選択に使用されるように列を構成することを推奨します（以下のコードに示すように）。固有のバインドされていない列の追加の代替え策として、選択のための基本データ モデルから既存の列を使用することもできます。
+
+[NOTE]
+====
+*注：* チェックボックスが表示されると、「Suggest モード」機能は無効になります。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorcheckedlistsettings~editorvaluesource.html[EditorValueSource] が 'CheckedItems' に設定されると、文字入力は無効になり、編集部分は読み取り専用になります。
+====
+
+このトピックは、Northwind データベースの Employees データ テーブルにバインドされている UltraCombo コントロールをフォームにドロップしてあることが前提となっています。 詳細は、「WinCombo をデータ テーブルにバインド」を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid 
+...
+'WinCombo に非バインド列を追加します。 
+'各 Item を選択するのに使用します。 
+Dim c As UltraGridColumn = Me.ultraCombo1.DisplayLayout.Bands(0).Columns.Add()
+c.Key = "Selected" 
+c.Header.Caption = String.Empty 
+'ユーザーはすべての項目を選択/選択解除ができるようにします。 
+c.Header.CheckBoxVisibility = HeaderCheckBoxVisibility.Always 
+c.DataType = GetType(Boolean) 
+'チェックボックス列を最初の位置に移動します。 
+c.Header.VisiblePosition = 0 
+Me.ultraCombo1.CheckedListSettings.CheckStateMember = "Selected" 
+Me.ultraCombo1.CheckedListSettings.EditorValueSource = Infragistics.Win.EditorWithComboValueSource.CheckedItems 
+' コントロールがカスタム リスト区切り記号を使用するのに設定します。 
+Me.ultraCombo1.CheckedListSettings.ListSeparator = " / "
+Me.ultraCombo1.CheckedListSettings.ItemCheckArea = Infragistics.Win.ItemCheckArea.Item
+Me.ultraCombo1.DisplayMember = "FirstName"
+Me.ultraCombo1.ValueMember = "EmployeeID"
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+...
+// WinCombo に非バインド列を追加します。
+// 各 Item を選択するのに使用します。
+UltraGridColumn c = this.ultraCombo1.DisplayLayout.Bands[0].Columns.Add();
+c.Key = "Selected";
+c.Header.Caption = string.Empty;
+// ユーザーはすべての項目を選択/選択解除ができるようにします。
+c.Header.CheckBoxVisibility = HeaderCheckBoxVisibility.Always;
+c.DataType = typeof(bool);
+// チェックボックス列を最初の位置に移動します。
+c.Header.VisiblePosition = 0;
+this.ultraCombo1.CheckedListSettings.CheckStateMember = "Selected";
+this.ultraCombo1.CheckedListSettings.EditorValueSource = Infragistics.Win.EditorWithComboValueSource.CheckedItems;
+// コントロールがカスタム リスト区切り記号を使用するのに設定します。
+this.ultraCombo1.CheckedListSettings.ListSeparator = " / ";
+this.ultraCombo1.CheckedListSettings.ItemCheckArea = Infragistics.Win.ItemCheckArea.Item;
+this.ultraCombo1.DisplayMember = "FirstName";
+this.ultraCombo1.ValueMember = "EmployeeID";
+----
+
+コントロールの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~checkedrows.html[CheckedRows] プロパティによってチェックされた行にアクセスできます。 以下のコードは、選択が確認された後でチェックされた行を繰り返す方法を示します。 UltraButton をフォームにドロップして、Button の Click Event 内に以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+'チェックされた項目へアクセス
+Dim s As String = String.Empty
+For Each r As UltraGridRow In Me.ultraCombo1.CheckedRows 
+    s += r.Cells("FirstName").Value.ToString() + Environment.NewLine 
+Next 
+MessageBox.Show(s)
+----
+
+*C# の場合：*
+
+----
+// チェックされた項目へアクセス
+string s = string.Empty;
+foreach (UltraGridRow r in this.ultraCombo1.CheckedRows)
+{
+  s += r.Cells["FirstName"].Value.ToString() + Environment.NewLine;
+}
+MessageBox.Show(s);
+----
+
+以下のスクリーンショットは、いくつかの項目がチェックされた WinCombo を示します。
+
+image::images/WinCombo_Selecting_Multiple_Values_within_WinCombo_01.png[]

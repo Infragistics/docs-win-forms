@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttviewprintdocument-about-winganttviewprintdocument",
+    "controlName": ["WinGanttView"],
+    "tags": ["Getting Started","Printing"],
+    "guid": "f5cf25e9-12b7-4e65-a3d4-816d936bc4c2",  
+    "buildFlags": [],
+    "createdOn": "2012-02-09T15:20:15.2683016Z"
+}
+|metadata|
+////
+
+= WinGanttViewPrintDocument について
+
+WinGanttViewPrintDocument™ は、WinGanttView™ を簡単に印刷またはプレビューするための Windows Forms コンポーネントです。以下に WinGanttViewPrintDocument で使用できる機能の一部について説明します。
+
+* プリントプレビュー － WinGanttViewPrintDocument コンポーネントは印刷前に WinGanttView ドキュメントをプレビューするために WinPrintPreviewDialog コンポーネントを使用することができます。詳細は、 link:winganttviewprintdocument-print-preview-with-winganttviewprintdocument.html[WinGanttViewPrintDocument と共に WinPrintPreviewDialog を使用する]を参照してください。
+* ヘッダー / フッター -- WinGanttView コントロールとともにカスタムのヘッダーとフッターを印刷するように指定できます。
+* InitializeGanttView Event - スクリーン上に現れる WinGanttView コントロールに影響を与えることなく、印刷のために使われる WinGanttView のプロパティの変更ができます。
+
+image::images/About_WinGanttViewPrintDocument_1.png[]

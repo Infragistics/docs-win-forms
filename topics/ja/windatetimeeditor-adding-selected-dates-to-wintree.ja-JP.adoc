@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatetimeeditor-adding-selected-dates-to-wintree",
+    "controlName": ["WinDateTimeEditor"],
+    "tags": ["How Do I"],
+    "guid": "{48B03CA1-28CF-44CE-9353-F699CB457348}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベルの日付を変更
+
+WinDateTimeEditor で、テキスト文字列として使用できる日付を選択できます。ボタンが選択されると、Outlook® で見られるのとよく似たドロップダウン カレンダーが表示されます。ユーザーはカレンダー上の任意の日付をクリックできます。日付をクリックすると、WinDateTimeEditor の *Value* プロパティが返されます。
+
+以下のサンプル コードは、WinDateTimeEditor の *ValueChanged* イベントを使用して、WinTree で *Node* として新たに選択された日時を追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraDateTimeEditor1_ValueChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraDateTimeEditor1.ValueChanged
+	Me.UltraTree1.Nodes.Add(Me.UltraDateTimeEditor1.Value.ToString())
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraDateTimeEditor1_ValueChanged(object sender, System.EventArgs e)
+{
+	this.ultraTree1.Nodes.Add(this.ultraDateTimeEditor1.Value.ToString());
+}
+----
+
+ドロップダウン カレンダーから新しい日付を選択すると、選択された日付が WinTree に追加されます。
+
+image::images\WinDateTimeEditor_Adding_Selected_Dates_to_WinTree_01.png[]

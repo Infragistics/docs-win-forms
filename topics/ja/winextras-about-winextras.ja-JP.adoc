@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "winextras-about-winextras",
+    "controlName": ["WinExtras"],
+    "tags": [],
+    "guid": "{53BC71AA-BA01-41EE-9082-80D26DC3D246}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-09T15:15:43Z"
+}
+|metadata|
+////
+
+= WinExtras について
+
+Infragisticsは常に欲しいと思った共通コントロールを提供します。ドロップダウンにいかなるものでも表示することが出来ます。シンプルなプロパティでプログレスバーのトップにプログレステキストを表示することが出来ます。マウスオーバーやクリックの効果を持つ洗練されたボタンを作成することが出来ます。これらのコントロールはInfragisticsのコントロールでプロフェッショナルで感動的なユーザーインターフェースをより容易に、よりフル機能に作成することが出来、Microsoftコントロールでは実現出来ないであろう機能がたくさん詰まっています。
+
+以下に WinExtras 製品グループに属するコントロールおよびコンポーネントのリストがあります。
+
+* link:winanimation.html[WinAnimation]™ -- WinAnimation コントロールは Microsoft® Common Controls アニメーション クラスのラッパーです。 このコントロールは、AVI ファイル、またはストック AVI ファイルの 1 つを再生する機能を提供します。
+* link:winbutton.html[WinButton]™ -- UltraButtonコントロールは、標準のボタンタイプのコントロールです。インボックスボタンと同様に、UltraButtonはフォームのAcceptButtonまたはCancelButtonとして使用できます。
+* link:wincalculator.html[WinCalculator]™ -- WinCalculator コントロールは外観サポートや組み込みテーマを持つカスタマイズ可能な計算機で、カスタマイズ可能なアクションを許可します。
+* link:windesktopalert.html[WinDesktopAlert]™ -- WinDesktopAlert™ コンポーネントは、エンド ユーザーに一刻を争う状況または重要な状況を通知するためにコンピュータ画面の右下隅にポップアップする小さいウィンドウです。この状況としては、メールの受信、データベースの更新、またはファイル システムの変更などが挙げられます。
+* link:windropdown.html[WinDropDown]™ -- WinDropDownコントロールは、Windowsフォームのコントロールの1つで、WinGridでグリッドセル内に複数列のドロップダウンリストを提供します。
+* link:windropdownbutton.html[WinDropDownButton]™ -- WinDropDownButtonコントロールは、ボタンタイプのコントロールで、ドロップダウンウィンドウを表示します。UltraDropDownButton は、フォームの AcceptButton または CancelButton として使用できます。
+* link:winformattedlinklabel.html[WinFormattedLinkLabel]™ -- WinFormattedLinkLabelコントロールは、フォーマットされたテキストといくつかのハイパーリンクを表示します。この作業を実行するには、HTML タグによく似た XML タグが使用されます。したがって、WinFormattedLinkLabel でテキストを描画するには、テキストを正しくフォーマットされた XML ドキュメントにする必要があります。
+* link:winlabel.html[WinLabel]™ -- WinLabel要素は、基本的なラベルタイプのコントロールです。組み込みラベルに含まれる多くの機能（自動サイズ調整、ニーモニック、画像、およびテキスト）の他に、追加機能が提供されます。
+* link:winpopupcontrolcontainer.html[WinPopupControlContainer]™ -- WinPopupContainerコンポーネントは、ドロップダウンウィンドウ内に任意のWindowsフォームのコントロールを表示できる、Windowsフォームのコンポーネントです。このエレメントは、ランタイムにユーザー インターフェイスを提供しませんが、DropDown メソッドが呼び出されたときに、指定されたコントロールを表示します。
+* link:winprogressbar.html[WinProgressBar]™ -- WinProgressBarコントロールには、進行状況の表示を制御するさまざまなプロパティがあります。プログレス バーの色は、現在のパーセント値によって変えることができます。あるいは、プログレス バーは塗りつぶした画像として表示できます。
+* link:winscrollbar.html[WinScrollBar]™ -- WinScrollBar はパネルまたはコンテナにスクロールを追加することができる Windows Forms コントロールです。 アルファ ブレンぢング、グラデーション、画像などを含め、完全な外観がサポートされます。
+* link:winstatusbar.html[WinStatusBar]™ -- WinStatusBar はタスクの状態を示すために使用され、13 の異なるパネルのひとつを使用してフォームを操作するために使用することもできます。
+* link:wintooltipmanager.html[WinTooltipManager]™ -- WinToolTipManagerコントロールを使用すると、Windowsフォームの任意のコントロールに"UltraToolTip"というエクステンダプロパティを追加できます。UltraToolTipプロパティは、WinToolTipManagerでコントロールを管理することを目的とします。これにより、マウスがコントロールの上に置かれたときにツールチップを自動的に表示できるようになります。

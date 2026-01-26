@@ -1,0 +1,126 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-creating-a-taskpane-toolbar-dynamically-part-1-of-2",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{D10BF470-6413-46F7-9330-79B345650BB4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane ツールバーの作成（パート 1）
+
+このトピックでは、UltraTaskPaneToolbar を動的に作成する方法について説明します。
+
+{ProductName} 2005 Volume 1 から、Microsoft Office のタスク ペイン スタイルに基づく新しいツールバー タイプ、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  が導入されました。タスク ペインは UltraToolbar の派生クラスとして実装されており、ドラッグしてフローティング ウィンドウに表示できる点で標準のツールバーに似ています。UltraTaskPaneToolbar の内容領域は、選択されている pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  に関連付けられたコントロールが占めます。
+
+[start=1]
+. 新しい Windows アプリケーションを作成します。
+[start=2]
+. この手順ではコントロールをフォームにドラッグしないため、参照が自動的に追加されません。したがって、使用する参照を手動でプロジェクトに追加する必要があります。次の参照をプロジェクトに追加します。
+
+** Infragistics.Shared.v{ProductVersion}
+** Infragistics.Win.UltraWinToolbars.v{ProductVersion}
+** Infragistics.Win.v{ProductVersion}
+
+[start=3]
+. 項目を動的に作成するイベントとして、Form Load イベントを使用します。そのため、Form Load イベントに接続する必要があります。
+
+C# では、フォームを選択して [イベント] ボタン（プロパティ グリッド上の稲妻アイコン）をクリックし、Load イベントをダブルクリックします。
+
+これで、ソースコードに追加する Form Load イベントが取得されます。
+
+Visual Basic では、ソースコードに移動して最初のドロップダウンから "Form Events" を選択し、2 番目のドロップダウンから "Load" を選択します。
+
+これで、Form Load イベントがソースコードに追加されます。
+[start=4]
+. コード ビハインドに UltraWinToolbars 名前空間を含める必要があります。コード ビハインド ページの最上部に次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinToolbars
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinToolbars;
+----
+
+[start=5]
+. 最初に UltraToolbarsManager を作成します。
+
+*Visual Basic の場合：*
+
+----
+' UltraToolbarsManager を作成します。
+Dim myToolbarManager As New UltraToolbarsManager
+' UltraToolbarsManager を内部にドッキングするコンテナを設定します。
+myToolbarManager.DockWithinContainer = Me
+----
+
+*C# の場合：*
+
+----
+// UltraToolbarsManager を作成します。
+UltraToolbarsManager myToolbarManager = new UltraToolbarsManager();
+// UltraToolbarsManager を内部にドッキングするコンテナを設定します。
+myToolbarManager.DockWithinContainer = this;
+----
+
+[start=6]
+. UltraToolbarsManager を作成したら、次に UltraTaskPaneToolbar を作成します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい UltraTaskPaneToolbar を作成します。
+Dim myTaskPaneToolbar As New UltraTaskPaneToolbar("myTaskPane")
+' UltraTaskPaneToolbar のドッキング位置を設定します。
+myTaskPaneToolbar.DockedPosition = DockedPosition.Right
+' コントロールのテキストを設定します。
+myTaskPaneToolbar.Text = "myTaskPane"
+' ツールバーを UltraToolbarsManager の Toolbars コレクションに追加します。
+myToolbarManager.Toolbars.AddRange(New UltraToolbar() {myTaskPaneToolbar})
+----
+
+*C# の場合：*
+
+----
+// 新しい UltraTaskPaneToolbar を作成します。
+UltraTaskPaneToolbar myTaskPaneToolbar = new UltraTaskPaneToolbar("myTaskPane");
+// UltraTaskPaneToolbar のドッキング位置を設定します。
+myTaskPaneToolbar.DockedPosition = DockedPosition.Right;
+// コントロールのテキストを設定します。
+myTaskPaneToolbar.Text = "myTaskPane";
+// ツールバーを UltraToolbarsManager の Toolbars コレクションに追加します。
+myToolbarManager.Toolbars.AddRange(new UltraToolbar[] {myTaskPaneToolbar});
+----
+
+[start=7]
+. 上記が UltraTaskPaneToolbar を作成するための基本です。TaskPaneToolbar のヘッダに表示される矢印、またはその同じヘッダに表示されるドロップダウン メニューを追加するには、次のコード行をプロジェクトに追加します。
+
+*Visual Basic の場合：*
+
+----
+' TaskPaneTool 間を移動することができる 2 つの矢印を表示します。
+myTaskPaneToolbar.NavigationButtonStyle = NavigationButtonStyle.History
+' TaskPaneToolbar のヘッダ領域にドロップダウン メニューを表示します。
+myTaskPaneToolbar.AllowNavigationViaMenu = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+// TaskPaneTool 間を移動することができる 2 つの矢印を表示します。
+myTaskPaneToolbar.NavigationButtonStyle = NavigationButtonStyle.History;
+// TaskPaneToolbar のヘッダ領域にドロップダウン メニューを表示します。
+myTaskPaneToolbar.AllowNavigationViaMenu = DefaultableBoolean.True;
+----

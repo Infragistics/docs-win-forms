@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmessageboxmanager",
+    "controlName": ["WinMessageBoxManager"],
+    "tags": ["Getting Started"],
+    "guid": "{B0AD766D-919A-4D89-90C7-90285A8074EE}",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T16:10:09Z"
+}
+|metadata|
+////
+
+= WinMessageBoxManager
+
+WinMessageBoxManager™ コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、WinMessageBoxManager コンポーネントに関する貴重な情報が含まれています。WinDataSource コンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコンポーネントを使って共通タスクを実行する際のステップごとの手順に至るまで豊富にあります。
+
+以下のリンクをクリックして、WinMessageBoxManager コンポーネントについての情報にアクセスします。
+
+== link:winmessageboxmanager-understanding-winmessageboxmanager.html[WinMessageBoxManager の理解]
+
+このセクションには WinMessageBoxManager コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:winmessageboxmanager-using-winmessageboxmanager.html[WinMessageBoxManager の使用]
+
+このセクションでは、WinMessageBoxManager コンポーネントを使用して特定のタスクを実現するための短い、有益なトピックがコード例とともに紹介されています。
+
+== link:winmessageboxmanager-api-overview.html[API の概要]
+
+このトピックは、WinMessageBoxManager コンポーネントでプログラミング中に作業する名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「Infragistics Windowsフォームヘルプ」の「API参照ガイド」セクションへリンクしていて便利です。

@@ -1,0 +1,196 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-syntax-parsing-engine-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "d25cae98-de3f-462b-a9a4-758b6a9d52d9",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0068456Z"
+}
+|metadata|
+////
+
+= Syntax Parsing Engine の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、Syntax Parsing Engine の概要を示します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349119720, はじめに >>
+* <<_Ref349119733, Syntax Parsing Engine の概要 >>
+* <<_Ref349119743, Syntax Parsing Engine のアセンブリ >>
+* <<_Ref349119748, Syntax Parsing Engine により実施される分析 >>
+* <<_Ref349119763, Syntax Parsing Engine により実施されない分析 >>
+* <<_Ref349119780, 関連コンテンツ >>
+
+[[_Ref349119720]]
+== はじめに
+
+[[_Ref349119733]]
+
+=== Syntax Parsing Engine のサマリー
+
+Infragistics Syntax Parsing Engine は、ドキュメントの型の文章校正構造用に定義を取得し、これらのドキュメントを読み込み処理するためのアナライザーを作成できるクラスのセットです。
+
+主要機能:
+
+* アナライザーの作成
+* 解析の実行
+
+その他の機能:
+
+* 文章校正の解析
+* エラーとアセンブリの識別
+* C# と Visual Basic 言語クラス ファイルの生成
+
+[[_Ref349119743]]
+
+=== Syntax Parsing Engine のアセンブリ
+
+Syntax Parsing Engine の主要部分は以下のアセンブリに含まれます。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}.html[{ApiPlatform}Documents.TextDocument.v{ProductVersion}.dll]
+
+さらに、外部アセンブリにはいくつかの定義済み言語があります。
+
+* C# - link:{ApiPlatform}documents.textdocument.csharp{ApiVersion}.html[{ApiPlatform}Documents.TextDocument.CSharp.v{ProductVersion}.dll]
+* Visual Basic - link:{ApiPlatform}documents.textdocument.visualbasic{ApiVersion}.html[{ApiPlatform}Documents.TextDocument.VisualBasic.v{ProductVersion}.dll]
+* Transact-SQL - link:{ApiPlatform}documents.textdocument.tsql{ApiVersion}.html[{ApiPlatform}Documents.TextDocument.TSql.v{ProductVersion}.dll]
+
+注:
+
+[NOTE]
+====
+この言語の内部文法構造および作成した構文ツリーの構造は、変更される場合があります。その点を念頭におくと、構文ツリーを検索またはトラバースするコードを記述する場合、各ノードの記号名 (文字列リテラルとしての記号名ではなく) を識別するために各言語定義においてネスト化された link:{ApiPlatform}documents.textdocument.csharp{ApiVersion}~infragistics.documents.parsing.csharplanguage+symbolnames.html[SymbolNames] クラス定数を使用します。これらの記号名が将来的に変更されるとコンパイル エラーとして強調表示されるようになります。さらに、将来的にノードの子構造への変更が滞りなく検出、処理されるよう、前提データをテストするためのロジックを記述し、特定のノードにおける子ノードのナンバーおよび型についてのアサートをデバッグします。
+====
+
+[[_Ref349119748]]
+== Syntax Parsing Engine により実施される分析
+
+[[_Ref349119755]]
+
+=== 字句解析
+
+字句解析では、テキストをトークンと呼ばれる意味をなすテキストの塊に分割します。トークンはテキスト要素の型、およびその要素を認識するためにレクサーによって読み取られたテキストを著します。
+
+C# コンテンツの例:
+
+*C# の場合:*
+
+[source,csharp]
+----
+int x = 12.3;
+----
+
+上記 C# コンテンツを解析後、レクサーは以下のトークンを生成します (非重要トークンのためのテキスト、または常に同じテキストを表すトークンは省略されます)。
+
+* IdentifierToken (int)
+* WhitespaceToken
+* IdentifierToken (x)
+* WhitespaceToken
+* EqualsToken
+* WhitespaceToken
+* RealLiteralToken (12.3)
+* SemicolonToken
+
+レクサーにより作成されるトークンは、重要 (キーワード、識別子、カッコ) または非重要 (コメントまたは空白) と識別されます。
+
+[[_Ref349119759]]
+
+=== 構文解析の概要
+
+構文解析では、重要トークンを左から右へ読みとり、文章校正定義によって指定された階層的な文章校正構造を作成します。上記の例では、これらは重要なトークンです。
+
+* IdentifierToken (int)
+* IdentifierToken (x)
+* EqualsToken
+* RealLiteralToken (12.3)
+* SemicolonToken
+
+トークンを保持する階層的文章校正構造は「構造ツリー」と呼ばれその見た目および上記のトークンが落ち着く場所について扱います (黄色の背景で強調表示)。
+
+* ClassKeyword
+* IdentifierToken
+* OpenBraceToken
+* MethodDeclaration
+** Modifiers
+** 
+
+*** …
+
+** タイプ
+** 
+
+*** IdentifierToken
+
+** IdentifierToken
+** ParametersList
+** 
+
+*** …
+
+** OpenBraceToken
+** 
+
+*** VariableDeclarationStatement
+*** 
+
+**** タイプ
+**** 
+
+***** 識別子トークン
+
+**** 識別子トークン
+**** 等号トークン
+**** 式
+**** 
+
+***** RealLiteralToken
+
+**** セミコロントークン
+
+** CloseBraceToken
+
+* CloseBraceToken
+
+[[_Ref349119763]]
+== Syntax Parsing Engine により実施されない分析
+
+[[_Ref349119767]]
+
+=== セマンティック解析
+
+Syntax Parsing Engine は、コードの意味を決めるセマンティック解析は実施しません。したがって、多くのエラーはセマンティック エラーであるため構文アナライザーによって検出されません。セマンティック エラーの例は、文章校正的に正しい上記の C# コード スニペット (int x = 12.3) です。ただし「int」型は、整数値のみを保存するため値 12.3 を受け付けることができません。
+
+[[_Ref349119780]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-error-handling.html[エラー処理]
+|このグループのトピックでは、Syntax Parsing Engine が実施するエラー処理について説明します。
+
+|====

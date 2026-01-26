@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-about-wingriddocumentexporter",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": [],
+    "guid": "{D77C97D8-00A1-4C88-B6A7-FB23DAFDE019}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridDocumentExporter について
+
+WinGridExcelExporter™ などの WinGridDocumentExporter™ はエクスポート機能があるコンポーネントで、WinGrid™ 全体を PDF または XML Paper Specification（XPS）文書にエクスポートすることができます。
+
+シンプルなメソッドである link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~export.html[Export] メソッドだけが基本的なエクスポート機能で必要となります。お気に入りへのエクスポートを調整するために役立つイベントがいくつかあります。これらのイベントの多くは、行、ヘッダ、セルなどの特定のオブジェクトがエクスポートされる直前やオブジェクトがエクスポートされた後に起動します。エクスポート全体の開始と終了時に起動するイベントもあります。 link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~initializerow_ev.html[InitializeRow] という重要なイベントによって、エクスポートの前にグリッドのレイアウトを変更することができるので、エクスポートされる前にグリッドの個々の行の外観をカスタマイズできます。

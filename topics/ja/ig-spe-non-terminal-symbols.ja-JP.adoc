@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-non-terminal-symbols",
+    "controlName": [],
+    "tags": [],
+    "guid": "df2e9728-dcaf-47c2-b38d-037d97e45fbc",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0548504Z"
+}
+|metadata|
+////
+
+= 非終端記号
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、文章校正の非終端記号について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis-overview.html[字句解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349220593, 非終端記号の概要 >>
+* <<_Ref349220598, 関連コンテンツ >>
+
+[[_Ref349220593]]
+== 非終端記号の概要
+
+=== 非終端記号のサマリー
+
+非終端記号は、テキスト要素のグループ化を表します。終端記号のように、非終端記号には一意な名前があり、パーサーは他の記号と区別できます。この名前は、同じ文章校正内のすべての終端および非終端記号の中で一意でなければなりません。
+
+この名前に加えて、非終端記号はドキュメント内で表現できる記号シーケンスも定義します。各非終端記号は、1 つ以上の記号シーケンスを表すことができます。たとえば、C# における変数宣言は各種方法で作成できます。
+
+* 型の後ろには識別子が、その後ろにはセミコロンが続きます。
+* 型の後ろには識別子が、その後ろには等号記号が、その後ろには式が、その後ろにはセミコロンが続きます。
+* 「var」キーワードの後ろには識別子が、その後ろには等号記号が、その後ろには式が、その後ろにはセミコロンが続きます。
+* 以下同様です。
+
+など。これらの記号シーケンスの 1 つが、変数宣言が予想される場所のドキュメントに見つかると、変数宣言の非終端記号はこれらの記号を表すために使用できます。
+
+非終端記号が表すことができる記号の各シーケンスは、生産と呼ばれます。生産では一般に、生産のヘッドとして知られる非終端記号を矢印の左側に、生産の本文として知られる記号のシーケンスを右側に記述します。たとえば、これらは変数宣言記号の 3 つの生産でなければなりません。
+
+VariableDeclarationStatement → Type IdentifierToken SemicolonToken
+
+VariableDeclarationStatement → Type IdentifierToken EqualsToken Expression SemicolonToken
+
+VariableDeclarationStatement → VarKeyword IdentifierToken EqualsToken Expression SemicolonToken
+
+他も同様です。生産は、構文アナライザーに非終端記号が記号のグループを表すことができる方法を伝えます。ドキュメントを表す階層構文ツリーを構築できるようにするためです。
+
+非終端記号の生産、したがって表すことができる記号のシーケンスは、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol.html[NonTerminalSymbol] クラスの link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~rule.html[Rule] プロパティによって公開されるルールツリーで定義されます。
+
+[[_Ref349220598]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-terminal-symbols.html[終端記号]
+|このトピックは、文章校正の終端記号を説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+|====

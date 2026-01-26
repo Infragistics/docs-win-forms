@@ -1,0 +1,28 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-scrolling-a-row-into-view",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{FAA13791-6E9F-4E77-B679-032C668AB189}",
+    "buildFlags": [],
+    "createdOn": "2008-12-06T17:03:47Z"
+}
+|metadata|
+////
+
+= 行を表示可能領域にスクロールする
+
+WinGrid™ のトップに特定の行をスクロールする必要がある場合、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscrollregion~firstrow.html[FirstRow]"]  プロパティを希望の行に設定できます。
+
+WinGrid のトップに 22 番目の行をスクロールするには、ボタンの Click イベントなどのイベント ハンドラに以下のコード例を配置します。
+
+*Visual Basic の場合：*
+
+[source,vb]
+Me.UltraGrid1.DisplayLayout.RowScrollRegions(0).FirstRow = Me.UltraGrid1.DisplayLayout.Rows(21)
+
+*C# の場合：*
+
+[source,csharp]
+this.ultraGrid1.DisplayLayout.RowScrollRegions[0].FirstRow = this.ultraGrid1.DisplayLayout.Rows[21];

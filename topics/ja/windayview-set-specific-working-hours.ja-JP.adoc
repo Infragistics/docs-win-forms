@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "windayview-set-specific-working-hours",
+    "controlName": ["WinDayView"],
+    "tags": ["FAQ","How Do I"],
+    "guid": "{1AFB0102-0F8E-4423-944A-D627851FA0B6}",  
+    "buildFlags": [],
+    "createdOn": "2005-02-09T00:00:00Z"
+}
+|metadata|
+////
+
+= オーナー固有の就業時間の設定方法
+
+WinSchedule CalendarInfo オブジェクトは、ある曜日の就業時間、および特定の曜日を就業日と見なすかどうかを設定する機能を拡張します。この機能は pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweek.html[DayOfWeek]"]  オブジェクトによって公開されています。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~daysofweek.html[DaysOfWeek]"]  コレクションには 7 つの DayOfWeek オブジェクトが格納されており、それぞれが 1 つの曜日を表します。各 DayOfWeek オブジェクトにアクセスするには、目的の曜日に対応する System.DayOfWeek 列挙体の定数を使用して、DaysOfWeek コレクションのインデックスを指定します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+----
+
+[start=2]
+. DayOfWeek オブジェクトは、その曜日が就業日と考えられるかどうかだけでなく、特定の日に異なる就業時間を定義できるようにするプロパティを公開します。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweek~workdaystarttime.html[WorkDayStartTime]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweek~workdaystarttime.html[WorkDayEndTime]"]  プロパティはそれぞれ、就業日の開始時刻と終了時刻を決定します。これらのプロパティは DateTime 型ですが、意味があるのは時間要素と分要素だけです。たとえば、10AM に開始して、就業時間が 6 時間の就業日を定義する場合、文法は次のようになります。
+
+*Visual Basic の場合：*
+
+----
+Dim monday As Infragistics.Win.UltraWinSchedule.DayOfWeek = Nothing
+monday = Me.ultraCalendarInfo1.DaysOfWeek(System.DayOfWeek.Monday)
+monday.WorkDayStartTime = DateTime.Today.AddHours(10.0F)
+monday.WorkDayEndTime = monday.WorkDayStartTime.AddHours(6.0)
+Me.UltraDayView1.TimeSlotInterval = TimeSlotInterval.ThirtyMinutes
+Me.UltraDayView1.CalendarInfo = this.ultraCalendarInfo1
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.UltraWinSchedule.DayOfWeek monday = null;
+monday = this.ultraCalendarInfo1.DaysOfWeek[System.DayOfWeek.Monday];
+monday.WorkDayStartTime = DateTime.Today.AddHours(10f);
+monday.WorkDayEndTime = monday.WorkDayStartTime.AddHours(6f);
+this.ultraDayView1.TimeSlotInterval = TimeSlotInterval.ThirtyMinutes;
+this.ultraDayView1.CalendarInfo = this.ultraCalendarInfo1;
+----
+
+[start=3]
+. プロジェクトを実行し、WinDayView で表示される日が月曜日であることを確認する場合、以下のようになります。
+
+image::Images/WinCalendarInfo_Set_Owner_Specific_Working_Hours_01.png[]

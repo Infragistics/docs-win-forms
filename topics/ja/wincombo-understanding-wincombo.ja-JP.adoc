@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-understanding-wincombo",
+    "controlName": ["WinCombo"],
+    "tags": [],
+    "guid": "{4EDD6ADD-D42E-4BD6-8A4B-4AAED7490CB0}",  
+    "buildFlags": [],
+    "createdOn": "2009-07-12T15:17:46Z"
+}
+|metadata|
+////
+
+= WinCombo の理解
+
+WinCombo™ コントロール、およびその主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinCombo を使用することの利点を理解できます。
+
+WinCombo コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wincombo-about-wincombo.html[WinCombo について] -- WinCombo コントロールの概要を説明しています。
+* link:wincombo-smart-tag.html[WinCombo スマートタグ] -- WinCombo コントロールのスマートタグで表示されるプロパティと設定値について説明しています。

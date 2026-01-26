@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-pin-a-desktop-alert-window-to-the-screen",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{B9D0365F-B92F-4CAE-8339-EA688768FACC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デスクトップ アラート ウィンドウを画面に固定
+
+エンド ユーザーがデスクトップ アラート ウィンドウを自動的に閉じたくない場合にはどうしますか?シンプルなソリューションは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~pinned.html[Pinned] プロパティで、このプロパティを True に設定するとエンド ユーザーが手動で閉じるまでアラート ウィンドウは開いたままになります。このメソッドを使用して、アラート ウィンドウを手動で閉じることをエンド ユーザーに求めることができます。またはピン ボタンを表示することによって手動で閉じるオプションを提供することができます。ピン ボタンはデフォルトで非表示ですが、表示するためには link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~pinbuttonvisible.html[PinButtonVisible] プロパティを True に設定する必要があります。ピン ボタンが表示されたら、エンド ユーザーはアラート ウィンドウが固定されるかどうかを制御できます。アラート ウィンドウに非常に重要な情報がある場合、またはエンド ユーザーがアラート ウィンドウでリンクをクリックしなければならないがまだクリックしていない場合には、これらの 2 つのプロパティは非常に役に立ちます。
+
+以下のコードを使用して、画面にデスクトップ アラート ウィンドウを固定します。エンド ユーザーがアラート ウィンドウを固定または固定を解除するようにすることも可能です。
+
+*Visual Basic の場合：*
+
+----
+' サンプル テキストを使用して新しいデスクトップ アラート ウィンドウを作成します。
+Dim windowInfo As UltraDesktopAlertShowWindowInfo = _
+  New UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.")
+' ウィンドウを画面に固定します。これによってウィンドウは自動的に閉じません。
+windowInfo.Pinned = True
+' ピン ボタンを表示します。これでエンド ユーザーはデスクトップ アラート
+' ウィンドウ自体の固定を解除できます。
+windowInfo.PinButtonVisible = True
+' 上記の情報を使用してデスクトップ アラート ウィンドウを表示します。
+Me.UltraDesktopAlert1.Show(windowInfo)
+----
+
+*C# の場合：*
+
+----
+// サンプル テキストを使用して新しいデスクトップ アラート ウィンドウを作成します。
+UltraDesktopAlertShowWindowInfo windowInfo =
+  new UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.");
+// ウィンドウを画面に固定します。これによってウィンドウは自動的に閉じません。
+windowInfo.Pinned = true;
+// ピン ボタンを表示します。これでエンド ユーザーはデスクトップ アラート
+// ウィンドウ自体の固定を解除できます。
+windowInfo.PinButtonVisible = true;
+// 上記の情報を使用してデスクトップ アラート ウィンドウを表示します。
+this.ultraDesktopAlert1.Show(windowInfo);
+----

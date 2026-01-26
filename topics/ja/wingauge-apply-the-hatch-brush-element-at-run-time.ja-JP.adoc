@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-hatch-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{6E33EEF2-7BDF-4949-A61F-CB30F7A0C4E1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにハッチ ブラシ エレメントを適用
+
+ゲージの外観にハッチ ブラシ エレメントを適用すると、そのエレメントは 2 色のパターン化された外観が提供されます。
+
+*コードを使用してハッチ ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myHatchBrushElement As New HatchBrushElement()
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+----
+
+*C# の場合：*
+
+----
+HatchBrushElement myHatchBrushElement = new HatchBrushElement();
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+----
+
+[start=4]
+. 以下のプロパティを設定します。
+
+** 背景色 -- DimGray
+** 前景色 -- シルバー
+** ハッチ スタイル -- BackwardDiagonal
+
+*Visual Basic の場合：*
+
+----
+myHatchBrushElement.BackColor = System.Drawing.Color.DimGray
+myHatchBrushElement.ForeColor = System.Drawing.Color.Silver
+myHatchBrushElement.HatchStyle = System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal
+myHatchBrushElement.RelativeBounds = New System.Drawing.Rectangle(3, 3, 94, 94)
+myHatchBrushElement.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent
+myRadialGauge.Dial.BrushElement = myHatchBrushElement
+----
+
+*C# の場合：*
+
+----
+myHatchBrushElement.BackColor = System.Drawing.Color.DimGray;
+myHatchBrushElement.ForeColor = System.Drawing.Color.Silver;
+myHatchBrushElement.HatchStyle = System.Drawing.Drawing2D.HatchStyle.BackwardDiagonal;
+myHatchBrushElement.RelativeBounds = new System.Drawing.Rectangle(3, 3, 94, 94);
+myHatchBrushElement.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent;
+myRadialGauge.Dial.BrushElement = myHatchBrushElement;
+----
+
+== 関連トピック
+
+link:wingauge-hatch-brush-element.html[ハッチ ブラシ エレメント]
+
+link:wingauge-apply-the-hatch-brush-element-at-design-time.html[デザインタイムにハッチ ブラシ エレメントを適用]
+
+link:wingauge-apply-the-hatch-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してハッチ ブラシ エレメントを適用]

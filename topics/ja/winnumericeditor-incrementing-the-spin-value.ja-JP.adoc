@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnumericeditor-incrementing-the-spin-value",
+    "controlName": ["WinNumericEditor"],
+    "tags": ["How Do I"],
+    "guid": "{1518E55B-6F4A-4BE0-AB6A-D4E89221391E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スピン値の増加 (WinNumericEditor)
+
+このトピックは以下の WinEditor™ コントロールに適用されます。
+
+* WinCurrencyEditor™
+* WinDateTimeEditor™
+* WinMaskedEdit™
+* WinNumericEditor™
+
+WinEditor™ コントロールによって、ユーザーは矢印キーおよびスピン ボタンで値を増やして変更できます。1 以外の値で増分するには、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor~spinincrement.html[SpinIncrement]"] プロパティを負ではない有理数に設定する必要があります。
+
+[NOTE]
+====
+*注：* WinMaskedEdit に SpinIncrement を設定するために必要となる補足的な作業についての詳細は、 link:winmaskededit-incrementing-the-spin-value.html[「定数値で WinMaskedEdit を増分」]を参照してください。
+====
+
+以下のコード例は、WinNumericEditor の pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor~value.html[Value]"]  を 11 ずつ増分する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraNumericEditor1.SpinIncrement = 11
+----
+
+*C# の場合：*
+
+----
+this.UltraNumericEditor1.SpinIncrement = 11;
+----

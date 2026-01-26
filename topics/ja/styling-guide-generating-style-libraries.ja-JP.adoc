@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-generating-style-libraries",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{3C1033AC-EAA0-451C-A64D-2B723422B992}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スタイル ライブラリを生成
+
+以下のリンクをクリックして、スタイル ライブラリ テンプレートを作成することにより、固有のスタイル ライブラリを生成する方法を確認してください。
+
+* link:styling-guide-creating-a-style-library-from-a-template.html[テンプレートからスタイル ライブラリを作成]
+* link:styling-guide-the-style-library-generator-colorcategory-manager-dialog-box.html[スタイル ライブラリ ジェネレータ カラー カテゴリー マネージャ ダイアログ ボックス]

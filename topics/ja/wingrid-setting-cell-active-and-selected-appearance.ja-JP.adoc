@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-cell-active-and-selected-appearance",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Styling"],
+    "guid": "{7991F542-870E-49D6-AF7E-572D7BFBB811}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-08T10:16:48Z"
+}
+|metadata|
+////
+
+= セルのアクティブおよび選択された外観を設定
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~activeappearance.html[ActiveAppearance]"]  プロパティを使用して、アクティブ セルまたは行に固有の外観を適用できます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクトで公開される pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activeappearancesenabled.html[ActiveAppearancesEnabled]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~selectedappearancesenabled.html[SelectedAppearancesEnabled]"]  プロパティを False に設定することで、セルでアクティブ（ActiveAppearance、ActiveCellAppearance、ActiveRowAppearance）および選択（SelectedAppearance、SelectedCellAppearance および SelectedRowAppearance）状態の固有の外観の表示を無効にすることもできます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~defaultselectedbackcolor.html[DefaultSelectedBackColor]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~defaultselectedforecolor.html[DefaultSelectedForeColor]"]  プロパティは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~selectedrowappearance.html[SelectedRowAppearance]"]  および SelectedAppearance プロパティが設定されていない時に、選択セルの BackColor および ForeColor のデフォルトの色を提供するために設定できます。選択セルのデフォルトの BackColor および ForeColor が WinGrid で表示されないようにするために、DefaultSelectedBackColor および DefaultSelectedForeColor プロパティを Color.Empty に設定できます。
+
+以下のコードは、UltraGrid がフォームにドロップされていることを前提とします。また、このコントロールは Northwind データベースの Customers テーブルにバインドされます。
+
+*Visual Basic の場合：*
+
+----
+' アクティブ セルの外観を設定します 
+Me.ultraGrid1.Rows(5).Cells(3).ActiveAppearance.BackColor = Color.LightSeaGreen
+----
+
+*C# の場合：*
+
+----
+// アクティブ セルの外観を設定します
+this.ultraGrid1.Rows[5].Cells[3].ActiveAppearance.BackColor = Color.LightSeaGreen;
+----
+
+image::Images/WinGrid_Set_Cell's_Active_and_Selected_Appearances_01.png[]
+
+*Visual Basic の場合：*
+
+----
+' WinGrid 全体に対するアクティブ外観設定を無効にします 
+' this.ultraGrid1.DisplayLayout.Override.ActiveAppearancesEnabled = Infragistics.Win.DefaultableBoolean.False
+----
+
+*C# の場合：*
+
+----
+// WinGrid 全体に対するアクティブ外観設定を無効にします
+// this.ultraGrid1.DisplayLayout.Override.ActiveAppearancesEnabled = Infragistics.Win.DefaultableBoolean.False;
+----
+
+*Visual Basic の場合：*
+
+----
+' 選択セルの外観を設定します 
+Me.ultraGrid1.Rows(3).Cells(3).SelectedAppearance.BackColor = Color.Red
+----
+
+*C# の場合：*
+
+----
+// 選択セルの外観を設定します
+this.ultraGrid1.Rows[03].Cells[3].SelectedAppearance.BackColor = Color.Red;
+----
+
+image::Images/WinGrid_Set_Cell's_Active_and_Selected_Appearances_02.png[]
+
+*Visual Basic の場合：*
+
+----
+' WinGrid 全体に対して選択された外観設定を無効にします 
+'Me.ultraGrid1.DisplayLayout.Override.SelectedAppearancesEnabled = Infragistics.Win.DefaultableBoolean.[False]
+----
+
+*C# の場合：*
+
+----
+// WinGrid 全体に対して選択された外観設定を無効にします
+// this.ultraGrid1.DisplayLayout.Override.SelectedAppearancesEnabled = Infragistics.Win.DefaultableBoolean.False;
+----
+
+*Visual Basic の場合：*
+
+----
+' 選択セルのデフォルト背景色および前景色を表示します 
+Me.ultraGrid1.DisplayLayout.DefaultSelectedBackColor = Color.LightSlateGray 
+Me.ultraGrid1.DisplayLayout.DefaultSelectedForeColor = Color.Blue
+----
+
+*C# の場合：*
+
+----
+// 選択セルのデフォルト背景色および前景色を表示します
+this.ultraGrid1.DisplayLayout.DefaultSelectedBackColor = Color.LightSlateGray;
+this.ultraGrid1.DisplayLayout.DefaultSelectedForeColor = Color.Blue;
+----
+
+image::Images/WinGrid_Set_Cell's_Active_and_Selected_Appearances_03.png[]

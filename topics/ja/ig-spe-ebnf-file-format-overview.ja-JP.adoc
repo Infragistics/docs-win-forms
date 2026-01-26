@@ -1,0 +1,258 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-ebnf-file-format-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "e0f9dc32-473b-4e4d-aaf4-db610ae8f976",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0828532Z"
+}
+|metadata|
+////
+
+= EBNF ファイル形式の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、文章校正を定義するために使用する EBNF ファイル形式の概要を説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349900508, EBNF の紹介 >>
+* <<_Ref349900513, Infragistics Syntax Parsing Engine によりサポートされる EBNF 構文 >>
+* <<_Ref349900514, 定義前の記号の利用 >>
+* <<_Ref349900526, 関連コンテンツ >>
+
+[[_Ref349900508]]
+== EBNF の紹介
+
+=== EBNF 形式の要点
+
+EBNF ファイルを使用可能な Syntax Parsing Engine 用に文章校正を定義するにはEBNF は「 link:http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form[Extended Backus-Naur Form] (拡張バッカス・ナウア記法)」の略で、コンテキストに依存しない文章校正を定義するために使用される形式です。この形式の仕様は link:http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=26153[ISO 14977] です。
+
+注:
+
+[NOTE]
+====
+Syntax Parsing Engine の EBNF 形式は、元の仕様とは若干異なり、「 link:ig-spe-ebnf-specification-deviations.html[EBNF 仕様の逸脱]」トピック内のすべての違いを表示できます。
+====
+
+EBNF ファイルには、文章校正の記号および生産の簡潔な説明が示される 1 つ以上のルールが含まれます。
+
+=== 例
+
+以下は、Syntax Parsing Engine で使用される EBNF 形式の非終端記号ルール例です。
+
+VariableDeclarationStatement =
+
+Type, IdentifierToken, [EqualsToken, Expression], SemicolonToken
+
+| VarKeyword, IdentifierToken, EqualsToken, Expression, SemicolonToken;
+
+定義のヘッドと本文が等号で区切られていることが分かるように、簡潔な記号はコンマで区別され全体のルールはセミコロンで終わります。ヘッド記号にファイル内に定義するルールがなかった場合、新しい非終端記号はその旨を表すために作成されます。すでに定義済みであった場合は、このルールの生産は以前に定義されたその他の生産に対するオルタナティブとなります。このため、この例における VariableDeclarationStatement も複数行で定義されます。
+
+VariableDeclarationStatement =
+
+Type, IdentifierToken, [EqualsToken, Expression], SemicolonToken;
+
+VariableDeclarationStatement =
+
+VarKeyword, IdentifierToken, EqualsToken, Expression, SemicolonToken;
+
+[[_Ref349900513]]
+== Infragistics Syntax Parsing Engine によりサポートされる EBNF 構文
+
+=== サポートされる EBNF 形式の要点
+
+[options="header", cols="a,a,a"]
+|====
+|*構文*|*説明*|*例*
+
+|?...?
+|特殊シーケンスこれにはどのようなテキストも含めることができ、EBNF 形式を実行できます。 
+
+注: 
+
+[NOTE] 
+
+==== 
+
+EBNF 形式内の特殊なシーケンスは XML ドキュメントで、文章校正ライターで終端記号、レクサー状態および非終端記号のプロパティすべてを同じファイル内で指定できます。形式の情報については、「 link:ig-spe-special-sequence-format.html[特殊シーケンス形式]」トピックを参照してください。 
+
+====
+|Digit = 
+
+? any Unicode digit character ?;
+
+|($$*$$ … $$* $$)
+|複数行のコメントコメントは無視され、どのテキストも含めることができます。
+|($$*$$ 
+
+TODO: Add other expressions here 
+
+$$*$$) 
+
+Expression = 
+
+DecimalNumber 
+
+| StringLiteral;
+
+|*
+|Syntax Rule.右側のルール ツリーの生産を左側の非終端記号に割り当てます。
+|A = (X | Y), {Z};
+
+|; 
+
+. _(alternate)_
+|ステートメントのターミネータ現在の代入ステートメントを終わります。
+|A = (X | Y), {Z};
+
+|| 
+
+! _(alternate)_ 
+
+/ _(alternate)_
+|オルタナティヴ一連のルールを区切ります。そのうちの 1 つを使用します。
+|A = X | Y | Z | (A, B, C);
+
+|,
+|連結一連のルールを区切ります。それぞれが左から右への順番で使用されます。
+|A = X, Y, Z, (A | B | C);
+
+|-
+|統語論的な例外仕様を許可されないものを示すルール (左側) と使用すべきルール (右側) を区切ります。
+|Consonant = Letter - Vowel; 
+
+OneOrMore = {Something}-;
+
+|$$*$$
+|統語論的ファクター複数回繰り返されるルール (右側) と整数 (左側) を区切ります。「N $$*$$ [Rule]」の形式で使用する場合、「0 to N Rule instances」が必要であると翻訳します。
+|ZipCode = 5 $$*$$ Digit; 
+
+ZeroToFiveDigits = 5 $$*$$ [Digit];
+
+|[ … ] 
+
+(/ … /) _(alternate)_
+|オプション。四角ブラケット間のルールは使用する場合としない場合があります。
+|TwoOrFourDigitYear = 
+
+[Digit, Digit], Digit, Digit;
+
+|{ … } 
+
+(: … :) _(alternate)_
+|繰り返し。波かっこ間のルールは、ゼロ回以上使用できます。
+|Sentence = {Word}, Period;
+
+|(…)
+|Group.単一のルール ツリーとして使用されるようにカッコ内のルールをグループ化します。
+|A = (X | Y), (X | Z);
+
+|
+|空何もないことを表します。代替として使用します。あるオルタナティブは何も使用しないことを表します。または統合的な例外を使用して空は使用しないことを示します。
+|OptionalA = (A|); 
+
+OneOrMore = {Something}-;
+
+|{ … } 
+
+(: … :) _(alternate)_
+|文字列リテラル。リテラル文字列はルールの中で埋め込み、遭遇する新しいリテラル文字それぞれについて終端記号が文章校正の中で自動生成されその文字列を表します。ただし、これは終端記号の定義を作成するために好ましいやり方ではありません。終端記号を作成するための好ましいやり方については、「 link:ig-spe-special-sequence-format.html[特殊なシーケンス形式]」トピックを参照してください。
+|GetAccessor ='get', "{", Statements, '}';
+
+|====
+
+注:
+
+[NOTE]
+====
+EBNF 仕様に準拠するには、代替構文を持つコンストラクトがいくつかあります。以前のコード スニペットで示される VariableDeclarationStatement 定義の代替例:
+
+VariableDeclarationStatement =
+
+Type, IdentifierToken, (/ EqualsToken, Expression /), SemicolonToken
+
+/ VarKeyword, IdentifierToken, EqualsToken, Expression, SemicolonToken.
+====
+
+[[_Ref349900514]]
+== 定義前の記号の利用
+
+=== 概要
+
+非終端記号は、定義される前に使用できます。これは、コンテキストに依存しない文章校正が再帰できるように必要です。これがなければ、ネスト化されたクラスは C# のような言語で定義できません。
+
+=== 例
+
+これは、C# 言語での簡単な定義です。
+
+Root = {ClassDeclaration};
+
+ClassDeclaration = ['public'], 'class', Identifier, '{', Members, '}';
+
+Members = {Member};
+
+Member = ClassDeclaration | FieldDeclaration;
+
+FieldDeclaration = ['public'], Type, Identifier, ';';
+
+Type = Identifier;
+
+注:
+
+[NOTE]
+====
+いくつかの宣言 (「ClassDeclaration」または「Members」など) は定義される前に使用されます。
+====
+
+[[_Ref349900526]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-special-sequence-format.html[特殊なシーケンス形式]
+|このトピックは、文章校正を構成するために必要な EBNF ファイル内の特殊なシーケンス セクションの形式について説明します。
+
+| link:ig-spe-ebnf-specification-deviations.html[EBNF 仕様の逸脱]
+|このトピックは、Syntax Parsing Engine が使用する EBNF 形式での ISO 14977 仕様からの逸脱について説明します。
+
+| link:ig-spe-generate-grammar-from-an-ebnf-file.html[EBNF ファイルからの文章校正の生成]
+|このトピックでは、EBNF コンテンツから文章校正を作成するプロセスを説明します。
+
+| link:ig-spe-generate-ebnf-file-from-a-grammar.html[文章校正からの EBNF ファイルの生成]
+|このトピックでは、文章校正から EBNF コンテンツを作成するプロセスを説明します。
+
+|====

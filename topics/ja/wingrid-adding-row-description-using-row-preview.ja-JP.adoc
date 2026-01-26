@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-adding-row-description-using-row-preview",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{D85B5CF6-0634-4091-A31F-EFA91FA33B6B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 行プレビューの使用による行説明の追加
+
+行プレビューを使用すれば、行に説明を追加できます。
+
+== 行に説明を追加するには、次の手順に従ってください。
+
+[start=1]
+. 行プレビューを使用するには、最初に有効にする必要があります。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~autopreviewenabled.html[AutoPreviewEnabled]"]  プロパティは、グリッドの各 Band オブジェクトです。これは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベント内で実行できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	Me.UltraGrid1.DisplayLayout.Bands(0).AutoPreviewEnabled = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].AutoPreviewEnabled = true;
+}
+----
+
+[start=2]
+. この後、グリッド内の任意の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[Row]"]  に pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~description.html[Description]"]  を設定できます。
+
+通常、これは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializerow_ev.html[InitializeRow]"]  イベント ハンドラ内で実行します。これにより、行が最初に表示された際に説明も表示されます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	e.Row.Description = "Row Description"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	e.Row.Description = "Row Description";
+}
+----
+
+[start=3]
+. ただし、ユーザーにフィードバックを返すため、後の時点で説明を変更することもできます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_AfterRowInsert(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.RowEventArgs) _
+  Handles UltraGrid1.AfterRowInsert
+	Me.UltraGrid1.DisplayLayout.ActiveRow.Description = _
+	  "Data changed in this row will not be added to the " & _
+	  "database until you press the Update button."
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_AfterRowInsert(object sender, Infragistics.Win.UltraWinGrid.RowEventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.ActiveRow.Description = 
+	  "Data changed in this row will not be added to the database" + 
+	  " until you press the Update button.";
+}
+----

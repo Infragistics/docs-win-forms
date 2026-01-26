@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-control-the-timing-of-a-tooltips-appearance",
+    "controlName": ["WinToolTipManager"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{B5DBB1F7-4DC5-47C0-9C97-2ECAF91C250C}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールチップの外観のタイミングを制御
+
+コントロールのツールヒントを自動的に表示する WinToolTipManager を設定するとき、ツールヒントが表示されるまでの遅延時間と、自動的に非表示になるまでの時間を制御できます。
+
+== InitialDelay
+
+マウスをコントロールの上に置いてからツールヒントが表示されるまでの時間を指定するには、WinToolTipManager コントロールの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~initialdelay.html[InitialDelay]"]  プロパティを設定します。このプロパティは、ツールヒントが表示されるまでの遅延時間をミリ秒で指定します。
+
+== AutoPopDelay
+
+表示されたツールヒントは、マウスがコントロールの範囲から離れるか、またはマウス ボタンがクリックされると、自動的に非表示になります。マウスがコントロールの範囲内に留まり、マウス ボタンがクリックされない場合は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~autopopdelay.html[AutoPopDelay]"]  が経過すると非表示になります。AutoPopDelay は UltraWinToolTipManager コンポーネントのプロパティで、ツールヒントが自動的に非表示になるまでの時間をミリ秒で指定します。ツールヒントを自動的に非表示にしない場合は、AutoPopDelay プロパティをゼロに設定します。

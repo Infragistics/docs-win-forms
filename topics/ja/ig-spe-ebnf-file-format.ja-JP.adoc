@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-ebnf-file-format",
+    "controlName": [],
+    "tags": [],
+    "guid": "58baef03-6cff-481d-8909-22606b6a529b",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0148464Z"
+}
+|metadata|
+////
+
+= EBNF ファイル形式
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのこのトピックでは、EBNF を使用した文章校正の定義について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-ebnf-file-format-overview.html[EBNF ファイル形式の概要]
+|このトピックは、文章校正を定義するために使用する EBNF ファイル形式の概要を説明します。
+
+| link:ig-spe-special-sequence-format.html[特殊なシーケンス形式]
+|このトピックは、文章校正を構成するために必要な EBNF ファイル内の特殊なシーケンス セクションの形式について説明します。
+
+| link:ig-spe-ebnf-specification-deviations.html[EBNF 仕様の逸脱]
+|このトピックは、Syntax Parsing Engine が使用する EBNF 形式での ISO 14977 仕様からの逸脱について説明します。
+
+| link:ig-spe-generate-grammar-from-an-ebnf-file.html[EBNF ファイルからの文章校正の生成]
+|このトピックでは、EBNF コンテンツから文章校正を作成するプロセスを説明します。
+
+| link:ig-spe-generate-ebnf-file-from-a-grammar.html[文章校正からの EBNF ファイルの生成]
+|このトピックでは、文章校正から EBNF コンテンツを作成するプロセスを説明します。
+
+|====

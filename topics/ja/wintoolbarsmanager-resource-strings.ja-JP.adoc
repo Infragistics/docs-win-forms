@@ -1,0 +1,2892 @@
+﻿////
+|metadata|
+{
+    "name": "wintoolbarsmanager-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{D6C720A5-8A2F-4356-A470-8E0D237889F9}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager リソース文字列
+
+このトピックでは、`WinToolbarsManager` アセンブリの内部的に定義されたテキスト要素をカスタマイズするために使用できる `WinToolbarsManager` アセンブリ リソース文字列のリストを提供します。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleDescription_RibbonPagerButtonLeft
+|水平位を 1 列左に移動する
+
+|AccessibleDescription_RibbonPagerButtonRight
+|水平位を 1 列右に移動する
+
+|AccessibleName_ApplicationMenu
+|アプリケーション メニュー
+
+|AccessibleName_ApplicationMenuButton
+|アプリケーション メニュー ボタン
+
+|AccessibleName_ApplicationMenuFooterToolbar
+|アプリケーション メニュー フッター ツールバー
+
+|AccessibleName_ApplicationMenuLeftArea
+|アプリケーション メニュー エリアの左部分
+
+|AccessibleName_ApplicationMenuRightArea
+|アプリケーション メニュー エリアの右部分
+
+|AccessibleName_DialogBoxLauncher
+|ダイアログ ボックス ランチャー
+
+|AccessibleName_DockBottom
+|下にドッキング
+
+|AccessibleName_DockLeft
+|左にドッキング
+
+|AccessibleName_DockRight
+|右にドッキング
+
+|AccessibleName_DockTop
+|上にドッキング
+
+|AccessibleName_MiniToolbar
+|ミニ ツールバー
+
+|AccessibleName_NavigationToolbarBackButton
+|戻る
+
+|AccessibleName_NavigationToolbarForwardButton
+|進む
+
+|AccessibleName_NavigationToolbarRecentHistoryButton
+|最近の履歴
+
+|AccessibleName_QatQuickCustomizeTool
+|その他のコントロール
+
+|AccessibleName_QuickAccessToolbar
+|クイック アクセス ツールバー
+
+|AccessibleName_Ribbon
+|リボン
+
+|AccessibleName_RibbonCaption
+|なし
+
+|AccessibleName_RibbonCaptionButtonClose
+|閉じる
+
+|AccessibleName_RibbonCaptionButtonContextHelp
+|コンテキスト ヘルプ
+
+|AccessibleName_RibbonCaptionButtonMaximize
+|最大化
+
+|AccessibleName_RibbonCaptionButtonMinimize
+|最小化
+
+|AccessibleName_RibbonCaptionButtonRestoreDown
+|元に戻す
+
+|AccessibleName_RibbonCaptionButtonRestoreUp
+|元に戻す
+
+|AccessibleName_RibbonGroupArea
+|下方のリボン
+
+|AccessibleName_RibbonPagerButtonLeft
+|列左
+
+|AccessibleName_RibbonPagerButtonRight
+|列右
+
+|AccessibleName_RibbonTabItemToolbar
+|MDI 子フォーム ボタンを最大化
+
+|AccessibleName_RibbonTabs
+|リボン タブ
+
+|AccessibleName_Toolbar
+|ツールバー
+
+|AddGalleryToQuickAccessToolbar
+|クイック アクセス ツールバーにギャラリーを追加
+
+|AddGroupDlg_AllItems
+|全ての項目
+
+|AddGroupDlg_AllUnassignedItems
+|グループにまだ属していない項目の全て
+
+|AddGroupDlg_NoItems
+|項目がありません。
+
+|AddGroupDlg_Note
+|注: グループの項目コレクション用のコレクション エディターを開けば、後で新しいグループにある項目を編集することができます。
+
+|AddGroupDlg_SelectItemsCaption
+|新しいグループに追加したい項目を選択してください:
+
+|AddRemoveButtons
+|ボタンの追加と削除(&A)
+
+|AddRibbonGroupButtonCaption
+|新しいグループ
+
+|AddToQuickAccessToolbar
+|クイック アクセス ツールバーへ追加(&A)
+
+|ApplicationMenuArea_MaxWidthCannotBeNegative
+|最大幅をマイナスにすることはできません。
+
+|ApplicationMenuArea_MinWidthCannotBeNegative
+|最小値はマイナスにすることはできません。
+
+|ApplicationMenuDefaultKeyTip
+|F
+
+|BringIntoViewItemNotInPreview
+|表示しようとしている項目はギャラリーのプレビューには存在していません。
+
+|CannotAddPopupRibbonGroupToQat
+|ポップアップ リボン グループ ツールが所有しているリボン グループはそのクイックアクセス ツールバーに追加することができません。
+
+|CannotChangeAutoThresholdWhenCompatibilityIsEnabled
+|リボンが表示されていて Office2007UICompatibility が有効な間は AutoCollapseThreshold のプロパティを変更することはできません。
+
+|CannotEnableCompatibilityWhenNotOnTopLevelForm
+|Office2007UICompatibility は、DockWithinContainer がフォームの最上部に設定されない限り有効化することはできません。
+
+|CantAddExternalToolbar
+|他のツールバー マネージャー上に存在するツールバーを追加することはできません。
+
+|CantBringIntoViewIfDropDownClosed
+|ギャラリーのドロップダウンが閉まっているときにその上に項目を持っていって表示することはできません。
+
+|CantBringIntoViewIfPreviewHidden
+|ギャラリーのプレビューが表示できない時は項目を表示することはできません。
+
+|ChangeChangeStyleWhenCompatibilityIsEnabled
+|リボンおよび Office2007UICompatibility が有効な間はスタイルのプロパティを変更することはできません。
+
+|ChangeHideAppMenuWhenCompatibilityIsEnabled
+|ApplicationMenu はリボンが使用中で Office2007UICompatibility が有効化されている時は非表示にすることができません。
+
+|ChangeHideQatWhenCompatibilityIsEnabled
+|クイック アクセス ツールバーは、リボンが使用中で Office2007UICompatibility が有効化されている時は非表示にすることができません。
+
+|ChangeUseCustomizeWhenCompatibilityIsEnabled
+|リボンが使用中で Office2007UICompatibility が有効な間は CustomizeDialog を使用することはできません。
+
+|ColumnSpanMustBePositive
+|列の範囲は 0 より大きくなければなりません。
+
+|ComboBoxToolActionList_P_AutoComplete_Desc
+|コンボボックスで自動補完機能を使用するかどうかを決定します。
+
+|ComboBoxToolActionList_P_AutoComplete_Text
+|Auto Complete
+
+|ComboBoxToolActionList_P_DropDownListAlignment_Desc
+|ドロップダウン リストのリスト部分の配置位置を指定します。
+
+|ComboBoxToolActionList_P_DropDownListAlignment_Text
+|DropDownListAlignment
+
+|ComboBoxToolActionList_P_DropDownStyle_Desc
+|コンボボックスのテキスト部分を編集可能にするかどうかを指定します。
+
+|ComboBoxToolActionList_P_DropDownStyle_Text
+|DropDownStyle
+
+|ComboBoxToolActionList_P_SortStyle_Desc
+|ドロップダウン リストの項目のソート方法を指定します。
+
+|ComboBoxToolActionList_P_SortStyle_Text
+|SortStyle
+
+|ComboBoxToolActionList_P_ValueListItems_Desc
+|ドロップダウン リストの ValueList の項目を設定します。
+
+|ComboBoxToolActionList_P_ValueListItems_Text
+|ValueListItems
+
+|ComboBoxToolActionList_ValueList_Header
+|ValueList
+
+|ContentArea_MinimumDistanceFromTop_Exception
+|DistanceFromTop の最小値は 0 です。
+
+|ContentArea_MinimumSpaceBetweenColumns_Exception
+|SpaceBetweenColumns の最小値は 0 です。
+
+|ContextualTabGroupKeyReserved
+|予約キー名を使用したグループを追加することはできません。
+
+|ControlContainerToolActionList_P_CanSetWidth_Desc
+|ツールのサイズ変更を可能にするかどうかを決定します。
+
+|ControlContainerToolActionList_P_CanSetWidth_Text
+|CanSetWidth
+
+|ControlContainerToolActionList_P_Control_Desc
+|このコンテナーに配置するコントロールを指定します。
+
+|ControlContainerToolActionList_P_Control_Text
+|コントロール
+
+|ControlContainerToolActionList_P_VerticalDisplayStyle_Desc
+|ツールバーが垂直にドッキングされるときにコントロールをどのように表示するかを指定します。
+
+|ControlContainerToolActionList_P_VerticalDisplayStyle_Text
+|VerticalDisplayStyle
+
+|ControlNotSet
+|[コントロールが未設定]
+
+|ConvertToolDlg_Cancel
+|キャンセル
+
+|ConvertToolDlg_CurrentToolType
+|現在の種類:
+
+|ConvertToolDlg_IndexColumn
+|インデックス
+
+|ConvertToolDlg_NewToolType
+|新しい種類:
+
+|ConvertToolDlg_NotVisibleOnMenus
+|選択されたツール タイプはメニューへの表示がサポートされていません。'PopupMenuTool' にある既存のツールのインスタンスは、変換によって非表示になります。
+
+|ConvertToolDlg_NotVisibleOnRibbonGroup
+|選択されたツール タイプはリボン グループでの表示はサポートされていません。'RibbonGroup' にある既存のツール インスタンスは、変換によって非表示になります。
+
+|ConvertToolDlg_NotVisibleOnToolbars
+|選択されたツール タイプはツールバーへの表示がサポートされていません。UltraToolbar' にある既存のツールのインスタンスは、変換によって非表示になります。
+
+|ConvertToolDlg_NotVisibleOnVertToolbars
+|選択されたツール タイプは垂直ツールバーへの表示がサポートされていません。ウィンドウの左右にドッキングする 'UltraToolbar' 上の既存のツールのインスタンスは、変換によって非表示になります。
+
+|ConvertToolDlg_OK
+|OK
+
+|ConvertToolDlg_OwnerColumn
+|オーナー
+
+|ConvertToolDlg_OwnerDescriptionMenu
+|{0} [メニュー]
+
+|ConvertToolDlg_OwnerDescriptionOther
+|[0]
+
+|ConvertToolDlg_OwnerDescriptionToolbar
+|{0} [ツールバー]
+
+|ConvertToolDlg_Title
+|ツールの種類の変換
+
+|ConvertToolDlg_ToolInstances
+|ツールのインスタンス:
+
+|ConvertToolDlg_ToolKey
+|キー:
+
+|CustomDlgNewToolBarCancel
+|キャンセル
+
+|CustomDlgNewToolBarLocation
+|場所:
+
+|CustomDlgNewToolBarTBName
+|ツールバー名(&T):
+
+|CustomDlgNewToolBarTBOK
+|OK
+
+|CustomDlgNewToolBarTBType
+|ツールバーの種類:
+
+|CustomDlgNewToolBarUTB
+|UltraToolbar
+
+|CustomDlgRenameToolBar_AccessibleDescription
+|ツールバーの名前を変更
+
+|CustomDlgRenameToolBarTBName
+|ツールバー名(&T):
+
+|CustomDlgRenameToolBarTitle
+|ツールバー名の変更
+
+|Customize
+|ユーザー設定(&C)...
+
+|CustomizeAddToolbarError
+|[{0}] ツールバーの追加中にエラーが発生しました。
+
+|CustomizeAddToolbarErrorTitle
+|ツールバーの追加エラー
+
+|CustomizeAddToolError
+|[{0}] ツールの追加中にエラーが発生しました。
+
+|CustomizeAddToolErrorTitle
+|ツールの追加エラー
+
+|CustomizeCategoryAllCommands
+|すべてのコマンド
+
+|CustomizeCategoryUnassigned
+|(未定義)
+
+|CustomizeConfirmResetUsageData
+|このアプリケーションで使用したコマンドの記録を消去し、メニューとツールバーに表示するコマンドを既定の状態に戻します。ユーザー設定は残ります。実行しますか?
+
+|CustomizeConfirmResetUsageDataTitle
+|初期状態に戻す(&R)
+
+|CustomizeConfirmShortcutRemoval
+|ショートカット キーの定義を元に戻しますか?
+
+|CustomizeConfirmShortcutRemovalTitle
+|ショートカット キーの定義を元に戻す
+
+|CustomizeConfirmToolbarDelete
+|{0} ツールバーを削除してもよろしいですか?
+
+|CustomizeConfirmToolbarDeleteTitle
+|ツールバー削除の確認
+
+|CustomizeConfirmToolbarReset
+|{0} ツールバーへの変更をリセットしてもよろしいですか?
+
+|CustomizeConfirmToolbarResetTitle
+|ツールバー リセットの確認
+
+|CustomizeConfirmToolDelete
+|{0} ツールを削除してもよろしいですか?
+
+|CustomizeConfirmToolDeleteTitle
+|ツール削除の確認
+
+|CustomizeCreateToolError
+|新しいツールの作成中にエラーが発生しました。
+
+|CustomizeCreateToolErrorTitle
+|ツール作成エラー
+
+|CustomizeDialog_AllProps
+|プロパティ(全て)
+
+|CustomizeDialog_AlwaysShowFullMenus
+|常にすべてのメニューを表示する(&N)
+
+|CustomizeDialog_AlwaysShowFullMenus_AccessibleDescription
+|最近使用されていないコマンドも含まれた全てのコマンドを常に表示
+
+|CustomizeDialog_BasicProps
+|プロパティ(基本)
+
+|CustomizeDialog_CantModifyInheritedToolbarProperties
+|メモ: 継承ツールバーです。プロパティを変更することはできません。
+
+|CustomizeDialog_CantModifyInheritedToolProperties
+|メモ: 継承ツールです。プロパティを変更することはできません。
+
+|CustomizeDialog_Caption
+|キャプション
+
+|CustomizeDialog_CaptionCategoryKey
+|キャプション、分類、キー(&C)
+
+|CustomizeDialog_CategoriesMidAmp
+|分類(&G):
+
+|CustomizeDialog_Category
+|分類
+
+|CustomizeDialog_CloseNoAmp
+|閉じる
+
+|CustomizeDialog_Commands
+|コマンド
+
+|CustomizeDialog_CommandsEndAmp
+|コマンド(&D)
+
+|CustomizeDialog_CreateCopyOfTool
+|ツールのコピーを作成(&C)
+
+|CustomizeDialog_CustomizeMain
+|ユーザー設定
+
+|CustomizeDialog_CustomizeMain_AccessibleDescription
+|アプリケーションのツールとツールバーをカスタマイズ
+
+|CustomizeDialog_Delete
+|削除(&D)...
+
+|CustomizeDialog_Delete_Tool_AccessibleDescription
+|選択されたツールの削除
+
+|CustomizeDialog_Delete_Toolbar_AccessibleDescription
+|選択されたツールバーの削除
+
+|CustomizeDialog_DeleteTool
+|ツールを削除(&D)...
+
+|CustomizeDialog_Description
+|説明
+
+|CustomizeDialog_Enabled
+|有効
+
+|CustomizeDialog_EnabledVisible
+|有効、表示
+
+|CustomizeDialog_FloatingToolbarFadeDelay
+|ツールバーのフェード遅延時間
+
+|CustomizeDialog_FloatingToolbarFadeDelay_AccessibleDescription
+|マウス ポインターを離した後にフローティング ツールバーが消えるまでの遅延
+
+|CustomizeDialog_Image
+|画像(&I)
+
+|CustomizeDialog_Import
+|インポート(&I)...
+
+|CustomizeDialog_ImportMenusFromForm
+|フォームからメニューをインポート(&M)...
+
+|CustomizeDialog_ImportToolbarsFromForm
+|フォームからツールバーをインポート(&T)...
+
+|CustomizeDialog_Key
+|キー
+
+|CustomizeDialog_KeyboardBeginAmp
+|キーボード(&K)...
+
+|CustomizeDialog_KeyboardBeginAmp_AccessibleDescription
+|コマンドのキーボードのショートカットをカスタマイズ
+
+|CustomizeDialog_LargeIconsOnMenus
+|大きいメニュー アイコン(&L)
+
+|CustomizeDialog_LargeIconsOnMenus_AccessibleDescription
+|メニューのコマンドに大きいアイコンを表示
+
+|CustomizeDialog_LargeIconsOnToolbars
+|大きいツールバー アイコン(&A)
+
+|CustomizeDialog_LargeIconsOnToolbars_AccessibleDescription
+|ツールバーのコマンドに大きいアイコンを表示
+
+|CustomizeDialog_LargeImage
+|画像大(&L)
+
+|CustomizeDialog_ListFontNamesInTheirFont
+|フォント名をそのフォントで表示する(&F)
+
+|CustomizeDialog_ListFontNamesInTheirFont_AccessibleDescription
+|フォント リストにフォント名を表示
+
+|CustomizeDialog_LoadSave
+|読み込み/保存(&L)...
+
+|CustomizeDialog_LoadSave_ToolTip
+|UltraToolbarsManager の設定の読み込み/保存
+
+|CustomizeDialog_MenuAnimations
+|メニュー表示方法(&M):
+
+|CustomizeDialog_MenuAnimations_AccessibleDescription
+|メニューを開いた時に使用するアニメーションのタイプ
+
+|CustomizeDialog_Milliseconds
+|ミリ秒
+
+|CustomizeDialog_ModifySelection
+|選択の編集
+
+|CustomizeDialog_ModifySelection_AccessibleDescription
+|選択したコマンドの修正
+
+|CustomizeDialog_New
+|新規作成(&N)...
+
+|CustomizeDialog_New_Toolbar_AccessibleDescription
+|新規ツールバーを追加
+
+|CustomizeDialog_NewBeginAmp
+|新規(&N)
+
+|CustomizeDialog_NewTool
+|新しいツール(&N)...
+
+|CustomizeDialog_NewToolbar
+|新しいツールバー(&N)...
+
+|CustomizeDialog_Options
+|オプション
+
+|CustomizeDialog_Other
+|その他
+
+|CustomizeDialog_PersonalizedMenusAndToolbars
+|メニューとツールバー
+
+|CustomizeDialog_PgTools
+|pgTools
+
+|CustomizeDialog_PopupMenuDesigner
+|ポップアップ メニュー ツールのデザイナー
+
+|CustomizeDialog_QuestionProperties
+|\'?????\"プロパティ
+
+|CustomizeDialog_RearrangeCommands
+|コマンド配置の変更(&R)...
+
+|CustomizeDialog_RearrangeCommands_AccessibleDescription
+|メニューとツールバーのコマンドを変更
+
+|CustomizeDialog_Rename
+|名前の変更(&R)...
+
+|CustomizeDialog_Rename_Toolbar_AccessibleDescription
+|選択されたツールバーの名前を変更
+
+|CustomizeDialog_RenameAmp
+|名前の変更(&E)...
+
+|CustomizeDialog_Reset_Toolbar_AccessibleDescription
+|選択されたツールバーをリセット
+
+|CustomizeDialog_ResetAmp
+|リセット(&R)...
+
+|CustomizeDialog_ResetMidAmp
+|リセット(&E)...
+
+|CustomizeDialog_ResetMyUsageData
+|初期状態に戻す(&R)
+
+|CustomizeDialog_ResetMyUsageData_AccessibleDescription
+|保存したコマンドの使用法情報をリセット
+
+|CustomizeDialog_SelectedCommand
+|選択したコマンド:
+
+|CustomizeDialog_Shortcut
+|ショートカット
+
+|CustomizeDialog_ShowFullMenusAfterAShortDelay
+|少し時間が経過したら、すべてのメニューを表示する(&U)
+
+|CustomizeDialog_ShowFullMenusAfterAShortDelay_AccessibleDescription
+|少し遅延した後、最近使用されていないコマンドが表示されます。
+
+|CustomizeDialog_ShowScreenTipsOnToolbars
+|ツールバーにツールのヒントを表示する(&T)
+
+|CustomizeDialog_ShowScreenTipsOnToolbars_AccessibleDescription
+|マウスオーバーされたものの詳細情報をツールおよびツールバーのスクリーンチップに表示
+
+|CustomizeDialog_ShowShortcutKeysInScreenTips
+|ツール ヒントにショートカットキーを表示する(&H)
+
+|CustomizeDialog_ShowShortcutKeysInScreenTips_AccessibleDescription
+|スクリーンチップにあるコマンドをアクティブにさせるショートカットを表示
+
+|CustomizeDialog_SmallImage
+|画像小(&A)
+
+|CustomizeDialog_SortCommands
+|コマンドをアルファベット順に並べ替える
+
+|CustomizeDialog_SortToolsAlphabetically
+|ツールをアルファベット順に並べ替える(&S)
+
+|CustomizeDialog_Toolbars
+|ツールバー
+
+|CustomizeDialog_ToolbarsList
+|ツールバー(&A)：
+
+|CustomizeDialog_Tools
+|ツール
+
+|CustomizeDialog_ToolsByCategory
+|分類別ツール
+
+|CustomizeDialog_Visible
+|表示
+
+|CustomizeDialogContextMenuSortCommandsLiteral
+|コマンドをアルファベット順に並べ替える
+
+|CustomizeDialogContextMenuSortToolsLiteral
+|ツールをアルファベット順に並べ替える
+
+|CustomizeDialogGenerateToolClickCodeTitle
+|ToolClick コードの生成
+
+|CustomizeDlgAddCommand_Cancel
+|キャンセル
+
+|CustomizeDlgAddCommand_Categories
+|分類:
+
+|CustomizeDlgAddCommand_Choose
+|追加するコマンドを選択して、[OK] をクリックします。
+
+|CustomizeDlgAddCommand_Commands
+|コマンド(&D):
+
+|CustomizeDlgAddCommand_OK
+|OK
+
+|CustomizeDlgAddCommand_Title
+|コマンドの追加
+
+|CustomizeDlgAddCommand_Title_AccessibleDescription
+|ツールバーもしくはメニューにコマンドを追加
+
+|CustomizeDlgBeginGrp
+|グループの始まり(&G)
+
+|CustomizeDlgButtonGroup
+|ボタンのグループ:
+
+|CustomizeDlgClearLargeImage
+|大きい画像をクリア
+
+|CustomizeDlgClearSmallImage
+|小さい画像をクリア
+
+|CustomizeDlgConvertToolType
+|ツールの種類の変換...
+
+|CustomizeDlgCopyButtonImage
+|ボタン画像のコピー(&C)
+
+|CustomizeDlgCopyOf
+|コピー ～
+
+|CustomizeDlgDefStyle
+|既定のスタイル(&U)
+
+|CustomizeDlgDelete
+|削除(&D)
+
+|CustomizeDlgDescOnMenu
+|メニューの説明を設定...
+
+|CustomizeDlgEditButtonImage
+|ボタン画像の編集(&E)...
+
+|CustomizeDlgGenerateCode_ClearAllTools
+|すべてクリア
+
+|CustomizeDlgGenerateCode_Close
+|閉じる
+
+|CustomizeDlgGenerateCode_CopyToClipboard
+|クリップボードへコピー(&C)
+
+|CustomizeDlgGenerateCode_CSharp
+|CC&#
+
+|CustomizeDlgGenerateCode_GenerateComments
+|コメントを生成する(&G)
+
+|CustomizeDlgGenerateCode_PlaceCodeHereComment_CSharp
+| +++// コードをここに挿入します+++
+
+|CustomizeDlgGenerateCode_PlaceCodeHereComment_VB
+|' コードをここに挿入します
+
+|CustomizeDlgGenerateCode_SelectAllCode
+|すべて選択(&S)
+
+|CustomizeDlgGenerateCode_SelectAllTools
+|すべて選択
+
+|CustomizeDlgGenerateCode_SelectLanguageOptions
+|1.生成するコードの言語を指定(&E)
+
+|CustomizeDlgGenerateCode_SelectTools
+|2.ツールの選択(&T)
+
+|CustomizeDlgGenerateCode_Title
+|ToolClick コードの生成
+
+|CustomizeDlgGenerateCode_VB
+|&VB .NET
+
+|CustomizeDlgGenerateCode_ViewGeneratedCode
+|3.生成コードの表示(&V)
+
+|CustomizeDlgImageAndText
+|画像とテキストを表示(&A)
+
+|CustomizeDlgImagesMenu
+|画像
+
+|CustomizeDlgInsertExistingItem
+|既存ツールの追加...
+
+|CustomizeDlgInsertNewItem
+|ツールの新規追加...
+
+|CustomizeDlgInsertNewToolsMenu
+|ツールの追加
+
+|CustomizeDlgKbd_AccessibleDescription
+|コマンドのショートカットをカスタマイズ
+
+|CustomizeDlgKbdAssign
+|割り当て(&A)
+
+|CustomizeDlgKbdAssign_AccessibleDescription
+|コマンドに対してショートカットを割り当てる
+
+|CustomizeDlgKbdCat
+|分類(&C):
+
+|CustomizeDlgKbdCmd
+|コマンド(&O):
+
+|CustomizeDlgKbdDesc
+|説明
+
+|CustomizeDlgKbdRemove&Remove
+|削除(&R)
+
+|CustomizeDlgKbdRemove&Remove_AccessibleDescription
+|コマンドから割り当てられたショートカットを削除
+
+|CustomizeDlgKbdResetAll
+|全てリセット(&S)
+
+|CustomizeDlgKbdResetAll_AccessibleDescription
+|全てのショートカットのカスタマイズをリセット
+
+|CustomizeDlgKbdSpecCmd
+|コマンドの指定
+
+|CustomizeDlgKbdSpecShrtcut
+|キー の指定(&F)
+
+|CustomizeDlgKbdTitle
+|キーボードのユーザー設定
+
+|CustomizeDlgMinRibbonSizeMenu
+|サイズを最小化
+
+|CustomizeDlgName
+|名前(&N):
+
+|CustomizeDlgNewToolAdd
+|追加
+
+|CustomizeDlgNewToolCaption
+|キャプション(&P)
+
+|CustomizeDlgNewToolCategory
+|分類(&C)
+
+|CustomizeDlgNewToolCustomizerCaption
+|固定キャプション(&U)
+
+|CustomizeDlgNewToolKey
+|キー(&K)
+
+|CustomizeDlgNewToolTitle
+|新しいツール
+
+|CustomizeDlgNewToolType
+|ツールの種類(&T)
+
+|CustomizeDlgPasteButtonImage
+|ボタン画像の貼り付け(&P)
+
+|CustomizeDlgPreferredRibbonSizeMenu
+|優先サイズ
+
+|CustomizeDlgRearrangeCommands_Add
+|追加(&A)...
+
+|CustomizeDlgRearrangeCommands_Add_AccessibleDescription
+|選択されたツールバーもしくはメニューにコマンドを追加
+
+|CustomizeDlgRearrangeCommands_Choose
+|変更するメニューまたはツールバーの選択:
+
+|CustomizeDlgRearrangeCommands_Close
+|閉じる
+
+|CustomizeDlgRearrangeCommands_Commands
+|コマンド(&C):
+
+|CustomizeDlgRearrangeCommands_Delete
+|削除(&D)
+
+|CustomizeDlgRearrangeCommands_Delete_AccessibleDescription
+|選択されたコマンドの削除
+
+|CustomizeDlgRearrangeCommands_MenuBar
+|メニュー バー(&B)
+
+|CustomizeDlgRearrangeCommands_MenuBar_AccessibleDescription
+|メニューのコマンドを変更
+
+|CustomizeDlgRearrangeCommands_ModifySelection
+|ボタンの編集(&M)
+
+|CustomizeDlgRearrangeCommands_ModifySelection_AccessibleDescription
+|選択したツールのプロパティを修正
+
+|CustomizeDlgRearrangeCommands_MoveDown
+|下へ(&N)
+
+|CustomizeDlgRearrangeCommands_MoveDown_AccessibleDescription
+|選択したツールをメニューまたはツールバーの下に移動
+
+|CustomizeDlgRearrangeCommands_MoveUp
+|上に移動(&U)
+
+|CustomizeDlgRearrangeCommands_MoveUp_AccessibleDescription
+|選択したツールをメニューまたはツールバーの上に移動
+
+|CustomizeDlgRearrangeCommands_Reset
+|リセット(&R)...
+
+|CustomizeDlgRearrangeCommands_Reset_AccessibleDescription
+|選択されたメニューもしくはツールバーをデフォルトの設定に戻す
+
+|CustomizeDlgRearrangeCommands_ResetMenuMessage
+|'{0}' メニューへの変更をリセットしてもよろしいですか？
+
+|CustomizeDlgRearrangeCommands_ResetMenuTitle
+|メニューへの変更のリセット
+
+|CustomizeDlgRearrangeCommands_ResetToolbarMessage
+|'{0}' ツールバーへの変更をリセットしてもよろしいですか？
+
+|CustomizeDlgRearrangeCommands_ResetToolbarTitle
+|ツールバーへの変更のリセット
+
+|CustomizeDlgRearrangeCommands_Title
+|コマンドの配置の変更
+
+|CustomizeDlgRearrangeCommands_Title_AccessibleDescription
+|メニューもしくはツールバーのコマンドを変更
+
+|CustomizeDlgRearrangeCommands_Toolbar
+|ツールバー(&T)
+
+|CustomizeDlgRearrangeCommands_Toolbar_AccessibleDescription
+|ツールバーのコマンドを変更
+
+|CustomizeDlgRecentlyUsed
+|最近使ったツール(&E)
+
+|CustomizeDlgReset
+|リセット(&R)
+
+|CustomizeDlgResetButtonImage
+|ボタン画像を元に戻す(&S)
+
+|CustomizeDlgRibbonSize_Default
+|デフォルト
+
+|CustomizeDlgRibbonSize_ImageOnly
+|画像のみ
+
+|CustomizeDlgRibbonSize_Large
+|大
+
+|CustomizeDlgRibbonSize_Normal
+|通常
+
+|CustomizeDlgSelectControlMenu
+|コントロール
+
+|CustomizeDlgSelectedToolTypeLiteral
+|<選択されたツールの種類: {0}>
+
+|CustomizeDlgSelectedToolTypeLiteralNone
+|なし
+
+|CustomizeDlgSelectObjectPropertyTab
+|選択されたオブジェクト
+
+|CustomizeDlgSetLargeImage
+|大きい画像を設定...
+
+|CustomizeDlgSetSmallImage
+|小さい画像を設定...
+
+|CustomizeDlgTextOnAlways
+|テキストのみ表示(&T)
+
+|CustomizeDlgTextOnlyInMenus
+|テキストのみ表示(メニューのとき)(&O)
+
+|CustomizeDlgTooltipCreateNewTool
+|新しいツールを作成
+
+|CustomizeDlgTooltipDeleteTool
+|選択されたツールを削除
+
+|CustomizeDuplicateToolbarMessage
+|'{0}' という名前のツールバーが既に存在します。別の名前を指定してください。
+
+|CustomizeDuplicateToolbarTitle
+|ツールバー名の重複
+
+|CustomizeDuplicateToolMessage
+|'{0}' という名前のツールが既に存在します。別の名前を指定してください。
+
+|CustomizeDuplicateToolTitle
+|ツール名の重複
+
+|CustomizeEmptyCategoryLiteral
+|<分類されていません>
+
+|CustomizeImg_Category_Actions
+|アクション
+
+|CustomizeImg_Category_Brush_Sizes
+|ブラシのサイズ
+
+|CustomizeImg_Category_Eraser_Brush_Size
+|消しゴムのサイズ
+
+|CustomizeImg_Category_File
+|ファイル
+
+|CustomizeImg_Category_Format
+|形式
+
+|CustomizeImg_Category_Gradient_Styles
+|グラデーションのスタイル
+
+|CustomizeImg_Category_Menus
+|メニュー
+
+|CustomizeImg_Category_Move_Image
+|画像の移動
+
+|CustomizeImg_Category_Palette
+|パレット
+
+|CustomizeImg_Category_Text_Tools
+|テキスト ツール
+
+|CustomizeImg_Category_Tools
+|ツール
+
+|CustomizeImg_Category_View
+|表示
+
+|CustomizeImg_HslFormat
+|H: {0:f0}B0 S: {1:p0} L: {2:p0}
+
+|CustomizeImg_PositionFormat
+|X: {0} Y: {1}
+
+|CustomizeImg_RgbFormat
+|R: {0} G: {1} B: {2}
+
+|CustomizeImg_SaveChanges
+|画像は変更されています。変更を保存しますか？
+
+|CustomizeImg_SizeFormat
+|W: {0} H: {1}
+
+|CustomizeImg_Title
+|画像エディター
+
+|CustomizeImg_Title_AccessibleDescription
+|画像のコンテンツを編集
+
+|CustomizeImg_Tool_16_Colors
+|16 色
+
+|CustomizeImg_Tool_16_Colors_AccessibleDescription
+|16 色のパレットを使用
+
+|CustomizeImg_Tool_BackColor
+|背景色
+
+|CustomizeImg_Tool_BackColor_AccessibleDescription
+|背景色を変更
+
+|CustomizeImg_Tool_Bold
+|太字
+
+|CustomizeImg_Tool_Bold_AccessibleDescription
+|テキストを太字にします。
+
+|CustomizeImg_Tool_BrushSize
+|ブラシのサイズ
+
+|CustomizeImg_Tool_BrushSize_AccessibleDescription
+|ブラシのサイズを変更
+
+|CustomizeImg_Tool_Capture_Image
+|画像のキャプチャ
+
+|CustomizeImg_Tool_Capture_Image_AccessibleDescription
+|スクリーンから画像をキャプチャする
+
+|CustomizeImg_Tool_ChooseHotSpotTool
+|ホット スポットの選択
+
+|CustomizeImg_Tool_ChooseHotSpotTool_AccessibleDescription
+|カーソルのホットスポットを選択
+
+|CustomizeImg_Tool_Clear_Image
+|画像のクリア(&C)
+
+|CustomizeImg_Tool_Clear_Image_AccessibleDescription
+|全ての画像を消去
+
+|CustomizeImg_Tool_ColorSelectTool
+|色の選択
+
+|CustomizeImg_Tool_ColorSelectTool_AccessibleDescription
+|画像から色を選択してください。
+
+|CustomizeImg_Tool_Copy
+|コピー
+
+|CustomizeImg_Tool_Copy_AccessibleDescription
+|選択領域をコピーしてクリップボードに配置します。
+
+|CustomizeImg_Tool_Cut
+|切り取り
+
+|CustomizeImg_Tool_Cut_AccessibleDescription
+|画像から選択範囲を切り取り、クリップボードに貼付け
+
+|CustomizeImg_Tool_DrawAirbrushTool
+|エアブラシ
+
+|CustomizeImg_Tool_DrawAirbrushTool_AccessibleDescription
+|エアーブラシで描画
+
+|CustomizeImg_Tool_DrawArcTool
+|円弧
+
+|CustomizeImg_Tool_DrawArcTool_AccessibleDescription
+|弧を描画
+
+|CustomizeImg_Tool_DrawBrushTool
+|ブラシ
+
+|CustomizeImg_Tool_DrawBrushTool_AccessibleDescription
+|ブラシで描画
+
+|CustomizeImg_Tool_DrawEllipseOutlineTool
+|円形 - 外枠
+
+|CustomizeImg_Tool_DrawEllipseOutlineTool_AccessibleDescription
+|楕円形を描画
+
+|CustomizeImg_Tool_DrawFilledEllipseTool
+|円形 - 塗り潰し
+
+|CustomizeImg_Tool_DrawFilledEllipseTool_AccessibleDescription
+|塗りつぶされた楕円形の描画
+
+|CustomizeImg_Tool_DrawFilledEllipseWithOutlineTool
+|円形- 外枠と塗り潰し
+
+|CustomizeImg_Tool_DrawFilledEllipseWithOutlineTool_AccessibleDescription
+|アウトライン化された楕円形を描画
+
+|CustomizeImg_Tool_DrawFilledRectangleTool
+|四角形 - 塗り潰し
+
+|CustomizeImg_Tool_DrawFilledRectangleTool_AccessibleDescription
+|塗りつぶされた四角形の描画
+
+|CustomizeImg_Tool_DrawFilledRectangleWithOutlineTool
+|四角形 - 外枠と塗り潰し
+
+|CustomizeImg_Tool_DrawFilledRectangleWithOutlineTool_AccessibleDescription
+|アウトライン化された四角形を描画
+
+|CustomizeImg_Tool_DrawFilledRoundRectangleTool
+|角丸の四角形 - 塗り潰し
+
+|CustomizeImg_Tool_DrawFilledRoundRectangleTool_AccessibleDescription
+|塗りつぶされた角丸四角形の描画
+
+|CustomizeImg_Tool_DrawFilledRoundRectangleWithOutlineTool
+|角丸の四角形 - 外枠と塗り潰し
+
+|CustomizeImg_Tool_DrawFilledRoundRectangleWithOutlineTool_AccessibleDescription
+|アウトライン化された角丸四角形を描画
+
+|CustomizeImg_Tool_DrawLineTool
+|線
+
+|CustomizeImg_Tool_DrawLineTool_AccessibleDescription
+|線を描画
+
+|CustomizeImg_Tool_DrawPointTool
+|ペン
+
+|CustomizeImg_Tool_DrawPointTool_AccessibleDescription
+|点を描画
+
+|CustomizeImg_Tool_DrawRectangleOutlineTool
+|四角形 - 外枠
+
+|CustomizeImg_Tool_DrawRectangleOutlineTool_AccessibleDescription
+|四角形を描画
+
+|CustomizeImg_Tool_DrawRoundRectangleOutlineTool
+|角丸の四角形 - 外枠
+
+|CustomizeImg_Tool_DrawRoundRectangleOutlineTool_AccessibleDescription
+|角丸四角形を描画
+
+|CustomizeImg_Tool_DrawTextTool
+|テキスト
+
+|CustomizeImg_Tool_DrawTextTool_AccessibleDescription
+|テキストを描画
+
+|CustomizeImg_Tool_Edit
+|編集(&E)
+
+|CustomizeImg_Tool_Edit_AccessibleDescription
+|メニューを編集
+
+|CustomizeImg_Tool_Ellipse_Types
+|円の種類
+
+|CustomizeImg_Tool_Ellipse_Types_AccessibleDescription
+|異なる楕円形タイプを描画
+
+|CustomizeImg_Tool_EraseBrushSizeLarge
+|大
+
+|CustomizeImg_Tool_EraseBrushSizeLarge_AccessibleDescription
+|消しゴム(大)を使用
+
+|CustomizeImg_Tool_EraseBrushSizeMedium
+|中
+
+|CustomizeImg_Tool_EraseBrushSizeMedium_AccessibleDescription
+|消しゴム(中)を使用
+
+|CustomizeImg_Tool_EraseBrushSizeSmall
+|小
+
+|CustomizeImg_Tool_EraseBrushSizeSmall_AccessibleDescription
+|消しゴム(小)を使用
+
+|CustomizeImg_Tool_EraseBrushSizeXLarge
+|特大
+
+|CustomizeImg_Tool_EraseBrushSizeXLarge_AccessibleDescription
+|消しゴム(特大)を使用
+
+|CustomizeImg_Tool_EraseColor
+|色の消去
+
+|CustomizeImg_Tool_EraseColor_AccessibleDescription
+|特別な色のみを消去
+
+|CustomizeImg_Tool_Eraser
+|消しゴム(&E)
+
+|CustomizeImg_Tool_Eraser_AccessibleDescription
+|消しゴム
+
+|CustomizeImg_Tool_EraserSize
+|消しゴムのサイズ
+
+|CustomizeImg_Tool_EraserSize_AccessibleDescription
+|消しゴムのサイズを変更
+
+|CustomizeImg_Tool_EraseTool
+|消しゴム
+
+|CustomizeImg_Tool_EraseTool_AccessibleDescription
+|消しゴム ツール
+
+|CustomizeImg_Tool_Exit
+|終了(&X)
+
+|CustomizeImg_Tool_Exit_AccessibleDescription
+|画像エディターを閉じる
+
+|CustomizeImg_Tool_File
+|ファイル(&F)
+
+|CustomizeImg_Tool_File_AccessibleDescription
+|ファイル メニュー。
+
+|CustomizeImg_Tool_FillTool
+|領域の塗り潰し
+
+|CustomizeImg_Tool_FillTool_AccessibleDescription
+|エリアを色で塗りつぶし
+
+|CustomizeImg_Tool_FlipHorizontal
+|上下反転
+
+|CustomizeImg_Tool_FlipHorizontal_AccessibleDescription
+|選択範囲を上下反転
+
+|CustomizeImg_Tool_FlipVertical
+|左右反転
+
+|CustomizeImg_Tool_FlipVertical_AccessibleDescription
+|選択範囲を左右反転
+
+|CustomizeImg_Tool_Font_Size
+|サイズ:
+
+|CustomizeImg_Tool_Font_Size_AccessibleDescription
+|フォント サイズを変更します。
+
+|CustomizeImg_Tool_FontName
+|フォント:
+
+|CustomizeImg_Tool_FontName_AccessibleDescription
+|フォント名を変更
+
+|CustomizeImg_Tool_ForeColor
+|前景色
+
+|CustomizeImg_Tool_ForeColor_AccessibleDescription
+|文字の色を変更
+
+|CustomizeImg_Tool_GradientBackwardDiagonal
+|BackwardDiagonal
+
+|CustomizeImg_Tool_GradientBackwardDiagonal_AccessibleDescription
+|BackwardDiagonal
+
+|CustomizeImg_Tool_GradientCircular
+|円状
+
+|CustomizeImg_Tool_GradientCircular_AccessibleDescription
+|描画に円状グラデーションを使用
+
+|CustomizeImg_Tool_GradientElliptical
+|楕円状
+
+|CustomizeImg_Tool_GradientElliptical_AccessibleDescription
+|描画に楕円状グラデーションを使用
+
+|CustomizeImg_Tool_GradientForwardDiagonal
+|ForwardDiagonal
+
+|CustomizeImg_Tool_GradientForwardDiagonal_AccessibleDescription
+|描画に左上対角線状グラデーションを使用
+
+|CustomizeImg_Tool_GradientHorizontal
+|Horizontal
+
+|CustomizeImg_Tool_GradientHorizontal_AccessibleDescription
+|描画に水平グラデーションを使用
+
+|CustomizeImg_Tool_GradientHorizontalBump
+|HorizontalBump
+
+|CustomizeImg_Tool_GradientHorizontalBump_AccessibleDescription
+|描画に横状中央浮き出しのグラデーションを使用
+
+|CustomizeImg_Tool_GradientRectangular
+|四角形状
+
+|CustomizeImg_Tool_GradientRectangular_AccessibleDescription
+|描画に四角状グラデーションを使用
+
+|CustomizeImg_Tool_GradientStyle
+|GradientStyle
+
+|CustomizeImg_Tool_GradientStyle_AccessibleDescription
+|描写時に使用されるグラデーション スタイルを変更
+
+|CustomizeImg_Tool_GradientVertical
+|垂直
+
+|CustomizeImg_Tool_GradientVertical_AccessibleDescription
+|描画に垂直グラデーションを使用
+
+|CustomizeImg_Tool_GradientVerticalBump
+|VerticalBump
+
+|CustomizeImg_Tool_GradientVerticalBump_AccessibleDescription
+|描画に縦状中央浮き出しのグラデーションを使用
+
+|CustomizeImg_Tool_Gray_Scale
+|グレー スケール(&G)
+
+|CustomizeImg_Tool_Gray_Scale_AccessibleDescription
+|グレー スケールのパレットを使用
+
+|CustomizeImg_Tool_HSL_Colors
+|HSL 色
+
+|CustomizeImg_Tool_HSL_Colors_AccessibleDescription
+|色相、彩度、および明度ベースのパレットを使用
+
+|CustomizeImg_Tool_Image
+|画像(&I)
+
+|CustomizeImg_Tool_Image_AccessibleDescription
+|画像メニュー
+
+|CustomizeImg_Tool_Image_Size
+|画像のサイズ(&I)...
+
+|CustomizeImg_Tool_Image_Size_AccessibleDescription
+|画像サイズの変更
+
+|CustomizeImg_Tool_Invert_Colors
+|色の反転
+
+|CustomizeImg_Tool_Invert_Colors_AccessibleDescription
+|選択範囲で色を反転します。
+
+|CustomizeImg_Tool_Italic
+|イタリック
+
+|CustomizeImg_Tool_Italic_AccessibleDescription
+|フォントを斜体にします。
+
+|CustomizeImg_Tool_LargeCircleBrush
+|円形 - 大
+
+|CustomizeImg_Tool_LargeCircleBrush_AccessibleDescription
+|円ブラシ(大)を使用
+
+|CustomizeImg_Tool_LargeSquareBrush
+|四角形 - 大
+
+|CustomizeImg_Tool_LargeSquareBrush_AccessibleDescription
+|四角ブラシ(大)を使用
+
+|CustomizeImg_Tool_MediumCircleBrush
+|円形 - 中
+
+|CustomizeImg_Tool_MediumCircleBrush_AccessibleDescription
+|円ブラシ(中)を使用
+
+|CustomizeImg_Tool_MediumSquareBrush
+|四角形 - 中
+
+|CustomizeImg_Tool_MediumSquareBrush_AccessibleDescription
+|四角ブラシ(中)を使用
+
+|CustomizeImg_Tool_Move_Down
+|下へ移動
+
+|CustomizeImg_Tool_Move_Down_AccessibleDescription
+|選択範囲を 1 ピクセル下に移動
+
+|CustomizeImg_Tool_Move_Image
+|画像の移動
+
+|CustomizeImg_Tool_Move_Image_AccessibleDescription
+|選択範囲を異なる方向へ移動
+
+|CustomizeImg_Tool_Move_Left
+|左へ移動
+
+|CustomizeImg_Tool_Move_Left_AccessibleDescription
+|選択範囲を 1 ピクセル左に移動
+
+|CustomizeImg_Tool_Move_Right
+|右へ移動
+
+|CustomizeImg_Tool_Move_Right_AccessibleDescription
+|選択範囲を 1 ピクセル右に移動
+
+|CustomizeImg_Tool_Move_Up
+|上へ移動
+
+|CustomizeImg_Tool_Move_Up_AccessibleDescription
+|選択範囲を 1 ピクセル上に移動
+
+|CustomizeImg_Tool_New
+|新規作成(&N)...
+
+|CustomizeImg_Tool_New_AccessibleDescription
+|画像の新規作成
+
+|CustomizeImg_Tool_Open
+|開く(&O)...
+
+|CustomizeImg_Tool_Open_AccessibleDescription
+|既存の画像を開く
+
+|CustomizeImg_Tool_Palette
+|パレット(&P)
+
+|CustomizeImg_Tool_Palette_AccessibleDescription
+|カラー パレットを変更
+
+|CustomizeImg_Tool_Paste
+|貼り付け
+
+|CustomizeImg_Tool_Paste_AccessibleDescription
+|クリップボードの内容を貼り付けます。
+
+|CustomizeImg_Tool_Rectangle_Types
+|四角形の種類
+
+|CustomizeImg_Tool_Rectangle_Types_AccessibleDescription
+|描写する四角形のタイプを変更
+
+|CustomizeImg_Tool_Redo
+|やり直し
+
+|CustomizeImg_Tool_Redo_AccessibleDescription
+|最後の元に戻された操作をやり直します。
+
+|CustomizeImg_Tool_RotateLeft
+|左回転
+
+|CustomizeImg_Tool_RotateLeft_AccessibleDescription
+|選択範囲を左に回転
+
+|CustomizeImg_Tool_RotateRight
+|右回転
+
+|CustomizeImg_Tool_RotateRight_AccessibleDescription
+|選択範囲を右に回転
+
+|CustomizeImg_Tool_Save_Copy_As
+|名前を付けて保存(&S)...
+
+|CustomizeImg_Tool_Save_Copy_As_AccessibleDescription
+|新しいファイルに画像のコピーを保存
+
+|CustomizeImg_Tool_SelectIrregularSectionTool
+|ランダム選択
+
+|CustomizeImg_Tool_SelectIrregularSectionTool_AccessibleDescription
+|ランダム選択ツールを使用
+
+|CustomizeImg_Tool_SelectRectangleTool
+|長方形の選択
+
+|CustomizeImg_Tool_SelectRectangleTool_AccessibleDescription
+|四角選択ツールを使用
+
+|CustomizeImg_Tool_ShowGrid
+|グリッドの表示
+
+|CustomizeImg_Tool_ShowGrid_AccessibleDescription
+|画像上で各ピクセルが分離したグリッドを描画
+
+|CustomizeImg_Tool_SmallCircleBrush
+|円形 - 小
+
+|CustomizeImg_Tool_SmallCircleBrush_AccessibleDescription
+|円ブラシ(小)を使用
+
+|CustomizeImg_Tool_SmallSquareBrush
+|四角形 - 小
+
+|CustomizeImg_Tool_SmallSquareBrush_AccessibleDescription
+|四角ブラシ(小)を使用
+
+|CustomizeImg_Tool_Standard
+|標準(&S)
+
+|CustomizeImg_Tool_Standard_AccessibleDescription
+|通常カラー パレットを使用
+
+|CustomizeImg_Tool_StatusBar
+|ステータスバー
+
+|CustomizeImg_Tool_StatusBar_AccessibleDescription
+|画像エディターの下にあるステータスバーを表示
+
+|CustomizeImg_Tool_Tools
+|ツール(&T)
+
+|CustomizeImg_Tool_Tools_AccessibleDescription
+|ツール メニュー。
+
+|CustomizeImg_Tool_Underlined
+|下線
+
+|CustomizeImg_Tool_Underlined_AccessibleDescription
+|テキストに下線を引きます。
+
+|CustomizeImg_Tool_Undo
+|元に戻す
+
+|CustomizeImg_Tool_Undo_AccessibleDescription
+|最後の操作を元に戻します。
+
+|CustomizeImg_Tool_View
+|表示(&V)
+
+|CustomizeImg_Tool_View_AccessibleDescription
+|表示メニュー。
+
+|CustomizeImg_Tool_Web_Safe_Colors
+|Web の色(&W)
+
+|CustomizeImg_Tool_Web_Safe_Colors_AccessibleDescription
+|Webセーフ カラー パレットを使用
+
+|CustomizeImg_Tool_XLargeCircleBrush
+|円形 - 特大
+
+|CustomizeImg_Tool_XLargeCircleBrush_AccessibleDescription
+|円ブラシ(特大)を使用
+
+|CustomizeImg_Tool_XLargeSquareBrush
+|四角形 - 特大
+
+|CustomizeImg_Tool_XLargeSquareBrush_AccessibleDescription
+|四角ブラシ(特大)を使用
+
+|CustomizeImg_Tool_ZoomFit
+|ウィンドウ サイズに合わせる
+
+|CustomizeImg_Tool_ZoomFit_AccessibleDescription
+|編集エリアに合わせて画像を拡大［縮小］させる
+
+|CustomizeImg_Tool_ZoomIn
+|ズームイン
+
+|CustomizeImg_Tool_ZoomIn_AccessibleDescription
+|画像の拡大レベルを 1 つ上げる
+
+|CustomizeImg_Tool_ZoomOut
+|ズームアウト
+
+|CustomizeImg_Tool_ZoomOut_AccessibleDescription
+|画像の縮小レベルを 1 つ下げる
+
+|CustomizeImg_ToolBar_Drawing_Tools
+|描画ツール
+
+|CustomizeImg_ToolBar_Main_Menu
+|メイン メニュー
+
+|CustomizeImg_ToolBar_TextTools
+|テキスト ツール
+
+|CustomizeImg_ToolTip_RotateLeft
+|左周りに 90°回転
+
+|CustomizeImg_ToolTip_RotateRight
+|右周りに 90°回転
+
+|CustomizeKeyboardShortcutAssignedLiteral
+|割り当てられているコマンド: {0}
+
+|CustomizeKeyboardShortcutUnassignedLiteral
+|なし
+
+|CustomizeKeyboardTitle
+|キーボードのユーザー設定
+
+|CustomizeLoadSave_BinaryFilter
+|バイナリ ファイル($$*$$.dat)\|$$*$$.dat
+
+|CustomizeLoadSave_LoadError
+|ストリームから読み込み中にエラーが発生しました。
+
+|CustomizeLoadSave_LoadErrorTitle
+|読み込みエラー
+
+|CustomizeLoadSave_LoadSuccessful
+|構成の読み込みが成功しました。
+
+|CustomizeLoadSave_LoadSuccessfulTitle
+|構成の読み込み状況
+
+|CustomizeLoadSave_SaveError
+|ストリームへ保存中にエラーが発生しました。
+
+|CustomizeLoadSave_SaveErrorTitle
+|保存エラー
+
+|CustomizeLoadSave_SaveSuccessful
+|構成の保存が成功しました。
+
+|CustomizeLoadSave_SaveSuccessfulTitle
+|構成の保存状況
+
+|CustomizeLoadSave_SelectLoadFileDialogTitle
+|読み込むファイルの選択
+
+|CustomizeLoadSave_SelectSaveFileDialogTitle
+|保存するファイルの選択
+
+|CustomizeLoadSave_XMLFilter
+|XMLファイル($$*$$.xml)\|$$* $$.xml
+
+|CustomizeLoadSaveCloseButton
+|閉じる
+
+|CustomizeLoadSaveFilenameLiteral
+|ファイル名
+
+|CustomizeLoadSaveFormat_Binary
+|バイナリ
+
+|CustomizeLoadSaveFormat_Xml
+|XML
+
+|CustomizeLoadSaveFormatLiteral
+|形式
+
+|CustomizeLoadSaveOption_Load
+|読み込み
+
+|CustomizeLoadSaveOption_Save
+|保存
+
+|CustomizeLoadSaveOptionLiteral
+|オプション
+
+|CustomizeLoadSaveTitle
+|構成の読み込みと保存
+
+|CustomizeLocationDockedBottom
+|下端にドッキング
+
+|CustomizeLocationDockedLeft
+|左端にドッキング
+
+|CustomizeLocationDockedRight
+|右端にドッキング
+
+|CustomizeLocationDockedTop
+|上端にドッキング
+
+|CustomizeLocationFloating
+|フローティング
+
+|CustomizeMenuAnimationFade
+|Fade（フェード）
+
+|CustomizeMenuAnimationNone
+|なし
+
+|CustomizeMenuAnimationRandom
+|ランダムに選択されます。
+
+|CustomizeMenuAnimationSlide
+|スライド
+
+|CustomizeMenuAnimationUnfold
+|折りたたまれた状態から開きます。
+
+|CustomizeNewToolbarTitle
+|新しいツール
+
+|CustomizeNewToolTitle
+|新しいツール
+
+|CustomizeQAT
+|クイック アクセス ツールバーをカスタマイズ (&C)
+
+|CustomizeRenameToolbarError
+|ツールバーの名前を '{0}' に変更する際にエラーが発生しました。
+
+|CustomizeRenameToolbarErrorTitle
+|ツールバーの名前の変更エラー
+
+|CustomizeRenameToolbarTitle
+|ツールバーの名前の変更
+
+|CustomizeSelectImageFile
+|ファイルから画像を選択(S):
+
+|CustomizeSelectImageFileError
+|ファイル '{0}' から画像を読み込み中にエラーが発生しました。
+
+|CustomizeSelectImageFileErrorTitle
+|画像読み込みエラー
+
+|CustomizeSelectImageTitle
+|画像を選択
+
+|CustomizeShortcutNoneLiteral
+|なし
+
+|CustomizeStandardToolbarNotAllowedMessage
+|リボンが表示されて Office2007UICompatibility が有効化された時のみ、タスクペインツールバーを生成することができます。
+
+|CustomizeTheRibbon
+|リボンをカスタマイズ (&R)
+
+|CustomizeToolbarTypeMenuBar
+|メイン メニュー バー
+
+|CustomizeToolbarTypeStandard
+|標準
+
+|CustomizeToolbarTypeTaskPane
+|タスクペイン ツールバー
+
+|CustomizeToolKeyExistsError
+|'{0}' キーは既に存在するか不正です。
+
+|CustomizeToolKeyExistsErrorTitle
+|不正なキー
+
+|CustomizeToolPropertiesLiteral
+|ツール固有プロパティ
+
+|CustomizeToolTypeAllTypes
+|すべてのツール
+
+|CustomizeToolTypeButton
+|ボタン
+
+|CustomizeToolTypeButtonInstanceName
+|ButtonTool
+
+|CustomizeToolTypeCombobox
+|ComboBox
+
+|CustomizeToolTypeComboboxInstanceName
+|ComboBoxツール
+
+|CustomizeToolTypeControlContainer
+|コントロール コンテナー
+
+|CustomizeToolTypeControlContainerInstanceName
+|ControlContainer ツール
+
+|CustomizeToolTypeFontList
+|フォント リスト
+
+|CustomizeToolTypeFontListInstanceName
+|FontList ツール
+
+|CustomizeToolTypeLabel
+|Label
+
+|CustomizeToolTypeLabelInstanceName
+|LabelTool
+
+|CustomizeToolTypeList
+|リスト
+
+|CustomizeToolTypeListInstanceName
+|ListTool
+
+|CustomizeToolTypeMaskedEdit
+|マスク編集
+
+|CustomizeToolTypeMaskedEditInstanceName
+|MaskedEditTool
+
+|CustomizeToolTypeMDIWindowList
+|MDI ウィンドウ リスト
+
+|CustomizeToolTypeMDIWindowListInstanceName
+|MDIWindowListTool
+
+|CustomizeToolTypePopupColorList
+|ポップアップ色選択
+
+|CustomizeToolTypePopupColorListInstanceName
+|PopupColorPicker ツール
+
+|CustomizeToolTypePopupControlContainer
+|ポップアップ コントロール コンテナー
+
+|CustomizeToolTypePopupControlContainerInstanceName
+|PopupControlContainerTool
+
+|CustomizeToolTypePopupGallery
+|ポップアップ ギャラリー
+
+|CustomizeToolTypePopupGalleryInstanceName
+|PopupGalleryTool
+
+|CustomizeToolTypePopupMenu
+|ポップアップ メニュー
+
+|CustomizeToolTypePopupMenuInstanceName
+|PopupMenuTool
+
+|CustomizeToolTypeProgressBar
+|ProgressBar
+
+|CustomizeToolTypeProgressBarInstanceName
+|ProgressBarTool
+
+|CustomizeToolTypeStateButton
+|ステート ボタン
+
+|CustomizeToolTypeStateButtonInstanceName
+|StateButtonTool
+
+|CustomizeToolTypeTaskPane
+|タスク ペイン
+
+|CustomizeToolTypeTaskPaneInstanceName
+|TaskPaneTool
+
+|CustomizeToolTypeTextbox
+|TextBox
+
+|CustomizeToolTypeTextboxInstanceName
+|TextBoxTool
+
+|DefaultAction_ButtonTool_On_Toolbar
+|押す
+
+|DefaultAction_Item_On_Menu
+|実行
+
+|DefaultAction_Popup_Closed
+|開く
+
+|DefaultAction_Popup_Opened
+|閉じる
+
+|DefaultAction_RibbonCaptionButton
+|押す
+
+|DefaultAction_RibbonGroupButtonClose
+|開く
+
+|DefaultAction_RibbonGroupButtonOpen
+|閉じる
+
+|DefaultAction_RibbonPagerButton
+|押す
+
+|DefaultApplicationName
+|レガシー
+
+|DefaultCaptionForFileMenuButton
+|ファイル
+
+|DefaultReservedKeyTipToolTipText
+|&lt;P style="margin-left:16px;margin-right:15px;margin-top:5px"&gt; {0} メニューの一連のキー入力を継続するか、&lt;BR/&gt; エスケープキーを押してキャンセルしてください。&lt;/P&gt;
+
+|DefaultReservedKeyTipToolTipTitle
+|{0} アクセス キー
+
+|DescToolTipDlgNewBlankWeb
+|ドキュメント ウィンドウに新しい空白の Web ページを作成します。
+
+|DescToolTipDlgNewWebPage
+|新しい Web ページ
+
+|DescToolTipDlgNoHelp
+|この項目と関連付けられたヘルプ トピックはありません。
+
+|DeserializationError
+|ストリームのシリアル化を解除するときにエラーが発生されました。
+
+|DesignMiniToolbar
+|ミニ ツールバーのデザイン
+
+|DisableOffice2007UICompatibility
+|Office 2007 UI 互換性を無効化
+
+|DockAreaNameSuffix
+|_Toolbars_Dock_Area_
+
+|DockWithinContainerNotTopLevelForm
+|リボンが表示されていて Office2007UICompatibility が有効な間は DockWithinContainer は一番上のフォームにのみ設定することができます。
+
+|DragToolErrorTitle
+|ツールのドラッグ エラー
+
+|EnableOffice2007UICompatibility
+|Office 2007 UI 互換性を有効化
+
+|ErrorMessageCaption
+|UltraToolbarsManager
+
+|ExistingToolDlg_Category
+|分類(&C):
+
+|ExistingToolDlg_Close
+|閉じる(&C)
+
+|ExistingToolDlg_Insert
+|挿入(&I)
+
+|ExistingToolDlg_Title
+|既存ツールの追加
+
+|ExistingToolDlg_ToolType
+|ツールの種類(&T)
+
+|FontListTool_Exception_CannotSetValueList
+|FontListTool の ValueList プロパティは設定できません。
+
+|GalleryFilterListClosedDefaultAction
+|開く
+
+|GalleryFilterListOpenedDefaultAction
+|閉じる
+
+|GalleryItemButtonDefaultAction
+|押す
+
+|GalleryItemStateButtonDefaultAction
+|選択
+
+|GalleryPreviewButton_Row
+|行 {1} の {0}
+
+|GalleryPreviewButton_RowRange
+|行 {2} の {0}-{1}
+
+|GalleryPreviewDropDown_ToolTipTitle
+|多い
+
+|GroupsCollectionEditorDlg_Add
+|追加 >>
+
+|GroupsCollectionEditorDlg_AllGroupsNotInAnyFilter
+|どのフィルターにも存在しないグループの全て
+
+|GroupsCollectionEditorDlg_AllGroupsNotInThisFilter
+|このフィルターに存在しないグループの全て
+
+|GroupsCollectionEditorDlg_AvailableGroupsCaption
+|利用可能なグループ
+
+|GroupsCollectionEditorDlg_Cancel
+|キャンセル
+
+|GroupsCollectionEditorDlg_GroupsInFilterCaption
+|フィルターのグループ
+
+|GroupsCollectionEditorDlg_OK
+|OK
+
+|GroupsCollectionEditorDlg_Remove
+|<< 削除
+
+|HideRibbonButtonCaption
+|リボンを非表示
+
+|ImageEditor_LoadFileFilter
+|すべての画像ファイル ($$*$$.bmp, $$*$$.gif, $$*$$.jpg, $$*$$.jpeg, $$*$$.png, $$*$$.ico)\|$$*$$.bmp;$$*$$.gif;$$*$$.jpg;$$*$$.jpeg;$$*$$.png;$$* $$.ico
+
+|ImageEditor_LoadFileTitle
+|開く
+
+|ImageEditor_LoadImageError
+|選択された画像ファイルが不正です。
+
+|ImageEditor_SaveFileFilter
+|ビットマップ ($$*$$.bmp)\|$$* $$.bmp
+
+|ImageEditor_SaveFileTitle
+|名前を付けて保存
+
+|ImageEditor_SaveImageError
+|指定の位置にファイルを保存できません。- {0}
+
+|ImgSelectionCtrlImageListLargeNotSet
+|<ToolbarsManager の ImageListLarge プロパティが設定されていません。>
+
+|ImgSelectionCtrlImageListSmallNotSet
+|<ToolbarsManager の ImageListSmall プロパティが設定されていません。>
+
+|ImgSelectionCtrlRemoveImage
+|画像の削除(&R)
+
+|ImgSelectionCtrlSelFromFile
+|ファイルから選択(&F)...
+
+|ImgSelectionCtrlSelFromImgList
+|画像リストから選択(&E)
+
+|ImportDlgAddImagesToImageList
+|インポートされる画像を画像リストに追加し、インポートされるツールの画像プロパティに画像インデックスを設定する(&D)
+
+|ImportDlgAddToLargeImageList
+|ImageListLarge に追加(&G)
+
+|ImportDlgAddToSmallImageList
+|ImageListSmall に追加(&M)
+
+|ImportDlgAssign
+|インポートするツールを以下の分類に入れる(&A):
+
+|ImportDlgAssignImagesToImageProp
+|インポートされる画像をインポートされるツールの Image プロパティに直接設定する(&D)
+
+|ImportDlgAssignToLargeImage
+|大きい画像に割り当てる(&L)
+
+|ImportDlgAssignToSmallImage
+|小さい画像に割り当てる(&S)
+
+|ImportDlgCancel
+|キャンセル(&C)
+
+|ImportDlgImport
+|インポート(&I)
+
+|ImportDlgImported
+|インポートされました
+
+|ImportDlgImporting
+|インポート中...
+
+|ImportDlgImportMainMenu
+|メイン メニューのインポート
+
+|ImportDlgImportToolbarControls
+|ツールバー コントロールのインポート
+
+|ImportDlgMenuImport
+|次のメニュー構造をインポートします(&T):
+
+|ImportDlgOptions
+|オプション
+
+|ImportDlgSelectToolbarControls
+|インポートするツールバー コントロールを選択してください(&E):
+
+|ImportMainMenuDlg_ImportError
+|メニューのインポート中にエラーが発生しました。
+
+|ImportMainMenuDlg_ImportErrorTitle
+|インポート エラー
+
+|ImportMainMenuDlg_ImportSuccessful
+|フォームのメイン メニューが正常にインポートされました。
+
+|ImportMainMenuDlg_ImportSuccessfulTitle
+|インポート完了
+
+|ImportToolbarControlsDlg_ImportError
+|ツールバー コントロールのインポート中にエラーが発生しました。
+
+|ImportToolbarControlsDlg_ImportErrorTitle
+|インポート エラー
+
+|ImportToolbarControlsDlg_ImportSuccessful
+|選択されたツールバー コントロールが正常にインポートされました。
+
+|ImportToolbarControlsDlg_ImportSuccessfulTitle
+|インポート完了
+
+|ImportToolsWizard_Back
+|< 戻る(&B)
+
+|ImportToolsWizard_Cancel
+|キャンセル
+
+|ImportToolsWizard_Caption
+|キャプション
+
+|ImportToolsWizard_Category
+|分類
+
+|ImportToolsWizard_ChooseLayoutOverview
+|ツールやツールバーのレイアウトが保存されているファイルを選択してください。
+
+|ImportToolsWizard_ChooseLayoutSubtitle
+|インポートするツールやツールバーを含むレイアウト ファイルを指定します。
+
+|ImportToolsWizard_ChooseLayoutTitle
+|レイアウト ファイルの選択
+
+|ImportToolsWizard_FileNameTitle
+|レイアウト ファイル:
+
+|ImportToolsWizard_Finish
+|完了
+
+|ImportToolsWizard_ImportingSubtitle
+|なし
+
+|ImportToolsWizard_ImportingTitle
+|インポート中
+
+|ImportToolsWizard_ImportTaskMenuTools
+|ポップアップ メニュー ツールのコレクションを更新しています...
+
+|ImportToolsWizard_ImportTaskRootTools
+|ルート ツールを作成しています...
+
+|ImportToolsWizard_ImportTaskToolbars
+|ツールバーを更新しています...
+
+|ImportToolsWizard_Key
+|キー
+
+|ImportToolsWizard_Next
+|次へ(&N) >
+
+|ImportToolsWizard_OpenLayoutFilter
+|バイナリ ファイル ($$*$$.dat)\|$$*$$.dat\|XML ファイル ($$*$$.xml)\|$$*$$.xml\|すべてのファイル ($$*$$.$$*$$)\|$$*$$.$$* $$
+
+|ImportToolsWizard_OpenLayoutTitle
+|レイアウト ファイルの選択
+
+|ImportToolsWizard_OverallProgressLabel
+|ツールバーとツールをインポートしています...
+
+|ImportToolsWizard_SelectMenusOverview
+|インポートする「ポップアップ メニュー」ツールを選択してください。デフォルトでは、「ポップアップ メニュー」ツールの Tools コレクションに含まれるすべてのツールがインポートされます。
+
+|ImportToolsWizard_SelectMenusSubtitle
+|インポートするポップアップ メニューをチェックしてください。
+
+|ImportToolsWizard_SelectMenusTitle
+|ポップアップ メニュー ツール の選択
+
+|ImportToolsWizard_SelectToolbarsOverview
+|インポートするツールバーをチェックします。デフォルトでは、選択されたツールバーにあるすべてのツールがインポートされます。これには、ツールバー上に配置されている「ポップアップ メニュー」ツールに属するツールも含まれます。
+
+|ImportToolsWizard_SelectToolbarsSubtitle
+|インポートするツールバーをチェックしてください。
+
+|ImportToolsWizard_SelectToolbarsTitle
+|ツールバーの選択
+
+|ImportToolsWizard_SelectToolsOverview
+|インポートするツールをチェックします。デフォルトでは、直前のステップでチェックされたツールバーやポップアップ メニュー上のツールがチェックされています。
+
+|ImportToolsWizard_SelectToolsSubtitle
+|インポートするルート ツールをチェックしてください。
+
+|ImportToolsWizard_SelectToolsTitle
+|ツールの選択
+
+|ImportToolsWizard_Shortcut
+|ショートカット
+
+|ImportToolsWizard_Title
+|ツールバー & ツール インポート ウィザード
+
+|ImportToolsWizard_ToolbarType
+|Type
+
+|ImportToolsWizard_ToolbarTypeMenubar
+|メイン メニュー
+
+|ImportToolsWizard_ToolbarTypeToolbar
+|ツールバー
+
+|ImportToolsWizard_ToolType
+|種類
+
+|InvalidActivationActionDelay
+|アクティブ化への遅延アクションはマイナスに設定できません。
+
+|InvalidActivationInitialActionDelay
+|アクティブ化への初期遅延アクションは -1 以下に設定できません。
+
+|InvalidArgumentType
+|'{0}' は型 '{1}' でなければなりません。
+
+|InvalidDefaultableBooleanValue
+|DefaultableBoolean に対して無効な値です。
+
+|InvalidGalleryArea
+|指定したギャラリーは無効です。
+
+|InvalidMaxDropDownColumns
+|ドロップダウン列の最大数をマイナスにすることはできません。
+
+|InvalidMaxPreviewColumnsMustBePositive
+|1 つ以上のプレビュー列がなければなりません。
+
+|InvalidMaxPreviewColumnsMustBeUnder256
+|ドロップダウン列の最大数を 255 以上にすることはできません。
+
+|InvalidMinDropDownColumns
+|ドロップダウン列は 1 つ以下にはならないはずです。
+
+|InvalidMinPreviewColumns
+|1 つ以上のプレビュー列がなければなりません。
+
+|InvalidPopupStyleForMenu
+|指定したポップアップ スタイルはこのメニュー タイプでは無効です。
+
+|InvalidPreferredDropDownColumns
+|なるべくドロップダウン列はドロップダウン列の最小値と最大値で設定してください。
+
+|InvalidRibbonDropdownState
+|リボンが最小化されて表示されている時のみにドロップダウン メソッドは使用することができます。
+
+|InvalidToolRowCount
+|ミニ ツールバーの行数は正数でなければなりません。
+
+|ItemBelongsToDifferentToolbarsManager
+|'{0}' は他の UltraToolbarsManager インスタンスに関連づいています。
+
+|ItemsCollectionEditorDlg_AllItemsNotInAnyGroup
+|どのグループにも存在しない項目の全て
+
+|ItemsCollectionEditorDlg_AllItemsNotInThisGroup
+|このグループに存在しない項目の全て
+
+|ItemsCollectionEditorDlg_AvailableItems
+|利用可能な項目
+
+|ItemsCollectionEditorDlg_ItemsInGroup
+|グループ内のインデックス
+
+|KeyAlreadyExists
+|キーが既に存在します。
+
+|KeyTipTooLong
+|キーチップは 3 文字までです。
+
+|LockToolbars
+|ツールバーをロック(&L)
+
+|MdiCommandArrangeIcons
+|並べて表示(&A)
+
+|MdiCommandCascade
+|重ねて表示(&C)
+
+|MdiCommandCloseWindows
+|すべてのウィンドウを閉じる(&L)
+
+|MdiCommandMinimizeWindows
+|すべてのウィンドウを最小化する
+
+|MdiCommandTileHorizontal
+|上下に並べて表示(&Z)
+
+|MdiCommandTileVertical
+|左右に並べて表示(&V)
+
+|MinimizeRibbon
+|リボンを最小化(&N)
+
+|MiniToolbarDesignerDescription
+|ミニ ツールバーのコンテンツを以下に編集:
+
+|MiniToolbarDesignerOK
+|OK
+
+|MiniToolbarDesignerText
+|ミニ ツールバー デザイナー
+
+|MiniToolbarDesignerToolRowCount
+|ツール行のカウント:
+
+|MoreCommands
+|他のコマンド(&M)
+
+|MoreItemsDlgClose
+|閉じる(&C)
+
+|MoreItemsDlgTitle
+|その他の項目...
+
+|MoreItemsDlgTitleOK
+|&Ok
+
+|MoreItemsPrompt
+|その他の項目...(&M)
+
+|MoreWindowsDlgActivate
+|アクティブにする(&A)
+
+|MoreWindowsDlgActivate_AccessibleDescription
+|選択されたウィンドウをアクティブ化する
+
+|MoreWindowsDlgArrangeIcons
+|アイコンを配列(I)
+
+|MoreWindowsDlgArrangeIcons_AccessibleDescription
+|全てのウィンドウ アイコンを配置します。
+
+|MoreWindowsDlgCascade
+|重ねて表示(&D)
+
+|MoreWindowsDlgCascade_AccessibleDescription
+|全てのウィンドウを重ねて表示します。
+
+|MoreWindowsDlgClose
+|閉じる(&L)
+
+|MoreWindowsDlgCloseWindows
+|ウィンドウを閉じる(&C)
+
+|MoreWindowsDlgCloseWindows_AccessibleDescription
+|全ての選択されたウィンドウを閉じる
+
+|MoreWindowsDlgMinWindows
+|ウィンドウの最小化
+
+|MoreWindowsDlgMinWindows_AccessibleDescription
+|全てのウィンドウを最小化します。
+
+|MoreWindowsDlgMoreWindows
+|その他のウィンドウ...
+
+|MoreWindowsDlgTileHorz
+|上下に並べて表示(&H)
+
+|MoreWindowsDlgTileHorz_AccessibleDescription
+|全てのウィンドウを水平に並べる
+
+|MoreWindowsDlgTileVert
+|左右に並べて表示(&V)
+
+|MoreWindowsDlgTileVert_AccessibleDescription
+|全てのウィンドウを垂直に並べる
+
+|MoreWindowsPrompt
+|その他のウィンドウ...(&M)
+
+|NavigationMenu_ToolDoesNotExist_Exception
+|ツールがナビゲーション メニューに存在しません。
+
+|NavigationMenu_ToolNotVisibleEnabled_Exception
+|ツールを表示および有効にする必要があります。
+
+|NavigationToolbarCantBeCloned
+|ナビゲーション ツールバーをクローンできません。
+
+|NewSelectedGroupFilterNotInCollection
+|GroupFilters コレクションにその新しいフィルターはありません。
+
+|NewSelectedItemNotInCollection
+|項目コレクションにその新しい項目はありません。
+
+|NewToolbarButtonCaption
+|新しいツールバー...
+
+|NewToolPlaceHolderCaption
+|[ツールの新規追加]
+
+|NoneLiteral
+|(なし)
+
+|NoSelectedItemWhenItemStyleIsButton
+|ItemStyleがボタンの時選択された項目は無いはずです。
+
+|OptionSetEditorAddError
+|新しい OptionSet の追加中にエラーが発生しました。
+
+|OptionSetEditorAddErrorTitle
+|OptionSet の追加エラー
+
+|OptionSetEditorConfirmDelete
+|OptionSet '{0}' を削除しますか。
+
+|OptionSetEditorConfirmDeleteTitle
+|OptionSet の削除確認
+
+|OptionSetEditorNameError
+|OptionSet の名前を指定してください。
+
+|OptionSetEditorNameErrorTitle
+|OptionSet の名前
+
+|OptionSetEditorNameExistsError
+|'{0}' 名前の OptionSet は既に存在します。別の名前を指定してください。
+
+|OptionSetEditorNameExistsErrorTitle
+|OptionSet の名前の重複
+
+|OptionSetsToStringLiteral
+|項目数:
+
+|OptionSetTypeEditFrmAddNew
+|OptionSet の追加(&A)
+
+|OptionSetTypeEditFrmAllowAllUp
+|全未選択を許可(&U)
+
+|OptionSetTypeEditFrmAllowAllUpNoSpace
+|AllowAllUp
+
+|OptionSetTypeEditFrmClose
+|閉じる
+
+|OptionSetTypeEditFrmEnter
+|Enter
+
+|OptionSetTypeEditFrmName
+|名前(&N)
+
+|OptionSetTypeEditFrmNameColHeader
+|名前
+
+|OptionSetTypeEditorDlg2AllowAllUp
+|このセットのすべてのボタンが未チェック状態になるのを許可(&A)
+
+|OptionSetTypeEditorDlg2Cancel
+|キャンセル
+
+|OptionSetTypeEditorDlg2Name
+|名前(&N)
+
+|OptionSetTypeEditorDlg2New
+|新しい OptionSet
+
+|OptionSetTypeEditorDlg2Ok
+|OK
+
+|OptionSetTypeEditorDlgClose
+|閉じる(&C)
+
+|OptionSetTypeEditorDlgManage
+|OptionSet の管理
+
+|OptionSetTypeEditorDlgNew
+|新しい OptionSet(&N)...
+
+|OptionSetTypeEditorDlgRemove
+|削除(&R)...
+
+|OwningGroupNeededWhenGalleryHasGroups
+|ギャラリーにグループが含まれている場合、所有しているグループを Null にすることはできません。
+
+|PopupColorPickerToolActionList_P_SelectedColor_Desc
+|ポップアップ カラー ツールの選択色を指定します。
+
+|PopupColorPickerToolActionList_P_SelectedColor_Text
+|SelectedColor
+
+|PopupColorPickerToolActionList_P_ShowAutomaticColor_Desc
+|SystemColors.WindowText を設定するための「自動」ボタンを表示するかどうかを決定します。
+
+|PopupColorPickerToolActionList_P_ShowAutomaticColor_Text
+|自動色表示
+
+|PopupColorPickerToolActionList_P_ShowTransparentColor_Desc
+|Color.Transparent をあらわす項目をドロップダウンに表示するかどうかを決定します。
+
+|PopupColorPickerToolActionList_P_ShowTransparentColor_Text
+|透明色表示
+
+|PopupControlContainerToolActionList_P_Control_Desc
+|このポップアップ コントロール コンテナーに配置するコントロールを指定します。
+
+|PopupControlContainerToolActionList_P_Control_Text
+|コントロール
+
+|PopupGalleryFilterBar_Error
+|[エラー]
+
+|PopupGalleryTool_FilterKeyNotFound
+|キー {0} のフィルターが見つかりません
+
+|PopupGalleryTool_ItemKeyNotFound
+|キー {0} のある項目が見つかりません
+
+|PopupGalleryTool_ItemReferenceConverter_None
+|(なし)
+
+|PopupMenuDesigner_AvailableTools
+|利用可能なツール:
+
+|PopupMenuDesigner_CurrentMenu
+|現在のメニュー:
+
+|PopupMenuDesigner_Instructions
+|以下はメニューに配置可能なツールのリストです。左のコンボボックスから更新したいメニューを選択し、リストから左のリストへツールをドラッグしてください。
+
+|PopupMenuDesigner_NewMenu
+|追加...
+
+|PopupMenuToolActionList_P_IsSideStripVisible_Desc
+|メニューのサイド ストリップを表示するかどうかを指定します。これは Settings.IsSideStripVisible プロパティを設定します。
+
+|PopupMenuToolActionList_P_IsSideStripVisible_Text
+|IsSideStripVisible
+
+|PopupMenuToolActionList_P_PopupStyle_Desc
+|メニューのポップアップ スタイルを指定します。これは Settings.PopupStyle プロパティを設定します。
+
+|PopupMenuToolActionList_P_PopupStyle_Text
+|PopupStyle
+
+|PopupMenuToolActionList_P_SideStripText_Desc
+|メニューのサイド ストリップに表示されるテキストを指定します。これは Settings.SideStripText プロパティを設定します。
+
+|PopupMenuToolActionList_P_SideStripText_Text
+|SideStrip テキスト
+
+|PopupToolBase_InvalidDropOntoHiddenGroup
+|非表示になっているグループ上にツールをドロップダウンすることはできません。
+
+|PopupToolBaseActionList_P_Checked_Desc
+|このポップアップ ツールがチェック状態であるかどうかを決定します。
+
+|PopupToolBaseActionList_P_Checked_Text
+|チェック
+
+|PopupToolBaseActionList_P_DropDownArrowStyle_Desc
+|ドロップダウン矢印のスタイルを指定します。
+
+|PopupToolBaseActionList_P_DropDownArrowStyle_Text
+|DropDownArrowStyle
+
+|QatContextMenuTools_Cancel
+|キャンセル
+
+|QatContextMenuTools_Caption
+|クイック アクセス ツールバーのコンテキストメニュー ツール
+
+|QatContextMenuTools_OK
+|OK
+
+|QatQuickCustomizeHeader
+|クイック アクセス ツールバーをカスタマイズ
+
+|QatQuickCustomizeToolTip
+|クイック アクセス ツールバーをカスタマイズ
+
+|QatQuickCustomizeToolTipBumped
+|その他のコントロール
+
+|QuickAccessToolbarAboveRibbon
+|リボン上部にクイック アクセス ツールバーを表示(&S)
+
+|QuickAccessToolbarAboveRibbonCustomize
+|リボン上部に表示(&S)
+
+|QuickAccessToolbarBelowRibbon
+|リボン下部にクイック アクセス ツールバーを表示(&S)
+
+|QuickAccessToolbarBelowRibbonCustomize
+|リボン下部に表示(&S)
+
+|QuickCustomizeToolKeyTip
+|YY
+
+|QuickCustomizeToolTip2000
+|その他のボタン
+
+|QuickCustomizeToolTipXP
+|ツールバー オプション
+
+|RemoveFromQuickAccessToolbar
+|クイック アクセス ツールバーから削除(&R)
+
+|RemoveOptionSetContextMenuItem
+|削除(&R)...
+
+|ReservedKeyTipSequencePrefix
+|: ALT
+
+|ReservedKeyTipSequenceSeparator
+|,
+
+|ResetToolbar
+|ツールバーをリセット(&R)
+
+|ResolveDockWithinContainer_CancelCreation
+|'{0}' の作成をキャンセル(&A)
+
+|ResolveDockWithinContainer_Choose
+|DockWithinContainer プロパティを設定するオプションを選択:
+
+|ResolveDockWithinContainer_DialogTitle
+|DockWithinContainer プロパティの設定の解決
+
+|ResolveDockWithinContainer_DontSetProperty
+|DockWithinContainer プロパティを設定せずに続行(&C)
+
+|ResolveDockWithinContainer_DontShowDialogAgain
+|次回からこのダイアログを表示しない(&D)
+
+|ResolveDockWithinContainer_Heading
+|UltraToolbarsManager コンポーネントの DockWithinContainer プロパティにフォームを設定することができません。既に他の UltraToolbarsManager コンポーネント（または UltraFormManager コンポーネント）のドック領域がフォームに配置されています。
+
+|ResolveDockWithinContainer_OK
+|OK
+
+|ResolveDockWithinContainer_SetProperty
+|次のコントロールを DockWithinContainer プロパティに設定(&S):
+
+|Ribbon_CannotSetTabItemAreaDisplayStyle_Exception
+| Office2007Compatibility が有効の場合、リボンの TabItemAreaDisplayStyle を変更できません。 
+
+|Ribbon_CannotSetToAutoHide_Exception
+|AllowAutoHide が負の場合、DisplayMode を AutoHide に設定できません。 
+
+|Ribbon_ContainingGroupIsHidden
+|そのRibbonGroupは現在非表示です。
+
+|Ribbon_MinimumThreshold_Exception
+|しきい値の最小値は -1 です。
+
+|Ribbon_MustBeVisible
+|リボンは表示されてなくてはなりません。
+
+|Ribbon_SpecifiedGroupIsHidden
+|指定したグループは現在非表示です。
+
+|Ribbon_SpecifiedItemDoesNotBelongToRibbon
+|指定した項目はリボンに属していません。
+
+|Ribbon_SpecifiedTabIsHidden
+|指定したタブは現在非表示です。
+
+|Ribbon_TabIsHidden
+|そのRibbonTab は現在非表示です。
+
+|Ribbon_ToolIsHidden
+|指定したツールは現在非表示です。
+
+|RibbonCannotBeShownInContainer
+|Office2007UICompatibility が有効で UltraToolbarsManager の DockWithinContainer が一番上のフォームではない間はリボンを表示することはできません。
+
+|RibbonDisplayOptions
+| リボンの表示オプション 
+
+|RibbonDisplayOptions_AutoHide_Description
+| リボンを隠します。表示するには<BR/>上部をクリックします。 
+
+|RibbonDisplayOptions_AutoHide_Title
+| リボンを自動的に隠す 
+
+|RibbonDisplayOptions_Full_Description
+| リボン タブとコマンドを常に<BR/>表示します。 
+
+|RibbonDisplayOptions_Full_Title
+| タブとコマンドの表示 
+
+|RibbonDisplayOptions_TabsOnly_Description
+| リボン タブのみを表示します。タブを<BR/>クリックしてコマンドを表示します。 
+
+|RibbonDisplayOptions_TabsOnly_Title
+| タブの表示 
+
+|RibbonGroup_NotAddedToRibbon
+|そのグループはリボンに追加されていません。
+
+|RibbonGroupAlreadyInQat
+|ポップアップ リボン グループ ツールは既にこのグループのクイックアクセス ツールバーに追加されています。
+
+|RibbonGroupAutoGeneratePrefix
+|Z
+
+|RibbonGroupBelongsToDifferentTab
+|指定したグループは既に他のリボン タブに属しています。
+
+|RibbonGroupNotInRibbon
+|クイック アクセス ツールバーへオブジェクトを追加するには、グループはリボンのタブコレクションの一部でなくてはなりません。
+
+|RibbonMergingNotSupported
+|ActiveMdiChildManager と MdiParentManager のプロパティは、リボンがいずれかのマネージャーで使用されている時は読み取り専用になります。
+
+|RibbonNotSupportedWhenMerging
+|ツールバー マネージャーがいったんマージされるとリボンを表示させることはできません。
+
+|RibbonPinButton_Expand_TooltipText
+|リボンの展開
+
+|RibbonPinButton_Minimize_TooltipText
+|リボンの最小化
+
+|RibbonTab_TabAndGroupMustBelongToSameInstance
+|タブとコンテキスト タブ グループは同じリボン インスタンスに属していなければなりません。
+
+|RibbonTab_TabHasNotBeenAddedToRibbon
+|タブはリボンに追加されていません。
+
+|RibbonTab_TabMemberOfDifferentRibbon
+|指定されたタブは他のリボンに属しています。
+
+|RibbonTabItemToolbarCantBeCloned
+|リボンのタブ項目ツールバーはクローンすることができません。
+
+|RibbonTabKeyReserved
+|予約キー名を使用したタブを追加することはできません。
+
+|RootGalleryDoesNotDisplayItems
+|ルート ギャラリーは項目を表示しません。
+
+|SelectedGroupFilterMustBeNonNull
+|GroupFilters コレクションにフィルターが存在する場合、新しいフィルターを空にすることはできません。
+
+|SerializationError
+|データをストリームへシリアル化する際にエラーが発生しました。
+
+|ShowRibbonButtonCaption
+|リボンを表示
+
+|StateButtonToolActionList_P_Checked_Desc
+|状態ボタンがチェック状態かどうかを決定します。
+
+|StateButtonToolActionList_P_Checked_Text
+|チェック
+
+|StateButtonToolActionList_P_MenuDisplayStyle_Desc
+|状態ボタンをメニュー上でどのように表示するかを指定します。
+
+|StateButtonToolActionList_P_MenuDisplayStyle_Text
+|MenuDisplayStyle
+
+|StateButtonToolActionList_P_OptionSet_Desc
+|状態ボタンに割り当てるオプション セットを指定します。
+
+|StateButtonToolActionList_P_OptionSet_Text
+|OptionSet
+
+|TaskPane_ControlWillDisplayAtRuntime
+|コントロール ('{0} [{1}]') はランタイムに表示されます。
+
+|TaskPane_SelectedTaskPaneControlNotSet
+|コントロールは設定されていません。
+
+|TaskPane_SelectedTaskPaneNotSet
+|SelectedTaskPaneTool は設定されていません。
+
+|TaskPaneBackButtonToolTip
+|戻る
+
+|TaskPaneForwardButtonToolTip
+|進む
+
+|TaskPaneHomeButtonToolTip
+|ホーム
+
+|TaskPaneNavigationMenuToolTip
+|他のタスク ペイン
+
+|TaskPaneNextButtonToolTip
+|次へ
+
+|TaskPanePreviousButtonToolTip
+|前へ
+
+|TearawayToolBaseActionList_P_AllowTearaway_Desc
+|ポップアップ ツールを切り離してフロート状態にするのを許可するかどうかを決定します。
+
+|TearawayToolBaseActionList_P_AllowTearaway_Text
+|切り離し許可
+
+|TearawayToolTip
+|ドラッグするとメニューを切り離せます。
+
+|TextBoxToolActionList_P_MaxLength_Desc
+|テキスト ボックスに入力可能なテキスト文字列の最大長を設定します。
+
+|TextBoxToolActionList_P_MaxLength_Text
+|MaxLength
+
+|TextBoxToolActionList_P_Text_Desc
+|テキスト ボックスに表示するテキストを指定します。
+
+|TextBoxToolActionList_P_Text_Text
+|テキスト
+
+|TextBoxToolActionList_P_VerticalDisplayStyle_Desc
+|ツールバーを垂直にドッキングするときにテキスト ボックスをどのように表示するかを指定します。
+
+|TextBoxToolActionList_P_VerticalDisplayStyle_Text
+|VerticalDisplayStyle
+
+|ToolbarCloseButtonToolTip
+|閉じる
+
+|ToolBaseActionList_P_Caption_Desc
+|このツールのキャプションを設定します。
+
+|ToolBaseActionList_P_Caption_Text
+|キャプション
+
+|ToolBaseActionList_P_DisplayStyle_Desc
+|このツールの表示スタイルを設定します。
+
+|ToolBaseActionList_P_DisplayStyle_Text
+|表示スタイル
+
+|ToolBaseActionList_P_Key_Desc
+|このツールを一意に識別する文字列を設定します。
+
+|ToolBaseActionList_P_Key_Text
+|キー
+
+|ToolBaseActionList_P_Shortcut_Desc
+|このツールを選択するために使用するショートカット キーの組み合わせを指定します。
+
+|ToolBaseActionList_P_Shortcut_Text
+|ショートカット
+
+|ToolBaseActionList_P_ToolTipText_Desc
+|このツールにマウス カーソルを合わせたときに表示するテキストを設定します。
+
+|ToolBaseActionList_P_ToolTipText_Text
+|ツールチップ テキスト
+
+|ToolBaseActionList_SharedProperties_Header
+|Shared プロパティ
+
+|ToolBaseActionList_ToolSpecificProperties_Header
+|ツール固有のプロパティ
+
+|ToolCount
+|{0} ツール
+
+|ToolEditErrorInvalidValue
+|ツールの値を更新することができません: {0}
+
+|ToolEditErrorMessageTitle
+|データ エラー
+
+|ToolsEditorControl_Add
+|追加(&A) >>
+
+|ToolsEditorControl_Modify
+|変更(&M)...
+
+|ToolsEditorControl_Remove
+|削除(&R)
+
+|ToolsEditorControl_Reset
+|リセット(&S)
+
+|UltraToolbarActionList_P_IsMainMenuBar_Desc
+|このツールバーをメイン メニュー バーにするかどうかを決定します。
+
+|UltraToolbarActionList_P_IsMainMenuBar_Text
+|IsMainMenuBar
+
+|UltraToolbarActionList_P_Key_Desc
+|このツールバーを一意に識別する文字列を設定します。
+
+|UltraToolbarActionList_P_Key_Text
+|キー
+
+|UltraToolbarActionList_P_Text_Desc
+|このツールバーがフローティング状態のときに表示されるテキストを設定します。
+
+|UltraToolbarActionList_P_Text_Text
+|テキスト
+
+|====

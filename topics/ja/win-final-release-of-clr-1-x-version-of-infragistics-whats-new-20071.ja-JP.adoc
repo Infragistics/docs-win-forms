@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-final-release-of-clr-1-x-version-of-infragistics-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{39FAFE62-97EF-4858-9595-5708B30EBC44}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics のバージョン CLR1.x の最終リリース
+
+2007 Volume 1 リリースでは、Infragistics は CLR 1.x および CLR 2.0 の両方のバージョンで Infragistics 製品に新しい機能を提供しました。2007 Volume 1 リリースは、弊社の Infragistics 製品が .NET Frameworks 1.0 および 1.1 でコンパイルされる最後のリリースとなります。開発者サポートは製品の CLR 1.x バージョンで継続し、製品メンテナンスは CLR 1.x コンパイル ビットの以下のリリースで 1 年間利用可能です。
+
+Microsoft® Visual Studio® 2005 .NET Framework 2.0 でネイティブ コンパイルされた Infragistics の新しい機能および製品を Infragistics は継続してリリースします。これによって、弊社の R&D、Quality Assurance、Developer Support、Technical Communications チームで開発サイクルを合理化し、可能な限り最大範囲で最新の技術を活用するために新しい製品および機能を提供することができます。

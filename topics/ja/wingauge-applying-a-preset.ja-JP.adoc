@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-applying-a-preset",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{22A6BD0D-77DD-42DE-84FC-AC4ED5BCF912}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プリセットを適用
+
+ゲージ デザイナからプリセットを適用すると、プリセットがフォームに追加されます。これでゲージを使用する視覚的に印象的なアプリケーションを作成することができます。
+
+*Gauge コントロールにプリセットを適用するには、次の手順に従ってください。*
+
+[start=1]
+. ツールボックスから、UltraGauge コントロールをフォームにドラッグします。ゲージ デザイナが開きます。
+
+image::images/Gauge_Creating_a_Radial_Gauge_Using_the_Gauge_Designer_01.png[]
+
+[start=2]
+. ツールバーで、[プリセットを開く] をクリックします。[ゲージ プリセット] ダイアログ ボックスがデフォルトで [放射型] タブが選択された状態で開きます。
+
+image::images/Gauge_Creating_a_Radial_Gauge_Using_the_Gauge_Designer_02.png[]
+[start=3]
+. 事前に定義されたラジアル ゲージを選択します。ゲージを選択すると、インタラクティブなプレビュー領域にそのゲージが表示します。
+
+image::images/Gauge_Creating_a_Radial_Gauge_Using_the_Gauge_Designer_03.png[]
+
+[start=4]
+. ゲージ デザイナを閉じることなく選択したプリセットを使用してラジアル ゲージを作成するには、[適用] をクリックします。選択したプリセットを使用してラジアル ゲージを作成しデザイナを自動的に閉じるには、[適用して閉じる] をクリックします。

@@ -1,0 +1,127 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-default-keyactionmappings-for-winformattedtexteditor",
+    "controlName": [],
+    "tags": ["Events","Tips and Tricks"],
+    "guid": "{84BCF200-DA6D-4DB0-8030-DFD0F445EEDD}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T12:11:51Z"
+}
+|metadata|
+////
+
+= WinFormattedTextEditor のデフォルト KeyActionMappings
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.keyactionmappingsbase.html[KeyActionMappings]"]  は、コントロールが認識するキーストロークのマップです。コントロールが認識する各キーストロークは動作を実行できます。一般的に、KeyActionMappings はキーボード ナビゲーションに使用されます。ただし、WinFormattedTextEditor の場合では、キーストロールはコンテンツの修正やフォーマッティングでも使用可能です。
+
+WinFormattedTextEditor の pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor~keyactionmappings.html[KeyActionMappings]"]  は、 link:win-plf-overview.html[Presentation Layer Framework™] で完全に編集できます。キーストロークのマッピングについての詳細は、「キーボード処理」を参照してください。
+
+以下の表は、WinFormattedTextEditor のデフォルト KeyActionMappings およびそれぞれの説明の完全なリストを提供しています。
+
+== ナビゲーション
+
+[options="header", cols="a,a"]
+|====
+
+|キー|アクション
+
+|左矢印
+|以前のカーソル位置に移動
+
+|右矢印
+|次のカーソル位置に移動
+
+|上矢印
+|前の行に移動
+
+|下矢印
+|次の行に移動
+
+|前ページ
+|前ページ操作を実行
+
+|次ページ
+|次ページ操作を実行
+
+|Ctrl + 左
+|前のワードに移動
+
+|Ctrl + 右
+|次のワードに移動
+
+|ホーム
+|現在の行の先頭に移動
+
+|End
+|現在の行の終わりに移動
+
+|Ctrl + ホーム
+|コンテンツ全体の先頭に移動
+
+|Ctrl + End
+|コンテンツ全体の終わりに移動
+
+|====
+
+[NOTE]
+====
+*注：* これらの操作を実行しながら Shift キーを押すと、コンテンツは選択に追加されます。これらの操作を実行しながら Shift キーを押さなければ、現在の選択はクリアされます。
+====
+
+== コンテンツの修正
+
+[options="header", cols="a, a"]
+|====
+
+|キー|アクション
+
+|Backspace
+|現在の選択を削除します。何も選択しなければ、カーソルの前の項目が削除されます。
+
+|削除
+|現在の選択を削除します。何も選択しなければ、カーソルの後の項目が削除されます。
+
+|Enter
+|改行を挿入します（視覚的にはキャリッジ リターンと同じ）。
+
+|Ctrl + A
+|エディタのコンテンツ全体を選択します。
+
+|Ctrl + C
+|現在の選択をクリップボードにコピーします。
+
+|Ctrl + X
+|現在の選択をカットします。コピー操作は、削除操作に続いて実行されます。
+
+|Ctrl + V
+|クリップボードのコンテンツをカーソルの位置に貼り付けます。
+
+|Ctrl + Z
+|最後の操作の実行および取り消しをします（たとえば、複数の挿入または削除）。
+
+|Ctrl + Y
+|最後の取り消し操作をやり直します。
+
+|====
+
+== キーストロークのフォーマッティング
+
+[options="header", cols="a, a"]
+|====
+
+|キー|アクション
+
+|Ctrl + B
+|太字に切り替えます。選択したテキストを太字にすると、このキーストロークはテキストの太字を解除します。またはその逆。選択部分だけを太字にしても、テキスト全体が太字になります。選択せずにこの操作を実行すると、カーソルの位置に入力した次の文字が太字になります。 
+
+何も存在しなければ、このキー コンビネーションは <span> タグを選択したテキストに追加し、Style 属性のフォント スタイルのサブ属性を使用します。太字をオフに切り替えると、太字が普通に変わります。
+
+|Ctrl + I
+|斜体に切り替えます。Ctrl + B のように動作しますが、Style 属性のフォントスタイルのサブ属性を操作します。
+
+|Ctrl + U
+|下線に切り替えます。Ctrl + B のように動作しますが、Style 属性のテキスト飾りのサブ属性を操作します。
+
+|====

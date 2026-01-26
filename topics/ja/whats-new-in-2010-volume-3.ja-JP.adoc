@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2010-volume-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "06ebece7-7167-48fd-9e53-63c870e9f1c3",  
+    "buildFlags": [],
+    "createdOn": "2010-09-10T14:36:27.6799751Z"
+}
+|metadata|
+////
+
+= 2010 Volume 3 の新機能
+
+{ProductName} 2010 Volume 3 のリリースには、Windows Forms のコントロールおよびコンポーネントの機能をこれまで以上に活用することができる多くの強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:whats-new-wintoolbarsmanager-office-2010-ribbon.html[WinToolbarsManager Office 2010 リボン]
+* link:whats-new-wintoolbarsmanager-wintoolbarsmanager-office-2010-style-application-menu.html[WinToolbarsManager Office 2010 スタイル アプリケーション メニュー]
+* link:whats-new-application-styling-new-office-2010-look-and-feel.html[新しい Office 2010 のルック アンド フィール]
+* link:whats-new-wineditors-windows-message-support-for-wineditor-controls.html[WinEditor コントロールに対する Windows メッセージのサポート]
+

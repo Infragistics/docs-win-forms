@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2008-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C7E01BCA-0F69-4810-BC9B-B10B0CC85078}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-12T08:48:38Z"
+}
+|metadata|
+////
+
+= 2008 Volume 1 の新機能
+
+{ProductName} 2008 Volume 1 のリリースには、Windows Formsのコントロールとコンポーネントをこれまで以上に活用することができるいくつかの強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:win-whats-new-2008-full-support-for-visual-studio-2008.html[Visual Studio 2008 のフルサポート]
+* link:win-new-close-button-for-wintab-and-wintabbedmdimanager.html[WinTab および WinTabbedMdiManager の新しい [閉じる] ボタン]
+* link:win-new-wintrackbar-control.html[新しい WinTrackBar コントロール]
+* link:wintree-whats-new-20081.html[WinTree 2008.1]
+* link:win-you-can-now-fit-all-winlistview-columns-in-the-available-space.html[使用可能な領域にすべての WinListView 列を収めることができる]

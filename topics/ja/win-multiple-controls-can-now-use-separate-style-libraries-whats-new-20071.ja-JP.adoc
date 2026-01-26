@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-multiple-controls-can-now-use-separate-style-libraries-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A7674AAC-FC1C-4D69-98DF-4D3C7295941A}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:07:13Z"
+}
+|metadata|
+////
+
+= 複数のコントロールが個別のスタイル ライブラリを使用可能となった
+
+ランタイムに、アプリケーション スタイリングが一度にサポートするメモリにロードされるスタイル ライブラリはひとつだけでした。特定のコントロールは同じスタイル ライブラリのスタイルセットを使用しなければならなかったため、これらはアプリケーション スタイリング機能を厳しく制限しました。
+
+このリリースでは、StyleLibraryName プロパティがスタイル可能なコントロールおよびコンポーネントに追加され、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.stylemanager~load(string,boolean,string).html[StyleManager.Load]"]  メソッドへのオーバーロードに一致します。StyleManager を介してスタイル ライブラリをロードするとき、識別を支援するために新しいオーバーロードを使用できます。これで任意のコントロールまたはコンポーネントに StyleLibraryName プロパティを設定して、ロードした特定のスタイル ライブラリと一致させます。これによって、コントロールごとに異なるライブラリからコントロール固有のスタイルセットを使用することが可能となります。より多くのカスタマイズが可能なスタイル エクスペリエンスを得ることができます。
+
+== 関連トピック
+
+link:styling-guide-loading-multiple-style-libraries.html[複数のスタイル ライブラリをロード]

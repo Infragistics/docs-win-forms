@@ -1,0 +1,19 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-tick-marks",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{B0F72771-3239-4115-BF92-47DBFC9D28EC}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 目盛
+
+このセクションは、目盛をスケールに追加する方法に関するタスクベースの手順だけでなく、WinGauge コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugescaletickmarkappearance.html[TickMark]"]  プロパティについて役に立つ情報を提供します。
+
+* link:wingauge-about-gauge-tick-marks.html[ゲージの目盛について] 
+* link:wingauge-add-tick-marks-to-a-scale-on-a-gauge.html[ゲージ上のスケールに目盛を追加]

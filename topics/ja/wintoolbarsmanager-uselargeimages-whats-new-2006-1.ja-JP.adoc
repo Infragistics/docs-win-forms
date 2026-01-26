@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-uselargeimages-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6CB61813-CA9B-4621-87BC-5CEDAEC0CD78}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= UseLargeImages
+
+UseLargeImages プロパティが、ToolbarSettings クラスと MenuSettings クラスに追加されました。このプロパティを使用すると、特定のツールバーまたはメニューを大きなイメージで表示するかどうかを指定できます。

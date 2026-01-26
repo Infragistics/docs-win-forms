@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-working-with-linear-gauges",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Getting Started"],
+    "guid": "{949BFD32-1D16-4BD3-BE8A-A33141E30A4A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リニア ゲージでの作業
+
+リニア ゲージは、視覚的に印象的なゲージを作成するために連動するさまざまなコンポーネントから構成されます。リニア ゲージを作成するには、リニア ゲージ固有のコンポーネントがどのように動作するのかを理解する必要があります。
+
+image::images/Gauge_Working_with_Linear_Gauges_01.png[]
+
+== スケール
+
+スケールはゲージの値のレンジを表示します。pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargauge~scales.html[Scales]"]  プロパティには、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugescale~labels.html[Labels]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugescale~markers.html[Markers]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugescale~majortickmarks.html[TickMarks]"]  を含むさまざまなプロパティが含まれています。
+
+===== 目盛
+
+ゲージのスケールの値を表示するために目盛をリニア ゲージに追加することができます。
+
+TickMarks プロパティには 2 つの属性があります。
+
+* 副目盛
+* 主目盛
+
+両方を構成して特定の値に「目盛」を表示することができます。主目盛は副目盛よりも通常大きいです。これらの目盛はスケールで n ごとの値を強調表示するように構成します。
+
+===== ラベル
+
+ラベルはスケールの点を表すために使用される数値またはテキスト値です。ラベルはスケール上の目盛と関連付けられます。
+
+== マーカー
+
+マーカーはスケール上の値を指し示すエレメントです。リニア ゲージでは、Marker プロパティには以下の 2 つの属性があります。
+
+* 針マーカー -- これらはスケール上の値を指し示すポインタとして表示されます。
+* バー マーカー -- これらはスケールの開始点と終了点を持つバーとして表示されます。

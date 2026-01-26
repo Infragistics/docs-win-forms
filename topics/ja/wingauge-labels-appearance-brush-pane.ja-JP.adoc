@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-labels-appearance-brush-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{EA58A564-9480-4DFC-87BF-5ED8739E8F4D}",  
+    "buildFlags": [],
+    "createdOn": "2010-06-04T12:02:24Z"
+}
+|metadata|
+////
+
+= ラベル外観のブラシ ペイン
+
+[ブラシ] ペインによってプロパティのブラシ タイプと色をカスタマイズできます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance~brushelement.html[ブラシ タイプ]"]  -- このドロップダウン リストによって、プロパティのブラシ タイプを変更できます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance~brushelement.html[ブラシの色]"]  -- 選択するブラシのタイプによって、ブラシの色のリストにそのブラシ タイプで使用可能な色が格納されます。
+
+相対バウンドのエディター -- このポップアップ メニューは link:wingauge-relative-bounds.html[相対バウンド] および link:wingauge-relative-clip-bounds.html[相対クリップ領域] の 2 つのバウンド エディターを表示します。ラベルのサイズおよび位置を設定できます。
+
+image::images/Brush_Pane_01.png[WinGauge のブラシ ペイン]
+
+== 関連トピック
+
+link:wingauge-appearance-tab.html[外観タブ]

@@ -1,0 +1,159 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttviewprintdocument-print-preview-with-winganttviewprintdocument",
+    "controlName": ["WinGanttView"],
+    "tags": ["How Do I","Printing"],
+    "guid": "0b4a00bb-0708-4522-b72b-6e799739e5bf",  
+    "buildFlags": [],
+    "createdOn": "2012-03-12T14:25:51.2578886Z"
+}
+|metadata|
+////
+
+= WinGanttViewPrintDocument を使用した印刷プレビュー
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは WinGanttViewPrintDocument™ の印刷プレビューの操作について説明します。このトピックでは具体的な例として、WinGanttViewPrintDocument™ と WinPrintPreviewDialog™ を使用して WinGanttView™ コントロールの印刷プレビューを行います。
+
+=== 必要な背景
+
+以下の表に、このトピックを理解するための前提条件として求められるトピックをリストします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winganttviewprintdocument-winganttviewprintdocument-features.html[WinGanttViewPrintDocument 機能]
+|WinGanttViewPrintDocument コンポーネントの機能を紹介します。
+
+|====
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Ref317523170,WinGanttView コントロールで印刷プレビュー使用する>>
+** <<_Ref317523196,概要>>
+** <<_Ref317523203,プレビュー>>
+** <<_Ref317523211,要件>>
+** <<_Ref317523217,手順>>
+
+* <<_Ref317523239,関連コンテンツ>>
+
+[[_Ref317523170]]
+== WinGanttView コントロールで印刷プレビュー使用する
+
+[[_Ref317523196]]
+
+=== 概要
+
+WinPrintPreviewDialog で、任意の .NET PrintDocument を使用します。.NET PrintDocument は WinGanttViewPrintDocument™ を含んでおり、これを使用して WinGanttView™ コントロールの印刷をします。
+
+[[_Ref317523203]]
+
+=== プレビュー
+
+以下のスクリーンショットは最終結果のプレビューです。
+
+image::images/Print_Preview_with_WinGanttViewPrintDocument_1.png[]
+
+[[_Ref317523211]]
+
+=== 要件
+
+この手順を行うには、以下が必要です。
+
+* フォームに UltraPrintPreviewDailog、UltraGanttViewPrintDocument、UltraCalendarInfo、および UltraGanttView の各コントロールを追加します。
+* フォームに UltraButton™ コントロールを追加し、Text プロパティを `‘Print Preview’`に設定します。
+* UltraGanttView コントロールをデータにバインドし、タスクとタスク情報を表示します。詳細については、 link:winganttview-databinding-support-for-winganttview.html[DataBinding Support for WinGanttView] のトピックを参照してください。
+
+[[_Ref317523217]]
+
+=== 手順
+
+以下のステップでは、WinGanttView、WinGanttViewPrintDocument および WinPrintPreviewDialog の各コントロールを設定して、GanttView コントロールを印刷プレビューします。
+
+=== UltraGanttView コントロールを UltraGanttViewPrintDocument コンポーネントに割り当てます。
+
+UltraGanttViewPrintDocument コンポーネントは link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview_members.html[GanttView] プロパティを表示し、このプロパティにはフォーム上の UltraGanttView コントロールを割り当てておく必要があります。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.ultraGanttViewPrintDocument1.GanttView = Me.ultraGanttView1
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraGanttViewPrintDocument1.GanttView = this.ultraGanttView1;
+----
+
+=== UltraGanttViewPrintDocument を UltraPrintPreviewDialog コンポーネントに割り当てます。
+
+UltraGanttViewPrintDocument コンポーネントは、UltraPrintPreviewDialog の link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}~infragistics.win.printing.ultraprintpreviewdialog~document.html[Document] プロパティに割り当ててください。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.ultraPrintPreviewDialog1.Document = Me.ultraGanttViewPrintDocument1
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraPrintPreviewDialog1.Document = this.ultraGanttViewPrintDocument1;
+----
+
+=== 印刷プレビュー ダイアログに WinGanttView コントロールを組み込みます。
+
+Print Preview ボタンのクリック イベントにこのコードを記述します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.ultraPrintPreviewDialog1.ShowDialog(Me)
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraPrintPreviewDialog1.ShowDialog(this);
+----
+
+=== アプリケーションの実行
+
+アプリケーションを実行し、Print Preview ボタンをクリックします。印刷プレビュー ダイアログがポップアップし、GanttView コントロールを表示します。
+
+[[_Ref317523239]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winganttviewprintdocument-winganttviewprintdocument-features.html[WinGanttViewPrintDocument 機能]
+|WinGanttViewPrintDocument™ コンポーネントの機能を紹介します。
+
+| link:winganttviewprintdocument-configuring-the-legend.html[凡例の構成]
+|WinGanttViewPrintDocument™ コンポーネントの凡例機能をご紹介します。
+
+| link:winganttviewprintdocument-customizing-the-print-version-of-the-winganttview-control.html[WinGanttView コントロールの印刷版をカスタマイズする]
+|このトピックでは link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttviewprintdocument~initializeganttview_ev.html[InitializeGanttView] イベントを使用して WinGanttView コントロールの印刷版をカスタマイズする方法についてコード例を用いて説明します。
+
+|====

@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-filter-options-to-filter-suggested-values",
+    "controlName": ["WinComboEditor"],
+    "tags": ["Filtering","Selection"],
+    "guid": "{5A0DE12A-A9D0-43F7-BDDE-4DF8830D16A9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 候補値をフィルターするフィルター オプション
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.autocompletemode.html[AutoCompleteMode] プロパティは、エンドユーザーが WinComboEditor™ のテキストボックスに入力すると可能な候補値をリストすることを可能にするさまざまな設定を提供します。 デフォルトで、AutoCompleteMode プロパティが Suggest または SuggestAppend に設定されると、テキストボックスに入力された文字で始まる項目のみリストされます。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.autosuggestfiltermode.html[AutoSuggestFilterMode] プロパティは StartWith と Contains のいずれかを選択するオプションを提供します。これにより特定の文字列で始まる、または特定の文字列を含むいずれかの候補の項目をエンドユーザーに提供することができます。
+
+[NOTE]
+====
+*注：* AutoSuggestFilterMode プロパティが 'Contains' に設定されると、'SuggestAppend' の AutoCompleteMode 設定は 'Suggest' に解決されます。つまり、編集部分に入力されたテキストのオート コンプリート機能が無効になりテキスト選択は変更されません。
+====
+
+[NOTE]
+====
+*注：* デフォルトで、AutoSuggestFilterMode が Contains に設定されると、自動補完セッションの間にエンドユーザーによって入力された文字列はドロップダウンの各項目内で強調表示されます。 この設定は link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist~formatfiltereditems.html[FormatFilteredItems] プロパティを使用して変更できます。
+====
+
+フォームに UltraComboEditor コントロールが含まれていることを前提として、以下の例のコードはエンドユーザーによって入力される文字列を含む項目をリストする方法を示します。 フォームの Load イベントに以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+'KnownColor 列挙体から色のリストを取得します。 
+For Each s As String In System.[Enum].GetNames(GetType(KnownColor)) 
+'各色を WinComboEditor の項目コレクションに追加します。 
+    Me.ultraComboEditor1.Items.Add(s) 
+Next 
+' WinComboEditor に可能な色を提案させます。 
+Me.ultraComboEditor1.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest 
+' エンド ユーザーが入力した文字を含むドロップダウン リストに項目を表示します。 
+Me.ultraComboEditor1.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains 
+' フィルターされた項目のテキストをフォーマットしません。
+' this.ultraComboEditor1.Items.ValueList.FormatFilteredItems = DefaultableBoolean.False
+----
+
+*C# の場合：*
+
+----
+//KnownColor 列挙体から色のリストを取得します。
+foreach (string s in System.Enum.GetNames(typeof(KnownColor)))
+{
+  //各色を WinComboEditor の項目コレクションに追加します。
+  this.ultraComboEditor1.Items.Add(s);
+}
+// WinComboEditor に可能な色を提案させます。
+this.ultraComboEditor1.AutoCompleteMode =Infragistics.Win.AutoCompleteMode.Suggest;
+// エンド ユーザーが入力した文字を含むドロップダウン リストに項目を表示します。
+this.ultraComboEditor1.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+// フィルターされた項目のテキストをフォーマットしません。
+// this.ultraComboEditor1.Items.ValueList.FormatFilteredItems = DefaultableBoolean.False;
+----
+
+image::images/WinComboEditor_Filter_Options_to_Filter_Suggested_Values_01.png[]

@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-wintimelineview-printing",
+    "controlName": ["WinTimelineView"],
+    "tags": ["How Do I"],
+    "guid": "{1DA8FA56-8F3A-48E6-A296-15BE50DE1AFF}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-12T15:05:21Z"
+}
+|metadata|
+////
+
+= WinTimelineView の印刷
+
+WinTimelineView™ のコンテンツを印刷する場合、コントロールの link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~initializetimelineview_ev.html[InitializeTimelineView] イベントを使用して、印刷される出力表示に必要と思われる任意の調整を行うことができます。 このイベントは、印刷作業中にコントロールが作成されると起動されます。
+
+このトピックは、UltraTimelineView コントロールと共にフォームに UltraSchedulePrintDocument コンポーネントがドロップされていることを前提とします。 コントロールの印刷は、実際には WinSchedulePrintDocument™ および WinPrintPreviewDialog™ コンポーネントの機能です。 詳細は、 link:winprintpreviewdialog-winscheduleprintdocument-using-winprintpreviewdialog-with-winscheduleprintdocument.html[WinSchedulePrintDocument での WinPrintPreviewDialog の使用]を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Dim timelineViewDocument As New UltraSchedulePrintDocument()
+AddHandler timelineViewDocument.InitializeTimelineView, AddressOf timelineViewDocument_InitializeTimelineView
+Private Sub timelineViewDocument_InitializeTimelineView(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinSchedule.Printing.InitializeTimelineViewEventArgs)
+    ' 時間間隔の自動調整を禁止します
+    e.AllowAdjustmentOfPrimaryInterval = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+UltraSchedulePrintDocument timelineViewDocument = new UltraSchedulePrintDocument();
+timelineViewDocument.InitializeTimelineView += new Infragistics.Win.UltraWinSchedule.Printing.InitializeTimelineViewEventHandler(timelineViewDocument_InitializeTimelineView);
+void timelineViewDocument_InitializeTimelineView(object sender, Infragistics.Win.UltraWinSchedule.Printing.InitializeTimelineViewEventArgs e)
+{
+// 時間間隔の自動調整を禁止します
+e.AllowAdjustmentOfPrimaryInterval = false;
+}
+----

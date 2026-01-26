@@ -1,0 +1,95 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-focus-on-a-cell-for-editing",
+    "controlName": ["WinGrid"],
+    "tags": ["Editing","Grids","How Do I"],
+    "guid": "{D43B99F4-8027-4853-BA7C-7F326EEFC76D}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 編集のためにセルにフォーカスを設定
+
+状況によっては、セルに強制的にフォーカスを移動してそのセルを編集モードにし、ユーザーに対して値の変更が必要であることを示したい場合があります。これを実行するには、グリッドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~activecell.html[ActiveCell]"]  プロパティを設定してから pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~performaction.html[PerformAction]"]  を呼び出してセルを編集モードにします。
+
+== セルにフォーカスを置き、そのセルを編集モードにするには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. まず、フォーカスの移動先となるセルへの参照が必要です。この場合、セルがアクティブ行にあり、"CompanyName" と呼ばれる列にあることを前提とします。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~activerow.html[ActiveRow]"]  オブジェクトの Cells コレクションを使用することによってセルへの参照を取得します。
+
+*Visual Basic の場合：*
+
+----
+Dim aCell As UltraGridCell
+aCell = Me.UltraGrid1.ActiveRow.Cells("CompanyName")
+----
+
+*C# の場合：*
+
+----
+UltraGridCell aCell = this.ultraGrid1.ActiveRow.Cells["CompanyName"];
+----
+
+[start=3]
+. セルへの参照が取得できたら、グリッドの ActiveCell を設定してセルをアクティブにします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.ActiveCell = aCell
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.ActiveCell = aCell;
+----
+
+[start=4]
+. 場合によっては、この時点でグリッドにフォーカスを設定する必要があります。これはまだグリッドにフォーカスがない場合のみ必要です。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.Focus()
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.Focus();
+----
+
+[start=5]
+. PerformAction メソッドを呼び出すことによりセルを強制的に編集モードにできます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode, False, False)
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.PerformAction(UltraGridAction.EnterEditMode, false, false);
+----

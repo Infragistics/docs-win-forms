@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter-resource-string",
+    "controlName": [],
+    "tags": ["Exporting","Grids","Localization","Resource Strings"],
+    "guid": "{1671C2F1-32CE-4CDF-9ACF-F46A5FB214E2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridExcelExporter リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|FormulaError_UnrecognizedFunction
+|関数名が認識されていません: '{0}'。
+
+|FormulaError_UnsupportedFunction_DateDiff
+|DateDiff 関数 ('{0}') に指定された間隔を Excel で関数に変換できません。
+
+|LDR_UltraGridExcelExporter_E_BeginExport
+|グリッドのエクスポートが始まる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_CellExported
+|グリッドセルが Excel にエクスポートされた後に発生します。
+
+|LDR_UltraGridExcelExporter_E_CellExporting
+|グリッドセルが Excel にエクスポートされる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_EndExport
+|グリッドのエクスポートが終了した後に発生します。
+
+|LDR_UltraGridExcelExporter_E_ExportEnded
+|グリッドのエクスポートが終了した後に発生します。
+
+|LDR_UltraGridExcelExporter_E_ExportEnding
+|エクスポート処理の終了後、Excel 文書の作成を完了する前に発生します。
+
+|LDR_UltraGridExcelExporter_E_ExportStarted
+|グリッドのエクスポートが始まる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_FormulaExported
+|数式 (またはグリッドの数式から Excel 数式への変換が失敗の場合はエラー メッセージ) をワークシート セルにエクスポートしたあとに発生します。
+
+|LDR_UltraGridExcelExporter_E_FormulaExportError
+|グリッドの数式から有効な Excel 数式への変換が失敗した時に発生します。
+
+|LDR_UltraGridExcelExporter_E_FormulaExporting
+|数式をワークシート セルにエクスポートする前に発生します。
+
+|LDR_UltraGridExcelExporter_E_HeaderCellExported
+|ヘッダー セルが Excel にエクスポートされた後に発生します。
+
+|LDR_UltraGridExcelExporter_E_HeaderCellExporting
+|ヘッダー セルが Excel にエクスポートされる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_HeaderRowExported
+|ヘッダー行が Excel にエクスポートされた後に発生します。
+
+|LDR_UltraGridExcelExporter_E_HeaderRowExporting
+|ヘッダー行が Excel にエクスポートされる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_InitializeColumn
+|グリッド列が初期化されるときに発生します。
+
+|LDR_UltraGridExcelExporter_E_InitializeRow
+|行が初期化されるときに発生します。
+
+|LDR_UltraGridExcelExporter_E_RowExported
+|グリッド行が Excel にエクスポートされた後に発生します。
+
+|LDR_UltraGridExcelExporter_E_RowExporting
+|グリッド行が Excel にエクスポートされる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_SummaryCellExported
+|集計セルが Excel にエクスポートされた後に発生します。
+
+|LDR_UltraGridExcelExporter_E_SummaryCellExporting
+|集計セルが Excel にエクスポートされる前に発生します。
+
+|LDR_UltraGridExcelExporter_E_SummaryRowExported
+|集計行が Excel にエクスポートされた後に発生します。
+
+|LDR_UltraGridExcelExporter_E_SummaryRowExporting
+|集計行が Excel にエクスポートされる前に発生します。
+
+|====

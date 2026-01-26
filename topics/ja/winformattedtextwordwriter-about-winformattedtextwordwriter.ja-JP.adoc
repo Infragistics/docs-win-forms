@@ -1,0 +1,72 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtextwordwriter-about-winformattedtextwordwriter",
+    "controlName": ["WinFormattedTextWordWriter"],
+    "tags": ["Events","Exporting","How Do I"],
+    "guid": "0f96007c-de4a-4321-a3de-85c4c2b2362a",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T14:41:01.2032156Z"
+}
+|metadata|
+////
+
+= WinFormattedTextWordWriter について
+
+WinFormattedTextWordWriter™ は、WinGridWordWriter™ と同様に、WinFormattedTextEditor™ または WinFormattedLinkLabel™ のコンテンツを新しい Word ドキュメントに書き出すことを可能にするエクスポート機能を備えたコンポーネントです。この機能は、Infragistics.Documents.IO アセンブリの link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] オブジェクトに基づいています。
+
+link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~export.html[Export] メソッドは基本的なエクスポート機能を実装しています。フォント スタイル、フォント サイズ、テキスト配置、画像、ハイパーリンク、特殊文字および WinFormattedTextEditor コントロールと WinFormattedLinkLabel コントロールによってサポートされるその他の書式設定されたテキスト機能を含みテキスト全体をエクスポートできます。お気に入りへのエクスポートをカスタマイズするために役立つイベントがいくつかあります。
+
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~exportstarted_ev.html[ExportStarted]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~exportending_ev.html[ExportEnding]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~exportended_ev.html[ExportEnded]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~textexporting_ev.html[TextExporting]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~textexported_ev.html[TextExported]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~hyperlinkexporting_ev.html[HyperlinkExporting]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~hyperlinkexported_ev.html[HyperlinkExported]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~imageexporting_ev.html[ImageExporting]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter~imageexported_ev.html[ImageExported]
+
+以下のコード リストは、エクスポート処理に必要とされる基本的な実装を示します。開始するには、UltraFormattedTextWordWriter コンポーネントと UltraFormattedTextEditor コントロールをフォームにドラッグ アンドドロップして、UltraFormattedTextEditor コントロールの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditorbase~value.html[Value] プロパティを書式設定されたテキストに設定します。
+
+[NOTE]
+====
+*注:* Infragistics3.Documents.IO アセンブリへの参照が以下のコードに必要とされます。
+====
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+// コンテンツを書いた後は、このインスタンスを閉じる必要があります
+WordDocumentWriter wordWriter = WordDocumentWriter.Create("C:\\WordDocuments\\FormattedTextInWord.docx");
+wordWriter.StartDocument();
+// 書式設定されたテキストを Word にエクスポートします
+this.ultraFormattedTextWordWriter1.Export(this.ultraFormattedTextEditor1, wordWriter);
+wordWriter.EndDocument();
+// ライターを閉じます
+wordWriter.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+' コンテンツを書いた後は、このインスタンスを閉じる必要があります
+Dim wordWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\WordDocuments\FormattedTextInWord.docx")
+wordWriter.StartDocument()
+' 書式設定されたテキストを Word にエクスポートします
+Me.ultraFormattedTextWordWriter1.Export(Me.ultraFormattedTextEditor1, wordWriter)
+wordWriter.EndDocument()
+' ライターを閉じます
+wordWriter.Close()
+----
+
+== 関連トピック
+
+* link:winformattedtextwordwriter-export-formattedtexteditor-text-to-word.html[WinFormattedTextEditor テキストを Word にエクスポート]

@@ -1,0 +1,163 @@
+﻿////
+|metadata|
+{
+    "name": "wintree-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{3E9402D3-C6DE-4B1D-8B25-6A28A1EBDCE9}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+////
+|metadata|
+{
+    "name": "wintree-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{3E9402D3-C6DE-4B1D-8B25-6A28A1EBDCE9}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree リソース文字列
+
+このトピックでは、 `WinTree` アセンブリの内部的に定義されたテキスト要素をカスタマイズするために使用できる `WinTree` アセンブリ リソース文字列のリストを提供します。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AllNodesDelete
+|UltraTree のすべてのノードが削除されます。継続しますか?
+
+|BeforeNodesDeletedMessage
+|{0} ノードが削除のために選択されています。UltraTreeNode を削除するには「はい」そのまま終了するには「いいえ」を選択してください。
+
+|BeforeNodesDeletedTitle
+|UltraTreeNodes を削除
+
+|DataError_MessageBox_Title
+|データ エラー
+
+|DataErrorUnableToConvert
+|{0} から {1} に変換することができません。
+
+|DefaultAction_Collapse
+|縮小
+
+|DefaultAction_EnterEditMode
+|編集モードにする
+
+|DefaultAction_Expand
+|展開
+
+|DefaultAction_Sort
+|並べ替え
+
+|Exception_CannotEditDataBoundNode
+|関連しているオーバライドの 'UseEditor' プロパティを DefaultableBoolean.True に設定しない場合は、'BeginEdit' メソッドはデータソースにバウンドされたノード上で呼び出すことができません。
+
+|InvalidEditorValue_Error_Message
+|エディターの現在の値が不正です
+
+|InvalidEditorValue_Error_Message_Prefix
+|データ値を更新することができません：
+
+|LDR_None
+|{none}
+
+|NodeEditClear
+|クリア(&C)
+
+|NodeEditDelete
+|削除(&D)
+
+|NodeEditorTitle
+|UltraWinTree ノード エディター
+
+|NodePropAddChild
+|子を追加(&H)
+
+|NodePropAddRoot
+|ルートを追加(&R)
+
+|NodePropAddSibling
+|兄弟を追加(&S)
+
+|NodePropEdit
+|編集(&E)
+
+|NodeProperty
+|ノードのプロパティ
+
+|NodePropertyCancel
+|キャンセル
+
+|NodePropertyEditorLabelEditMessage
+|ノードのラベルが変更されました。
+
+|NodePropertyOK
+|OK
+
+|NodesCollectionEditor_CannotModifyNodes
+|ツリーにデータをバインドしている場合は、Nodes コレクションを編集することはできません。
+
+|PasteErrorMessage
+|クリップボードからノードをコピーするときに以下のエラーが発生しました: {0}
+
+|PasteErrorMessageCaption
+|貼り付けエラー
+
+|SelNodeEdit
+|編集するノードを選択:
+
+|SelNodeLabel
+|選択されたノードのラベル:
+
+|UltraTree_Exception_ActiveCellColumnHasNoDisplayColumn
+|対応する表示列を持たない列に対してアクティブ セルを設定することはできません。
+
+|UltraTree_Exception_CannotSetTopNodeToHiddenNode
+|TopNode プロパティに非表示のノードを設定することはできません。
+
+|UltraTreeNode_DefaultText
+|ノード {0}
+
+|UltraTreeNode_Exception_BringCellIntoView
+|指定された列はこのノードと関連しない列です。
+
+|UltraTreeNodeColumn_EditorValueInvalid
+|エディターの値が不正です。
+
+|UltraTreeNodeColumn_Exception_MaxLength
+|MaxLength プロパティに負の値を設定することはできません。
+
+|UltraTreeNodeLayoutInfo_Exception_InvalidSize
+|指定されたサイズは不正です。幅、高さに負の値が設定されています。
+
+|ViolatesNullable_Error_Message
+|列 '{0}' のセルには空の値の入力は許可されていません。
+
+|NodePropMoveUp
+|上へ移動(&U)
+
+|NodePropMoveDown
+|下へ移動(&D)。
+
+|NodePropOutdent
+|選択したノードを親の兄弟に設定(&O)
+
+|NodePropIndent
+|選択したノードをその前の兄弟の子に設定(&I)
+
+|PropertiesLabel
+|プロパティ(&P)
+
+|====

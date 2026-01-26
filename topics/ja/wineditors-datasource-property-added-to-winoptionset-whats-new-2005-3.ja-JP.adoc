@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-datasource-property-added-to-winoptionset-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2503356D-A543-4F5D-82D8-6F37A9BD45E8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinOptionSet に追加された DataSource プロパティ
+
+新しい DataSource プロパティを通じて、WinOptionSet コントロールをデータソースにバインドできるようになりました。データ バインディングを可能にするためには、WinComboEditor の DataSource プロパティを設定し、次のメンバを指定する必要があります。
+
+* DataMember
+* DisplayMember
+* ValueMember
+
+WinOptionSet はデータソースで見つかった値を表示し、DisplayMember プロパティで公開します。バウンドされた ValueListItem が作成されると、InitializeDataItem イベントが各項目で一度発生します。各イベントは項目に対する値に依存する外観設定を適用する機会を開発者に与えます。
+
+image::images/WinEditors_Walk_Through_Databinding_the_WinComboEditor_and_WinOptionSet_Controls_01.png[]
+
+== 関連トピック
+
+link:wineditors-binding-wincomboeditor-and-winoptionset-controls-to-data.html[WinComboEditor コントロールおよび WinOptionSet コントロールのデータバインディング]

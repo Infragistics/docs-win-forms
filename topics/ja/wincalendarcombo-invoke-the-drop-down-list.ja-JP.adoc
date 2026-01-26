@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarcombo-invoke-the-drop-down-list",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["Events","How Do I"],
+    "guid": "{BB1ED242-3973-4E57-A9AA-6734F57E0A79}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウン リストの表示
+
+次のコードは、WinCalendarCombo のドロップダウンをプログラムを使用してドロップする方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+...
+Private Sub UltraButton1_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	' DroppedDown プロパティを設定するか
+	Me.UltraCalendarCombo1.DroppedDown = True
+	' PerformAction メソッドを使用します。
+	Me.UltraCalendarCombo1.PerformAction(CalendarCombo.CalendarComboAction.DropDown)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+...
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	// DroppedDown プロパティを設定するか
+	this.ultraCalendarCombo1.DroppedDown = true;
+	// PerformAction メソッドを使用します。
+	this.ultraCalendarCombo1.PerformAction( 
+	  Infragistics.Win.UltraWinSchedule.CalendarCombo.CalendarComboAction.DropDown );
+}
+----

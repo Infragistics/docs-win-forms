@@ -1,0 +1,136 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-wingrid-as-a-data-navigator",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Navigation"],
+    "guid": "{EBE71AC5-7AAF-4200-9580-46371D6415B6}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid をデータ ナビゲータとして使用
+
+== バックグラウンド
+
+"データ ナビゲータ"インタフェースを使用して表示データや編集データをユーザーに提示するアプリケーションを作成できます。この種のインタフェースは単一のコントロールを"ナビゲータ"として提供し、ユーザーはこのナビゲータを使用してデータ セットのレコードを選択します。ナビゲータは、データを表示または編集する複数の個別コントロールに接続されます。WinGrid は幅広いレイアウト オプションや外観オプションを備えているため、ナビゲータ コントロールに適しています。
+
+編集用に個別のコントロールを使用することにより、提示データのレイアウトやデータ操作用のユーザー インターフェイスを完全に制御できます。データ ナビゲータ インタフェースは、データ ソースに格納されたデータの一部があまり標準的でない形式（OLE オブジェクト データやカスタム バイナリ形式のデータなど）の場合にも役立ちます。データの表示にデータ型固有のコントロールを使用しながら、UltraWinGrid の簡便で強固なデータ セット ナビゲーション機能も同時に利用できます。
+
+== 質問
+
+* テキスト ボックスなどのその他コントロールに表示する DataTable のレコードを選択するためのナビゲータとして、WinGrid コントロールを使用するにはどうすればいいですか。
+
+== 解決策
+
+DataTable を UltraWinGrid にバインドし、Currency Manager を使用して DataTable を他の Windows コントロールの "Text" プロパティにバインドします。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、Northwind Customers テーブルをロードして、UltraWinGrid に CustomerID 列を表示し、その他のいくつかの列を TextBox コントロールに表示します。ユーザーがグリッドの行を選択すると、テキスト ボックスにその行のデータが表示されます。
+
+image::Images/WinGrid_Using_WinGrid_as_a_Data_Navigator_01.png[]
+
+フォーム イベント領域には以下のイベント ハンドラがあります。
+
+* MyBase.Load - Form Load イベントのコードは、グリッドのデータ ソースを個々のテキスト ボックスにバインドします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub WinGridasaDataNavigator_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' テキスト ボックスのデータ バインディングを設定します
+	Me.txtCompanyName.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "CompanyName")
+	Me.txtContactName.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "ContactName")
+	Me.txtContactTitle.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "ContactTitle")
+	Me.txtAddress.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "Address")
+	Me.txtCity.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "City")
+	Me.txtRegion.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "Region")
+	Me.txtPostalCode.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "PostalCode")
+	Me.txtCountry.DataBindings.Add("Text", Me.UltraGrid1.DataSource, "Country")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void WinGridasaDataNavigator_Load(object sender, System.EventArgs e)
+{
+	// テキスト ボックスのデータ バインディングを設定します
+	this.txtCompanyName.DataBindings.Add("Text", this.ultraGrid1.DataSource, "CompanyName");
+	this.txtContactName.DataBindings.Add("Text", this.ultraGrid1.DataSource, "ContactName");
+	this.txtContactTitle.DataBindings.Add("Text", this.ultraGrid1.DataSource, "ContactTitle");
+	this.txtAddress.DataBindings.Add("Text", this.ultraGrid1.DataSource, "Address");
+	this.txtCity.DataBindings.Add("Text", this.ultraGrid1.DataSource, "City");
+	this.txtRegion.DataBindings.Add("Text", this.ultraGrid1.DataSource, "Region");
+	this.txtPostalCode.DataBindings.Add("Text", this.ultraGrid1.DataSource, "PostalCode");
+	this.txtCountry.DataBindings.Add("Text", this.ultraGrid1.DataSource, "Country");
+}
+----
+
+UltraWinGrid イベント領域には次のイベント ハンドラが含まれます。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントでは、CustomerID 以外の列をすべて非表示にし、その他のグリッド設定を行います。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' CustomerID 以外の列をすべて非表示にします。
+	Dim aColumn As UltraGridColumn
+	For Each aColumn In e.Layout.Bands(0).Columns
+		Select Case aColumn.Key
+			Case "CustomerID"
+				aColumn.CellActivation = Activation.NoEdit
+			Case Else
+				aColumn.Hidden = True
+		End Select
+	Next
+	' グリッドを構成します。
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+	e.Layout.Override.SelectTypeCell = SelectType.None
+	e.Layout.Override.SelectTypeCol = SelectType.None
+	e.Layout.Override.SelectTypeRow = SelectType.None
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// CustomerID 以外の列をすべて非表示にします。
+	foreach(UltraGridColumn aColumn in e.Layout.Bands[0].Columns)
+	{
+		switch (aColumn.Key)
+		{
+			case "CustomerID":
+				aColumn.CellActivation = Activation.NoEdit;
+				break;
+			default :
+				aColumn.Hidden = true;
+				break;
+		}
+	}
+	// グリッドを構成します。
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+	e.Layout.Override.SelectTypeCell = SelectType.None;
+	e.Layout.Override.SelectTypeCol = SelectType.None;
+	e.Layout.Override.SelectTypeRow = SelectType.None;
+}
+----
+
+== まとめ
+
+このプロジェクトでは、UltraWinGrid で選択した行をテキスト ボックスなどの Windows Forms コントロールにバインドされたデータ行に接続する方法を示しました。これにより、UltraWinGrid をデータ ナビゲータとして使用できます。

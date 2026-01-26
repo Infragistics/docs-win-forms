@@ -1,0 +1,79 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-resize-a-column-in-details-view",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{934EAFFB-A60D-4671-8481-02E1049166BB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= [詳細] 表示で列をリサイズ
+
+== 始める前に
+
+link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewdetailssettings~autofitcolumns.html[AutoFitColumns] プロパティを ResizeAllColumns に設定することで、WinListView に割り当てられた領域にメインおよびサブアイテムの両方のすべての列を収めることができます。ただし、収めるべき多くの数の列があり、各列のコンテンツを辛うじて読むことができる場合はどうしますか。アプリケーションが水平スクロールバーを使用できないようにすることで制限されていた場合はどうしますか。これらの問題は、エンド ユーザーがマウスでホバーする時に各 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitemcolumn.html[SubItemColumn] で自動リサイズを実行することによって回避することができます。このように、エンド ユーザーが必要とする情報は常に利用できるようになります。
+
+== 達成すること
+
+エンド ユーザーがマウス カーソルでホバーする時に常にすべてのコンテンツが表示されるように SubItemColumn を自動的にリサイズする方法を学びます。
+
+*注* ：このトピックは、WinListView がデータ（アイテムとサブアイテムの両方）で移植されることを前提とします。詳細は、 link:winlistview-populate-the-winlistview-control-with-items-clr2.html[「WinListView コントロールへの項目の移植」]を参照してください。
+
+== 次の手順を実行します
+
+[start=1]
+. *使用可能な領域に収まるようにすべての列をリサイズします。*
+
+デザイン ビューで WinListView を選択して、[プロパティ] ウィンドウに移動して、 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewdetailssettings.html[ViewSettingsDetails] オブジェクトを指定します。そのオブジェクトを展開して AutoFitColumns プロパティを指定し、ResizeAllColumns に設定します。AutoFitColumns を ResizeAllColumns に設定すると、割り当てられた領域にすべて収まるまですべての列、メインおよびサブアイテムがリサイズされます。
+[start=2]
+. *MouseMove イベントでひとつの列をリサイズします。*
+
+WinListView コントロールのために MouseMove イベントを作成します。MouseMove イベントで、 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~subitemfrompoint.html[SubItemFromPoint] メソッドを呼び出すことによって、どのサブアイテムの上にマウスがあるかを確認します。イベント引数の x 軸および y 軸を渡すだけです。次にサブアイテムが null でないことを確認します。サブアイテムが null でなければ、サブアイテムの列に一致する link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitemcolumnscollection.html[SubItemColumns] コレクションで SubItemColumn から PerformAutoResize を呼び出すことによってサブアイテムの列のリサイズを実行します。各サブアイテムは、関連付けられた SubItemColumn を簡単に見つけるための Column プロパティを持ちます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraListView1_MouseMove(ByVal sender As System.Object, _
+    ByVal e As System.Windows.Forms.MouseEventArgs) _
+    Handles UltraListView1.MouseMove
+    ' マウス カーソルの下でサブアイテムへの参照を作成します。
+    Dim subItem As UltraListViewSubItem = _
+        Me.UltraListView1.SubItemFromPoint(New Point(e.X, e.Y))
+    ' マウスが有効なサブアイテム上にあることを確認します。
+    If subItem IsNot Nothing Then
+        ' すべてのアイテム（表示可能および表示可能でない）およびヘッダが列に収まるように
+        ' サブアイテムの列をリサイズします。
+        Me.UltraListView1.SubItemColumns(subItem.Column.Index). _
+            PerformAutoResize(Infragistics.Win.UltraWinListView.ColumnAutoSizeMode.AllItemsAndHeader)
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraListView1_MouseMove(object sender, MouseEventArgs e)
+{
+	// マウス カーソルの下でサブアイテムへの参照を作成します。
+	UltraListViewSubItem subItem = 
+		this.ultraListView1.SubItemFromPoint(new Point(e.X, e.Y));
+	// マウスが有効なサブアイテム上にあることを確認します。
+	if (subItem != null)
+	{
+		// すべてのアイテム（表示可能および表示可能でない）およびヘッダが列に収まるように
+		// サブアイテムの列をリサイズします。
+		this.ultraListView1.SubItemColumns[subItem.Column.Index].
+			PerformAutoResize(Infragistics.Win.UltraWinListView.ColumnAutoSizeMode.AllItemsAndHeader);
+	}
+}
+----
+
+[start=3]
+. *アプリケーションを実行します。*
+
+WinListView コントロールがデータで一杯の場合、ウィンドウを縮小すると列によっては一部のコンテンツを表示できなくなります。SubItemColumns のひとつにマウスをホバーします。マウスをその上に置くとリサイズするのが分かります。マウスを列から外すと、列はデフォルトのサイズに自動的に戻ることに注意してください。これは、AutoFitColumns が自動的に列を連続的にリサイズするからです。ただし、PerformAutoResize を呼び出すと、そのひとつの列のサイズが他の列に優先します。

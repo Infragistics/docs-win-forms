@@ -1,0 +1,10 @@
+﻿= WinZoomPanel
+
+WinZoomPanel™ コントロールについて、以下の各リンクを参照してください。
+
+* link:winzoompanel-about.html[WinZoomPanel について] -- WinZoomPanel コンポーネントの機能と、アプリケーションでの使用法などについて紹介します。
+* link:winzoompanel-zoom-supported-controls.html[WinZoomPanel がサポートされるコントロール] -- WinZoomPanel
+でズーム機能を実装する Infragistics コントロールの一覧です。
+* link:winzoompanel-known-limitations.html[WinZoomPanel の既知の制限] -- ズーム時の一部のコントロールの制限について説明します。制限及びその回避策を参照します。
+* link:winzoompanel-api-overview.html[API の概要] -- このトピックは、WinZoomPanel
+コントロールを使用して開発する際の名前空間とクラスについて説明します。

@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincarousel-resource-strings-reference",
+    "controlName": [],
+    "tags": [],
+    "guid": "eda258e9-2b0c-4d59-a4fc-63df37b12f0c",  
+    "buildFlags": [],
+    "createdOn": "2014-09-13T18:24:34.1654034Z"
+}
+|metadata|
+////
+
+= WinCarousel リソース文字列
+
+このトピックは、 _WinCarousel_   コントロールの内部に定義されたテキスト要素をカスタマイズするために使用される  _WinCarousel_   アセンブリ リソース文字列のリストを提供します。リソース文字列には、ダイアログ ボックスのキャプションや警告メッセージ、アラートなどが含まれます。
+
+以下の表に、このアセンブリにより使用されるカスタマイズ可能なデフォルト テキスト値とともに、リソース文字列の名前をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|UltraCarousel_E_ItemSelectionChanging
+|SelectedItems コレクションのコンテンツが変更される前に発生します。
+
+|UltraCarousel_E_ItemSelectionChanged
+|SelectedItems コレクションのコンテンツが変更された後に発生します。
+
+|CarouselItem_P_ItemSettings
+|項目に固有のプロパティを定義する ItemSettings オブジェクトを返します。
+
+|CarouselItem_P_Text
+|項目のテキストを取得または設定します。
+
+|CarouselItem_P_Visible
+|項目が表示されるかどうかを取得または設定します。
+
+|ItemSettings_P_HotTrackingAppearance
+|カーソルが UIElement の境界線を通過するときに項目に適用される外観を取得または設定します。
+
+|ItemSettings_P_SelectedAppearance
+|選択済みの CarouselItem に適用される外観を取得または設定します。
+
+|ItemSettings_P_BorderStyle
+|項目の境界線のスタイルを取得または設定します。
+
+|ItemSettings_P_Enabled
+|項目の有効化状態を取得または設定します。
+
+|ItemSettings_P_Appearance
+|CarouselItem のオブジェクトに適用される外観を取得または設定します。
+
+|UltraCarousel_Description
+|ビジュアル項目を指定のパスに表示する {ProductName} コントロール。
+
+|UltraCarousel_P_Items
+|CarouselItem オブジェクトのコレクションを返します。
+
+|UltraCarousel_P_ItemSettings
+|項目に固有のプロパティを定義する ItemSettings オブジェクトを返します。
+
+|UltraCarousel_P_SelectionType
+|ユーザー インターフェイスを使用して項目を選択する方法を指定する SelectionType 定数を取得または設定します。
+
+|Exception_CannotAddItemToSameCollection
+|CarouselItem はすでに所属している CarouselItemsCollection に追加できません。
+
+|Exception_CannotAddItemToDifferentCollection
+|CarouselItem は複数の CarouselItemsCollection に追加できません。
+
+|Exception_CannotSelectItemFromDifferentCollection
+|CarouselItem はコントロールの項目コレクションに所属しない場合は選択できません。
+
+|PredefinedPath_HorizontalLine
+|HorizontalLine
+
+|PredefinedPath_VerticalLine
+|VerticalLine
+
+|PredefinedPath_EllipseBottom
+|EllipseBottom
+
+|PredefinedPath_EllipseTop
+|EllipseTop
+
+|PredefinedPath_EllipseLeft
+|EllipseLeft
+
+|PredefinedPath_EllipseRight
+|EllipseRight
+
+|PredefinedPath_LowerLeftU
+|LowerLeftU
+
+|PredefinedPath_InverseParabola
+|InverseParabola
+
+|PredefinedPath_RightArc
+|RightArc
+
+|PredefinedPath_Zigzag
+|Zigzag
+
+|PredefinedPath_Spiral
+|Spiral
+
+|PredefinedPath_Spiral_Lite
+|Spiral Lite
+
+|PredefinedPath_Heart
+|Heart
+
+|====

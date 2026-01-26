@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-getting-started-with-wingauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{AF55FC81-BAEC-405F-AB23-807ECD87B119}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGauge で作業を開始
+
+このセクションは、WinGauge コントロールを起動および実行する支援をします。
+
+* link:wingauge-creating-a-gauge-in-design-view.html[デザイン ビューでゲージを作成]
+* link:wingauge-creating-a-gauge-using-code.html[コードを使用してゲージを作成]
+* link:wingauge-creating-a-gauge-using-a-preset.html[プリセットを使用してゲージを作成]

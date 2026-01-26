@@ -1,0 +1,136 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-setting-date-specific-non-contiguous-working-hours-for-different-owners",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{19BBA08C-A010-47AD-A279-8E99CC9F1D9E}",  
+    "buildFlags": [],
+    "createdOn": "2009-02-02T10:11:52Z"
+}
+|metadata|
+////
+
+= 異なるオーナーに対して日付固有の非連続就業時間を設定
+
+WinSchedule DateSettings 機能は、特定の日付に対してpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslotsettings~workinghours.html[就業時間/非就業時間]"] を定義するための方法を提供します。また、複数の隣接しない時間範囲は各オーナーの就業時間または非就業時間として指定できます。さらに、特定の日付およびオーナーで個々の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslot.html[TimeSlot]"]  の外観を設定できます。これらすべては Owner オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~datesettings.html[DateSettings]"]  プロパティを介して実行できます。
+
+Owner オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~recurringdatesettings.html[RecurringDateSettings]"]  プロパティによって、就業時間およびタイムスロット外観を日付の繰り返しパターンに対してカスタマイズすることができます。
+
+[NOTE]
+====
+*注：* Owner のために就業日に関連するプロパティを公開する DayOfWeekSettings クラスも、WorkingHours および TimeRangeAppearance コレクションを公開します。したがって、特定の日付に対して上記で説明した同じ機能は、特定の曜日に対しても適用可能です。
+====
+
+以下のコードは、複数のオーナーに対して隣接しない就業時間およびタイムスロット外観を設定する方法を示します。これらの設定は特定の日付に適用されます。このトピックでは、Windows Form は ultraDayView™ および ultraCalendarInfo™ コントロールを含むことを前提としています。
+
+*Visual Basic の場合：*
+
+----
+'ultracalendarInfo インスタンスを ultraDayView に指定します 
+Me.ultraDayView1.CalendarInfo = ultraCalendarInfo1 
+'日付内でオーナーをグループ化します 
+Me.ultraDayView1.GroupingStyle = DayViewGroupingStyle.OwnerWithinDate 
+Me.ultraCalendarInfo1.Owners.Add("FirstOwner", "Lopez") 
+Me.ultraCalendarInfo1.Owners.Add("SecondOwner", "Welby")
+'Lopez 用の日付設定 
+Dim lopez As Owner = Me.ultraCalendarInfo1.Owners("FirstOwner")
+lopez.DateSettings.Add(DateTime.Today) 
+Dim lopezWorkingHr1 As New TimeRange(New TimeSpan(10, 0, 0), New TimeSpan(11, 0, 0))
+lopez.DateSettings(DateTime.Today).WorkingHours.Add(lopezWorkingHr1) 
+Dim lopezWorkingHr2 As New TimeRange(New TimeSpan(13, 0, 0), New TimeSpan(14, 0, 0))
+lopez.DateSettings(DateTime.Today).WorkingHours.Add(lopezWorkingHr2) 
+'Lopez の就業時間に Appearance オブジェクトを設定します 
+Dim lopezAppearance As New Infragistics.Win.Appearance("dateAppearance")
+lopezAppearance.BackColor = Color.Pink 
+lopez.DateSettings(DateTime.Today).TimeRangeAppearances.Add(lopezWorkingHr1, lopezAppearance) 
+lopez.DateSettings(DateTime.Today).TimeRangeAppearances.Add(lopezWorkingHr2, lopezAppearance)
+'welby 用の日付設定 
+Dim welby As Owner = Me.ultraCalendarInfo1.Owners("SecondOwner")
+welby.DateSettings.Add(DateTime.Today) 
+Dim welbyWorkingHr1 As New TimeRange(New TimeSpan(9, 0, 0), New TimeSpan(10, 0, 0))
+welby.DateSettings(DateTime.Today).WorkingHours.Add(welbyWorkingHr1) 
+Dim welbyWorkingHr2 As New TimeRange(New TimeSpan(12, 0, 0), New TimeSpan(13, 0, 0))
+welby.DateSettings(DateTime.Today).WorkingHours.Add(welbyWorkingHr2) 
+'Welby の就業時間に Appearance オブジェクトを設定します 
+Dim welbyAppearance As New Infragistics.Win.Appearance("dateAppearance")
+welbyAppearance.BackColor = Color. LightSkyBlue
+welby.DateSettings(DateTime.Today).TimeRangeAppearances.Add(welbyWorkingHr1, welbyAppearance) 
+welby.DateSettings(DateTime.Today).TimeRangeAppearances.Add(welbyWorkingHr2, welbyAppearance)
+----
+
+*C# の場合：*
+
+----
+//ultracalendarInfo インスタンスを ultraDayView に指定します
+ this.ultraDayView1.CalendarInfo = ultraCalendarInfo1;
+//日付内でオーナーをグループ化します 
+this.ultraDayView1.GroupingStyle = DayViewGroupingStyle.OwnerWithinDate;
+this.ultraCalendarInfo1.Owners.Add("FirstOwner", "Lopez");
+this.ultraCalendarInfo1.Owners.Add("SecondOwner", "Welby");
+//Lopez 用の日付設定
+Owner lopez = this.ultraCalendarInfo1.Owners["FirstOwner"];
+lopez.DateSettings.Add(DateTime.Today);
+TimeRange lopezWorkingHr1 = new TimeRange(new TimeSpan(10, 0, 0), new TimeSpan(11, 0, 0));
+lopez.DateSettings[DateTime.Today].WorkingHours.Add(lopezWorkingHr1);
+TimeRange lopezWorkingHr2 = new TimeRange(new TimeSpan(13, 0, 0), new TimeSpan(14, 0, 0));
+lopez.DateSettings[DateTime.Today].WorkingHours.Add(lopezWorkingHr2);
+//Lopez の就業時間に Appearance オブジェクトを設定します
+Infragistics.Win.Appearance lopezAppearance = new Infragistics.Win.Appearance("dateAppearance");
+lopezAppearance.BackColor = Color.Pink;
+lopez.DateSettings[DateTime.Today].TimeRangeAppearances.Add(lopezWorkingHr1, lopezAppearance);
+lopez.DateSettings[DateTime.Today].TimeRangeAppearances.Add(lopezWorkingHr2, lopezAppearance);
+//welby 用の日付設定       
+Owner welby = this.ultraCalendarInfo1.Owners["SecondOwner"];
+welby.DateSettings.Add(DateTime.Today);
+TimeRange welbyWorkingHr1 = new TimeRange(new TimeSpan(9, 0, 0),new TimeSpan(10, 0, 0));
+welby.DateSettings[DateTime.Today].WorkingHours.Add(welbyWorkingHr1);
+TimeRange welbyWorkingHr2 = new TimeRange(new TimeSpan(12, 0, 0), new TimeSpan(13, 0, 0));
+welby.DateSettings[DateTime.Today].WorkingHours.Add(welbyWorkingHr2);
+//Welby の就業時間に Appearance オブジェクトを設定します
+Infragistics.Win.Appearance welbyAppearance = new Infragistics.Win.Appearance("dateAppearance");
+welbyAppearance.BackColor = Color. LightSkyBlue;
+welby.DateSettings[DateTime.Today].TimeRangeAppearances.Add(welbyWorkingHr1, welbyAppearance);
+welby.DateSettings[DateTime.Today].TimeRangeAppearances.Add(welbyWorkingHr2, welbyAppearance);
+----
+
+以下のスクリーンショットは、Lopez と Welby 用に 2 つの異なる隣接しない就業時間タイムスロットを示します。
+
+image::Images/WinSchedule_Setting_Date_specific_non-contiguous_working_hours_for_different_Owners_01.png[]
+
+以下のコードは、たとえば、現在の日付から開始して毎月 25 日に繰り返すなど、繰り返しパターンで指定されたオーナーの就業時間タイムスロットを設定する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+'繰り返しを今日から開始 
+Dim recurrence As New DateRecurrence(DateTime.Today)
+'月単位で繰り返す 
+recurrence.PatternFrequency = RecurrencePatternFrequency.Monthly 
+'毎月 25 日に繰り返す 
+recurrence.PatternDayOfMonth = 25 
+'繰り返しの設定をオーナー Lopez に追加します 
+lopez.RecurringDateSettings.Add(recurrence) 
+lopez.RecurringDateSettings(0).WorkingHours.Add(lopezWorkingHr1) 
+lopez.RecurringDateSettings(0).WorkingHours.Add(lopezWorkingHr2) 
+lopez.RecurringDateSettings(0).TimeRangeAppearances.Add(lopezWorkingHr1, lopezAppearance) 
+lopez.RecurringDateSettings(0).TimeRangeAppearances.Add(lopezWorkingHr2, lopezAppearance)
+----
+
+*C# の場合：*
+
+----
+//繰り返しを今日から開始
+ DateRecurrence recurrence = new DateRecurrence(DateTime.Today);
+//月単位で繰り返す
+ recurrence.PatternFrequency = RecurrencePatternFrequency.Monthly;
+//毎月 25 日に繰り返す
+recurrence.PatternDayOfMonth = 25;
+ //繰り返しの設定をオーナー Lopez に追加します
+ lopez.RecurringDateSettings.Add(recurrence);
+ lopez.RecurringDateSettings[0].WorkingHours.Add(lopezWorkingHr1);
+ lopez.RecurringDateSettings[0].WorkingHours.Add(lopezWorkingHr2);
+ lopez.RecurringDateSettings[0].TimeRangeAppearances.Add(lopezWorkingHr1, lopezAppearance);
+ lopez.RecurringDateSettings[0].TimeRangeAppearances.Add(lopezWorkingHr2, lopezAppearance);
+----

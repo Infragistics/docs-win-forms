@@ -1,0 +1,86 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-synchronizer-symbol-strategy",
+    "controlName": [],
+    "tags": [],
+    "guid": "06c9658c-0b1f-4840-b0f3-30c4dd19fcdb",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0718521Z"
+}
+|metadata|
+////
+
+= シンクロナイザー記号方法
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、シンクロナイザー記号によるエラー処理方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-syntax-errors.html[構文エラー]
+|このグループのトピックでは、Syntax Parsing Engine が検出した構文エラーについて説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349579059, シンクロナイザー記号方法 >>
+* <<_Ref349579063, 概要 >>
+* <<_Ref349579066, 関連コンテンツ >>
+
+[[_Ref349579059]]
+== シンクロナイザー記号方法
+
+[[_Ref349579063]]
+
+=== 概要
+
+Syntax Parsing Engine が使用するエラー処理の主なタイプは「シンクロナイザー記号」方法と呼ばれます。文章校正ルールのバックアップ内のパーサーの位置とレクサーからのトークンを同期するために使用するためです。提供されるトークンが文章校正ルールに準拠しない場合は同期外となります。使用されるシンクロナイザー記号は、エラー発生時に現在構築されるすべての生産のうち残ったものから取得されます。予想外のトークンがシンクロナイザー記号のいずれかと関連づけられている場合、現在予想されるトークンでパーサーが解析を継続できるように、その前に存在していなければならなかった不明構造が代わりになります。そうでないと、トークンはシンクロナイザー記号と関連づけられていると分かるまでトークンは省略されエラーとマーク付けされます。以下は、このエラー処理方法についての注意書きです。
+
+* 特定の記号を非終端記号の生産のためにシンクロナイザーとして使用できない場合、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~suppresserrorrecoveryforsymbol.html[NonTerminalSymbol.SuppressErrorRecoveryForSymbol] メソッドを呼び出し、非終端記号の生産本文に直接使用される記号に渡すことで抑制できます。生産本文の残ったものからシンクロナイザー記号を取得する場合、これらの記号からは取得されません。
+* シンクロナイザー記号エラー処理方法は、その他のすべてのエラー処理方法に失敗した後で試行される「キャッチ オール」方法です。さらに、すべての残ったトークンをレクサーから省略するという意味であっても、常にエラーからの回復に成功します。レクサーのトークン ストリームにおいてパーサーの移動に失敗することはありません。
+
+[[_Ref349579066]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[cols="a,a"]
+|====
+| link:ig-spe-error-production-strategy.html[エラー生産方法]
+|このトピックは、エラー生産によるエラー処理方法について説明します。
+
+| link:ig-spe-synchronizer-pair-strategy.html[シンクロナイザー ペア方法]
+|このトピックは、シンクロナイザーのペアによるエラー処理方法について説明します。
+
+| link:ig-spe-backtracking-strategy.html[バックトラッキング方法]
+|このトピックは、バックトラッキングによるエラー処理方法について説明します。
+
+|====

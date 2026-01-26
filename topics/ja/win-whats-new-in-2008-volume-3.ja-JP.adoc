@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2008-volume-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{616A19C3-4818-4851-B988-324420BE3EB2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2008 Volume 3 の新機能
+
+{ProductName} 2008 Volume 3 のリリースには、Windows Formsのコントロールとコンポーネントをこれまで以上に活用することができるいくつかの強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:win-whats-new-calcmanager-excel-style-functions.html[CalcManager Excel - スタイル関数]
+* link:formula-values-from-an-excel-file.html[Excel ファイルからの数式の値]
+* link:win-whats-new-support-for-excel-workbooks-with-vba-code(xlsm-format).html[VBA コードで Excel ワークブックをサポート（XLSM フォーマット）]
+* link:win-whats-new-wingrid-clickcell-event.html[WinGrid ClickCell イベント]
+* link:win-whats-new-wingridexcelexporter-exporting-formulas-to-excel.html[WinGridExcelExporter が数式を Excel にエクスポート]
+* link:win-whats-new-xlsx-format.html[XLSX フォーマット]

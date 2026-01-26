@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource",
+    "controlName": ["WinDataSource"],
+    "tags": ["Getting Started"],
+    "guid": "{728D9274-99A2-457F-8AF0-0D9037B4D1A4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource
+
+WinDataSource コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、WinDataSource コンポーネントに関する貴重な情報が含まれています。WinDataSource コンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコンポーネントを使って共通タスクを実行する際のステップごとの手順に至るまで豊富にあります。
+
+以下のリンクをクリックすると、WinDataSource コンポーネントに関する重要な情報にアクセスします。
+
+== link:windatasource-understanding-windatasource.html[WinDataSource の理解]
+
+このセクションでは、WinDataSource コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。
+
+== link:windatasource-getting-started-with-windatasource.html[WinDataSource で開始]
+
+WinDataSource コンポーネントを使った処理をできるだけ早く準備、実行できるように、WinDataSource コンポーネントの利用を開始する方法（WinDataSource デザイナの使用など）を提供しています。
+
+== link:win-windatasource-using-windatasource.html[WinDataSource の使用]
+
+このセクションは、WinDataSource コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:windatasource-api-overview.html[API 概要]
+
+このトピックでは、WinDataSource コンポーネントを使ってプログラミングする際に操作しなければならない名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」にリンクしています。

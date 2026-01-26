@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winscrollbar-about-winscrollbar",
+    "controlName": ["WinScrollBar"],
+    "tags": ["Getting Started","Navigation"],
+    "guid": "{62062E0C-FF00-42C9-9167-20EB5FA31C30}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinScrollBar について
+
+WinScrollbar は、パネルまたはコンテナにスクロール機能を追加するための Windows Forms コントロールです。アルファ ブレンディング、グラデーション、画像などを含め、すべての外観が完全にサポートされます。
+
+image::images/WinScrollBar_Walk_Through_Scrolling_with_WinScrollBar_03.png[]

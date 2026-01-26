@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-change-an-images-stretch-margins-at-run-time",
+    "controlName": [],
+    "tags": ["Application Scenarios","Styling"],
+    "guid": "{E7728E05-32CF-4E0E-8996-E44858186F72}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにおける引き伸ばしマージンの変更
+
+開発作業においては、画像（ラベル、ボタン、グリッド セル、ツリー ノードのいずれでも）を拡大したいが、画像の中央の部分のみを拡大し、隅の部分は元のままにしたいと考えることがあります。このような場合には、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~imagebackgroundstretchmargins.html[ImageBackgroundStretchMargins]"]  プロパティを使用します。このプロパティを使用すると、画像の中央部分のみを拡大または縮小できます。左辺と右辺は垂直方向にのみ拡大され、上辺と下辺は水平方向にのみ拡大され、隅の部分は変わりません。
+
+このプロパティを設定するには、コードを 1 行記述すればすみます。当然のことながら、この機能は、以下のコードで指定されている UltraLabel コントロール以外にも適用できます。その他の、イメージを表示するためのすべてのコントロールに、このプロパティを使用できます。マージンの引き伸ばしを別の方法で変更するには、[プロパティ] ウィンドウで Appearance オブジェクトを拡大し、ImageBackgroundStretchMargins プロパティの横の省略記号（…）をクリックします。ImageBackground Stretch Margins エディタが開きます。
+
+image::images\Win_PLF_Appearance_Object_How_Do_I_Change_an_Images_Stretch_Margins_at_Run_Time_01.png[]
+
+[Visual Basic]
+
+----
+' マージンを設定するには、左右上下のマージンのパラメータを指定します。
+Me.ultraLabel1.Appearance.ImageBackgroundStretchMargins = _
+  New Infragistics.Win.ImageBackgroundStretchMargins(10,10,10,10)
+----
+
+[C#]
+
+----
+// マージンを設定するには、左右上下のマージンのパラメータを指定します。
+this.ultraLabel1.Appearance.ImageBackgroundStretchMargins =
+  new Infragistics.Win.ImageBackgroundStretchMargins(10,10,10,10);
+----

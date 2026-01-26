@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-the-ribbon",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{DB23D0D4-2E23-4A09-BEAC-4A1953895ADF}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T15:46:00Z"
+}
+|metadata|
+////
+
+= リボンの使用
+
+以下のセクションには、リボンに関連した特定のタスクを実行する方法を説明した短いトピックが含まれています。
+
+* link:wintoolbarsmanager-add-a-tab-to-the-ribbon.html[リボンにタブを追加]
+* link:wintoolbarsmanager-add-a-group-to-a-ribbon-tab.html[リボン タブにグループを追加]
+* link:wintoolbarsmanager-add-a-tool-to-a-ribbon-group.html[リボン グループにツールを追加]
+* link:wintoolbarsmanager-add-a-tool-to-the-quick-access-toolbar.html[クイック アクセス ツールバーにツールを追加]
+* link:wintoolbarsmanager-add-a-tool-to-the-tool-area-of-the-ribbons-application-menu.html[リボンのアプリケーション メニューのツール領域にツールを追加]
+* link:wintoolbarsmanager-add-tools-to-application-menu-2010.html[ツールをアプリケーション メニュー 2010 に追加]
+* link:wintoolbarsmanager-add-keytips-to-the-ribbon.html[リボンに KeyTips を追加]
+* link:wintoolbarsmanager-configuring-ribbon-tab-item-visibility.html[リボン タブ項目の表示状態を構成]
+* link:wintoolbarsmanager-customize-areas-of-application-menu-2010-and-file-menu-button.html[アプリケーション メニュー 2010 の領域およびファイル メニュー ボタンのカスタマイズ]
+* link:wintoolbarsmanager-creating-a-minitoolbar.html[MiniToolbar を作成]
+* link:wintoolbarsmanager-creating-a-ribbon.html[リボンを作成]
+* link:wintoolbarsmanager-creating-a-tab-based-on-a-context.html[コンテキストに基づきタブを作成]
+* link:wintoolbarsmanager-converting-a-standard-toolbar-to-a-ribbon.html[標準のツールバーをリボンに変換]
+* link:wintoolbarsmanager-display-a-label-over-the-icon-area.html[アイコン領域にラベルを表示]
+* link:wintoolbarsmanager-format-a-tools-description-on-the-ribbons-application-menu.html[リボンのアプリケーション メニューでツールの説明をフォーマット]
+* link:wintoolbarsmanager-prevent-ribbon-keytips-from-conflicting-with-hidden-main-menu-mnemonics.html[リボン KeyTips が非表示のメイン メニュー ニーモニックと競合することを防止]
+* link:wintoolbarsmanager-show-the-minitoolbar-programmatically.html[プログラミングによる MiniToolbar の表示]
+* link:wintoolbarsmanager-show-the-minitoolbar-with-a-context-menu.html[コンテキスト メニューで MiniToolbar を表示]
+* link:wintoolbarsmanager-use-the-dialogboxlauncher-button-to-display-a-dialog-box.html[ダイアログ ボックスを表示するために DialogBoxLauncher を使用]
+* link:wintoolbarsmanager-use-a-previously-created-ribbongroup-as-a-minitoolbar.html[MiniToolbar として以前に作成した RibbonGroup を使用]
+* link:winribboncustomizationprovider-about-winribboncustomizationprovider.html[WinRibbonCustomizationProvider について]
+* link:winribboncustomizationprovider-using-the-ribbon-customization-dialog.html[リボン カスタマイズ ダイアログを使用]
+* link:winribboncustomizationprovider-adding-custom-tab-to-ribbon-customization-dialog.html[カスタム タブをリボン カスタマイズ ダイアログに追加]

@@ -1,0 +1,145 @@
+﻿////
+
+|metadata|
+{
+    "name": "formattedtexteditor-using-subscript-and-superscript",
+    "controlName": [],
+    "tags": [],
+    "guid": "f468dbef-310d-46d4-9c2e-14931dac4f70",  
+    "buildFlags": [],
+    "createdOn": "2015-06-29T19:05:04.1754355Z"
+}
+|metadata|
+////
+
+= 下付き文字と上付き文字の使用
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor_members.html[FormattedTextEditor] および link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedlinklabel_members.html[FormattedLinkLabel] コントロールで下付き文字と上付き文字を使用する方法を紹介します。
+
+=== 前提条件
+
+このトピックを理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winformattedtexteditor.html[WinFormattedTextEditor]
+|このセクションでは、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor_members.html[FormattedTextEditor] コントロールの機能性、およびコントロールをアプリケーションで使用する利点について説明します。
+
+| link:winformattedlinklabel.html[WinFormattedLinkLabel]
+|このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成する方法の手順など、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedlinklabel_members.html[FormattedLinkLabel] についての有益な情報を含んでいます。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref423084560,下付き文字および上付き文字の概要>>
+
+** <<_Ref421266503,概要>>
+** <<_Ref397371188,プレビュー>>
+** <<_Ref396219292,書式設定されたテキスト>>
+** <<_Ref423354053,キーボードのサポート>>
+
+* <<_Ref388439099,関連コンテンツ>>
+
+[[_Ref423084560]]
+== 下付き文字および上付き文字の概要
+
+[[_Ref421266503]]
+
+=== 概要
+
+下付き文字および上付き文字は、通常より若干小さいフォントで、ベースラインより上、または下に表示されたテキストのことです。
+
+[[_Ref397371188]]
+
+=== プレビュー
+
+下付き文字はしばしば化学の数式に使用されます:
+
+H~2~O
+
+C~6~H~12~O~6~
+
+上付き文字は序数で使用されます:
+
+1^st^, 2^nd^, 3^rd^, 4^th^
+
+[[_Ref396219292]]
+
+=== 書式設定されたテキスト
+
+下付き文字および上付き文字は 2 つの方法で link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor_members.html[FormattedTextEditor] と link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedlinklabel_members.html[FormattedLinkLabel] に追加します: タグおよびスタイルです。
+
+[options="header", cols="a,a,a,a"]
+|====
+|書式|サンプル キストト|タグ|スタイル
+
+|下付き
+|H~2~O
+|H<sub>2</sub>O
+|H<span >2</span>O
+
+|上付き
+|July 4^th^
+|July 4<sup>th</sup>
+|July 4<span >th</span>
+
+|====
+
+下付き文字および上付き文字は他の書式設定の属性と組み合わせることもできます:たとえば、上付き文字は太字またはイタリックにすることができます。
+
+[options="header", cols="a,a,a,a"]
+|====
+|書式|サンプル キストト|タグ|スタイル
+
+|上付き
+|July ^4th^
+|July 4<u><sup>th</sup></u>
+|July 4<span >th</span>
+
+|====
+
+[[_Ref423354053]]
+
+=== キーボードのサポート
+
+[options="header", cols="a,a"]
+|====
+|書式|キーボード ショートカット
+
+|下付き
+|Ctrl + =
+
+|上付き
+|Ctrl + Shift + =
+
+|====
+
+[[_Ref388439099]]
+== 関連コンテンツ
+
+[[_Ref386478106]]
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winformattedlinklabel-formatting-text-and-hyperlinks.html[書式付きのテキストとハイパーリンク]
+| link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor_members.html[FormattedTextEditor] および link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedlinklabel_members.html[FormattedLinkLabel] を概観します。
+
+| link:winformattedtexteditor-style-attribute.html[スタイル属性]
+|上付き文字および下付き文字をコントロールする、スタイル属性や垂直方向配置のタグ下位属性などの詳細な情報を含みます。
+
+|====

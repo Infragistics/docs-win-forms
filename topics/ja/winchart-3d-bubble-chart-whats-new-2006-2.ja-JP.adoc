@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-3d-bubble-chart-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D76E0919-5628-43D0-B2FA-EF349DC036DB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 立体バブル チャート
+
+link:chart-bubble-chart-2d.html[平面バブル チャート]（ link:chart-scatter-chart.html[散布図]のバリエーション）を補完するために、立体バブル チャートを提供しています。これは既存のチャートにもうひとつの次元（x 軸）を追加し、より視覚的に魅力的なチャートになっています。
+
+image::Images/WinChart_3D_Bubble_Chart_Whats_New_2006_2.png[]
+
+== 関連トピック
+
+link:chart-about-3d-bubble-charts.html[立体バブル チャートについて]
+
+link:chart-working-with-3d-bubble-chart-data.html[立体バブル チャート データでの作業]

@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-rendering-themed-elements-under-semi-trust-security-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F3C9AECB-F2E1-472C-B4CB-CB8E199C7521}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 半信頼セキュリティ下でのテーマ エレメントの描画
+
+一部の Windows Forms コントロールには XP テーマを使用する機能があります。これまでは、Infragistics コントロールをイントラネット上（または Infragistics のコードにフルアクセス許可／アンマネージ コードの権限が与えられていない環境）で使用する場合には XP テーマを利用できませんでした。現在では、.NET セキュリティ オプションを調整することで、半信頼セキュリティ環境でも XP テーマをサポートできます。

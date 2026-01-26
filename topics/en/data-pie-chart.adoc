@@ -1,0 +1,28 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= {DataPieChartName}
+
+== link:data-pie-chart-animation.html[Animation]
+
+== link:data-pie-chart-data-binding.html[Data Binding]
+
+== link:data-pie-chart-getting-started.html[Getting Started]
+
+== link:data-pie-chart-highlighting.html[Highlighting]
+
+== link:data-pie-chart-legend.html[Legend]
+
+== link:data-pie-chart-others-category.html[Others Category]
+
+== link:data-pie-chart-selection.html[Selection]

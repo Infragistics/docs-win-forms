@@ -1,0 +1,21 @@
+﻿////
+|metadata|
+{
+    "name": "wincomboeditor-understanding-wincomboeditor",
+    "controlName": ["WinComboEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{238FBE50-07FC-4679-8DC8-D87527E7575B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinComboEditor の理解
+
+WinComboEditor™ コントロール、並びにその主要な特性と機能についての学習を開始するセクションです。このセクションのトピックでは、アプリケーションで WinComboEditor コンポーネントを使用する有用性を理解できます。
+
+WinComboEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wincomboeditor-about-wincomboeditor.html[WinComboEditor について] -- WinComboEditor コントロールの概要を説明しています。
+* link:wincomboeditor-smart-tag.html[WinComboEditor スマート タグ] -- WinComboEditor コントロールのスマート タグで表示されるプロパティと設定値について説明しています。

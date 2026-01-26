@@ -1,0 +1,42 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-displaying-checkbox-in-column-header",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{866AD145-0993-4633-A30D-E8B83BBAD243}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列ヘッダーにチェックボックスを表示
+
+WinGrid™ には、列ヘッダーに配置されたチェックボックスを介して、特定の Boolean 列内のすべてのセルの値を選択する機能があります。これは、列内のすべてのセル値と自動的に同期する機能を提供します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[ultraGrid.DisplayLayout.Override]"]  オブジェクトを通して設定された pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~headercheckboxvisibility.html[HeaderCheckBoxVisibility]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~headercheckboxalignment.html[HeaderCheckBoxAlignment]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~headercheckboxsynchronization.html[HeaderCheckBoxSynchronization]"]  プロパティを通して機能を有効にできます。同様に pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn.Header]"]  オブジェクトを介してプロパティ pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnheader~checkboxvisibility.html[CheckBoxVisibility]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnheader~checkboxalignment.html[CheckBoxAlignment]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnheader~checkboxsynchronization.html[CheckBoxSynchronization]"]  を使用して、チェックボックスを列ヘッダーに表示できます。
+
+以下のコードは WinGrid が Northwind Employees テーブルにバインドされていることが前提となっています。Boolean 列 IsActive はこのトピックのために Employees テーブルに追加されています。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+'列のデータ型が isBoolean、DefaultableBoolean または Nullable Boolean の場合に列ヘッダーにチェックボックスを表示します。 
+Me.ultraGrid1.DisplayLayout. Bands(0).Columns("IsActive").Header.CheckBoxVisibility = HeaderCheckBoxVisibility.WhenUsingCheckEditor
+'Header キャプションの右側に Header チェックボックスを配列します 
+Me.ultraGrid1.DisplayLayout.Bands(0).Columns("IsActive ").Header.CheckBoxAlignment = HeaderCheckBoxAlignment.Right
+'チェックボックスとセル値は RowsCollection のみに影響するように同期が保持されます 
+Me.ultraGrid1.DisplayLayout.Bands(0).Columns("IsActive ").Header.CheckBoxSynchronization = HeaderCheckBoxSynchronization.RowsCollection
+----
+
+*C# の場合：*
+[source,csharp]
+----
+//列のデータ型が isBoolean、DefaultableBoolean または Nullable Boolean の場合に列ヘッダーにチェックボックスを表示します。
+this.ultraGrid1.DisplayLayout. Bands[0].Columns["IsActive"].Header.CheckBoxVisibility = HeaderCheckBoxVisibility.WhenUsingCheckEditor;
+//Header キャプションの右側に Header チェックボックスを配列します
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["IsActive"].Header.CheckBoxAlignment = HeaderCheckBoxAlignment.Right;
+//チェックボックスとセル値は RowsCollection のみに影響するように同期が保持されます 
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["IsActive"].Header.CheckBoxSynchronization = HeaderCheckBoxSynchronization.RowsCollection;
+----
+
+image::Images/Wingrid_Displaying_Checkbox_in_Column_header.png[]

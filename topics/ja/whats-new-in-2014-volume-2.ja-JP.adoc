@@ -1,0 +1,167 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2014-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "d7d4fa6d-bbf9-486d-a9e4-a4d70ca645f2",  
+    "buildFlags": [],
+    "createdOn": "2014-04-03T20:30:48.541205Z"
+}
+|metadata|
+////
+
+= 2014 Volume 2 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、Infragistics® Windows Forms 2014 Volume 2 リリースの新しいコントロール、新機能、および更新機能の概要を示します。
+
+== 新機能の概要
+
+=== 新機能の概要表
+
+以下の表は 2014 Volume 2 の新機能の概要を示します。詳細については、概要表の下をご覧ください。
+
+== WinCarousel
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<_Ref382587830,新規コントロール>>
+|Windows Forms® 製品の 2014.2 リリースには _WinCarousel_ コントロールが追加されました。
+
+|====
+
+== UltraDataChart
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<_Ref382587835,新規コントロール>>
+|Windows Forms® 製品の 2014.2 リリースには _UltraDataChart_ コントロールが追加されました。
+
+|====
+
+== WinPivotGrid
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<_Ref382587840,FlatDataSource>>
+|XMLA データ プロバイダーおよび ADOMD データ プロバイダーに加えて、 _WinPivotGrid_ コントロールに _FlatDataSource_ タイプ オブジェクトが追加されました。
+
+|<<_Ref382587845,Compact ビューと SuperCompact ビュー>>
+|Compact ビュー、SuperCompact ビュー、Standard ビューのようなオプションを使用して行ヘッダー レイアウトを構成できます。
+
+|<<_Ref382587850,デフォルト テーマ>>
+|WinPivotGrid コントロールの新しいデフォルト外観 (テーマ) を表示します。
+
+|====
+
+== WinGrid
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<_Ref382587855,右から左サポート>>
+|Infragistics コントロールで表示されるテキストおよび UI 要素に右から左モードが追加されました。
+
+|====
+
+== _WinCarousel_
+
+[[_Ref382587830]]
+
+=== 新規コントロール
+
+Windows Forms 製品の 2014.2 リリースには  _WinCarousel_   コントロールが追加されました。
+
+_WinCarousel_   は、事前定義されたパスに沿った長方形タイルの形で、項目のリストを表示するナビゲート コントロールです。各項目は、テキストまたは画像を表示できます。
+
+==== 関連するトピック:
+
+* link:wincarousel.html[WinCarousel]
+
+== _UltraDataChart_
+
+[[_Ref382587835]]
+
+Windows Forms 製品の 2014.2 リリースには  _UltraDataChart_   コントロールが追加されました。
+
+_UltraDataChart_   はデータをビジュアル化するコントロールで、Infragistics WPF  _XamDataChart_   コントロールがモデルです。
+
+==== 関連するトピック:
+
+* link:datachart-datachart.html[UltraDataChart]
+
+== _WinPivotGrid_
+
+[[_Ref382587840]]
+
+=== FlatDataSource
+
+対応するスキーマを OLAP サーバーから取得する  _XmlaDataSource_   データ プロバイダーおよび  _AdomdDataSource_   データプロバイダーに加えて、 _FlatDataSource_   は 2 次元データを使用して OLAP エクスペリエンスをシミュレーションします。
+
+== 関連するトピック:
+
+* link:winpivotgrid-using-flatdatasource.html[FlatDataSource の使用]
+
+[[_Ref382587845]]
+
+=== Compact ビューと SuperCompact ビュー
+
+WinPivotGrid に行ヘッダー レイアウト オプションが追加されました (Compact および SuperCompact)。行ヘッダーを編成して行ヘッダー領域から未使用スペースを解放することが可能な場合は、そのスペースをデータの表示に割り当てることができるようになりました。
+
+==== 使用可能な行レイアウト オプション:
+
+*  _Compact_   – 子ヘッダーは親行ヘッダーの上に重ねて表示されます。
+*  _Standard_   – 各レベルはレイアウトで別の列として表示されます。
+*  _SuperCompact_   – すべてのヘッダーは 1 つの論理列のみを占めます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraPivotGrid1.RowHeaderLayout = Infragistics.Win.UltraWinPivotGrid.RowHeaderLayout.Compact;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraPivotGrid1.RowHeaderLayout = Infragistics.Win.UltraWinPivotGrid.RowHeaderLayout.Compact
+----
+
+[[_Ref382587850]]
+
+=== デフォルト テーマ
+
+新しいデフォルト テーマが WinPivotGrid コントロールに実装されました。以下の 2 つのスクリーンショットは、新しいバージョンと古いバージョンの外観の違いを示しています。
+
+新しい外観 (2014.2)
+
+image::images/Whats_New_in_2014_Volume_2_1.png[]
+
+古い外観 (2014.1)
+
+image::images/Whats_New_in_2014_Volume_2_2.png[]
+
+== _WinGrid_
+
+[[_Ref382587855]]
+
+=== 右から左サポート
+
+_WinGrid_   の右から左モードは、列とセルのコンテンツに適用されます。列とセルのコンテンツはいずれも左右対称に表示され、ミラー化されたビューを描画します。
+
+==== 関連するトピック:
+
+* link:right-to-left-support.html#_Ref377393490[右から左サポート]

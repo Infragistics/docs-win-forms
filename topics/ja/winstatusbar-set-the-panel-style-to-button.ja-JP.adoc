@@ -1,0 +1,98 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-button",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{0F6EB889-273E-4C97-832B-16FF67B32EAD}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを Button に設定
+
+Button パネルは、標準のコマンド ボタンを表示する、WinStatusBar 上の単純なパネルです。
+
+Button スタイルのパネルをデザインタイムに設定するには:
+
+[start=1]
+. UltraStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  プロパティが表示されるまでプロパティをスクロールします。スタイル プロパティを「Button」に設定します。
+[start=5]
+. ボタンで表示したいテキストに pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~text.html[Text]"]  プロパティを設定します。
+[start=6]
+. [OK] をクリックしてウィンドウを閉じると、パネルがステータスバーに追加されます。
+
+image::images\WinStatusBar_WinStatusBar_QuickTour_Button_Panel_01.png[]
+
+ランタイムに
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub WinStatusBarQuickTourButtonPanel_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 新しいパネルを作成します
+	Dim myPanel As New UltraStatusPanel()
+	' パネルのスタイルを設定します
+	myPanel.Style = PanelStyle.Button
+	' ボタン/パネルのテキストを設定します
+	myPanel.Text = "Press Me"
+	' エレメントにパネルを追加します
+	Me.UltraStatusBar1.Panels.Add(myPanel)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void WinStatusBarQuickTourButtonPanel_Load(object sender, System.EventArgs e)
+{
+	// 新しいパネルを作成します
+	UltraStatusPanel myPanel = new UltraStatusPanel();
+	// パネルのスタイルを設定します
+	myPanel.Style = PanelStyle.Button;
+	// ボタン/パネルのテキストを設定します
+	myPanel.Text = "Press Me";
+	// エレメントにパネルを追加します
+	this.ultraStatusBar1.Panels.Add(myPanel);
+}
+----
+
+== Button スタイルのパネルに対するイベント
+
+ボタンでは pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatusbar~buttonclick_ev.html[ButtonClick]"]  というイベントが発生します。このイベントには  _e.Panel_  というひとつのパラメータが渡されます。このパラメータは、ボタンを保持している Panel への参照を提供します。たとえば、ButtonClick イベントのパネルへの参照を取得してパネルのテキストを出力するには、次のようにします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraStatusBar1_ButtonClick(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinStatusBar.PanelEventArgs) _
+  Handles UltraStatusBar1.ButtonClick
+	MessageBox.Show(e.Panel.Text.ToString())
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraStatusBar1_ButtonClick(object sender, 
+  Infragistics.Win.UltraWinStatusBar.PanelEventArgs e)
+{
+	MessageBox.Show(e.Panel.Text.ToString());
+}
+----
+
+image::images\WinStatusBar_Set_the_Panel_Style_to_Button_01.png[]

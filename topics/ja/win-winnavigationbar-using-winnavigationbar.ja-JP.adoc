@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-winnavigationbar-using-winnavigationbar",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{BBFF7054-A399-4F66-8436-820986667FB1}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:45:50Z"
+}
+|metadata|
+////
+
+= WinNavigationBar の使用
+
+このセクションでは、WinNavigationBar™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winnavigationbar-add-an-action-button-to-winnavigationbar.html[アクション ボタンを WinNavigationBar に追加]
+* link:winnavigationbar-binding-winnavigationbar-to-a-dataset.html[WinNavigationBar を DataSet にバインド]
+* link:winnavigationbar-browsing-the-file-system-with-winnavigationbar.html[WinNavigationBar でファイル システムを参照]
+* link:winnavigationbar-handle-a-navigation-path-parsing-error.html[ナビゲーション パス解析エラーを処理]
+* link:winnavigationbar-lazily-populate-winnavigationbar.html[WinNavigationBar を遅延移植]
+* link:winnavigationbar-navigate-to-a-new-location.html[新しい場所にナビゲート]
+* link:winnavigationbar-refresh-winnavigationbars-locations.html[WinNavigationBar の場所をリフレッシュ]
+* link:winnavigationbar-using-winnavigationbar-with-the-navigation-toolbar.html[ナビゲーション ツールバーで WinNavigationBar を使用]

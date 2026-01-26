@@ -1,0 +1,130 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-the-activerow-of-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{05614E30-E90C-4BF7-8FBB-153028007076}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid の ActiveRow の設定
+
+== バックグラウンド
+
+WinGrid コントロールの ActiveRow を設定すると、行を表示領域に移動します。WinGrid メソッドを設定する、または CurrencyManager.Position プロパティを設定することによって ActiveRow を設定できます。これによって、開発者が基本のデータに操作を実行し、結果からグリッドの ActiveRow を設定できます。
+
+== 質問
+
+* グリッドの ActiveRow をコード上からどのように設定しますか?
+* 基本の DataTable の行番号が分かれば、グリッドの ActiveRow としてこの行をどのように設定できますか?
+
+== 解決策
+
+UltraGridRow オブジェクトの ActiveRow メソッドを起動することによって、グリッドの ActiveRow を設定します。Position プロパティを設定することによって、CurrencyManager でグリッドの ActiveRow を設定します。
+
+== サンプル プロジェクト
+
+ユーザーが [ActiveRow で行 50 に移動] を押すと、行 50 がアクティブ行として表示されます。ユーザーが [BindingContext で行 75 に移動] を押すと、行 75 が表示されます。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Setting_the_ActiveRow_of_WnGrid_01.png[]
+
+UltraGrid イベント領域には、次のイベント ハンドラが含まれます:
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードは、使用可能なグリッドの幅にすべての列を表示するようにグリッドに指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' 使用可能なグリッド幅に列を合わせます
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// 使用可能なグリッド幅に列を合わせます
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します:
+
+* btnMoveActiveRow.Click - [ActiveRow で行 50 に移動] の Click イベントのコードは、50 番目の行をアクティブ行として設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnMoveActiveRow_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnMoveActiveRow.Click
+	' グリッド内で ActiveRow として行 49 を設定します
+	Me.UltraGrid1.Rows(49).Activate()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnMoveActiveRow_Click(object sender, System.EventArgs e)
+{	
+	// グリッド内で ActiveRow として行 49 を設定します
+	this.ultraGrid1.Rows[49].Activate();
+}	
+----
+
+* btnMoveWithBindingContext.Click - [BindingContext で行 75 に移動] の Click イベントのコードは、Current Manager の Position プロパティを設定することによって、75番目の行をアクティブ行として設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnMoveWithBindingContext_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnMoveWithBindingContext.Click
+	' Currency Manager を使用して ActiveRow として行 74 を設定します
+	Dim currencymanagerCustomers As CurrencyManager
+	currencymanagerCustomers = Me.BindingContext(Me.UltraGrid1.DataSource)
+	currencymanagerCustomers.Position = 74
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnMoveWithBindingContext_Click(object sender, System.EventArgs e)
+{
+	// Currency Manager を使用して ActiveRow として行 74 を設定します
+	CurrencyManager currencyManagerCustomers = 
+	  (CurrencyManager)this.BindingContext[this.ultraGrid1.DataSource];
+	currencyManagerCustomers.Position = 74;
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトは、行の位置を特定の行に設定し、WinGrid の表示可能な領域にその行を表示させる 2 つの異なるメソッドを示します。

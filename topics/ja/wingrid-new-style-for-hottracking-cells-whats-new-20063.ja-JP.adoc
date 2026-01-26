@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-new-style-for-hottracking-cells-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EE87F59F-238C-4955-BE39-515963CCE7E4}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T16:38:55Z"
+}
+|metadata|
+////
+
+= ホットトラッキング セルの新しいスタイル
+
+弊社は新しい pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~cellhottrackinvalidationstyle.html[CellHottrackInvalidationStyle]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  に追加しました。このプロパティは、WinGrid がセル上のホットトラッキングにどのように反応するかを定義します。WinGrid は、マウスでセルを入力またはキャンセルすると、常にセルを無効にします。これはセル自体を再描画します。多くの場合、実際には何も変化がないことが分かります（視覚的または基本データにおいて）。パフォーマンスを向上するために、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.cellhottrackinvalidationstyle.html[CellHottrackInvalidationStyle]"]  を Never に設定し、WinGrid はセルを無効にしません。この結果、WinGrid はセルを再描画しません。セルに Hottrack 外観を設定すると、CellHottrackingInvalidationStyle を OnlyIfHottrackAppearance に設定できます。ホットトラッキング外観が設定されていれば、この方法で WinGrid はセルを塗り替えるだけです。

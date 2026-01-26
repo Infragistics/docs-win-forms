@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-editor-controls-classification",
+    "controlName": ["WinEditors"],
+    "tags": ["Extending"],
+    "guid": "5cf4cdf6-3203-4470-b752-00a0c41b4d30",  
+    "buildFlags": [],
+    "createdOn": "2010-09-16T20:44:36.2071799Z"
+}
+|metadata|
+////
+
+= エディター コントロールの分類
+
+Infragistics™ エディター コントロールは、TextEditorControlBase、UltraWinEditorMaskedControlBase および UltraFormattedTextEditor という基本カテゴリーに分類されます。以下はこれらの各カテゴリーに分類されるコントロールのリストです。
+
+== TextEditorControlBase
+
+=== UltraComboEditor
+
+===== UltraTimeZoneEditor
+
+===== UltraFontNameEditor
+
+==== UltraTextEditor
+
+===== UltraTimeSpanEditor
+
+=== UltraColorPicker
+
+=== UltraCalculatorDropDown
+
+=== UltraCombo (WinGrid)
+
+=== UltraCalendarCombo (WinSchedule)
+
+== UltraWinEditorMaskedControlBase
+
+=== UltraNumericEditor
+
+=== UltraCurrencyEditor
+
+=== UltraDateTimeEditor
+
+=== UltraMaskedEdit
+
+== UltraFormattedTextEditor
+
+=== UltraFormattedTextEditor

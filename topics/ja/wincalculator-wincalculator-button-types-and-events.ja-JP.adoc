@@ -1,0 +1,120 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalculator-wincalculator-button-types-and-events",
+    "controlName": ["WinCalculator"],
+    "tags": ["Events"],
+    "guid": "{E69FBFA3-1071-4614-92A3-EDC770EC5670}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 計算機ボタンの種類とイベント
+
+次のリストは、WinCalculator ボタンの Type プロパティで使用可能な設定と、発生するイベントをまとめたものです。
+
+[options="header", cols="a,a,a"]
+|====
+|ボタンのタイプ|説明|発生するイベント
+
+|Numeric Button
+|標準の数字ボタン（3、6、8 など）。
+|BeforeButtonClicked
+
+|ActionButton
+|計算機の標準的なボタンで、何らかのアクションを実行するものの、表示にはまったく影響を与えないボタン。たとえば、[MC]、[CE]、[C] ボタンなど。
+|BeforeButtonClicked 
+
+BeforeActionButtonPressed 
+
+AfterActionButtonPressed
+
+|演算子
+|演算子として動作します（+、-、/ など）。次の数字キーを押すと表示が消去されます。
+|BeforeButtonClicked 
+
+BeforeCalculatePending 
+
+AfterCalculatePending
+
+|OperatorImmediateAction
+|演算を即時に実行します。キューには入らず、他の演算子を消去することもありません。平方根ボタンがその一例です。
+|BeforeButtonClicked 
+
+BeforeCalculateImmediate 
+
+AfterCalculateImmediate
+
+|OperatorPerformImmediateThenPendingCalculations
+|演算を即時に実行する点は OperatorImmediateAction と同じですが、残りの演算もすべて実行します。たとえば、[%] キーがその例です。OperatorImmediateAction との違いを表す例としては、平方根ボタンと別の演算子を使用した場合が挙げられます。この場合は結果を得るために次のボタンを押す必要があります。 
+
+[source]
+---- 
+12 * 9Sqrt =
+---- 
+
+（結果は36） 
+
+それに対して、12 の 10% を計算する場合は次のボタンを押します。 
+
+[source]
+---- 
+12 * 10%
+---- 
+
+（結果は 1.2。*=* を押す必要はありません） 
+
+[%] キーは OperatorPerformImmediateThenPendingCalculations キーであるため、このキーを押すと保留中の演算がすべて実行されます。
+|BeforeButtonClicked 
+
+BeforeCalculateImmediate 
+
+AfterCalculateImmediate 
+
+BeforeCalculatePending 
+
+AfterCalculatePending
+
+|OperatorPerformPendingCalculations
+|保留中の演算を実行します（[=] キーなど）。
+|BeforeButtonClicked BeforeCalculatePending AfterCalculatePending
+
+|====
+
+以下はイベントとそれぞれの定義のリストです。
+
+[options="header", cols="a,a"]
+|====
+|イベント|説明
+
+|BeforeButtonClickedEventHandler BeforeButtonClicked:
+|いずれかのボタンがクリックされる前に発生します。
+
+|System.EventHandler AfterCalculationComplete:
+|計算処理には複数の段階がある場合があるため、すべての計算処理が完了した後に発生します。
+
+|BeforeCalculatePendingEventHandler BeforeCalculatePending:
+|保留中の演算の前に発生します。これにより、ユーザーはデフォルトの演算をキャンセルしたり、値を変更したりできます。
+
+|System.EventHandler AfterCalculatePending:
+|保留中の演算の後に発生します。
+
+|BeforeCalculateImmediateEventHandler BeforeCalculateImmediate:
+|即時演算の前に発生します。これにより、ユーザーはデフォルトの演算をキャンセルしたり、値を変更したりできます。
+
+|System.EventHandler AfterCalculateImmediate:
+|即時演算の後に発生します。
+
+|DefaultCalculationFailEventHandler DefaultCalculationFail:
+|デフォルトの演算が失敗したときに発生します。
+
+|BeforeCalculateImmediateEventHandler BeforeActionButtonPressed:
+|アクションが起こる前に発生します。これにより、ユーザーはデフォルトの演算をキャンセルしたり、値を変更したりできます。
+
+|System.EventHandler AfterActionButtonPressed:
+|アクション ボタンが押された後に発生します。
+
+|====

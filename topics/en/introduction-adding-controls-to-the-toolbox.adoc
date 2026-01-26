@@ -1,0 +1,48 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= Adding Controls to the Toolbox
+
+{ProductName} controls can be added to the designer Toolbox in the following ways. Please ensure that you have the design surface open when adding controls to your Toolbox.
+
+toc::[]
+
+
+== Add a Tab For Infragistics Controls
+
+. Right click anywhere on the toolbox and select "Add Tab".
+. Type "{ProductName} {ProductVersion}" and press ENTER.
+
+== Using the Choose Toolbox Items Dialog Box
+
+The controls can manually added using the Choose Toolbox Items dialog box.
+
+
+. Click the tab you wish to add to.
+. Right-click anywhere on the toolbox and select "Choose Items..." to open the Choose Toolbox Items dialog box.
++
+image::Images/WinChooseToolBoxItems.png[Customize Toolbox Dialog]
+. Scroll through the list, and select the check boxes corresponding to the {ProductName} controls and components that you want to add to the toolbox.
+. Click OK.
+
+
+== Copying Assemblies from the Bin Folder
+
+Infragistics' assemblies can be copied from your install's Bin folder and pasted right into the Microsoft® Visual Studio® Toolbox.
+
+. In Windows Explorer, navigate to the Bin directory where the Infragistics Professional assemblies are installed. The assemblies contain the DLLs that you want to add: `{InstallPath}\Bin`
+. Select the DLLs that contain the Infragistics Professional controls/components you want to add to the Visual Studio toolbox.
++
+image::Images/WinDragAndDropAssembliesFromBinFolder.png[Location of assemblies highlighted to be dragged over to the toolbox.]
+. Copy (via Ctrl+c or through the right click context menu) the DLLs
+. Select the tab you wish to populate and paste (via Ctrl+v or through the right click context menu).
+
+.Note
+[NOTE]
+If you add all the tools to the toolbox at the same time, it may take a few seconds for Visual Studio to add them all.

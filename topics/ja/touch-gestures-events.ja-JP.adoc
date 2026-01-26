@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-gestures-events",
+    "controlName": [],
+    "tags": [],
+    "guid": "0c3d4152-8988-49e0-bffb-738c85e196fd",  
+    "buildFlags": [],
+    "createdOn": "2013-02-25T19:22:51.7716251Z"
+}
+|metadata|
+////
+
+= タッチ ジェスチャのイベント
+
+== トピックの概要
+
+=== 目的
+
+このトピックは  _Infragistics_™ のタッチ対応コントロールのジェスチャおよびイベントを紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349131264,はじめに>>
+* <<_Ref349131273,タッチ ジェスチャのイベント>>
+* <<_Ref349131281,関連コンテンツ>>
+
+[[_Ref349131264]]
+== はじめに
+
+=== タッチ ジェスチャのイベントの概要
+
+新しいタッチ ジェスチャの処理機能は link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase.html[UltraControlBase] クラスに利用できます。機能を許可または回避できます。以下のイベントは _パンニング_  、 _ズーム_  、 _回転_  、 _押してタップ_  、 _長押し_  、および  _マルチ タップ_  などのジェスチャを表します。
+
+[[_Ref349131273]]
+== タッチ ジェスチャのイベント
+
+=== ジェスチャに関連するイベント
+
+以下のセクションは、キャンセルされていない場合に提供されるユーザー インタラクションに対応するタッチ ジェスチャ イベントを説明します。
+
+[options="header", cols="a,a"]
+|====
+|イベント|説明
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturequerystatus_ev.html[GestureQueryStatus]
+|ユーザーが最初にタッチ画面を押すときに発生します。ユーザー インタラクションで最初の発生したジェスチャに関連するイベントです。 
+
+イベント引数の Mode プロパティをデフォルト値の `All` に設定すると、すべてのジェスチャが有効になり、対応するイベントを発生します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturestarting_ev.html[GestureStarting]
+|システムのジェスチャ レコグナイザーは、ユーザー インタラクションをオペレーティング システムでサポートされるジェスチャとして識別するときに発生します。常に link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturequerystatus_ev.html[GestureQueryStatus] イベントの後に発生します。 
+
+イベント引数の `Cancel` プロパティを `True` に設定すると、このジェスチャにおいて他のイベントの発生を回避します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~pangesture_ev.html[PanGesture]
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturestarting_ev.html[GestureStarting] イベントの直後に発生し、コンタクト ポイント位置の変更時および指を離した直後に発生します。ジェスチャのスピードは、指を離した後に表示されているコンテンツのスクロールが続行するかどうかを決定します。この動作は`慣性` または`慣性パンニング`と呼ばれます。 
+
+イベント引数の `Handled` プロパティを `True` に設定すると、最初の移動の方向に基づいてデフォルト操作のスクロール、選択、またはドラッグを回避します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~zoomgesture_ev.html[ZoomGesture]
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturestarting_ev.html[GestureStarting] イベントの直後に発生し、ユーザーがズームまたは縮小するときに押しポイントが位置を変更するときに発生し、指が離れた後にすぐ発生します。 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~zoomgesture_ev.html[ZoomGesture] イベントのデフォルト操作はありません。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~rotategesture_ev.html[RotateGesture]
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturestarting_ev.html[GestureStarting] イベントの直後に発生し、ユーザーの指がピボット ポイントの周りに移動するときに第 2 指を移動するときに発生します。 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~rotategesture_ev.html[RotateGesture] イベントのデフォルト操作はありません。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~pressandtapgesture_ev.html[PressAndTapGesture]
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturestarting_ev.html[GestureStarting] イベントの直後に発生します。 
+
+イベント引数の `Handled` プロパティを `True` に設定すると、最初の移動の方向に基づいてデフォルト操作のスクロール、選択、またはドラッグを回避します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~twofingertapgesture_ev.html[TwoFingerTapGesture]
+|GestureStarting イベントの直後に発生します。 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~twofingertapgesture_ev.html[TwoFingerTapGesture] イベントのデフォルト操作はありません。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~pressandholdgesture_ev.html[PressAndHoldGesture]
+|2 回発生します。 
+
+* `長押し`のタイムアウトがかかったときに発生します。たとえば、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.touch.gesture.html[PressAndHold] プロパティに指定した時間期間が経過したときに発生します。 
+
+* また、ユーザーがタッチ画面から離れたときにも発生します。 
+
+イベント引数の `Handled` プロパティを `True` に設定すると、最初の移動の方向に基づいてデフォルト操作のスクロール、選択、またはドラッグを回避します。
+
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~gesturecompleted_ev.html[GestureCompleted]
+|各ジェスチャの最後のジェスチャ特定イベント発生後に発生します。
+
+|====
+
+[[_Ref349131281]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:touch-gestures.html[タッチ ジェスチャ]
+|このグループのトピックは Infragistics タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+| link:touch-gestures-overview.html[タッチ ジェスチャの概要]
+|このトピックでは、Infragistics のタッチ対応コントロールのタッチ ジェスチャ機能と使用を説明します。
+
+|====

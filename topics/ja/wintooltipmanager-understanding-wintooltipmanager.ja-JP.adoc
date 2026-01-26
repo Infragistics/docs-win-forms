@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-understanding-wintooltipmanager",
+    "controlName": ["WinToolTipManager"],
+    "tags": [],
+    "guid": "{C06E4AD8-569B-4C72-B7C5-4AEACE753B8F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolTipManager の理解
+
+WinToolTipManager コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinToolTipManager コントロールを使用することの利点を理解できます。
+
+WinToolTipManager コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintooltipmanager-about-wintooltipmanager.html[WinToolTipManager について] -- WinToolTipManager コンポーネントの概要を説明しています。
+* link:winformattedlinklabel-formatting-text-and-hyperlinks.html[テキストとハイパーリンクのフォーマッティング] -- ToolTipTextStyle が Formatted に設定される場合、使用可能なタグのリストです。
+* link:wintooltipmanager-tooltip-styles.html[ツールチップのスタイル] -- WinToolTipManager コンポーネントで使用できるさまざまなツールチップのスタイルについて説明しています。

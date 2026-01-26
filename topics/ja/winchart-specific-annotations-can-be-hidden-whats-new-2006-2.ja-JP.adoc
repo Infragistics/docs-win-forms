@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-specific-annotations-can-be-hidden-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{48091E59-6D0C-4DED-A693-D11D4676B2E4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 特定の注釈を非表示にする
+
+これまで、注釈を非表示にするには、Annotation コレクション全体から注釈を削除する必要がありました。2006 Volume 2 リリースは、Annotation 基本クラスの Visible プロパティを使用して特定の注釈を簡単に削除する機能を提供しています。
+
+== 関連トピック
+
+link:chart-make-a-specific-annotation-visible.html[特定の注釈を表示する]

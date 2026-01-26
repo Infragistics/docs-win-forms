@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-understanding-windesktopalert",
+    "controlName": ["WinDesktopAlert"],
+    "tags": [],
+    "guid": "{B1A385B0-2DE4-42EF-8DD5-88B8D13C739A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDesktopAlert の理解
+
+WinDesktopAlert コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinDesktopAlert コントロールを使用することの利点を理解できます。
+
+WinDesktopAlert コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:windesktopalert-about-windesktopalert.html[WinDesktopAlert について]
+* link:windesktopalert-the-look-and-feel-of-windesktopalert.html[WinDesktopAlert のルック アンド フィール]
+* link:windesktopalert-smart-tag.html[WinDesktopAlert スマート タグ]

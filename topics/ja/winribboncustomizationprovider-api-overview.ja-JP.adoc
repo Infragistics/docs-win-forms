@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winribboncustomizationprovider-api-overview",
+    "controlName": ["WinRibbonCustomizationProvider"],
+    "tags": ["API"],
+    "guid": "fee02737-9477-4976-ad00-a12c37fd50e6",  
+    "buildFlags": [],
+    "createdOn": "2011-04-26T19:22:27.7855094Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinRibbonCustomizationProvider の名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider_namespace.html[Infragistics.Win.SupportDialogs.RibbonCustomizationProvider 名前空間]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider.ultraribboncustomizationprovider.html[UltraRibbonCustomizationProvider]"]
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider.ribboncustomizationdialog.html[RibbonCustomizationDialog]"]
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider.ribboncustomizationcontrol.html[RibbonCustomizationControl]"]
+
+pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.ribboncustomizationprovider.qatcustomizationcontrol.html[QATCustomizationControl]"]

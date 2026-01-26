@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridrowedittemplate",
+    "controlName": [],
+    "tags": ["Getting Started","Summaries","Templating"],
+    "guid": "{0C0C88D5-987B-4786-8F73-7D0F486B28C4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridRowEditTemplate
+
+WinGridRowEditTemplate™ コントロールに関する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。本セクションには、WinGridRowEditTemplate についての役立つ情報が含まれています。その範囲は、コントロールが行うこと、アプリケーションでそれを使用したい理由から、コントロールを使用して一般的なタスクをどのように達成するかについての手順です。
+
+以下のリンクをクリックして WinGridRowEditTemplate コントロールについての重要情報にアクセスしてください。
+
+== link:wingridrowedittemplate-understanding-wingridrowedittemplate.html[WinGridRowEditTemplate の理解]
+
+このセクションには WinGridRowEditTemplate コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:wingridrowedittemplate-using-wingridrowedittemplate.html[WinGridRowEditTemplate の使用]
+
+本セクションでは、WinGridRowEditTemplate コントロールで特定のタスクをどのように実行するかを例示するサンプル コード例を含む役立つトピックがあります。
+
+== link:wingridrowedittemplate-api-overview.html[API の概要]
+
+本トピックは、WinGridRowEditTemplate コントロールでプログラミング中に取り扱う名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

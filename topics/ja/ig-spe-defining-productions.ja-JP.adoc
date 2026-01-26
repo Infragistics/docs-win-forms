@@ -1,0 +1,289 @@
+﻿////
+|metadata|
+{
+    "name": "ig-spe-defining-productions",
+    "controlName": [],
+    "tags": [],
+    "guid": "d1da8b5c-06cd-489a-ba6e-77b269f8afff",
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0578507Z"
+}
+|metadata|
+////
+
+= 生産の定義
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、非終端記号を作成する方法を説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350516964, 生産の概要 >>
+* <<_Ref349233072, 生産のサマリー >>
+* <<_Ref349233076, 同一ヘッド >>
+* <<_Ref349233081, 空の本文 >>
+* <<_Ref349233086, 本文内に含まれる独自のヘッド >>
+* <<_Ref350517052, 変数宣言ステートメントの定義 >>
+* <<_Ref349236370, 最初の抽象宣言 >>
+* <<_Ref349236375, ツリー形式で表示 >>
+* <<_Ref349236378, C# を使用した定義 >>
+* <<_Ref349236384, 関連コンテンツ >>
+
+[[_Ref350516964]]
+== 生産の概要
+
+[[_Ref349233072]]
+
+=== 生産のサマリー
+
+「 link:ig-spe-non-terminal-symbols.html[非終端記号]」トピックで説明されるとおり、生産は、非終端記号が記号シーケンスを表すことができる各種方法を示す一連の定義です。各生産の本文は、左から右に記号シーケンスを検索する順序を定義します。生産についていくつか重要事項があります。
+
+[[_Ref349233076]]
+
+=== 同一ヘッド
+
+ヘッドが同じ生産が複数ある場合があります。非終端記号は 1 つの記号シーケンスのみを表す必要はありません。同じ非終端記号用に複数の生産があることがあります。たとえば、C# での VariableDeclarationStatement の非終端記号のための生産がいくつかあるなどです。
+
+VariableDeclarationStatement → Type IdentifierToken SemicolonToken
+
+VariableDeclarationStatement → Type IdentifierToken EqualsToken Expression SemicolonToken
+
+VariableDeclarationStatement → VarKeyword IdentifierToken EqualsToken Expression SemicolonToken
+
+これらの記号シーケンスのいずれかが、変数宣言ステートメントの非終端記号が予想される場所においてドキュメント内に見つかると、そのシーケンスは VariableDeclarationStatement の非終端記号で表すことができます。
+
+[[_Ref349233081]]
+
+=== 空の本文
+
+生産本文は空になることができます。
+
+OmittedArgument →
+
+この生産は有効であり、Visual Basic 言語で使用されます。これは、パーサーが「OmittedArgument」をドキュメント内の次のコンストラクトとして検索することを予想する場合、空のフォーム内で見つけたこと、および次のトークンが実際に「OmittedArgument」の後で見つかるはずであったコンテンツに属することを示すのみです。その使用方法の 1 つは、以下の通りです。
+
+OmittedArgument →
+
+Argument → Expression
+
+Argument → OmittedArgument
+
+ArgumentList → OpenParen Argument Comma Argument CloseParen
+
+ここで引数を検索する場合、あるものが無い場合 (パラメータにデフォルト値がある場合に VB 用に許可される)、パーサーは「引数」が予想された場所で「OmittedArgument」を見つけたと見なすことができます。このため引数リスト「(,)」では、2 つの「OmittedArgument」非終端記号が見つかります。
+
+[[_Ref349233086]]
+
+=== 本文内に含まれる独自のヘッド
+
+生産の本文には、独自のヘッド記号をその記号の 1 つとして含めることができます。これは、再帰構造および繰り返し項目の含まれる記号では便利です。たとえば、コード ブロックにより C# でゼロ個以上のステートメントが許可されます。「Statement」と呼ばれる非終端記号を定義してブロックを表す場合、無限の生産ナンバーが必要なため再帰的に定義された記号なしでは不可能です。各ステートメント ナンバーにつき 1 つが許可されます。しかし再帰的に定義された記号があれば、以下の生産を定義してすべてのステートメント ナンバーを表すことができます (ヘッド記号上の下付き文字は以下の説明を容易にするのみで記号または生産には影響しません)。
+
+Statements~1~ →
+
+Statements~2~ → Statement *Statements*
+
+2 つめの生産は、本文内の「Statements」非終端記号を参照します。「ステートメント」は再帰的に定義されます。ここで構文ツリーは可能なブロックで見つかるさまざまなステートメント ナンバーに基づいて以下のように見えます。
+
+* ゼロ ステートメントが見つかった場合:
++
+Statements~1~
+
+* 1 つのステートメントが見つかった場合:
++
+Statements~2~
+
+** Statement
+** Statements~1~
+
+* 2 つのステートメントが見つかった場合:
++
+Statements~2
+
+** Statement
+** Statements~2~
+
+*** Statement
+*** Statements~1~
+
+* 以下同様です。
+
+[[_Ref350517052]]
+== 変数宣言ステートメントの定義
+
+[[_Ref349236370]]
+
+=== 最初の抽象宣言
+
+「 link:ig-spe-non-terminal-symbols.html[非終端記号]」トピックで述べたように、以下は、C# における各種宣言ステートメントに対して起こりうる生産を示します。
+
+VariableDeclarationStatement → Type IdentifierToken SemicolonToken
+
+VariableDeclarationStatement → Type IdentifierToken EqualsToken Expression SemicolonToken
+
+VariableDeclarationStatement → VarKeyword IdentifierToken EqualsToken Expression SemicolonToken
+
+各生産を個別に定義する必要はなく、Syntax Parsing Engine によりヘッド記号が一致するすべての生産は、以下のようにすべての生産を統合してまとめて定義できます。
+
+VariableDeclarationStatement →
+
+(Type IdentifierToken [EqualsToken Expression] SemicolonToken)
+
+| (VarKeyword IdentifierToken EqualsToken Expression SemicolonToken)
+
+この偽生産では、カッコで記号をまとめてグループ化し、四角ブラケットにオプションの記号シーケンスを含め、棒文字「|」で 2 つの代替シーケンスを分割します。この表記は、上記と同じ 3 つの生産をより簡潔に説明します。
+
+[[_Ref349236375]]
+
+=== ツリー形式で表示
+
+上記の例における偽生産は、構文ルールのツリー構造で説明でき、そのルートはヘッドの NonTerminalSymbol の Rule プロパティで公開されます。以下は、この場合にツリー構造がどのように見えるかを示します。
+
+----
+NonTerminalSymbol.Rule
+    AlternationSyntaxRule
+        ConcatenationSyntaxRule
+            SymbolReferenceSyntaxRule (Type)
+            SymbolReferenceSyntaxRule (IdentifierToken)
+            OptionalSyntaxRule
+                ConcatenationSyntaxRule
+                    SymbolReferenceSyntaxRule (EqualsToken)
+                    SymbolReferenceSyntaxRule (Expression)
+            SymbolReferenceSyntaxRule (SemicolonToken)
+        ConcatenationSyntaxRule
+            SymbolReferenceSyntaxRule (VarKeyword)
+            SymbolReferenceSyntaxRule (IdentifierToken)
+            SymbolReferenceSyntaxRule (EqualsToken)
+            SymbolReferenceSyntaxRule (Expression)
+            SymbolReferenceSyntaxRule (SemicolonToken)
+----
+
+お分かりのように、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol.html[NonTerminalSymbol] クラスの link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~rule.html[Rule] プロパティは非終端記号がその他の記号から形成できる各種方法を構文アナライザーに示します。以下は、すべての利用可能な構文ルールの表です。
+
+[options="header", cols="a,a"]
+|====
+|規則|説明
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbolreferencesyntaxrule.html[SymbolReferenceSyntaxRule]
+|ひとつの記号を表します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.optionalsyntaxrule.html[OptionalSyntaxRule]
+|オプションで使用できる子ルールを表します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.repetitionsyntaxrule.html[RepetitionSyntaxRule]
+|ゼロ回または複数回利用できる子ルールを表します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.alternationsyntaxrule.html[AlternationSyntaxRule]
+|2 個以上の子ルールのセットを表します。そのうちのいずれかを使用します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.concatenationsyntaxrule.html[ConcatenationSyntaxRule]
+|2 個以上の子ルールのセットを表します。そのそれぞれはドキュメント内で左から右へ使用します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.emptysyntaxrule.html[EmptySyntaxRule]
+|表す記号はありません。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.exceptionsyntaxrule.html[ExceptionSyntaxRule]
+|統語論的例外を表します。シーケンスに一致するトークンが記号の「例外シーケンス」に一致しないかぎり 1 つの記号シーケンスを使用できます。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.factorsyntaxrule.html[FactorSyntaxRule]
+|統語論的要因を表します。特定回数繰り返されるルールです。
+
+|====
+
+[[_Ref349236378]]
+
+=== C# を使用した定義
+
+上記のツリーは、以下の方法で C# を使用して定義します (記号は暗示的に `SymbolReferenceSyntaxRule` に変換され、そのため記号はそれらを参照するルールが必要な場合は直接指定できます)。
+
+*C# の場合:*
+
+[source,csharp]
+----
+var grammar = new Grammar();
+var defaultLexerState = grammar.LexerStates.DefaultLexerState;
+// デフォルトのレクサー状態で一致すべき組み込み記号が含まれます。
+defaultLexerState.Symbols.Add(grammar.WhitespaceSymbol);
+defaultLexerState.Symbols.Add(grammar.NewLineSymbol);
+var equals = defaultLexerState.Symbols.Add("EqualsToken", "=");
+var semicolon = defaultLexerState.Symbols.Add("SemicolonToken", ";");
+var varKeyword = defaultLexerState.Symbols.Add("VarKeyword", "var");
+var identifier = defaultLexerState.Symbols.Add("IdentifierToken",
+      "[_a-zA-Z][_a-zA-Z0-9]*", TerminalSymbolComparison.RegularExpression);
+var type = grammar.NonTerminalSymbols.Add("Type");
+type.Rule = identifier; // 暗黙の変換
+var expression = grammar.NonTerminalSymbols.Add("Expression");
+expression.Rule = ...
+var variableDeclarationStatement =
+    grammar.NonTerminalSymbols.Add("VariableDeclarationStatement");
+variableDeclarationStatement.Rule =
+      new AlternationSyntaxRule(
+            new ConcatenationSyntaxRule(
+                        type, // 暗黙の変換
+                        identifier,
+                        new OptionalSyntaxRule(
+                              new ConcatenationSyntaxRule(
+                                    equals,
+                                    expression
+                              )
+                        ),
+                        semicolon
+                  ),
+            new ConcatenationSyntaxRule(
+                        varKeyword,
+                        identifier,
+                        equals,
+                        expression,
+                        semicolon
+                  )
+            );
+grammar.StartSymbol = variableDeclarationStatement;
+----
+
+[[_Ref349236384]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-restrictions.html[制約]
+|このトピックでは、文章校正の定義に関する制限を説明します。
+
+| link:ig-spe-ambiguities.html[あいまいさ]
+|このトピックでは、ドキュメントの解析中に発生しうる曖昧さおよびその取扱方法について説明します。
+
+| link:ig-spe-ebnf-file-format.html[EBNF ファイル形式]
+|このグループのこのトピックでは、EBNF を使用した文章校正の定義について説明します。
+
+|====

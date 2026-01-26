@@ -1,0 +1,21 @@
+﻿////
+|metadata|
+{
+    "name": "wineditors-understanding-wineditor-controls",
+    "controlName": ["WinEditors"],
+    "tags": ["Getting Started"],
+    "guid": "{64DAF178-B8BB-4109-B775-96CAB9F0AA6B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditor コントロールの理解
+
+WinEditor コントロール (WinCalculator、WinComboEditor、および WinTextEditor)、ならびにその主要な特性と機能について、以下のトピックを参照してください。
+
+* link:wineditors-about-wineditor-controls.html[WinEditor コントロールについて]
+* link:wineditors-editor-buttons.html[エディター ボタン]
+* link:wineditors-editor-controls-classification.html[エディター コントロールの分類]
+* link:winmaskededitorbase-spinning.html[スピン動作]

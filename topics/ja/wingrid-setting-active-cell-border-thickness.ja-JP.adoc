@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-active-cell-border-thickness",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{5B16C2B6-E192-4667-B497-68BAC7F3FDA0}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T14:12:21Z"
+}
+|metadata|
+////
+
+= アクティブ セルの境界線の太さを設定
+
+このトピックは、アクティブな pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridCell]"]  オブジェクトの境界線の太さを変更する方法を示します。これは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activecellborderthickness.html[ActiveCellBorderThickness]"]  プロパティを、境界線の太さにピクセル単位で対応する整数値に設定することで実行できます。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.Override.ActiveCellAppearance.BorderColor = Color.RoyalBlue
+Me.ultraGrid1.DisplayLayout.Override.ActiveCellBorderThickness = 4
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.ActiveCellAppearance.BorderColor = Color.RoyalBlue;
+this.ultraGrid1.DisplayLayout.Override.ActiveCellBorderThickness = 4;
+----
+
+image::Images/WinGrid_Set_Active_Cell_Border_Thickness_01.png[]

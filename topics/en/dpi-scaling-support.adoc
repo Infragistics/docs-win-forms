@@ -1,0 +1,151 @@
+﻿////
+|metadata|
+{
+    "name": "dpi-scaling-support",
+    "controlName": [],
+    "tags": [],
+    "guid": "",
+    "buildFlags": [],
+    "createdOn": ""
+}
+|metadata|
+////
+
+= DPI Scaling (CTP)
+
+[[_Ref000000001]]
+
+== Topic Overview
+
+=== Purpose
+
+This topic catalogs {ProductName} controls that now support DPI Scaling.
+
+=== In this topic
+
+This topic contains the following sections:
+
+* <<_Ref378713572,DPI Awareness>>
+** <<_Ref377393133,Introduction>>
+** <<_Requirements,Requirements>>
+** <<_Example,Demo>>
+** <<_SupportedControls_,Supported Controls>>
+** <<_Ref377393142,How to opt-in or opt-out of DPI Scaling>>
+
+[[_Ref378713572]]
+== DPI Awareness
+
+[[_Ref377393133]]
+
+=== Introduction
+
+Starting with Infragistics for {ProductName} 19.1, system-wide & per-monitor dpi awareness is integrated seemlessly into our most popular controls to ensure your applications are tailored to meet your needs. There is no longer any monitor-related limitations associated with building {ProductName} applications. 
+
+In the past, symptoms such as blurriness and/or fuzziness present in large or small screens, including multiple monitor setups with various dpi and resolutions variations would impact continuity in your end user's experience and cause unwanted consequences.
+
+[[_Requirements]]
+=== Requirements
+
+==== Environment
+
+Starting in .NET Framework 4.6 and Windows 10 you can take advantage of high dpi support. Windows 10 high-dpi support is properly implemented starting with creator's Update 1703 and later. Note, older versions of .NET controls may not scale properly.
+
+==== Configuration
+
+Enable per-monitor DPI awareness in the app.config file. Add the following section:
+
+*In XML:*
+[source,xml]
+----
+<System.Windows.Forms.ApplicationConfigurationSection>
+  <add key="DpiAwareness" value="PerMonitorV2" />
+</System.Windows.Forms.ApplicationConfigurationSection>
+----
+
+For more details you may refer to MSDN online:
+
+link:https://docs.microsoft.com/en-us/dotnet/framework/winforms/high-dpi-support-in-windows-forms[High DPI support in Windows Forms]
+
+The following is an example of what a control looks like dpi-unaware compared to when it is dpi-aware and scaled.
+
+[options="header", cols="a,a"]
+|====
+|Unscaled (Default view)|DPI Scaled
+
+|image::images/DPIUnscaled.png[]
+|image::images/DPIScaled.png[]
+
+|====
+
+[[_SupportedControls_]]
+=== Supported Controls:
+
+** link:winactivityindicator.html[WinActivityIndicator]
+** link:winbutton.html[WinButton]
+** link:wincalculator.html[WinCalculator]
+** link:wincheckeditor.html[WinCheckEditor]
+** link:wincombo.html[WinCombo]
+** link:wincomboeditor.html[WinComboEditor]
+** link:wincurrencyeditor.html[WinCurrencyEditor]
+** link:windatetimeeditor.html[WinDateTimeEditor]
+** link:windesktopalert.html[WinDesktopAlert]
+** link:windropdown.html[WinDropDown]
+** link:windropdownbutton.html[WinDropDownButton]
+** link:winexplorerbar.html[WinExplorerBar]
+** link:winfontnameeditor.html[WinFontNameEditor]
+** link:winformattedlinklabel.html[WinFormattedLinkLabel]
+** link:winformattedtexteditor.html[WinFormattedTextEditor]
+** link:wingrid.html[WinGrid] 
+** link:wingroupbox.html[WinGroupBox]
+** link:winlabel.html[WinLabel]
+** link:winmaskededit.html[WinMaskedEdit]
+** link:winnumericeditor.html[WinNumericEditor]
+** link:winoptionset.html[WinOptionSet]
+** link:winprogressbar.html[WinProgressBar]
+** link:winradiobutton.html[WinRadioButton]
+** link:winscrollbar.html[WinScrollBar]
+** link:wintab.html[WinTab and WinTabStrip]
+** link:wintexteditor.html[WinTextEditor]
+** link:wintimespaneditor.html[WinTimeSpanEditor]
+** link:wintimezoneeditor.html[WinTimeZoneEditor]
+** link:wintrackbar.html[WinTrackBar]
+** link:wintree.html[WinTree]
+
+[[_Ref377393142]]
+
+=== How to opt-in or opt-out of DPI Scaling
+
+The `DpiUtilities` class has been added to the Infragistics.Win assembly with an optional property called `MaxInfragisticsDpiAwareness`. This property defaults to DpiUnaware.
+
+[options="header", cols="a,a"]
+|====
+|Property|Description
+
+|DpiUnaware
+|All Infragistics controls across the entire application will be opted out of dpi scaling.
+
+|PerMonitorDpiAware
+|All Infragistics controls will scale based on each detected monitor's dpi settings.
+
+|SystemDpiAware
+|All Infragistics controls opt into dpi scaling based on the primary screen's dpi settings. 
+
+|====
+
+Configuring `MaxInfragisticsDpiAwareness` in code behind.
+
+*In C#:*
+
+[source,csharp]
+----
+Infragistics.Win.DpiUtilities.MaxInfragisticsDpiAwareness = Infragistics.Win.InfragisticsDpiAwareness.SystemDpiAware;
+----
+
+*In Visual Basic:*
+
+[source,vb]
+----
+Infragistics.Win.DpiUtilities.MaxInfragisticsDpiAwareness = Infragistics.Win.InfragisticsDpiAwareness.SystemDpiAware
+----
+
+<<_Ref000000001,Back to Top>>

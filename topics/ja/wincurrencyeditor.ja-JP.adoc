@@ -1,0 +1,23 @@
+﻿////
+|metadata|
+{
+    "name": "wincurrencyeditor",
+    "controlName": ["WinCurrencyEditor"],
+    "tags": [],
+    "guid": "{336D342D-C68B-4272-8DBF-F2B220863B6C}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCurrencyEditor
+
+以下のリンクをクリックすると、WinCurrencyEditor コントロールに関する説明を読むことができます。
+
+* WinCurrencyEditor の理解
+** link:wincurrencyeditor-about-wincurrencyeditor.html[WinCurrencyEditor について] 
+** link:winmaskededitorbase-spinning.html[スピン動作]
+** link:wincurrencyeditor-smart-tag.html[WinCurrencyEditor スマート タグ] 
+* WinCurrencyEditor の使用
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してエディターを増分]
+* link:wincurrencyeditor-api-overview.html[API 概要]

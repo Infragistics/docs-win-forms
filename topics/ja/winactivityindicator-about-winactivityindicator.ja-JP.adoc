@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator-about-winactivityindicator",
+    "controlName": ["WinActivityIndicator"],
+    "tags": ["Getting Started","Performance"],
+    "guid": "{A50975EC-6022-447F-84D2-45861B3DFB52}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinActivityIndicator について
+
+アプリケーション開発で、シーンの背後でプロセスが実行中であることをエンドユーザーに通知する方法を必要とする場合があります。 WinActivityIndicator™ は何かが起こっていることを示すために連続するアニメーションを使用してこの機能を果たします。 これはエンドユーザーに提供できるインタラクティブ性のレベルを高めます。
+
+WinActivityIndicator は、Appearance オブジェクトと AppStyling を使用して簡単にカスタマイズおよびスタイルできる軽量のスタンドアローンのコントロールです。
+
+以下は WinActivityIndicator の主な機能です。
+
+* さまざまな色とグラデーションを使用してスタイルできます。
+* マーキー スタイルのアニメーション。
+* 連続（一方向）またはバウンスバック アニメーションを付けることができます。
+* アニメーション速度を変更できます。
+
+== 関連トピック
+
+* link:winactivityindicator-winactivityindicator-smart-tag.html[スマートタグ]
+* link:winactivityindicator-using-winactivityindicator.html[WinActivityIndicator の使用]

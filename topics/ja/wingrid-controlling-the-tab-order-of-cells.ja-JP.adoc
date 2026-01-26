@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-controlling-the-tab-order-of-cells",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Navigation"],
+    "guid": "{AF56B009-7EEF-41D2-B1E9-F1C7A5CDE25E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= セルのタブ順序制御
+
+列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~tabindex.html[TabIndex]"]  プロパティにより、Tab キーが押されたときに、WinGrid が行内のセルを移動する順序を制御できます。TabIndex プロパティのデフォルト値は -1 で、これはデフォルトのタブ順序が使用されることを指定します。WinGrid はセルの位置に応じてデフォルトの左から右または上から下のタブ順序を決定します。列の TabIndex は一般的に異なる値に設定します。タブ値がより低い列はタブ値がより高い列より前に移動します。また通常、表示される列すべてに TabIndex が設定されます。というのは TabIndex を -1 のデフォルト値のままにすると、その列はタブ順序の一番最後になるからです。複数の列は同じ TabIndex 値を持つことができます。その場合列の順番は列の位置に基づいて決定されます。
+
+== 抜粋コード
+
+次のコードは 3 つの列に TabIndex プロパティを設定します。次のコードにより Tab キーは Address、CompanyName、ContactName、Phone、および Region を順番に移動します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Address").TabIndex = 0
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("CompanyName").TabIndex = 1
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("ContactName").TabIndex = 2
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Phone").TabIndex = 3
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Region").TabIndex = 4
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["Address"].TabIndex = 0;
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["CompanyName"].TabIndex = 1;
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["ContactName"].TabIndex = 2;
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["Phone"].TabIndex = 3;
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["Region"].TabIndex = 4;
+}
+----

@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-set-tiles-to-large-state",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I"],
+    "guid": "{230E2444-D731-4D16-9A34-49B781D7D461}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タイルを Large 状態に設定
+
+WinTilePanel™ コントロールによって、ひとつ以上のタイルを Large の状態にすることができます。デフォルトでは、Large の状態に設定できるタイルはひとつだけです。複数のタイルを Large の状態に設定するには、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel.html[ultraTilePanel]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~maximumvisiblelargetiles.html[MaximumVisibleLargeTiles]"]  プロパティを整数値に設定する必要があります。
+
+エンドユーザーは、StateChangeButton をクリックしてタイルを最大化できます。タイルが最大化されると、すべての他の Normal の状態のタイルは縮小され、パネルの側面に移動します。
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~setstate(tilestate,boolean).html[SetState]"]  メソッドまたは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile.html[UltraTile]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~state.html[State]"]  プロパティを使用して、コードによってタイルを最大化することもできます。SetState メソッドは、タイルの新しい状態およびタイルの状態変更をアニメートするかどうかのブール値という 2 つのパラメータを受け付けます。
+
+以下のコードは、UltraTilePanel がフォームにドロップされていることを前提とします。WinTilePanel へのタイルの追加方法については、 link:wintilepanel-add-and-remove-tiles-through-code.html[コードでタイルを追加および削除]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+' タイルの状態を設定します 
+tile1.SetState(Infragistics.Win.Misc.TileState.Large, True)
+tile3.State = TileState.Large
+----
+
+*C# の場合：*
+
+----
+// タイルの状態を設定します
+tile1.SetState(Infragistics.Win.Misc.TileState.Large,true);
+tile3.State = TileState.Large;
+----
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~largetileposition.html[LargeTilePosition]"]  および pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~largetileorientation.html[LargeTileOrientation]"]  プロパティを使用して Large のタイルの位置および方向を設定することもできます。
+
+*Visual Basic の場合：*
+
+----
+' Large のタイルを右に配置します。デフォルトの位置は左です。 
+Me.ultraTilePanel1.LargeTilePosition = LargeTilePosition.Right 
+' Large のタイルの方向を水平に設定します。デフォルトの方向は垂直です。 
+Me.ultraTilePanel1.LargeTileOrientation = Infragistics.Win.Misc.TileOrientation.Horizontal
+----
+
+*C# の場合：*
+
+----
+// Large のタイルを右に配置します。デフォルトの位置は左です。
+this.ultraTilePanel1.LargeTilePosition = LargeTilePosition.Right;
+// Large のタイルの方向を水平に設定します。デフォルトの方向は垂直です。
+this.ultraTilePanel1.LargeTileOrientation = Infragistics.Win.Misc.TileOrientation.Horizontal;
+----

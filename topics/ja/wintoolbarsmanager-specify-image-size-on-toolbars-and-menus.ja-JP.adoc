@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-specify-image-size-on-toolbars-and-menus",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{BFC46728-E646-44BE-B257-CFACDB58B09F}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーとメニューでのイメージ サイズの指定
+
+WinToolbarsManager コンポーネントは、ツールバーまたはメニュー上に大きなイメージ（32×32）または小さなイメージ（16×16）のどちらかを表示できます。大きなイメージと小さなイメージは、ツールごとに選択できます。表示するイメージのサイズは、コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~uselargeimagesonmenu.html[UseLargeImagesonMenu]"]  プロパティまたは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~uselargeimagesontoolbar.html[UseLargeImagesonToolbar]"]  プロパティを設定することで、ツールバーまたはメニューに対して指定できます。
+
+== デザインタイムの場合
+
+デザインタイムには、イメージリスト コントロールをフォームに追加します。次に、イメージをイメージリストに追加し、大きなイメージと小さなイメージのどちらかを格納するかにあわせてサイズを設定します。高さおよび幅のプロパティはどちらも、大きなイメージ用イメージリストの場合は 32 に、小さなイメージ用イメージリストの場合は 16 に、それぞれ設定します。そして、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolBarsManager]"]  コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~imagelistsmall.html[ImageListSmall]"]  プロパティおよび pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~imagelistlarge.html[ImageListLarge]"]  プロパティを、作成した対応するイメージリストに割り当てます。
+
+メニューおよびツールバーで使用するイメージサイズを指定するには、UseLargeImagesonMenu プロパティおよび UseLargeImagesonToolBar プロパティを設定します。イメージをイメージリストからツールに追加するには、UltraToolbarsManager 要素を右クリックして [ユーザー設定] を選択します。「ツール」タブに移動し、ツールを選択してから右の「プロパティ（基本）」を選択します。小さなイメージ用イメージリストおよび大きなイメージ用イメージリストから、小さなイメージおよび大きなイメージを選択してツールに割り当てます。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub Specify_Image_Size_on_Toolbars_and_Menus_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	 '大きなイメージを表示するようにメニューを設定します。
+	Me.UltraToolbarsManager1.UseLargeImagesOnMenu = True
+	' 小さいイメージを表示するようにツールバーを設定します。
+	Me.UltraToolbarsManager1.UseLargeImagesOnToolbar = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void Specify_Image_Size_on_Toolbars_and_Menus_Load(object sender, EventArgs e)
+{
+	// 大きなイメージを表示するようにメニューを設定します。
+	this.ultraToolbarsManager1.UseLargeImagesOnMenu = true;
+	// 小さいイメージを表示するようにツールバーを設定します。
+	this.ultraToolbarsManager1.UseLargeImagesOnToolbar = false;
+}
+----

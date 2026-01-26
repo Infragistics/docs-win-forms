@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-overview-of-styles-presets-and-themes",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{1F89243B-D5DD-41CA-8BDB-E8BFB78285B7}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= スタイル、プリセット、テーマの概要
+
+{ProductName} コントロールおよびコンポーネントは、その外観を変更するためのいくつかの強力かつ柔軟な方法を提供します。
+
+== アプリケーション スタイリング
+
+アプリケーション スタイリングは、開発者とグラフィック デザイナのより効率的な協力を可能にする Windows Forms開発の画期的な概念です。開発者はアプリケーションを作成しますが、その間同時にグラフィック デザイナはそのアプリケーションで使用できるスタイルを作成します。終了すると、グラフィック デザイナはスタイル ライブラリを、コード 1 行のみでアプリケーションにロードする開発者に渡します。スタイリッシュなルック アンド フィールの世界クラスのアプリケーションを開発することがこれほど簡単なことは今までありませんでした。個人商店または大企業のいずれを経営しているかにかかわらず、すべての人が Infragistics® link:styling-guide-application-styling-framework-asf.html[Application Styling Framework™] (ASF) のメリットを享受できます。メリットの鍵が、Infragistics の AppStylist™ の中にあります。
+
+Infragistics AppStylist は Microsoft® Visual Studio® IDE の外で動作するスタンドアロン アプリケーションです。Infragistics AppStylist を使用すれば、ユニークな link:win-appearance-objects.html[Appearance] オブジェクトや link:win-plf-overview.html[Presentation Layer Framework™] の支援でアプリケーションの詳細をスタイルすることができます。InboxControlStyler コンポーネントの支援でインボックス コントロールをスタイルすることもできます。単純なポイント アンド クリックのインタフェースを使用してキャンバスのスタイル変更を確認します。ユーザー インターフェイスは 3 つの直感的なセクションに分割されています。
+
+* キャンバス – このセクションは、スタイルの設定を変更した時に動的に更新する現在のスタイルの例を示します。
+* スタイル エクスプローラ – このセクションでは、修正したいスタイルを選択でき、ユーザー インターフェイスまたは個々のコンポーネントとしての役割を果たすロールに基づいてスタイルを変更できます。
+* プロパティ パネル – このセクションで、異なる状態のルック アンド フィールを変更するためにほとんどの時間を費やします。
+
+アプリケーション スタイリング API に反して開発を行っている開発者は、 link:styling-guide-setting-up-your-application-for-styling.html[「スタイリングのためにアプリケーションを設定」]を参照してください。一方、グラフィック デザイナの場合には、「アプリケーションのスタイリング」を参照してください。
+
+== プリセットを WinGrid コントロールに追加
+
+WinGrid コントロールに特定のルック アンド フィールを与えるため、WinGrid コントロール（およびそれを利用するコントロール）にさまざまなプリセットを適用できます。またカスタム プリセットを作成、保存して後で他の WinGrid コントロールに使用することもできます。プリセットの適用が、WinGrid コントロールを視覚的に変更する方法として一番簡単です。プリセットの作成、使用の詳細については、 link:styling-guide-working-with-presets.html[「プリセットの理解」]を参照してください。
+
+== テーマの選択
+
+多くの {ProductName} コントロール/コンポーネントには組み込みのテーマが含まれており、それらを使用することで、Windows XP、Windows 2000、Office 2003、Visual Studio® .NET など、Microsoft の一般的なユーザー インターフェイスのルック アンド フィールを素早く再現できます。通常これらのプロパティは、コントロール/コンポーネントの単一のプロパティとして公開されています。 これらのテーマの詳細は、 link:win-controls.html[「コントロールとコンポーネント」]を参照してください。
+
+== Windows テーマのサポート
+
+すべての {ProductName} のコントロールは、アプリケーション実行中のオペレーティング システムがテーマをサポートしているとき、Windows テーマを使用してスタイルとして描画されることをサポートします。各コントロールにはひとつのプロパティ、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~useosthemes.html[UseOsThemes]"]  を含みますが、これはシステムの適用されているテーマに基づいてコントロールを描画するかしないかを示します（このプロパティは DefaultableBoolean のタイプです）。
+
+テーマをサポートするアプリケーションをデザインするとき注意すべき問題が 2 つあります。ひとつは、コントロール/コンポーネントでテーマのサポートを有効にすると、アプリケーション内でそのコントロールが描画されるとき、いくつかのスタイル プロパティ値がテーマによってオーバーライドされるということです。たとえば、WinButton コントロールの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrabuttonbase~buttonstyle.html[ButtonStyle]"]  プロパティを変更しても、コントロールの UseOsThemes プロパティが Default または True に設定されているときには、影響がありません。これは、Windows テーマがボタンのスタイルを定義するからです。
+
+2 つ目の問題は、コントロール/コンポーネントに対する視覚的なスタイル（前のセクションで記述）の扱いです。使用可能な一部のスタイルでは、Windows テーマだけでなく、コントロールのプロパティもスタイルによってオーバーライドされてしまうことがあります。たとえば、デフォルトで、WinExplorerBar コントロールは、描画時に Windows テーマの設定を使用します。ただし、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar.html[UltraExplorerBar]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~style.html[Style]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbarstyle.html[ExplorerBar]"]  に設定し、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~viewstyle.html[ViewStyle]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbarviewstyle.html[Office2003]"]  に設定すると、WinExplorerBar コントロールは Windows テーマを無視して、Office 2003 の視覚的なスタイルに基づいて描画されることになります。
+
+== Appearance オブジェクト
+
+{ProductName} コントロール/コンポーネントは、独自のコントロールとエレメントの組み合わせで構成される場合が多々あります。そのため、個々のエレメントそれぞれの外観を変更する機能を作り出すことができることになります。通常、ひとつのコントロールの個々のパーツそれぞれの外観情報にはコントロールのプロパティを通じてアクセスします。これらのプロパティは、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Infragistics.Win.Appearance]"]  オブジェクトから継承するオブジェクトを公開します。Appearance オブジェクトはコントロールのすべてのオブジェクトに適用できる書式設定情報を持っています。一般的なスタイル属性は、前景色、背景色、フォント設定、および境界線スタイルです。Appearance クラスのコントロール固有の派生クラスによってコントロール固有の領域を視覚的に変更することができます。
+
+たとえば、WinTab コントロールで選択されたタブの背景色を変更したいのであれば、 pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab.html[UltraTab]"]  が公開している pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~selectedtabappearance.html[SelectedTabAppearance]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcolor.html[BackColor]"]  プロパティを修正することができます。
+
+[source]
+----
+this.ultraTabControl1.SelectedTabAppearance.BackColor = Color.LightGray;
+----
+
+== プレゼンテーション層フレームワーク (PLF)
+
+PLF は、すべての {ProductName} コントロール/コンポーネントがビルドされるプラットフォームです。この強力なアーキテクチャによって、エレメントのほとんどすべての UI 面を無制限に制御できます。PLF の詳細、および PLF を使用して Windows Forms コントロールのスタイルを作成する方法の詳細は、 link:win-plf-overview.html[「PLFの概要」]を参照してください。

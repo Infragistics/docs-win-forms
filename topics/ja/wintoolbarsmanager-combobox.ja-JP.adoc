@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-combobox",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{79F5632A-1451-4AA3-BBC3-984315E1F5DC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ComboBox
+
+ComboBox ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-combobox-about-the-combobox-tool.html[ComboBox ツールについて]
+* link:wintoolbarsmanager-add-a-combobox-tool-with-a-valuelist.html[ValueList を使用した ComboBox ツールの追加]

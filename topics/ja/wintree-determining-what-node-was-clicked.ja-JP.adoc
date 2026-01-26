@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-determining-what-node-was-clicked",
+    "controlName": ["WinTree"],
+    "tags": ["Events","How Do I"],
+    "guid": "{AF8332FC-A721-4BE9-B1BB-E0D211E47677}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クリックされたノードを決定
+
+WinTree™ コントロールで作業をする時に、どのノードがクリックされたのかを判断し、それに応じて応答することが一般的な作業となります。
+
+以下のコードは、イベントに関連したデータを含み、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.selecteventargs.html[SelectEventArgs]"]  オブジェクトをチェックすることによってクリックされたノードを見つけ出す方法を示します。SelectEventArgs オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.selecteventargs~newselections.html[NewSelections]"]  プロパティには現在選択されているノードのコレクションが含まれます。この場合、一度にクリックされるノードはひとつであると想定しています。したがって、コレクションの最初の要素にアクセスできます。
+
+[NOTE]
+====
+*注：* ノードをクリックすると、そのノードを選択することになり、これによって pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~afterselect_ev.html[AfterSelect]"]  イベントが発生することになります。全く同一のノードを再度クリックしても AfterSelect イベントを発生させることになりません。AfterSelect イベントを発生させるためには、異なるノードをクリックする必要があります。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub ultraTree1_AfterSelect(ByVal sender As Object, ByVal e As SelectEventArgs) Handles ultraTree1.AfterSelect
+    	Dim node As UltraTreeNode = e.NewSelections(0)
+    	'選択したノードのキーをチェックして決定します。 
+         Console.WriteLine(node.Key) 
+      'Text プロパティをチェックして決定します。 
+         Console.WriteLine(node.Text) 
+      'ノードのレベルを決定します。ルート ノードはレベル 0 です。’ルートの子はレベル 1 というようになります。 
+         Console.WriteLine(node.Level)
+ End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraTree1_AfterSelect(object sender, SelectEventArgs e)
+        {
+            UltraTreeNode node = e.NewSelections[0];
+           //選択したノードのキーをチェックして決定します。
+            Console.WriteLine(node.Key);
+            //Text プロパティをチェックして決定します。
+            Console.WriteLine(node.Text);
+           //ノードのレベルを決定します。ルート ノードはレベル 0 です。//ルートの子はレベル 1 というようになります。
+            Console.WriteLine(node.Level);      
+  }
+----

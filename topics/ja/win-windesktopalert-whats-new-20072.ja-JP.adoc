@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-windesktopalert-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{3096C41B-0B81-4D3D-A893-B514370E7516}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDesktopAlert 2007.2
+
+以下のリンクをクリックして、2007 Volume 2 リリースの Presentation Layer Framework™ に追加された新しい WinDesktopAlert コンポーネントを学習してください。
+
+* link:windesktopalert-new-windesktopalert-component-whats-new-20072.html[新しい WinDesktopAlert コンポーネント]

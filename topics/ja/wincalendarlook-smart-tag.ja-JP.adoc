@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarlook-smart-tag",
+    "controlName": ["WinCalendarLook"],
+    "tags": ["API"],
+    "guid": "{BB4A23FA-DCCF-4B5D-81C3-E2BAA15B65C7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalendarLook スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、それぞれの {ProductName} コントロール/コンポーネントが固有のスマート タグを備えています。 コントロール/コンポーネントを単に選択すると、Smart Tag のアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WinCalendarLook スマート タグには、コンポーネントの名前と次のセクションがあります。
+
+* 外観 -- コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* シリアル化 -- IPersistComponentSettings インタフェースで使用されるプロパティにすばやくアクセスできます。
+
+各セクションの項目（たとえば、フィールド、ドロップダウン リスト、チェックボックス）およびプロパティ グリッドの項目の対応するプロパティの説明については以下を参照してください。
+
+image::images/WinSchedule_The_WinCalendarLook_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|スタイルの表示
+|WinSchedule の外観を Office 2003、Visual Studio 2005、Office 2007 に変更します。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~viewstyle.html[ViewStyle]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|シリアル化|説明|対応するプロパティ
+
+|設定の保存
+|このチェックボックスを選択すると、コンポーネントのプロパティ設定がアプリケーションの設定と共に自動的にロード/保存されます。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~savesettings.html[SaveSettings]
+
+|設定の保存形式
+|コンポーネントの設定をバイナリ形式と XML 形式のどちらで保存するかを選択します。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~savesettingsformat.html[SaveSettingsFormat]
+
+|設定情報の保存の 
+
+カテゴリー
+|カレンダーのどのカテゴリを保存するかを選択します。ドロップダウン リストをクリックすると、横にチェックボックスが付いたカテゴリーのリストが表示されます。チェックボックスを選択してその特定のカテゴリーに保存します。その情報を保存したくない場合にはチェックボックスの選択を解除します。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~savesettingsinfocategories.html[SaveSettingsInfoCategories]
+
+|設定キー
+|ロード/保存する設定値を一意に識別するための設定キーを指定できます。デフォルトで Visual Studio 2005 は、格納側のフォーム/コントロールの名前とコンポーネントの名前に基づいて設定キーの値が設定されます。
+| link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~settingskey.html[SettingsKey]
+
+|====

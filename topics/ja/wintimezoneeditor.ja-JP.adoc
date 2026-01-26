@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimezoneeditor",
+    "controlName": ["WinTimeZoneEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{087DB72A-975B-4585-88C3-1C8639C984E0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimeZoneEditor
+
+WinTimeZoneEditor コントロール固有の情報を検索するために以下のリンクをクリックします。
+
+* link:wintimezoneeditor-about-wintimezoneeditor.html[WinTimeZoneEditor について] -- WinTimeZoneEditor コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wintimezoneeditor-smart-tag.html[WinTimeZoneEditor スマート タグ] -- WinTimeZoneEditor コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:wintimezoneeditor-api-overview.html[API 概要] -- このトピックでは、WinTimeZoneEditor コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。
+* link:wintimezoneeditor-interacting-with-timezoneinfo-objects.html[TimeZoneInfo オブジェクトの操作] -- TimeZoneInfo オブジェクトを使用する情報を提供します。

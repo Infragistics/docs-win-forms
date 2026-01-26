@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-active-row",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Tips and Tricks"],
+    "guid": "{6D7FB78D-8C23-48FE-AF5D-08BAC449A428}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブな行の変更
+
+次のコードはアクティブ行の変更方法を説明します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub ChangingtheActiveRow_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim objRow As UltraGridRow
+	objRow = Me.UltraGrid1.Rows(5)
+	Me.UltraGrid1.ActiveRow = objRow
+	Me.UltraGrid1.DisplayLayout.Override.ActiveRowAppearance.BackColor = Color.Aqua
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ChangingtheActiveRow_Load(object sender, System.EventArgs e)
+{
+	UltraGridRow objRow = this.ultraGrid1.Rows[5];
+	this.ultraGrid1.ActiveRow = objRow;
+	this.ultraGrid1.DisplayLayout.Override.ActiveRowAppearance.BackColor = Color.Aqua;
+}
+----

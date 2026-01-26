@@ -1,0 +1,130 @@
+﻿////
+
+|metadata|
+{
+    "name": "methods-reference-for-adding-undounits-to-the-undo-history",
+    "controlName": [],
+    "tags": ["API","Editing","Events","Getting Started","How Do I"],
+    "guid": "6d98bb4b-b437-4e5f-9658-3b7dc6112cc1",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3680125Z"
+}
+|metadata|
+////
+
+= UndoUnits を元に戻す履歴に追加するためのメソッド参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、UndoUnit 派生クラス オブジェクトを元に戻す履歴に追加するために使用可能なメソッドをリストします。
+
+=== 前提条件
+
+以下の表は、このトピックを理解するための前提条件として必要なトピックを示しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+|====
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320835295, UndoUnits を元に戻す履歴に追加するためのメソッド参照 >>
+** <<_Ref320837974,はじめに>>
+** <<_Ref320837982,メソッド参照の概要>>
+
+* <<_Ref320834804, 関連コンテンツ >>
+
+[[_Ref320834798]]
+[[_Ref320835295]]
+== UndoUnits を元に戻す履歴に追加するためのメソッド参照
+
+[[_Ref320837974]]
+
+=== はじめに
+
+UndoManager クラスは、UndoUnit を構成し、作業単位を Undo 履歴に追加する多数のヘルパー メソッドを提供します。
+
+[[_Ref320837982]]
+
+=== メソッド参照の概要
+
+以下の表では、UndoUnits を Undo 履歴に追加するための UndoManager メソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addchange.html[AddChange]
+|これは、 link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit_members.html[UndoUnit] 派生クラス オブジェクトを Undo 履歴に追加するために使用される link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager_members.html[UndoManager] メソッドです。 
+
+このメソッドには、多数のオーバーロードがあります。 
+
+AddChange(UndoUnit) を除くすべてのオーバーロードでは、変更を表す UndoUnit は履歴にそれ自体を自動的に追加します (それ自体を渡す `AddChange` を呼び出す)。したがって、これらのデリゲートによって同じ `AddChange` メソッドが起動されることにはなりません。 
+
+これらのメソッドは、UndoUnit インスタンスの作成を、履歴が更新される UndoManager の link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounitfactory_members.html[UndoUnitFactory] に最終的にデリゲートします。呼び出しをこれらのメソッドに変更することなく、これらの操作に使用される UndoUnit インスタンスを変更することができます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addcollectionchange.html[AddCollectionChange]
+|このメソッドは、履歴のコレクション変更のために UndoUnit を追加します。 
+
+タイプ _ICollection<T>_ のコレクションと、そのコレクション内で発生した変更のタイプに関する情報をパラメーターとして取得するオーバーロードがいくつかあります。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addpropertychange.html[AddPropertyChange]
+|このメソッドは、Undo 履歴への指定されたプロパティ値変更のために link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.propertychangeundounitbase_members.html[PropertyChangeUndoUnitBase] を追加します。 
+
+このメソッドにはパラメーターとして取得する多数のオーバーロードがあります。 
+
+* プロパティが変更されたオブジェクトへの参照 
+
+* プロパティの古い値 
+
+* プロパティの新しい値 
+
+* 変更されたプロパティを識別する追加情報 
+
+|====
+
+[[_Ref320834804]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:methods-reference-for-removing-undounits-from-the-history.html[UndoUnits を履歴から削除するためのメソッド参照]
+|このトピックは、UndoUnit インスタンスを元に戻す/やり直し履歴から削除するために使用可能なメソッドをリストします。
+
+| link:methods-reference-for-registering-unregistering-objects.html[オブジェクトの登録/登録解除のためのメソッド参照]
+|このトピックは、UndoManager インスタンスに特定のオブジェクトを登録/登録解除するメソッドをリストします。
+
+| link:methods-reference-for-performing-undo-redo-operations.html[元に戻す/やり直し操作を実行するためのメソッド参照]
+|このトピックは、元に戻す/やり直し操作を実行するために使用可能なメソッドをリストします。
+
+| link:methods-and-properties-reference-for-performing-transactions.html[トランザクションを実行するためのメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直しトランザクションを実行するための使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-and-properties-reference-for-merging-undoredo-operations.html[元に戻す/やり直し操作の結合のメソッドおよびプロパティ参照]
+|このトピックは、元に戻す/やり直し操作の結合に関係する使用可能なメソッドおよびプロパティをリストします。
+
+| link:methods-reference-for-suspending-and-resuming-saving-history.html[履歴の保存を中断および再開するためのメソッド参照]
+|このトピックは、履歴に元に戻す/やり直し操作を保存することを中断および再開するために使用可能なメソッドをリストします。
+
+| link:methods-and-properties-reference-for-creating-custom-undounit.html[カスタム UndoUnit を作成するためのメソッドおよびプロパティ参照]
+|このトピックは、Infragistics Undo/Redo Framework™ でカスタム UndoUnit を作成することに関連する使用可能なメソッドおよびプロパティをリストします。
+
+|====

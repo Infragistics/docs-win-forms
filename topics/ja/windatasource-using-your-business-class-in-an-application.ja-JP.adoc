@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-using-your-business-class-in-an-application",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios"],
+    "guid": "{60610AE8-90AC-4343-8CF8-A5C9EA74C003}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションでのビジネス クラスの使用
+
+このヘルプ トピックは、 link:windatasource-getting-started.html[「WinDataSource のサブクラス化によるビジネス クラスの作成（パート 1）」]から始まる 5 つのパートから構成されるチュートリアルの続きです。
+
+前のセクションである link:windatasource-initializing-field-values-with-the-onrowadded-event.html[「WinDataSource のサブクラス化によるビジネス クラスの作成（パート 4）」]に戻って確認することができます。
+
+前のセクションまでで、ビジネス クラスの作成と、適切なすべてのイベントを処理するコードの記述が完了しましたが、これをアプリケーションで使用するにはどうすればよいでしょうか。それは実際には非常に簡単です。必要なことは、ツールボックスにコンポーネントを追加し、作成する Windows Forms（または Web フォーム）にインスタンスをドラッグすることだけです。これでデザインタイムのデータ バインディングを使用し、コントロール（今回の場合は WinGrid）のデータソースを WinDataSource に割り当てることができます。これらすべてを機能させるために、Form Load イベントに次の簡単なコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+' Form Load では、BLOB フィールドから作成されたバイト配列をイメージとして描画するため、
+' "Picture"列を設定します。
+' それから、データ ソース上で接続文字列を設定し、データ ソースにデータを読み込みます。
+Private Sub SubClassingaWinDataSourcetoRepresentaBusinessClasst_Load( _
+  ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Picture").Editor = New EmbeddableImageRenderer()
+	Me.UltraNorthwindDataSource1.ConnectionString = Me.SqlConnection1.ConnectionString
+	Me.UltraNorthwindDataSource1.FillData()
+End Sub
+----
+
+*C# の場合：*
+
+----
+// Form Load では、BLOB フィールドから作成されたバイト配列をイメージとして描画するため、
+// "Picture"列を設定します。
+// それから、データ ソース上で接続文字列を設定し、データ ソースにデータを読み込みます。
+private void SubClassingaWinDataSourcetoRepresentaBusinessClass_Load(
+  object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["Picture"].Editor = new EmbeddableImageRenderer();
+	this.ultraNorthwindDataSource1.ConnectionString = this.sqlConnection1.ConnectionString;
+	this.ultraNorthwindDataSource1.FillData();
+}
+----
+
+== まとめ
+
+あとはアプリケーションを実行するだけで、Grid が Categories テーブルのすべてのレコードを自動的に読み込みます。今回の例では、基になるデータ モデルに行を追加する手段として Grid の基本機能を使用します。そのため、用意された空の行に入力するだけで行が追加されます。行から移動したとき、入力された値がすべて有効であれば、その行が自動的にデータベースに挿入され、一時的な負のプライマリ キー値が実際のサーバー生成値に置き換えられます。
+
+1 行または複数の行を選択してキーボードの [Delete] キーを押し、確認メッセージを了解すると、選択した行が Grid およびデータベースから削除されます。
+
+セルを変更してその行から移動すると、既存のレコードが更新されます。
+
+制約に違反した場合は、Grid によってユーザーにエラー メッセージが表示され、現在の操作がキャンセルされます。つまり、制約を持つ行を削除したり、数値フィールドに文字を入力したりすることはできません。
+
+このサンプルを拡張してレコードの "Previous State" インスタンスを保持するようにすれば、さらに機能が向上します。こうすると、操作をキャンセルした場合、各行の値をすべて元に戻すことができます。また、現在のレコードに変更内容が含まれているか、つまり現在のレコードが "ダーティ" かどうかを確認するテストを提供すれば、データベースへのラウンド トリップを省略できます。
+
+このサンプルは、前の 4 つの項目で説明した内容の実践的な実装を示します。その際、Form_Load イベントの接続文字列を、ご使用の SQL Server のインスタンスを指すように変更してください。

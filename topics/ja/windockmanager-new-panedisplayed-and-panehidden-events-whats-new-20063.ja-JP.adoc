@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-new-panedisplayed-and-panehidden-events-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{26BF060B-D3F4-46CE-83B8-FD257EED4F5C}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T12:39:34Z"
+}
+|metadata|
+////
+
+= 新しい PaneDisplayed および PaneHidden イベント
+
+WinDockManager は、本リリースの 2 つの非常に便利なイベントである pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~panedisplayed_ev.html[PaneDisplayed]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~panehidden_ev.html[PaneHidden]"]  イベントの受け取り側です。PaneDisplayed イベントはパネルが表示されるときに常に発生し、PaneHidden イベントはパネルが非表示になるとき必ず発生します。これらのイベントがもたらすひとつの顕著な利点は、ペインがエンド ユーザーによって表示できないことが分かった場合、表示されるまでペインの更新を停止できることです。
+
+これらの 2 つのイベントには OnPaneDisplayed および OnPaneHidden メソッドがあります。これらのメソッドは、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablecontrolpane.html[DockableControlPane]"]  オブジェクトをオフにします。起動すると、OnPaneDisplayed および OnPaneHidden メソッドは、PaneDisplayed および PaneHidden をそれぞれ実行します。
+
+もうひとつの追加は、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablecontrolpane~isinview.html[IsInView]"]  プロパティが DockableControlPane オブジェクトをオフにすることです。このプロパティは、対象のペインをエンド ユーザーが見ることができるかどうかを識別します。

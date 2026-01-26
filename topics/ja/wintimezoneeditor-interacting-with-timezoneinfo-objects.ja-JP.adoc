@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimezoneeditor-interacting-with-timezoneinfo-objects",
+    "controlName": ["WinTimeZoneEditor"],
+    "tags": ["How Do I"],
+    "guid": "{9C088C7E-640B-4218-9B9F-F1C95E185F73}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= TimeZoneInfo オブジェクトの操作
+
+以下のコードは、ローカル コンピューターに登録されているタイムゾーンについての情報を取得するために Infragistics.Win.TimeZoneInfo オブジェクトを使用する方法を示します。
+
+UltraTimeZoneEditor コントロールおよび UltraButton を Windows Form にドラッグ アンド ドロップします。以下のコードをボタンの Click イベントで記述します。
+
+*Visual Basic の場合：*
+
+----
+Dim tzInfo As Infragistics.Win.TimeZoneInfo = DirectCast(ultraTimeZoneEditor1.SelectedItem.DataValue, Infragistics.Win.TimeZoneInfo)
+Console.WriteLine("The time zone selected is: {0}", tzInfo.DisplayName) 
+'ローカル タイムゾーンを取得します 
+'Infragistics.Win.TimeZoneInfo tzInfo = Infragistics.Win.TimeZoneInfo.CurrentTimeZone 
+' ローカル タイムゾーンの標準時間とサマータイムの名前を表示します。 
+Console.WriteLine("Daylight saving time name: {0}", tzInfo.DaylightName) 
+Console.WriteLine("Standard time name: {0}", tzInfo.StandardName) 
+Console.WriteLine("The time zone selected's offset from Coordinated Universal Time(UTC) is: {0}", tzInfo.UtcOffset.ToString()) 
+Console.WriteLine("The Daylight savings Time Begins on:{0}", tzInfo.DaylightDate.ToLongDateString()) 
+Console.WriteLine("Standard time begins on: {0} " & tzInfo.StandardDate.ToLongDateString())
+----
+
+*C# の場合：*
+
+----
+Infragistics.Win.TimeZoneInfo tzInfo = (Infragistics.Win.TimeZoneInfo) ultraTimeZoneEditor1.SelectedItem.DataValue;
+Console.WriteLine("The time zone selected is: {0}", tzInfo.DisplayName);
+//ローカル タイムゾーンを取得します 
+//Infragistics.Win.TimeZoneInfo tzInfo = Infragistics.Win.TimeZoneInfo.CurrentTimeZone;
+// ローカル タイムゾーンの標準時間とサマータイムの名前を表示します。
+Console.WriteLine("Daylight saving time name: {0}", tzInfo.DaylightName);
+Console.WriteLine("Standard time name: {0}", tzInfo.StandardName);
+Console.WriteLine("The time zone selected's offset from Coordinated Universal Time(UTC) is:  {0}", tzInfo.UtcOffset.ToString());
+Console.WriteLine("The Daylight savings Time Begins on:{0}", tzInfo.DaylightDate.ToLongDateString());
+Console.WriteLine("Standard time begins on: {0} " + tzInfo.StandardDate.ToLongDateString());
+----
+
+ComboEditor から東部標準時（US およびカナダ）タイムゾーンを選択後にボタンをクリックすると、上記のコードは以下の出力結果を生成します。
+
+[source]
+----
+/* 選択されたタイムゾーン：(GMT-05:00) 東部標準時（US およびカナダ）
+----
+
+[source]
+----
+サマータイム名：東部サマータイム
+----
+
+[source]
+----
+標準時名：東部標準時
+----
+
+[source]
+----
+協定世界時 (UTC) から選択されたタイムゾーンのオフセット： 05:00:00
+----
+
+[source]
+----
+サマータイムの開始日：2009 年 3 月 8 日（日曜）
+----
+
+[source]
+----
+標準時は 2009 年 11 月 1 日（日曜）に開始*/
+----

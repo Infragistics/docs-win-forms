@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-the-popupmenu-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{614D367C-02B3-4D6A-B264-D22C615EDFE5}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T16:11:06Z"
+}
+|metadata|
+////
+
+= PopupMenu ツールの使用
+
+このセクションでは、PopupMenu ツールに関連する固有のタスクの実行方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-add-a-popupmenu-tool-to-a-toolbar.html[ツールバーへのポップアップ メニューの追加]
+* link:wintoolbarsmanager-configure-a-context-menu-at-design-time.html[デザイン タイムのコンテキスト メニューの構成]
+* link:wintoolbarsmanager-display-a-menu-as-a-context-menu.html[メニューをコンテキスト メニューとして表示]
+* link:wintoolbarsmanager-replace-a-controls-context-menu-with-a-popupmenu-tool.html[コントロールのコンテキスト メニューの PopupMenu ツールへの置換]

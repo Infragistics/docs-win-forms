@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winextras",
+    "controlName": ["WinExtras"],
+    "tags": [],
+    "guid": "{414D9244-26EC-4473-8F50-066717788BBE}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-09T15:06:55Z"
+}
+|metadata|
+////
+
+= WinExtras
+
+以下のリンクをクリックして、WinExtras コントロールおよびコンポーネント固有の情報を見つけ出します。
+
+* link:winextras-about-winextras.html[WinExtras について]

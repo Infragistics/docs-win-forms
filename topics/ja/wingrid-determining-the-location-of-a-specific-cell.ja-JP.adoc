@@ -1,0 +1,85 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-determining-the-location-of-a-specific-cell",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{DE0395E4-5680-4264-943A-79EC05B69677}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 特定セルの位置の決定
+
+時には、ユーザーがどのセルをクリックしたかを知りたい場合があります。マウス関連イベントから返された位置など、グリッド上の特定のポイントに置かれている Cell オブジェクトを取得できます。このトピックを読めば、ElementFromPoint メソッドのことをよく理解できるようになります。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. マウス ボタンがクリックされたときのマウスポインタの位置を操作するには、MouseDown イベントを使用します。このイベントは、マウス ポインタの X 座標と Y 座標を指定するパラメータを渡します。
+[start=3]
+. UIElement を格納するオブジェクト変数と Cell オブジェクトを格納するオブジェクト変数を定義することから開始します。
+
+*Visual Basic の場合：*
+
+----
+Dim myUIElement As UIElement
+Dim myCell As UltraGridCell
+----
+
+*C# の場合：*
+
+----
+UIElement myUIElement;
+UltraGridCell myCell;
+----
+
+[start=4]
+. ElementFromPoint メソッドによって、クリックされた UIElement への参照を取得します。
+
+*Visual Basic の場合：*
+
+----
+myUIElement = Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+----
+
+*C# の場合：*
+
+----
+myUIElement = this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(new Point(e.X, e.Y));
+----
+
+[start=5]
+. UIElement から、GetContext メソッドを使って関連セルを取得できます。
+
+*Visual Basic の場合：*
+
+----
+myCell = myUIElement.GetContext(GetType(UltraGridCell))
+MessageBox.Show("You are over a Cell containing " + myCell.Value)
+----
+
+*C# の場合：*
+
+----
+myCell = (UltraGridCell)myUIElement.GetContext(typeof(UltraGridCell));
+MessageBox.Show("You are over a Cell containing " + myCell.Value.ToString());
+----

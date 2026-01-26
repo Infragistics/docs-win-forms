@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-multi-stop-radial-gradient-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{B09003F2-A0B2-4FB4-A7FC-C98C728C42A9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マルチストップ放射型グラデーション ブラシ エレメント
+
+ゲージのプロパティの 3 色以上を円形に相互に混ぜたい場合には、ブラシ タイプを MultiStopRadialGradient に設定します。MultiStopRadialGradient ブラシ エレメントを選択すると、3 色以上の色、各色のオフセット、中心点とフォーカス スケールを指定できます。以下を使用してマルチストップ放射型グラデーション ブラシ エレメントをゲージのプロパティに適用することができます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、目盛盤の BrushElement プロパティを以下の MultiStopRadialGradient ブラシ エレメントの設定に設定した状態のラジアル ゲージを示しています。
+
+* カラー ストップ 1: Offset = 0, Color = Black
+* カラー ストップ 2: Offset = 0.264, Color = Color.FromArgb(186, 0, 0)
+* カラー ストップ 3: Offset = 1, Color = Color.FromArgb(254, 127, 0)
+* フォーカス スケール -- 0, 0
+* 中心点 -- 75, 25
+* 中心点の単位 = パーセント
+
+image::images/Gauge_Multi_Stop_Radial_Gradient_02.png[]

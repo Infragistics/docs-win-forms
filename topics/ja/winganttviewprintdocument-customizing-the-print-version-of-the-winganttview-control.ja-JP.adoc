@@ -1,0 +1,152 @@
+﻿////
+|metadata|
+{
+    "name": "winganttviewprintdocument-customizing-the-print-version-of-the-winganttview-control",
+    "controlName": ["WinGanttView"],
+    "tags": ["Application Scenarios","How Do I","Printing"],
+    "guid": "28023138-5d9a-4a63-a3e7-00180fe44eae",
+    "buildFlags": [],
+    "createdOn": "2012-03-09T15:20:20.4781061Z"
+}
+|metadata|
+////
+
+= WinGanttView コントロールの印刷版をカスタマイズする
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttviewprintdocument~initializeganttview_ev.html[InitializeGanttView] イベントを使用して WinGanttView コントロールの印刷版をカスタマイズする方法についてコード例を用いて説明します。
+
+=== 必要な背景
+
+以下の表に、このトピックを理解するための前提条件として求められるトピックをリストします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winganttviewprintdocument-winganttviewprintdocument-features.html[WinGanttViewPrintDocument 機能]
+|WinGanttViewPrintDocument™ コンポーネントの機能を紹介します。
+
+|====
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Customizing_the_Print,WinGanttView コントロールの印刷版のカスタマイズ - 概念的概要>>
+** <<Introduction,概要>>
+** <<Supported_Customizations,サポートされるカスタマイズ>>
+
+* <<Customizing_the_Print_Code,WinGanttView コントロールの印刷版のカスタマイズ - コード例>>
+** <<Description,説明>>
+** <<Preview,プレビュー>>
+** <<Code,コード>>
+
+* <<Related,関連コンテンツ>>
+
+[[_Customizing_the_Print]]
+== WinGanttView コントロールの印刷版のカスタマイズ - 概念的概要
+
+[[Introduction]]
+
+=== 概要
+
+WinGanntView コントロールを利用するにあたり、画面上での表示にはいっさいの影響を与えることなく、印刷版の表示のみ変更を加えることをお勧めします。これは、UltraGanttViewPrintDocument の  _InitializeGanttView_  イベントを利用することによって実現できます。
+
+UltraGanttViewPrintDocument コンポーネントは、UltraGanttView コントロールのインスタンスを作成し、プリンターにコントロールの情報を提供します。UltraGanttView コントロール インスタンスが作成されると、まず link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview_members.html[GanttView] プロパティに応じて初期化が行われ、次に  _InitializeGanttView_  イベントが呼び出されてコントロールのさらなるカスタマイズが行われます。このイベントを利用することにより、コントロールの初期状態や画面上の表示を変えることなく、UltraGanttView コントロールの印刷版のみ表示を変えることができます。
+
+
+.注：
+
+[NOTE]
+====
+印刷時に作成される UltraGanttView インスタンスは、画面表示用 UltraGanttView コントロールの UltraCalendarInfo™ および UltraCalendarLook™ コンポーネントを共有します。このため、InitializeGanttView イベント内で link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~calendarinfo.html[CalendarInfo] または link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~calendarlook.html[CalendarLook] プロパティを変更した場合、画面表示用と印刷用の両方の UltraGanttView コントロールに影響します。各種タスクは  _CalendarInfo_ および link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~activetask.html[ActiveTask] 
+オブジェクトに保管されているため、個別タスクのプロパティを変更した場合にも影響します。
+====
+
+[[Supported_Customizations]]
+
+=== サポートされるカスタマイズ
+
+WinGanttView コントロールの印刷版は、以下のカスタマイズが可能です。
+
+* 画面上では表示されているが、印刷版には表示したくない列を隠します。
+* 画面上では表示されていないが、印刷版には表示したい列を表示します。
+* 列の順序の変更
+* インクの消費量を抑えるために背景色を白に変える等、外観上の変更をします。
+
+[[Customizing_the_Print_Code]]
+== WinGanttView コントロールの印刷版のカスタマイズ - コード例
+
+[[Description]]
+
+=== 説明
+
+以下のコードは、UltraGanttView コントロールの画面上での表示に影響を与えずに、印刷版の表示を変更します。
+
+このサンプル コードでは、印刷版の UltraGanttView コントロールの  _Resource_   _Names_  列の位置を変更し、 _Resource Names_  列のセルの外観を変えます。
+
+[[Preview]]
+
+=== プレビュー
+
+WinGanttView コントロールの画面上の表示 (上) と、サンプル コードによってカスタマイズされた印刷版の表示 (下) を以下で比較しています。
+
+
+image::images/Customizing_the_Print_Version_of_the_WinGanttView_Control_01.png[]
+
+image::images/Customizing_the_Print_Version_of_the_WinGanttView_Control_02.png[]
+
+
+[[Code]]
+
+=== コード
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Private Sub ultraGanttViewPrintDocument1_InitializeGanttView(sender As Object, e As Infragistics.Win.UltraWinGanttView.Printing.InitializeGanttViewEventArgs)
+      '  ‘Resource Names’ 列の位置を変更します
+      e.Control.GridSettings.ColumnSettings(TaskField.Resources).VisiblePosition = 1
+'  ‘Resource Names’ 列のセルの外観を変更します
+e.Control.GridSettings.ColumnSettings(TaskField.Resources).CellAppearance.BackColor = Color.White
+End Sub
+----
+
+*C# の場合:*
+
+[source,c#]
+----
+private void ultraGanttViewPrintDocument1_InitializeGanttView(object sender, Infragistics.Win.UltraWinGanttView.Printing.InitializeGanttViewEventArgs e)
+{
+    //  ‘Resource Names’ 列の位置を変更します
+    e.Control.GridSettings.ColumnSettings [TaskField.Resources].VisiblePosition = 1;
+ //  ‘Resource Names’ 列のセルの外観を変更します
+    e.Control.GridSettings.ColumnSettings[TaskField.Resources].CellAppearance.BackColor = Color.White;
+}
+----
+
+[[Related]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winganttviewprintdocument-winganttviewprintdocument-features.html[WinGanttViewPrintDocument 機能]
+|WinGanttViewPrintDocument™ コンポーネントの機能を紹介します。
+
+| link:winganttviewprintdocument-print-preview-with-winganttviewprintdocument.html[WinGanttViewPrintDocument を使用した印刷プレビュー]
+|このトピックでは theWinGanttViewPrintDocument™ の印刷プレビュー機能の使用方法を説明します。このトピックでは具体的な例として、WinGanttViewPrintDocument™ と WinPrintPreviewDialog™ を使用して WinGanttView™ コントロールの印刷プレビューを行います。
+
+| link:winganttviewprintdocument-configuring-the-legend.html[凡例の構成]
+|WinGanttViewPrintDocument™ コンポーネントの凡例機能をご紹介します。
+
+|====

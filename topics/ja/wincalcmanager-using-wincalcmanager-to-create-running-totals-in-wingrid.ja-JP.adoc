@@ -1,0 +1,76 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-using-wincalcmanager-to-create-running-totals-in-wingrid",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{E052383D-57A3-4A48-9F08-19D91E869493}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid での WinCalcManager による現在高の作成
+
+== 始める前に
+
+この詳細なガイドでは、WinGrid で現在高の列を作成します。現在高の列には、現在の行とそれより上の行の Item Total 列（これ自体は計算列です）の合計を表示します。現在の行より下の行は含めません。
+
+この詳細なガイドは、 link:wincalcmanager-creating-a-calculated-column-in-wingrid.html[「WinGrid での計算された列の作成」]の続きです。
+
+== 以下の手順を実行します。
+
+[start=1]
+. アンバインド列をグリッドに追加します。WinGrid を右クリックして [UltraGrid デザイナ] を選択し、グリッド デザイナを起動します。WinGrid デザイナで、[バンドおよび列の設定] > [Band[0] - 'Order Details'] の順にノードを展開し、[列] を選択します。このノードを選択すると、中央のペインにこのバンド内の列を表示します。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_Running_Totals_in_the_WinGrid_01.png[]
+
+[start=2]
+. 下の [アンバウンド列の追加] ボタンをクリックして、新しい列をバンドに追加します。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_Running_Totals_in_the_WinGrid_02.png[]
+
+[start=3]
+. 列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~key.html[Key]"]  を "RunningTotal"（現在高）に変更します。列の Header.Caption を "RunningTotal" に変更します。列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  を System.Decimal に変更します。見た目を整えるため、列の Format プロパティを c2 （通貨）に設定します。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_Running_Totals_in_the_WinGrid_03.png[]
+
+[start=4]
+. 現在高を表示する数式を列に設定します。
+
+列の Formula プロパティで、省略（...）ボタンをクリックしてフォーミュラ ビルダーを起動します。
+
+現在高を効率的に計算するには、前の行の Running Total 列と現在の行の Item Total 列を加算します。そのためには、相対行を参照する必要があります。数式の中で、次のように相対行インデックスを指定します。
+
+----
+[ItemTotal] + [RunningTotal(-1)]
+----
+
+[start=5]
+. 
+
+この数式は見た目はシンプルですが、実際には機能しません。その理由は、相対行の参照では行が存在しない場合にエラーが発生するためです。グリッドの 1 行目には前の兄弟行がないため、この数式では参照エラーが起こります。
+
+この問題を回避するには、if 関数と iserror 関数を使用してエラーをチェックし、エラーがある場合は 0 を、エラーがない場合は前のセルの値を、それぞれ返すようにします。完成した数式は次のようになります。
+
+----
+[ItemTotal] + 
+if	
+( 
+	iserror ( [RunningTotal(-1)] ), 
+	0, 
+	[RunningTotal(-1)] 
+)
+----
+
+[OK] をクリックしてフォーミュラ ビルダーを閉じて、[適用] をクリックして WinGrid デザイナに行った変更を保存し、次に [OK] をクリックしてグリッド デザイナを閉じます。
+[start=6]
+. アプリケーションを実行して、現在高の列が正常に機能することを確認します。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_Running_Totals_in_the_WinGrid_05.png[]
+
+== まとめ
+
+このトピックは、WinGrid の列で現在高の列を作成する方法を説明しました。

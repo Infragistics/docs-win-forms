@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-winprintpreviewdialog-using-winprintpreviewdialog",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E348A975-02BE-4473-B2F7-0617129096AB}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:48:22Z"
+}
+|metadata|
+////
+
+= WinPrintPreviewDialog の使用
+
+このセクションには、WinPrintPreviewDialog™ コンポーネントを使用するために行う一般的な操作方法を説明するチュートリアルが提供されています。
+
+* link:winprintpreviewdialog-adding-printdialog-button-tool.html[PrintDialog ボタン ツールを追加]
+* link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[WinGridPrintDocument で WinPrintPreviewDialog を使用]
+* link:winprintpreviewdialog-winscheduleprintdocument-using-winprintpreviewdialog-with-winscheduleprintdocument.html[WinSchedulePrintDocument で WinPrintPreviewDialog を使用]
+* link:winganttviewprintdocument.html[WinGanttViewPrintDocument で WinPrintPreviewDialog を使用]

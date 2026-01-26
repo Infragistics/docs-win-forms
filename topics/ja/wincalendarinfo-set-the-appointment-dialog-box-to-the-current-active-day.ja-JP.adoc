@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-set-the-appointment-dialog-box-to-the-current-active-day",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{16B2903C-772D-4FB6-AD77-7EBAE4C6AC5E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 予約ダイアログボックスの現在のアクティブ日への設定
+
+次のコードは、現在のpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~activeday.html[ActiveDay]"]  を持つ予定ダイアログを開く方法を示しています。
+
+[NOTE]
+====
+*注:* このコードは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~beforedisplayappointmentdialog_ev.html[BeforeDisplayAppointmentDialog]"]  イベントに配置されると動作しません。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~displayappointmentdialog.html[DisplayAppointmentDialog]"]  への呼び出しがループを発生する BeforeDisplayAppointmentDialog への呼び出しを作成するからです。このコードはカスタムの予定ダイアログで使用されるかボタン クリックで予定ダイアログを表示する場合のものです。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.UltraCalendarInfo1.DisplayAppointmentDialog(Me.UltraCalendarInfo1.ActiveDay.Date, _
+	  Me.UltraCalendarInfo1.ActiveDay.Date, False)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	this.ultraCalendarInfo1.DisplayAppointmentDialog(this.ultraCalendarInfo1.ActiveDay.Date, 
+	  this.ultraCalendarInfo1.ActiveDay.Date, false); 
+}
+----

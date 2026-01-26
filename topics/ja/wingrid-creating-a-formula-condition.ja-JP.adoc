@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-creating-a-formula-condition",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids"],
+    "guid": "{03BE7FE2-EBE5-4528-A1A1-62AD31EF8720}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 数式条件を作成
+
+Conditional Formatting によって、WinGrid の列全体のセルをひとつ以上の値と比較して、特定の条件が満たされると外観を変更することができます。たとえば、セルが特定の数より小さいかどうかをチェックしたり、テキストの特定の文字列がセル内に含まれるかどうかをチェックできます。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition.html[OperatorCondition]"]  オブジェクトに組み込まれる演算子がいくつかあります。ただし、WinCalcManager コンポーネントの支援を受けて、固有の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formulacondition.html[FormulaCondition]"]  を構築できます。
+
+数式条件の構築は、OperatorCondition の構築に非常に似ています。FormulaCondition オブジェクトには 2 つのコンストラクタがあります。ひとつのコンストラクタは IFormulaProvider オブジェクトを取得し、これは計算を実行する WinGrid 列です。もうひとつのコンストラクタは IFormulaProvider と数式文字列を取得し、これはセル値をテストしたい WinCalcManager 数式です。
+
+[NOTE]
+====
+*注：* FormulaCondition を機能させるには、WinCalcManager コンポーネントをフォームに配置する必要があります。WinCalcManager がフォームにあれば、WinGrid のすべての列はコンポーネントを認識します。このために、WinCalcManager コンポーネント自体ではなく IFormulaProvider として列を渡すことができます。
+====
+
+以下のコードは FormulaCondition オブジェクトをインスタンス化し、数式を計算するためのオブジェクトとして WinGrid の最初のバンドで最初の列を設定します。数式自体は、Formula プロパティを使用して設定されます。
+
+*Visual Basic の場合：*
+
+----
+Dim formula1 as FormulaCondition =_
+  New FormulaCondition(Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0))
+formula1.Formula = "[ConditionValue] < 4"
+----
+
+*C# の場合：*
+
+----
+FormulaCondition formula1 =
+  new FormulaCondition(this.ultraGrid1.DisplayLayout.Bands[0].Columns[0]);
+formula1.Formula = "[ConditionValue] < 4";
+----

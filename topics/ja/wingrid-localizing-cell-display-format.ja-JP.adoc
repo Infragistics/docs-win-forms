@@ -1,0 +1,196 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-localizing-cell-display-format",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Localization"],
+    "guid": "{BE0441D7-0C92-419B-9780-92EBACC88C0E}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= セルの表示書式をローカライズ
+
+== 背景
+
+多くのプロジェクトでは、英語、ドイツ語、日本語など、複数のカルチャを扱わなければなりません。.NET Framework は、複数のカルチャに対する優れたサポートを提供しており、WinGrid のユーザーもこの機能を利用することができます。
+
+== 質問
+
+* 異なるカルチャに対する日付の書式はどのように設定しますか?
+
+== 解決策
+
+特定のカルチャに合わせて列の書式を設定するには、定義済みの書式と System.Globalization.CultureInfo オブジェクトを組み合わせて使用します。
+
+一般的に使用される定義済みの数値書式には、次のようなものが含まれます。
+
+[options="header", cols="a,a"]
+|====
+|書式指定文字|説明と関連プロパティ
+
+|*c, C*
+|通貨書式
+
+|*d, D*
+|10 進形式
+
+|*e, E*
+|科学(指数)形式
+
+|*f, F*
+|固定小数点形式
+
+|*g, G*
+|一般形式
+
+|*n, N*
+|数値書式
+
+|*r, R*
+|Roundtrip 形式。この形式では、文字列型に変換された数値を、再度数値に変換したとき、元と同じ値になります。
+
+|*x, X*
+|16 進形式
+
+|====
+
+一般的に使用される定義済みの日付書式には、次のようなものが含まれます。
+
+[options="header", cols="a,a,a"]
+|====
+|書式指定文字|関連プロパティ/説明|形式パターンの例（en-US）
+
+|*d*
+|ShortDatePattern
+|MM/dd/yyyy
+
+|*D*
+|LongDatePattern
+|dddd, dd MMMM yyyy
+
+|*f*
+|完全な日付と時刻（長い日付と短い時刻）
+|dddd, dd MMMM yyyy HH:mm
+
+|*F*
+|FullDateTimePattern (長い日付と長い時刻)
+|dddd, dd MMMM yyyy HH:mm:ss
+
+|*g*
+|一般（短い日付と短い時刻）
+|MM/dd/yyyy HH:mm
+
+|*G*
+|一般（短い日付と長い時刻）
+|MM/dd/yyyy HH:mm:ss
+
+|*m, M*
+|MonthDatePattern
+|MMMM dd
+
+|*r, R*
+|RFC1123Pattern
+|ddd, dd MMM yyyy HH':'mm':'ss 'GMT'
+
+|*s*
+|現地時刻を使用する SortableDateTime（ISO 8601 準拠）
+|yyyy'-'MM'-'dd'T'HH':'mm':'ss
+
+|*t*
+|ShortTimePattern
+|HH:mm
+
+|*T*
+|LongTimePattern
+|HH:mm:ss
+
+|*u*
+|世界協定時刻を使用する UniversalSortableDateTimePattern
+|yyyy'-'MM'-'dd HH':'mm':'ss'Z'
+
+|*U*
+|世界協定時刻を使用する完全な日付と時刻 (長い日付と長い時刻)
+|dddd, dd MMMM yyyy HH:mm:ss
+
+|*y, Y*
+|YearMonthPattern
+|yyyy MMMM
+
+|====
+
+[NOTE]
+====
+*注:* CultureInfo オブジェクトで利用可能な定義済み書式の全体リスト、およびカスタム カルチャ日付書式の作成方法に関する情報については、Visulal .NET ドキュメントの NumberFormat および DateTimeFormat に関する書式文字列トピックを参照してください。UltraWinGrid ヘルプ システムの link:wingrid-format-strings.html[書式文字列]も参照できますが、ほとんど同じ情報が記載されています。
+====
+
+*警告：* WinGrid の .Format プロパティを使用するときには、.NET の書式指定文字や書式指定文字列ではなく、CultureInfo の書式指定文字を使用してください。短い日付を使用したい場合は、DateTimeFormat として有効な "d" を使用してください。 CultureInfo オブジェクトでは、短い日付の値は有効ではありません。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、日付の列をアメリカ英語、ドイツ語、日本語で表示します:
+
+image::Images/WinGrid_Localizing_Cell_Display_Format_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラが含まれます。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードでは、利用可能なスペースに列を合わせ、テキストを右寄せで配置し、3 つのカルチャそれぞれに対するCultureInfoオブジェクトを作成して、日付の .Format プロパティおよび .FormatInfo プロパティを設定するようグリッドに指示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports System.Globalization
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' 列を合わせます。
+	e.Layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn
+	' カルチャ オブジェクトを作成します。
+	Dim cultureENUS As CultureInfo = CultureInfo.CreateSpecificCulture("en-us")
+	Dim cultureDEDE As CultureInfo = CultureInfo.CreateSpecificCulture("de-de")
+	Dim cultureJAJP As CultureInfo = CultureInfo.CreateSpecificCulture("ja-jp")
+	' 日付書式を設定します。
+	e.Layout.Bands(0).Columns("OrderDate").Format = "d"
+	e.Layout.Bands(0).Columns("OrderDate").FormatInfo = cultureENUS
+	e.Layout.Bands(0).Columns("RequiredDate").Format = "d"
+	e.Layout.Bands(0).Columns("RequiredDate").FormatInfo = cultureDEDE
+	e.Layout.Bands(0).Columns("ShippedDate").Format = "d"
+	e.Layout.Bands(0).Columns("ShippedDate").FormatInfo = cultureJAJP
+End Sub
+----
+
+*C# の場合：*
+
+----
+using System.Globalization;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// 列を合わせます。
+	e.Layout.AutoFitStyle = AutoFitStyle.ExtendLastColumn;
+	// カルチャ オブジェクトを作成します。
+	CultureInfo cultureENUS = CultureInfo.CreateSpecificCulture("en-us");
+	CultureInfo cultureDEDE = CultureInfo.CreateSpecificCulture("de-de");
+	CultureInfo cultureJAJP = CultureInfo.CreateSpecificCulture("ja-jp");
+	// 日付書式を設定します。
+	e.Layout.Bands[0].Columns["OrderDate"].Format = "d";
+	e.Layout.Bands[0].Columns["OrderDate"].FormatInfo = cultureENUS;
+	e.Layout.Bands[0].Columns["RequiredDate"].Format = "d";
+	e.Layout.Bands[0].Columns["RequiredDate"].FormatInfo = cultureDEDE;
+	e.Layout.Bands[0].Columns["ShippedDate"].Format = "d";
+	e.Layout.Bands[0].Columns["ShippedDate"].FormatInfo = cultureJAJP;
+}
+----
+
+== まとめ
+
+このプロジェクトでは、CultureInfo オブジェクトの作成方法と、数値と日付をカルチャの特定の書式で表示するために、作成したオブジェクトを列に適用する方法を紹介しています。

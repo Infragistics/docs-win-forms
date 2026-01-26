@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarcombo-set-the-text-of-wincalendarcombo-when-the-date-value-is-null",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["How Do I"],
+    "guid": "{7C85955E-8EC8-4BDF-90EB-BE19C62B15F3}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Date の値が null の場合の WinCalendarCombo テキストの設定
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarcombo~nulldatelabel.html[NullDateLabel]"]  プロパティを使用して、データ値が null のときに WinCalendarCombo テキストを設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ChangeTextWhenDateValueIsNull_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraCalendarCombo1.NullDateLabel = "[Empty]"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ChangeTextWhenDateValueIsNull_Load(object sender, System.EventArgs e)
+{
+	this.ultraCalendarCombo1.NullDateLabel = "[Empty]";
+}
+----

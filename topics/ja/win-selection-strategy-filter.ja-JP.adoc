@@ -1,0 +1,109 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-selection-strategy-filter",
+    "controlName": [],
+    "tags": ["API","Application Blocks","Grids","Selection","Tips and Tricks"],
+    "guid": "{7DD34BB7-F94B-4003-A3E7-53F80D962C2E}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択方式フィルタ
+
+選択方式フィルターは通常は必要ありません。 これは、PLF が共通の選択方式をすでに実装しており、使用する方式を指定するための列挙プロパティを提供しているためです（「選択方式」のセクションを参照）。
+
+ISelectionStrategyFilter は、次の 1 つのメソッドを持つ簡単なインタフェースです。
+
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iselectionmanager~getselectionstrategy.html[GetSelectionStrategy]"]  - 特定のタイプの選択可能項目について、その選択方式を返すために呼び出されます。
+
+以下のサンプル コードは、セルに対してカスタムの選択方式を提供する方法を示します。注:通常はこのような操作は必要ありません。通常セルの選択方式は、Override オブジェクトの SelectTypeCell プロパティの設定に基づいて決まります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+' ISelectionStrategyFilter インタフェースをクラスに実装します
+' （この場合はフォームです）。
+Public Class Form1
+    Inherits System.Windows.Forms.Form
+    Implements Infragistics.Win.ISelectionStrategyFilter
+Private cellSelectionStrategy As MyCustomSelectionStrategy
+Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+' カスタムの選択方式を作成します。
+    Me.cellSelectionStrategy = New MyCustomSelectionStrategy(Me.UltraGrid1)
+' グリッドの SelectionStrategyFilter プロパティを、ISelectionStrategyFilter インタフェースを
+' 実装するオブジェクトに設定します。
+    Me.UltraGrid1.SelectionStrategyFilter = Me
+End Sub
+Public Function GetSelectionStrategy(ByVal item As Infragistics.Shared.ISelectableItem) As Infragistics.Win.ISelectionStrategy Implements Infragistics.Win.ISelectionStrategyFilter.GetSelectionStrategy
+' 項目がセルの場合はカスタム方式を返します。
+    If TypeOf (item) Is UltraGridCell Then
+        Return Me.cellSelectionStrategy
+    End If
+' nullを返します。この場合はグリッドによって適切な方式が提供されます。
+    Return Nothing
+End Function
+End Class
+ ' PLF で定義されている選択方式の 1 つから
+' クラスを派生します。 
+Friend Class MyCustomSelectionStrategy
+    Inherits Infragistics.Win.SelectionStrategyExtended
+Public Sub New(ByVal manager As ISelectionManager)
+    MyBase.New(manager)
+End Sub
+Public Overloads Overrides Function OnMouseDown(ByVal item As Infragistics.Shared.ISelectableItem, ByRef msginfo As Infragistics.Win.MouseMessageInfo) As Boolean
+' 何らかのカスタムのマウス ダウン処理を実行します。
+    ' ...
+    Return MyBase.OnMouseDown(item, msginfo)
+End Function
+End Class
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+// ISelectionStrategyFilter インタフェースをクラスに実装します
+// （この場合はフォームです）。
+public class Form1 : System.Windows.Forms.Form, Infragistics.Win.ISelectionStrategyFilter
+{
+private MyCustomSelectionStrategy cellSelectionStrategy;
+private void Form1_Load(object sender, System.EventArgs e)
+{
+// カスタムの選択方式を作成します。
+        this.cellSelectionStrategy = new MyCustomSelectionStrategy(this.ultraGrid1);
+// グリッドの SelectionStrategyFilter プロパティを、ISelectionStrategyFilter インタフェースを
+// 実装するオブジェクトに設定します。
+        this.ultraGrid1. SelectionStrategyFilter = this;
+}
+public Infragistics.Win.ISelectionStrategy 
+                GetSelectionStrategy(Infragistics.Shared.ISelectableItem item)
+{
+// 項目がセルの場合はカスタム方式を返します。
+        if ( item is UltraGridCell )
+                return this.cellSelectionStrategy;
+// nullを返します。この場合はグリッドによって適切な方式が提供されます。
+        return null;
+}
+// PLF で定義されている選択方式の 1 つから
+// クラスを派生します。 
+internal class MyCustomSelectionStrategy : SelectionStrategyExtended
+{
+        internal MyCustomSelectionStrategy( ISelectionManager manager ) 
+                        : base( manager )
+        {
+        }
+        public override bool OnMouseDown(Infragistics.Shared.ISelectableItem item, ref Infragistics.Win.MouseMessageInfo msginfo)
+        {
+// 何らかのカスタムのマウス ダウン処理を実行します。
+                // ...
+                return base.OnMouseDown( item, ref msginfo );
+        }
+}
+----

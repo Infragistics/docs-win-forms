@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-initializelayout-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids","Layouts"],
+    "guid": "{FFD2E2FD-1D0D-4B8F-BA25-6C25502E35A9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= InitializeLayout イベント
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベントは間違いなく WinGrid™ コントロールによって発生する最も重要なイベントです。InitializeLayout イベントは、データ ソースを WinGrid に指定した直後に発生します。このイベントは、データ ソースをランタイムで WinGrid に指定する場合に重要です。デザイン タイムにデータ ソースを設定することなく、WinGrid は使用できるスキーマを持ちません（列およびエンティティ構造）。したがって、Columns、Bands などのエレメントのプロパティ設定および関連するエレメントは設定できません。これらのエレメントは未だ存在しないからです。ランタイムに WinGrid にデータ ソースを指定することで、ユーザーがバインドするデータ モデルに基づいてスキーマおよびレイアウトを作成します。InitializeLayout イベントはこの時点で発生するので、このイベントを使用して、デザイン タイムに通常に設定されたプロパティを設定できます。デザイン タイムでデータ ソースを提供する場合、WinGrid が DisplayLayout オブジェクトを作成すると、InitializeLayout イベントは依然として発生します。
+
+== DisplayLayout オブジェクトへのアクセス
+
+InitializeLayout イベントで使用できる最も重要なイベント引数は e.Layout です。この引数は pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  タイプで、実際的にはコントロール自体を通して直接アクセスすることもできる Grid.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  プロパティへの参照です。
+
+e.Layout を介した InitializeLayout イベント引数を介してもアクセスできる WinGrid の DisplayLayout プロパティは、カスタマイズのほとんどが行われるプロパティです。DisplayLayout プロパティの直下で、WinGrid のいくつかの一般的なエレメントのカスタマイズが可能となるさまざまなプロパティが見つかります。ここで、Immediate スクロール（行をスクロールすると、既存の行が上下に移動します）または Deferred スクロール（スクロールバーをドラッグして行をスクロールすると、行は移動せず、スクロールバーからマウス ボタンを放すと、範囲内の行が表示可能な Grid 領域に描画します）を指定することができる ScrollStyle などのプロパティが見つかります。GroupByBox プロパティなど、一般的に Grid に関連する他のプロパティも存在します。このプロパティによって、Grid のトップで Outlook GroupBy UI Element を調整およびカスタマイズできます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout( _
+ ByVal sender As System.Object, _
+ ByVal e As InitializeLayoutEventArgs) _
+ Handles UltraGrid1.InitializeLayout
+   e.Layout.ScrollBounds = ScrollBounds.ScrollToFill
+   e.Layout.ScrollStyle = ScrollStyle.Deferred
+   e.Layout.UseFixedHeaders = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(
+   object sender, 
+   InitializeLayoutEventArgs e)
+   {
+      e.Layout.ScrollBounds = ScrollBounds.ScrollToFill;
+      e.Layout.ScrollStyle = ScrollStyle.Deferred;
+      e.Layout.UseFixedHeaders = true;
+   }
+----
+
+== Bands コレクションへのアクセス
+
+DisplayLayout プロパティ内に配置された Bands プロパティも非常に重要です。デザイン タイムに指定されたデータ ソースを持たない場合、Bands コレクションは空になります。ランタイムにデータ ソースを指定する場合、InitializeLayout イベントは、ユーザーが Bands コレクションにアクセスし、必要に応じて各 Band でカスタマイズを実行する場所です。
+
+Bands コレクションは、基本的にデータ モデルのパブリック エンティティごとにひとつの Band を含みます。CardView を有効にし、さまざまな Column データを集計する Summaries を追加し、そのエンティティのすべての Column Headers を表示または非表示にできるのはこの Band 内です。各 Band は Columns コレクションを持ちます。Columns コレクションは、それらの順序を配列し直したり、列スタイルを設定する（Column を Button、CheckBox または DropDown に変更）など多くのカスタマイズができるように、固有の Columns にアクセスするためにユーザーが使用するものです。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout( _
+   ByVal sender As System.Object, _
+   ByVal e As InitializeLayoutEventArgs) _
+   Handles UltraGrid1.InitializeLayout
+      Dim b As UltraGridBand = e.Layout.Bands("Customers")
+      b.CardView = True
+      b.Columns("CustomerID").Hidden = True
+      b.Columns("CompanyName").Header.Caption = "Company Name"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(
+   object sender, 
+   InitializeLayoutEventArgs e)
+   {
+      UltraGridBand b = e.Layout.Bands["Customers"];
+      b.CardView = true;
+      b.Columns["CustomerID"].Hidden = true;
+      b.Columns["CompanyName"].Header.Caption = "Company Name";
+   }
+----
+
+== Override オブジェクトにアクセス
+
+しばしば使用される他の重要なプロパティは、Grid.DisplayLayout または e.Layout イベント引数の直下に配置されている Override プロパティです。これはその他すべての Grid プロパティが配置される場所です。ここに新しい行の追加および削除を許可または拒否するカスタマイズを可能にするプロパティがあります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout( _
+   ByVal sender As System.Object, _
+   ByVal e As InitializeLayoutEventArgs) _
+   Handles UltraGrid1.InitializeLayout
+      e.Layout.Override.AllowAddNew = AllowAddNew.No
+      e.Layout.Override.ButtonStyle = UIElementButtonStyle.Borderless
+      e.Layout.Override.DefaultRowHeight = 75
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(
+   object sender, 
+   InitializeLayoutEventArgs e)
+{
+   e.Layout.Override.AllowAddNew = AllowAddNew.No;
+   e.Layout.Override.ButtonStyle = UIElementButtonStyle.Borderless;
+   e.Layout.Override.DefaultRowHeight = 75;
+}
+----
+
+理解すべき重要な概念は、プロパティが解決される順序です。この時点で、Override 内だけでなく、個々の Bands さらには個々の Objects 上にも配置されるプロパティが重複していることに気づきます。これは Grid 全体で適用される全般的なプロパティを設定することをプログラマに許可する時のデザインで、個々のエレメントおよびオブジェクトは全般的な設定の例外としてカスタマイズできます。言い換えれば、Grid.DisplayLayout.Override で適切なプロパティを設定することでレコードの追加を許可するように Grid を構成できます。これで Grid 全体で新しいレコードの追加が可能となります。ひとつを除くすべての Bands で新しいレコードを追加できるようにするために、レコードの追加を許可しないように Grid でひとつの Band を構成することを選択できます。同じ概念は、複数の場所で見られるすべてのプロパティ設定に適用されます。WinGrid および多くの他の {ProductName} コンポーネントでは、個々のエレメントが描画される時、それ自体のプロパティを最初に調べることによってプロパティ設定を解決します。値が見つかると、これらの値は解決プロセス中に適用されます。何も設定されていないか、デフォルト値に設定されている場合、「はしご」を登り、その親の関連プロパティをチェックします。値が見つかればそれらが適用され、見つからなければ解決プロセスが値が見つかるまで、または解決チェーンの最後に到達するまでチェーンを遡って続行し、デフォルト値だけが適用されます。

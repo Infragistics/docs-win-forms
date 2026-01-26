@@ -1,0 +1,84 @@
+﻿////
+|metadata|
+{
+    "name": "wintoolbarsmanager-in-place-designer",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Design Environment"],
+    "guid": "{23984312-9EEA-466D-B7C2-7A21C6E5D450}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager のインプレース デザイナ
+
+インプレース デザイナを使用すると、Visual Studio IDE そのもので WinToolbarsManager コントロールを操作できます。このオプションはデフォルトで有効になっています。無効にするには UltraToolbarsManager を右クリックして [ツールバーの直接デザイン] をオフにします。IDE で UltraToolbarsManager コンポーネントを選択すると、上部のドッキング領域に [新しいツールバー] ボタンが表示されます。
+
+image::Images/WinToolbarsManager_In_Place_Designer_01.png[]
+
+.注:
+[NOTE]
+====
+Dock プロパティが Fill に設定されているコントロールがフォーム上にない場合は、最初にコンポーネントを作成するときに、パネルを作成するかどうかを確認するダイアログが表示されます。このパネルは、フォームの本体を構成するコントロールを配置するための場所となります。これが必要な理由は、UltraToolbarsManager を含むフォームにコントロールを直接配置した場合、ツールバーをドッキングまたはドッキング解除したときに、ツールバーを表示するドッキング領域コントロールとフォーム上のコントロールが重なることがあるためです。
+====
+
+== 新しいツールバー ボタン
+
+[新しいツールバー] ボタンをクリックすると、新しい UltraToolbar または UltraTaskPaneToolbar を作成するためのダイアログが表示されます。ツールバー名には新しいツールバーのキーを入力します。[ツールバーの種類] では、標準のツールバーと タスクペイン スタイルのツールバーのどちらを作成するかを指定します。[配置］では、新しいツールバーの初期のドッキング位置（左端、右端、上端、下端、フローティング）を指定します。ツールバーの種類については、 link:wintoolbarsmanager-working-with-toolbar-types.html[「ツールバー タイプでの作業」]を参照してください。
+
+image::Images/WinToolbarsManager_In_Place_Designer_02.png[]
+
+== 新しいツールを挿入プレースホルダ
+
+その Tools コレクションを変更できるツールバーとメニュー ツールには、既存のツールの後ろに [新しいツールを挿入] という特別なプレースホルダが表示されます。このツールをマウス左ボタンでクリックすると、ツール コレクションにツールを挿入するためのオプションを含むコンテキスト メニューが表示されます。[新しいツールを挿入] をクリックすると、[新しいツール] ダイアログが表示されます。これは新しいツールを作成するためのダイアログで、ここで作成したツールは UltraToolbarsManager の Tools コレクションと、[新しいツールを挿入] プレースホルダをクリックしたオブジェクトの Tools コレクションの両方に追加されます。[既存のツールを挿入...］をクリックすると、[既存のツールを挿入] ダイアログが表示されます。これは、UltraToolbarsManager の Tools コレクションにすでに追加されているツールのインスタンスを作成するときに使用します。
+
+image::Images/WinToolbarsManager_In_Place_Designer_03.png[]
+
+== 新しいツール ダイアログ
+
+[新しいツール] ダイアログは新しいツールを作成するときに使用します。作成したツールは、UltraToolbarsManager の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~tools.html[Tools]"]  コレクションに追加されます。ここでは、作成するツールの種類（ButtonTool や ComboBoxTool など）と、キャプション（エンド ユーザーに表示するテキスト）、キー（UltraToolbarsManager 内でツールを一意に識別する文字列値）、カスタマイザ キャプション（カスタマイズ ダイアログ内でツールを表す文字列）、分類（カスタマイズ ダイアログの [Tool] タブでツールをグループ化するためのカテゴリ名）などの基本的なプロパティを指定できます。
+
+.注:
+[NOTE]
+====
+使用可能なツールの種類については、 link:wintoolbarsmanager-working-with-tool-types.html[「ツールバー タイプでの作業」]を参照してください。
+====
+
+image::Images/WinToolbarsManager_In_Place_Designer_04.png[]
+
+== 既存ツールの挿入ダイアログ
+
+[既存ツールの挿入] ダイアログでは、すでに作成したツール（つまり、UltraToolbarsManager の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~tools.html[Tools]"]  コレクションにすでに追加されているツール）を挿入できます。リストを絞り込むためのコンボ ボックスがあるので、挿入するツールを容易に特定できます。
+
+image::Images/WinToolbarsManager_In_Place_Designer_05.png[]
+
+== ツールおよびツールバーの選択
+
+インプレース デザイナを使用しているときは、ツールまたはツールバーを左クリックによって選択できます。選択されたオブジェクトには黒い枠線が付きます。下の図では、上部のドッキング領域にあるツールバーの PopupMenuTool が選択されています。ツールまたはツールバーを選択すると、IDE の [プロパティ] ウィンドウで追加のプロパティ タブが使用できるようになり、そこでそのインスタンスのプロパティを変更できます。この追加タブにアクセスするためには、[プロパティ] ウィンドウの image:Images\UltraToolbarsManager_In_Place_Designer_08.png[]         アイコンをクリックする必要があります。
+
+.注:
+[NOTE]
+====
+ツールまたはツールバーの選択に使用できる領域は限られています。たとえばツールバーを選択するためには、グラブ ハンドル、またはツールバー上のツールで占められていない領域をクリックする必要があります。
+====
+
+image::Images/WinToolbarsManager_In_Place_Designer_06.png[]
+
+== ツール コンテキスト メニュー
+
+デザイナでツールを選択して右クリックすると、カスタム コンテキスト メニューが表示されます。このメニューは、ランタイムにカスタマイズ ダイアログに表示されるメニューと似ていますが、いくつかの追加オプションがあります。
+
+image::Images/WinToolbarsManager_In_Place_Designer_07.png[]
+
+ツール コンテキスト メニューで使用できるオプションは以下のとおりです。
+
+* リセット - ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase~resetstate.html[ResetState]"]  メソッドを呼び出して、カスタマイズをすべてリセットします。
+* 削除 - ツール インスタンスを、所属する Tools コレクションから削除します。
+* 名前 - ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolpropsbase~caption.html[Caption]"]  プロパティを、テキスト ボックスに入力したテキストに変更します。
+* コントロール - ツールに関連付ける pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase~control.html[Control]"]  を選択します。このオプションは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool.html[ControlContainerTool]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupcontrolcontainertool.html[PopupControlContainerTool]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  などのコントロールを利用するツールの場合のみ使用できます。
+* スタイル オプション - これは、ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolpropsbase~displaystyle.html[DisplayStyle]"]  を決定する 4 つのオプションの組み合わせです。このオプションは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[ButtonTool]"]  など、一部のツール タイプの場合のみ使用できます。
+* グループの始まり - ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.instanceprops~isfirstingroup.html[IsFirstInGroup]"]  プロパティを制御します。このオプションをオンにすると、ツールの前にセパレータが挿入されます。
+* 最近使ったツール - pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.instanceprops~recentlyused.html[RecentlyUsed]"]  プロパティを変更します。このプロパティは、ツールが所属するポップアップ メニューの初期ドロップダウン時にそのツールが表示されるかどうかを決定します。この値は、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~alwaysshowmenusexpanded.html[AlwaysShowMenusExpanded]"]  などの他のプロパティの影響を受けます。
+* ツールの挿入 - この挿入ツール インスタンスの前にツールを挿入するためのサブメニューを表示します。
+* ツールの種類の変換...- このツール自体と、UltraToolbarsManager 内の同じツールのすべてのインスタンスを別のツール タイプに変換する（たとえば pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[ButtonTool]"]  を pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool.html[StateButtonTool]"]  に変換する）ためのダイアログを表示します。

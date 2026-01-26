@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-clipboard-support-for-wingrid-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{FF1DC05C-24A6-405F-94A9-A0D2D128579B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid のクリップボード サポート
+
+ワープロ アプリケーションやテキスト編集アプリケーションで [コピー] と [貼り付け] の機能が非常によく使用されることを考慮して、WinGrid にクリップボード機能を追加しました。WinGrid 自体でのクリップボードのサポートに加えて、WinGrid は Microsoft® Excel® のクリップボードをサポートできるようになりました。したがって、項目を WinGrid へ、または WinGrid からコピー、貼り付け、切り取りできるようになりました。同じように、WinGrid では Delete、Undo、Redo もサポートしています。デフォルト キー アクションでは標準のショートカット キー（例えば、Ctrl+C で Copy、Ctrl+V で Pasteなど）と同じように設定されています。WinGrid コントロールを使用すると、個々のセル、または複数のセルを WinGrid から Excel へ、またはタブ区切りセル値をサポートしているその他の表計算ソフトにコピーすることができます。WinGrid の Override クラスの AllowMultiCellOperations プロパティを"All"に設定するだけで、エンド ユーザーはデフォルトのキー操作マッピングを通じてコピーと貼り付けを行えます。
+
+image::images/WinGrid_Clipboard_Support_for_WinGrid_Whats_New_2006_1_01.png[]
+
+image::images/WinGrid_Clipboard_Support_for_WinGrid_Whats_New_2006_1_02.png[]
+
+== 関連トピック
+
+link:wingrid-creating-edit-menu-with-clipboard-operations-for-wingrid.html[WinGrid のクリップボード操作付きの編集メニューの作成]
+
+link:wingrid-turning-on-clipboard-operations.html[クリップボード操作の起動]

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprogressbar-about-winprogressbar",
+    "controlName": ["WinProgressBar"],
+    "tags": ["Getting Started","Performance"],
+    "guid": "{E0B0C2EA-DDFD-43DF-8540-DA02B4B75F57}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinProgressBar について
+
+WinProgressBar コントロールには、進行状況の表示を制御するさまざまなプロパティがあります。プログレスバーの色は、現在のパーセント値によって変えることができます。あるいは、プログレスバーを塗りつぶした画像として表示することも可能です。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、完全な外観がサポートされます。
+* スタイル -- プログレスバーの増加を表すスタイルを指定できます（セグメントごととするか、連続イメージとするかなど）。
+
+image::images/WinProgressBar_About_WinProgressBar_01.png[]

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-linear-gauges",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{F4904C85-6C7D-4A28-994B-03FC7690C0C0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リニア ゲージ
+
+リニア ゲージは四角く配置された値の範囲を表します。この Gauge コントロールには通常特定の範囲を表すひとつまたは複数のpick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargauge~scales.html[スケール]"] が含まれます。針または棒pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugescale~markers.html[マーカー]"] が軸に沿って移動して、現在の値を指し示します。リニア ゲージは、水平、垂直のいずれの方向にすることもできます。水平方向のゲージはガソリン ゲージに似ており、垂直のゲージは温度計に似ています。
+
+image::images/Gauge_About_Linear_Gauges_01.png[]
+
+リニア ゲージで作業する場合の詳細は、以下のリンクをクリックしてください。
+
+* link:wingauge-working-with-linear-gauges.html[リニア ゲージでの作業]

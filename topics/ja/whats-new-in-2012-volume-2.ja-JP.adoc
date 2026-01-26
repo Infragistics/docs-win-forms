@@ -1,0 +1,238 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2012-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "7b07551a-58f6-48fa-813d-e4e4defb0d3a",  
+    "buildFlags": [],
+    "createdOn": "2012-08-30T12:08:20.3352574Z"
+}
+|metadata|
+////
+
+= 2012 Volume 2 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは {ProductName} 2012 Volume 2 リリースで導入された新しい機能とコンポーネントについて紹介します。
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Ref335169509,CLR 4 のみのサポート>>
+* <<_Ref335126284,コード化された UI テストの拡張機能>>
+* <<_Ref335129146,Infragistics Syntax Parsing Engine>>
+* <<_Ref335127697,Infragistics Undo/Redo Framework>>
+* <<_Ref335821915,Metro スタイル>>
+* <<_Ref335127690,スクロールバーのサイズ変更>>
+* <<_Ref335163221,Visual Studio 2012 のサポート>>
+
+[[_Ref335169509]]
+[[_Ref335126284]]
+== CLR 4 のみのサポート
+
+2012 Volume 2 リリースでは, すべての {ProductName} コントロールとコンポーネントは Common Language Runtime (CLR) 4  _のみ_   でコンパイルされます。コントロールとコンポーネントは以前の CLR バージョン (CLR 2 または 3) でサポートされません。
+
+== コード化された UI テストの拡張機能
+
+=== コード化された UI テストの拡張機能の概要表
+
+以下の表では、2012 Volume 2 リリースに含まれる新しい Infragistics コード化された UI テストの拡張機能について整理しています。
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|コード化された UI テストで Infragistics コントロールをレコードして再生する機能
+|Infragistics 2012.2 リリースでは、複数の {ProductName} コントロールは Microsoft® コード化された UI テスト フレームワークでレコードして再生することができます。
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:coded-ui-test-extension.html[コード化された UI テストの拡張機能]
+|このセクションは、コード化された UI テスト拡張機能を説明し、トピックのリンクを含みます。
+
+|====
+
+[[_Ref335129146]]
+== Infragistics Syntax Parsing Engine
+
+=== Infragistics Syntax Parsing Engine の概要表
+
+以下の表では、2012 Volume 2 リリースに含まれる新しい Infragistics Syntax Parsing Engine 機能について整理しています。
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|解析
+|解析機能は構文ツリーを公開します。指定した言語に基づいてドキュメントのテキストを解析できます。
+
+|エラーの報告
+|言語の構文ルールに合わせないテキストの場合、エラーを表示します。
+
+|カスタム言語のサポート
+|Extended Backus-Naur Form (EBNF) で定義されるカスタム言語をサポートします。
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-infragistics-syntax-parsing-engine.html[Infragistics Syntax Parsing Engine]
+|このトピックでは、Infragistics Syntax Parsing Engine を説明し、コード スニペットを含むトピックへのリンクを含みます。
+
+|====
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+|カスタム言語の構文解析
+|このサンプルでは、カスタム言語 (XML) のルールに基づいて RichTextBox および TreeControl でテキストの解析と強調表示を紹介します。
+
+|Windows Forms の XamSyntaxEditorStudio
+|このサンプルは Windows Forms アプリケーションで WPF の _XamSyntaxEditor_ コントロールを使用します。 _XamSytaxEditor_ は Infragistics Syntax Parsing Engine を使用して解析、エラー報告、カスタム言語関数を実行します。
+
+|====
+
+[[_Ref335127697]]
+== Infragistics Undo/Redo Framework
+
+=== Infragistics Undo/Redo Framework の概要表
+
+以下の表では、2012 Volume 2 リリースに含まれる新しい Infragistics Undo/Redo Framework 機能について整理しています。
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|元に戻す / やり直し機能を提供します。
+|Infragistics Undo/Redo Framework は操作の履歴を保存し、元に戻す/やり直す操作を実行し、複数の操作を 1 つの履歴項目に結合することが可能です。UI で元に戻す/やり直す操作を実行するためのコマンドを提供します。 
+
+デフォルトでは、Infragistics Undo/Redo Framework は利用可能ではありません。ただし、簡単で早くに実装できます。
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:undo-redo-framework-methods-and-properties-reference-by-class.html[クラスによる Undo/Redo Framework メソッドおよびプロパティ参照]
+|このセクションには、Infragistics Undo/Redo Framework™ のキー クラス メソッドおよびプロパティに関する参照情報が含まれます。
+
+| link:undo-redo-framework-methods-and-properties-reference-by-task.html[タスクによる Undo/Redo Framework メソッドおよびプロパティ参照]
+|このセクションには、特定の元に戻す/やり直し機能を実装するために役に立つ Infragistics Undo/Redo Framework™ のキー メソッドおよびプロパティに関する参照情報が含まれます。
+
+|====
+
+[[_Ref335127690]]
+[[_Ref335821915]]
+== Metro スタイル
+
+{ProductName} のアプリケーション スタイリング ライブラリに新しい Metro テーマを追加しまいた。このスタイル ライブラリを使用すると、Windows Forms アプリケーションを Metro ルック アンド フィールに設定できます。
+
+== 関連コンテンツ
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+|FaceOut ショーケース サンプル
+|このサンプルは、売上データを Metro スタイルを使用してダッシュボード表示します。
+
+|====
+
+== スクロールバーのサイズ変更
+
+=== スクロールバーのサイズ変更の概要表
+
+以下の表では、2012 Volume 2 リリースに含まれる新しい Infragistics スクロールバーのサイズ変更機能について整理しています。
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|Infragistics コントロールのスクロールバーおよびスクロールバー ボタンのサイズを変更できます。
+|Infragistics 2012.2 リリースでは、{ProductName} コントロールでスクロールバーおよびスクロールバー ボタンをサイズ変更できます。タッチ スクリーン デバイスでコントロールのスクロールを簡単になるために、コントロールのスクロールバーをすべて変更できます。
+
+|====
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:styling-guide-scrollbar-resizing.html[スクロールバーのサイズ変更]
+|このトピックはスクロールバーのサイズ変更機能を説明し、サイズ変更可能な Infragistics コントロールをリストし、新しい機能のプロパティを紹介するコード例を提供します。
+
+|====
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+|スクロールバーのサイズ変更
+|タッチ スクリーン デバイスでコントロールのスクロールおよびスクロールバー矢印の高さと幅を変更できます。
+
+|====
+
+[[_Ref335163221]]
+== Visual Studio 2012 のサポート
+
+=== Visual Studio 2012 のサポートの概要表
+
+以下の表では、2012 Volume 2 リリースに含まれる Visual Studio 2012 サポート機能についての概要です。
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|Visual Studio 2012 との互換性を提供します。
+|{ProductName} ツールは Visual Studio 2012 との互換性があります。
+
+|====

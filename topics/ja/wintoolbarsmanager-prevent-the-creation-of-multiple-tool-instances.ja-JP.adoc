@@ -1,0 +1,103 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-prevent-the-creation-of-multiple-tool-instances",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{51F13BD7-E055-494F-B9A7-D6F6646705AF}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数のツール インスタンスの作成の禁止
+
+デフォルトでは、ユーザーは 1 つのルート ツールからインスタンス ツールを必要なだけいくつでも作成できます。この動作は特定のツールに対して変更可能で、WinToolbarsManager コンポーネントの中でツールのインスタンス化が 1 回しか実行できないようにすることができます。この操作は必要な数のツールについて実行できます。さらに、ある特定のツールでは使用されるツールの数を制限しながら、他のツールではツールを好きなだけ複製してユーザー定義のツールバーで使用することが可能です。
+
+ツールはそれぞれ pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~allowmultipleinstances.html[AllowMultipleInstances]"]  と呼ばれるプロパティを持っています。このプロパティを True に設定すると、UltraToolBarsManager エレメントの中でルート ツールを複数回インスタンス化できます。False に設定すると、ツールは 1 回しかインスタンス化できません。ユーザーが 2 回目にツールを追加しようとした場合は、最初のインスタンスが削除されます。
+
+このプロパティをデザインタイムに設定するには、UltraToolbarsManager コントロールを右クリックして ［ユーザー設定］ を選択します。[ツール] タブでツールを選択し、[SharedProps] の下のpick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  プロパティを使用します。
+
+== 複数インスタンスの許可
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub PreventingCreationofMultipleToolInstances_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' ツールを作成します。
+	Dim button1 As New ButtonTool("button1")
+	' ツールをツール コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(button1)
+	' このツールの複数インスタンスを許可します。
+	button1.SharedProps.AllowMultipleInstances = True
+	' 1 つ目のインスタンスが作成されます。
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(button1)
+	' 2 つ目のインスタンスが作成されます。
+	Me.UltraToolbarsManager1.Toolbars(1).Tools.Add(button1)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void PreventingCreationofMultipleToolInstances_Load(object sender, System.EventArgs e)
+{
+	// ツールを作成します。
+	ButtonTool button1 = new ButtonTool("button1");
+	// ツールをツール コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(button1);
+	// このツールの複数インスタンスを許可します。
+	button1.SharedProps.AllowMultipleInstances = true;
+	// 1 つ目のインスタンスが作成されます。
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(button1);
+	// 2 つ目のインスタンスが作成されます。
+	this.ultraToolbarsManager1.Toolbars[1].Tools.Add(button1);
+}
+----
+
+== 複数インスタンスの禁止
+
+*Visual Basic の場合：*
+
+----
+Private Sub PreventingCreationofMultipleToolInstances_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' ツールを作成します。
+	Dim button2 As New Infragistics.Win.UltraWinToolbars.ButtonTool("button2")
+	button2.SharedProps.Caption = "Button2"
+	' ツールをツール コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(button2)
+	' このツールの複数インスタンスを禁止します。
+	button2.SharedProps.AllowMultipleInstances = False
+	' 1 つ目のインスタンスが作成されます。
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(button2)
+	' この時点で、1 つ目のインスタンスが削除され、2 つ目のインスタンスが追加されます。
+	Me.UltraToolbarsManager1.Toolbars(1).Tools.Add(button2)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void PreventingCreationofMultipleToolInstances_Load(object sender, System.EventArgs e)
+{
+	// ツールを作成します。
+	ButtonTool button2 = new ButtonTool("button2");
+	button2.SharedProps.Caption = "Button2";
+	// ツールをツール コレクションに追加します。 
+	this.ultraToolbarsManager1.Tools.Add(button2);
+	//このツールの複数インスタンスを禁止します。
+	button2.SharedProps.AllowMultipleInstances = false;
+	// 1 つ目のインスタンスが作成されます。 
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(button2);
+	// この時点で、1 つ目のインスタンスが削除され、2 つ目のインスタンスが追加されます。 
+	this.ultraToolbarsManager1.Toolbars[1].Tools.Add(button2);
+}
+----

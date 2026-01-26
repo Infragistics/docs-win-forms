@@ -1,0 +1,139 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-working-with-row-scroll-regions",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Navigation"],
+    "guid": "{729442BF-E8DF-49EF-9242-75C566EB8DCA}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 行スクロール領域の操作
+
+== 背景
+
+多くの行を持つグリッドで、さまざまな行セットからの入力をレビューする場合、操作が困難なときがあります。行スクロール領域を使用し、ユーザーまたは開発者はグリッドを個別にスクロール可能な複数領域に分割することができます。
+
+表示したい行が、表示領域外にスクロールしてしまった場合などにこの機能を使用することができます。この場合、ユーザーは新しい行スクロール領域をグリッドの表示領域に表示し、ソース行を表示しながら、下の領域に新しい行の追加作業などの処理を実行できます。
+
+== 質問
+
+* 新規行を追加しながら、現在選択されている行をどのように表示しますか?
+* ユーザーが行スクロール領域を作成できないようにするにはどうしますか?
+
+== 解決策
+
+ユーザーは現在選択されている行を表示する行スクロール領域を作成し、新規行を追加できる別の行スクロール領域を作成することができます。
+
+.MaxRowScrollRegions プロパティを 1 に設定した場合、行スクロール領域のスプリッタ ボックスは表示されなくなります。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、ユーザーが行スクロール領域を試せるように、マルチバンド グリッドを表示しています。また行スクロール領域を分割したり、グリッドをひとつの行スクロール領域に戻すボタンも提供しています:
+
+image::Images/WinGrid_Working_with_Row_Scroll_Regions_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeRow - InitializeRow イベント ハンドラではバンド 0 にある行を展開します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' 行 0 ノードを展開します。
+	If e.Row.Band.Index = 0 Then
+		e.Row.ExpandAll()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// 行 0 ノードを展開します。
+	if(e.Row.Band.Index == 0)
+		e.Row.ExpandAll();
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します。
+
+* btnSplitRowScrollRegion.Click - btnSplitRowScrollRegion イベントのコードは、MaxRowScrolRegions を 10 に設定し、Region(0)、Region(1)、および Region(2) を分割します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSplitRowScrollRegion_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSplitRowScrollRegion.Click
+	Me.UltraGrid1.DisplayLayout.MaxRowScrollRegions = 10
+	Me.UltraGrid1.DisplayLayout.RowScrollRegions(0).Split()
+	Me.UltraGrid1.DisplayLayout.RowScrollRegions(1).Split()
+	Me.UltraGrid1.DisplayLayout.RowScrollRegions(2).Split()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSplitRowScrollRegion_Click(object sender, EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.MaxRowScrollRegions = 10;
+	this.ultraGrid1.DisplayLayout.RowScrollRegions[0].Split();
+	this.ultraGrid1.DisplayLayout.RowScrollRegions[1].Split();
+	this.ultraGrid1.DisplayLayout.RowScrollRegions[2].Split();
+}
+----
+
+* btnOneRowScrollRegion.Click - btnOneRowScrollRegion イベントのコードは、Region(0)以外のすべてを削除し、MaxRowScrollRegions を 1 に設定します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnOneRowScrollRegion_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnOneRowScrollRegion.Click
+	' ひとつの行スクロール領域以外すべてを削除します
+	If Me.UltraGrid1.DisplayLayout.RowScrollRegions.Count > 1 Then
+		Dim intPtr As Integer
+		For intPtr = Me.UltraGrid1.DisplayLayout.RowScrollRegions.Count - 1 To 1 Step -1
+			Me.UltraGrid1.DisplayLayout.RowScrollRegions.Remove( _
+			  Me.UltraGrid1.DisplayLayout.RowScrollRegions(intPtr))
+		Next
+	End If
+	Me.UltraGrid1.DisplayLayout.MaxRowScrollRegions = 1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnOneRowScrollRegion_Click(object sender, EventArgs e)
+{
+	// ひとつの行スクロール領域以外すべてを削除します
+	if(this.ultraGrid1.DisplayLayout.RowScrollRegions.Count > 1)
+	{
+		for(int intPtr = this.ultraGrid1.DisplayLayout.RowScrollRegions.Count - 1; 
+		  intPtr >= 1; intPtr--)
+		{
+			this.ultraGrid1.DisplayLayout.RowScrollRegions.Remove(
+			  this.ultraGrid1.DisplayLayout.RowScrollRegions[intPtr]);
+		}
+	}
+	this.ultraGrid1.DisplayLayout.MaxRowScrollRegions = 1;
+}
+----
+
+== まとめ
+
+このサンプル プログラムでは存在する領域の分割、領域の削除、MaxRowScrollRegions を 1 に設定することにより、ユーザーによる新規領域の作成を無効にするなど、行スクロール領域の処理方法を紹介しました。

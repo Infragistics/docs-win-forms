@@ -1,0 +1,35 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-application-scenarios",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{57595A14-E095-488E-92A6-8C37F68D1CCE}",
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:34:35Z"
+}
+|metadata|
+////
+
+= アプリケーションのシナリオ
+
+以下のリンクは、WinGrid コントロールで作業をする間に遭遇するかもしれないさまざまなリアルタイムの状況を紹介します。
+
+* link:wingrid-accessing-a-specific-row-in-wingrid.html[WinGrid で特定の行にアクセスする]
+* link:wingrid-auto-sizing-columns-and-rows.html[列と行の自動サイズ変更]
+* link:wingrid-changing-the-display-order-of-fixed-rows.html[固定行の表示順を変更]
+* link:wingrid-changing-the-height-of-a-single-row.html[単一行の高さを変更]
+* link:wingrid-displaying-row-numbers-in-row-selectors.html[行セレクタで行番号を表示]
+* link:wingrid-displaying-special-row-separators.html[特殊行セパレーターの表示]
+* link:wingrid-determining-the-location-of-a-specific-cell.html[特定セルの位置の決定]
+* link:wingrid-determining-the-number-of-child-bands.html[子バンドの数を特定]
+* link:wingrid-expanding-all-rows-in-wingrid.html[WinGrid ですべての行を展開]
+* link:wingridexcelexporter-export-grid-data-to-excel.html[グリッド データを Excel にエクスポート]
+* link:wingrid-hiding-row-selectors.html[行セレクタの非表示]
+* link:wingrid-initializelayout-event.html[IntializeLayout イベント]
+* link:wingrid-initializerow-event.html[IntializeRow イベント]
+* link:wingrid-looping-through-the-entire-grid.html[グリッド全体のループ処理]
+* link:wingrid-retrieving-the-value-from-a-protected-cell.html[プロテクトされたセルから値を取得]
+* link:wingrid-save-load-a-layout-to-a-file.html[レイアウトのファイル保存とロード]
+* link:wingrid-searching-for-text-or-a-phrase-in-wingrid.html[WinGrid でテキストまたは語句を検索]
+* link:wingrid-setting-the-automatic-resizing-behavior-of-cells.html[セルの自動サイズ変更動作を設定]

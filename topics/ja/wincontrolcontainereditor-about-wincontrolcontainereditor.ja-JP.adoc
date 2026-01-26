@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-about-wincontrolcontainereditor",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{BC527A2A-9FCD-4F68-9098-BB225F51C4A7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinControlContainerEditor について
+
+WinControlContainerEditor™ コンポーネントは、非エディター コントロール（たとえば WinChart™、WinGrid™）、カスタムのユーザー コントロール、またはその他の任意のコントロールを、埋め込みエディターをサポートする Infragistics® Windows Forms コントロール スイートのひとつに簡単に組み込む機能を提供します。
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iprovidesembeddableeditor.html[IProvidesEmbeddableEditor]"]  インターフェイスを実装しないコントロールを、コントロールをサポートする埋め込みエディターに埋め込むことは EmbeddableEditors™ に関する深い知識を必要とする複雑なプロセスです。WinControlContainerEditor コンポーネントは IProvidesEmbeddableEditor インターフェイスを実装するために必要な複雑な作業や配管工事（plumbing）を処理して、この作業を完了するためにより簡単なアプローチを提供します。
+
+フォームに配置するデザイン タイムに使用可能な UltraControlContainerEditor コンポーネントを使用して、コントロールをサポートする Infragistics® 埋め込みエディターのひとつにコントロールを組み込むことができます。あるいは、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor.html[ControlContainerEditor]"]  オブジェクトのインスタンスはコードで作成でき、同じ作業を完了するためにプロパティを設定できます。こうすれば、実行しなければならないのはコントロールを ControlContainerEditor に割り当てて、次に pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~editorcomponent.html[EditorComponent]"]  プロパティによって、コントロールをサポートする埋め込みエディター内（たとえば WinGrid のセル）に ControlContainerEditor を組み込むだけです。
+
+[NOTE]
+====
+*注：* EditorComponent プロパティは既存の EditorControl プロパティを置き換えます。
+====
+
+== 関連トピック
+
+* link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-ultracontrolcontainereditor-component.html[UltraControlContainerEditor コンポーネントを使用して WinGrid セル内に任意のコントロールを組み込む]
+* link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-controlcontainereditor-object.html[ControlContainerEditor オブジェクトを使用して WinGrid セル内に任意のコントロールを組み込む]
+* link:wincontrolcontainereditor-embed-different-editors-within-wingrid-cells-of-the-same-column.html[同じ列の WinGrid セル内に異なるエディターを組み込む]

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-excel-templates",
+    "controlName": [],
+    "tags": [],
+    "guid": "d68178a0-c48f-443a-bb88-ddd1a6022514",  
+    "buildFlags": [],
+    "createdOn": "2010-06-02T15:47:31.0543859Z"
+}
+|metadata|
+////
+
+= Excel テンプレート
+
+本リリースでは、Infragistics Excel ライブラリ内の Excel テンプレート ファイル フォーマットのサポートを追加しました。これで、Excel テンプレート フォーマット（拡張子は XLTX）、Excel マクロに対応したテンプレート フォーマット（拡張子は XLTM）、および Excel 97-2003 テンプレート フォーマット（拡張子は XLT）でファイルを保存およびロードできます。この目的のため、3 つの新しい値（Excel2007Template、Excel2007MacroEnabledTemplate、および Excel97To2003Template）が Infragistics.Documents.Excel.WorkbookFormat 列挙体に追加されました。
+
+== *関連トピック*
+
+link:excelengine-save-and-load-files-in-excel-template-format.html[Excel テンプレート フォーマットでファイルを保存およびロード]

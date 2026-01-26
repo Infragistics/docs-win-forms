@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-new-winlistview-control-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{8ABB4870-F7DF-4368-9B59-0F94DDC4810E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinListView コントロール
+
+WinListView コントロールは、{ProductName} 2006 Volume 1 リリースで導入された新しいコントロールです。このコントロールは、プロパティの設定により 3 つの別々のコントロール（ListView、ListBox、および CheckedListBox）をエミュレートすることが可能で、数種類の機能を持った多目的コントロールと言えます。このコントロールは、Infragistics 固有の link:plf overview.html[Presentation Layer Framework™]の機能を利用して、組み込みの ListView コントロール、ListBox コントロール、および CheckedBox コントロールと同様の機能を果たします。WinListView コントロールを使用すると、Windows® Explorer のようなアプリケーションと同様の機能を実装できます。開発するアプリケーションで、単に標準的な CheckedBox が必要な場合は、CheckBoxStyle プロパティ（ViewSettingsList オブジェクト プロパティと ViewSettingsDetails オブジェクト プロパティにより提供されています）を設定して、WinListView コントロールを CheckedBox タイプのコントロールとして使用してください。
+
+image::images/WinListView_New_WinListView_Control_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:winlistview-about-winlistview.html[WinListView について]
+
+link:winlistview-object-model.html[WinListView オブジェクト モデル]
+
+link:winlistview-view-property.html[View プロパティ]
+
+link:winlistview-use-the-different-views-of-winlistview.html[WinListView のさまざまなビューの使用]
+
+link:winlistview-use-checkboxes-in-winlistview.html[WinListView でのチェックボックスの使用]
+
+link:winlistview-use-winlistview-as-a-listbox.html[WinListView の ListBox としての使用]
+
+link:winlistview-populating-winlistview-with-directories-and-files.html[WinListView へのディレクトリとファイルの移植]

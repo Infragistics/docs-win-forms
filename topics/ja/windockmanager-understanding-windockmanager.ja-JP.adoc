@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-understanding-windockmanager",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{8F5BF1E2-7F8D-40EE-83D9-2B065B9881D5}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDockManager の理解
+
+WinDockManager コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinDockManager コンポーネントを使用することの利点を理解できます。
+
+WinDockManager コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:windockmanager-about-windockmanager.html[WinDockManager について] -- WinDockManager コンポーネントの概要を説明しています。
+* link:windockmanager-group-styles.html[グループ スタイル] -- 子ペインを表示するために使用できるさまざまなグループ スタイル（水平分割、垂直分割、タグ グループ、およびスライド グループ）について説明しています。
+* link:windockmanager-panes-overview.html[ペインの概要] -- さまざまなペイン タイプおよびその関係について詳しく全容を説明しています。
+* link:windockmanager-design-time-functionality.html[WinDockManager デザインタイム機能] -- デザインタイムにドックされたコントロールを作成し、管理するための複数の方法を説明しています。
+* link:windockmanager-pane-object-types.html[ペイン オブジェクトの種類] -- DockableControlPane、DockableGroupPane、および DockAreaPaneの 3 種類のペイン オブジェクトについて説明しています。
+* link:windockmanager-smart-tag.html[WinDockManager スマート タグ] -- WinDockManager コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。

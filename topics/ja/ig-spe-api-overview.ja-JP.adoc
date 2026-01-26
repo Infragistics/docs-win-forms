@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-api-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "f38c9f3d-f567-488d-9625-60e16120f292",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.020847Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムに使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== コントロールの名前空間:
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents_namespace.html[Infragistics.Documents]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing_namespace.html[Infragistics.Documents.Parsing]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.tagging_namespace.html[Infragistics.Documents.Tagging]
+
+=== 主要な API:
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument.html[TextDocument]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.plaintextlanguage.html[PlainTextLanguage]
+
+link:{ApiPlatform}documents.textdocument.csharp{ApiVersion}~infragistics.documents.parsing.csharplanguage.html[CSharpLanguage]
+
+link:{ApiPlatform}documents.textdocument.visualbasic{ApiVersion}~infragistics.documents.parsing.visualbasiclanguage.html[VisualBasicLanguage]
+
+link:{ApiPlatform}documents.textdocument.tsql{ApiVersion}~infragistics.documents.parsing.tsqllanguage.html[TSqlLanguage]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate.html[LexerState]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol.html[TerminalSymbol]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol.html[NonTerminalSymbol]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxtree.html[SyntaxTree]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerator.html[LanguageGenerator]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase.html[LanguageBase]
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.customlanguage.html[CustomLanguage]

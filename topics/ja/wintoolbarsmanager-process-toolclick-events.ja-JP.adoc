@@ -1,0 +1,79 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-process-toolclick-events",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Events"],
+    "guid": "{B027A0AB-4C72-4791-87B8-FE998368B3AA}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ToolClick イベントの処理
+
+ここでは、MDI 子フォーム上のツールに対する pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick]"]  イベントの処理方法の例を示します。MDI 子フォームのツールバーおよびツールは MDI 親フォームのツールバーにマージするように設定できますが、子フォームから発信されるツールの ToolClick イベントは、MDI 子フォームの UltraToolBarsManager 上で発生します。この仕組みには、子のツールに対するすべての処理を子フォーム上で直接カプセル化できるという利点があります。この動作の例を次に示します。
+
+[start=1]
+. Form1 という名前の MDI 親フォームを追加し、Form1 の IsMdiContainer プロパティを True に設定します。
+[start=2]
+. Form2 という名前の MDI 子フォームを追加します。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolBarsManager]"]  をそれぞれのフォームに追加します。
+[start=4]
+. MDI 親フォームおよび MDI 子フォームの UltraToolBarsManager に、いくつかのツールを追加します。
+[start=5]
+. MDI 親フォームに、MDI 子フォームを表示する次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ProcessingToolClickEventsforToolsonMDIChildForms_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim frm As New ProcessingToolClickChildForm()
+	frm.MdiParent = Me
+	frm.Show()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ProcessingToolClickEventsforToolsonMDIChildForms_Load(
+  object sender, System.EventArgs e)
+{
+	ProcessingToolClickChildForm frm = new ProcessingToolClickChildForm();
+	frm.MdiParent = this;
+	frm.Show();
+}
+----
+
+[start=6]
+. Form2.vb で、ToolClick イベントハンドラを MDI 子フォームの UltraToolBarsManager に追加します。または、UltraToolBarsManager を右クリックして「ToolClick コードの生成...」を選択します。
+
+たとえば次のコードは、ボタン ツールがクリックされたときに、Form2 上にある TextBox にテキストを設定します。ボタンはデザインタイムのユーザー設定によってすでに Toolbar に追加されています。ボタンはデザインタイム カスタマイザでツールバーにすでに追加されています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraToolbarsManager1_ToolClick(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) _
+  Handles UltraToolbarsManager1.ToolClick
+	If e.Tool.Key = "ButtonTool1" Then
+		TextBox1.Text = "Infragistics"
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraToolbarsManager1_ToolClick(object sender, 
+  Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
+{
+	if(e.Tool.Key == "ButtonTool1")
+		textBox1.Text = "Infragistics";
+}
+----

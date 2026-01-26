@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-understanding-windatasource",
+    "controlName": ["WinDataSource"],
+    "tags": ["Getting Started"],
+    "guid": "{70224265-5DD3-419F-8322-3C6F28E2302C}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource の理解
+
+WinDataSource コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinDataSource コントロールを使用することの利点を理解できます。
+
+WinDataSource コンポーネントの概要を理解するには、以下のリンク をクリックしてください。
+
+* link:windatasource-about-windatasource.html[WinDataSource について] -- WinDataSource コンポーネントの概要を説明しています。
+* link:windatasource-smart-tag.html[WinDataSource スマート タグ] -- WinDataSource コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。

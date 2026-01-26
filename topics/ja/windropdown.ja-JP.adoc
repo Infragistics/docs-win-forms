@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "windropdown",
+    "controlName": ["WinDropDown"],
+    "tags": [],
+    "guid": "{2D177D7D-5E83-4306-AD8E-B3CE994BF0F6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDropDown
+
+以下のリンクをクリックすると、WinDropDown™ コントロール固有の情報が表示されます。
+
+* link:windropdown-about-windropdown.html[WinDropDown について] -- WinDropDown コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:windropdown-smart-tag.html[WinDropDown スマート タグ] -- WinDropDown コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:windropdown-resize-drop-down-in-windropdown.html[WinDropDown でドロップダウンのサイズ変更] -- ドロップダウンのサイズ変更方法を紹介します。
+* link:windropdown-api-overview.html[API の概要] -- WinDropDown コントロールを使用してプログラミング中に作業する名前空間とクラスをリストします。

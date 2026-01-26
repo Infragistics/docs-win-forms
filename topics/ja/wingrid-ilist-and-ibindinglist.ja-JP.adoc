@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-ilist-and-ibindinglist",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Sample Data Source"],
+    "guid": "{202D02B7-1039-46E2-A1FA-EB805A91C517}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= IList および IBindingList
+
+WinGrid™ は、データベースに関連するデータ ソースで最も幅広く使用されています。WinGrid は階層的データの表示を処理するために設計されています。ただし、.NET アプリケーションのオブジェクト指向の性質のため、WinGrid は、DataTable、DataSet、および DataView コントロールによって表されるインタフェースを実装するデータ モデルにバインドできます。これらの最もシンプルなものが IList インタフェースです。
+
+== IList
+
+Array クラスは IList インタフェースを実装し、一次元配列を WinGrid にバインドできます。多次元データの内部保存は WinGrid が理解する保存技術と互換性がないので、多次元配列を WinGrid にバインドできません。
+
+IList インタフェースを実装する固有のクラスを作成できるので、ユーザーは WinGrid に提示されるデータを完全に制御できます。
+
+== IBindingList
+
+IBindingList インタフェースは DataTable および DataSet オブジェクトによって公開されるインタフェースなので、最も人気の高いインタフェースのひとつです。WinGrid は、基本オブジェクト モデルに基づきスキーマを作成するために、エンティティの各レベルごとに Binding Manager をクエリします。複数のエンティティ（Customers、Orders および Order Details）を含む DataSet にバインドする場合、Binding Manager は階層的な表示で同時にすべてを使用できるように各エンティティのスキーマを同時に正しく発行します。カスタム設計されたビジネス オブジェクトでも同じことが当てはまります。グリッドは Binding Manager によって提供される構造だけを表すことができます。Binding Manager がカスタム コレクションおよび子メンバを認識しない場合、WinGrid も認識しません。

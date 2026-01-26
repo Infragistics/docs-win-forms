@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-winmessagebox",
+    "controlName": [],
+    "tags": [],
+    "guid": "e716d39e-7c3c-42a0-89ab-c931e47dafb8",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T23:57:31.0000156Z"
+}
+|metadata|
+////
+
+= タッチ対応の WinMessageBox
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _Infragistics_   のタッチ対応 WinMessageBox™ コントロール要素を紹介します。
+
+== _WinMessageBox_   のタッチ対応要素
+
+=== タッチ対応要素
+
+以下のスクリーンショットは、 _WinMessageBox_   コントロールのタッチ対応要素を示します。タッチ要素は、タッチ対応モードで若干大きく表示されます。
+
+.注:
+[NOTE]
+====
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.touch.ultratouchprovider_members.html[UltraTouchProvider] のタッチ対応設定の状態はキャッシュされ、メッセージ ボックスの表示中に使用されます。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.touch.ultratouchprovider_members.html[UltraTouchProvider] の `Enabled` プロパティを切り替えても、すでに表示されたメッセージ ボックスに大きな影響はありません。
+====
+
+image::images/Touch_WinMessageBox_1.png[]
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider.html[タッチ サポート]
+|このセクションには、Infragistics のコントロールとコンポーネントを使用して、タッチ対応アプリケーションを開発するための機能について説明する特定のトピックへのリンクが含まれています。
+
+| link:touch-gestures.html[タッチ ジェスチャ]
+|このグループのトピックは、 _Infragistics_ タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+|====

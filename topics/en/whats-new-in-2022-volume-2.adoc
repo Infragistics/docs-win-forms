@@ -1,0 +1,45 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2022 Volume 2
+
+=== Chart Improvements
+
+Added significant improvements to default behaviors, and refined the Category Chart API to make it easier to use.  
+
+These new chart improvements include: 
+
+* Responsive layouts for horizontal label rotation based on browser / screen size. 
+* Enhanced rendering for rounded labels on all platforms. 
+* Added marker properties to StackedFragmentSeries.
+* Added `ShouldPanOnMaximumZoom` property.
+* New Category Axis Properties: 
+
+	- `ZoomMaximumCategoryRange`
+	- `ZoomMaximumItemSpan`
+	- `ZoomToCategoryRange` 
+	- `ZoomToItemSpan` 
+	
+* New Chart Aggregation API for Grouping, Sorting and Summarizing Category string and numeric values, eliminating the need to pre-aggregate or calculate chart data:
+
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSortDescriptions.html[InitialSortDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSorts.html[InitialSorts]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}SortDescriptions.html[SortDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialGroups.html[InitialGroups]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialGroupDescriptions.html[InitialGroupDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}GroupDescriptions.html[GroupDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSummaries.html[InitialSummaries]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialSummaryDescriptions.html[InitialSummaryDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}SummaryDescriptions.html[SummaryDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}InitialGroupSortDescriptions.html[InitialGroupSortDescriptions]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}GroupSorts.html[GroupSorts]
+- Added link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}GroupSortDescriptions.html[GroupSortDescriptions]
+
+[Note]
+Chart Aggregation will not work when using link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}IncludedProperties.html[IncludedProperties] | link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}ExcludedProperties.html[ExcludedProperties]. These properties on the chart are meant for non-aggregated data. Once you attempt to aggregate data these properties should no longer be used. The reason it does not work is because aggregation replaces the collection that is passed to the chart for render.  The include/exclude properties are designed to filter in/out properties of that data and those properties no longer exist in the new aggregated collection.

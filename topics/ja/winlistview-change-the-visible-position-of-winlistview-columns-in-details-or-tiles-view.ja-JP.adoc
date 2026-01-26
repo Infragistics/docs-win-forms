@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-change-the-visible-position-of-winlistview-columns-in-details-or-tiles-view",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{EEB7921C-9423-49BA-8A01-6795ED1FE5C2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Details または Tiles 表示で WinListView 列の表示可能な位置を変更
+
+このトピックは順序位置を変更せずにユーザー インターフェイスの WinListView™ で列を再配置する方法を示します。これは WinListView コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティが Details または Tiles のいずれかに設定されている時に実行できます。pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewcolumnbase.html[Column]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewcolumnbase~visiblepositionindetailsview.html[VisiblePositionInDetailsView]"]  プロパティと VisiblePositionInTilesView プロパティを使用することによって、列の位置を変更できます。
+
+このトピックは、Northwind データベースの Customers テーブルのデータが WinListView の項目とサブ項目にすでに移植されていることを前提とします。詳細は、 link:winlistview-populate-the-winlistview-control-with-items-clr2.html[「WinListView コントロールへの項目の移植」]トピックを参照してください。また、このトピックでは WinListView コントロールの View プロパティが Details に設定されています。
+
+*Visual Basic の場合：*
+
+----
+'サブ項目 (ContactName) の Visible 位置を変更します
+Me.ultraListView1.Items(0).SubItems(0).Column.VisiblePositionInDetailsView = 4
+----
+
+*C# の場合：*
+
+----
+//サブ項目 (ContactName) の Visible 位置を変更します
+this.ultraListView1.Items[0].SubItems[0].Column.VisiblePositionInDetailsView = 4;
+----
+
+サブ項目の表示位置を変更する前の項目およびサブ項目をリストした WinListView。
+
+image::Images/WinListView_Change_the_Visible_Postion_of_WinListView_Columns_in_Details_or_Tiles_View_03.png[]
+
+最初のサブ項目 (ContactName 列) の表示位置をユーザー インターフェイス位置 4 に変更した後の項目とサブ項目をリストした WinListView。これによって ContactName 列はサブ項目 City の後ろに表示されます。
+
+image::Images/WinListView_Change_the_Visible_Postion_of_WinListView_Columns_in_Details_or_Tiles_View_03.png[]
+
+*Visual Basic の場合：*
+
+----
+' 項目または MainColumn(CompanyName) の表示位置を変更します 
+Me.ultraListView1.MainColumn.VisiblePositionInDetailsView = 3
+----
+
+*C# の場合：*
+
+----
+// 項目または MainColumn(CompanyName) の表示位置を変更します
+this.ultraListView1.MainColumn.VisiblePositionInDetailsView = 3;
+----
+
+項目の表示位置を変更した後の項目およびサブ項目をリストした WinListView。
+
+image::Images/WinListView_Change_the_Visible_Postion_of_WinListView_Columns_in_Details_or_Tiles_View_03.png[]

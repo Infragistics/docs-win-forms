@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-spell-check-a-cell-in-wingrid",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Grids","How Do I","Validation"],
+    "guid": "{9D67854B-7837-450F-A33B-8B327BBE9A0F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid でセルをスペルチェック
+
+WinSpellChecker がサポートする複数のコントロールのひとつが WinGrid コントロールです。WinSpellChecker は WinGrid のセルのスペルをチェックできます。WinSpellChecker のインスタンスに pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~spellchecker.html[SpellChecker]"]  エクステンダ プロパティを設定する必要があります。設定すれば、WinSpellChecker が編集モードのセルをスペル チェックします。WinSpellChecker コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~mode.html[Mode]"]  を AsYouType に設定すると、赤色の波線が編集モードのセルのスペルミスのワードで表示します。WinSpellChecker の Mode を DialogOnValidating に設定すると、スペルミスのワードが含まれるセルを離れると [スペル チェッカー] ダイアログ ボックスが表示します。
+
+[NOTE]
+====
+*注：* セルが編集モードでスペル チェックされない限り、スペルミスのワードの下に赤色の波線は表示されません。WinGrid のひとつのセルだけが編集モードにすることができるので、一度に複数のセルに赤色の波線は表示されません。
+====
+
+WinGrid の最初のバンドの最初の列のセルをスペル チェックするには、以下のコードを使用してください。
+
+image::images/WinSpellChecker_Spell_Check_a_Cell_in_WinGrid_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).SpellChecker = Me.ultraSpellChecker1;
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].SpellChecker = this.ultraSpellChecker1;
+----

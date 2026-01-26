@@ -1,0 +1,11 @@
+﻿= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。また、このコントロールでプログラミングするときに使用する主なクラスを紹介します。このページの名前空間とクラスは、インフラジスティックス API マニュアルに直接リンクします。
+
+=== WinColorPalette 名前空間:
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracolorpalette_namespace.html[Infragistics.Win.UltraColorPalette 名前空間]
+
+=== キー クラス:
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracolorpalette.ultrapaletteinfo.html[UltraPaletteInfo]

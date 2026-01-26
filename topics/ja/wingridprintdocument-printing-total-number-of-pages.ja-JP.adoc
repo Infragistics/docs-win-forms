@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridprintdocument-printing-total-number-of-pages",
+    "controlName": ["WinGridPrintDocument"],
+    "tags": ["Grids","How Do I","Printing"],
+    "guid": "{79F83BCD-533D-4AD5-95AE-7CB73D653F26}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 総ページ数の印刷
+
+1/N（N はページの総数）に似たフォーマットでページの総数を印刷する必要がある場合が多々あります。これは置き換え文字列（<##> または <Total Pages>）の助けを得ることで可能になり、印刷される文書のヘッダーまたはフッターに印刷できます。
+
+以下のコードは、ページにページの総数を印刷するために使用できます。 pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.ultraprintdocument~pageheaderprinting_ev.html[ultraGridPrintDocument1_PageHeaderPrinting]"]  および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.ultraprintdocument~pagefooterprinting_ev.html[ultraGridPrintDocument1_PageFooterPrinting]"]  などのイベントは、この目的のために処理できます。
+
+*Visual Basic の場合：*
+
+----
+'現在のページ番号をページの総数と共にフッターのセクションに設定します
+e.Section.TextRight = "Page <#> of <##>"
+' e. Section.TextRight = “Page<#>of<Total Pages>.”
+----
+
+*C# の場合：*
+
+----
+//現在のページ番号をページの総数と共にフッターのセクションに設定します
+e.Section.TextRight = "Page <#> of <##>";
+// e. Section.TextRight = "Page<#>of<Total Pages>.”;
+----

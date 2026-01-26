@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-hottracking-rows-cells-and-headers",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{CBEE0F8A-D20A-46DA-BC84-D03C9A342306}",  
+    "buildFlags": [],
+    "createdOn": "2005-12-09T00:00:00Z"
+}
+|metadata|
+////
+
+= 行、セル、およびヘッダーのホットトラッキング (WinGrid)
+
+このトピックでは、現在ホットトラッキングされている行、列またはヘッダを強調表示する方法を説明します。ホットトラッキングとはマウスが UI 要素の上に来たときにそれを視覚的に強調することを指します。
+
+== ホットトラッキングされている行、セルまたはヘッダの表示を変更する
+
+[start=1]
+. WinGrid は、ホットトラッキングされている行、列、ヘッダまたは行セレクタの外観を指定するため、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~hottrackrowappearance.html[HotTrackRowAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~hottrackcellappearance.html[HotTrackCellAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~hottrackrowcellappearance.html[HotTrackRowCellAppearance]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~hottrackrowselectorappearance.html[HotTrackRowSelectorAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~hottrackheaderappearance.html[HotTrackHeaderAppearance]"]  の各プロパティを提供しています。

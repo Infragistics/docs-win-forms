@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2012-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "e9d1a241-8e77-4cb7-a734-70c57faae8a6",  
+    "buildFlags": [],
+    "createdOn": "2012-09-14T18:53:32.5116755Z"
+}
+|metadata|
+////
+
+= 2012 Volume 2 の重大な変更
+
+== .NET CLR 4 のみのサポート
+
+=== 重大な変更
+
+2012 Volume 2 リリースより, すべての {ProductName} コントロールとコンポーネントは .NET Framework (CLR) バージョン 4 のみでコンパイルされます。 すべての新規およびアップグレード済みの Infragistics 2012.2 は CLR4 をターゲットにする必要があります。 Visual Studio 2010 および 2012 の両方がサポートされます。

@@ -1,0 +1,105 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-radial-gradient-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{7E910E34-9171-45F0-931A-BD843C853972}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムに放射型グラデーション ブラシ エレメントを適用
+
+ゲージのプロパティの 2 色を円形に相互に混ぜたい場合には、放射型グラデーション ブラシ エレメントをプロパティに適用します。
+
+*コードを使用して放射型グラデーション ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim radialGradientBrushElement1 As New RadialGradientBrushElement()
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+Dim centerPoint As New System.Drawing.PointF()
+Dim focusScales As New System.Drawing.PointF()
+----
+
+*C# の場合：*
+
+----
+RadialGradientBrushElement radialGradientBrushElement1 = new RadialGradientBrushElement();
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+System.Drawing.PointF centerPoint = new System.Drawing.PointF();
+System.Drawing.PointF focusScales = new System.Drawing.PointF();
+----
+
+[start=4]
+. 以下のプロパティを設定します。
+
+** 中央の色 -- Peach Puff
+** 周囲の色 -- Sandy Brown
+** 中心点 -- 25, 25
+** フォーカス ポイント -- 0, 0
+
+*Visual Basic の場合：*
+
+----
+centerPoint.X = 25
+centerPoint.Y = 25
+focusScales.X = 0
+focusScales.Y = 0
+radialGradientBrushElement1.CenterColor = System.Drawing.Color.PeachPuff
+radialGradientBrushElement1.CenterPoint = centerPoint
+radialGradientBrushElement1.FocusScales = focusScales
+radialGradientBrushElement1.RelativeBounds = New System.Drawing.Rectangle(3, 3, 94, 94)
+radialGradientBrushElement1.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent
+radialGradientBrushElement1.SurroundColor = System.Drawing.Color.SandyBrown
+myRadialGauge.Dial.BrushElement = radialGradientBrushElement1
+----
+
+*C# の場合：*
+
+----
+centerPoint.X = 75;
+centerPoint.Y = 25;
+focusScales.X = 0;
+focusScales.Y = 0;
+radialGradientBrushElement1.CenterColor = System.Drawing.Color.PeachPuff;
+radialGradientBrushElement1.CenterPoint = centerPoint;
+radialGradientBrushElement1.FocusScales = focusScales;
+radialGradientBrushElement1.RelativeBounds = new System.Drawing.Rectangle(3, 3, 94, 94);
+radialGradientBrushElement1.RelativeBoundsMeasure = Infragistics.UltraGauge.Resources.Measure.Percent;
+radialGradientBrushElement1.SurroundColor = System.Drawing.Color.SandyBrown;
+myRadialGauge.Dial.BrushElement = radialGradientBrushElement1;
+----
+
+== 関連トピック
+
+link:wingauge-radial-gradient-brush-element.html[放射型グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-radial-gradient-brush-element-at-design-time.html[デザインタイムに放射型グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-radial-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用して放射型グラデーション ブラシ エレメントを適用]

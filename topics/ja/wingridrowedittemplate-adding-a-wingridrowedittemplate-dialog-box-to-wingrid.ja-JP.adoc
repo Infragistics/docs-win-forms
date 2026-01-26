@@ -1,0 +1,66 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridrowedittemplate-adding-a-wingridrowedittemplate-dialog-box-to-wingrid",
+    "controlName": [],
+    "tags": ["How Do I","Templating"],
+    "guid": "{46998071-C82A-40AE-A86B-35D19AC97115}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridRowEditTemplate ダイアログボックスを WinGrid に追加
+
+== 始める前に
+
+WinGrid™ は素早くかつ効率的にエンド ユーザーがレコードを編集する支援をする複数の機能を提供します。これらの編集機能のひとつが WinGridRowEditTemplate™ コントロールです。WinGridRowEditTemplate は単純なダイアログ ボックスで、WinGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[バンド]のひとつの中にある固有のセルにリンクされたデータ バインドされたテキストボックスを含みます。データ バインドされたどのセルを表示するかは完全にユーザーに任されます。WinGridRowEditTemplate にはユーザーが選択することを支援するウィザードが含まれます。バンドから RowEditTemplate プロパティを WinGridRowEditTemplate コントロールのインスタンスに設定するとウィザードが表示します。
+
+== 達成すること
+
+RowEditTemplate を作成してデータ バインドされた WinGrid コントロール内のバンドにそれを関連付ける方法を学習します。UltraGridRowEditTemplate ウィザードを介してラベル、テキストボックス、およびボタンを WinGridRowEditTemplate のダイアログ ボックスに追加する方法も学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. *必要なコントロールでフォームを設定します* 。
+
+.. Microsoft® Visual Studio® ツールボックスで link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid.html[UltraGrid] コントロールをダブルクリックします。WinGrid がフォームに追加されます。
+.. WinGrid の Dock プロパティを True に設定します。
+.. WinGrid を Northwind データベースの顧客テーブルにバインドします。詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid を フラット データ ソースにバインド」]を参照してください。
+.. Visual Studio ツールボックスで UltraGridRowEditTemplate コントロールをダブルクリックします。空の RowEditTemplate がフォームに追加され、UltraGridRowEditTemplate ウィザードが表示されます。
+
+image::images/WinGridRowEditTemplate_Adding_a_WinGridRowEditTemplate_Dialog_Box_To_WinGrid_01.png[]
+
+.. ウィザードでは、ultraGrid1 が左の列で選択されていることを確認し、右の列で Customers バンドを選択します。
+.. [次へ] をクリックします。この時点で、Customers バンドは RowEditTemplate を使用し、UltraGridRowEditTemplate ウィザードが表示します。
+
+image::images/WinGridRowEditTemplate_Adding_a_WinGridRowEditTemplate_Dialog_Box_To_WinGrid_02.png[]
+
+[start=2]
+. *複数のフィールドとボタンで RowEditTemplate を設定します* 。
+
+UltraGridRowEditTemplate ウィザードは非常に直感的なインタフェースで、WinGrid を編集するためにバインドされたデータ、編集可能なフィールドをダイアログ ボックスに素早く追加できます。左のリストから使用できる列を選択または消去することにより、データを編集するためにエンド ユーザーが使用できる完全に機能的な編集ダイアログボックスを作成しました。
+
+.. 左のリストから、CompanyName、Address、City、Region、PostalCode、および Country を除くすべての列のチェック ボックスの選択を解除します。WinGridRowEditTemplate は Generated Proxies リストの各項目に対して WinGridCellProxy コントロール生成します。詳細については、 link:wingridcellproxy-add-a-wingridcellproxy-to-a-wingridrowedittemplate.html[「WinGridCellProxy を WinGridRowEditTemplate に追加」]を参照してください。
+.. [完了] をクリックすると WinGridRowEditTemplate はセル プロキシー、ラベル一致、OK またはキャンセル ボタンを生成します。OK またはキャンセル ボタンを自作したい場合、[OK ボタンの生成] および [キャンセル ボタンの生成] の横のチェックボックスの選択をそれぞれ解除してください。詳細については、 link:wingridrowedittemplate-adding-buttons-to-wingridrowedittemplates-dialog-box.html[「ボタンを WinGridRowEditTemplate のダイアログ ボックスに追加」]を参照してください。
+
+[完了] をクリック後、フォームは以下のスクリーンショットのようになります。
+
+[NOTE]
+====
+*注：* RowEditTemplate ダイアログ ボックスをリサイズして、より視覚的に魅力的なダイアログ ボックスを作成するためにボタンを配置する必要がある場合があります。
+====
+
+image::images/WinGridRowEditTemplate_Adding_a_WinGridRowEditTemplate_Dialog_Box_To_WinGrid_03.png[]
+
+[start=3]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行すると、WinGridRowEditTemplate のダイアログ ボックスは非表示になることに注意してください。最初の行の左の行編集テンプレート ボタンをクリックします。RowEditTemplate が表示します。WinGridCellProxy コントロールは行の値にバインドされているので、行自体を変更しているかのように行の値を変更できます。[OK] をクリックしてデータ ソースへの変更をコミットするか、[キャンセル] をクリックして変更を破棄できます。
+
+WinGridRowEditTemplate のダイアログ ボックスを開いている間に WinGrid で編集するために別の行を選択しようとすると、WinGridRowEditTemplate はデフォルトでモーダル ダイアログ ボックスに設定されるので選択できません。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrowedittemplate~displaymode.html[DisplayMode] プロパティを Modeless に設定することで、この設定を簡単に変更できます。あるいは、エンド ユーザーが行をナビゲートする支援をするためにダイアログ ボックスに補足的なボタンを追加できます。ダイアログ ボックスにナビゲーション ボタンを追加する詳細は、 link:wingridrowedittemplate-adding-buttons-to-wingridrowedittemplates-dialog-box.html[「ボタンを WinGridRowEditTemplate のダイアログ ボックスに追加」]を参照してください。
+
+image::images/WinGridRowEditTemplate_Adding_a_WinGridRowEditTemplate_Dialog_Box_To_WinGrid_04.png[]

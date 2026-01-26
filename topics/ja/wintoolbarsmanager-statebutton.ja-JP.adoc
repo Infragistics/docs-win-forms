@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-statebutton",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{564573E3-9B8E-42B8-86E7-5F2F9BD8CBFB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= StateButton
+
+StateButton ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-statebutton-about-the-statebutton-tool.html[StateButton ツールについて]
+* link:wintoolbarsmanager-using-the-statebutton-tool.html[StateButton ツールの使用]

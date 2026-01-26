@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexpandablegroupbox-changing-the-style-and-appearance-of-winexpandablegroupbox",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{706E61DB-207E-464F-99BC-E3DD3F71B2BB}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExpandableGroupBox のスタイルと外観の変更
+
+2005 Volume 1 では、Infragistics が提供する Windows Forms コントロールのリストに WinExpandableGroupBox コントロールが追加されました。このコントロールは、XP、Office2000、Office2003、および VisualStudio 2005、Office2007 のスタイルをとることができます。また、キャプションやキャプション付きの画像を表示する機能もあり、フォーム上のコントロールを含めるのに役立ちます。
+
+== スタイルと外観
+
+[start=1]
+. 新しい C# または VB.NET Windows アプリケーションを作成します。デザイン ビューでフォームを開き、ツールボックスで WinExpandableGroupBox コントロールを指定してフォームにドラッグします。このコントロールをプロジェクトに追加すると、次の 3 つの参照が参照リストに追加されます。 
+
+** {ApiPlatform}Shared.v{ProductVersion}
+** {ApiPlatform}Win.Misc.v{ProductVersion}
+** {ApiPlatform}Win.v{ProductVersion}
+
+[start=2]
+. 最初のプロパティは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraexpandablegroupbox~viewstyle.html[ViewStyle]"]  プロパティです。このプロパティを切り替えるとコントロールの外観が変わります。 
+
+XP スタイルにすると、キャプション テキストが青になり、角が丸くなります。
+
+image::Images/WinMisc_Introduction_to_the_WinExpandableGroupBox_01.png[]
+
+[start=3]
+. 次のプロパティは pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~headerposition.html[HeaderPosition]"]  です。このプロパティは、UltraExpandableGroupBox 上でのヘッダの表示位置を決定します。次のようなオプションがあります。
+
+** デフォルト - コントロールの ViewStyle に基づいて、デフォルトの位置にヘッダが表示されます。
+** TopOnBorder - コントロールの上端の境界線の上にヘッダが表示されます。
+** TopInsideBorder - コントロールの上端の境界線の内側にヘッダが表示されます。
+** TopOutsideBorder - コントロールの上端の境界線の外側にヘッダが表示されます。
+** RightOnBorder - コントロールの右端の境界線の上にヘッダが表示されます。
+** RightInsideBorder - コントロールの右端の境界線の内側にヘッダが表示されます。
+** RightOutsideBorder - コントロールの右端の境界線の外側にヘッダが表示されます。
+** BottomOnBorder - コントロールの下端の境界線の上にヘッダが表示されます。
+** BottomInsideBorder - コントロールの下端の境界線の内側にヘッダが表示されます。
+** BottomOutsideBorder - コントロールの下端の境界線の外側にヘッダが表示されます。
+** LeftOnBorder - コントロールの左端の境界線の上にヘッダが表示されます。
+** LeftInsideBorder - コントロールの左端の境界線の内側にヘッダが表示されます。
+** LeftOutsideBorder - コントロールの左端の境界線の外側にヘッダが表示されます。
+
+次のスクリーンショットは、HeaderPosition プロパティを LeftInsideBorder に設定した WinExpandableGroupBox コントロールを示します。
+
+image::Images/WinMisc_Introduction_to_the_WinExpandableGroupBox_05.png[]
+
+[start=4]
+. また、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~captionalignment.html[CaptionAlignment]"]  プロパティを変更することによってキャプションの位置を変更することもできます。次の 3 つのオプションがあります。 
+
+** 近い
+** 遠い
+** 中央
+
+[start=5]
+. 標準のグループボックスで UltraExpandableGroupBox が持っている機能は、展開可能なことです。グループボックスの展開方法について設定可能なプロパティがいくつかあります。そのひとつが HeaderClick アクションです。このプロパティを使用すると、ユーザーがヘッダの上をクリックしたときの動作を設定できます。グループボックスが展開/縮小するように設定することができます。または Default 値のままにすると、ヘッダの上をクリックしても、グループボックスの展開/縮小の観点では何も起こりません。
+
+[start=6]
+.pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraexpandablegroupbox~expansionindicator.html[ExpansionIndicator]"]  の位置を設定することもできます。オプションは次のとおりです。
+
+** 近い
+** 遠い
+** なし
+
+[start=7]
+.pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraexpandablegroupbox~expanded.html[Expanded]"]  プロパティを設定して、グループボックスの初期状態（展開しているか折りたたまれているか）を指定できます。

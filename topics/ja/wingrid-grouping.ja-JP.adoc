@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-grouping",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Grouping","Sorting"],
+    "guid": "{1FC61551-BE8E-43E8-9EB2-A8C9FBF4944F}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:30:32Z"
+}
+|metadata|
+////
+
+= グループ化 (WinGrid)
+
+=== はじめに
+
+このトピック グループは  _WinGrid_™ コントロールの行のグループ化機能を紹介します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-enabling-grouping.html[グループ化の有効化]
+|このトピックは、コード例でプログラムによって _WinGrid_ のグループ化を有効にし、バンドのレコードを列でグループ化する方法を紹介します。
+
+| link:wingrid-expanding-grouped-records.html[グループ化されたレコードの展開]
+|このトピックでは、 _WinGrid_ のグループ化された行を展開する方法の構成を紹介します。
+
+| link:wingrid-grouping-criteria.html[グループ化条件]
+|このトピックでは、 _WinGrid_ のレコードのグループ化で条件として使用可能な列のデータ フィールドを例を使用して紹介します。
+
+| link:wingrid-indenting-grouped-records.html[グループ化されたレコードのインデント]
+|このトピックでは、グループ化された行のインデントを構成する方法を紹介します。
+
+|====

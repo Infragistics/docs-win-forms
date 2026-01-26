@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winribbboncustomizationprovider-understanding-winribbboncustomizationprovider",
+    "controlName": ["WinRibbonCustomizationProvider"],
+    "tags": ["Editing","Extending"],
+    "guid": "f0152308-1507-4ff1-ba17-148834d971c9",  
+    "buildFlags": [],
+    "createdOn": "2011-04-26T19:14:16.5883946Z"
+}
+|metadata|
+////
+
+= WinRibbbonCustomizationProvider の理解
+
+WinRibbonCustomizationProvider™ コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinRibbonCustomizationProvider コントロールを使用することの利点を理解できます。
+
+WinRibbonCustomizationProvider コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winribboncustomizationprovider-about-winribboncustomizationprovider.html[WinRibbonCustomizationProvider について] -- WinRibbonCustomizationProvider コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winribboncustomizationprovider-smart-tag.html[WinRibbonCustomizationProvider スマートタグ] -- WinRibbonCustomizationProvider コンポーネントのスマートタグで表示されるプロパティと設定値について説明しています。

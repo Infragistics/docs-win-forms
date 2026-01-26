@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-the-or-logical-operator-to-filter-across-columns",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{2AEB200E-38BC-4196-8BE9-7B291B3F4002}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= OR 論理演算子を使用して列をフィルタリング
+
+デフォルトで、WinGrid は "AND" 論理演算子を使用して複数列のフィルターを結合します。したがって、少なくともひとつの列のフィルター条件に一致しない行はフィルター除外行と見なされます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnfilterscollection.html[ColumnFiltersCollection]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnfilter~logicaloperator.html[LogicalOperator]"]  プロパティを設定することによって、この動作を変更し、"OR" 論理演算子を使用して複数列のフィルターを結合することができます。こうすると、すべての列フィルター条件に一致しない行のみがフィルター除外行と見なされるようになります。少なくともひとつの列フィルター条件に一致する行はフィルター除外行とは見なされません。
+
+[NOTE]
+====
+*注:* pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  の RowFilterMode プロパティの設定に依存する子バンドでは、バンドまたは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscollection.html[RowsCollection]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscollection~columnfilters.html[ColumnFilters]"]  を使用する必要があります。詳細については、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowfiltermode.html[RowFilterMode]"] を参照してください。
+====

@@ -1,0 +1,216 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-creating-a-calculated-column-in-the-datagridview-control",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{26DA4D5C-E9CA-4EF0-A796-64C9242AD09C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DataGridView コントロールでの計算列の作成
+
+WinCalcManager には、DataGridView 列内で計算を実行する機能があります。この方法を手順に沿って説明します。
+
+[start=1]
+. *UltraCalcManager と DataGridView を使用してプロジェクトを設定します。*
+
+Visual Studio で、Visual Basic .NET または C# いずれかの Windows アプリケーションを新規作成します。
+
+UltraCalcManager をフォームに追加します。
+
+DataGridView をフォームに追加します。
+[start=2]
+. *DataGridView のデータソースを設定します。*
+
+この例ではグリッドのデータソースとして UltraDataSource を使用しますが、実際にはどのデータソースを使用してもかまいません。CalcManager にとって、データソースが何であるかは重要ではありません。
+
+UltraDataSource をフォームに追加します。
+
+UltraDataSource コンポーネントを右クリックして、 link:windatasource-using-the-windatasource-designer.html[[UltraDataSource デザイナ]] を選択します。
+
+グリッドに実際のデータを含む 3 つの列とひとつのアンバインド列を作成します。このアンバインド列の値を数式で計算します。バインド列に数式を適用することもできますが、普通は計算値をデータベースに格納しても意味がありません。
+
+新しい列を追加して名前を "Price" に変更します。列の DataType を System.Decimal に変更します。
+
+2 番目の列を追加して名前を "Quantity" にします。DataType を System.Int32 に変更します。
+
+3 番目の列を追加して名前を "Discount" にします。DataType を System.Single に変更します。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_01.png[]
+
+ 
+
+[OK] をクリックして UltraDataSource デザイナを終了します。
+
+DataGridView の DataSource を ultraDataSource1 に設定します。
+
+DataGridView の DataMember を "Band 0" に設定します。
+
+この時点で、フォーム デザイナ上に 3 つのデータ列を持つグリッドと UltraDataSource が表示されます。次にアンバインド列を追加します。
+
+[start=3]
+. *アンバインド列を DataGridView に追加します。*
+
+デザイナで DataGridView を右クリックして [列の追加] を選択します。
+
+[列の追加] ダイアログが表示されます。[アンバウンド列] を選択します。
+
+列の名前を "itemTotalDataGridViewTextBoxColumn" に変更します。
+
+列のヘッダ テキストを "Item Total" に変更します。
+
+[読み取り専用] チェックボックスを選択します。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_02.png[]
+
+ 
+
+[追加] ボタンをクリックします。
+
+[閉じる] ボタンをクリックします。
+
+[start=4]
+. *アンバインド列のプロパティを設定します。*
+
+次のコードを Form_Load イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+' Price 列と ItemTotal 列の書式を通貨に設定します。
+Me.dataGridView1.Columns("priceDataGridViewTextBoxColumn").DefaultCellStyle.Format = "c"
+Me.dataGridView1.Columns("itemTotalDataGridViewTextBoxColumn").DefaultCellStyle.Format = "c"
+' Discount 列の書式をパーセンテージに設定します。
+Me.dataGridView1.Columns("priceDataGridViewTextBoxColumn").DefaultCellStyle.Format = "c"
+' ItemTotal 列の ValueType を Decimal に設定します。
+Me.dataGridView1.Columns("itemTotalDataGridViewTextBoxColumn").ValueType = GetType(System.Decimal)
+----
+
+*C# の場合：*
+
+----
+// Price 列と ItemTotal 列の書式を通貨に設定します。
+this.dataGridView1.Columns["priceDataGridViewTextBoxColumn"].DefaultCellStyle.Format = "c";
+this.dataGridView1.Columns["itemTotalDataGridViewTextBoxColumn"].DefaultCellStyle.Format = "c";
+// Discount 列の書式をパーセンテージに設定します。
+this.dataGridView1.Columns["priceDataGridViewTextBoxColumn"].DefaultCellStyle.Format = "c";
+// ItemTotal 列の ValueType を Decimal に設定します。
+this.dataGridView1.Columns["itemTotalDataGridViewTextBoxColumn"].ValueType = typeof(System.Decimal);
+----
+
+*注:* バインド列は基になるデータ ソースからデータ型を取得するため、バインド列での ValueType の設定は必須ではありません。
+
+[start=5]
+. *アンバインド列に対して数式を作成します（パート 1/2）。*
+
+*注:* この手順では Visual Studio の [プロパティ] ウィンドウを使用します。DataGridView の列を編集するときは通常、デザイナでグリッドを右クリックし、[列の編集] を選択して列エディタを開きますが、このダイアログにはエクステンダ プロパティが表示されません。
+
+Visual Studio の [プロパティ] ウィンドウで、リストをドロップダウンして itemTotalDataGridViewTextBoxColumn を選択します。
+
+UltraCalcManager1 プロパティで ColumnCalcSettings を探して展開します。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_03.png[]
+
+Formula プロパティで、省略（...）ボタンをクリックしてフォーミュラ ビルダーを起動します。
+
+左側に Operands リストがあります。[Controls] ノードをクリックし、キーボードの数字キーパッドのアスタリスク（$$*$$）を押します。これでツリー全体が展開されます。DataGridView とグリッドの 4 つの列がツリーに表示されます。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_04.png[]
+
+リスト中のアンバインド列はグレー表示になっています。これは "itemTotalDataGridViewTextBoxColumn" がその数式を編集しようとしている列だからです。それ自体を参照する数式は循環参照になるため、編集対象のノードは無効にされます。列がその列自体を参照する特殊なケースもありますが、そのケースについては UltraCalcManager のドキュメントの説明を参照してください。
+
+列の数式では、Price と Quantity を掛けてから、Discount をパーセントで適用します。
+
+まず Price と Quantity を掛けます。これには、標準の乗算演算子（$$*$$）を使う方法と product 関数を使う方法の 2 通りがあります。
+
+*乗算演算子を使用する場合*
+
+まず、Price 列への参照を Formula ウィンドウに挿入します。これには次の 3 通りの方法があります。
+
+*** オペランド ツリーの [priceDataGridViewTextBoxColumn] ノードをダブルクリックする。
+*** 数式ウィンドウを右クリックして [オペランドの挿入] を選択し、メニューをドリルダウンして [priceDataGridViewTextBoxColumn] を選択する。
+*** 数式ウィンドウに直接入力する。
+
+どの方法を使用する場合でも、次のテキストを数式に含める必要があります。
+
+[source]
+----
+[priceDataGridViewTextBoxColumn]
+----
+
+次に、乗算演算子を追加します。数式ウィンドウの下に並んだボタンの中から $$*$$ ボタンをクリックするか、適切な位置にアスタリスクを入力します。
+
+次に、priceDataGridViewTextBoxColumn を追加したときと同様に quantityDataGridViewTextBoxColumn への参照を追加します。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_05.png[]
+
+数式は次のようになります。
+
+[source]
+----
+[priceDataGridViewTextBoxColumn] * [priceDataGridViewTextBoxColumn]
+----
+
+次の手順に進んでこの数式の構築を完了します。
+
+**product 関数を使用する場合*
+
+... [関数] タブに切り替えます。
+... [数学] カテゴリーを展開します。
+... product 関数が表示されるまで下にスクロールして、ダブルクリックします。ファンクション ビルダーが起動します。
+... 左側のオペランドリストで、priceDataGridViewTextBoxColumn 列を探してダブルクリックします。"number0"ヘッダの横にある最初の引数ボックスに "[priceDataGridViewTextBoxColumn]" と表示されます。
+... quantityDataGridViewTextBoxColumn ノードをダブルクリックして、2 番目の引数に "[quantityDataGridViewTextBoxColumn]" を追加します。
+... [ファンクション ビルダー] ダイアログで [OK] をクリックします。
+
+数式は次のようになります。
+
+[source]
+----
+product ( [priceDataGridViewTextBoxColumn], [quantityDataGridViewTextBoxColumn] )
+----
+
+次の手順に進んでこの数式の構築を完了します。
+
+[start=6]
+. *アンバインド列に対して数式を作成します（パート 2/2）。*
+
+この時点で、右下の数式ステータス ウィンドウには数式のコンパイルが成功したことが表示されます。これは作成した数式がすでに有効であることを示しますが、まだ割引を適用していません。
+
+この数式を設計するための方法は多数あります。1 マイナスの割引を掛けて完了します。数式がどのように表示されるかの例を以下に示します。以下の数式はすべて有効です。
+
+[source]
+----
+([priceDataGridViewTextBoxColumn] * [quantityDataGridViewTextBoxColumn]) * (1-[discountDataGridViewTextBoxColumn])
+----
+
+[source]
+----
+(product ( [priceDataGridViewTextBoxColumn], [quantityDataGridViewTextBoxColumn] )) * (1-[discountDataGridViewTextBoxColumn])
+----
+
+[source]
+----
+product ( (product ( [priceDataGridViewTextBoxColumn], [quantityDataGridViewTextBoxColumn] )) , (1-[discountDataGridViewTextBoxColumn]))
+----
+
+数式が完成したら、[FormulaBuilder] ダイアログで [OK] をクリックします。作成した数式がグリッド列の Formula プロパティに表示されます。
+[start=7]
+. *データを入力します。*
+
+アプリケーションを実行する前に行わなければならないことがまだあります。計算を実行するために、CalcManager は計算するデータを必要とします。UltraDataSource を右クリックして、[UltraDataSource デザイナ] を選択します。
+
+Data Entry ノードをクリックして、いくつかのダミー データを入力します。各行にデータがあるグリッドに約 10 行追加します。グリッドのセルを空のままにすると、そのセルは CalcManager によってゼロと見なされます。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_06.png[]
+
+[start=8]
+. *アプリケーションを実行して結果を確認します。*
+
+計算結果が 4 番目の列に表示されます。ランタイムにセルの値を変更すると、フォーカスを他のセルに移すと、Item Total 列が自動的に更新されます。
+
+image::images/WinCalcManager_Creating_a_Calculated_Column_in_the_DataGridView_07.png[]

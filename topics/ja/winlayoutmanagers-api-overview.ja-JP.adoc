@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlayoutmanagers-api-overview",
+    "controlName": ["WinLayoutManagers"],
+    "tags": ["API","Layouts"],
+    "guid": "{95C0CB6A-5FC2-4A2E-BB13-576077DC5AC8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinLayout 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout_namespace.html[Infragistics.Win.Layout]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.flowlayoutmanager.html[FlowLayoutManager]"]
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbaglayoutmanager.html[GridBagLayoutManager]"]

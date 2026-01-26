@@ -1,0 +1,391 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-an-mru-list-to-a-menu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{0B852EB1-A346-47B9-AA8D-0435ED20FE0B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= MRU リストのメニューへの追加
+
+MRU（Most Recently Used）リストは、たとえばユーザーが最近保存したファイルにアクセスできるようにする場合など、さまざまな状況に利用できます。これには、WinToolbarsManager の List ツールを使用すると便利です。ファイルが保存されるときに、そのファイルの名前を pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtoolitemscollection.html[ListToolItems]"]  コレクションに挿入できます。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtool.html[ListTool]"]  は、一覧表示できる項目数を示す pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtool~maxitemstodisplay.html[MaxItemsToDisplay]"]  プロパティを持っています。その項目数を超えると、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.listtool~moreitemstext.html[MoreItemsText]"]  プロパティの値が表示された項目が追加されます。この項目を選択すると、最近使用されたファイルのリストがもう 1 つ表示されます。また、これらの MRU ファイルをアプリケーションの次回のランタイムにメニュー ドロップダウンに表示するには、UltraToolBarsManager の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~saveasbinary.html[SaveAsBinary]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~loadfrombinary.html[LoadFromBinary]"]  メソッドを使用してツールバーの設定を保存する必要があります。
+
+[start=1]
+. メニュー ツールに機能的な MRU リストを表示するには、MRUList の Key の値を持つ ListTool を、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopUpMenuTool]"]  ツールおよび pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[ButtonTool]"]  と共にツール コレクションに追加します。
+[start=2]
+. ボタンは新しいファイルを開くために使用するので、「New」というキーを与えます。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~ismainmenubar.html[IsMainMenuBar]"]  プロパティを True に設定したツールバーにメニューをドラッグします。
+[start=4]
+. List ツールを PopUpMenu のドロップダウンにドラッグしてドロップします。
+[start=5]
+. Button ツールを別のツールバーにドラッグします。これらのツールバーは frmMain という名前の MDI 親フォーム上に配置されます。
+[start=6]
+. frmMain のコードを次のように入力します。
+
+*Visual Basic の場合：*
+
+----
+Private LastDocumentNumber As Integer = 0
+' どのツールがクリックされたかを調べます。
+Private Sub UltraToolbarsManager1_ToolClick(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) _
+  Handles UltraToolbarsManager1.ToolClick
+	Select Case e.Tool.Key
+		Case "New"
+			' Newツールのイメージとタグを変更して、最後に選択された項目が 
+			' RTF ドキュメントだったことを示します。
+			Me.UltraToolbarsManager1.Tools("New").SharedProps.AppearancesSmall.Appearance.Image = _
+			  e.Tool.SharedProps.AppearancesSmall.Appearance.Image()
+			Me.UltraToolbarsManager1.Tools("New").SharedProps.Tag = "New RTF Document"
+			' 新しい RTF ドキュメントを作成します。
+			NewRTFDocument()
+		Case "MRUList"
+			' ユーザーが MRU リスト ツールの項目をクリックしました。
+			Dim aListTool As Infragistics.Win.UltraWinToolbars.ListTool
+			Dim aListToolItem As Infragistics.Win.UltraWinToolbars.ListToolItem
+			aListTool = e.Tool
+			' クリックされた ListToolItem を取得します。
+			aListToolItem = aListTool.SelectedItem()
+			' ListToolItem に基づいて文書を開きます。
+			' ListToolItem の Key は、ロードするドキュメントのファイル名です。
+			OpenDocument(aListToolItem.Key)
+	End Select
+End Sub
+Private Sub OpenDocument(Optional ByVal FileName As String = "")
+	Open(FileName, False)
+End Sub
+Private Sub Open(ByVal FileName As String, Optional ByVal PromptToReOpen As Boolean = True)
+	Dim ExistingChildForm As Form
+	ExistingChildForm = GetExistingChildForm(FileName)
+	If Not ExistingChildForm Is Nothing Then
+		Dim dlResult As DialogResult
+		If PromptToReOpen Then
+			dlResult = _
+			  MessageBox.Show("This file is already open. Do you want to reload it?", _
+			  MsgBoxStyle.YesNo Or MsgBoxStyle.Question, "Confirm?")
+			If dlResult = DialogResult.Yes Then
+				ExistingChildForm.Close()
+			Else
+				Exit Sub
+			End If
+		Else
+			ExistingChildForm.Focus()
+			Exit Sub
+		End If
+	End If
+	Dim File As IO.FileInfo
+	File = New IO.FileInfo(FileName)
+	Select Case File.Extension.ToLower
+		Case ".rtf"
+			Dim frm As New frmRTFDocument()
+			frm.MdiParent = Me
+			frm.Text = FileName
+			frm.RichTextBox1.LoadFile(FileName)
+			frm.HasFileName = True
+			frm.Show()
+	End Select
+End Sub
+' ドキュメントのファイル名に基づき既存のフォームの取得を試みます。
+' これは同じドキュメントを 2 度開くことを防止するために使用されます。
+Private Function GetExistingChildForm(ByVal FileName As String) As Form
+	Dim ChildForm As Form
+	For Each ChildForm In Me.MdiChildren
+		If ChildForm.Text = FileName Then
+			Return ChildForm
+		End If
+	Next
+	Return Nothing
+End Function
+Private Sub AddanMRUListtoaMenu_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 最後に保存されたツールバー レイアウトをロードします。
+	LoadToolbarLayout()
+End Sub
+Private Sub AddanMRUListtoaMenu_Closing(ByVal sender As Object, _
+  ByVal e As System.ComponentModel.CancelEventArgs) _
+  Handles MyBase.Closing
+	' ツールバー レイアウトを保存します。
+	SaveToolbarLayout()
+End Sub
+Private Sub LoadToolbarLayout()
+	Dim fs As IO.FileStream
+	Try
+		fs = New IO.FileStream(GetAppPath() & "\ToolbarLayoutMRU.dat", IO.FileMode.Open)
+		fs.Seek(0, IO.SeekOrigin.Begin)
+		Me.UltraToolbarsManager1.LoadFromBinary(fs)
+	Catch ex As Exception
+		Finally
+		If Not fs Is Nothing Then
+			fs.Close()
+		End If
+	End Try
+End Sub
+Private Function GetAppPath() As String
+	Dim f As New IO.DirectoryInfo(Application.ExecutablePath)
+	Return f.Parent.FullName
+End Function
+Private Sub SaveToolbarLayout()
+	Dim fs As New IO.FileStream(GetAppPath() & "\ToolbarLayoutMRU.dat", IO.FileMode.OpenOrCreate)
+	fs.Seek(0, IO.SeekOrigin.Begin)
+	Me.UltraToolbarsManager1.SaveAsBinary(fs, True)
+	fs.Close()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraToolbarsManager1_ToolClick(object sender, 
+  Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
+{
+	// どのツールがクリックされたかを調べます。
+	switch (e.Tool.Key)
+	{
+		case "New": 
+		{
+			// New ツールのイメージとタグを変更して、最後に選択された項目が 
+			// RTF ドキュメントだったことを示します。
+			this.ultraToolbarsManager1.Tools["New"].SharedProps.AppearancesSmall.Appearance.Image = 
+			  e.Tool.SharedProps.AppearancesSmall.Appearance.Image;
+			this.ultraToolbarsManager1.Tools["New"].SharedProps.Tag = "New RTF Document";
+			// 新しい RTF ドキュメントを作成します。
+			NewRTFDocument();
+			break;
+		}
+		case "MRUList":
+		{
+			// ユーザーが MRU リスト ツールの項目をクリックしました。 
+			Infragistics.Win.UltraWinToolbars.ListTool aListTool;
+			Infragistics.Win.UltraWinToolbars.ListToolItem aListToolItem;
+			// e.Tool（これは ToolBase）も List にキャストし、ツール固有のプロパティに 
+			// アクセスできるようにします。
+			aListTool = (Infragistics.Win.UltraWinToolbars.ListTool)e.Tool;
+			// クリックされた ListToolItem を取得します。
+			aListToolItem = aListTool.SelectedItem;
+			// ListToolItem に基づいて文書を開きます。
+			// ListToolItem の Key は、ロードするドキュメントのファイル名です。 
+			OpenDocument(aListToolItem.Key);
+			break;
+		}
+	}
+}
+private void NewRTFDocument()
+{
+	frmRTFDocument frm = new frmRTFDocument();
+	LastDocumentNumber += 1;
+	frm.MdiParent = this;
+	frm.Text = "New RTF Document " + LastDocumentNumber;
+	frm.Show();
+}
+private void OpenDocument(string FileName)
+{
+	Open(FileName, false);
+}
+private void Open(string FileName, bool PromptToReOpen)
+{
+	Form ExistingChildForm;
+	ExistingChildForm = GetExistingChildForm(FileName);
+	if (!(ExistingChildForm == null))
+	{
+		DialogResult dlResult;
+		if (PromptToReOpen)
+		{
+			dlResult = MessageBox.Show("This file is already open. Do you want to reload it?",
+			  "Confirm?",  MessageBoxButtons.YesNo, MessageBoxIcon.Question );
+			if (dlResult == DialogResult.Yes)
+			{
+				ExistingChildForm.Close();
+			}
+			else
+			{
+				return;
+			}
+		}
+		else
+		{
+			ExistingChildForm.Focus();
+			return;
+		}
+	}
+	System.IO.FileInfo File;
+	File = new System.IO.FileInfo(FileName);
+	switch (File.Extension.ToLower())
+	{
+		case ".rtf":
+			frmRTFDocument frmRTF = new frmRTFDocument();
+			frmRTF.MdiParent = this;
+			frmRTF.Text = FileName;
+			frmRTF.richTextBox1.LoadFile(FileName);
+			frmRTF.HasFileName = true;
+			frmRTF.Show();
+			break;
+	}
+}
+// ドキュメントのファイル名に基づき既存のフォームの取得を試みます。
+// これは同じドキュメントを 2 度開くことを防止するために使用されます。
+private Form GetExistingChildForm(string FileName)
+{
+	foreach (Form ChildForm in this.MdiChildren)
+	{
+		if (ChildForm.Text == FileName)
+		{    
+			return ChildForm;
+		}
+	}
+	return null;
+}
+private void AddanMRUListtoaMenu_Load(object sender, System.EventArgs e)
+{
+	// 最後に保存されたツールバー レイアウトをロードします。
+	LoadToolbarLayout();
+}
+private void AddanMRUListtoaMenu_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+{
+	// ツールバー レイアウトを保存します。
+	SaveToolbarLayout();
+}
+private void LoadToolbarLayout()
+{
+	System.IO.FileStream fs = null;
+	if (!System.IO.File.Exists(GetAppPath() + "\\ToolbarLayout.dat"))
+		return;
+	try
+	{
+		fs = new System.IO.FileStream(GetAppPath() + "\\ToolbarLayoutMRU.dat", System.IO.FileMode.Open);
+		fs.Seek(0, System.IO.SeekOrigin.Begin);
+		this.ultraToolbarsManager1.LoadFromBinary(fs);
+	}
+	finally
+	{
+		if (!(fs == null))
+		{
+			fs.Close();
+		}
+	}
+}
+private string GetAppPath() 
+{
+	System.IO.DirectoryInfo f = new System.IO.DirectoryInfo(Application.ExecutablePath);
+	return f.Parent.FullName;
+}
+private void SaveToolbarLayout()
+{
+	System.IO.FileStream fs = new System.IO.FileStream(GetAppPath() + "\\ToolbarLayoutMRU.dat", 
+	  System.IO.FileMode.OpenOrCreate);
+	fs.Seek(0, System.IO.SeekOrigin.Begin);
+	this.ultraToolbarsManager1.SaveAsBinary(fs, true);
+	fs.Close();
+}
+----
+
+[start=7]
+. frmRTFDocument という名前の 2 番目のフォームをプロジェクトに追加します。
+[start=8]
+. RichTextBox コントロールを frmRTFDocument に追加します。
+[start=9]
+. UltraToolBarsManager を frmRTFDocument に追加し、RTFUltraToolbarsManager という名前を付けます。
+[start=10]
+. ツールバーを作成し、SaveRTF という Key を持つ Button ツールを追加します。このツールバーはフォーム上の RTF ファイルの保存に使用します。
+[start=11]
+. SaveFileDialog コンポーネントをフォームに追加します。
+[start=12]
+. frmRTFDocument のコードを次のように入力します。
+
+*Visual Basic の場合：*
+
+----
+Public HasFileName As Boolean
+Private Sub RTFUltraToolbarsManager_ToolClick(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) _
+  Handles RTFUltraToolbarsManager.ToolClick
+	Dim StateButton As Infragistics.Win.UltraWinToolbars.StateButtonTool
+	Dim ColorTool As Infragistics.Win.UltraWinToolbars.PopupColorPickerTool
+	Select Case e.Tool.Key
+		Case "SaveRTF"
+			' 現在の RTF ドキュメントをファイルに保存します。
+			SaveDocument()
+	End Select
+End Sub
+Private Sub SaveDocument()
+	Dim dlResult As DialogResult
+	If Me.HasFileName Then
+		Save(Me.Text)
+	Else
+		Me.SaveFileDialog1.FileName = Me.Text
+		Me.SaveFileDialog1.Filter = "$$*$$.rtf|$$* $$.rtf"
+		dlResult = Me.SaveFileDialog1.ShowDialog()
+		If dlResult = DialogResult.OK Then
+			Save(Me.SaveFileDialog1.FileName)
+		End If
+	End If
+End Sub
+Private Sub Save(ByVal FileName As String)
+	Dim frm As AddanMRUListtoaMenu
+	Dim ListTool As Infragistics.Win.UltraWinToolbars.ListTool
+	Me.HasFileName = True
+	Me.RichTextBox1.SaveFile(FileName)
+	Dim SavedFile As New IO.FileInfo(FileName)
+	frm = Me.MdiParent
+	ListTool = frm.UltraToolbarsManager1.Tools("MRUList")
+	If Not ListTool.ListToolItems.Exists(SavedFile.Name) Then
+		ListTool.ListToolItems.Insert(0, SavedFile.FullName, SavedFile.Name)
+	End If
+	Me.Text = SavedFile.FullName
+End Sub
+----
+
+*C# の場合：*
+
+----
+public bool HasFileName;
+private void RTFUltraToolbarsManager_ToolClick(object sender, 
+  Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
+{
+	switch (e.Tool.Key)
+	{
+		case "SaveRTF":
+			// 現在の RTF ドキュメントをファイルに保存します。
+			SaveDocument();
+			break;
+	}
+}
+private void SaveDocument()
+{
+	DialogResult dlResult;
+	if (this.HasFileName)
+	{
+		Save(this.Text);
+	}
+	else
+	{
+		this.saveFileDialog1.FileName = this.Text;
+		dlResult = this.saveFileDialog1.ShowDialog();
+		if (dlResult == DialogResult.OK)
+		{
+			Save(this.saveFileDialog1.FileName);
+		}
+	}
+}
+private void Save(string FileName)
+{
+	AddanMRUListtoaMenu frm;
+	Infragistics.Win.UltraWinToolbars.ListTool ListTool;
+	this.HasFileName = true;
+	this.richTextBox1.SaveFile(FileName);
+	System.IO.FileInfo SavedFile = new System.IO.FileInfo(FileName);
+	frm = (AddanMRUListtoaMenu)this.MdiParent;
+	ListTool = (Infragistics.Win.UltraWinToolbars.ListTool)frm.ultraToolbarsManager1.Tools["MRUList"];
+	if (!(ListTool.ListToolItems.Exists(SavedFile.Name)))
+	{
+		ListTool.ListToolItems.Insert(0, SavedFile.FullName, SavedFile.Name);
+	}
+	this.Text = SavedFile.FullName;
+}
+----

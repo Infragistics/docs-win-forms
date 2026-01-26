@@ -1,0 +1,35 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-scrolling-one-row-at-a-time",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{5C58AC57-FEB7-475C-8460-03EBD06BCEC3}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 一度に一つの列をスクロール
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~performaction(ultragridaction).html[PerformAction]"]  メソッドを使用すると一度に 1 行の WinGrid™ のデータをスクロールできます。一度に WinGrid の 1 行を上下にスクロールするには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridaction.html[UltraGridAction]"]  列挙体の AboveRow または BelowRow 値を PerformAction メソッドに渡します。
+
+.注： 
+[NOTE]
+AboveRow および BelowRow は、同じバンドの Activate 行だけになります。バンド間でスクロールが必要である場合、同じ列挙体から PrevRow および NextRow 値を使用できます。
+
+上方向にスクロールするためのボタンの Click イベントなど、適切なイベント ハンドラ内に以下のコード例を配置します。
+
+*Visual Basic の場合：*
+
+[source,vb]
+----
+Me.UltraGrid1.PerformAction(Infragistics.Win.UltraWinGrid.UltraGridAction.AboveRow)
+----
+*C# の場合：*
+
+[source,csharp]
+----
+this.ultraGrid1.PerformAction(Infragistics.Win.UltraWinGrid.UltraGridAction.AboveRow);
+----

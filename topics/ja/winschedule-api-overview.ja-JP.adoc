@@ -1,0 +1,114 @@
+﻿////
+|metadata|
+{
+    "name": "winschedule-api-overview",
+    "controlName": ["WinSchedule"],
+    "tags": ["API"],
+    "guid": "{D7A35862-196A-4384-8E4D-FE8B3F1D1575}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+[cols="a,a"]
+|====
+|*WinSchedule 名前空間:* +
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule_namespace.html[Infragistics.Win.UltraWinSchedule]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview.html[UltraDayView]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewmulti.html[UltraMonthViewMulti]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsingle.html[UltraMonthViewSingle]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultraweekview.html[UltraWeekView]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo.html[UltraCalendarInfo]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook.html[UltraCalendarLook]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument.html[UltraSchedulePrintDocument]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointment]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner.html[Owner]"]
+
+|*WinCalendarCombo 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo_namespace.html[Infragistics.Win.UltraWinSchedule.CalendarCombo]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.calendarcomboeditor.html[CalendarComboEditor]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.combotextbox.html[ComboTextBox]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.datebutton.html[DateButton]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.ultracalendardropdowncontrol.html[UltraCalendarDropDownControl]"]
+
+|*WinDayView 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview_namespace.html[Infragistics.Win.UltraWinSchedule.DayView]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.groupuielement.html[GroupUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.dayuielement.html[DayUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.minuteuielement.html[MinuteUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.houruielement.html[HourUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.timeslotuielement.html[TimeSlotUIElement]"]
+
+|*WinMonthViewMulti 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewmulti_namespace.html[Infragistics.Win.UltraWinSchedule.MonthViewMulti]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewmulti.dayuielement.html[DayUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewmulti.monthuielement.html[MonthUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewmulti.visiblemonth.html[VisibleMonth]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewmulti.weekuielement.html[WeekUIElement]"]
+
+|*WinMonthViewSingle 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle_namespace.html[Infragistics.Win.UltraWinSchedule.MonthViewSingle]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.monthareauielement.html[MonthAreaUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.dayuielement.html[DayUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.noteuielement.html[NoteUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.owneruielement.html[OwnerUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.weekuielement.html[WeekUIElement]"]
+
+|*WinSchedule.Printing 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.printing_namespace.html[Infragistics.Win.UltraWinSchedule.Printing]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.printing.ultrascheduleprintcontrol.html[UltraSchedulePrintControl]"]
+
+|*WinWeekView 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.weekview_namespace.html[Infragistics.Win.UltraWinSchedule.WeekView]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.weekview.weekareauielement.html[WeekAreaUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.weekview.dayuielement.html[DayUIElement]"]
+
+|====

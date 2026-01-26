@@ -1,0 +1,27 @@
+﻿////
+|metadata|
+{
+    "name": "wintree-using-wintree",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{11F39AAC-2E66-4FF8-980D-608588A8A3DD}","buildFlags": [],
+    "createdOn": "2007-08-11T09:10:15Z"
+}
+|metadata|
+////
+
+= WinTree の使用
+
+このセクションでは、WinTree™ コントロールに関連する特定のタスクを実行する方法を説明する、簡単なタスクベースのトピックについて記述されています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintree-accessing-data.html[データへのアクセス]
+* link:wintree-editing-data.html[データの編集]
+* link:wintree-presenting-data.html[データの提示]
+* link:wintree-defining-layouts.html[レイアウトの定義]
+* link:wintree-navigation-and-selection.html[ナビゲーションと選択]
+* link:wintree-application-scenarios.html[アプリケーションのシナリオ]
+* link:wintree-styling-wintree.html[WinTree のスタイル]
+* link:wintree-using-the-notification-badge.html[通知バッジが使用されている WinTree]
+* link:wintree-printing-wintree.html[WinTree の印刷]

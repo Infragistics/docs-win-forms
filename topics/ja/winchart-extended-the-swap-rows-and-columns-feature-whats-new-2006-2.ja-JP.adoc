@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-extended-the-swap-rows-and-columns-feature-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{CAFC0DA3-71A5-41C2-A370-7836A801C490}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 拡張された行と列の入れ替え機能
+
+今まで行データと列データを入れ替える機能（つまり、データ テーブルの行が列になり、データ テーブルの列が行になる）は、デフォルトのデータ バインディング機能を通してデータ テーブルにグラフをバインドする場合に限って使用できました。
+
+2006 Volume 2 リリースから開始しましたが、シリーズ データ オブジェクトにバインドされた合成チャートと非合成チャートの行および列データを交換できるようになりました。シンプルなプロパティ（SwapRowsAndColumns）を有効にすると、ニーズに合わせてチャート データを手動で形成する必要がなくなります。
+
+== 関連トピック
+
+link:chart-swap-rows-and-columns.html[行と列の入れ替え]
+
+link:chart-series-collection.html[Series コレクション]
+
+link:chart-composite-chart.html[合成チャート]

@@ -1,0 +1,182 @@
+﻿////
+|metadata|
+{
+    "name": "windockmanager-close-buttons-on-tabs",
+    "controlName": [],
+    "tags": [],
+    "guid": "6fa86f8f-5288-4863-94b5-ed07f0eed641",
+    "buildFlags": [],
+    "createdOn": "2015-02-27T20:59:12.2659871Z"
+}
+|metadata|
+////
+
+= タブの閉じるボタン
+
+== タブの閉じるボタン
+
+=== 目的
+
+このトピックでは、ドッキング タブ領域のタブに、閉じるボタンを追加する方法について説明します。
+
+=== 前提条件
+
+このトピックを理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:windockmanager-understanding-windockmanager.html[WinDockManager の概要]
+|WinDockManager コンポーネントを使用した作業の開始。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<CloseButtonLocations,閉じるボタンの位置>>
+
+** <<Overview,概要>>
+** <<Preview,プレビュー>>
+
+* <<CloseButtonProperties,CloseButton プロパティ>>
+* <<AddingCloseButtontoWinDockManager,WinDockManager に閉じるボタンを追加>>
+
+** <<Example,例>>
+
+* <<RelatedTopic,関連トピック>>
+
+[[CloseButtonLocations]]
+== 閉じるボタンの位置
+
+[[Overview]]
+
+=== 概要
+
+以前のバージョンでは、閉じるボタンはペインのキャプション領域にのみ使用しました。 _CloseButtonLocation_  プロパティを追加して、閉じるボタンが任意のドック領域のタブ自体に表示できるようになりました。
+
+[[Preview]]
+
+=== プレビュー
+
+以下のスクリーンショットでは、キャプション領域、タグ グループのタブ、またはピン解除のタブに表示される時の閉じるボタンのプレビューを示します。
+
+image::images/Close_Button_On_Tabs_1.png[]
+
+[[CloseButtonProperties]]
+== CloseButton プロパティ
+
+=== CloseButton プロパティの概要
+
+_CloseButtonLocation_  プロパティは閉じるボタンの表示位置を決定します。 _CloseButtonLocation_  プロパティは、WinDockManager の GroupSettings オブジェクトに追加しました。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|プロパティ タイプ|説明
+
+|CloseButtonLocation
+|CloseButtonLocation
+|閉じるボタンが表示される位置を定義するフラグの列挙型
+
+|====
+
+以下の表では、CloseButtonLocation 列挙型の値を概観します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ名|説明
+
+|Default
+|これがデフォルト値です。CloseButtonLocation は、指定のペインおよび所有する WinDockManager の両方で GroupSettings を使用して解決します。指定の両方のデフォルトは Caption で解決します。
+
+|Caption
+|閉じるボタンはキャプション領域にのみ表示されます。
+
+|TabGroup
+|閉じるボタンは、TabGroup の各 TabItem に表示されます。
+
+|TabGroupSelectedTab
+|閉じるボタンは、TabGroup の選択済みの TabItem にのみ表示されます。
+
+|AutoHide
+|ペインがピン解除済みの場合、閉じるボタンは UnpinnedTabArea で作成されたタブに表示されます。
+
+|AutoHideSelectedTab
+|閉じるボタンは、ペインがピン解除済みの場合に UnpinnedTabArea の選択済みのタブに表示されます。同じグループの他のピン解除済みのタブには表示されません。
+
+|AllTabs
+|閉じるボタンは使用可能なすべての TabItem に表示されます。すなわち、TabGroup および AutoHide の組み合わせです。
+
+|AllSelectedTabs
+|閉じるボタンは、グループで選択済みの TabItem に表示されます。すなわち、TabGroupSelectedTab および AutoHideSelectedTab の組み合わせです。
+
+|All
+|閉じるボタンはすべての位置に表示されます。
+
+|====
+
+[[AddingCloseButtontoWinDockManager]]
+== WinDockManager に閉じるボタンを追加
+
+[[Example]]
+
+=== 例
+
+このスクリーンショットでは、DefaultGroupSettings.CloseButtonLocation プロパティを All に設定して、WinTree および WinExplorerBar コンポーネントを TabGroup としてドッキングした時の WinDockManager の外観を示します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|値
+
+|DefaultGroupSettings.CloseButtonLocation
+|All
+
+|====
+
+image::images/Close_Button_On_Tabs_2.png[]
+
+
+*C# の場合:* 
+[source]
+---- 
+// DefaultGroupSettings.CloseButtonLocation プロパティを All に設定します 
+this.ultraDockManager1.DefaultGroupSettings.CloseButtonLocation = Infragistics.Win.UltraWinDock.CloseButtonLocation.All; 
+// コントロールを TabGroup としてドッキングします 
+Infragistics.Win.UltraWinDock.DockAreaPane dockAreaPane = this.ultraDockManager1.DockControls( 
+    new Control[] { this.ultraTree1, this.ultraExplorerBar1 },
+    Infragistics.Win.UltraWinDock.DockedLocation.DockedLeft,
+    Infragistics.Win.UltraWinDock.ChildPaneStyle.TabGroup);
+---- 
+
+*Visual Basic の場合:* 
+
+---- 
+' DefaultGroupSettings.CloseButtonLocation プロパティを All に設定します 
+Me.UltraDockManager1.DefaultGroupSettings.CloseButtonLocation = 
+Infragistics.Win.UltraWinDock.CloseButtonLocation.All 
+' コントロールを TabGroup としてドッキングします 
+Dim dockAreaPane As Infragistics.Win.UltraWinDock.DockAreaPane = Me.UltraDockManager1.DockControls( 
+    New Control() { Me.UltraTree1, Me.UltraExplorerBar1 }, 
+    Infragistics.Win.UltraWinDock.DockedLocation.DockedLeft, 
+    Infragistics.Win.UltraWinDock.ChildPaneStyle.TabGroup)
+---- 
+
+
+
+[[RelatedTopcic]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-using-the-column-chooser-feature.html[列チューザー機能の使用]
+|_WinGrid_™ 列チューザー機能に関する概要を提供します。
+
+|====

@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-filter-options-to-filter-suggested-values-of-a-column",
+    "controlName": ["WinCombo"],
+    "tags": ["Filtering"],
+    "guid": "{ECB273BC-CD2A-4D44-ACEF-00190B4C2BC4}",  
+    "buildFlags": [],
+    "createdOn": "2009-07-12T16:52:01Z"
+}
+|metadata|
+////
+
+= 列の候補値をフィルターするフィルター オプション
+
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~autocompletemode.html[AutoCompleteMode] プロパティは、エンドユーザーが WinCombo™ のテキストボックスに入力すると可能な候補値を列からリストすることを可能にするさまざまな設定を提供します。 デフォルトで、AutoCompleteMode プロパティが Suggest または SuggestAppend に設定されると、テキストボックスに入力された文字で*始まる*項目のみリストされます。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~autosuggestfiltermode.html[AutoSuggestFilterMode] プロパティは StartWith と Contains のいずれかを選択するオプションを提供します。これにより特定の文字列*で始まる*、または特定の文字列*を含む* いずれかの候補の項目をエンドユーザーに提供することができます。
+
+[NOTE]
+====
+*注：* AutoSuggestFilterMode プロパティが 'Contains' に設定されると、'SuggestAppend' の AutoCompleteMode 設定は 'Suggest' に解決されます。つまり、編集部分に入力されたテキストのオート コンプリート機能が無効になりテキスト選択は変更されません。
+====
+
+このトピックは、EmployeeID、LastName、FirstName、HireDate、および Address 列を表示している Northwind データベースの Employees データ テーブルにバインドされているフォームに UltraCombo コントロールをドロップしてあることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraCombo1.DisplayMember = "FirstName" 
+Me.ultraCombo1.ValueMember = "EmployeeID" 
+Me.ultraCombo1.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest 
+Me.ultraCombo1.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
+----
+
+*C# の場合：*
+
+----
+this.ultraCombo1.DisplayMember = "FirstName";
+this.ultraCombo1.ValueMember = "EmployeeID";
+this.ultraCombo1.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest;
+this.ultraCombo1.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains;
+----
+
+以下の画像で、UltraCombo は FirstName 列に 'an' という文字列が含まれるレコードのみをリストします。
+
+image::images/WinCombo_Filter_Options_to_Filter_Suggested_Values_of_a_Column_01.png[]
+
+== 関連トピック
+link:wincombo-selecting-multiple-values-within-wincombo.html[WinCombo 内で複数の値を選択]

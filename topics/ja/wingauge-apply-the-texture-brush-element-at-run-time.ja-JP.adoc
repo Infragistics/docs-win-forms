@@ -1,0 +1,86 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-apply-the-texture-brush-element-at-run-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{E14873E8-8356-4F57-918F-FF1C2B1272BC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムにテクスチャ ブラシ エレメントを適用
+
+テクスチャ ブラシ エレメントをゲージにプロパティに適用すると、キャンバスのようなテクスチャされたルック アンド フィールをプロパティに提供します。
+
+*コードを使用してテクスチャ ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.UltraGauge.Resources
+----
+
+*C# の場合：*
+
+----
+using Infragistics.UltraGauge.Resources;
+----
+
+[start=2]
+. Load イベントを作成します。
+[start=3]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myTextureBrushElement As New TextureBrushElement()
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+----
+
+*C# の場合：*
+
+----
+TextureBrushElement myTextureBrushElement = new TextureBrushElement();
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+----
+
+[start=4]
+. 以下のプロパティを設定します。
+
+** 終了色 -- シルバー
+** 開始色 -- DimGray
+** テクスチャ スタイル -- キャンバス
+
+*Visual Basic の場合：*
+
+----
+myTextureBrushElement.EndColor = System.Drawing.Color.Silver
+myTextureBrushElement.StartColor = System.Drawing.Color.DimGray
+myTextureBrushElement.Texture = Infragistics.UltraGauge.Resources.Texture.Canvas
+myRadialGauge.Dial.BrushElement = myTextureBrushElement
+----
+
+*C# の場合：*
+
+----
+myTextureBrushElement.EndColor = System.Drawing.Color.Silver;
+myTextureBrushElement.StartColor = System.Drawing.Color.DimGray;
+myTextureBrushElement.Texture = Infragistics.UltraGauge.Resources.Texture.Canvas;
+myRadialGauge.Dial.BrushElement = myTextureBrushElement;
+----
+
+== 関連トピック
+
+link:wingauge-texture-brush-element.html[テクスチャ ブラシ エレメント]
+
+link:wingauge-apply-the-texture-brush-element-at-design-time.html[デザインタイムにテクスチャ ブラシ エレメントを適用]
+
+link:wingauge-apply-the-texture-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してテクスチャ ブラシ エレメントを適用]

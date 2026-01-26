@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-view-property",
+    "controlName": ["WinListView"],
+    "tags": ["Tips and Tricks"],
+    "guid": "{57E7B4E5-C705-4E7B-9A77-6E27D4362444}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= View プロパティ
+
+本来の ListView コントロールと同様に、WinListView は pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティを提供します。開発者は、このプロパティを使用して、項目をアプリケーションの要件に応じた外観でエンド ユーザーに対して表示できます。
+
+あるいは、Windows® Explorer の場合と同様に、エンド ユーザーに対して、状況に応じてアイコンで表示するかリストで表示するかを選択できるようにすることで、これらのビューを簡単に制御することができます。ただし、View プロパティで可能な設定は、ListView コントロールとは異なり、むしろ現在使用されている Windows Explorer と似ています（つまり、本来の ListView コントロールではサムネイル ビューとタイル ビューはサポートされていません）。プロパティ設定の単純な組み合わせにより、ListView コントロールおよび Windows Explorer でサポートされているすべてのビューのルック アンド フィールをエミュレートすることができます。さらに、ListBox コントロールと CheckedListBox コントロールのルック アンド フィールも簡単にエミュレートすることができます。
+
+以下の表に、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewstyle.html[View]"]  列挙体を、各設定の簡単な説明とともに示します。
+
+[options="header", cols="a,a"]
+|====
+|ビュー|説明
+
+|アイコン
+|項目をアイコン（デフォルトで32 x 32のサイズ）として表示し、アイコンの下に項目の値を表示します。
+
+|タイル
+|項目はタイル（48 x 48）として表示され、タイルの横に項目の値が表示されます。さらにその下に、サブアイテムの値が表示されます。
+
+|サムネイル
+|項目は、「アイコン」に設定した場合と同じように表示されますが、アイコンの周囲に太い「境界線」が表示されます。アイコンは、デフォルトで 48 x 48 のサイズで表示されますが、開発者は、 link:win-draw-filter.html[描画フィルター]または link:win-creation-filter.html[作成フィルター]またはそのいずれかを使用して、Windows Explorer の場合と同様に、この領域で一部の項目のカスタム描画を容易に行えます。
+
+|リスト
+|項目の値が、アイコン（デフォルトで 16 x 16 のサイズ）とともに表示されます。このビューでは、2 種類の「サブビュー」をサポートしています。複数の列を表示する場合は、コントロールは Windows Explorer と同様の表示方法を取ります。表示する列が 1 つの場合は、本来の ListBox コントロールと同じルック アンド フィールをエミュレートします。どちらの場合も、1 つのプロパティを設定すると、2 つの状態、または 3 つの状態を示すチェックボックスを表示できます。
+
+|詳細
+|項目の値が、列にアイコン（デフォルトで 16 x 16 のサイズ）で表示されます。サブアイテムは、2 つ目、または 3 つ目の列に表示されます。「リスト」ビューと同じように、1 つのプロパティを設定すると、2 つの状態、または 3 つの状態を示すチェックボックスを表示できます。
+
+|====

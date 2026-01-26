@@ -1,0 +1,54 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-multi-stop-linear-gradient-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{A221D15C-4542-4D11-A6B5-241CB821C176}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マルチストップ線形グラデーションのブラシ エレメントを作成
+
+ゲージのプロパティの 3 色以上を線形にそれぞれ混ぜたい場合には、マルチストップ線形グラデーション ブラシ エレメントをプロパティに適用します。
+
+*デザインタイムにマルチストップ線形グラデーション ブラシ エレメントをプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. リニア ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[リニア ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[マルチストップ線形グラデーション] を選択します。これによって、新しいマルチストップ線形グラデーションのブラシ エレメントが作成されます。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.multistoplineargradientbrushelement~angle.html[Angle]"]  プロパティを 90 に設定します。
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.multistoplineargradientbrushelement~colorstops.html[ColorStops]"]  プロパティをクリックして、次に省略記号（...）ボタンをクリックし ColorStops コレクション エディタを開きます。
+[start=6]
+. ColorStops コレクション エディタで、カラー スケールの下をクリックして新しいカラー ストップを追加します。
+[start=7]
+. カラー ストップを右クリックして、色を変更します。
+[start=8]
+. カラー ストップをドラッグして、オフセットを変更します。
+[start=9]
+. 以下の手順によって、より正確に値を編集することができます。
+[start=10]
+. 水平バーで小さい矢印をクリックします。次に以下のプロパティを設定します。
+
+** 開始色 - 最初の行の最初のセルをクリックします。テキスト ボックスに 254, 42, 0 という値を入力します。
+** 開始色オフセット - 最初の行の 2 番目のセルをクリックします。テキスト ボックスに 0 という値を入力します。
+** カラー ストップ - 2 番目の行の最初のセルをクリックします。テキスト ボックスに 212, 254, 0 という値を入力します。
+** カラー ストップ オフセット - 2 番目の行の 2 番目のセルをクリックします。テキスト ボックスに 0.37 という値を入力します。
+** 終了色 - 3 番目の行の最初のセルをクリックします。テキスト ボックスに 0, 118, 0 という値を入力します。
+** 終了色オフセット - 3 番目の行の 2 番目のセルをクリックします。テキスト ボックスに 1 という値を入力します。
+
+== 関連トピック
+
+link:wingauge-multi-stop-linear-gradient-brush-element.html[マルチストップ線形グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-multi-stop-linear-gradient-brush-element-at-run-time.html[ランタイムにマルチストップ線形グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-multi-stop-linear-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してマルチストップ線形グラデーション ブラシ エレメントを適用]

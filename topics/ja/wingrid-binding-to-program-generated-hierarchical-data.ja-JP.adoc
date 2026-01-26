@@ -1,0 +1,268 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-binding-to-program-generated-hierarchical-data",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Sample Data Source"],
+    "guid": "{E159D073-F90D-46DD-8DB7-0BD468548848}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= プログラムで生成された階層データにバインド
+
+== バックグラウンド
+
+このチュートリアルでは、2 つの DataTables の作成、DataSet にあるこれらテーブル間の関係の設定、および階層結果の UltraWinGrid へのバインドを説明します。
+
+== 概要
+
+このチュートリアルでは以下の方法を説明します。
+
+[start=1]
+. DataTable をプログラム コードで作成します。
+[start=2]
+. プログラム コードを使用して、最初の DataTable の値に基づき、2 番目の DataTable を作成します。
+[start=3]
+. これらのテーブルを DataSet に追加し、2 つのテーブルの関係を作成します。
+[start=4]
+. 階層構造の DataSet を UltraGrid にバインドします。
+
+最終的に以下のようなフォームになります。
+
+image::Images/WinGrid_Binding_to_Program_Generated_Hierarchical_Data_01.png[]
+
+== 新しいプロジェクトを開始する
+
+[start=1]
+. Visual Basic または C# Windows Application プロジェクトを新しく作成します。 
+[start=2]
+. ツールボックスの Windows Forms タブから Button をフォーム上に配置し、Text プロパティを [フラット データの作成とバインド] に設定します(位置配置は上記のスクリーンショットを参照してください) 。
+[start=3]
+. ツールボックスの Infragistics タブから UltraGrid をフォームに追加します。
+
+== 顧客 DataTable の作成
+
+[start=1]
+. 関数プロシージャを作成し、次のコードを Form1 クラスに追加して顧客 DataTable を返します。
+
+*Visual Basic の場合：*
+
+----
+Private Function MakeCustomersDataTable() As DataTable
+	' プログラムが生成したデータを格納する DataTable を宣言します
+	Dim dataTable As New DataTable("Customers")
+	' CustomerID 列を作成して追加します
+	Dim colWork As New DataColumn("CustomerID", GetType(Int32))
+	dataTable.Columns.Add(colWork)
+	' CustomerID 列をキー配列に追加し、DataTable にバインドします
+	Dim Keys(0) As DataColumn
+	Keys(0) = colWork
+	dataTable.PrimaryKey = Keys
+	' CustomerName 列を作成して追加します
+	colWork = New DataColumn("CustomerName", GetType(String))
+	colWork.MaxLength = 50
+	dataTable.Columns.Add(colWork)
+	' LastOrderDate 列を作成して追加します
+	colWork = New DataColumn("LastOrderDate", GetType(Date))
+	dataTable.Columns.Add(colWork)
+	' 行を追加します
+	Dim row As DataRow = dataTable.NewRow()
+	row("CustomerID") = 1
+	row("CustomerName") = "John's Widgets"
+	row("LastOrderDate") = Now
+	dataTable.Rows.Add(row)
+	' もう １ 行追加します
+	row = dataTable.NewRow()
+	row("CustomerID") = 2
+	row("CustomerName") = "Fred's Thingamagigs"
+	row("LastOrderDate") = Now.AddDays(-101)
+	dataTable.Rows.Add(row)
+	Return dataTable
+End Function
+----
+
+*C# の場合：*
+
+----
+private DataTable MakeCustomersDataTable()
+{
+	// プログラムが生成したデータを格納する DataTable を宣言します
+	DataTable dataTable = new DataTable("Customers");
+	// CustomerID 列を作成して追加します
+	DataColumn colWork = new DataColumn("CustomerID", System.Type.GetType("System.Int32"));
+	dataTable.Columns.Add(colWork);
+	// CustomerID 列をキー配列に追加し、DataTable にバインドします
+	DataColumn[] Keys = new DataColumn[1];
+	Keys[0] = colWork;
+	dataTable.PrimaryKey = Keys;
+	// CustomerName 列を作成して追加します
+	colWork = new DataColumn("CustomerName", System.Type.GetType("System.String"));
+	colWork.MaxLength = 50;
+	dataTable.Columns.Add(colWork);
+	// L=tOrderDate 列を作成して追加します
+	colWork = new DataColumn("L=tOrderDate", System.Type.GetType("System.DateTime"));
+	dataTable.Columns.Add(colWork);
+	// 行を追加します
+	DataRow row = dataTable.NewRow();
+	row["CustomerID"] = 1;
+	row["CustomerName"] = "Johns Widgets";
+	row["L=tOrderDate"] = System.DateTime.Now;
+	dataTable.Rows.Add(row);
+	// もう １ 行追加します
+	row = dataTable.NewRow();
+	row["CustomerID"] = 2;
+	row["CustomerName"] = "Freds Thingamagigs";
+	row["L=tOrderDate"] = System.DateTime.Now.AddDays(-101);
+	dataTable.Rows.Add(row);
+	return dataTable;
+}
+----
+
+== 注文 DataTable の作成
+
+[start=1]
+. 関数のプロシージャを作成し、次のコードを Form1 クラスに追加して注文 DataTable を返します。
+
+*Visual Basic の場合：*
+
+----
+Private Function MakeOrdersDataTable(ByVal v_customersDataTable As DataTable) As DataTable
+	' プログラムが生成したデータを格納する DataTable を宣言します
+	Dim dataTable As New DataTable("Orders")
+	' CustomerID 列を作成して追加します
+	Dim colWork As New DataColumn("CustomerID", GetType(Int32))
+	dataTable.Columns.Add(colWork)
+	' CustomerID 列をキー配列に追加します
+	Dim Keys(1) As DataColumn
+	Keys(0) = colWork
+	' OrderID 列を作成し追加します
+	colWork = New DataColumn("OrderID", GetType(String))
+	colWork.MaxLength = 15
+	dataTable.Columns.Add(colWork)
+	' OrderID 列をキー配列に追加し、DataTable にバインドします
+	Keys(1) = colWork
+	dataTable.PrimaryKey = Keys
+	' EmployeeID 列を作成して追加します
+	colWork = New DataColumn("EmployeeID", GetType(Int32))
+	dataTable.Columns.Add(colWork)
+	' OrderDate 列を作成して追加します
+	colWork = New DataColumn("OrderDate", GetType(Date))
+	dataTable.Columns.Add(colWork)
+	' Customer テーブルをループ処理し、Order 行を追加します
+	Dim custRow As DataRow
+	For Each custRow In v_customersDataTable.Rows
+		' 各 Customer に対して 4 行を追加します
+		Dim row As DataRow
+		Dim intPtr As Integer
+		For intPtr = 1 To 4
+			row = dataTable.NewRow()
+			row("CustomerID") = custRow("CustomerID")
+			row("OrderID") = intPtr $$*$$ custRow("CustomerID")
+			row("EmployeeID") = intPtr $$*$$ 10
+			row("OrderDate") = Now.AddDays(intPtr)
+			dataTable.Rows.Add(row)
+		Next intPtr
+	Next custRow
+	Return dataTable
+End Function
+----
+
+*C# の場合：*
+
+----
+private DataTable MakeOrdersDataTable(DataTable v_customersDataTable)
+{
+	// プログラムが生成したデータを格納する DataTable を宣言します
+	DataTable dataTable = new DataTable("Orders");
+	// CustomerID 列を作成して追加します
+	DataColumn colWork = new DataColumn("CustomerID", System.Type.GetType("System.Int32"));
+	dataTable.Columns.Add(colWork);
+	// CustomerID 列をキー配列に追加します
+	DataColumn[] Keys = new DataColumn[2];
+	Keys[0] = colWork;
+	// OrderID 列を作成し追加します
+	colWork = new DataColumn("OrderID", System.Type.GetType("System.String"));
+	colWork.MaxLength = 15;
+	dataTable.Columns.Add(colWork);
+	// OrderID 列をキー配列に追加し、DataTable にバインドします
+	Keys[1] = colWork;
+	dataTable.PrimaryKey = Keys;
+	// EmployeeID 列を作成して追加します
+	colWork = new DataColumn("EmployeeID", System.Type.GetType("System.Int32"));
+	dataTable.Columns.Add(colWork);
+	// OrderDate 列を作成して追加します
+	colWork = new DataColumn("OrderDate", System.Type.GetType("System.DateTime"));
+	dataTable.Columns.Add(colWork);
+	// Customer テーブルをループ処理し、Order 行を追加します
+	foreach( DataRow custRow in v_customersDataTable.Rows)
+	{
+		// 各 Customer に対して 4 行を追加します
+		DataRow row; 
+		for(Int32 intPtr = 1; intPtr $$<=$$ 4; intPtr++)
+		{
+			row = dataTable.NewRow();
+			row["CustomerID"] = custRow["CustomerID"];
+			row["OrderID"] = intPtr $$*$$ ((Int32)custRow["CustomerID"]);
+			row["EmployeeID"] = intPtr $$*$$ 10;
+			row["OrderDate"] = System.DateTime.Now.AddDays(intPtr);
+			dataTable.Rows.Add(row);
+		}
+	}
+	return dataTable;
+}
+----
+
+== DataSet を作成し Grid にバインド
+
+[start=1]
+. [フラット データの作成とバインド] ボタンの Click イベントに応答するサブ プロシージャを追加し、次のコードをプロシージャに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	' 階層データを格納する DataSet を宣言します
+	Dim dataSet As New DataSet()
+	' 顧客 DataTable を作成します
+	dataSet.Tables.Add(MakeCustomersDataTable)
+	' 注文 DataTable を作成します
+	dataSet.Tables.Add(MakeOrdersDataTable(dataSet.Tables("Customers")))
+	' 顧客と注文の関係を作成し、DataSet に追加します
+	Dim relCustOrder As New DataRelation("CustOrder" _
+	  , dataSet.Tables("Customers").Columns("CustomerID") _
+	  , dataSet.Tables("Orders").Columns("CustomerID"))
+	dataSet.Relations.Add(relCustOrder)
+	' DataSet をグリッドにバインドします
+	Me.UltraGrid1.DataSource = dataSet
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	// 階層データを格納する DataSet を宣言します
+	DataSet dataSet = new DataSet();
+	// 顧客 DataTable を作成します
+	dataSet.Tables.Add(MakeCustomersDataTable());
+	// 注文 DataTable を作成します
+	dataSet.Tables.Add(MakeOrdersDataTable(dataSet.Tables["Customers"]));
+	// 顧客と注文の関係を作成し、DataSet に追加します
+	DataRelation relCustOrder = new DataRelation("CustOrder" 
+	  , dataSet.Tables["Customers"].Columns["CustomerID"] 
+	  , dataSet.Tables["Orders"].Columns["CustomerID"]);
+	dataSet.Relations.Add(relCustOrder);
+	// DataSet をグリッドにバインドします
+	this.ultraGrid1.DataSource = dataSet;
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、2 つの DataTable をプログラム コードにより作成し、それを DataSet に追加し、テーブル間に関係の制約を課し、また UltraWinGrid に DataSet をバインドする方法を示しています。

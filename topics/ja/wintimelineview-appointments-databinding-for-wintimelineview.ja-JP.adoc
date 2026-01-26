@@ -1,0 +1,178 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-appointments-databinding-for-wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": ["Data Binding","How Do I"],
+    "guid": "{160E3B3A-40F3-40BA-973E-3E16326B411E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView の予定のデータバインディング
+
+*始める前に*
+
+WinTimelineView™ コントロールは、水平タイムラインに沿って予定を表示します。 これには予定のドラッグおよびリサイズのサポートと、AppoinmentsDataBinding および OwnersDataBinding オブジェクトによる予定およびオーナーのデータ バインディングのサポートが含まれます。 これらのオブジェクトの詳細については、「予定およびオーナーのデータ バインドのサポート」トピックを参照してください。
+
+*達成すること*
+
+このトピックでは、WinTimelineView™ で異なるオーナーの予定を表示することを学習します。
+
+*以下の手順を実行します*
+
+[start=1]
+. UltraTimeLineView コントロール、UltraCalendarInfo および UltraCalendarLook コンポーネントをフォームにドラッグ アンド ドロップします。
+
+[NOTE]
+====
+*注：* このトピックは、タイムスロットを表示するために UltraTimeLineView コントロールが既に設定されていることを前提とします。 タイムスロットの作成方法については、 link:wintimelineview-set-time-and-date-intervals-for-wintimelineview.html[WinTimelineView に時間/日の間隔を設定]トピックを参照してください。
+====
+
+[start=2]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinSchedule
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinSchedule;
+----
+
+[start=3]
+. フォームの Load イベントに以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+' 予定およびオーナーのデータ バインディングに必要なサンプル データを取得します 
+Dim ds As DataSet = Me.GetSampleData()
+' 未指定のオーナーを非表示にします 
+Me.ultraCalendarInfo1.Owners.UnassignedOwner.Visible = False 
+' ultraCalendarInfo を Appointments データ テーブルにバインドします
+Me.ultraCalendarInfo1.DataBindingsForAppointments.DataSource = ds.Tables("Appointments") 
+' ultraCalendarInfo を Owners データ テーブルにバインドします
+Me.ultraCalendarInfo1.DataBindingsForOwners.DataSource = ds.Tables("Owners") 
+'　Appointments データ バインディング プロパティを UltraCalendarInfo に設定します
+Me.ultraCalendarInfo1.DataBindingsForAppointments.StartDateTimeMember = "StartTime" 
+Me.ultraCalendarInfo1.DataBindingsForAppointments.EndDateTimeMember = "EndTime" 
+Me.ultraCalendarInfo1.DataBindingsForAppointments.SubjectMember = "Subject" 
+Me.ultraCalendarInfo1.DataBindingsForAppointments.OwnerKeyMember = "OwnerKey" 
+' Owners データ バインディング プロパティを UltraCalendarInfo に設定します
+Me.ultraCalendarInfo1.DataBindingsForOwners.KeyMember = "OwnerKey" 
+Me.ultraCalendarInfo1.DataBindingsForOwners.NameMember = "Name" 
+' UltraCalendarInfo を TimeLineView コントロールに指定します 
+Me.ultraTimelineView1.CalendarInfo = Me.ultraCalendarInfo1 
+' UltraCalendarLook ViewStyle を設定します 
+Me.ultraCalendarLook1.ViewStyle = Infragistics.Win.UltraWinSchedule.ViewStyle.Office2007 
+' UltraCalendarLook を TimeLineView コントロールに指定します 
+Me.ultraTimelineView1.CalendarLook = Me.ultraCalendarLook1
+----
+
+*C# の場合：*
+
+----
+// 予定およびオーナーのデータ バインディングに必要なサンプル データを取得します
+DataSet ds = this.GetSampleData();
+// 未指定のオーナーを非表示にします
+this.ultraCalendarInfo1.Owners.UnassignedOwner.Visible = false;
+// ultraCalendarInfo を Appointments データ テーブルにバインドします
+this.ultraCalendarInfo1.DataBindingsForAppointments.DataSource=ds.Tables["Appointments"];
+// ultraCalendarInfo を Owners データ テーブルにバインドします
+this.ultraCalendarInfo1.DataBindingsForOwners.DataSource = ds.Tables["Owners"];
+// Appointments データ バインディング プロパティを UltraCalendarInfo に設定します
+this.ultraCalendarInfo1.DataBindingsForAppointments.StartDateTimeMember = "StartTime";
+this.ultraCalendarInfo1.DataBindingsForAppointments.EndDateTimeMember = "EndTime";
+this.ultraCalendarInfo1.DataBindingsForAppointments.SubjectMember = "Subject";
+this.ultraCalendarInfo1.DataBindingsForAppointments.OwnerKeyMember = "OwnerKey";
+// Owners データ バインディング プロパティを UltraCalendarInfo に設定します
+this.ultraCalendarInfo1.DataBindingsForOwners.KeyMember = "OwnerKey";
+this.ultraCalendarInfo1.DataBindingsForOwners.NameMember = "Name";
+// UltraCalendarInfo を TimeLineView コントロールに指定します
+this.ultraTimelineView1.CalendarInfo = this.ultraCalendarInfo1;
+// UltraCalendarLook ViewStyle を設定します
+this.ultraCalendarLook1.ViewStyle = Infragistics.Win.UltraWinSchedule.ViewStyle.Office2007;
+// UltraCalendarLook を TimeLineView コントロールに指定します
+this.ultraTimelineView1.CalendarLook = this.ultraCalendarLook1;
+----
+
+[start=4]
+. サンプル データと共に Appointments および Owners DataTable オブジェクトを作成する以下のメソッドを記述します。
+
+*Visual Basic の場合：*
+
+----
+Private Function GetSampleData() As DataSet
+Dim theDataSet As New DataSet()
+' Appointments DataTable を作成します
+Dim theAppointments As DataTable = theDataSet.Tables.Add("Appointments")
+theAppointments.Columns.Add("AppointmentID", GetType(Integer))
+theAppointments.Columns.Add("StartTime", GetType(DateTime))
+theAppointments.Columns.Add("EndTime", GetType(DateTime))
+theAppointments.Columns.Add("Subject", GetType(String))
+theAppointments.Columns.Add("OwnerKey", GetType(String))
+' Appointments サンプル データを追加します
+theAppointments.Rows.Add(New Object() {"1", "7/28/2009 9:00:00 AM", "7/28/2009 10:00:00 AM", "Sprint Review", "Charlie"})
+theAppointments.Rows.Add(New Object() {"1", "7/28/2009 8:00:00 AM", "7/28/2009 08:30:00 AM", "Scrum Meet", "Jamie"})
+theAppointments.Rows.Add(New Object() {"1", "7/28/2009 9:00:00 AM", "7/28/2009 09:30:00 AM", "Status Meeting", "Lukas"})
+theAppointments.Rows.Add(New Object() {"1", "7/28/2009 8:45:00 AM", "7/28/2009 09:00:00 AM", "Feature Review", "Lopez"})
+' Owners DataTable を作成します
+Dim theOwners As DataTable = theDataSet.Tables.Add("Owners")
+theOwners.Columns.Add("OwnerID", GetType(Integer))
+theOwners.Columns.Add("Name", GetType(String))
+theOwners.Columns.Add("OwnerKey", GetType(String))
+' Owners サンプル データを追加します
+theOwners.Rows.Add(New Object() {"1", "Maria Charlie", "Charlie"})
+theOwners.Rows.Add(New Object() {"2", "John Jamie", "Jamie"})
+theOwners.Rows.Add(New Object() {"3", "Matthew Lukas", "Lukas"})
+theOwners.Rows.Add(New Object() {"4", "Leah Lopez", "Lopez"})
+Return theDataSet
+End Function
+----
+
+*C# の場合：*
+
+----
+private DataSet GetSampleData()
+{
+DataSet theDataSet = new DataSet();
+// Appointments DataTable を作成します
+DataTable theAppointments = theDataSet.Tables.Add("Appointments");
+theAppointments.Columns.Add("AppointmentID", typeof(int));
+theAppointments.Columns.Add("StartTime", typeof(DateTime));
+theAppointments.Columns.Add("EndTime", typeof(DateTime));
+theAppointments.Columns.Add("Subject", typeof(string));
+theAppointments.Columns.Add("OwnerKey", typeof(string));
+// Appointments サンプル データを追加します
+theAppointments.Rows.Add(new object[] { "1", "7/28/2009 9:00:00 AM", "7/28/2009 10:00:00 AM", "Sprint Review", "Charlie" });
+theAppointments.Rows.Add(new object[] { "1", "7/28/2009 8:00:00 AM", "7/28/2009 08:30:00 AM", "Scrum Meet", "Jamie" });
+theAppointments.Rows.Add(new object[] { "1", "7/28/2009 9:00:00 AM", "7/28/2009 09:30:00 AM", "Status Meeting", "Lukas" });
+theAppointments.Rows.Add(new object[] { "1", "7/28/2009 8:45:00 AM", "7/28/2009 09:00:00 AM", "Feature Review", "Lopez" });
+// Owners DataTable を作成します
+DataTable theOwners = theDataSet.Tables.Add("Owners");
+theOwners.Columns.Add("OwnerID", typeof(int));
+theOwners.Columns.Add("Name", typeof(string));
+theOwners.Columns.Add("OwnerKey", typeof(string));
+// Owners サンプル データを追加します
+theOwners.Rows.Add(new object[] { "1", "Maria Charlie", "Charlie" });
+theOwners.Rows.Add(new object[] { "2", "John Jamie", "Jamie" });
+theOwners.Rows.Add(new object[] { "3", "Matthew Lukas", "Lukas" });
+theOwners.Rows.Add(new object[] { "4", "Leah Lopez", "Lopez" });
+return theDataSet;
+}
+----
+
+[start=5]
+. アプリケーションを保存して実行します。
+
+image::Images/WinTimelineView_Appointments_DataBinding_for_WinTimelineView.png[]

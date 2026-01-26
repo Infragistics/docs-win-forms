@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-export-charts-to-pdf-xps-whats-new-20073",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C79090F7-751D-4AE6-8BE7-226741D4E27A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= チャートを PDF/XPS にエクスポート
+
+WinChart™ は、Infragistics Document Export Engine を使用して Adobe Portable Document Format (PDF) や XML Paper Specification (XPS) ファイル フォーマットにエクスポートすることができます。必要なことは、Infragistics.Documents.Reports クラス ライブラリの DOM を使用して Report を作成して、次にこの Graphics コンテンツ オブジェクトにチャートのシーン グラフを描画する新しい RenderPdfFriendlyGraphics メソッドを呼び出すだけです。
+
+ピクセルの幅と高さだけでなく System.Drawing.Graphics オブジェクトを受け付ける RenderPdfFriendlyGraphics メソッドのオーバーロードも使用できます。チャートの寸法が大きすぎて PDF ドキュメントのキャンバスに収まらない場合には、描画された画像は指定されたサイズに基づいてチャート サイズ比まで縮小されます。
+
+PDF/XPS ファイルにエクスポートするために必要な Infragistics.Documents.Reports アセンブリをチャートは自動的に含めないので、レポートは手動で作成する必要があります。実際にこの機能を使用しなければならない時には、アプリケーションに {ApiPlatform}Documents.Reports.v{ProductVersion}.dll への参照を含めることだけが必要です。
+
+透過とグラデーション パスは、PDF または XPS にエクスポートされるチャートでは現在サポートされません。線形および放射型グラデーションは必要に応じて使用されます。
+
+== 関連トピック
+
+link:chart-exporting-to-pdf.html[PDF/XPS にチャートをエクスポート]

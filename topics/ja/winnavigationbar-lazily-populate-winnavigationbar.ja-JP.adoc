@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-lazily-populate-winnavigationbar",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["Navigation","Performance","Tips and Tricks"],
+    "guid": "{5BEA4EE3-EC59-4D31-AA88-AD1DFEBDE93E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNavigationBar を遅延して移植
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation.html[Locations] を WinNavigationBar™ に追加する素早くかつ効率的なメソッドは、Locations を遅延移植することです。「遅延」という用語は新語です。エンド ユーザーに希望する Locations を表示するために必要な最小限の作業を行っているだけだからです。弊社は link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~initializelocations_ev.html[InitializeLocations] イベントという便利なイベントを公開しました。これによって、ユーザーが最初にアクセスした時に位置の子を移植することができます。このイベントは、Location の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation~reset.html[Reset] メソッドを呼び出さない限り、Location コレクション毎に 1 度だけ発生します。位置のリセットについての詳細は、 link:winnavigationbar-refresh-winnavigationbars-locations.html[「WinNavigationBar の場所をリフレッシュ」]を参照してください。
+
+以下のコードは、ディレクトリ情報で各 Location を移植する方法を示しています。このコードは、各 Location にユーザーが初めてアクセスする時に実行します。WinNavigationBar が編集モードの間にエンド ユーザーがパスを入力する時にこのイベントの利点が本当に示されます。エンド ユーザーが新しいパスを入力すると、WinNavigationBar がそのパスを解析します。パスの各項目が解析されると（これらの項目は link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~pathseparator.html[PathSeparator] によって分離されることに注意）、InitializeLocations イベントがその項目に対して発生します。したがって、位置の作成によって link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~navigationpathparseerror_ev.html[NavigationPathParseError] イベントの発生が回避されます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.Misc
+Imports Infragistics.Win.Misc.UltraWinNavigationBar
+Private Sub UltraNavigationBar1_InitializeLocations(ByVal sender As System.Object, _
+    ByVal e As InitializeLocationsEventArgs) _
+    Handles UltraNavigationBar1.InitializeLocations
+' 親の位置のフル パスを取得します。
+    Dim path As String = _
+        e.ParentLocation.GetFullPath(FullPathFormat.EditMode)
+' 親の位置のパスのサブディレクトリで DirectoryInfos
+' の配列を移植します。
+    Dim dirs As System.IO.DirectoryInfo() = _
+        New System.IO.DirectoryInfo(path + "\\").GetDirectories()
+' 各サブディレクトリをループします。
+    For Each dir As System.IO.DirectoryInfo In dirs
+' WinNavigationBar の新しい位置を追加します。
+' サブディレクトリのフル パスはキーで、 
+' 名前はテキストになります。
+        e.ParentLocation.Locations.Add(dir.FullName, dir.Name)
+    Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.Misc;
+using Infragistics.Win.Misc.UltraWinNavigationBar;
+private void ultraNavigationBar1_InitializeLocations
+  (object sender, InitializeLocationsEventArgs e)
+{
+	// 親の位置のフル パスを取得します。
+	string path = 
+		e.ParentLocation.GetFullPath(FullPathFormat.EditMode);
+	// 親の位置のパスのサブディレクトリで DirectoryInfos
+	// の配列を移植します。
+	System.IO.DirectoryInfo[] dirs =
+		new System.IO.DirectoryInfo(path + "\\").GetDirectories();
+	// 各サブディレクトリをループします。
+	foreach (System.IO.DirectoryInfo dir in dirs)
+	{
+		// WinNavigationBar の新しい位置を追加します。
+		// サブディレクトリのフル パスはキーで、 
+		// 名前はテキストになります。
+		e.ParentLocation.Locations.Add(dir.FullName, dir.Name);
+	}
+}
+----

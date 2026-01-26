@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-wincalendarcombo-to-a-controlcontainer-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{2D35E9EC-13DA-4097-983F-56448D155E8C}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ControlContainer ツールに WinCalendarCombo を追加します
+
+WinToolbarsManager™ コントロールにある 15 類のツールタイプは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[ツールバー]"] に追加することができます。ここでは、デザイン時および実行時に WinCalendarCombo を pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool.html[ControlContainerツール]"]  に追加する方法を示します。
+
+== デザイン時の場合
+
+[start=1]
+. UltraToolBarsManagerとUltraCalendarComboはすでにフォームに配置しているとします。UltraWinToolbarコントロールを設定するため、UltraToolbarManagerコントロール上で右クリックし、［ユーザー設定］を選択して、ユーザー設定ダイアログを開きます。
+[start=2]
+. 新しいツールを作成するため、ユーザー設定の「ツール」タブをクリックしてから〈新規〉ボタンをクリックします。
+[start=3]
+. ControlContainerツールを選択し、〈追加〉ボタンをクリックします。
+[start=4]
+. このツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool~control.html[Control]"]  プロパティを UltraCalendarCombo に設定します。
+[start=5]
+. ユーザー設定の「ツールバー」タブをクリックして、〈新規作成〉ボタンをクリックします。
+[start=6]
+. 「ツール」タブをクリックして、ControlContainerツールをフォーム上のToolBarにドラッグします。
+
+== 実行時の場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub Add_the_WinCalendarCombo_Tool_to_a_Toolbar_Load( _
+  ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim myCalendarCombo As New UltraCalendarCombo()
+	Dim controlcontainer1 As New ControlContainerTool("controlcontainer1")
+	' Adds the tool to the Toolbar Manager's Tools collection
+	Me.UltraToolbarsManager1.Tools.Add(controlcontainer1)
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(controlcontainer1)
+	' Sets the UltraCalendarCombo as the element to appear in the ControlContainerTool
+	controlcontainer1.Control = myCalendarCombo
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+using Infragistics.Win.UltraWinToolbars;
+...
+private void Add_the_WinCalendarCombo_Tool_to_a_Toolbar_Load(
+  object sender, EventArgs e)
+{
+	UltraCalendarCombo myCalendarCombo = new UltraCalendarCombo();
+	ControlContainerTool controlcontainer1 = 
+	  new ControlContainerTool("controlcontainer1");
+	// Adds the tool to the Toolbar Manager's Tools collection
+	this.ultraToolbarsManager1.Tools.Add(controlcontainer1);
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(controlcontainer1);
+	// Sets the UltraCalendarCombo as the element to appear in the ControlContainerTool
+	controlcontainer1.Control = myCalendarCombo;
+}
+----

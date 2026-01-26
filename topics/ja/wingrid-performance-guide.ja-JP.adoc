@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-performance-guide",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Performance"],
+    "guid": "{89CA52EC-3D36-48BE-B146-BBF015F2D113}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:35:38Z"
+}
+|metadata|
+////
+
+= パフォーマンス ガイド
+
+このガイドの目的は、WinGrid™ コントロールを使用する時にパフォーマンスを改善するため、一般的なプログラミング実用ガイドラインとトラブルシューティングのヒントおよび秘訣を提供することです。
+
+* link:wingrid-memory-usage.html[メモリー使用]
+* link:wingrid-formatting-and-appearance-based-performance-improvement.html[パフォーマンス改善にもとづくフォーマッティングおよび外観]

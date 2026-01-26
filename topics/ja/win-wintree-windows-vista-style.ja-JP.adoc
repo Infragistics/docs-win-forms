@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wintree-windows-vista-style",
+    "controlName": [],
+    "tags": [],
+    "guid": "{04E10652-05A4-4270-98CF-0220188E36F6}",  
+    "buildFlags": [],
+    "createdOn": "2008-08-01T16:15:52Z"
+}
+|metadata|
+////
+
+= WinTree Windows Vista スタイル
+
+2007 Volume 3 では、WinToolbarsManager の Microsoft® Windows® Vista™ スタイルを提供しました。今回、WinTree™ の Windows Vista スタイルが得られます。Windows Vista の Windows Explorer の人気のあるルック アンド フィールをエミュレートして、スイッチを切り替えるだけで優れた外観すべてを得ることができます。この新しい機能は link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~displaystyle.html[DisplayStyle] プロパティです。 DisplayStyle プロパティを WindowsVista に設定すると、WinTree コントロール全体のスタイリングは完了です。
+
+WinTree で見られる優れた Windows Vista スタイルとしては以下が挙げられます。
+
+* *スクロール* – WinTree はツリーを自動的に水平方向にスクロールして現在のノードを表示します。
+* *拡張インジケータ* – Vista カラー スキームを示すこれらの小さい画像によって、ノードが展開されているか、展開可能であるかを確認できます。
+
+image::images/Win_WinTree_Windows_Vista_Style_01.png[]
+
+* *カラー* – link:{ApiPlatform}win{ApiVersion}~infragistics.win.windowsvistacolortable.html[WindowsVistaColorTable] オブジェクトから得たスタイルで、選択されているノードやホット トラックされているノードが見栄えのよい青のグラデーションを表示します。前述した拡張インジケータでもこれらのカラーが表示されます。
+
+image::images/Win_WinTree_Windows_Vista_Style_02.png[]
+
+* *ツールチップ* – ノード名全体が割り当てた領域に収まらない場合、ツールチップがノード名全体を表示します。このツールチップは、領域が不足した場合、ノードのように見えます。
+
+image::images/Win_WinTree_Windows_Vista_Style_03.png[]
+
+* *ヘッダ* – 複数の列を使用する場合、Vista Windows Explorer に似た新しいヘッダ スタイルが表示されます。
+
+image::images/Win_WinTree_Windows_Vista_Style_04.png[]
+
+== 関連トピック
+
+link:styling-guide-windows-vista-look-and-feel.html[Windows Vista のルック アンド フィール]

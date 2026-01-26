@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-customize-tool-captions-in-the-run-time-customizer",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{E9B593A2-FB25-405A-BB20-B280DCCE253D}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイム カスタマイザのツール キャプションのカスタマイズ
+
+ランタイムに、ユーザーはツールバー上のツールに対してショートカットキーの設定やツールの説明の表示などのカスタマイズを行うことができます。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops~customizercaption.html[CustomizerCaption]"]  プロパティは、［ユーザー設定］ ダイアログの ［コマンド］ リストに表示される文字列を取得または設定します。
+
+ツールのキャプションをデザインタイムにカスタマイズするには：
+
+[start=1]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolBarsManager]"]  をフォームに追加し、右クリックして ［ユーザー設定］ を選択します。
+[start=2]
+. エディタの [ツール] タブでツールを選択し、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  の下で CustmizerCaption プロパティを設定します。
+
+ツールのキャプションをランタイムにカスタマイズするには：
+
+*Visual Basic の場合：*
+
+----
+Private Sub CustomizeToolCaptionsintheRunTimeCustomizer_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(0).SharedProps.CustomizerCaption = "New Caption"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void CustomizeToolCaptionsintheRunTimeCustomizer_Load(object sender, System.EventArgs e)
+{
+	this.ultraToolbarsManager1.Toolbars[0].Tools[0].SharedProps.CustomizerCaption = "New Caption";			
+}
+----
+
+[NOTE]
+====
+*注：* CustomizerCaption プロパティが設定されていない場合は、ツールの Caption プロパティの値が表示されます。Caption プロパティが設定されていない場合は、ツールの Key の値が表示されます。
+====

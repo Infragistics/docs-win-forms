@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-suppress-events-from-being-raised",
+    "controlName": ["WinSchedule"],
+    "tags": ["Events"],
+    "guid": "{91B51336-772A-414F-AB1A-51C7D883DEE0}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= イベントのトリガーの抑制
+
+WinCalendarInfo の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~eventmanager.html[EventManager]"]  は、イベントが発動/発生されることを抑制するために使用できます。このコードで、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~beforeappointmentadded_ev.html[BeforeAppointmentAdded]"]  イベントは抑制されます。

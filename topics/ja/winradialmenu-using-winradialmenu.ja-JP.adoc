@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "winradialmenu-using-winradialmenu",
+    "controlName": [],
+    "tags": [],
+    "guid": "8f80cd27-6aa7-4cda-8cbe-aa16d400e455",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T21:56:47.2746403Z"
+}
+|metadata|
+////
+
+= WinRadialMenu の使用
+
+=== はじめに
+
+このセクションには、 _WinRadialMenu_™ コンポーネントを使用する方法についての特定のヘルプ トピックのリストが含まれています。
+
+各トピックの詳しい情報は、以下の各リンクを参照してください。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winradialmenu-adding-radial-menu-using-the-designer.html[デザイナーを使用したラジアル メニューの追加]
+|このトピックは、コンポーネントのデザイナーを使用した _WinRadialMenu_ ツールの追加についての概要を説明します。
+
+| link:winradialmenu-adding-radial-menu-using-the-code-behind.html[コード ビハインドを使用したラジアル メニューの追加]
+|このトピックは、コード ビハインドを使用した _WinRadialMenu_ ツールの追加についての概要を説明します。
+
+| link:winradialmenu.html[WinRadialMenu]
+|このセクションには、 _WinR_ _adialMenu_ コンポーネントについてのヘルプ トピックが含まれています。
+
+|====

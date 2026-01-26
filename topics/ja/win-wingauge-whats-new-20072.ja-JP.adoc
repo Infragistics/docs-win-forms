@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingauge-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{17206F54-C824-4127-90A7-EAE396486A41}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGauge 2007.2
+
+2007 Volume 2 の WinGauge™ コントロールに追加された新デザイナを確認するには、以下のリンクをクリックしてください。
+
+* link:wingauge-designer-added-to-wingauge-whats-new-20072.html[WinGauge に追加されたデザイナ]

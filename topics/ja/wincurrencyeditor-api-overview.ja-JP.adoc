@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincurrencyeditor-api-overview",
+    "controlName": ["WinCurrencyEditor"],
+    "tags": ["API"],
+    "guid": "{D3C9D9DB-C4BC-4D26-AAA3-6C43812AFB3D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinEditors 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinEditors]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracurrencyeditor.html[UltraCurrencyEditor]"]

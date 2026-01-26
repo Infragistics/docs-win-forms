@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-data-selectors",
+    "controlName": [],
+    "tags": [],
+    "guid": "8b0bdd34-1cc1-4d02-a251-41964090d5dc",  
+    "buildFlags": [],
+    "createdOn": "2014-09-12T02:41:51.7244189Z"
+}
+|metadata|
+////
+
+= データ セレクター
+
+=== 概要
+
+このグループのトピックでは、 _WinPivotGrid_™ コントロールのデータ セレクターについて説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-adding-mdxdataselector.html[MdxDataSelector の追加]
+|このトピックでは、XMLA データ プロバイダーおよび ADOMD データ プロバイダーで使用するデータ セレクターについて説明します。
+
+| link:winpivotgrid-adding-olapdataselector.html[OlapDataSelector の追加]
+|このトピックでは、FlatDataSource で使用するデータ セレクターについて説明します。
+
+|====

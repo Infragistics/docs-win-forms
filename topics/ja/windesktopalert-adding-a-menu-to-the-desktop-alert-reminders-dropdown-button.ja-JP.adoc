@@ -1,0 +1,281 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-adding-a-menu-to-the-desktop-alert-reminders-dropdown-button",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{3F439DF7-72E3-4CB0-8724-4BCECFF15392}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デスクトップ アラート リマインダのドロップダウン ボタンにメニューを追加
+
+== 始める前に
+
+これは遭遇するかもしれない一般的なシナリオで動作するいくつかの主要な WinDesktopAlert™ 機能を例示することを目的とした 3 部構成の詳細なガイドの 3 番目のトピックです。このシナリオの詳細については、 link:windesktopalert-creating-a-desktop-alert-reminder-for-winschedule.html[「WinSchedule のデスクトップ アラート リマインダを作成」]を参照してください。2 番目のトピック、 link:windesktopalert-adding-alert-buttons-to-the-desktop-alert-reminder.html[「デスクトップ アラート リマインダにアラートボタンを追加」]が完了していない場合には、2 番目のトピックを完了してください。3 番目のトピックは 2 番目のトピックに基づいて構築されているからです。
+
+このトピックのほとんどのコードは、エンド ユーザーがデスクトップ アラート ウィンドウのドロップダウン ボタンをクリックした時に表示するメニューの作成に関するものです。また、メニューのツールで Click イベントを処理するために非常に多くのコードが使用されます。ヘルプの WinToolbarsManager™ セクションのこれらのタスクについての詳細を見つけることができます。このトピックで注意が必要な部分は、希望の座標にポップアップ メニューを表示することです。信じても信じなくても結構ですが、この作業はわずか 1 行で十分です。
+
+エンド ユーザーがドロップダウン ボタンをクリックすると、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~dropdownbuttonclicked_ev.html[DropDownButtonClicked] イベントが発生します。このイベントの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.dropdownbuttonclickedeventargs.html[EventArgs] には link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.dropdownbuttonclickedeventargs~buttonscreenrect.html[ButtonScreenRect] プロパティが含まれます。ButtonScreenRect プロパティは、ドロップダウン ボタンのバインディングしている矩形を返します。ポップアップ メニューの左上隅がドロップダウン ボタンの左下隅になるようにポップアップ メニューを配置したいとします。 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool] の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popuptoolbase~showpopup.html[ShowPopup] メソッドを呼び出すと、System.Drawing.Point とポップアップ メニューのオーナーを渡すことができます。この場合、渡す Point は ButtonScreenRect.Left と ButtonScreenRect.Bottom になります（左の座標と下の座標は左下隅で交差します）。オーナーはデスクトップ アラート ウィンドウで、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.desktopalerteventargsbase~windowinfo.html[WindowInfo.DesktopAlertWindow] プロパティからの EventArgs で簡単に取得されます。
+
+== 達成すること
+
+エンド ユーザーがデスクトップ アラート ウィンドウでドロップダウン ボタンをクリックしたときにメニューを表示する方法を学習します。WinToolbarsManager の PopupMenuTool を使用してメニューを作成します。このメニューは、Microsoft® Outlook® の新しいメール デスクトップ アラートに似ています。次にメニューを表示するために WinDesktopAlert の DropDownButtonClicked イベントが後から発生するメニュー項目のための WinToolbarManager の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick] イベントを処理します。
+
+== 次の手順を実行します
+
+[start=1]
+. *エンド ユーザーがドロップダウン ボタンをクリックした時に表示するメニューを作成します。*
+
+フォームの Load イベントで、Alert ボタンを作成するためのコードの後ろに、PopupMenuTool を作成するコードを追加します。メニューを構成する 5 つの ButtonTools を作成することから開始します。これらのツールを作成して link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolbarsManager] の link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolscollection.html[Tools] コレクションを追加したら、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase~sharedprops.html[SharedProps] のキャプションを設定すると、メニュー上に表示されたものを実際的にエンド ユーザーは見ることができます。PopupMenuTool を作成し、Tools コレクションに追加して、次に各 ButtonTools のそれぞれを PopupMenuTool の Tools コレクションに追加します。デバイダの線をメニューに追加するために、IsFirstInGroup プロパティなどのメニュー上のその他のプロパティを設定し、再通知画像と解除画像を追加するために link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase~customizedimage.html[CustomizedImage] プロパティも設定します。
+
+Load イベントで実行する必要がある重要なタスクがさらに 2 つあります。最初のタスクはハンドラを 2 つのイベントに追加します。エンド ユーザーがメニュー上の ButtonTools をクリックした時のために WinToolbarsManager の ToolClick イベントにひとつのハンドラを追加します。そしてエンド ユーザーがデスクトップ アラート ウィンドウ上のドロップダウン ボタンをクリックした時のために WinDesktopAlert の DropDownButtonClicked イベントにもうひとつのハンドラを追加します。ただし、エンド ユーザーがドロップダウン ボタンをクリックするためには、ボタンが表示されている必要があります。UltraDesktopAlert の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~dropdownbuttonvisible.html[DropDownButtonVisible] プロパティを DefaultableBoolean.True に設定します（デフォルトは False に解決します）。
+
+*Visual Basic の場合：*
+
+----
+' 5 つの新しいツールを WinToolbarManager のツール コレクションに追加します。
+Me.UltraToolbarsManager1.Tools.AddRange(New ToolBase() _
+{ _
+	New ButtonTool("OpenAppointment"), _
+	New ButtonTool("SnoozeAppointment"), _
+	New ButtonTool("DismissAppointment"), _
+	New ButtonTool("DisableAlert"), _
+	New ButtonTool("DesktopAlertSettings") _
+})
+' すべてのツールにキャプションを設定します。
+Me.UltraToolbarsManager1.Tools("OpenAppointment").SharedProps.Caption = _
+  "Open Appointment"
+Me.UltraToolbarsManager1.Tools("SnoozeAppointment").SharedProps.Caption = _
+  "Snooze for 15 minutes"
+Me.UltraToolbarsManager1.Tools("DismissAppointment").SharedProps.Caption = _
+  "Dismiss Appointment"
+Me.UltraToolbarsManager1.Tools("DisableAlert").SharedProps.Caption = _
+  "Disable Reminder Desktop Alert"
+Me.UltraToolbarsManager1.Tools("DesktopAlertSettings").SharedProps.Caption = _
+  "Desktop Alert Settings..."
+' ポップアップ メニューを作成します。
+Dim menu As PopupMenuTool = New PopupMenuTool("PopupMenu1")
+' ポップアップ メニューをツール コレクションに追加します。
+Me.UltraToolbarsManager1.Tools.Add(menu)
+' メニュー項目をメニューのツール コレクションに追加します。
+menu.Tools.AddToolRange(New String() _
+{ _
+	"OpenAppointment", _
+	"SnoozeAppointment", _
+	"DismissAppointment", _
+	"DisableAlert", _
+	"DesktopAlertSettings" _
+})
+' 以下のメニュー項目の上にセパレータの線を追加します。
+menu.Tools("SnoozeAppointment").InstanceProps.IsFirstInGroup = True
+menu.Tools("DisableAlert").InstanceProps.IsFirstInGroup = True
+menu.Tools("DesktopAlertSettings").InstanceProps.IsFirstInGroup = True
+' Snooze ツールと Dismiss ツールの画像を設定します。
+menu.Tools("SnoozeAppointment").CustomizedImage = _
+  New Bitmap(Application.StartupPath + "\Snooze.gif")
+menu.Tools("DismissAppointment").CustomizedImage = _
+  New Bitmap(Application.StartupPath + "\Dismiss.gif")
+' WinToolbarManager の ToolClick イベントのためのハンドラを追加します。
+AddHandler UltraToolbarsManager1.ToolClick, AddressOf UltraToolbarsManager1_ToolClick
+' WinDesktopAlert の DropDownButtonClicked イベントのためのハンドラを追加します。
+AddHandler UltraDesktopAlert1.DropDownButtonClicked, _
+  AddressOf UltraDesktopAlert1_DropDownButtonClicked
+' ドロップダウン ボタンを表示します。これによってエンド ユーザーは
+' このボタンをクリックしてポップアップ メニューを取得します。
+Me.UltraDesktopAlert1.DropDownButtonVisible = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+// 5 つの新しいツールを WinToolbarManager のツール コレクションに追加します。
+this.ultraToolbarsManager1.Tools.AddRange(new ToolBase[]
+{
+	new ButtonTool("OpenAppointment"),
+	new ButtonTool("SnoozeAppointment"),
+	new ButtonTool("DismissAppointment"),
+	new ButtonTool("DisableAlert"),
+	new ButtonTool("DesktopAlertSettings")
+});
+// すべてのツールにキャプションを設定します。
+this.ultraToolbarsManager1.Tools["OpenAppointment"].SharedProps.Caption =
+	"Open Appointment";
+this.ultraToolbarsManager1.Tools["SnoozeAppointment"].SharedProps.Caption =
+	"Snooze for 15 minutes";
+this.ultraToolbarsManager1.Tools["DismissAppointment"].SharedProps.Caption =
+	"Dismiss Appointment";
+this.ultraToolbarsManager1.Tools["DisableAlert"].SharedProps.Caption =
+	"Disable Reminder Desktop Alert";
+this.ultraToolbarsManager1.Tools["DesktopAlertSettings"].SharedProps.Caption =
+	"Desktop Alert Settings...";
+// ポップアップ メニューを作成します。
+PopupMenuTool menu = new PopupMenuTool("PopupMenu1");
+// ポップアップ メニューをツール コレクションに追加します。
+this.ultraToolbarsManager1.Tools.Add(menu);
+// メニュー項目をメニューのツール コレクションに追加します。
+menu.Tools.AddToolRange(new string[]
+{
+	"OpenAppointment",
+	"SnoozeAppointment",
+	"DismissAppointment",
+	"DisableAlert",
+	"DesktopAlertSettings"
+});
+// 以下のメニュー項目の上にセパレータの線を追加します。
+menu.Tools["SnoozeAppointment"].InstanceProps.IsFirstInGroup = true;
+menu.Tools["DisableAlert"].InstanceProps.IsFirstInGroup = true;
+menu.Tools["DesktopAlertSettings"].InstanceProps.IsFirstInGroup = true;
+// Snooze ツールと Dismiss ツールの画像を設定します。
+menu.Tools["SnoozeAppointment"].CustomizedImage =
+  new Bitmap(Application.StartupPath + @"\Snooze.gif");
+menu.Tools["DismissAppointment"].CustomizedImage =
+  new Bitmap(Application.StartupPath + @"\Dismiss.gif");
+// WinToolbarManager の ToolClick イベントを処理します。
+this.ultraToolbarsManager1.ToolClick +=
+  new ToolClickEventHandler(this.ultraToolbarsManager1_ToolClick);
+// WinDesktopAlert の DropDownButtonClicked イベントを処理します。
+this.ultraDesktopAlert1.DropDownButtonClicked +=
+  new DropDownButtonClickedHandler(this.ultraDesktopAlert1_DropDownButtonClicked);
+// ドロップダウン ボタンを表示します。これによってエンド ユーザーは
+// このボタンをクリックしてポップアップ メニューを取得します。
+this.ultraDesktopAlert1.DropDownButtonVisible = DefaultableBoolean.True;
+----
+
+[start=2]
+. *WinToolbarManager の ToolClick イベントを処理します。*
+
+前述の詳細なガイドで作成された AlertButtonClicked イベントの後ろに以下のコードを配置します。このコードは、WinToolbarsManager の ToolClick イベントを処理して、エンド ユーザーがツール コレクションの各ツールをクリックすると発生するアクションを決定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraToolbarsManager1_ToolClick _
+      (ByVal sender As System.Object, ByVal e As ToolClickEventArgs) _
+      Handles UltraToolbarsManager1.ToolClick
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraToolbarsManager1_ToolClick(object sender, ToolClickEventArgs e)
+{
+}
+----
+
+EventArgs はツール コレクションに各ツールへの参照を含んでいるため、switch/select ステートメントを使用して簡単に ToolClick イベントを処理できます。予定にアクセスできるようになるには、予定への参照を取得する必要があります。以下のコードを ToolClick イベントを追加します。
+
+*Visual Basic の場合：*
+
+----
+' Appointment オブジェクトへの参照を取得します。
+Dim menuAppointment As Appointment = Me.windowInfo.Data
+----
+
+*C# の場合：*
+
+----
+// Appointment オブジェクトへの参照を取得します。
+Appointment menuAppointment = this.windowInfo.Data as Appointment;
+----
+
+これで Appointment への参照を取得しました。ツールはその参照を使用して、[予定] ダイアログ ボックスを表示したりリマインダを再通知または解除するなどのタスクを実行できます。以下のコードを ToolClick イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+Select Case e.Tool.Key
+	Case "OpenAppointment"
+		Me.UltraCalendarInfo1.DisplayAppointmentDialog(menuAppointment)
+	Case "SnoozeAppointment"
+		menuAppointment.Reminder.Snooze(SnoozeIntervalUnits.Minutes, 15)
+		MessageBox.Show("Reminder snoozed for 15 minutes")
+	Case "DismissAppointment"
+		menuAppointment.Reminder.Enabled = False
+		MessageBox.Show("You will not be reminded about " + menuAppointment.Subject + " again.")
+	Case "DisableAlert"
+		MessageBox.Show("Reminder Desktop Alert disabled")
+	Case "DesktopAlertSettings"
+		MessageBox.Show("Desktop Alert Settings")
+	End Select
+----
+
+*C# の場合：*
+
+----
+switch (e.Tool.Key)
+{
+	case "OpenAppointment":
+		this.ultraCalendarInfo1.DisplayAppointmentDialog(menuAppointment);
+		break;
+	case "SnoozeAppointment":
+		menuAppointment.Reminder.Snooze(SnoozeIntervalUnits.Minutes, 15);
+		MessageBox.Show("Reminder snoozed for 15 minutes");
+		break;
+	case "DismissAppointment":
+		menuAppointment.Reminder.Enabled = false;
+		MessageBox.Show("You will not be reminded about " + 
+		menuAppointment.Subject +
+		" again.");
+		break;
+	case "DisableAlert":
+		// アプリケーションでデスクトップ アラート リマインダを無効にするためのコードを追加します。
+		MessageBox.Show("Reminder Desktop Alert disabled");
+		break;
+	case "DesktopAlertSettings":
+		// 追加のデスクトップ アラート リマインダ設定を使用してダイアログ ボックスを 
+		// 開くためのコードを追加します。
+		MessageBox.Show("Desktop Alert Settings");
+		break;
+}
+----
+
+[start=3]
+. *WinDesktopAlert の DropDownButtonClicked イベントを処理します。*
+
+エンド ユーザーがドロップダウン ボタンをクリックするときにポップアップ メニューを開くことはシンプルでありながら重要なタスクです。しなければならないことは、UltraToolbarsManager の Tools コレクションから PopupMenuTool への参照を取得して、ShowPopup メソッドを呼び出すことによって表示することだけです。ShowPopup メソッドは 6 つのオーバーロードがあります。このシナリオには 3 番目のオーバーロードを使用する必要があります。このオーバーロードは、ポップアップ メニューの左上隅がどこに配置されるのかを決定する Point とポップアップ メニューのオーナーを表すコントロールを受け入れます。ポップアップ メニューの左上隅がドロップダウン ボタンの左下隅と同じ座標になるようにポップアップ メニューを配置したいとします。DropDownButtonClickedEventArgs クラスにはドロップダウン ボタンのバインディングしている矩形を表す ButtonScreenRect オブジェクトが含まれています。ShowPopup メソッドのためのパラメータとして渡すために新しい Point オブジェクトを作成するときに、水平座標には ButtonScreenRect.Left プロパティを使用し、垂直座標には ButtonScreenRect.Bottom プロパティを使用します。
+
+ShowPopup メソッドに渡す次のパラメータはオーナーです。オーナーには EventArgs の WindowInfo.DesktopAlertWindow プロパティを使用します。この手順を実行することは重要です。実行しないと、ポップアップ メニューは常にデスクトップ アラート ウィンドウの背後に表示されます。
+
+WinToolbarsManager の ToolClick イベントの後ろに以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraDesktopAlert1_DropDownButtonClicked _
+  (ByVal sender As System.Object, ByVal e As DropDownButtonClickedEventArgs) _
+  Handles UltraDesktopAlert1.DropDownButtonClicked
+	' ポップアップ メニューへの参照を取得します。
+	Dim menu As PopupMenuTool = Me.UltraToolbarsManager1.Tools("PopupMenu1")
+	' ポップアップ メニューを表示します。
+	Menu.ShowPopup(New Point(e.ButtonScreenRect.Left, e.ButtonScreenRect.Bottom), _
+	  e.WindowInfo.DesktopAlertWindow)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraDesktopAlert1_DropDownButtonClicked(object sender,
+  DropDownButtonClickedEventArgs e)
+{
+	// ポップアップ メニューへの参照を取得します。
+	PopupMenuTool menu =
+	  this.ultraToolbarsManager1.Tools["PopupMenu1"] as PopupMenuTool;
+	// ポップアップ メニューを表示します。
+	menu.ShowPopup(new Point(e.ButtonScreenRect.Left, e.ButtonScreenRect.Bottom),
+	  e.WindowInfo.DesktopAlertWindow);	
+}
+----
+
+[start=4]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行して、[予定の作成] ボタンをクリックします。今回は、デスクトップ アラート リマインダがウィンドウの右上隅の [閉じる] ボタンの左側にドロップダウン矢印が付いて表示します。このドロップダウン ボタンをクリックすると、ポップアップ メニューが表示されます。異なるメニュー項目をクリックして少し試してみてください。ポップアップ メニューがドロップダウン ボタンの左下隅にメニューの左上隅を表示しないことに注意してください。WinDesktopAlert はポップアップ メニューを自動的に再配置します。これはメニュー全体を表示するために十分なスペースがないためです。画面の中央に向けてデスクトップ アラート ウィンドウをドラッグしてドロップダウン ボタンを再度クリックします。今回はポップアップ メニューが予想通りの座標に表示されます。
+
+image::images/WinDesktopAlert_Adding_a_Menu_to_the_Desktop_Alert_Reminders_Dropdown_Button_01.png[]

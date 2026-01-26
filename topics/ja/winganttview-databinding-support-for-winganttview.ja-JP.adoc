@@ -1,0 +1,338 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-databinding-support-for-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": ["Data Binding","How Do I"],
+    "guid": "{D09B3B90-EE6F-47AD-B13A-78F74A13E271}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGanttView のデータバインディング サポート
+
+WinGanttView™ コントロールは、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.projectsdatabinding.html[ProjectsDataBinding] および link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.tasksdatabinding.html[TasksDataBinding] オブジェクトを介したデータバインディングをサポートします。データバインディングをサポートするために、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~databindingsforprojects.html[DataBindingsForProjects] と link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~databindingsfortasks.html[DataBindingsForTasks] という 2 つの新しいプロパティが WinCalendarInfo™ コンポーネントに追加されました。これは、それぞれ ProjectsDataBinding と TasksDataBinding タイプです。
+
+以下のコード例は、WinCalendarInfo コンポーネントの Projects および Tasks コレクションに WinGanttView をバインドする方法を示します。適切なスキーマのある 2 つのデータ テーブルがこの目的のために作成され、適切なメンバーが設定されます。
+
+=== プロジェクト テーブル
+
+[cols="a,a,a,a"]
+|====
+|*ProjectID*
+|*ProjectKey*
+|*ProjectName*
+|*ProjectStartTime*
+
+|Guid.NewGuid()
+|projectKey
+|QuarterlyProject
+|DateTime.Today
+
+|====
+
+=== タスク テーブル
+
+[cols="a,a,a,a,a,a,a,a,a"]
+|====
+|*TaskID*
+|*ProjectKey*
+|*TaskName*
+|*TaskStartTime*
+|*TaskDuration*
+|*ParentTaskID*
+|*TaskConstraint*
+|*TaskPercentComplete*
+|*AllProperties*
+
+|planningTaskid
+|projectKey
+|予定
+|DateTime.Now
+|TimeSpan.FromDays(5)
+|null
+|StartNoEarlierThan
+|null
+|null
+
+|Guid.NewGuid()
+|projectKey
+|予算の分析
+|DateTime.Now
+|TimeSpan.FromDays(2)
+|planningTaskid
+|StartNoEarlierThan
+|null
+|null
+
+|Guid.NewGuid()
+|projectKey
+|チームの割り当て
+|DateTime.Now.AddDays(2)
+|TimeSpan.FromDays(3)
+|planningTaskid
+|StartNoEarlierThan
+|null
+|null
+
+|implementationTaskid
+|projectKey
+|実装
+|DateTime.Now.AddDays(6)
+|TimeSpan.FromDays(16)
+|null
+|StartNoEarlierThan
+|null
+|null
+
+|installationTaskid2
+|projectKey
+|インストール
+|DateTime.Now.AddDays(6)
+|TimeSpan.FromDays(2)
+|implementationTaskid
+|StartNoEarlierThan
+|60
+|null
+
+|Guid.NewGuid()
+|projectKey
+|実行
+|DateTime.Now.AddDays(8)
+|TimeSpan.FromDays(13)
+|implementationTaskid
+|StartNoEarlierThan
+|null
+|null
+
+|testingTaskid
+|projectKey
+|QA
+|DateTime.Now.AddDays(23)
+|TimeSpan.FromDays(20)
+|null
+|StartNoEarlierThan
+|null
+|null
+
+|Guid.NewGuid()
+|projectKey
+|テスト フェーズ 1
+|DateTime.Now.AddDays(23)
+|TimeSpan.FromDays(10)
+|testingTaskid
+|StartNoEarlierThan
+|20
+|null
+
+|Guid.NewGuid()
+|projectKey
+|テスト フェーズ 2
+|DateTime.Now.AddDays(36)
+|TimeSpan.FromDays(9)
+|testingTaskid
+|StartNoEarlierThan
+|null
+|null
+
+|====
+
+UltraGanttView コントロールと UltraCalendarInfo コンポーネントがフォームにドロップされていることを前提とします。フォームの Load イベント内に以下のコードを記述します。
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Win.UltraWinGanttView
+Imports Infragistics.Win.UltraWinSchedule
+' DataSet を作成するメソッドを呼び出します 
+Dim ds As DataSet = Me.GetSampleData()
+' このフォームを参照するには BindingContextControl プロパティを設定します 
+Me.ultraCalendarInfo1.DataBindingsForTasks.BindingContextControl = Me 
+Me.ultraCalendarInfo1.DataBindingsForProjects.BindingContextControl = Me 
+' プロジェクトの DataBinding メンバーを設定します 
+Me.ultraCalendarInfo1.DataBindingsForProjects.SetDataBinding(ds, "Projects") 
+Me.ultraCalendarInfo1.DataBindingsForProjects.IdMember = "ProjectID" 
+Me.ultraCalendarInfo1.DataBindingsForProjects.KeyMember = "ProjectKey" 
+Me.ultraCalendarInfo1.DataBindingsForProjects.NameMember = "ProjectName" 
+Me.ultraCalendarInfo1.DataBindingsForProjects.StartDateMember = "ProjectStartTime" 
+' タスクの DataBinding メンバーを設定します
+Me.ultraCalendarInfo1.DataBindingsForTasks.SetDataBinding(ds, "Tasks") 
+' 基本の Task プロパティ 
+Me.ultraCalendarInfo1.DataBindingsForTasks.NameMember = "TaskName" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.DurationMember = "TaskDuration" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.StartDateTimeMember = "TaskStartTime" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.IdMember = "TaskID" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.ProjectKeyMember = "ProjectKey" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.ParentTaskIdMember = "ParentTaskID" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.ConstraintMember = "Constraint" 
+Me.ultraCalendarInfo1.DataBindingsForTasks.PercentCompleteMember = "TaskPercentComplete" 
+'上記以外のすべてのプロパティ
+Me.ultraCalendarInfo1.DataBindingsForTasks.AllPropertiesMember = "AllProperties"
+' 明示的に定義されたプロジェクト（つまり、UnassignedProject でない）に属するタスクを示しているので、 
+' そのプロジェクトをコントロールの Project プロパティに指定すると、 
+' コントロールはそのプロジェクトを表示することを認識します 
+Me.ultraGanttView1.CalendarInfo = Me.ultraCalendarInfo1 
+Me.ultraGanttView1.Project = Me.ultraGanttView1.CalendarInfo.Projects(1)
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win.UltraWinGanttView;
+using Infragistics.Win.UltraWinSchedule;
+//  DataSet を作成するメソッドを呼び出します
+DataSet ds = this.GetSampleData();
+//  このフォームを参照するには BindingContextControl プロパティを設定します
+this.ultraCalendarInfo1.DataBindingsForTasks.BindingContextControl = this;
+this.ultraCalendarInfo1.DataBindingsForProjects.BindingContextControl = this;
+//  プロジェクトの DataBinding メンバーを設定します 
+this.ultraCalendarInfo1.DataBindingsForProjects.SetDataBinding(ds, "Projects");
+this.ultraCalendarInfo1.DataBindingsForProjects.IdMember = "ProjectID";
+this.ultraCalendarInfo1.DataBindingsForProjects.KeyMember = "ProjectKey";
+this.ultraCalendarInfo1.DataBindingsForProjects.NameMember = "ProjectName";
+this.ultraCalendarInfo1.DataBindingsForProjects.StartDateMember = "ProjectStartTime";
+//  タスクの DataBinding メンバーを設定します
+this.ultraCalendarInfo1.DataBindingsForTasks.SetDataBinding(ds, "Tasks");
+//  基本の Task プロパティ 
+this.ultraCalendarInfo1.DataBindingsForTasks.NameMember = "TaskName";
+this.ultraCalendarInfo1.DataBindingsForTasks.DurationMember = "TaskDuration";
+this.ultraCalendarInfo1.DataBindingsForTasks.StartDateTimeMember = "TaskStartTime";
+this.ultraCalendarInfo1.DataBindingsForTasks.IdMember = "TaskID";
+this.ultraCalendarInfo1.DataBindingsForTasks.ProjectKeyMember = "ProjectKey";
+this.ultraCalendarInfo1.DataBindingsForTasks.ParentTaskIdMember = "ParentTaskID";
+this.ultraCalendarInfo1.DataBindingsForTasks.ConstraintMember = "Constraint";
+this.ultraCalendarInfo1.DataBindingsForTasks.PercentCompleteMember = "TaskPercentComplete";
+//  上記以外のすべてのプロパティ
+this.ultraCalendarInfo1.DataBindingsForTasks.AllPropertiesMember = "AllProperties";
+//  明示的に定義されたプロジェクト（つまり、UnassignedProject でない）に属するタスクを示しているので、
+//  そのプロジェクトをコントロールの Project プロパティに指定すると、
+//  コントロールはそのプロジェクトを表示することを認識します
+this.ultraGanttView1.CalendarInfo = this.ultraCalendarInfo1;
+this.ultraGanttView1.Project = this.ultraGanttView1.CalendarInfo.Projects[1];
+----
+
+以下のメソッドはプロジェクトとタスク メンバーを定義する特定のスキーマでデータ テーブルを作成します。
+
+*Visual Basic の場合:*
+
+----
+Private Function GetSampleData() As DataSet
+    Dim theDataSet As New DataSet()
+    Dim projectKey As String = "projectKey"
+    Dim theProjects As DataTable = theDataSet.Tables.Add("Projects")
+    theProjects.Columns.Add("ProjectID")
+    theProjects.Columns.Add("ProjectKey")
+    theProjects.Columns.Add("ProjectName")
+    theProjects.Columns.Add("ProjectStartTime", GetType(DateTime))
+    ' 各プロジェクト メンバーに値を割り当てます 
+    theProjects.Rows.Add(New [Object]() {Guid.NewGuid(), projectKey, "QuarterlyProject", DateTime.Today})
+    Dim theTasks As DataTable = theDataSet.Tables.Add("Tasks")
+    theTasks.Columns.Add("TaskID")
+    theTasks.Columns.Add("ProjectKey")
+    theTasks.Columns.Add("TaskName")
+    theTasks.Columns.Add("TaskStartTime", GetType(DateTime))
+    theTasks.Columns.Add("TaskDuration", GetType(TimeSpan))
+    theTasks.Columns.Add("ParentTaskID")
+    theTasks.Columns.Add("Constraint", typeof(object))
+    theTasks.Columns.Add("TaskPercentComplete")
+    'Task プロパティは個々のメンバーに対応しています。しかし、データベース領域を節約することができます
+    'AllProperties を使用し、他のフィールドをバインドせずに、バイナリとしてデータを保存する方法です
+    theTasks.Columns.Add("AllProperties", typeof(Byte[]))
+    ' 親タスク 1
+    Dim planningTaskid As Guid = Guid.NewGuid()
+    ' 各タスク メンバーに値を割り当てます 
+    theTasks.Rows.Add(New [Object]() {planningTaskid, projectKey, "Planning", DateTime.Now, TimeSpan.FromDays(5), Nothing,TaskConstraint.StartNoEarlierThan,Nothing})
+    ' 親タスク 1 の子タスク 1
+    theTasks.Rows.Add(New [Object]() {Guid.NewGuid(), projectKey, "Prepare Budget", DateTime.Now, TimeSpan.FromDays(2), planningTaskid,TaskConstraint.StartNoEarlierThan,100})
+    ' 親タスク 1 の子タスク 2
+    theTasks.Rows.Add(New [Object]() {Guid.NewGuid(), projectKey, "Allocate Teams", DateTime.Now.AddDays(2), TimeSpan.FromDays(3), planningTaskid, TaskConstraint.StartNoEarlierThan,   Nothing})
+    ' 親タスク 2
+    Dim implementationTaskid As Guid = Guid.NewGuid()
+    theTasks.Rows.Add(New [Object]() {implementationTaskid, projectKey, "Implementation", DateTime.Now.AddDays(6), TimeSpan.FromDays(16), Nothing,   TaskConstraint.StartNoEarlierThan, Nothing})
+    Dim installationTaskid2 As Guid = Guid.NewGuid()
+    ' 親タスク 2 の子タスク 1
+    theTasks.Rows.Add(New [Object]() {installationTaskid2, projectKey, "Installations", DateTime.Now.AddDays(6), TimeSpan.FromDays(2), implementationTaskid, TaskConstraint.StartNoEarlierThan, 60})
+    ' 親タスク 2 の子タスク 2
+    theTasks.Rows.Add(New [Object]() {Guid.NewGuid(), projectKey, "Execution", DateTime.Now.AddDays(8), TimeSpan.FromDays(13), implementationTaskid,TaskConstraint.StartNoEarlierThan,Nothing})
+    ' 親タスク 3
+    Dim testingTaskid As Guid = Guid.NewGuid()
+    theTasks.Rows.Add(New [Object]() {testingTaskid, projectKey, "Testing", DateTime.Now.AddDays(23), TimeSpan.FromDays(20), Nothing, TaskConstraint.StartNoEarlierThan,Nothing})
+   ' 親タスク 3 の子タスク 1
+    theTasks.Rows.Add(New [Object]() {Guid.NewGuid(), projectKey, "TestPhase1", DateTime.Now.AddDays(23), TimeSpan.FromDays(10), testingTaskid,TaskConstraint.StartNoEarlierThan,
+    20})
+   ' 親タスク 3 の子タスク 2
+    theTasks.Rows.Add(New [Object]() {Guid.NewGuid(), projectKey, "TestPhase2", DateTime.Now.AddDays(36), TimeSpan.FromDays(9), testingTaskid,TaskConstraint.StartNoEarlierThan,
+    Nothing})
+    Return theDataSet
+End Function
+----
+
+*C# の場合:*
+
+----
+private DataSet GetSampleData()
+{
+DataSet theDataSet = new DataSet();
+string projectKey = "projectKey";
+DataTable theProjects = theDataSet.Tables.Add("Projects");
+theProjects.Columns.Add("ProjectID");
+theProjects.Columns.Add("ProjectKey");
+theProjects.Columns.Add("ProjectName");
+theProjects.Columns.Add("ProjectStartTime", typeof(DateTime));
+// 各プロジェクト メンバーに値を割り当てます
+theProjects.Rows.Add(new Object[] { Guid.NewGuid(), projectKey, "QuarterlyProject", DateTime.Today });
+DataTable theTasks = theDataSet.Tables.Add("Tasks");
+theTasks.Columns.Add("TaskID");
+theTasks.Columns.Add("ProjectKey");
+theTasks.Columns.Add("TaskName");
+theTasks.Columns.Add("TaskStartTime", typeof(DateTime));
+theTasks.Columns.Add("TaskDuration", typeof(TimeSpan));
+theTasks.Columns.Add("ParentTaskID");
+theTasks.Columns.Add("Constraint", typeof(object));
+theTasks.Columns.Add("TaskPercentComplete");
+// Task プロパティは個々のメンバーに対応しています。しかし、データベース領域を節約することができます 
+// AllProperties を使用し、他のフィールドをバインドせずに、バイナリとしてデータを保存する方法です
+theTasks.Columns.Add("AllProperties", typeof(Byte[]));
+Guid planningTaskid = Guid.NewGuid();
+// 各タスク メンバーに値を割り当てます
+// 親タスク 1
+theTasks.Rows.Add(new Object[] { planningTaskid, projectKey, "Planning", DateTime.Now, TimeSpan.FromDays(5), null, TaskConstraint.StartNoEarlierThan, null });
+// 親タスク 1 の子タスク 1
+theTasks.Rows.Add(new Object[] { Guid.NewGuid(), projectKey, "Prepare Budget", DateTime.Now, TimeSpan.FromDays(2), planningTaskid,TaskConstraint.StartNoEarlierThan, 100 });
+// 親タスク 1 の子タスク 2
+theTasks.Rows.Add(new Object[] { Guid.NewGuid(), projectKey, "Allocate Teams", DateTime.Now.AddDays(2), TimeSpan.FromDays(3), planningTaskid,TaskConstraint.StartNoEarlierThan, null });
+// 親タスク 2
+Guid implementationTaskid = Guid.NewGuid();
+theTasks.Rows.Add(new Object[] { implementationTaskid, projectKey, "Implementation", DateTime.Now.AddDays(6), TimeSpan.FromDays(16), null, TaskConstraint.StartNoEarlierThan,
+null });
+// 親タスク 2 の子タスク 1
+Guid installationTaskid2 = Guid.NewGuid();
+theTasks.Rows.Add(new Object[] { installationTaskid2, projectKey, "Installations", DateTime.Now.AddDays(6), TimeSpan.FromDays(2), implementationTaskid, 60 });
+// 親タスク 2 の子タスク 2
+theTasks.Rows.Add(new Object[] { Guid.NewGuid(), projectKey, "Execution", DateTime.Now.AddDays(8), TimeSpan.FromDays(13), implementationTaskid, TaskConstraint.StartNoEarlierThan,null });
+Guid testingTaskid = Guid.NewGuid();
+// 親タスク 3
+theTasks.Rows.Add(new Object[] { testingTaskid, projectKey, "Testing", DateTime.Now.AddDays(23), TimeSpan.FromDays(20), null, TaskConstraint.StartNoEarlierThan,null });
+// 親タスク 3 の子タスク 1
+theTasks.Rows.Add(new Object[] { Guid.NewGuid(), projectKey, "TestPhase1", DateTime.Now.AddDays(23), TimeSpan.FromDays(10), testingTaskid,TaskConstraint.StartNoEarlierThan, 20 });
+// 親タスク 3 の子タスク 2
+theTasks.Rows.Add(new Object[] { Guid.NewGuid(), projectKey, "TestPhase2", DateTime.Now.AddDays(36), TimeSpan.FromDays(9), testingTaskid, TaskConstraint.StartNoEarlierThan,null });
+return theDataSet;
+}
+----
+
+image::Images/WinGanttView_DataBinding_Support_for_WinGanttView_01.png[]
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[WinGanttView にタスクを追加]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView の Chart Area で時間間隔を設定]

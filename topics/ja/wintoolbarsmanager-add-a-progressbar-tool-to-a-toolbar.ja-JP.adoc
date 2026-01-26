@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-a-progressbar-tool-to-a-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{DA059044-0C88-4300-BF68-5CF1A905F876}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーへの ProgressBar ツールの追加
+
+WinToolbarsManager コンポーネントにある数種類のツールタイプは、ツールバーに追加することができます。ここでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.progressbartool.html[ProgressBarTool]"]  をデザインタイムおよびランタイムに追加する方法を示します。
+
+[start=1]
+. UltraToolbarsManager コントロールをツールボックスから Windows Formsにドラッグします（すでにドラッグしていれば、この操作は不要です）。ultraToolbarsManager1 コンポーネントがコンポーネント トレイに追加されます。
+[start=2]
+. コンポーネント トレイで ultraToolbarsManager1 コンポーネントが選択されていることを確認します。このコンポーネントが選択されていれば、フォームの左上隅に [新規ツールバー...] ボタンが表示されます。[新規ツールバー...] ボタンをクリックします。
+[start=3]
+. [新規ツールバー...] をクリックすると [新規ツールバー] ダイアログが表示されます。すべての項目をデフォルトのままとして [OK] をクリックします。フォームに新しいツールバーが表示されます。
+[start=4]
+. 新しいツールバーにある [新規ツールの挿入] ボタンをクリックし、コンテキスト メニューから [新規ツールの挿入...] を選択します。[新規ツール] ダイアログが表示されます。
+[start=5]
+. [ツールの種類] ドロップダウン メニューから [ProgressBar] を選択します。残りの項目をデフォルトのままとして [追加] をクリックします。ツールバーに [ProgressBar] ツールが追加されます。[閉じる] をクリックします。
+
+image::images/WinToolbarsManager_Add_a_ProgressBar_Tool_to_a_Toolbar_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+' 新しいツールバーを作成して、これに Toolbars コレクションを追加します。
+Dim ToolBar As New UltraToolbar("MyToolBar")
+Me.UltraToolbarsManager1.Toolbars.AddToolbar("MyToolBar")
+' 新しい ProgressBar ツールを作成して、これを Tools コレクションを追加します。
+Dim ProgressBar As New ProgressBarTool("MyProgressBarTool")
+Me.UltraToolbarsManager1.Tools.Add(ProgressBar)
+' 新しい ProgressBar ツールをツールバーに追加します。
+Me.UltraToolbarsManager1.Toolbars("MyToolBar").Tools.AddTool("MyProgressBarTool")
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+// 新しいツールバーを作成して、これに Toolbars コレクションを追加します。
+UltraToolbar ultraToolbar1 = new UltraToolbar("MyToolBar");
+this.ultraToolbarsManager1.Toolbars.AddToolbar("MyToolBar");
+// 新しい ProgressBar ツールを作成して、これを Tools コレクションを追加します。
+ProgressBarTool progressTool = new ProgressBarTool("MyProgressBarTool");
+this.ultraToolbarsManager1.Tools.Add(progressTool);
+// 新しい ProgressBar ツールをツールバーに追加します。
+this.ultraToolbarsManager1.Toolbars["MyToolBar"].Tools.AddTool("MyProgressBarTool");
+----

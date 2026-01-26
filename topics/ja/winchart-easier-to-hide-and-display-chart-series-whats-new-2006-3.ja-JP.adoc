@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-easier-to-hide-and-display-chart-series-whats-new-2006-3",
+    "controlName": [],
+    "tags": ["Charting"],
+    "guid": "{3D26F1B2-37E5-4F01-BFF2-727BF814DF7F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= チャート シリーズをより簡単に非表示/表示
+
+2006 Volume 3 リリースで、合成チャートまたは非合成チャートでシリーズを非表示または表示することが簡単になるように WinChart コントロールを改善しました。これまで、シリーズを表示または非表示にするためには、 pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.resources.appearance.compositechartappearance~series.html[Series]"]  コレクションからシリーズを追加/削除する必要がありました。2006 Volume 3 では、新しい pick:[win-forms="link:{ApiPlatform}win.ultrawinchart{ApiVersion}~infragistics.ultrachart.data.series.seriesbase~visible.html[Visible]"]  プロパティに Series オブジェクトを追加しました。
+
+この便利な機能によって作業時間が削減されます。Series コレクションからシリーズを追加/削除するのではなく、プロパティを簡単に設定することによって、シリーズを非表示または表示のいずれにも指定できるからです。
+
+== 関連トピック
+
+link:chart-control-the-visibility-of-a-specific-series.html[特定のシリーズの表示をコントロール]

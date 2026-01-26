@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-digital-gauge-in-design-view",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{9472EDF2-E599-4D85-88C2-D5394D63A177}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン ビューでデジタル ゲージを作成
+
+デジタル ゲージは、デジタル腕時計や目覚まし時計と同じようにデータを視覚的に表します。
+
+*デジタル ゲージを  pick:[win-forms="Gauge"]*コントロールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ツールボックスから、UltraGauge コントロールをフォームにドラッグします。
+[start=2]
+. [プロパティ] ウィンドウで、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.win.ultrawingauge.ultragauge~gauges.html[Gauges]"]  プロパティをクリックします。次に省略記号（...）ボタンをクリックして、ゲージ コレクション エディタを開きます。
+[start=3]
+. ゲージ コレクション エディタで、[追加] をクリックして、[セグメント化されたデジタル ゲージを追加] を選択します。
+
+image::images/Gauge_Adding_Digital_Gauge_01.png[]
+
+[start=4]
+. この時点で、デジタル ゲージが追加されましたが、特定のプロパティが設定されていないため表示されません。Gauge コントロールの構成を開始するために、Misc プロパティを展開します。
+[start=5]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~brushelement.html[BrushElement]"]  プロパティをクリックして、新しい BrushElement オブジェクトを作成します。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=6]
+. BrushElement プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.colorstop~color.html[Color]"]  プロパティを Black に設定します。
+[start=7]
+. この時点で、デジタル ゲージが表示されます。
+
+image::images/Gauge_Adding_Digital_Gauge_02.png[]
+
+[start=8]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~bounds.html[Bounds]"]  プロパティを展開することによって、ゲージのサイズを変更します。Width プロパティを 250、Height プロパティを 100 に設定します。
+[start=9]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge~digits.html[Digits]"]  プロパティを 4 に設定します。
+[start=10]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge~fontbrushelement.html[FontBrushElement]"]  プロパティをクリックして、新しい FontBrushElement オブジェクトを作成します。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=11]
+. FontBrushElement プロパティを展開し、Color プロパティを GreenYellow に設定します。
+[start=12]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.segmenteddigitalgauge~unlitbrushelement.html[UnlitBrushElement]"]  プロパティをクリックして、新しい UnlitBrushElement オブジェクトを作成します。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=13]
+. UnlitBrushElement プロパティを展開し、Color プロパティを DarkGreen に設定します。
+[start=14]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge~text.html[Text]"]  プロパティを 1234 に設定します。
+[start=15]
+. プロジェクトを実行します。以下のフォームのように表示されるはずです。
+
+image::images/Gauge_Adding_Digital_Gauge_03.png[]

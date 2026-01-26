@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-collapsible-child-bands",
+    "controlName": [],
+    "tags": [],
+    "guid": "dd9e30ca-dde0-4b75-a3d3-475f271d86c4",  
+    "buildFlags": [],
+    "createdOn": "2016-03-12T19:17:11.1150212Z"
+}
+|metadata|
+////
+
+= 縮小可能な子バンド
+
+UltraGrid では各子バンドのヘッダーに展開インジケーターの表示が可能です。同一の親バンド内に大きいデータセットがある場合、兄弟バンド間のナビゲーションが容易になります。
+
+以下のスクリーンショットでは、兄弟バンドへのナビゲーションを簡単にして、表示されている情報量の簡略化につながる、縮小された子バンドを示しています。
+
+image::images/Collapsible_Child_Bands_1.png[]
+
+== 子バンドへの展開インジケーターの有効化
+
+データをグリッドにバインドする度にレイアウトを保持するためにレイアウトのプロパティを  link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[UltraGrid.InitializeLayout]  イベントで設定します。
+
+[start=1]
+. 階層データソースにバインドされる、兄弟子バンドをもつ WinGrid を作成します。
+[start=2]
+. link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~bandexpansionindicators.html[Layout.BandExpansionIndicators] プロパティを  link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.bandexpansionindicators.html[ShowOnChildBand]に設定します。
+
+以下のコードは、InitializeLayout イベント ハンドラーでプロパティを設定する方法を示します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+     Private Sub UltraGrid1_IniializeLayout(sender As Object, e As InitializeLayoutEventArgs)
+        e.Layout.BandExpansionIndicators = BandExpansionIndicators.ShowOnChildBands
+    End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+    private void UltraGrid1_IniializeLayout(object sender, InitializeLayoutEventArgs e)
+    {
+        e.Layout.BandExpansionIndicators = BandExpansionIndicators.ShowOnChildBands;
+    }
+----

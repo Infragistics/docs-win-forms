@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-api-overview",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": ["API"],
+    "guid": "{95967061-D317-428E-ABBA-6CF3EC417590}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== ExcelExporter 名前空間
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport_namespace.html[Infragistics.Win.UltraWinGrid.DocumentExporter]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter.html[UltraGridDocumentExporter]
+
+=== キー メソッド：
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~export.html[Export]
+
+=== キー イベント：
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~beginexport_ev.html[BeginExport]
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~cellexporting_ev.html[CellExporting]
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~endexport_ev.html[EndExport]
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~initializerow_ev.html[InitializeRow]
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~rowexporting_ev.html[RowExporting]

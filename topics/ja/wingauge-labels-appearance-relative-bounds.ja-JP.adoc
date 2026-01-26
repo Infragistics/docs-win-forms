@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-labels-appearance-relative-bounds",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{4CBC554A-6A4A-4A61-B984-09A16DDC6513}",  
+    "buildFlags": [],
+    "createdOn": "2010-06-04T11:57:53Z"
+}
+|metadata|
+////
+
+= ラベル外観の相対バウンド
+
+[相対バウンド] ペインは、ゲージ上の Labels ブラシ要素のサイズと位置を決定します。
+
+X -- この値は Gauge コントロールの左側からのラベル ブラシ要素の距離を決定します。
+
+Y -- この値は Gauge コントロールの上側からのラベル ブラシ要素の距離を決定します。
+
+Width -- この値はラベル Brush 要素の幅を決定します。
+
+Height -- この値はラベル Brush 要素の高さを決定します。
+
+Units -- この値はラベル Brush 要素の測定の単位を指定します。ラベル Brush 要素は、ピクセルまたは Gauge コントロールのパーセントで測定できます。
+
+image::images/Gauge_Relative_Bounds_Pane_01.png[WinGauge の相対バウンド ペイン]
+
+== 関連トピック
+
+link:wingauge-appearance-tab.html[外観タブ]
+
+link:wingauge-digit-appearance-tab.html[数字外観タブ]
+
+link:wingauge-labels-appearance-tab.html[ラベル外観タブ]
+
+link:wingauge-effects-tab.html[効果タブ]

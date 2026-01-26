@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new-office-2010-black-and-silver-style-libraries",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "81ba5365-037a-41cc-8f44-593886dce4ed",  
+    "buildFlags": [],
+    "createdOn": "2011-08-04T13:48:46.5438662Z"
+}
+|metadata|
+////
+
+= 新しい Office 2010 Black および Silver スタイル ライブラリ
+
+今回の Infragistics® Windows Forms のリリースによって、アプリケーションは Black または Silver Microsoft Office® 2010 のルック アンド フィールを取得できます。2 つの新しいスタイルである、Office 2010 Black および Office 2010 Silver はインスタンスすらジスティックスタイルのスタイル ライブラリに追加されています。StyleSet (ISL ファイル) をアプリケーションにロードして、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.stylemanager.html[StyleManager] クラスの link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.stylemanager~load(string).html[Load] メソッドを使用することによって、この新しいスタイルを利用できます。
+
+== Office 2010 Black
+
+image::images/New_Office_2010_Black_and_Silver_Styles_01.png[]
+
+図 1: Office 2010 Black ISL スタイルを使用した IGProjects ショーケースのサンプル
+
+== Office 2010 Silver
+
+image::images/New_Office_2010_Black_and_Silver_Styles_02.png[]
+
+図 2: Office 2010 Silver ISL スタイルを使用した IGProjects ショーケースのサンプル
+
+== 関連トピック
+
+* link:styling-guide-loading-a-stylelibrary.html[スタイル ライブラリのロード]

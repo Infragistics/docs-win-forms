@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5EAA7D6A-42A1-450A-B140-9350313C118D}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:14:47Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel 2006.3
+
+2006 Volume 3 リリースで追加された新しい WinFormattedLinkLabel™ 機能を学習してください。
+
+* link:winformattedlinklabel-new-image-tag-whats-new-20063.html[新しい画像タグ]
+* link:winformattedlinklabel-new-horizontal-rule-tag-whats-new-20063.html[新しい水平線タグ]
+* link:winformattedlinklabel-new-span-tag-and-style-attribute-whats-new-20063.html[新しいスパン タグと Style 属性]
+* link:winformattedlinklabel-you-can-now-smooth-text-with-anti-aliasing-whats-new-20063.html[アンチエイリアスでテキストを滑らかにする]

@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{A951F479-9063-4B0A-999B-B0205140DA6A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinStatusBar リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列の名前を示しています。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleActionCheck
+|チェックをつける
+
+|AccessibleActionPush
+|押す
+
+|AccessibleActionShowCaretPosDialog
+|脱字の位置ダイアログを表示する
+
+|AccessibleActionUncheck
+|チェックを解除する
+
+|AccessibleDesc_SizeGrip
+|ウィンドーの幅及び高さを変更するために使用できます
+
+|AccessibleName_SizeGrip
+|サイズボックス
+
+|CaretPositionDialogLineNumberCaption
+|行番号 ({0} - {1})(&L)
+
+|CaretPositionDialogMustEnterNumeric
+|数値を入力する必要があります。
+
+|CaretPositionDialogUnableToNavigate
+|テキスト コントロールで指定の行に移動できません。
+
+|CharacterPositionFormatDefault
+|[Line] 行 [Char] 文字
+
+|====

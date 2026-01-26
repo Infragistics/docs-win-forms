@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-getting-to-know-infragistics-appstylist-for-windows-forms",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{6B5E7A59-C69B-488F-B5E0-3760079C4EF7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics AppStylist for Windows Forms について
+
+Infragistics AppStylist for Windows Forms についてよく知ることがプロフェッショナルにテーマ化されたアプリケーションを作成するために不可欠です。Infragistics AppStylist のユーザー インタフェースは、キャンバス、スタイル エクスプローラ、プロパティ パネルの 3 つのセクションに分かれています。これらの各セクションは、アプリケーションのスタイルを支援する独自の機能を提供します。
+
+* link:styling-guide-canvas.html[キャンバス] –- キャンバスは、タブ付きのセクションに分かれており、各セクションにサンプル フォームが含まれています。これらのサンプル フォームには、ユーザー固有のアプリケーションで遭遇する可能性がある Infragistics コントロールおよびコンポーネントの複数の構成が含まれています。 link:styling-guide-roles.html[UI ロール]の外観を変更すると、キャンバスに変更が反映されて表示されます。
+* link:styling-guide-properties-panel.html[プロパティ パネル] –- プロパティ パネルは、UI ロールの外観やその他のコンポーネント特有の設定を変更するところです。プロパティ パネルは単なるコンテナです。プロパティ パネル内には、スタイル エクスプローラのロール ツリーで選択するロールのタイプによって、UI ロール エディタ、コンポーネント ロール エディタ、共有オブジェクト ロール エディタ、リソース エディタがあります。
+* link:styling-guide-style-explorer.html[スタイル エクスプローラ] -– スタイル エクスプローラは Infragistics AppStylist のナビゲータです。スタイル タブを使用して、ツリーを展開してすべての種類のプロパティと設定を変更できます。特定のロールまたは設定をクリックすると、対応するプロパティがプロパティ パネルに表示されます。ここからこれらのロールおよび設定の実際的な外観を変更できます。スタイル エクスプローラのその他の機能には、スタイルセットと link:styling-guide-resources.html[リソース]の管理が含まれます。

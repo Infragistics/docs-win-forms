@@ -1,0 +1,135 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-adding-columns-using-outlook-express-style",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{56D6C723-D18E-4A35-B03D-C4BC5602AECB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Outlook Express スタイルを使用して列を追加
+
+Outlook Express スタイルは、同種のデータがあり、ひとつのバンド内およびすべてのバンドにわたってすべてのデータ行が同じ型の時に使用できます。さらに、WinTree™ コントロールの一番上にはひとつの列ヘッダーのセットしか表示されなくなります。
+
+このトピックは、Outlook Express スタイルでデータが表示される方法を示します。このトピックに示される例は、Newsgroup ユーザー インターフェイスで、ひとつの列にはひとつの階層が含まれており、その階層のすべてのレベルのデータが同じ列を共有し、すべてのノードはひとつの唯一の列ヘッダーのセットの下に終わります。
+
+UltraTree がフォームにドロップされていることが前提となります。
+
+コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+using Infragistics.Win;
+----
+
+フォームの Load イベントに以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+'WinTree コントロールの viewStyle を設定します。 
+Me.ultraTree1.ViewStyle = Infragistics.Win.UltraWinTree.ViewStyle.OutlookExpress 
+'共通の列スキーマを表す ColumnSet を定義します。 
+Dim commonColumnSet As New UltraTreeColumnSet()
+'列を ColumnSet に追加します。 
+commonColumnSet.Columns.Add("News Groups") 
+commonColumnSet.Columns.Add("Number_of_Responses") 
+Me.ultraTree1.ColumnSettings.RootColumnSet = commonColumnSet 
+'最初の親テーブルを保持するノードを定義して、そのノードを WinTree に追加します。 
+Dim parentNode1 As UltraTreeNode = Me.ultraTree1.Nodes.Add("10", "Windows Forms NewsGroups")
+commonColumnSet.Columns("News Groups").CanShowExpansionIndicator = Infragistics.Win.DefaultableBoolean.[True] 
+'最初の親テーブルのためにセル値を設定します。 
+parentNode1.Cells("News Groups").Value = "Windows Forms NewsGroups" 
+parentNode1.Cells("Number_of_Responses").Value = "4978" 
+'最初の子テーブルを保持するノードを定義して、そのノードを最初の親ノードに追加します。 
+Dim winChildNode As UltraTreeNode = parentNode1.Nodes.Add("10~1", "winforms.grid")
+winChildNode.Override.ColumnSet = commonColumnSet 
+'子テーブルのためにセル値を設定します。 
+winChildNode.Cells("News Groups").Value = "Infragistics_for_Windows_forms.grids" 
+winChildNode.Cells("Number_of_Responses").Value = "987" 
+'2 番目の子テーブルを保持するノードを定義して、そのノードを最初の親ノードに追加します。 
+winChildNode = parentNode1.Nodes.Add("10~2", "winforms.doc") 
+winChildNode.Cells("News Groups").Value = "Infragistics_for_Windows_forms.documentation" 
+winChildNode.Cells("Number_of_Responses").Value = "3991" 
+'2 番目の親テーブルを保持するノードを定義して、そのノードを WinTree に追加します。 
+Dim parentNode2 As UltraTreeNode = Me.ultraTree1.Nodes.Add("20", "Web NewsGroups")
+'2 番目の親テーブルのためにセル値を設定します。 
+parentNode2.Cells("News Groups").Value = "Web NewsGroups" 
+parentNode2.Cells("Number_of_Responses").Value = "2764" 
+'最初の子テーブルを保持するノードを定義して、そのノードを 2 番目の親ノードに追加します。 
+Dim webChildNode As UltraTreeNode = parentNode2.Nodes.Add("20~1", "webFroms.Grid")
+webChildNode.Override.ColumnSet = commonColumnSet 
+'子テーブルのためにセル値を設定します。 
+webChildNode.Cells("News Groups").Value = "Infragistics_for_Web_forms.grids" 
+webChildNode.Cells("Number_of_Responses").Value = "958" 
+'2 番目の子テーブルを保持するノードを定義して、そのノードを 2 番目の親ノードに追加します。 
+webChildNode = parentNode2.Nodes.Add("20~2", "webFroms.documentation") 
+webChildNode.Cells("News Groups").Value = "Infragistics_for_Web_forms.documentation" 
+webChildNode.Cells("Number_of_Responses").Value = "1806"
+----
+
+*C# の場合：*
+
+----
+//WinTree コントロールの viewStyle を設定します。
+this.ultraTree1.ViewStyle = Infragistics.Win.UltraWinTree.ViewStyle.OutlookExpress;
+//共通の列スキーマを表す ColumnSet を定義します。
+UltraTreeColumnSet commonColumnSet = new UltraTreeColumnSet();
+//列を ColumnSet に追加します。
+commonColumnSet.Columns.Add("News Groups");
+commonColumnSet.Columns.Add("Number_of_Responses");
+this.ultraTree1.ColumnSettings.RootColumnSet = commonColumnSet;
+//最初の親テーブルを保持するノードを定義して、そのノードを WinTree に追加します。
+UltraTreeNode parentNode1 = this.ultraTree1.Nodes.Add("10", "Windows Forms NewsGroups");
+commonColumnSet.Columns["News Groups"].CanShowExpansionIndicator = Infragistics.Win.DefaultableBoolean.True;
+//最初の親テーブルのためにセル値を設定します。 
+parentNode1.Cells["News Groups"].Value = "Windows Forms NewsGroups";
+parentNode1.Cells["Number_of_Responses"].Value = "4978";
+//最初の子テーブルを保持するノードを定義して、そのノードを最初の親ノードに追加します。 
+UltraTreeNode winChildNode = parentNode1.Nodes.Add("10~1", "winforms.grid");
+winChildNode.Override.ColumnSet = commonColumnSet;
+//子テーブルのためにセル値を設定します。
+winChildNode.Cells["News Groups"].Value = "Infragistics_for_Windows_forms.grids";
+winChildNode.Cells["Number_of_Responses"].Value = "987";
+//2 番目の子テーブルを保持するノードを定義して、そのノードを最初の親ノードに追加します。 
+winChildNode = parentNode1.Nodes.Add("10~2", "winforms.doc");
+winChildNode.Cells["News Groups"].Value = "Infragistics_for_Windows_forms.documentation";
+winChildNode.Cells["Number_of_Responses"].Value = "3991";
+//2 番目の親テーブルを保持するノードを定義して、そのノードを WinTree に追加します。
+UltraTreeNode parentNode2 = this.ultraTree1.Nodes.Add("20", "Web NewsGroups");
+//2 番目の親テーブルのためにセル値を設定します。
+parentNode2.Cells["News Groups"].Value = "Web NewsGroups";
+parentNode2.Cells["Number_of_Responses"].Value = "2764";
+//最初の子テーブルを保持するノードを定義して、そのノードを 2 番目の親ノードに追加します。
+UltraTreeNode webChildNode = parentNode2.Nodes.Add("20~1", "webFroms.Grid");
+webChildNode.Override.ColumnSet = commonColumnSet;
+//子テーブルのためにセル値を設定します。
+webChildNode.Cells["News Groups"].Value = "Infragistics_for_Web_forms.grids";
+webChildNode.Cells["Number_of_Responses"].Value = "958";
+//2 番目の子テーブルを保持するノードを定義して、そのノードを 2 番目の親ノードに追加します。 
+webChildNode = parentNode2.Nodes.Add("20~2", "webFroms.documentation");
+webChildNode.Cells["News Groups"].Value = "Infragistics_for_Web_forms.documentation";
+webChildNode.Cells["Number_of_Responses"].Value = "1806";
+----
+
+image::Images/WinTree_Adding_Columns_Using_Outlook_Express_Style_01.png[]
+
+== 関連トピック
+
+* link:wintree-adding-columns-using-freeform-style.html[Freeform スタイルを使用して列を追加]
+
+* link:wintree-displaying-wintree-with-columns-in-grid-style.html[Grid スタイルで列を持つ WinTree を表示]

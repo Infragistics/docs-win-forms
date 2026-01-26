@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-application-styling-whats-new-20062",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A424F190-3E99-4564-A5EC-EDD53DE7A330}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーション スタイリング 2006.2
+
+以下のリンクをクリックすることによって、2006 Volume 2 リリースで {ProductName} に追加された新しい Application Styling Framework を学習してください。
+
+* link:win-application-styling-framework-whats-new-2006-2.html[新しい Application Styling Framework]

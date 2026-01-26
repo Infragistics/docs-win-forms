@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-expanding-grouped-records",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Navigation"],
+    "guid": "{50255DF3-EBF7-4F90-987E-40FBE67D522E}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グループ化された行の展開の構成
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowexpansionstyle.html[GroupByRowExpansionStyle]"]  プロパティを使用すると、エンド ユーザーが GroupBy 行を展開する方法を指定できます。デフォルトで、GroupBy 行の展開インジケータをクリックする、GroupBy 行をダブルクリックする、またはキーボードを使用するのいずれかを実行することによって、GroupBy 行を展開できます。これらすべての展開オプションによって、ユーザーは "Disabled" を除きキーボードで展開を切り替えることができます。
+
+== GroupByRowExpansionStyle プロパティにアクセスするには:
+
+[start=1]
+. デザインタイムに WinGrid を右クリックして、コンテキスト メニューから [UltraWinGrid デザイナ] を選択します。
+[start=2]
+. デザイナの左側で、[コントロール設定] オプションを選択します。下にスクロールして pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  プロパティを展開します。Override プロパティが表示されるまで下スクロールして、プロパティを展開します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~override.html[Override]"]  プロパティの中で GroupByRowExpansionStyle プロパティが表示されるまで下にスクロールします。 
+
+このプロパティには 4 つの設定があります。
+
+** *ExpansionIndicatorAndDoubleClick* - 展開インジケータを使用するか、GroupBy 行をダブルクリックすることによって、グループ行を展開/縮小できます。これがデフォルトの動作です。
+** *ExpansionIndicator* - GroupBy 行の展開インジケータを使用してグループ行を展開/縮小できます。
+** *DoubleClick* - グループ行をダブルクリックすることによってグループ行を展開/縮小できます。この設定を使用した場合、グループ行の展開インジケータは表示されません。
+** *Disabled* - エンド ユーザーはマウスとキーボードのどちらによってもグループ行を展開/縮小できません。
+
+GroupByRowExpansionStyle を "Disabled" に設定すると、エンド ユーザーはグループ行を展開/縮小できなくなります。この場合、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowinitialexpansionstate.html[GroupByRowInitialExpansionState]"]  プロパティは "Expanded" に解決されます。これは、列がグループ化されている場合、すべての GroupBy 行が初期状態で展開されることを意味します。GroupByRowExpansionStyle の設定にかかわらず、GroupByRowInitialExpansionState プロパティを設定することで、グループの作成時に GroupBy 行をどのように表示するかを指定できます。
+
+GroupByRowExpansionStyle を DoubleClick に設定し、列でグループ化を実行すると、WinGrid は次のスクリーンショットのようになります。GroupBy 行に展開インジケータがないことに注意してください。
+
+image::Images/WinGrid_GroupBy_Expansion_Options_01.png[]

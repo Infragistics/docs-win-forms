@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-initializechecked-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{09657979-760E-43CE-B78B-3FAE1E226919}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= InitializeChecked
+
+InitializeChecked メソッドが、StateButtonTool と PopupToolBase の 2 つのクラスに追加されました。このメソッドを使用すると、ToolClick イベントをトリガーせずに Checked プロパティを設定できます。

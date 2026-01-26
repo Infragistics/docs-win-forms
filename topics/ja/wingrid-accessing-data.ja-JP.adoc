@@ -1,0 +1,28 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-accessing-data",
+    "controlName": ["WinGrid"],
+    "tags": ["Data Binding","Grids"],
+    "guid": "{0DD08668-CA23-4035-A920-2F6424059B5F}",
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:26:02Z"
+}
+|metadata|
+////
+
+= データへのアクセス™ 
+
+コントロールの主要な目的はデータを表示または入力することです。以下のリンクをクリックしてデータにアクセスおよび取得するさまざまな方法について学習します。
+
+* link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[WinGrid をフラット データ ソースにバインドする]
+* link:wingrid-binding-to-program-generated-flat-data.html[プログラムで生成したフラット データへのバインド]
+* link:wingrid-binding-wingrid-to-a-hierarchical-data-source-clr2.html[WinGrid を階層データ ソースにバインドする]
+* link:wingrid-binding-to-program-generated-hierarchical-data.html[プログラムで生成した階層的データへのバインド]
+* link:wingrid-binding-wingrid-to-data-using-linq-to-sql.html[Linq to SQL を使用して WinGrid をデータにバインド]
+* link:wingrid-using-windatasource.html[WinDataSource の使用]
+* link:wingrid-generic-lists.html[汎用リスト]
+* link:wingrid-choosing-a-data-source-for-your-application.html[アプリケーションのデータ ソースの選択]
+* link:wingrid-ilist-and-ibindinglist.html[IList と IBindingList]
+* link:wingrid-retrieving-value-from-a-specific-cell.html[特定のセルからの値の取得]
+* link:wingrid-getting-excel-formula-values-into-wingrid.html[Excel 値を WinGrid に取得]

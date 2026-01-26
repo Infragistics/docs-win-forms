@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator-understanding-winactivityindicator",
+    "controlName": ["WinActivityIndicator"],
+    "tags": [],
+    "guid": "{943BDB90-9848-4AE5-B9EF-307711598EB0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinActivityIndicator の理解
+
+WinActivityIndicator™ コントロール、およびその主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinActivityIndicator コントロールを使用することの利点を理解できます。
+
+WinActivityIndicator コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winactivityindicator-about-winactivityindicator.html[WinActivityIndicator について] -- WinActivityIndicator コントロールの概要を説明しています。
+* link:winactivityindicator-winactivityindicator-smart-tag.html[WinActivityIndicator スマート タグ] -- WinActivityIndicator コントロールのスマート タグで表示されるプロパティと設定について説明しています。

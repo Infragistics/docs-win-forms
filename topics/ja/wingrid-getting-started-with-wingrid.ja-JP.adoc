@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-getting-started-with-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{89D0A48A-0F98-4DD0-B291-4CB7B95D8137}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid で作業を開始
+
+以下のリンクをクリックすると、WinGrid コントロールをすばやく開始、実行する方法がわかります。
+
+* link:wingrid-adding-wingrid-to-a-form.html[WinGrid をフォームに追加] -- WinGrid コントロールを Windows Formsに追加する方法、およびデータを作成し、WinGrid コントロールにバインドする方法について説明します。
+* link:wingrid-using-the-wingrid-designer.html[WinGrid デザイナーの使用]

@@ -1,0 +1,103 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-positioning-column-summaries",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Summaries"],
+    "guid": "{F36B884B-AF1A-4A69-BC1E-92B51AE5EFD1}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列集計の配置
+
+== バックグラウンド
+
+デフォルトで、列で計算を実行すると、列計算の結果は対応する列の真下に表示されます。このトピックでは、集計を操作して集計領域内のさまざまな位置に表示する方法を示します。
+
+== 質問
+
+* 列集計を列の下以外の位置に表示するには、どうすればいいですか?
+
+== 解決策
+
+集計を別の位置に移動するには、SummaryPosition プロパティを設定します。このプロパティは、SummariesCollection を通じて、または Summary をこのコレクションに追加するときに、設定できます。
+
+集計機能をユーザーに提供するためには、列の AllowRowSummaries プロパティを True に設定する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Country").AllowRowSummaries = _
+  AllowRowSummaries.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["Country"].AllowRowSummaries = 
+  AllowRowSummaries.True;
+----
+
+これで、この列の集計を SummariesCollection に追加できます。これには Add メソッドを使用し、実行する計算の種類、使用する列、および集計の位置をパラメータとして渡します。必要でないパラメータには "Nothing" を渡します。この CustomSummaryCalculator パラメータと SummaryPositionColumn パラメータはそれぞれ、カスタムの集計が必要な場合、または SummaryPosition が UseColumn の場合に使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Me.UltraGrid1.DisplayLayout.Bands(0).Summaries.Add(SummaryType.Minimum, _
+  Nothing, Me.UltraGrid1.DisplayLayout.Bands(0).Columns("Country"), SummaryPosition.Left, _
+  Nothing)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+this.ultraGrid1.DisplayLayout.Bands[0].Summaries.Add(SummaryType.Minimum, null, 
+  this.ultraGrid1.DisplayLayout.Bands[0].Columns["Country"], SummaryPosition.Left, 
+  null);
+----
+
+上のコードでは、集計は集計領域の最も左に配置されます。前述したように、SummaryPosition プロパティは Summaries コレクションを通じて設定することもできます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Me.UltraGrid1.DisplayLayout.Bands(0).Summaries(0).SummaryPosition = _
+  SummaryPosition.Center
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+this.ultraGrid1.DisplayLayout.Bands[0].Summaries[0].SummaryPosition = 
+  SummaryPosition.Center;
+----
+
+The Caption in the Summary area can also be changed by setting the SummaryFooterCaption property.
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).SummaryFooterCaption = "My Sums"
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].SummaryFooterCaption = "My Sums";
+----

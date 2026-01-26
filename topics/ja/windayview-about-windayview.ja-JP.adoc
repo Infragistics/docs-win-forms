@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "windayview-about-windayview",
+    "controlName": ["WinDayView"],
+    "tags": ["Getting Started"],
+    "guid": "{87F3B75B-79DB-43EE-BB9A-983CC27F4B4F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDayView について
+
+WinDayView コントロールは、タイムスロット指向のビューで個々の日に関する情報を表示します。以下に WinDayView で使用できる機能の一部について説明します。
+
+* 表示 -- エンド ユーザーが 1 日ごと、または数日間について予約、メモ、オーナーなどの項目を表示することを可能にします。
+* 追加/更新/削除 -- WinCalendarInfo コンポーネントを使用して予約、メモ、オーナー、その他の項目の追加、更新、削除を可能にします。
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。外観の中には、コントロール レベルで設定できるものと、WinCalendarLook コンポーネントを使用して設定できるものとがあります。
+* 組み込みテーマ - WinCalendarLook コンポーネントにより、標準、Office 2003、Visual Studio 2005、Office 2007 のテーマをサポートします。
+
+image::images/WinDayView_About_WinDayView_01.png[]

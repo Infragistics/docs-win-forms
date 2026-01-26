@@ -1,0 +1,101 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-statebutton",
+    "controlName": ["WinStatusBar"],
+    "tags": ["Events","How Do I","Styling"],
+    "guid": "{3FE25F8B-F3ED-4C86-959C-96A1FE932DF1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを StateButton に設定
+
+WinStatusBar の StateButton スタイルは、Microsoft Word において、使用されるテキストが太字か下線付きか、などの設定に使用されているボタンと同様に機能します。StateButton スタイルのボタンは、押されているか、または押されていないかの、2 つの状態のどちらかを示します。このスタイルを持つ特定のパネルの Checked プロパティは、StateButton のステータスを返します（押されている場合は「True」、押されていない場合は「False」）。
+
+StateButton スタイルのパネルをデザインタイムに設定するには：
+
+[start=1]
+. WinStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  プロパティが表示されるまでプロパティをスクロールします。Style プロパティを StateButton に設定します。
+[start=5]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~text.html[Text]"]  プロパティに、ステータス バーのデフォルトのテキスト値を設定します。
+[start=6]
+. [OK] をクリックしてウィンドウを閉じると、パネルが StateButton としてステータス バーに追加されます。
+
+ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub WinStatusBarQuickTourStateButtonPanel_Load(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles MyBase.Load
+' 新しいパネルを作成します。
+Dim myPanel As New UltraStatusPanel()
+' パネルのスタイルを設定します。
+        myPanel.Style = PanelStyle.StateButton
+' デフォルト テキストを設定します。
+        myPanel.Text = "StateButton"
+' パネルをエレメントに追加します。
+Me.UltraStatusBar1.Panels.Add(myPanel)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void WinStatusBarQuickTourStateButtonPanel_Load(object sender, System.EventArgs e)
+{
+// 新しいパネルを作成します。
+        UltraStatusPanel myPanel = new UltraStatusPanel();
+// パネルのスタイルを設定します。
+        myPanel.Style = PanelStyle.StateButton;
+// デフォルト テキストを設定します。
+        myPanel.Text="StateButton";
+// パネルをエレメントに追加します。
+this.ultraStatusBar1.Panels.Add(myPanel);
+}
+----
+
+== StateButton スタイルのパネルに対するイベント
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatusbar~buttonclick_ev.html[ButtonClick]"]  イベントでは、どのボタンがクリックされたかを調べるために利用できるパネル パラメータが渡されます。次のコードは、この Panel パラメータと pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~checked.html[Checked]"]  プロパティを使用して StateButton のステータスを調べ、それに応じた処理を実行します。ボタンが押されている場合は（Checked = "true"）、テキストボックスの前景色が黒になり、押されていない場合は前景色が青になります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraStatusBar1_ButtonClick(ByVal sender As Object, _
+ByVal e As Infragistics.Win.UltraWinStatusBar.PanelEventArgs) _
+Handles UltraStatusBar1.ButtonClick
+If e.Panel.Index = 1 And e.Panel.Checked Then
+Me.TextBox1.ForeColor = Color.Black
+Else
+Me.TextBox1.ForeColor = Color.Red
+End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraStatusBar1_ButtonClick(object sender, 
+  Infragistics.Win.UltraWinStatusBar.PanelEventArgs e)
+{
+if (e.Panel.Index == 1 && e.Panel.Checked)
+this.textBox1.ForeColor = Color.Black;
+else 
+this.textBox1.ForeColor = Color.Red;
+}
+----

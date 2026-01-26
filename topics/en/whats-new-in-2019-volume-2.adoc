@@ -1,0 +1,85 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2019 Volume 2
+
+toc::[]
+
+=== Data Chart - Axis Annotations
+
+You are now able to add annotations to each Value Overlay, in addition customize the background, foreground, outline, stroke thickness for all chart layers. This can help you to emphasize and clearly visualize important trends and datapoints.
+
+image::Images/axis_annotations.png[]
+ 
+=== Dock Manager - Right To Left support
+
+The UltraDockManager now has been updated to support when RightToLeft and RightToLeftLayout form-level properties are enabled, see link:https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/bi-directional-support-for-windows-forms-applications[For enabling form-level RightToLeft on MSDN]
+
+=== .NET Core 3 Support & Limitations
+
+A new environment to use Infragistics controls is now available! As of version 2019.2, our assemblies now have support for the .NET Core 3.0 environment through NuGet.
+
+For some advantages of .NET Core 3.0, please visit link:https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-core-3-0[this MSDN article on Microsoft's site].
+
+*Visual Studio Toolbox*
+ 
+The Visual Studio Toolbox will not be available. It's recommended to have a .NET Framework project in parallel with the NetCore project.
+
+*Soap* 
+
+Many of the Infragistics Windows Forms control have method for saving and loading various properties and settings to and from Xml and Binary.  
+
+Saving and loading to/from Xml requires the System.Runtime.Serialization.Formatters.Soap namespace, which does not exist in Net Core 3. 
+
+Therefore, all methods that allow saving or loading data to Xml via Soap have been removed. The save and load methods for binary are still in place.  
+
+ 
+
+*UltraInkProvider*
+
+The Microsoft.Ink assembly, upon which UltraInkProvider depends, is part of the link:https://msdn.microsoft.com/en-us/library/ms840464.aspx[Tablet PC Platform SDK], which is part of link:http://windows.microsoft.com/en-us/windows/xp-downloads#2TC=featured[Microsoft® Windows® XP], which is no longer supported by Microsoft. 
+
+As a result, Infragistics support for the InkProvider was retired in v15.1.  
+
+Since NetCore 3 does not include Ink support, there is no InkProvider assembly for NetCore.  
+
+The ShowInkButton enum and any references to it have been removed.  
+
+ 
+
+*Reports (PDF/XPS)* 
+
+The CreateGraphics method of the Canvas has been removed, because there is no support or creating TransparentProxies in Net Core.  
+
+ 
+
+*Diagnostics* 
+
+The Diagnostics assembly relies on System.Web.Services, which is not available in Net Core 3.  So the Dialognostics assembly has been removed.  
+
+ 
+
+*FlatDataSource* 
+
+The Flat DataSource can connect to data in two ways:  
+
+* FlatDataSourceAdapterType.Sql 
+* FlatDataSourceAdapterType.OleDb 
+
+Net Core has no support for OleDb. So the OleDb option does not exist in the Net Core version of the assemblies. 
+
+*UltraWinChart and UltraWinGauge* 
+
+These controls were deprecated in favor of newer controls like UltraDataChart and UltraGauge. They are not offered in Net Core.  
+
+ 
+
+*AppStylist* 
+
+The AppStylistRuntime component is included in NetCore. But the AppStylist executable is not, since NuGet distribution does not allow for this.  

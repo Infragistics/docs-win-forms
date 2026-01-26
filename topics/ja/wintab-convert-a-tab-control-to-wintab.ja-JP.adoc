@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-convert-a-tab-control-to-wintab",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{4EE477C0-F06A-42F0-94C9-E54A6669AA16}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Tab コントロールを WinTab に変換する
+
+既存の TabControl を WinTab に変換するには、次の手順に従います。
+
+[start=1]
+. 既存の TabControl のあるフォームを開きます。
+[start=2]
+. UltraTabControl をフォームに追加します。
+[start=3]
+. UltraTabControl を右クリックし、[タブ コントロールの変換...] を選択します。次のダイアログが表示されます。
+
+image::Images/WinTabs_Convert_a_Tab_Control_to_WinTab_01.png[]
+
+[start=4]
+. 変換する TabControl と変換オプションを選択して、[OK] ボタンを押します。
+
+[NOTE]
+====
+*注：* TabControl に関連する既存のコードは変換されません。
+====

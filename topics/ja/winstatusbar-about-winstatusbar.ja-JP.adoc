@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-about-winstatusbar",
+    "controlName": ["WinStatusBar"],
+    "tags": ["Getting Started"],
+    "guid": "{8EC7FF58-087C-44BD-AC23-79D42B1D90D5}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinStatusBar について
+
+WinStatusBar の主な機能の一覧を次に示します。
+
+* *13 のパネル スタイル --* UltraStatusBarは、最も一般的な StatusBar の使用例にあわせて13 種類の異なるパネル スタイルを提供します。
+* *複数のパネル サイズ モード --*  pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel.html[UltraStatusPanel]"]  は pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~sizingmode.html[SizingMode]"]  プロパティを提供して、パネルのサイズをどのように設定するかを決定します。パネルのサイズ モードには、幅を固定する、内容に基づいてサイズを設定する、使用可能な領域全体を占めるように拡大する、サイズ変更を許可する、などがあります。
+* *パネルのサイズ変更* -- ランタイムとデザインタイムの両方でサポートされます。
+* *SizeGrip --*  サイズ設定機能を任意のコンテナに追加します。
+* *XP テーマのサポート --*  Windows XP のテーマ外観を StatusBar とそのパネルに自動的に追加します。マニフェストは不要です。
+* *ViewStyle* - Visual Studio 2005、Office 2003、Office 2007、または標準スタイル表示のいずれかにデフォルトの外観を変更するために使用できるコンポーネントのひとつのプロパティ（ViewStyle）。

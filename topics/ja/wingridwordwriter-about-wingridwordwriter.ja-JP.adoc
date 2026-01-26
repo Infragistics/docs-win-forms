@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridwordwriter-about-wingridwordwriter",
+    "controlName": ["WinGridWordWriter"],
+    "tags": ["Events","Exporting","How Do I"],
+    "guid": "e504bbd2-65ed-470b-9f6f-4a2280dd325f",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T15:19:31.430043Z"
+}
+|metadata|
+////
+
+= WinGridWordWriter について
+
+WinGridWordWriter™ コンポーネントと使用する場合、WinGrid™ コントロールは、新しい Microsoft® Word ドキュメントにデータを書き出すことができます。Word 形式にエクスポートするプロセスは、エクスポート前にレイアウトと外観をデータにどのように適用するかを制御する点で、グリッド データを印刷するプロセスに似ています。さらに、エクスポートにどのデータが含まれるのか、除外されるのかを制御できます。エクスポートはグリッドデータに制限されません。ヘッダー、列グループ、集計行などをすべて含めることができます。
+
+WinGrid データを新しい Word ドキュメントに書き出すために、WinGridWordWriter コンポーネントがアプリケーションに最初に追加されます。WinGridWordWriter コンポーネントでは、 Infragistics.Win.UltraWinGrid.WordWriter および Infragistics.Documents.IO という 2 つのアセンブリへの参照が必要です。このコンポーネントによって、Infragisitcs.Documents.IO アセンブリ内の新しい link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] オブジェクトに基づきエクスポートできます。WordDocumentWriter オブジェクトを使用すると、UltraWinGrid コントロールはメモリにドキュメントを作成することなく直接ファイルにエクスポートされます。ストリーマーを使用するこのアプローチは便利です。このプロセスは、少ない RAM を使用して大きなデータ セットをエクスポートすることで生ずるメモリ問題を回避するからです。
+
+[NOTE]
+====
+*注:* このストリーマーは新しいドキュメントを作成するだけなので、WinGrid コントロールから既存の Word ドキュメントにデータをエクスポートすることはできません。
+====
+
+グリッド データの Word ドキュメントへの書き出しは、WinGridWordWriter コンポーネントの link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~export.html[Export] メソッドを起動することによって開始され、ファイル名またはストリームまたは WordDocumentWriter オブジェクトをオーバーロードとしてエクスポートしたい WinGrid コントロールにそれを渡します。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// WinGridWordWriter で Export メソッドを呼び出し、
+// Grid コントロールと WordDocumentWriter オブジェクトをパラメーターとして渡します
+this.ultraGridWordWriter1.Export(ultraGrid1, "C:\Samples_Projects\GridDataInWord.docx");
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' WinGridWordWriter で Export メソッドを呼び出し、
+' Grid コントロールと WordDocumentWriter オブジェクトをパラメーターとして渡します
+Me.ultraGridWordWriter1.Export(ultraGrid1, "C:\Samples_Projects\GridDataInWord.docx")
+----
+
+さらに、WinGridWordWriter コンポーネントは以下のようなさまざまなイベントを公開しています。
+
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~exportstarted_ev.html[ExportStarted]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~initializerow_ev.html[InitializeRow]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~cellexporting_ev.html[CellExporting]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~rowexporting_ev.html[RowExporting]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~headercellexporting_ev.html[HeaderCellExporting]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~headerrowexporting_ev.html[HeaderRowExporting]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~summarycellexporting_ev.html[SummaryCellExporting]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~summaryrowexporting_ev.html[SummaryRowExporting]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~exportended_ev.html[ExportEnded]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~exportending_ev.html[ExportEnding]
+
+これらのイベントは、エクスポート処理できめ細かい制御を行う手助けとなります。
+
+== 関連トピック
+
+* link:wingridwordwriter-export-multiple-wingrid-to-word.html[複数の WinGrids を Word にエクスポート]
+* link:wingridwordwriter-export-wingrid-with-paragraphs-to-word.html[段落がある WinGrid を Word にエクスポート]

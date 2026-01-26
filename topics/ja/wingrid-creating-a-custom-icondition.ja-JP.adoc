@@ -1,0 +1,212 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-creating-a-custom-icondition",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{C8507D39-1142-4487-ACEE-E4C15279D2C9}",  
+    "buildFlags": [],
+    "createdOn": "2008-03-11T17:05:19Z"
+}
+|metadata|
+////
+
+= カスタム ICondition の作成
+
+*始める前に*
+
+条件フォーマッティングはさまざまな実装の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.icondition.html[ICondition]"]  インタフェースに依存します。条件フォーマッティングの作業をする時に、いくつかの含まれている条件の中から選択できます。カスタムの条件を作成しなければならない場合があります。このトピックは、固有のカスタムの ICondition 実装を作成する方法を示します。このインタフェースは、値の比較先の条件を実装するために使用できます。これはシンプルな実装ですが、より複雑かつ高度な条件を作成できるようにこのインタフェースを実装するために必要となる事柄の基本を学習します。ICondition インタフェースを実装するために必要なのは、クラスに pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.icondition~matches.html[Matches]"]  メソッドと pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.icondition~propertychanged_ev.html[PropertyChanged]"]  イベントを含むことだけです。
+
+*達成すること*
+
+この詳細なガイドでは、ICondition インタフェースを実装することによってカスタム条件を作成する方法を学習します。この詳細なガイドは WinGrid™ セルで文字列値を単に一致させるように設計されている、MyCustomCondition という名前のクラスを参照します。セルの値が一致する場合、条件に添付された Appearance オブジェクトが Grid Cell に適用されます。
+
+*次の手順を実行します*
+
+[start=1]
+. コードの記述を開始する前にコードビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常にタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+Using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. Visual Studio® Toolbox から UltraGrid をドラッグしてフォームにドロップします。UltraGrid コントロールを Northwind データベースの Customers テーブルにバインドします。WinGrid™ のデータソースへのバインドの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+[start=3]
+. UltraButton と Textbox をフォームに追加します。Button のテキスト プロパティに "Change Condition Text" と記述します。
+[start=4]
+. ICondition インタフェースを実装する MyCustomCondition という名前の Class ファイルを作成します。このクラスには Matches メソッドと ICondition インタフェースのメンバーとなる PropertyChanged イベントを実装するコードが含まれます。また、一致する文字列を条件に提供することを目的として、プロパティ ValueToCheck が公開されています。ValueToCheck プロパティ setter が値を割り当てられると、常に PropertyChanged イベントを発生させます。MyCustomCondition クラス内で以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+''' この特定のクラスはセル値が一致しなければならない値を表す 
+''' 文字列を必要とします。 
+''' </summary> 
+''' <param name="theValueToCheck"></param> 
+Public Sub New(theValueToCheck As String)   
+  _valueToCheck = theValueToCheck 
+End Sub 
+'このプロパティによって値を変更する機能は 
+'ランタイムにチェックすることが可能となります。 
+Private _valueToCheck As String = String.Empty 
+Public Property ValueToCheck() As String    
+   Get         
+    Return _valueToCheck    
+   End Get         
+   Set         
+     _valueToCheck = value      
+     '非常に重要: チェックされた値はランタイムに  
+     '変更可能であるため、値が変更する時にすべてのセルを        
+     '再評価することが必要となります。これは        
+     'PropertyChanged イベントを発生させたい時です。      
+     RaiseEvent PropertyChanged(Me, New EventArgs())    
+   End Set 
+End Property
+----
+
+*C# の場合：*
+
+----
+/// この特定のクラスはセル値が一致しなければならない値を表す 
+        /// 文字列を必要とします。 
+        /// </summary>
+        /// <param name="theValueToCheck"></param>
+        public MyCustomCondition(string theValueToCheck)
+        {
+            _valueToCheck = theValueToCheck;
+        }
+        //このプロパティによって値を変更する機能は  
+        //ランタイムにチェックすることが可能となります。 
+        private string _valueToCheck = string.Empty;
+        public string ValueToCheck
+        {
+            get
+            {
+                return _valueToCheck;
+            }
+            set
+            {
+                _valueToCheck = value;
+                //非常に重要: チェックされた値はランタイムに 
+                //変更可能であるため、値が変更する時にすべてのセルを
+                //再評価することが必要となります。これは        
+                //PropertyChanged イベントを発生させたい時です。 
+                if (PropertyChanged != null)
+                {
+                    this.PropertyChanged(this, new EventArgs());
+                }
+            }
+        }
+----
+
+[start=5]
+. Matches メソッドは、PropertyChanged イベントが発生した時に WinGrid によって呼び出されます。このメソッドはエンドユーザーが Textbox に入力するものが何であっても valueToCheck プロパティに対して ContactTitle 列内の各セルをチェックします。
+
+Matches メソッドに以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+'_valueToCheck = "Owner"; 
+If value IsNot Nothing Then     Return 
+  (value.ToString().Equals(_valueToCheck)) 
+End If
+ Return False
+----
+
+*C# の場合：*
+
+----
+//_valueToCheck = "Owner";
+            if (value != null)
+            {
+                return (value.ToString().Equals(_valueToCheck));
+            }
+           return false;
+----
+
+[start=6]
+. WinGrid の Contact Title Column は MyCustomCondition を使用します。コンストラクターに値 "Owner" が渡されて MyCustomCondition クラスのインスタンスを作成します。Contact Title Column のセルの値が "Owner" に等しい場合、添付された Appearance オブジェクトがその列のセルに適用されます。この特定の Appearance オブジェクトは BackColor が Blue で ForeColor が White になるように構成されています。
+
+*Visual Basic の場合：*
+
+----
+Dim _MyCustomCondition As New MyCustomCondition("Owner")
+----
+
+*C# の場合：*
+
+----
+MyCustomCondition _MyCustomCondition = new MyCustomCondition("Owner");
+----
+
+[start=7]
+. Form_Load イベントに次のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+' TODO: このコードの行は 'nwindDataSet.Customers' テーブルにデータをロードします。必要に応じて、移動や削除ができます。 
+Me.customersTableAdapter.Fill(Me.nwindDataSet.Customers) 
+'これは Condition が満たされた場合 
+'にセルに適用される外観です。 
+Dim a As New Infragistics.Win.Appearance() 
+a.BackColor = Color.Blue 
+a.ForeColor = Color.White 
+'ConditionValueAppearance を作成し、次に 
+'Custom Condition オブジェクトと Appearance オブジェクトを追加します。 
+Dim c As New ConditionValueAppearance() 
+c.Add(_MyCustomCondition, a) 
+'次に ConditionValueAppearance を 
+'Contact Title 列に割り当てます。 
+Me.customersUltraGrid.DisplayLayout.Bands(0).Columns("ContactTitle").ValueBasedAppearance = c
+----
+
+*C# の場合：*
+
+----
+// TODO: このコードの行は 'nwindDataSet.Customers' テーブルにデータをロードします。必要に応じて、移動や削除ができます。
+            this.customersTableAdapter.Fill(this.nwindDataSet.Customers);
+            // これは Condition が満たされた場合
+            // にセルに適用される外観です。
+           Infragistics.Win.Appearance a = new Infragistics.Win.Appearance();
+            a.BackColor = Color.Blue;
+            a.ForeColor = Color.White;
+            // ConditionValueAppearance を作成し、次に
+            // Custom Condition オブジェクトと Appearance オブジェクトを追加します。
+            ConditionValueAppearance c = new ConditionValueAppearance();
+            c.Add(_MyCustomCondition, a);
+            // 次に ConditionValueAppearance を
+            // Contact Title 列に割り当てます。
+this.customersUltraGrid.DisplayLayout.Bands[0].Columns["ContactTitle"].ValueBasedAppearance = c;
+----
+
+[start=8]
+. 値を TextBox に入力しボタンをクリックすると、値に一致する任意の Contact Title セルを条件付きでフォーマットします。ValueToCheck プロパティ setter に値が割り当てられると、PropertyChanged イベントが発生、それによってセル値が再度評価されます。以下のコード行をボタンの Click イベントで記述します。
+
+*Visual Basic の場合：*
+
+----
+_MyCustomCondition.ValueToCheck = Me.textBox1.Text
+----
+
+*C# の場合：*
+
+----
+  _MyCustomCondition.ValueToCheck = this.textBox1.Text;
+----
+
+[start=9]
+. アプリケーションを実行します。"Owner" の Contact Title 値を持つセルは背景が青、前景が白にフォーマットされます。任意の値が Textbox に入力され、ボタンがクリックされると、セルは再評価され新しい値に一致するものであればいずれも同じようにフォーマットされます。
+
+image::Images/WinGrid_Creating_a_Custom_ICondition.png[]

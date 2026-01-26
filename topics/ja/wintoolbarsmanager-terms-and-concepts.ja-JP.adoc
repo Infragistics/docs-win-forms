@@ -1,0 +1,104 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-terms-and-concepts",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{28C961A1-EC3A-4FD4-8951-F1FFE76216BC}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 用語と概念
+
+== ツール
+
+*ツール* は、メニューやツールバーに表示される項目です。ツールは、メニューとツールバーのどちらに表示されるかによって、その表示方法が異なります。ツールがツールバーに表示されるときは、イメージやテキストを表示するボタンとして表示されます。ツールがメニューに表示されるときは、テキストやイメージを持つリスト エントリとして表示されます。
+
+WinToolbarsManager は 12 のネーティブのツール タイプをサポートします。UltraToolbarsManager の内部では、個々のツールは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase.html[ToolBase]"]  クラスからの派生クラスによって表現されます。詳細は、 link:wintoolbarsmanager-working-with-tool-types.html[「ツール タイプでの作業」]を参照してください。
+
+== ツールバー
+
+*ツールバー* は、0 個以上のツールを格納できる「ツール コンテナ」です。ツールはボタンとして表示され、ツールバーの方向によって水平または垂直に並びます。ツールバーは、フォーム上の 4 つのドッキング領域のひとつにドッキングするか、または固有のウィンドウでフローティングできます。
+
+UltraToolbarsManager の内部では、ツールバーは UltraToolbar クラスによって表現されます。
+
+UltraToolbar オブジェクトは、ToolBase 派生オブジェクト（つまり Tools）のコレクションである pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarbase~tools.html[Tools]"]  プロパティを持っています。このコレクション内に格納されるツールはインスタンス ツールです（ _以下の説明を参照_ ）。
+
+== メニュー
+
+メニューは、他のツールを格納できる特別なタイプのツール（pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  と呼ばれます）で、ツールバーとまったく同様の「ツール コンテナ」です。メニュー内のツールは従来のメニューと同じ方法で表示され、テキストとイメージ（イメージはオプション）で構成されるエントリが垂直に並んで表示されます。UltraToolbarsManager のメニュー上にあるツールは、標準の .NET メニュー上にある MenuItem に似ています。このドキュメントでは、メニュー（Menu）およびポップアップ メニュー（PopupMenu）という用語を同義語として使用しています。
+
+PopupMenu ツールはツールバーに配置するか、またはデスクトップ上のどこにでもコンテキスト メニューとして「ポップアップ」できます。この方法で使用するメニューのことを、トップレベルメニューと呼びます。別の PopupMenuTool に追加された PopupMenuTool のことを、サブメニューと呼びます。
+
+UltraToolbarsManager の内部では、メニューは PopupMenuTool クラスによって表現されます。PopupMenuTool クラスもすべてのツールクラスと同様に、最終的には ToolBase クラスから派生しています。
+
+PopupMenuTool オブジェクトは、ToolBase 派生オブジェクト（つまり Tools）のコレクションである Tools プロパティを持っています。このコレクション内に格納されるツールはインスタンス ツールです（ _以下の説明を参照_ ）。
+
+== サブメニュー
+
+サブメニューは、別のメニューの内側に埋め込まれているメニューを指す用語です。サブメニューは「トップレベル」のメニューとして同じ PopupMenuTool クラスによって表現されます。サブメニューとトップレベル メニューの違いはその配置位置だけです。
+
+== コンテナ
+
+コンテナという用語は、UltraToolbarsManager が自身のツールバーをその中に表示またはドッキングするオブジェクトのことを指す場合に使用します。フォームやフォーム上のコンテナ コントロールが、コンテナになることができます。UltraToolbarsManager は Windows.Forms.Component であり、Visual Studio .NET IDEのフォーム デザイナの下にあるコンポーネント トレイに配置されています。そのため、UltraToolbarsManager をチェックボックスやボタンなどのコントロールのようにコンテナの内側に「表示」することはできません。代わりに、UltraToolbarsManager は pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~dockwithincontainer.html[DockWithinContainer]"]  というプロパティを持っており、これを使用して UltraToolbarsManager の対象となるフォームやコンテナ コントロールを指定できます。
+
+== ドッキング領域
+
+ドッキング領域（またはドック領域）、すでにドッキングされているツールバーを保持するために使用するコンテナの視覚的な領域です。UltraToolbarsManager コンポーネントがコンテナに割り当てられると、コンテナの上端、下端、左端、および右端に位置する 4 つのドッキング領域が自動的に作成されます。特定のドッキング領域にドッキングしているツールバーがまったくない場合は、ドッキング領域がコンテナ内の領域を使用することはなく、したがって非表示になります。ひとつまたは複数のツールバーが特定のドッキング領域にドッキングしている場合は、ツールバーを適切に表示できるようにドッキング領域のサイズが自動的に拡大し、必要に応じてコンテナの領域を占有します。
+
+ドッキング領域は、実際には UltraToolbarsDockArea 要素です。これらは、ツールバー用のドッキング対象として機能するように UltraToolbarsManager によって自動的に作成される特別なコントロールです。UltraToolbarsDockArea は、開発者にとって便利なプロパティやイベント、メソッドなどは持っておらず、通常はこれらのコントロールを直接操作することはありません。
+
+== ルート ツールとインスタンス ツール
+
+ルート ツールとインスタンス ツールは、単純ですが強力な概念であり、これらを理解することが UltraToolbarsManager を使用する上で重要になります。
+
+ルート ツールは、UltraToolbarsManager から離れてコントロールの Tools コレクションに直接存在しているツールのことです。通常は、アプリケーションで必要とする一意のツールごとに、1 つずつルートツールを定義します。
+
+たとえば、アプリケーションで、複数の場所（たとえば「File」メニュー _と_ ツールバーの両方）に表示される _「File Save」_ ツールを必要とする場合は、 _「File Save」_ ツールに与える基本的な属性を定義したルートツールを 1 つ作成します。次に、ツールの実体の 1 つを「File」メニューに配置し、もう 1 つの実体をツールバーに置きます。すると、UltraToolbarsManager は _「File Save」_ というルート ツールをテンプレート（雛型）として使用し、2 つのツールを作成します。作成されたこれら 2 つのツールのことを、インスタンス ツールと呼びます。
+
+ルート ツールは、同じ型（Button Tool、ComboBox Tool、ColorPicker Toolなど）のインスタンス ツールを 1 つまたは複数作成するための青写真として使用されます。ルート ツールは自身から作成されたすべてのインスタンス ツールを追跡、管理しており、インスタンス ツールでは常に自身の作成元であるルート ツールがわかります。
+
+ツールの概念をルート ツールとインスタンス ツールに分けることによって、UltraToolbarsManager ではツールを非常に柔軟に操作できます。たとえば、上記に示した _「File Save」_ ツールのすべての実体に表示するテキストを変更するには、ルート ツールの Caption プロパティを設定するだけで済みます。この場合、そのルート ツールから作成されたすべてのインスタンス ツールのうち、Caption がまだ明示的に設定されていないものに対して、ルート ツールでの Caption の変更が継承されます。また、 _「File Save」_ ルート ツールから新規に作成したすべてのインスタンス ツールでも Caption の変更が継承されます。
+
+同様に、ツールバー上にある _「File Save」_ ツールの Caption プロパティを変更し、メニュー上にある「File Save」ツールの Caption プロパティを変更しない場合は、ツールバー上にあるインスタンス ツールの Caption プロパティを変更するだけで済みます。
+
+ルート ツールは開発者だけが作成でき、エンド ユーザーは作成できません。開発者は次の手順でルート ツールを作成できます。
+
+* デザインタイム [ユーザー設定] ダイアログの [ツール] タブで、[新規] ボタンをクリックします。
+* プログラムの中でツールを作成し、UltraToolbarsManager の Tools コレクションに追加します。
+
+インスタンス ツールは開発者またはエンド ユーザーが作成できます。開発者は次の手順でインスタンス ツールを作成できます。
+
+* デザインタイム [ユーザー設定] ダイアログの [ツール] タブの分類別ツールのリストから、UltraToolbarManager のコンテナ上にあるツールバーまたはメニューに、ツールをドラッグします。
+* プログラムの中でツールを作成し、Toolbar または PopupMenu Tool の Tools コレクションに追加します。
+
+エンド ユーザーは次の手順でインスタンス ツールを作成できます。
+
+* ランタイム [ユーザー設定] ダイアログの [ツール] タブの [コマンド] リストから、UltraToolbarManager のコンテナ上にあるツールバーまたはメニューに、ツールをドラッグします。
+
+ルート ツールを作成するときは、開発者およびエンド ユーザーが UltraToolbarsManager の中で使用できるツールのセットを定義することになります。
+
+要約すると、ルート ツールはツールバーやメニューには表示されず、ツールバーやメニューでルート ツールのインスタンスを 1 つまたは複数作成するための「テンプレート」として機能します。 
+
+== SharedProps と InstanceProps
+
+ツールはすべて、ルート ツールまたはインスタンス ツールというどちらかのステータスに関連する、2 つの重要なプロパティを持っています。これらは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.instanceprops.html[InstanceProps]"]  と呼ばれます。
+
+各ツールの SharedProps プロパティは、SharedProps オブジェクトを返します。SharedPropsオブジェクトには、ツールのすべてのインスタンスの間で共有されるプロパティがあります。そのため、ルート ツールの SharedProps プロパティと、それに関連するすべてのインスタンス ツールの SharedProps プロパティは、同じ SharedProps オブジェクトを返します。SharedProps オブジェクトは、Appearance、Caption、Category などのプロパティを備えています。
+
+各ツールの InstanceProps プロパティは、InstanceProps オブジェクトを返します。InstanceProps オブジェクトには、関連付けられたツールのインスタンスにだけ作用するプロパティがあります。
+
+[NOTE]
+====
+*注:* InstanceProps オブジェクトにはインスタンス ツールに対して意味を持つプロパティしかないため、ルート ツールの InstanceProps プロパティは null を返します。
+====
+
+InstanceProps オブジェクトは、Appearance、Caption、Visible などのプロパティを備えています。
+
+Appearance や Caption などの一部のプロパティは、SharedProps と InstanceProps の両方のオブジェクトで重複しています。SharedProps と InstanceProps の両方に存在するプロパティについて、SharedProps のものはプロパティの「グローバルな」設定として機能し、関連するすべてのツール インスタンスに作用します。一方、InstanceProps のものは関連付けられたインスタンスだけに作用します。これにより、開発者はこれらのツール プロパティを非常に柔軟に設定できます。たとえば、ツールの Appearance を SharedProps.Appearance を使用して設定すれば、ツールのすべてのインスタンスにその Appearance が適用されます。その後、ツールの特定のインスタンスについて異なる外観が必要となった場合は、そのツール インスタンスの InstanceProps.Appearance プロパティを変更します。
+
+SharedProps オブジェクトと InstanceProps オブジェクトを利用することで、ツールのすべてのインスタンスに対して設定をグローバルに適用できると同時に、特定のツール インスタンスに対して選択した設定を柔軟にオーバーライドできます。

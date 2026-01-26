@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-about-gauge-scales",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{2F6A4890-9C6D-4734-9841-B6A3688A1C48}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ スケールについて
+
+Gauge コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティは、リニア ゲージまたはラジアル ゲージに値のレンジを表示するために使用されます。スケールは、ゲージの開始および終了の測定点を示すために使用されます。
+
+以下のスクリーンショットは、スケールが付いたラジアル ゲージの例を示しています。
+
+image::images/Gauge_Scales_01.png[]
+
+== 関連トピック
+
+link:wingauge-add-a-scale-to-a-gauge.html[スケールをゲージに追加]

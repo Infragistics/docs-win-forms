@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-about-winformattedtexteditor",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{AD6B11BC-90CC-4133-87D0-BEEB7A7FC998}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedTextEditor について
+
+2006 Volume 1 では、WinFormattedLinkLabel と呼ばれる新しいコントロールを導入しました。このコントロールは、複数のタイプの link:winformattedlinklabel-formatting-text-and-hyperlinks.html[フォーマットされたテキストとハイパーリンク]を表示できます。WinFormattedLinkLabel コントロールは、$WinGrid や WinTree のようなコントロールにも組み込むことができますが、編集はできません。2006 Volume 3 では、WinFormattedLinkLabel への編集可能なコントロールである WinFormattedTextEditor コントロールをリリースしました。
+
+WinFormattedTextEditor を使用することで、WinFormattedLinkLabel が表示および編集できるすべてのタイプのフォーマットされたテキストを表示できます。WinFormattedTextEditor は、インボックスの RichTextBox 編集および表示機能の多くに勝っています。2006 Volume 3 リリースにおける WinFormattedLinkLabel への link:winformattedlinklabel-whats-new-2006-3.html[新しい追加]で、ユニークな link:winformattedtexteditor-style-attribute.html[STYLE 属性]でハイパーリンクを含むシンプルな Web ページを作成および編集することができます（WinFormattedTextEditor は、そのコンテンツを表示するために適切な XML ドキュメントを使用することに注意）。さらに、WinFormattedTextEditor には、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~applystyle(string,boolean).html[ApplyStyle]"] 、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~getcurrentstyle.html[GetCurrentStyle]"] 、および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~insertvalue(string).html[InsertValue]"] などのシンプルなメソッドで、スタイルに適用、スタイルをキャプチャ、および新しいテキストを挿入できる編集オブジェクトを含みます。
+
+WinFormattedTextEditor は完全な編集可能コンテキスト メニューもサポートします。ここからフォント、画像、リンク ダイアログ ボックスなどのダイアログ ボックスにユーザーはアクセスでき、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~showfontdialog.html[ShowFontDialog]"] 、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~showimagedialog.html[ShowImageDialog]"] 、および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~showlinkdialog.html[ShowLinkDialog]"]  メソッドでランタイムに表示することもできます。これらの特別な編集オプションは、Infragistics.Win.SupportDialogs アセンブリで使用可能になります。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.formattedlinklabel.ultraformattedtexteditor~contextmenuitems.html[ContextMenuItems]"]  プロパティを使用して、コンテキスト メニューに表示したい編集項目（たとえば、切り取り、コピー、貼り付け、すべて選択、削除など）またはダイアログ ボックスを選択できます。

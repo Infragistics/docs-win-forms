@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintrackbar-using-wintrackbar",
+    "controlName": ["WinTrackBar"],
+    "tags": [],
+    "guid": "{A69EFDC5-63CC-46FD-8B4C-AC5430CDE22A}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-01T15:51:36Z"
+}
+|metadata|
+////
+
+= WinTrackBar の使用
+
+以下で、WinTrackBar コントロールの使用方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+* link:wintrackbar-change-the-orientation-of-wintrackbar.html[WinTrackBar の方向の変更]
+* link:wintrackbar-change-wintrackbars-style.html[WinTrackBar のスタイルの変更]
+* link:wintrackbar-changing-the-look-location-and-frequency-of-tickmarks.html[目盛りのルック、場所、および頻度の変更]
+* link:wintrackbar-synchronizing-two-wintrackbar-controls.html[2 つの WinTrackBar コントロールを同期]

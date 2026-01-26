@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-add-groups-and-items-at-design-time",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{42BB50A4-9FC6-4284-BC9A-952A57A92ED4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムの Groups と Items の追加
+
+WinExplorerBar は、エレメントにグループと項目を追加するための統合されたデザインタイム インタフェースを提供します。コントロールにグループと項目を追加したり、コントロールのその他の側面を設定するには、UltraExplorerBar デザイナを使用します。
+
+UltraExplorerBar デザイナを使用してグループと項目を追加するには、次の手順に従ってください。
+
+[start=1]
+. UltraWinExplorerBar コントロールを WinForms プロジェクトのフォームに追加するか、または UltraWinExplorerBar を含む既存のプロジェクトを開きます。
+[start=2]
+. フォーム上の UltraWinExplorerBar エレメントを選択します。
+[start=3]
+. エレメントのコンテキスト メニューを表示して、[UltraExplorerBar デザイナ...] オプションを選択します。
+
+image::images\WinExplorerBar_Adding_Groups_and_Items_at_Design_Time_01.png[]
+
+または
+
+エレメントの [プロパティ] ウィンドウの下部にある [UltraExplorerBarデザイナ...] リンクをクリックします。
+
+UltraExplorerBar デザイナ ダイアログが表示されます。
+
+image::images\WinExplorerBar_Adding_Groups_and_Items_at_Design_Time_02.png[]
+
+[start=4]
+. [グループと項目] タブをクリックします。[グループと項目] インタフェースが表示されます。左側にエレメントのルート ノードがツリー形式で示されます。右側のプロパティ シートには、この最上位ノード（つまりコントロール自体）に適用されるプロパティが表示されます。タブの上部にあるインタフェース ボタンは、グループと項目を追加する機能を提供します。
+
+image::images\WinExplorerBar_Adding_Groups_and_Items_at_Design_Time_03.png[]
+
+[start=5]
+. [グループの追加] ボタンをクリックします。新しいグループがツリー ビューに表示され、ハイライト表示されます。新しく追加したグループで使用可能なプロパティを反映するためにプロパティ シートが変更します。
+[start=6]
+. 適切と思われるグループ関連のプロパティを適用します。少なくとも、Text プロパティを、グループの機能を説明するテキストに変更します。また、エレメントの Groups コレクション内でこのグループに容易にアクセスできるように、Key プロパティに値を指定します。
+
+image::images\WinExplorerBar_Adding_Groups_and_Items_at_Design_Time_04.png[]
+
+[start=7]
+. 新しく作成したグループをツリー ビューでハイライトさせた状態で、[項目の追加] ボタンをクリックします。新しい項目がグループに追加されます。
+[start=8]
+. まだハイライトされていない場合は新しい項目を選択します。適切と思われる項目関連のプロパティを適用します。少なくとも、Text プロパティを、項目の機能を説明するテキストに変更します。また、グループの Items コレクション内でこの項目に容易にアクセスできるように、Key プロパティに値を指定します。
+
+image::images\WinExplorerBar_Adding_Groups_and_Items_at_Design_Time_05.png[]
+
+[start=9]
+. グループと項目の追加がすべて完了するまで、この 2 つのステップを繰り返します。作業が完了したら、[閉じる] ボタンをクリックしてダイアログを閉じます。

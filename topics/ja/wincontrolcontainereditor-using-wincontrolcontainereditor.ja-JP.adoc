@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincontrolcontainereditor-using-wincontrolcontainereditor",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{BF83C6AB-5855-459E-AFA1-B10AF3BABC6F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinControlContainerEditor の使用
+
+このセクションは、WinControlContainerEditor™ コンポーネントによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-ultracontrolcontainereditor-component.html[UltraControlContainerEditor コンポーネントを使用して WinGrid セル内にコントロールを組み込む]
+* link:wincontrolcontainereditor-embed-any-control-within-wingrid-cell-using-controlcontainereditor-object.html[ControlContainerEditor オブジェクトを使用して WinGrid セル内にコントロールを組み込む]
+* link:wincontrolcontainereditor-embed-different-editors-within-wingrid-cells-of-the-same-column.html[同じ列の WinGrid セル内に異なるエディターを組み込む]

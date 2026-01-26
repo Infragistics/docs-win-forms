@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-dictionaries",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Application Scenarios","Getting Started"],
+    "guid": "{648E59B4-9D32-4DCB-85B5-DD1763A62D1F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 辞書
+
+== デフォルト辞書
+
+WinSpellChecker は、コントロールのスペルをチェックするためにデフォルト辞書を使用します。このデフォルト辞書は英語の辞書で、アセンブリに組み込まれます。したがって、WinSpellChecker は正しく機能するためにデフォルト辞書と共に配備される追加の辞書は不要です。アプリケーションが英語以外の言葉を使用する場合、アプリケーションと共に追加辞書を配備する必要があります。
+
+WinSpellChecker は、オーストラリア、カナダ、英語、オランダ、フランス、ドイツ、イタリア、ポルトガル、およびスペインの 9 ヶ国語の辞書のボックスにあります。これらの辞書は、{InstallPath}\Dictionaries フォルダにあります。これらの辞書のいずれかを使用するには、WinSpellChecker の pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~dictionary.html[Dictionary]"]  プロパティを辞書のファイル名に設定（フルパスで）する必要があります。
+
+[NOTE]
+====
+*注：* アプリケーションの実行ファイルとして同じフォルダに辞書を配置する場合は、パスを指定する必要はありません。
+====
+
+== ユーザー辞書
+
+WinSpellChecker がスペルミスのワード（デフォルト辞書に存在しないワード）を発見し、エンド ユーザーがこのユニークなワードが正しいと認識する場合、そのワードを辞書に追加するオプションをエンド ユーザーに与えます。これはユーザー辞書の出番です。WinSpellChecker は標準辞書にワードを追加することは許可しません。ユーザー辞書を作成して、それにワードを追加する必要があります。ユーザー辞書はシンプルなテキスト ファイルで、拡張子は任意に付けることができます。
+
+[NOTE]
+====
+*注：* .dic または .dict などの拡張子をユーザー辞書に付けることを推奨します。こうすれば、システムが拡張するようなことがあっても問題が発生しません。
+====
+
+ユーザー辞書にワードを追加すると、WinSpellChecker は 1 行に 1 ワードを追加します。これは Microsoft® Word が使用する同じフォーマットで、エンド ユーザーが WinSpellChecker で Word のカスタム辞書を使用したい場合に非常に便利です。
+
+ユーザー辞書を設定する手順は、デフォルト辞書の設定とほぼ同じです。pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~userdictionary.html[UserDictionary]"]  プロパティをユーザー辞書のファイル名（フルパスで）に設定します。

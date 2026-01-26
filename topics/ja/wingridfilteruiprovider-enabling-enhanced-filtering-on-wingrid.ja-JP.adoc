@@ -1,0 +1,76 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridfilteruiprovider-enabling-enhanced-filtering-on-wingrid",
+    "controlName": [],
+    "tags": ["Filtering","How Do I"],
+    "guid": "{FE6F5B38-6C51-48D0-80FA-772195428EBA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid で拡張フィルタリングを有効にする
+
+WinGrid™ はエンド ユーザーによってどのデータが表示されるかを制御する方法として拡張フィルタリングを提供します。この機能は、文字列演算 (begins-with、contains など)、日付演算(日付の間、今日の日付の前など）のような特定のデータ型によるフィルタリングを含みます。またはチェックボックスを使用して列に表示する複数の値を選択することによってフィルタリングを実行する機能を提供します。
+
+WinGrid コントロールで Excel2007 によって提供される機能に似ている高度なフィルタリング UI を有効にするために、以下の 3 つの手順を実行する必要があります。
+
+[start=1]
+. ultraGridFilterUIProvider™ コンポーネントを Visual Studio® ツールボックスから Form にドラッグ アンド ドロップします。
+[start=2]
+. WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~filteruiprovider.html[FilterUIProvider]"]  プロパティを Form に配置した ultraGridFilterUIProvider に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.Override.FilterUIProvider = Me.ultraGridFilterUIProvider1
+'これは各バンドにも設定できます:
+'Me.ultraGrid1.DisplayLayout.Bands(0).Override.FilterUIProvider = Me.ultraGridFilterUIProvider1
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.FilterUIProvider = this.ultraGridFilterUIProvider1;
+//これは各バンドにも設定できます:
+//this.ultraGrid1.DisplayLayout.Override.FilterUIProvider = this.ultraGridFilterUIProvider1;
+----
+
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowrowfiltering.html[AllowRowFiltering]"]  プロパティを True に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.True;
+----
+
+これで WinGrid のデータを高度なフィルタリング オプションを使用してフィルタリングできます:
+
+以下のスクリーンショットは Northwind データベースの Orders テーブルで移植された WinGrid を示します。CustomerID 列のテキスト フィルターを以下に示します。チェックボックスを選択する、またはコンテキスト メニューから選択し次にフィルター基準を入力することによってフィルタリングできます。[OK] ボタンを押すとグリッド行をフィルタリングします。
+
+=== 「テキスト」データ型（CustomerID）列をフィルタリング
+
+image::Images/Wingrid_Excel_Style_Filtering_1.png[]
+
+=== 「数字」データ型（EmployeeID）列をフィルタリング
+
+image::Images/Wingrid_Excel_Style_Filtering_2.png[]
+
+=== 「日付」データ型（Order Date）列をフィルタリング
+
+image::Images/Wingrid_Excel_Style_Filtering_3.png[]
+
+関連トピック
+
+* link:wingridfilteruiprovider-adding-a-custom-filter-to-enhanced-filtering-ui-on-a-wingrid.html[カスタムのフィルターを拡張フィルタリング UI に追加]
+* link:wingridfilteruiprovider-applying-enhanced-filter-condition-to-wingrid-at-run-time.html[ランタイムに拡張フィルター条件を WinGrid に適用]

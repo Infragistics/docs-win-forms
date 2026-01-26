@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-adding-olapdataselector",
+    "controlName": [],
+    "tags": [],
+    "guid": "cef8e684-2781-4f4c-ad5f-7895176cbe6e",  
+    "buildFlags": [],
+    "createdOn": "2014-09-12T02:44:59.7144189Z"
+}
+|metadata|
+////
+
+= OlapDataSelector の追加
+
+=== 概要
+
+データ セレクター link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}~infragistics.win.ultrawinpivotgrid.dataselector.olapdataselector_members.html[OlapDataSelector] は独立したコントロールですが、`MdxDataSelector` と同様にFlatDataSource と併用する場合は、 _WinPivotGrid_  コントロールにとって不可欠のメカニズムです。データ セレクターをピボット グリッドと同じデータ ソースにバインドすると、 _WinPivotGrid_  は、ピボット グリッドに追加することによりユーザーがランタイムで操作できるディメンションとメジャーのリストを表示します。
+
+.注:
+[NOTE]
+====
+データ セレクターがランタイムに表示されない場合、ディメンションは追加できません。その場合、ピボット グリッドからのディメンションの削除のみが可能です。
+====
+
+image::images/Adding_OlapDataSelector_1.png[]

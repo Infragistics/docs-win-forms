@@ -1,0 +1,69 @@
+﻿////
+|metadata|
+{
+    "name": "wintilepanel-preventing-tile-state-change",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I"],
+    "guid": "{1F133474-0017-426F-83D8-567AC5466E9B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タイル状態の変更を禁止する
+
+エンドユーザーがタイルの状態の変更をできないようにすることが可能です。デフォルトでは、UltraTilePanel コントロールのすべてのタイルは Normal の状態で表示されます。これらの Normal の状態のタイルを最大化しないようにできます。同様に、コードで最大化されたタイルを Normal の状態に戻らないようにすることもできます。状態を変更しないようにするために以下の方法を採用できます。
+
+== StateChangeButton を非表示にする
+
+StateChangeButton によって、Normal の状態と Large の状態でタイルを切り替えることができます。したがって、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~showstatechangebutton.html[ShowStateChangeButton]"]  ブール プロパティを False に設定することで StateChangeButton を非表示にして、エンドユーザーが状態を切り替えられないようにします。これは UltraTilePanel コントロールの TileSettings.ShowStateChangeButton プロパティを False に設定することで特定のタイルまたはすべてのタイルに対して行うことができます。
+
+*Visual Basic の場合：*
+
+----
+' 特定のタイルの StateChangeButton を非表示にします 
+tile3.Settings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.[False] 
+' UltraTilePanel のすべてのタイルの StateChangeButton を非表示にします 
+Me.ultraTilePanel1.TileSettings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.[False]
+----
+
+*C# の場合：*
+
+----
+// 特定のタイルの StateChangeButton を非表示にします
+ tile3.Settings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.False;
+// UltraTilePanel のすべてのタイルの StateChangeButton を非表示にします
+this.ultraTilePanel1.TileSettings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.False;
+----
+
+== 状態の変更イベントのキャンセル
+
+UltraTilePanel のすべてのタイルは、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~statechanging_ev.html[StateChanging]"]  および pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~statechanged_ev.html[StateChanged]"]  イベントを起動します。これらのイベントはキャンセル可能で、イベント引数で Cancel プロパティを True に設定して、状態の変更操作が行われないようにすることができます。同様に、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~tilestatechanging_ev.html[TileStateChanging]"]  および pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~tilestatechanged_ev.html[TileStateChanged]"]  イベントは UltraTilePanel レベルで処理することもできます。
+
+.注
+[NOTE]
+====
+TilePanel オブジェクト レベルのイベントは、タイル イベントがキャンセルされないのであれば、Tile オブジェクト レベルのイベントの後に起動します。
+====
+
+*Visual Basic の場合：*
+
+----
+AddHandler tile1.StateChanging, AddressOf tile1_StateChanging
+Private Sub tile1_StateChanging(ByVal sender As Object, ByVal e As TileStateChangingEventArgs) Handles tile1.StateChanging
+    e.ShouldAnimate = False
+    MessageBox.Show(e.NewState.ToString())
+End Sub
+----
+
+*C# の場合：*
+
+----
+tile1.StateChanging += new TileStateChangingEventHandler(tile1_StateChanging);
+void tile1_StateChanging(object sender, TileStateChangingEventArgs e)
+   {
+         e.ShouldAnimate = false;
+         MessageBox.Show(e.NewState.ToString());
+   }
+----

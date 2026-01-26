@@ -1,0 +1,44 @@
+﻿////
+|metadata|
+{
+    "name": "wincalcmanager-api-overview",
+    "controlName": ["WinCalcManager"],
+    "tags": ["API"],
+    "guid": "{6C78D673-7017-4BCA-B912-FE02FB47E925}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+[cols="a,a"]
+|====
+|*WinCalcManager 名前空間:* +
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager_namespace.html[Infragistics.Win.UltraWinCalcManager]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.ultracalcmanager.html[UltraCalcManager]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.ultrawincalcmanager.calcsettings.html[CalcSettings]"]
+
+|*FormulaBuilder 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager~infragistics.win.ultrawincalcmanager.formulabuilder_namespace.html[Infragistics.Win.UltraWinCalcManager.FormulaBuilder]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager.formulabuilder~infragistics.win.ultrawincalcmanager.formulabuilder.resources.html[Resources]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager.formulabuilder~infragistics.win.ultrawincalcmanager.formulabuilder.formulabuilderdialog.html[FunctionBuilderDialog]"]
+
+|*CalcEngine 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine_namespace.html[Infragistics.Win.CalcEngine]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}~infragistics.win.calcengine.ultracalcfunction.html[UltraCalcFunction]"]
+
+|====

@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-determining-which-column-the-user-clicked",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{79C4A7C7-9E36-4FE4-B49E-348A596F5C92}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ユーザがクリックした列を決定する
+
+== バックグラウンド
+
+プログラムがマウス クリックに関連した Column オブジェクトを識別することが必要な場合があります。WinGrid は、.DisplayLayout.UIElement.ElementFromPoint メソッドと、UIElement の .GetContext メソッドを介して、この機能を提供します。
+
+== 質問
+
+ユーザーがクリックした列をどのようにして特定しますか?
+
+== 解決策
+
+.DisplayLayout.UIElement.ElementFromPoint メソッドを使用して、マウス クリックの UIElement を探し、その UIElement の .GetContext メソッドで Column オブジェクトへの参照を抽出します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、ユーザーがクリックした列を特定する方法を紹介します。このプロジェクトを実行すると、ユーザーがセルをクリックしたときに、列の Key の値がテキストボックスに表示されます。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Determining_Which_Column_the_User_Clicked_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラが含まれます。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードは、グリッドに AutoFitStyle を指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+}
+----
+
+* UltraGrid1.MouseUp - MouseUp イベントのコードでは、このイベントの X、Y 座標から UIElement を探し、その .GetContext メソッドで Column オブジェクトへの参照を抽出します。また、有効な Column オブジェクトへの参照が存在する場合、Column.Key プロパティの値をテキストボックスに表示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_MouseUp(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) _
+  Handles UltraGrid1.MouseUp
+	' MouseUp の位置から UIElement を取得します
+	Dim mouseupUIElement As UIElement = _
+	  Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+	' UIElement から列を取得します
+	Dim mouseupColumn As UltraGridColumn = mouseupUIElement.GetContext(GetType(UltraGridColumn))
+	' Column オブジェクトの参照が見つかったら列のキーを表示します
+	If Not mouseupColumn Is Nothing Then
+		Me.UltraTextEditor1.Text += mouseupColumn.Key + vbCrLf
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_MouseUp(object sender, 
+  System.Windows.Forms.MouseEventArgs e)
+{
+	// MouseUp の位置から UIElement を取得します
+	UIElement mouseupUIElement = 
+	  this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(new Point(e.X, e.Y));
+	// UIElement から列を取得します
+	UltraGridColumn mouseupColumn = 
+	  (UltraGridColumn)mouseupUIElement.GetContext(typeof(UltraGridColumn));
+	// Column オブジェクトの参照が見つかったら列のキーを表示します
+	if(mouseupColumn != null)
+		this.ultraTextEditor1.Text += mouseupColumn.Key + "\n";
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、MouseUp イベントの X、Y 座標から Column オブジェクトへの参照を取得する方法を紹介しています。

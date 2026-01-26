@@ -1,0 +1,548 @@
+﻿////
+|metadata|
+{
+    "name": "win-windows-forms-assemblies",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "{3B704EA2-3BB1-4703-B7DD-1149C8FC4A8D}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Windows Forms アセンブリ
+
+以下の表は、{ProductName} 製品スイートに含まれるすべての Windows Forms アセンブリのリストです。表では、各アセンブリに含まれる Windows Forms コントロールとコンポーネントも指定され、アセンブリのすべてのリソース文字列のリストを含むリソース文字列ヘルプ トピックへのクロスリファレンスが含まれています。
+
+[options="header", cols="a,a,a"]
+|====
+|アセンブリ名|Windows Formsコントロール/コンポーネント|リソース文字列トピック
+
+|{ApiPlatform}Documents.Core.v{ProductVersion}
+|なし
+|なし
+
+|{ApiPlatform}Documents.Excel.v{ProductVersion}
+| link:waw-infragistics-excel-engine.html[Infragistics Excel Engine]
+|なし
+
+|{ApiPlatform}Documents.Reports.v{ProductVersion}
+| link:waw-infragistics-document-engine.html[Infragistics Document Engine]
+|なし
+
+|{ApiPlatform}Documents.IO.v{ProductVersion}
+| link:waw-infragistics-document-engine.html[Infragistics Document Engine]
+|なし
+
+|{ApiPlatform}Documents.TextDocument.v{ProductVersion}
+| link:ig-spe-infragistics-syntax-parsing-engine.html[Infragistics Syntax Parsing Engine]
+| link:textdocument-library-resource-strings.html[TextDocument ライブラリ リソース文字列]
+
+|{ApiPlatform}Undo.v{ProductVersion}
+| link:undo-redo-framework.html[Infragistics Undo/Redo Framework]
+|なし
+
+|{ApiPlatform}Documents.Word.v{ProductVersion}
+| link:word-infragistics-word-library.html[Infragistics Word Library]
+|なし
+
+|{ApiPlatform}Math.v{ProductVersion}
+| link:infragistics-math-infragistics-math-library.html[Infragistics Math Library]
+|なし
+
+|{ApiPlatform}Misc.v{ProductVersion}
+| link:winbutton.html[UltraButton] 
+
+link:windesktopalert.html[UltraDesktopAlert] 
+
+link:windropdownbutton.html[UltraDropDownButton] 
+
+link:winexpandablegroupbox.html[UltraExpandableGroupBox] 
+
+link:winflowlayoutmanager.html[UltraFlowLayoutManager] 
+
+link:wingridbaglayoutmanager.html[UltraGridBagLayoutManager] 
+
+link:wingridbaglayoutpanel.html[UltraGridBagLayoutPanel] 
+
+link:wingroupbox.html[UltraGroupBox] 
+
+link:winlabel.html[UltraLabel] 
+
+link:winnavigationbar.html[UltraNavigationBar] 
+
+link:winpanel.html[UltraPanel] 
+
+link:winpeekpopup.html[UltraPeekPopup]
+
+link:winpopupcontrolcontainer.html[UltraPopupControlContainer] 
+
+link:winprintpreview.html[UltraPrintPreviewControl] 
+
+link:winprintpreviewthumbnail.html[UltraPrintPreviewThumbnail] 
+
+link:winsplitter.html[UltraSplitter] 
+
+link:wintilepanel.html[UltraTilePanel] 
+
+link:winvalidator.html[UltraValidator]
+| link:winmisc-resource-strings.html[WinMisc リソース文字列]
+
+|{ApiPlatform}Shared.v{ProductVersion}
+|なし
+| link:shared-resource-strings.html[Shared リソース文字列]
+
+|{ApiPlatform}Win.v{ProductVersion}
+| link:winactivityindicator.html[UltraActivityIndicator] 
+
+link:winformmanager.html[UltraFormManager] 
+
+link:winmessageboxmanager.html[UltraMessageBoxManager] 
+
+link:winprintdocument.html[UltraPrintDocument] 
+
+link:winprogressbar.html[UltraProgressBar] 
+
+link:winscrollbar.html[UltraScrollBar] 
+
+link:win-inboxcontrolstyler.html[InboxControlStyler]
+| link:win-resource-strings.html[Win リソース文字列]
+
+|{ApiPlatform}Win.AppStylistSupport.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.Misc.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinEditors.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraListView.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinTree.v{ProductVersion} 
+
+____
+| link:appstylistruntime.html[AppStylistRuntime]
+| link:appstylistsupport-resource-strings.html[AppStylistSupport リソース文字列]
+
+|{ApiPlatform}Win.UltraWinCalcManager.v{ProductVersion}
+| link:wincalcmanager.html[UltraCalcManager]
+| link:wincalcmanager-resource-strings.html[WinCalcManager リソース文字列]
+
+|{ApiPlatform}Win.UltraWinCalcManager.v{ProductVersion}.FormulaBuilder 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Misc.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinCalcManager.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinDataSource.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinEditors.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinGrid.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinTree.v{ProductVersion} 
+
+____
+|FormulaBuilderDialog
+| link:wincalcmanager-formulabuilder-resource-strings.html[WinCalcManager FormulaBuilder リソース文字列]
+
+|{ApiPlatform}Win.UltraWinCarousel.v{ProductVersion}
+| link:wincarousel.html[UltraCarousel]
+| link:wincarousel-resource-strings-reference.html[WinCarousel リソース文字列]
+
+|{ApiPlatform}Win.UltraWinChart.v{ProductVersion}
+| link:waw-chart.html[UltraChart]
+|なし
+
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.DataVisualization.Shared.v{ProductVersion} 
+
+{ApiPlatform}Portable.Core.v{ProductVersion} 
+
+____
+| link:xambarcode-configuring-code128.html[UltraCode128Barcode]
+
+link:xambarcode-configuring-qr-code.html[UltraQRCodeBarcode]
+
+link:xambarcode-xamcode39barcode.html[UltraCode39Barcode]
+
+link:xambarcode-xameanupcbarcode.html[UltraEanUpcBarcode]
+
+link:xambarcode-xaminterleaved2of5barcode.html[
+UltraInterleaved2Of5Barcode]
+
+link:xambarcode-xamgs1databarbarcode.html[
+UltraGs1DataBarBarcode]
+
+link:xambarcode-xamintelligentmailbarcode.html[
+UltraIntelligentMailBarcode]
+
+link:xambarcode-xamroyalmailbarcode.html[
+UltraRoyalMailBarcode]
+
+link:xambarcode-xampdf417barcode.html[UltraPdf417Barcode]
+
+link:xambarcode-xammaxicodebarcode.html[
+UltraMaxiCodeBarcode]
+
+|なし
+
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.DataVisualization.Shared.v{ProductVersion} 
+
+{ApiPlatform}Portable.Core.v{ProductVersion} 
+
+____
+| link:datachart-datachart.html[UltraDataChart] 
+
+link:piechart.html[UltraPieChart] 
+
+link:xamdoughnutchart.html[UltraDoughnutChart]
+
+link:categorychart-overview.html[UltraCategoryChart]
+
+link:categorychart-overview.html[UltraCategoryChart]
+
+link:funnelchart.html[UltraFunnelChart]
+|なし
+
+|{ApiPlatform}Win.DataVisualization.UltraGauges.v{ProductVersion}
+
+*追加の参照アセンブリ$$*$$:*
+
+____
+
+{ApiPlatform}Win.DataVisualization.Shared.v{ProductVersion}
+
+{ApiPlatform}Portable.Core.v{ProductVersion}
+
+____
+| link:bulletgraph.html[UltraBulletGraph]
+
+link:lineargauge.html[UltraLinearGauge]
+
+link:radialgauge.html[UltraRadialGauge]
+
+|なし
+
+|{ApiPlatform}Win.DataVisualization.UltraSparkline.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.DataVisualization.Shared.v{ProductVersion} 
+
+{ApiPlatform}Portable.Core.v{ProductVersion} 
+
+____
+| link:sparkline.html[UltraSparkline]
+
+|なし
+
+|{ApiPlatform}Win.UltraWinDataSource.v{ProductVersion}
+|link:windatasource.html[UltraDataSource]
+| link:windatasource-resource-strings.html[WinDataSource リソース文字列]
+
+|{ApiPlatform}Win.UltraWinDock.v{ProductVersion}
+| link:windockmanager.html[UltraDockManager]
+| link:windockmanager-resource-strings.html[WinDockManager リソース文字列]
+
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+| link:wincalculator.html[UltraCalculator] 
+
+link:wincalculatordropdown.html[UltraCalculatorDropDown] 
+
+link:wincheckeditor.html[UltraCheckEditor] 
+
+link:wincolorpicker.html[UltraColorPicker] 
+
+link:wincomboeditor.html[UltraComboEditor] 
+
+link:wincontrolcontainereditor.html[UltraControlContainerEditor] 
+
+link:wincurrencyeditor.html[UltraCurrencyEditor] 
+
+link:windatetimeeditor.html[UltraDateTimeEditor] 
+
+link:winfontnameeditor.html[UltraFontNameEditor] 
+
+link:winnumericeditor.html[UltraNumericEditor] 
+
+link:winoptionset.html[UltraOptionSet] 
+
+link:winpicturebox.html[UltraPictureBox] 
+
+link:winradiobutton.html[UltraRadioButton]
+
+link:wintexteditor.html[UltraTextEditor] 
+
+link:wintimespaneditor.html[UltraTimeSpanEditor] 
+
+link:wintimezoneeditor.html[UltraTimeZoneEditor] 
+
+link:wintrackbar.html[UltraTrackBar]
+| link:wineditors-resource-strings.html[WinEditors リソース文字列]
+
+|{ApiPlatform}Win.UltraWinExplorerBar.v{ProductVersion}
+| link:winexplorerbar.html[UltraExplorerBar]
+| link:winexplorerbar-resource-strings.html[WinExplorerBar リソース文字列]
+
+|{ApiPlatform}Win.UltraWinFormattedText.WordWriter.v{ProductVersion}
+| link:winformattedtextwordwriter.html[UltraFormattedTextWordWriter]
+|link:winformattedtextwordwriter-resource-strings.html[WinFormattedTextWordWriter]
+
+|{ApiPlatform}Win.UltraWinGanttView.v{ProductVersion}
+| link:winganttview.html[UltraGanttView]
+| link:winschedule-resource-strings.html[UltraGanttView リソース文字列]
+
+|{ApiPlatform}Win.UltraWinGauge.v{ProductVersion}
+| link:wingauge.html[UltraGauge]
+|なし
+
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+| link:wincombo.html[UltraCombo] 
+
+link:windropdown.html[UltraDropDown] 
+
+link:wingrid.html[UltraGrid] 
+
+link:wingridcellproxy.html[UltraGridCellProxy] 
+
+link:wingridrowedittemplate.html[UltraGridRowEditTemplate] 
+
+link:wingridprintdocument.html[UltraGridPrintDocument]
+| link:wingrid-resource-strings.html[WinGrid リソース文字列]
+
+|{ApiPlatform}Win.UltraWinGrid.DocumentExport.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Documents.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinGrid.v{ProductVersion} 
+
+____
+| link:wingriddocumentexporter.html[UltraGridDocumentExporter]
+| link:wingriddocumentexporter-resource-strings.html[WinGridDocumentExporter]
+
+|{ApiPlatform}Win.UltraWinGrid.ExcelExport.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Excel.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinGrid.v{ProductVersion} 
+
+____
+| link:wingridexcelexporter.html[UltraGridExcelExporter]
+| link:wingridexcelexporter-resource-string.html[WinGridExcelExporter リソース文字列]
+
+|{ApiPlatform}Win.UltraWinGrid.WordWriter.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Documents.IO.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinGrid.v{ProductVersion} 
+
+____
+| link:wingridwordwriter.html[UltraGridWordWriter]
+|link:wingridwordwriter-resource-strings.html[WinGridWordWriter リソース文字列]
+
+|{ApiPlatform}Win.UltraWinInkProvider.v{ProductVersion} $$*$$$$* $$
+|UltraInkProvider
+| link:wininkprovider-resource-strings.html[WinInkProvider リソース文字列]
+
+|{ApiPlatform}Win.UltraWinInkProvider.Ink17.v{ProductVersion} $$*$$$$* $$
+|UltraInkProvider
+| link:wininkprovider-resource-strings.html[WinInkProvider リソース文字列]
+
+|{ApiPlatform}Win.UltraWinListBar.v{ProductVersion}
+|UltraListBar
+| link:winlistbar-resource-strings.html[WinListbar リソース文字列]
+
+|{ApiPlatform}Win.UltraWinListview.v{ProductVersion}
+| link:winlistview.html[WinListView]
+| link:winlistview-resource-strings.html[WinListView リソース文字列]
+
+|{ApiPlatform}Win.UltraWinLiveTileview.v{ProductVersion}
+| link:winlivetileview.html[WinLiveTileView]
+| link:winlivetileview-resource-strings.html[WinLiveTileView リソース文字列]
+
+|{ApiPlatform}Win.UltraWinMaskedEdit.v{ProductVersion}
+| link:winmaskededit.html[UltraMaskedEdit]
+| link:winmaskededit-resource-strings.html[WinMaskedEdit リソース文字列]
+
+|{ApiPlatform}Win.UltraWinPrintPreviewDialog.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Misc.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion} 
+
+____
+| link:winprintpreviewdialog.html[UltraPrintPreviewDialog]
+| link:winprintpreviewdialog-resource-strings.html[WinPrintPreviewDialog リソース文字列]
+
+|{ApiPlatform}Win.UltraWinRadialMenu.v{ProductVersion}
+| link:winradialmenu.html[WinRadialMenu]
+| link:winradialmenu-resource-strings.html[WinRadialMenu リソース文字列]
+
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.Misc.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinEditors.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion} 
+
+____
+| link:wincalendarcombo.html[UltraCalendarCombo] 
+
+link:wincalendarinfo.html[UltraCalendarInfo] 
+
+link:wincalendarlook.html[UltraCalendarLook] 
+
+link:windayview.html[UltraDayView] 
+
+link:winmonthviewmulti.html[UltraMonthViewMulti] 
+
+link:winmonthviewsingle.html[UltraMonthViewSingle] 
+
+link:winscheduleprintdocument.html[UltraSchedulePrintDocument] 
+
+link:wintimelineview.html[UltraTimeLineView] 
+
+link:winweekview.html[UltraWeekView]
+| link:winschedule-resource-strings.html[WinSchedule リソース文字列]
+
+|{ApiPlatform}Win.UltraWinSpellChecker.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.Misc.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinEditors.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraListView.v{ProductVersion} 
+
+____
+| link:winspellchecker.html[UltraSpellChecker]
+| link:winspellchecker-resource-strings.html[WinSpellChecker リソース文字列]
+
+|{ApiPlatform}Win.UltraWinSpreadSheet.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Documents.Core.v{ProductVersion} 
+
+{ApiPlatform}Documents.Excel.v{ProductVersion} 
+
+{ApiPlatform}Undo.v{ProductVersion} 
+
+{ApiPlatform}Win.Portable.Core.v{ProductVersion} 
+
+____
+| link:{ApiPlatform}win.ultrawinspreadsheet{ApiVersion}.html[UltraSpreadSheet]
+| link:winspreadsheet-resource-strings.html[WinSpreadsheet リソース文字列]
+
+|{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion}
+| link:winstatusbar.html[UltraStatusBar]
+| link:winstatusbar-resource-strings.html[WinStatusBar リソース文字列]
+
+|{ApiPlatform}Win.UltraWinTabbedMdi.v{ProductVersion}
+| link:wintabbedmdimanager.html[UltraTabbedMdiManager]
+| link:wintabbedmdi-resource-strings.html[WinTabbedMdi リソース文字列]
+
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}
+| link:wintab.html[UltraTabControl] 
+
+link:wintab.html[UltraTabStripControl]
+| link:wintab-resource-strings.html[WinTab リソース文字列]
+
+|{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion} 
+
+*追加の参照アセンブリ$$*$$:*
+
+____ 
+
+{ApiPlatform}Win.Misc.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinEditors.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion} 
+
+{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion} 
+
+____
+| link:wintoolbarsmanager.html[UltraToolbarsManager]
+| link:wintoolbarsmanager-resource-strings.html[WinToolbarsManager リソース文字列]
+
+|{ApiPlatform}Win.UltraWinTree.v{ProductVersion}
+| link:wintree.html[UltraTree]
+| link:wintree-resource-strings.html[WinTree リソース文字列]
+
+|{ApiPlatform}Win.UltraWinPivotGrid.v{ProductVersion}
+| link:winpivotgrid.html[UltraWinPivotGrid]
+| link:winpivotgrid-resource-strings.html[WinPivotGrid リソース文字列]
+
+|====
+
+[cols="a,a"]
+|====
+|*$$* $$*
+|Infragistics.Shared および Infragistics.Win アセンブリは、UltraWinChart および DataVisualization アセンブリを除きその他すべての Win アセンブリによって参照されます。
+
+|*$$*$$$$* $$*
+|UltraInkProvider には 2 つのバージョンがあります。'.Ink17' という接尾子が付いたアセンブリは、Microsoft の TabletPC SDK バージョン 1.7 を使用するアプリケーションのビルド時に限って使用されます。他のアセンブリは、Microsoft の TabletPC SDK バージョン 1.5 で使用されます。
+
+|====

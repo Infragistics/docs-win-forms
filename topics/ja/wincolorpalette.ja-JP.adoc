@@ -1,0 +1,8 @@
+﻿= WinColorPalette
+
+WinColorPalette™
+コントロールについて、以下の各リンクを参照してください。
+
+* link:wincolorpalette-about.html[WinColorPalette について] -- WinColorPalette コントロールの機能と、アプリケーションでの使用法などについて紹介します。
+* link:wincolorpalette-api-overview.html[API 概要] -- このトピックは、WinColorPalette
+コントロールで開発する際に使用する名前空間とクラスについて説明します。

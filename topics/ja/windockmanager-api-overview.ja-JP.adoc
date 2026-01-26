@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-api-overview",
+    "controlName": ["WinDockManager"],
+    "tags": ["API"],
+    "guid": "{D33DBE88-DFDE-41FD-A50F-E4CAA4E179A9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinDockManager 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock_namespace.html[Infragistics.Win.UltraWinDock]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager.html[UltraDockManager]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.panesettings.html[PaneSettings]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablegrouppane.html[DockableGroupPane]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockareapane.html[DockAreaPane]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablewindow.html[DockableWindow]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.groupsettings.html[GroupSettings]"]

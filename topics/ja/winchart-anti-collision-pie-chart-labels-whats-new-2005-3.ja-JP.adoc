@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-anti-collision-pie-chart-labels-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{38DDFFF6-7899-4874-AC6E-D3B3323F4A3D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 衝突防止円グラフのラベル
+
+円グラフ ラベルのレイアウト アルゴリズムが改善されました。このアルゴリズムは、グラフが円グラフでラベルと引き出し線を配置しようとしたときに使用されます。
+
+image::images/WinChart_WinChart_2005_3_Anti_Collision_Pie_Chart_Labels_01.png[]

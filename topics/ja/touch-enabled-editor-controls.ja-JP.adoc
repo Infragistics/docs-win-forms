@@ -1,0 +1,360 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-editor-controls",
+    "controlName": [],
+    "tags": ["API","Layouts","Navigation"],
+    "guid": "14c5d680-13f2-4b9d-8788-426505c30027",  
+    "buildFlags": [],
+    "createdOn": "2013-01-09T14:33:27.3427482Z"
+}
+|metadata|
+////
+
+= タッチ対応のエディター コントロール
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Infragistics のタッチ有効なエディターコントロールおよび要素について説明します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref342757484,エディター コントロールおよび要素>>
+
+** <<_Ref342757493,概要>>
+** <<_Ref342757501,UltraCalculatorDropDown>>
+** <<_Ref342757511,UltraCalendarCombo>>
+** <<_Ref342757519,UltraCheckEditor>>
+** <<_Ref342757529,UltraColorPicker>>
+** <<_Ref342757536,UltraCombo>>
+** <<_Ref342757545,UltraComboEditor>>
+** <<_Ref342757553,UltraCurrencyEditor>>
+** <<_Ref342757562,UltraDateTimeEditor>>
+** <<_Ref342757571,UltraFontNameEditor>>
+** <<_Ref342757581,UltraFormattedTextEditor>>
+** <<_Ref342757591,UltraMaskedEdit>>
+** <<_Ref342757602,UltraNumericEditor>>
+** <<_Ref342757612,UltraOptionSet>>
+** <<_Ref342757621,UltraTextEditor>>
+** <<_Ref342757630,UltraTimeSpanEditor>>
+** <<_Ref342757639,UltraTimeZoneEditor>>
+
+* <<_Ref342757647,関連コンテンツ>>
+
+[[_Ref342757484]]
+== エディター コントロールおよび要素
+
+[[_Ref342757493]]
+
+=== 概要
+
+以下のセクションは、エディター コントロールのタッチ可能な要素を表で示します。プレビューに加えて、追加情報を含むセクションもあります。
+
+[[_Ref342757501]]
+
+=== UltraCalculatorDropDown
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_2.png[]
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_3.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_4.png[]
+
+|====
+
+[[_Ref342757511]]
+
+=== UltraCalendarCombo
+
+_UltraCombo_   and  _UltraComboEditor_   の編集部分はタッチ可能です。
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_6.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_7.png[]
+
+|====
+
+[[_Ref342757519]]
+
+=== UltraCheckEditor
+
+デフォルトでは、 _UltraCheckEditor_   の `AutoSize` プロパティは false です。タッチ モードでは、`AutoSize` をオンにする必要があります。
+
+[[_Ref342757529]]
+
+=== UltraColorPicker
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_60.png[]
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_10.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_11.png[]
+
+|====
+
+[[_Ref342757536]]
+
+=== UltraCombo
+
+_UltraCombo_   and  _UltraComboEditor_   の編集部分はタッチ可能です。
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_13.png[]
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_14.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_15.png[]
+
+|====
+
+[[_Ref342757545]]
+
+=== UltraComboEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_17.png[]
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_18.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_19.png[]
+
+|====
+
+[[_Ref342757553]]
+
+=== UltraCurrencyEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_21.png[]
+
+|スピン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_22.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_23.png[]
+
+|====
+
+[[_Ref342757562]]
+
+=== UltraDateTimeEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_25.png[]
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_26.png[]
+
+|スピン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_27.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_7.png[]
+
+|====
+
+[[_Ref342757571]]
+
+=== UltraFontNameEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_30.png[]
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_31.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_32.png[]
+
+|====
+
+[[_Ref342757581]]
+
+=== UltraFormattedTextEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_34.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_35.png[]
+
+|====
+
+[[_Ref342757591]]
+
+=== UltraMaskedEdit
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_37.png[]
+
+|スピン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_38.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_39.png[]
+
+|====
+
+[[_Ref342757602]]
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_41.png[]
+
+|スピン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_42.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_43.png[]
+
+|====
+
+[[_Ref342757612]]
+
+=== UltraOptionSet
+
+タッチ可能な要素は項目自体です。
+
+[[_Ref342757621]]
+
+=== UltraTextEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_34.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_35.png[]
+
+|====
+
+[[_Ref342757630]]
+
+=== UltraTimeSpanEditor
+
+スピン ボタンはデフォルトで表示されます。コードまたは Visual Studio デザイン ビューを使用して無効にできます。
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|スピン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_61.png[]
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_49.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_50.png[]
+
+|====
+
+[[_Ref342757639]]
+
+=== UltraTimeZoneEditor
+
+[options="header", cols="a,a"]
+|====
+|タッチ可能な要素|ディスプレイ
+
+|ボタン左/右
+|image::images/Touch_Editor_Controls_and_Elements_52.png[]
+
+|ドロップダウン ボタン
+|image::images/Touch_Editor_Controls_and_Elements_53.png[]
+
+|Ink ボタン
+|image::images/Touch_Editor_Controls_and_Elements_54.png[]
+
+|====
+
+[[_Ref342757647]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider-overview.html[タッチ サポートの概要]
+|このトピックでは、Infragistics のタッチ有効なコントロールおよびコンポーネントについての概念を提供します。
+
+| link:touch-enabled-wingrid-control-elements.html[タッチ WinGrid コントロール要素]
+|このトピックでは、Infragistics のタッチ有効な _WinGrid_ コントロール要素について説明します。
+
+| link:touch-enabled-tab-controls.html[タッチ タブ コントロールおよびコンポーネント]
+|このトピックでは、Infragistics および _WinTabStrip_ 、 _WinTabbedMdiManager_ を含む、 _Infragistics_ タッチ有効な Tab コントロールおよびコンポーネントについて説明します。
+
+| link:touch-enabled-winlistview-control.html[タッチ WinListView コントロール]
+|このトピックでは、Infragistics のタッチ有効な _WinListView_ コントロール要素について説明します。
+
+| link:touch-enabled-wintree-control.html[タッチ WinTree コントロール]
+|このトピックでは、Infragistics のタッチ有効な _WinTree_ コントロール要素について説明します。
+
+|====

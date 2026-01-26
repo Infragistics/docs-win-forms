@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-visual-studio-net-2005-style-docking-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4C1DA475-5B70-4014-937C-FF20882DB6AD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Visual Studio .NET 2005 スタイルのドッキング
+
+DragWindowStyle 列挙体の新しい LayeredWindowWithIndicators 値を使用すると、ドッキング可能なペインまたはグループをドラッグしたときに、WinDockManager によって Visual Studio 2005 スタイルのドッキング インジケータが表示されます。ドラッグ中にマウスをドッキング インジケータ（たとえば上部ドッキング領域）の上に置くと、半透明のウィンドウが現れます。ドッキング インジケータをクリックすると、ドラッグされたペインまたはグループはクリックしたドッキング インジケータの対応する位置にドッキングされます。
+
+image::images/WinDockManager_Whats_New_VS2005_Style_Docking.png[]

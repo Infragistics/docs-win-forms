@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-alternate-row-colors",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{936F7D82-DC35-4D49-89B9-4E495C24E3BA}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 隔行の色の設定
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowalternateappearance.html[RowAlternate]"]  の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcolor.html[BackColor]"]  プロパティを使用して、代替えの行の色を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub SettingAlternateRowColors_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Override.RowAlternateAppearance.BackColor = Color.Red
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SettingAlternateRowColors_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.RowAlternateAppearance.BackColor = Color.Red;
+}
+----

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-tooltips-in-feature-picker-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{71C61932-E718-41EF-8A76-EBA6A94AA054}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 機能ピッカーのツールチップ
+
+デザイナで機能ピッカーのノードの上にマウスを置くと、ツールチップが表示されます。このツールチップには、項目の説明と、そのオプションを選択したときにどのプロパティがどの値に設定されるかを示す疑似コード スタイルのコード行が含まれます。
+
+image::images/WinGrid_ToolTips_in_Feature_Picker_01.png[]

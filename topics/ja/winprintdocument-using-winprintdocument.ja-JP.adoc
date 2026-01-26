@@ -1,0 +1,437 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintdocument-using-winprintdocument",
+    "controlName": ["WinPrintDocument"],
+    "tags": [],
+    "guid": "{41E77E5A-7175-4967-9480-5B896DD48ADD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPrintDocument の使用
+
+WinPrintDocument コンポーネントは pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.ultraprintdocument.html[PrintDocument]"]  クラスから派生し、ページ ヘッダおよびフッタを処理するプロパティを提供します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textleft.html[TextLeft]"] 、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textright.html[TextRight]"] 、および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textcenter.html[TextCenter]"]  のようなヘッダやフッタのプロパティを使用して、テキスト サイズの計算をせずに印刷ドキュメントのヘッダとフッタを作成することができます。
+
+[start=1]
+. *Visual Studio で新しいプロジェクトを作成します。*
+
+UltraCheckBox コントロールをフォームに追加し、"chkLandscape" という名前を指定して Text プロパティを "Landscape" に設定します。これによって、印刷が風景モードか肖像モードのいずれで行われるかを決定します。
+
+UltraButton をフォームに追加し、名前を "btnPrintPreview" に指定します。ボタンのテキストを "Print Preview" に設定します。このボタンによって、[印刷プレビュー] ダイアログが起動します。
+
+ボタンをもうひとつ追加して、名前を "btnPrint" に指定します。ボタンのテキストを "Print" に設定します。このボタンによって、プリンタに出力します。
+
+UltraTextEditor をフォームに追加し、名前を "txtCenterText" に指定します。コントロールの Text プロパティが印刷ドキュメントのヘッダとフッタのセンタリングされたテキストとして印刷されます。
+
+UltraPictureBox コントロールをフォームに追加し、名前を "pbPrintImage" に指定します。この PictureBox の画像が印刷されるものです。
+
+最後に、UltraPrintDocument コンポーネントと UltraPrintPreviewDialog コンポーネントをフォームに追加します。
+[start=2]
+. *画像を割り当てます。*
+
+WinPrintDocument で何でも印刷できます。この例のために、画像を使用します。'pbPrintImage' の Image プロパティを希望の画像ファイルに設定し、WinTextEditor でテキストを指定します。
+
+この時点でフォームは次のようになります。
+
+image::images/WinPrintDocument_Using_WinPrintDocument_01.png[]
+
+[start=3]
+. *プロパティを初期化します。*
+
+PrintPreviewDialog コンポーネントが ultraPrintDocument と連動するためには、Document プロパティとして割り当てるだけです。次のコードを Form_Load イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Using_WinPrintDocument_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' UltraPrintDocument を使用するように 
+	' 設定されます。 			
+	Me.UltraPrintPreviewDialog1.Document = Me.UltraPrintDocument1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Using_WinPrintDocument_Load(object sender, EventArgs e)
+{
+	// UltraPrintDocument を使用するように 
+	// 設定されます。 	
+	this.ultraPrintPreviewDialog1.Document = this.ultraPrintDocument1;
+}
+----
+
+[start=4]
+. *ページ番号を表示します。*
+
+ultraPrintDocument のヘッダおよびフッタは、"[Page #]" の置き換えコードを使用して現在のページ番号を自動的に表示できます。以下のコードを Form_Load イベントに追加して、ヘッダおよびフッタの右側にページ番号を表示します。
+
+*Visual Basic の場合：*
+
+----
+' ページ番号を表示するために、UltraPrintDocument の 
+' ヘッダとフッタに TextRight を設定します。 
+' これは Form_Load で設定されます。これは変わらないからです。
+' TextCenter と TextRight は変数です。したがって、
+' UltraPrintDocument の BeginPrint イベントで 
+' 設定されます。 
+Me.ultraPrintDocument1.Header.TextRight = "Page: [Page #]"
+Me.ultraPrintDocument1.Footer.TextRight = "Page: [Page #]"
+----
+
+*C# の場合：*
+
+----
+// ページ番号を表示するために、UltraPrintDocument の 
+// ヘッダとフッタに TextRight を設定します。 
+// これは Form_Load で設定されます。これは変わらないからです。
+// TextCenter と TextRight は変数です。したがって、
+// UltraPrintDocument の BeginPrint イベントで 
+// 設定されます。 
+this.ultraPrintDocument1.Header.TextRight = "Page: [Page #]";
+this.ultraPrintDocument1.Footer.TextRight = "Page: [Page #]";
+----
+
+[start=5]
+. *PrintPreview ダイアログを表示します。*
+
+'btnPrintPreview' の Click イベントを処理して以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnPrintPreview_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnPrintPreview.Click
+	' PrintPreview ダイアログを表示します。 
+	Me.UltraPrintPreviewDialog1.ShowDialog(Me)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnPrintPreview_Click(object sender, EventArgs e)
+{
+	// PrintPreview ダイアログを表示します。
+	this.ultraPrintPreviewDialog1.ShowDialog(this);
+}
+----
+
+[start=6]
+. *Print メソッドを呼び出します。*
+
+印刷するには、UltraPrintDocument コンポーネントで直接 Print メソッドを呼び出します。'btnPrint' の Click イベントを処理します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnPrint_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnPrint.Click
+	' ultraPrintDocument を印刷します。
+	Me.UltraPrintDocument1.Print()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnPrint_Click(object sender, EventArgs e)
+{
+	// ultraPrintDocument を印刷します。
+	this.ultraPrintDocument1.Print();
+}
+----
+
+[start=7]
+. *アプリケーションを実行します。*
+
+この時点でアプリケーションを実行し、[印刷プレビュー] をクリックすると、[印刷プレビュー] ダイアログが表示します。これによって、「ページ 1」というヘッダとフッタのテキストがページの右側に配置された単一のページになります。
+[start=8]
+. *BeginPrint イベント。*
+
+UltraPrintDocument コンポーネントの BeginPrint イベントは、アプリケーションの状態によって変わる場合がある印刷の設定の初期化に適しています。たとえば、印刷されるファイル名が異なる場合があります。または、印刷操作の日時を印刷したい場合もあります。手順 1 でフォームに追加した CheckBox のように、その他の複数の設定に基づいて、風景または肖像のいずれで印刷するかを決定する場合もあります。
+
+BeginPrint イベントを処理して以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraPrintDocument1_BeginPrint(ByVal sender As Object, _
+  ByVal e As System.Drawing.Printing.PrintEventArgs) _
+  Handles UltraPrintDocument1.BeginPrint
+	' 日にちと時刻を表示するために、ヘッダとフッタに 
+	' TextLeft を設定します。
+	Me.UltraPrintDocument1.Header.TextLeft = DateTime.Now.ToShortDateString() + _
+	  " " + DateTime.Now.ToShortTimeString()
+	Me.UltraPrintDocument1.Footer.TextLeft = DateTime.Now.ToShortDateString() + _
+	  " " + DateTime.Now.ToShortTimeString()
+	' フォーム上の txtCenterText にあるものすべてを表示するために TextCenter
+	' を設定します。これは、印刷するたびに変わる変数にテキストを
+	' 設定することをシミュレートします。 
+	Me.UltraPrintDocument1.Header.TextCenter = Me.txtCenterText.Text
+	Me.UltraPrintDocument1.Footer.TextCenter = Me.txtCenterText.Text
+	' chkLandScape チェックボックスに基づいて、DefaultPageSetting で
+	' LandScape プロパティを設定します。 
+	Dim landScape As Boolean = Me.chkLandscape.Checked
+	Me.UltraPrintDocument1.DefaultPageSettings.Landscape = landScape
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraPrintDocument1_BeginPrint(object sender, 
+  System.Drawing.Printing.PrintEventArgs e)
+{
+// 日にちと時刻を表示するために、ヘッダとフッタに 
+// TextLeft を設定します。
+    this.ultraPrintDocument1.Header.TextLeft = DateTime.Now.ToShortDateString() + 
+      " " + DateTime.Now.ToShortTimeString();
+    this.ultraPrintDocument1.Footer.TextLeft = DateTime.Now.ToShortDateString() + 
+      " " + DateTime.Now.ToShortTimeString();
+// フォーム上の txtCenterText にあるものすべてを表示するために TextCenter
+// を設定します。これは、印刷するたびに変わる変数にテキストを
+// 設定することをシミュレートします。 
+    this.ultraPrintDocument1.Header.TextCenter = this.txtCenterText.Text;
+    this.ultraPrintDocument1.Footer.TextCenter = this.txtCenterText.Text;
+// chkLandScape チェックボックスに基づいて、DefaultPageSetting で
+// LandScape プロパティを設定します。 
+    bool landScape = this.chkLandscape.Checked;			
+    this.ultraPrintDocument1.DefaultPageSettings.Landscape = landScape;
+}
+----
+
+[start=9]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行して、[印刷プレビュー] をクリックします。[印刷プレビュー] ダイアログが表示します。印刷する空のページは 1 ページのみのままですが、ヘッダとフッタにはセクションが 3 つあります。左には印刷操作の現在の日時があります。中央にはファイル名、または 'txtCenterText' TextBox コントロールに入力したテキストがあります。
+
+Landscape CheckBox をチェックし [印刷プレビュー] を再度クリックすると、風景モードで方向が設定されたページをプレビュー表示します。
+[start=10]
+. *画像を描画します。*
+
+印刷操作の実際のコンテンツを描画するには（この場合は画像）、PrintPage イベントを使用できます。このイベントはデフォルトで一度発生し、イベント引数によってマージン情報と GDI+ 描画メソッドを使用して描画できるグラフィックス オブジェクトが得られます。
+
+デフォルトでイベントは一度しか発生しません。最初のページ以降印刷すべきページがさらにある場合には、イベント引数の HasMorePages プロパティを True に設定する必要があります。この場合、イベントが再度発生し、HasMorePages が False になるまで発生が続行します。
+
+最初に、印刷した画像の最後の部分を追跡する複数の変数をフォームで宣言します。
+
+*Visual Basic の場合：*
+
+----
+' これらの変数は、印刷されている画像の 
+' 左と一番上のピクセルを追跡します。 
+' これによって、次の PrintPage イベントで 
+' どこから印刷が開始するのかが分かります。 
+Dim lastPrintX As Integer = 0
+Dim lastPrintY As Integer = 0
+----
+
+*C# の場合：*
+
+----
+// これらの変数は、印刷されている画像の 
+// 左と一番上のピクセルを追跡します。 
+// これによって、次の PrintPage イベントで 
+// どこから印刷が開始するのかが分かります。 
+int lastPrintX = 0;
+int lastPrintY = 0;
+----
+
+BeginPrint でこれらの変数を初期化します。このコードを BeginPrint イベントの最後に追加します。
+
+*Visual Basic の場合：*
+
+----
+' これらの変数は、印刷された画像の左と一番下の 
+' ピクセルを追跡します。これによって、
+' 次の PrintPage イベントで印刷をどこから開始するのかが分かります。 
+' これらを 0 に初期化します。これは印刷操作の 
+' 開始だからです。
+Me.lastPrintX = 0
+Me.lastPrintY = 0
+----
+
+*C# の場合：*
+
+----
+// これらの変数は、印刷された画像の左と一番下の 
+// ピクセルを追跡します。これによって、
+// 次の PrintPage イベントで印刷をどこから開始するのかが分かります。 
+// これらを 0 に初期化します。これは印刷操作の 
+// 開始だからです。
+this.lastPrintX = 0;
+this.lastPrintY = 0;
+----
+
+PrintPage イベントを処理して画像（または各ページに収まるだけの画像）を描画します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraPrintDocument1_PrintPage(ByVal sender As Object, _
+  ByVal e As System.Drawing.Printing.PrintPageEventArgs) _
+  Handles UltraPrintDocument1.PrintPage
+	' 印刷する画像を取得します。
+	Dim image As Image = Me.pbPrintImage.Image
+	' 画像サイズを取得します。
+	Dim imageSize As Size = image.Size
+	' 印刷された画像の最後の部分に基づいて 
+	' of the image that was printed. 
+	Dim startX As Integer = Me.lastPrintX
+	Dim startY As Integer = Me.lastPrintY
+	' 開始点から印刷すべき画像がどのくらい残っているのかを 
+	' 判断します。
+	Dim remainingImageWidth As Integer = imageSize.Width - startX
+	Dim remainingImageHeight As Integer = imageSize.Height - startY
+	' これらの変数は、高さまたは幅を切り取ったかどうかを
+	' 追跡します。これは、印刷する必要があるページがさらにあるかどうかを
+	' 判断する支援となります。 
+	Dim wasWidthClipped As Boolean = False
+	Dim wasHeightClipped As Boolean = False
+	' ページの印刷可能な領域のサイズをピクセルで取得します。
+	' MarginBounds は 100 分の 1 インチで四角形を返します。 
+	Dim scaleX As Single = e.Graphics.DpiX / 100.0F
+	Dim scaleY As Single = e.Graphics.DpiY / 100.0F
+	Dim printableRect As Rectangle = New Rectangle( _
+		CInt(e.MarginBounds.X $$*$$ scaleX), _
+		CInt(e.MarginBounds.Y $$*$$ scaleY), _
+		CInt(e.MarginBounds.Width $$*$$ scaleX), _
+		CInt(e.MarginBounds.Height $$*$$ scaleY) _
+	)
+	' 残りの画像の幅が、ページの印刷可能な領域 
+	' の幅よりも大きい場合には、切り取ります。
+	If (remainingImageWidth > printableRect.Width) Then
+		remainingImageWidth = printableRect.Width
+		wasWidthClipped = True
+	End If
+	' 残りの画像の高さが、ページの印刷可能な領域 
+	' の高さよりも大きい場合には、切り取ります。
+	If (remainingImageHeight > printableRect.Height) Then
+		remainingImageHeight = printableRect.Height
+		wasHeightClipped = True
+	End If
+	' この四角形は、現在のページ上に印刷すべき 
+	' 画像内に四角形を定義します。 
+	Dim imagePrintRect As Rectangle = New Rectangle( _
+		startX, _
+		startY, _
+		remainingImageWidth, _
+		remainingImageHeight _
+	)
+	' ページに画像セグメントを印刷します。
+	e.Graphics.DrawImage( _
+		image, _
+		e.MarginBounds.X, _
+		e.MarginBounds.Y, _
+		imagePrintRect, _
+		GraphicsUnit.Pixel _
+	)
+	' 次のページの変数を設定します。
+	If (wasWidthClipped) Then
+	' Width が切り取られると、lastPrintX を増分する 
+		' 必要があることを意味します。 				
+		Me.lastPrintX += (remainingImageWidth + 1)
+		' HasMorePages を True に設定します。このようにすると UltraPrintDocument
+		' は印刷すべきものがさらにあることを知ります。 
+		e.HasMorePages = True
+	ElseIf (wasHeightClipped) Then
+		' Width が切り取られなかったが、高さが切り取られた場合には、 
+		' 次の行に移動する必要があることを意味します。
+		Me.lastPrintX = 0
+		Me.lastPrintY += (remainingImageHeight + 1)
+		' HasMorePages を True に設定します。このようにすると UltraPrintDocument
+		' は印刷すべきものがさらにあることを知ります。 
+		e.HasMorePages = True
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraPrintDocument1_PrintPage(object sender, 
+  System.Drawing.Printing.PrintPageEventArgs e)
+{
+// 印刷する画像を取得します。
+    Image image = (System.Drawing.Image)this.pbPrintImage.Image;
+// 画像サイズを取得します。
+    Size imageSize = image.Size;
+//  印刷された画像の最後の部分に基づいて 
+// 開始する X と Y を取得します。 
+    int startX = this.lastPrintX;
+    int startY = this.lastPrintY;
+// 開始点から印刷すべき画像がどのくらい残っているのかを 
+// 判断します。
+    int remainingImageWidth = imageSize.Width - startX;
+    int remainingImageHeight = imageSize.Height - startY;
+// これらの変数は、高さまたは幅を切り取ったかどうかを
+// 追跡します。これは、印刷する必要があるページがさらにあるかどうかを
+// 判断する支援となります。 
+    bool wasWidthClipped = false;
+    bool wasHeightClipped = false;			
+// ページの印刷可能な領域のサイズをピクセルで取得します。
+// MarginBounds は 100 分の 1 インチで四角形を返します。 
+    float scaleX = e.Graphics.DpiX / 100f;
+    float scaleY = e.Graphics.DpiY / 100f;
+    Rectangle printableRect = new Rectangle(
+        (int)(e.MarginBounds.X $$*$$ scaleX), 
+        (int)(e.MarginBounds.Y $$*$$ scaleY), 
+        (int)(e.MarginBounds.Width $$*$$ scaleX), 
+        (int)(e.MarginBounds.Height $$*$$ scaleY)
+    );
+// 残りの画像の幅が、ページの印刷可能な領域 
+// の幅よりも大きい場合には、切り取ります。
+    if (remainingImageWidth > printableRect.Width)
+    {
+        remainingImageWidth = printableRect.Width;
+        wasWidthClipped = true;
+    }
+// 残りの画像の高さが、ページの印刷可能な領域 
+// の高さよりも大きい場合には、切り取ります。
+    if (remainingImageHeight > printableRect.Height)
+    {
+        remainingImageHeight = printableRect.Height;
+        wasHeightClipped = true;
+    }
+// この四角形は、現在のページ上に印刷すべき 
+//  画像内に四角形を定義します。 
+    Rectangle imagePrintRect = new Rectangle(startX, startY, 
+      remainingImageWidth, remainingImageHeight);
+// ページに画像セグメントを印刷します。 
+    e.Graphics.DrawImage(image, e.MarginBounds.X, 
+      e.MarginBounds.Y, imagePrintRect, GraphicsUnit.Pixel);
+// 次のページの変数を設定します。
+    if (wasWidthClipped)
+    {
+// Width が切り取られると、lastPrintX を増分する 
+// 必要があることを意味します。 
+        this.lastPrintX += (remainingImageWidth + 1);
+// HasMorePages を True に設定します。このようにすると UltraPrintDocument
+// は印刷すべきものがさらにあることを知ります。 
+        e.HasMorePages = true;
+    }
+    else if (wasHeightClipped)
+    {
+// Widthがクリップされなかった場合には、高さがクリップされました。 
+// 次の行に移動する必要があることを意味します。
+        this.lastPrintX = 0;
+        this.lastPrintY += (remainingImageHeight + 1);
+// HasMorePages を True に設定します。このようにすると UltraPrintDocument
+// は印刷すべきものがさらにあることを知ります。 
+        e.HasMorePages = true;
+    }
+}
+----
+
+[start=11]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行して、[印刷プレビュー] をクリックします。今回は、画像（または収まるだけの画像）がプリントアウトの最初のページに印刷されます。画像が 1 ページに収まらない場合には、複数ページをプレビューで使用可能になります。各ページは、割り当てられたヘッダとフッタを示します。
+
+[印刷プレビュー] ダイアログ内から [印刷] ボタンをクリックするか、プリンタに直接印刷するためにフォームで [印刷] をクリックして印刷できます。

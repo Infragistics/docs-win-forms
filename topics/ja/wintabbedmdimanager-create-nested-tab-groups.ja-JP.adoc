@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-create-nested-tab-groups",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{984464DE-A668-4689-ABFA-69FD0427DEE2}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ネストされたタブ グループを作成
+
+{ProductName} 2005 Volume 2 のリリースでは、WinTabbedMdiManager にネストされたタブ グループを作成する機能が追加されました。ネストされたタブ グループは、MdiTab の代わりに他の MdiTabGroup を含む pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup.html[MdiTabGroup]"]  です。タブ グループのネスト機能を使用すると、すべてのタブ グループの方向を垂直または水平のどちらかに限定する必要がなくなるため、タブの配置をより柔軟にカスタマイズできます。
+
+image::Images/WinTabbedMdiManager_Create_Nested_Tab_Groups_04.png[]
+
+[start=1]
+. 新しい Visual Studio C# または VB.NET Windows アプリケーションを作成します。
+[start=2]
+. メイン フォームで、IsMdiContainer プロパティを True に設定します。
+[start=3]
+. メイン フォームで、Size プロパティを大きい値（例：500, 400）に設定します。
+[start=4]
+. デザイン ビューでプロジェクトのフォームを開き、UltraTabbedMdiManager をフォームに追加します。これにより、次の 3 つの参照がプロジェクトに追加されます。
+
+** Infragistics.Shared
+** Infragistics.Win.UltraWinTabbedMdi
+** Infragistics.Win
+
+[start=5]
+. UltraTabbedMdiManager で、AllowNestedTabGroups を True に設定します。
+[start=6]
+. 別の Windows Formsをプロジェクトに追加します。フォームの名前はデフォルトの Form2 のままにします。
+[start=7]
+. メイン フォームの Form Load イベントかボタンの Click イベントに次のコードを追加します。このコードは Form2 のインスタンスを 5 つ作成し、Form1 をその親にします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub CreatingNestedTabGroupswiththeTabbedMDIManager_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim i As Integer
+	For i = 0 To 5
+		Dim myForm As New SampleChildMDI()
+		myForm.MdiParent = Me
+		myForm.Text = "Child Form" & i.ToString()
+		myForm.Show()
+	Next i
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void CreatingNestedTabGroupswiththeWinTabbedMDIManager_Load(
+  object sender, System.EventArgs e)
+{
+	for(int i=0; i$$<=$$5; i++)
+	{
+		SampleChildForm myform = new SampleChildForm();
+		myform.MdiParent = this;
+		myform.text = "Child Form" + i.ToString();
+		myform.Show();
+	}
+}
+----
+
+[start=8]
+. プロジェクトをビルドして実行すると、次のスクリーンショットのようなフォームが表示されます。この時点では、作成されたすべての MdiTab が 1 つの MdiTabGroup に配置されています。
+
+image::Images/WinTabbedMdiManager_Create_Nested_Tab_Groups_01.png[]
+
+[start=9]
+. フォームの実行中に最後のフォームのタブ（"Child Form5"）を右クリックすると、次のようなコンテキスト メニューが表示されます。 [新しい垂直タブ グループ] を選択すると、タブが新しい MdiTabGroup に移動し、フォームが次のようになります。
+
+image::Images/WinTabbedMdiManager_Create_Nested_Tab_Groups_02.png[]
+
+[start=10]
+. 最初のタブ グループの最後のタブ（"Child Form 4"）を右クリックします。前の手順と同様に、コンテキストメニューに水平または垂直タブ グループを作成するオプションが表示されます。ここで垂直タブ グループを作成した場合、新しいタブ グループはこのタブ グループの兄弟になります。これは、このタブ グループがすでに垂直配置で表示されているためです。代わりに [新しい水平タブ グループ] を選択します。こうすると、2 つの新しいタブ グループが作成されます。1 つは "Child Form4" タブを含むタブ グループで、もう 1 つは、移動したタブのタブ グループとそれまで "Child Form4" を格納していたタブ グループを含むネスト（コンテナ）タブ グループです。この時点で、これらのタブ グループは次のように水平分割バーで区切って配置されます。
+
+image::Images/WinTabbedMdiManager_Create_Nested_Tab_Groups_03.png[]
+
+[start=11]
+. このページの一番上にあるサンプル イメージのレイアウトの残りを再現するには、"Child Form3" を右クリックして [新しい垂直タブ グループ] を選択し、さらに "Child Form2" を右クリックして [新しい水平タブ グループ] を選択します。最後に "Child Form1" タブをクリックしてドラッグし、"Child Form5" を含むタブ グループ内の下端に近い方にドロップします。
+
+[NOTE]
+====
+*注：* このレイアウトを保存し、後でフォームをロードしたときに再利用できます。タブ付き MDI レイアウトの保存の詳細については、 link:wintabbedmdimanager-save-and-restore-tabbed-mdi-layout.html[「タブ付き MDI レイアウトの保存と復元」]を参照してください。
+====

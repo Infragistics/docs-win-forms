@@ -1,0 +1,137 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalculator-applying-appearances-to-wincalculator",
+    "controlName": ["WinCalculator"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{F4C3368A-9E4F-44D8-A123-7FCC86524034}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Calculator コントロールへの外観の適用
+
+オブジェクトがどのように表示されるかは、オブジェクトの Appearance によって決まります。ほとんどのオブジェクトは、その pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  プロパティを変更することでオブジェクトの外観を完全に制御できます。
+
+== デザインタイムの Appearance の設定
+
+WinCalculator コントロールの Appearance を変更するには、プロパティ ページで Appearance プロパティを展開し、サブプロパティに必要な変更を加えます。これらの変更は、コントロール全体と、ButtonAppearance プロパティまたは個々のボタンの Appearance によってオーバーライドされていない任意の Appearance に適用されます。
+
+Buttons グループの Appearance を全体的に変更するには、プロパティ ページで ButtonAppearance プロパティを展開し、サブプロパティに必要な変更を加えます。これらの変更は、計算機上に配置された、個々の Appearance オブジェクトを持たないすべてのボタンのプロパティに影響を与えます。
+
+個々のボタンの Appearance を変更するには、Buttons プロパティを展開し、次にプロパティ ページで個々のボタンの Appearance を展開し、サブプロパティに必要な変更を加えます。これらの変更は個々のボタンに適用され、これまでの Appearance をすべてオーバーライドします。
+
+== ランタイムの Appearance の設定
+
+ランタイムに Appearance を適用するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub ApplyingAppearancetotheCalculatorControls_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' UseOsThemes を False に設定すると、作成されたグラデーションが適用されます。
+	Me.UltraCalculator1.UseOsThemes = DefaultableBoolean.False
+	' コードで Appearance オブジェクトを作成します
+	Dim app1 As New Appearance()
+	Dim app2 As New Appearance()
+	Dim app3 As New Appearance()
+	Dim app4 As New Appearance()
+	' コード内で appearance1 のプロパティを設定します。
+	app1.FontData.SizeInPoints = 25
+	app1.BackColor = Color.White
+	app1.BackColor2 = Color.Yellow
+	app1.BackGradientStyle = GradientStyle.Circular
+	app1.ForeColor = Color.DarkGreen
+	app1.TextHAlign = HAlign.Right
+	app1.Cursor = Cursors.Cross
+	' appearance2 のプロパティを設定します。
+	app2.BackColor = Color.Yellow
+	app2.BackColor2 = Color.Green
+	app2.BackGradientStyle = GradientStyle.BackwardDiagonal
+	app2.FontData.Bold = DefaultableBoolean.True
+	app2.FontData.Italic = DefaultableBoolean.True
+	app2.TextHAlign = HAlign.Center
+	app2.FontData.SizeInPoints = 15
+	app2.Cursor = Cursors.Help
+	' appeareance 3 のプロパティを追加します。
+	app3.TextHAlign = HAlign.Center
+	app3.BackColor = Color.DodgerBlue
+	app3.BackColor2 = Color.Gainsboro
+	app3.BackGradientStyle = GradientStyle.HorizontalBump
+	' 最後の appearance にプロパティを追加します。
+	app4.BackColor = Color.Black
+	app4.BackHatchStyle = BackHatchStyle.DarkVertical
+	app4.AlphaLevel = 150
+	app4.BackGradientStyle = GradientStyle.VerticalBump
+	' ButtonAppearance の外観を適用し、計算機の外観をオーバーライドしますが、
+	' ただし、個々のボタンの Appearance はオーバーライドしません。
+	Me.UltraCalculator1.ButtonAppearance = app3
+	' 個々のボタンに適用され、これまでのすべての外観をオーバーライドします。
+	Me.UltraCalculator1.Buttons("+").Appearance = app2
+	Me.UltraCalculator1.Buttons("=").Appearance = app1
+	' 計算機全体の外観、エレメント全体および
+	' ButtonAppearance によってオーバーライドされていない外観、または個々のボタンの外観のみに適用されます。
+	Me.UltraCalculator1.Appearance = app4
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void ApplyingAppearancestotheCalculatorControls_Load(object sender, System.EventArgs e)
+{
+	// UseOsThemes を False に設定すると、作成されたグラデーションが適用されます。
+	this.ultraCalculator1.UseOsThemes = DefaultableBoolean.False;
+	// コードで Appearance オブジェクトを作成します
+	Infragistics.Win.Appearance app1 = new Infragistics.Win.Appearance();
+	Infragistics.Win.Appearance app2 = new Infragistics.Win.Appearance();
+	Infragistics.Win.Appearance app3 = new Infragistics.Win.Appearance();
+	Infragistics.Win.Appearance app4 = new Infragistics.Win.Appearance();
+	// コード内で appearance1 のプロパティを設定します。
+	app1.FontData.SizeInPoints=25;
+	app1.BackColor=Color.White;
+	app1.BackColor2=Color.Yellow;
+	app1.BackGradientStyle=GradientStyle.Circular;
+	app1.ForeColor=Color.DarkGreen;
+	app1.TextHAlign=HAlign.Right;
+	app1.Cursor=Cursors.Cross;
+	// appearance2 のプロパティを設定します。
+	app2.BackColor=Color.Yellow;
+	app2.BackColor2=Color.Green;
+	app2.BackGradientStyle=GradientStyle.BackwardDiagonal;
+	app2.FontData.Bold=DefaultableBoolean.True;
+	app2.FontData.Italic=DefaultableBoolean.True;
+	app2.TextHAlign=HAlign.Center;
+	app2.FontData.SizeInPoints=15;
+	app2.Cursor=Cursors.Help;
+	// appeareance 3 のプロパティを追加します。
+	app3.TextHAlign=HAlign.Center;
+	app3.BackColor=Color.DodgerBlue;
+	app3.BackColor2=Color.Gainsboro;
+	app3.BackGradientStyle=GradientStyle.HorizontalBump;
+	// 最後の appearance にプロパティを追加します。
+	app4.BackColor=Color.Black;
+	app4.BackHatchStyle=BackHatchStyle.DarkVertical;
+	app4.AlphaLevel=150;
+	app4.BackGradientStyle=GradientStyle.VerticalBump;
+	// ButtonAppearance の外観を適用し、計算機の外観をオーバーライドしますが、
+	// ただし、個々のボタンの Appearance はオーバーライドしません。
+	this.ultraCalculator1.ButtonAppearance=app3;
+	// 個々のボタンに適用され、これまでのすべての外観をオーバーライドします。
+	this.ultraCalculator1.Buttons["+"].Appearance=app2;
+	this.ultraCalculator1.Buttons["="].Appearance=app1;
+	// 計算機全体の外観、エレメント全体および
+	// ButtonAppearance によってオーバーライドされていない外観、または個々のボタンの外観のみに適用されます。
+	this.ultraCalculator1.Appearance=app4;
+}
+----
+
+image::images\WinEditors_Applying_Appearances_to_the_Calculator_Controls_01.png[]

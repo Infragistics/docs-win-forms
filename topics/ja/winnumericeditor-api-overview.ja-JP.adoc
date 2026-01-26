@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnumericeditor-api-overview",
+    "controlName": ["WinNumericEditor"],
+    "tags": ["API","Getting Started"],
+    "guid": "{39BB1EAD-4E26-4C83-A255-52959FF7451F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinEditors 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinEditors]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor.html[UltraNumericEditor]"]

@@ -1,0 +1,92 @@
+﻿////
+|metadata|
+{
+    "name": "wincomboeditor-ignoring-diacritics-on-autocomplete",
+    "controlName": [],
+    "tags": [],
+    "guid": "4389c76e-bf77-4e85-8737-0e4dc7132b7d",
+    "buildFlags": [],
+    "createdOn": "2014-03-13T20:26:17.2995231Z"
+}
+|metadata|
+////
+
+= オートコンプリートで分音記号を無視
+
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _WinCombo_™ および  _WinComboEditor_™ コントロールでオート コンプリート操作の分音記号を無視するオプションの概要を提供します。
+
+=== 概要
+
+この機能は、単語の分音記号を無視してリテラル文字列の検索を実行します。たとえば、「Résumé」の「e」文字に分音記号があります。ユーザーが「Resume」の単語を検索する場合、「Résumé」の単語は検索結果に含まれます。
+
+_WinCombo_   および  _WinComboEditor_   コントロールに追加した link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~autocompleteignorediacritics.html[AutoCompleteIgnoreDiacritics] プロパティは、開発者が文字列検索で分音記号の実用的な利用法を構成できます。
+
+=== 例
+
+以下の画像は、「open」のリテラル言葉の検索を紹介します。リストには分音記号がある同じ単語が含まれます。エディターの AutoCompleteIgnoreDiacritics プロパティを True に設定した場合、分音記号がある単語が検索結果に含まれます。False に設定した場合、分音記号がある単語は検索結果に含まれません。
+
+==== WinCombo
+
+[options="header", cols="a,a"]
+|====
+|`AutoCompleteIgnoreDiacritics=True`|`AutoCompleteIgnoreDiacritics=False`
+
+|image::images/Ignoring_Diacritics_on_Auto-Complete_1.png[]
+|image::images/Ignoring_Diacritics_on_Auto-Complete_2.png[]
+
+|====
+
+==== WinComboEditor
+
+[options="header", cols="a,a"]
+|====
+|`AutoCompleteIgnoreDiacritics=True`|`AutoCompleteIgnoreDiacritics=False`
+
+|image::images/Ignoring_Diacritics_on_Auto-Complete_3.png[]
+|image::images/Ignoring_Diacritics_on_Auto-Complete_4.png[]
+
+|====
+
+=== コード
+
+以下のコード例は  _WinCombo_   および  _WinComboEditor_   コントロールに適用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ComboEditor1.AutoCompleteIgnoreDiacritics = true; // false
+ComboEditor1.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.SuggestAppend;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ComboEditor1.AutoCompleteIgnoreDiacritics = True
+' false
+ComboEditor1.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.SuggestAppend
+----
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wincombo-using-wincombo.html[WinCombo の使用]
+|このセクションでは、 _WinCombo_ コントロールが提供する様々な特徴と機能を効果的に使用するための、タスク ベースの重要な情報について説明します。
+
+| link:wincomboeditor-using-wincomboeditor.html[WinComboEditor の使用]
+|このセクションでは、簡潔なタスクベースのトピックで _WinComboEditor_ コントロールの機能の使用方法について説明します。
+
+|====

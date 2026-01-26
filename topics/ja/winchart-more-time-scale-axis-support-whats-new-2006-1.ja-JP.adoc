@@ -1,0 +1,47 @@
+﻿////
+|metadata|
+{
+    "name": "winchart-more-time-scale-axis-support-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A1E41CF2-C9F7-499C-8D91-A6F007619E3C}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 強化された時間のスケール軸サポート
+
+チャートに日付順に配置したいデータが含まれている場合は、WinChart の時間のスケール軸のサポートを利用できます。チャートのデータが時系列順に並べられていなくても、WinChart コントロールは時間のスケール軸を使用してデータを時系列順に整理できます。
+
+これまでの {ProductName} のボリューム リリースでは、時間のスケール軸をサポートしているのは link:chart-working-with-step-area-chart-data.html[ステップ エリア]、 link:chart-working-with-step-line-chart-data.html[ステップ折れ線]、および link:chart-working-with-gantt-chart-data.html[ガント]の 3 種類のチャートのみでした。2006 Volume 1 リリースでは、次の追加のチャート コントロールでもこの機能がサポートされるようになりました。
+
+* link:chart-working-with-2d-area-chart-data.html[エリア グラフ（平面）]
+* link:chart-working-with-3d-area-chart-data.html[エリア グラフ（立体）]
+* link:chart-working-with-2d-line-chart-data.html[折れ線グラフ（平面）]
+* link:chart-working-with-3d-line-chart-data.html[折れ線グラフ（立体）]
+* link:chart-working-with-scatter-line-chart-data.html[散布図 - 折れ線グラフ]
+* link:chart-working-with-2d-spline-chart-data.html[スプライン グラフ]
+* link:chart-working-with-stacked-area-chart-data.html[積層型エリア グラフ]
+* link:chart-working-with-stacked-line-chart-data.html[積層型折れ線グラフ]
+* link:chart-working-with-stacked-spline-area-chart data.html[積層型スプライン エリア グラフ]
+* link:chart-working-with-stacked-spline-chart-data.html[積層型スプライン グラフ]
+
+時間のスケール軸を使用したチャートでは、X 軸上に等間隔でデータ点を配置するのではなく、経過時間に応じて配置します。これにより、エンド ユーザーは時間を基準としたデータを正確に配置することができます。
+
+以下のスクリーンショットは、標準的な X 軸を使用した折れ線グラフを示しています。プロットされた点が X 軸上に等間隔で並んでいることに注意してください。
+
+image::Images/WinChart_More_Time_Scale_Axis_Support_Whats_New_2006_1_01.png[]
+
+以下のスクリーンショットは、時間のスケール軸を使用した折れ線グラフを示しています。X 軸上の点が経過時間に従って不規則に並んでいることに注意してください。
+
+image::Images/WinChart_More_Time_Scale_Axis_Support_Whats_New_2006_1_02.png[]
+
+== 関連トピック
+
+
+
+link:chart-display-data-on-a-time-scale-axis.html[時間のスケール軸でデータを表示]
+
+link:chart-display-labels-at-intervals-on-a-time-scale-axis.html[時間のスケール軸で間隔でラベルを表示]

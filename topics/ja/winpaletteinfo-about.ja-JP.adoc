@@ -1,0 +1,4 @@
+﻿= WinPaletteInfo について
+
+WinPaletteInfo™ は、ColorPalette スタイルに設定されたすべての WinColorPalette または WinColorPicker で使用可能な Windows Forms コンポーネントです。各 ColorPalette の
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracolorpicker~paletteinfo.html[PaletteInfo] を同じ WinPaletteInfo オブジェクトに設定することによって設定を同期し、フォーム内で一貫性のある色選択エクスペリエンスを提供します。

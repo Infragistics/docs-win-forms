@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-vectors",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "55f92af7-bc4b-4e08-b0e5-cb69b66ba8f0",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:11:57.769981Z"
+}
+|metadata|
+////
+
+= ベクトル
+
+Infragistics Math Library™ はベクトルでの作業のために機能を提供します。
+
+== ベクトルについて
+
+ベクトルはオブジェクトのコレクションを保存するための 1 次元のデータ クラスです。 link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] は link:http://en.wikipedia.org/wiki/Row_vector[行ベクトル]または link:http://en.wikipedia.org/wiki/Column_vector[列ベクトル]にすることができます。
+
+== ベクトルの使用
+
+Infragistics Math Library は以下のベクトル クラスをサポートします。
+
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] - 実数のコレクションを保存します
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] - ブール値のコレクションを保存します
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexvector.html[ComplexVector] - 複素数のコレクションを保存します
+
+これらのクラスはすべて link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrixbase.html[MatrixBase] クラスから派生します。これらは保存するデータ タイプが異なります。
+
+以下のトピックは、Infragistics Math Library でベクトルを使用する方法を説明します。
+
+* link:infragistics-math-creating-vectors.html[ベクトルの作成]
+* link:infragistics-math-working-with-vectors.html[ベクトルでの作業]
+
+== 関連トピック
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-matrices.html[行列]
+
+link:infragistics-math-mathematical-functions.html[数学関数]

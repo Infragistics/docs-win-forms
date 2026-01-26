@@ -1,0 +1,78 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-change-a-tools-appearance",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Styling"],
+    "guid": "{87141F5A-7A42-43D1-BF76-A23EB919B368}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールの外観の変更
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances.html[ToolAppearances]"]  クラスには、ツールの外観を制御できる外観プロパティがあります。
+
+== ツール
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~appearance.html[Appearance]"]  - 特定のツールの一般的な外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~appearanceonmenu.html[AppearanceOnMenu]"]  - メニュー上にある場合に Appearance プロパティをオーバーライドするツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~appearanceontoolbar.html[AppearanceOnToolBar]"]  - ツールバー上にある場合のツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~hottrackappearance.html[HotTrackAppearance]"]  - マウス オーバーのツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~hottrackappearanceonmenu.html[HotTrackAppearanceOnMenu]"]  - メニュー上にある場合のマウス オーバーのツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~hottrackappearanceontoolbar.html[HotTrackAppearanceOnToolBar]"]  - ツールバー上にある場合のツールをマウス オーバーする際のツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~pressedappearance.html[PressedAppearance]"]  - 良好の状態ボタンをクリックした際のツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~pressedappearanceonmenu.html[PressedAppearanceOnMenu]"]  - クリックされた際のメニュー ツールの外観。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~pressedappearanceontoolbar.html[PressedAppearanceOnToolbar]"]  - クリックされた際のツールバーの外観。
+
+== デザインタイムの場合
+
+[start=1]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager.html[UltraToolBarsManager]"]  を右クリックして ［ユーザー設定］ を選択します。
+[start=2]
+. [ツール] タブでいずれかのボタン ツールを選択します。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  クラスを開き、AppearanceSmall または AppearancesLarge プロパティで上記のすべてのプロパティを確認します。
+[start=4]
+. アーカイブできる異なる効果を確認するために、それぞれのプロパティを設定します。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub ChangeaSpecificToolsAppearance_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  AppearanceOnToolbar.BackColor = Color.Beige
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  AppearanceOnToolbar.BackColor2 = Color.Beige
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  AppearanceOnToolbar.BackGradientStyle = GradientStyle.ForwardDiagonal
+	Me.UltraToolbarsManager1.Toolbars(0).Tools(2).SharedProps.AppearancesSmall. _
+	  HotTrackAppearance.BackColor = Color.Blue
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void ChangeaSpecificToolsAppearance_Load(object sender, System.EventArgs e)
+{
+	this.ultraToolbarsManager1.Toolbars[0].Tools[2].SharedProps.AppearancesSmall. 
+	  AppearanceOnToolbar.BackColor = Color.Beige;
+	this.ultraToolbarsManager1.Toolbars[0].Tools[2].SharedProps.AppearancesSmall. 
+	  AppearanceOnToolbar.BackColor2 = Color.Beige;
+	this.ultraToolbarsManager1.Toolbars[0].Tools[2].SharedProps.AppearancesSmall. 
+	  AppearanceOnToolbar.BackGradientStyle = GradientStyle.ForwardDiagonal;
+	this.ultraToolbarsManager1.Toolbars[0].Tools[2].SharedProps.AppearancesSmall. 
+	  HotTrackAppearance.BackColor = Color.Blue;
+}
+----

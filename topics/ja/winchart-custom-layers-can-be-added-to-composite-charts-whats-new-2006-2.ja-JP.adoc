@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-custom-layers-can-be-added-to-composite-charts-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E1F46DFD-F106-4088-8CDC-60C1DAD98A66}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム レイヤを合成チャートに追加可能
+
+2006 Volume 2 リリースは合成チャートにレイヤリング アーキテクチャを公開します（このアーキテクチャでは各レイヤが互いの上にプレスされて最終チャートが完成）。標準（非合成チャート）に加えて、合成チャート間でカスタム チャート レイヤを追加および削除するためのパワーと柔軟性をテキストにすることができます。
+
+== 関連トピック
+
+link:chart-about-custom-layers.html[カスタム レイヤについて]
+
+link:chart-adding-custom-layers.html[カスタム レイヤを追加]
+
+link:chart-about-composite-charts.html[合成チャートについて]

@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-add-groups-using-code",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Grouping","How Do I"],
+    "guid": "{15A9FDCF-29C8-4212-AD1D-C9A4BFCD9045}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= コードによる Groups の追加
+
+ランタイムに pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[Groups]"]  を WinExplorerBar に追加するには、いくつかの方法があります。グループはエレメントの Groups コレクションに含まれており、標準のコレクション メソッドを使用してグループを追加したりグループで作業できます。また、グループはエレメントのレイアウトの一部でもあり、バイナリ ファイルまたは XML ファイルに保存されたレイアウトを復元することによって作成することもできます。
+
+グループをエレメントに追加するには、次のいずれかのメソッドを使用します。
+
+* *Groups コレクションの Add メソッド* - pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupscollection~add.html[Add]"]  メソッドを呼び出すことで、グループをエレメントに追加できます。Add メソッドは新しく追加されたグループを返すので、それを使用してグループ関連のプロパティを設定できます。また、Add メソッドを使用して、特定の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup~text.html[Text]"]  値と Key 値の両方またはいずれか一方を持つ新しいグループを作成することもできます。
+
+次のコードは、Add メソッドを使用するいくつかの方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinExplorerBar
+...
+Private Sub AddGroupsThroughCode_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim aGroup As UltraExplorerBarGroup
+	aGroup = Me.UltraExplorerBar1.Groups.Add
+	aGroup.Text = "Employees Info"
+	aGroup.Key = "g_EmployeesInfo"
+	aGroup = Me.UltraExplorerBar1.Groups.Add("g_DepartmentInfo")
+	aGroup.Text = "Department Info"
+	Me.UltraExplorerBar1.Groups.Add("g_Benefits", "Benefits")
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinExplorerBar;
+...
+private void AddGroupsThroughCode_Load(object sender, System.EventArgs e)
+{
+	UltraExplorerBarGroup aGroup = new UltraExplorerBarGroup();
+	aGroup = this.ultraExplorerBar1.Groups.Add();
+	aGroup.Text = "Employees Info";
+	aGroup.Key = "g_EmployeesInfo";
+	aGroup = this.ultraExplorerBar1.Groups.Add("g_DepartmentInfo");
+	aGroup.Text = "Department Info";
+	this.ultraExplorerBar1.Groups.Add("g_Benefits", "Benefits");
+}
+----
+
+image::images\WinExplorerBar_Add_Groups_Using_Code_01.png[]
+
+* *Groups コレクションの AddRange メソッド* - また Groups コレクションは、Groups オブジェクトの配列から一度に複数の Groupsを追加することができる pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupscollection~addrange.html[AddRange]"]  メソッドをサポートします。このメソッドはエレメントを .NET のフォーム ジェネレータ コードに従ってインスタンス化する機能を提供します。
+* *保存したレイアウトからグループをロード* - WinExplorerBar はグループと項目の情報を XML またはバイナリ ファイルのいずれかで保存することができます。後でこのファイルをエレメントにロードし、以前存在した Groups ならびに他の保存した属性の設定を回復することができます。
+* デザインタイムにグループを追加することもできます。詳細については link:winexplorerbar-add-groups-and-items-at-design-time.html[「デザインタイムにグループと項目を追加」]を参照してください。

@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-styling-state-change-buttons",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{A61DC0BD-6B30-462A-AA53-55CE12B6E1B2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= StateChangeButtons のスタイリング
+
+StateChangeButtons は、デフォルトで各タイルのヘッダーに表示されます。これらのボタンは、Normal 状態と Large の状態でタイルを切り替えるために使用されます。StateChangeButton の外観は変更可能で、完全に非表示にすることもできます。
+
+以下のコードは、UltraTilePanel コントロールがフォームにドロップされていることを前提とします。UltraTilePanel コントロールへのタイルの追加については、 link:wintilepanel-add-and-remove-tiles-through-code.html[「コードでタイルを追加および削除」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+' 特定のタイルの状態変更ボタンを非表示にします 
+tile1.Settings.ShowStateChangeButton = Infragistics.Win. DefaultableBoolean.[False] 
+' タイルが Large の状態である時に状態変更ボタンの外観を設定します。 
+tile2.Settings.StateChangeButtonLargeAppearance.BackColor = Color.Red 
+' タイルが Normal の状態である時に状態変更ボタンの外観を設定します。 
+tile3.Settings.StateChangeButtonNormalAppearance.BackColor = Color.GreenYellow 
+' タイルが Large の状態である時に状態変更ボタンのホット トラックの外観を設定します
+tile4.Settings.StateChangeButtonLargeHotTrackAppearance.BackColor = Color. LightPink
+----
+
+*C# の場合：*
+
+----
+// 特定のタイルの状態変更ボタンを非表示にします
+tile1.Settings.ShowStateChangeButton = Infragistics.Win.DefaultableBoolean.False;
+// タイルが Large の状態である時に状態変更ボタンの外観を設定します。
+tile2.Settings.StateChangeButtonLargeAppearance.BackColor = Color.Red;
+// タイルが Normal の状態である時に状態変更ボタンの外観を設定します。
+tile3.Settings.StateChangeButtonNormalAppearance.BackColor = Color.GreenYellow;
+// タイルが Large の状態である時に状態変更ボタンのホット トラックの外観を設定します
+tile4.Settings.StateChangeButtonLargeHotTrackAppearance.BackColor = Color. LightPink;
+----
+
+image::Images/WinTilePanel_Styling_State_Change_Buttons_01.png[]

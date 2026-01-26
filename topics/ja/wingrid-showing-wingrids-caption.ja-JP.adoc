@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-showing-wingrids-caption",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{4CCFB228-71BF-421F-B043-66FF985CE1AD}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid のキャプションの非表示
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~captionvisible.html[CaptionVisible]"]  プロパティを True に設定することで、WinGrid のキャプションを表示できます。また、WinGrid の Text プロパティを値に設定することで、グリッドのキャプションを表示することもできます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub Show_WinGrids_Caption_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.CaptionVisible = DefaultableBoolean.True
+	Me.UltraGrid1.Text = "Customer Information"
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void Show_WinGrids_Caption_Load(object sender, EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.CaptionVisible = DefaultableBoolean.True;
+	this.ultraGrid1.Text = "Customer Information";
+}
+----
+
+以下のスナップショットは、キャプションを表示して Text プロパティを "Customer Information" に設定した WinGrid を示しています。
+
+image::Images/WinGrid_Show_WinGrids_Caption_01.png[]

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-simple-gradient-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{3A5961AE-6D2D-4B05-A334-9A55EABA9238}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= シンプル グラデーション ブラシ エレメント
+
+ゲージのプロパティを特定の方法でひとつの色で開始して別の色にフェードインするようにしたい場合には、ブラシ タイプを SimpleGradient に設定します。SimpleGradient ブラシ エレメントを選択すると、開始色、終了色、グラデーション スタイルを指定できます。以下を使用してシンプル グラデーション ブラシ エレメントをゲージのプロパティに適用することができます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、以下の設定で目盛盤の BrushElement プロパティを SimpleGradientBrushElement に設定した状態のラジアル ゲージを表示します。
+
+* 開始色 -- 192, 0, 0
+* 終了色 -- 黒
+* グラデーション スタイル -- 垂直
+
+image::images/Gauge_Simple_Gradient_02.png[]

@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-disabling-delete-row-confirmation",
+    "controlName": [],
+    "tags": [],
+    "guid": "01b4c69b-bf23-43a3-806b-6b2bba06ec94",  
+    "buildFlags": [],
+    "createdOn": "2014-01-21T20:10:56.8033457Z"
+}
+|metadata|
+////
+
+= 行削除の確認の無効化
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、行の削除で確認ダイアログを無効にする概要を提供します。
+
+[[_Ref371933075]]
+[[_Ref371956987]]
+== 行削除の確認機能の無効化
+
+=== 概要
+
+この機能は、ユーザーが行を削除するときに確認ダイアログを無効にする追加のオプションを開発者に提供します。
+
+デフォルトで、 _WinGrid_   から行を選択し、削除する場合、行を削除する前に削除操作を確認するための確認ダイアログ ボックスは表示されます。確認ダイアログを無効にする方法は 2 つあります。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforerowsdeleted_ev.html[BeforeRowsDeleted] で  _DisplayPromptMsg_   を `False` に設定、またはコントロールのブール プロパティ link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~showdeleterowsprompt.html[ShowDeleteRowsPrompt] をデフォルトの `True` 設定から `False` に設定します。
+
+確認ダイアログを無効にします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.ShowDeleteRowsPrompt = false;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.ShowDeleteRowsPrompt = False
+----
+
+イベント引数をオーバーライドし、確認ダイアログを無効にします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void ultraGrid1_BeforeRowsDeleted(object sender, BeforeRowsDeletedEventArgs e)
+{
+    e.DisplayPromptMsg = false;
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub ultraGrid1_BeforeRowsDeleted(sender As Object, e As BeforeRowsDeletedEventArgs)
+      e.DisplayPromptMsg = False
+End Sub
+----
+
+[[_Ref370929790]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-using-wingrid.html[WinGrid の使用]
+|このセクションは関連トピックへのリンクを提供します。
+
+|====

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-understanding-winspellchecker",
+    "controlName": ["WinSpellChecker"],
+    "tags": [],
+    "guid": "{F1F47E0D-93E4-4554-ACB6-EB24497FE21E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker の理解
+
+WinSpellChecker コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinSpellChecker コンポーネントを使用することの利点を理解できます。
+
+WinSpellChecker コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winspellchecker-about-winspellchecker.html[WinSpellChecker について]
+* link:winspellchecker-customizing-how-winspellchecker-spell-checks-documents.html[WinSpellChecker がドキュメントのスペル チェックをする方法をカスタマイズ]
+* link:winspellchecker-dictionaries.html[辞書]
+* link:winspellchecker-using-the-spell-checker-dialog.html[スペル チェッカー ダイアログを使用]
+* link:winspellchecker-smart-tag.html[WinSpellChecker スマート タグ]

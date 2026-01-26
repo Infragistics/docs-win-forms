@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-no-repeat-column-headers",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Layouts"],
+    "guid": "{AD2A1EDA-2A0B-485A-8119-5CC49D04A9FB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 非繰り返し列のヘッダー
+
+No Repeat Column Headers (非繰り返し列のヘッダー) は WinGrid™ の他の外観の機能です。ひとつのプロパティの設定をして、WinGrid の列のヘッダーを複数の異なる方法で表示できます。通常は、階層的な WinGrid を使用する場合は、列のヘッダーがネストされた各サブ コレクションまたはデータ アイランドに繰り返されます。
+
+下記のスクリーンショットは、階層的なデータ モデルのデフォルトの列の表示をする WinGrid です。
+
+image::images/WinGrid_No_Repeat_Column_Headers_01.png[]
+
+それぞれのデータ アイランドで列ヘッダーの繰り返しを表示するために各バンドの列のスキーマに色をつけました。ほとんどのユーザーは、このデフォルトのルック アンド フィールを好みますが、できる限り多くのデータを表示するために最大限利用が必要の場合は、No Repeat Column Header の機能を使用します。DisplayLayout.Override.HeaderPlacement はこの機能の管理をします。現在、列挙体には次の値しか使用できません: Default、RepeatOnBreak、FixedOnTop、OncePerRowIsland、OncePerGroupedRowIsland。
+
+HeaderPlacement を FixedOnTop に設定して上記に表示される WinGrid を変更できます:
+
+image::images/WinGrid_No_Repeat_Column_Headers_02.png[]
+
+FixedOnTop 値は、上に固定されて、各バンドの列ヘッダーを 1 回表示します。実際のデータ行の表示のためには、画面領域を最大化します。HeaderPlacement を OncePerRowIsland に設定する場合の WinGrid の外観を下記のスクリーンショットに表示します。
+
+image::images/WinGrid_No_Repeat_Column_Headers_03.png[]
+
+各基本オブジェクト コレクションが列ヘッダーを 1 つしか含まないことに注意してください。基本データ モデルをみると、顧客コレクションは 1 つのコレクションですので、OncePerRowIsland プロパティの値により、顧客コレクション (赤いバンド 0 に示されます) を指定するための列が 1 セットしかありません。上記のスクリーンショットの赤い矢印はバンド 0 の列のヘッダーが表示する領域を指し示します。個々のサブ コレクションが列のヘッダーの 1 セット、バンド 1 とバンド 2 は同じ操作を提示します。

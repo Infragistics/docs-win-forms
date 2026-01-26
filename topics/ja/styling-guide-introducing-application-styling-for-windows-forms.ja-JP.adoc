@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-introducing-application-styling-for-windows-forms",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B7217058-3834-4805-8990-AEC2F4C2212A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーション スタイリングの紹介
+
+アプリケーション スタイリングは、開発者とグラフィック デザイナのより効率的な協力を可能にする Windows Forms 開発の画期的な概念です。開発者はアプリケーションを作成しますが、その間同時にグラフィック デザイナはそのアプリケーションで使用できるスタイルを作成します。終了すると、グラフィック デザイナはスタイル ライブラリを、コード 1 行のみでアプリケーションにロードする開発者に渡します。スタイリッシュなルック アンド フィールの世界クラスのアプリケーションを開発することがこれほど簡単なことは今までありませんでした。個人事業でも企業レベルの事業でも、すべての人が Infragistics® のアプリケーション スタイリングからメリットを得ることができます。
+
+アプリケーション スタイリングは 2 つの独自の観点をアプリケーション開発にもたらします。アプリケーション開発者とグラフィック デザイナの両者がアプリケーション スタイリングに影響を受けます。以下のリンクをクリックして、これらの独自の観点を読んで、アプリケーション スタイリングの詳細を学習してください。
+
+* link:styling-guide-application-styling-the-developers-perspective.html[アプリケーション スタイリング:開発者の観点]
+* link:styling-guide-application-styling-the-graphic-designers-perspective.html[アプリケーション スタイリング:グラフィック デザイナの観点]
+* link:styling-guide-sample-style-libraries.html[サンプルのスタイル ライブラリ]

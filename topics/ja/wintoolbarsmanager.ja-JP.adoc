@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{43F29760-83B0-41C3-82BD-9A5C28DFDBD0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager
+
+WinToolbarsManager コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。その内容は、WinToolbarsManager の機能、このコンポーネントをアプリケーションに使用することの利点、このコンポーネントを使用する一般的なタスクの手順を追った作成方法などです。
+
+以下のリンクをクリックすると、WinToolbarsManager コンポーネントに関する重要な説明を読むことができます。
+
+== link:wintoolbarsmanager-understanding-wintoolbarsmanager.html[WinToolbarsManager の理解]
+
+このセクションでは、WinToolbarsManager コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。
+
+== link:wintoolbarsmanager-getting-started-with-wintoolbarsmanager.html[WinToolbarsManager で開始]
+
+WinToolbarsManager コンポーネントを使った処理をできるだけ早く準備、実行できるように、WinToolbarsManager コンポーネントの利用を開始する方法（WinToolbarsManager のフォームへの追加など）を提供しています。
+
+== link:wintoolbarsmanager-working-with-the-ribbon.html[リボンの操作]
+
+リボンは、Tabs と Groups のコレクションを使用して可能な限りツールを表示するための特有のユーザー インターフェイス コンポーネントです。リボンは、Office 2007 のルック アンド フィールをエンド ユーザーに提供するために設計されました。
+
+== link:wintoolbarsmanager-working-with-toolbar-types.html[ツールバー タイプでの作業]
+
+このセクションでは、役に立つ短いトピックがあり、さまざまなツールバーのタイプを管理する方法を示すサンプル コードが付いています（つまり、 Standard、MainMenu、TaskPane）。
+
+== link:wintoolbarsmanager-working-with-tool-types.html[ツール タイプでの作業]
+
+このセクションでは、役に立つ短いトピックがあり、さまざまなツールバーのタイプを管理する方法を示すサンプル コードが付いています（例、Button、ComboBox、および TextBox）。
+
+== link:wintoolbarsmanager-api-overview.html[API 概要]
+
+このトピックでは、WinToolbarsManager コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

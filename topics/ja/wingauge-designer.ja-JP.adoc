@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-designer",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Getting Started"],
+    "guid": "{F26A9FBB-2DC0-4B90-8881-A2E0C20E4F45}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ デザイナ
+
+ゲージ デザイナは、線形、デジタル、放射型の各ゲージ ギャラリーで構成されており、基本的なデザインから複雑なデザインまで多様なデザインが含まれています。ゲージ デザイナによって事前に定義されたゲージを選択し、Gauge コントロールに追加することができます。たとえば、スピードメーターなどの複雑なラジアル ゲージを作成したい場合には、デザイナから選択するだけで、Gauge コントロールに自動的に追加されます。デザイナのユーザー フレンドリなインタフェースを使用すれば、Gauge コントロールのプロパティを素早く簡単に操作できます。
+
+ゲージ デザイナを開始するには、以下のリンクをクリックしてください。
+
+* link:wingauge-layout-of-the-gauge-designer.html[ゲージ デザイナのレイアウト]
+* link:wingauge-working-with-gauge-presets.html[ゲージ プリセットでの作業]
+* link:wingauge-using-the-gauge-designer.html[ゲージ デザイナを使用]

@@ -1,0 +1,27 @@
+﻿////
+|metadata|
+{
+    "name": "windatetimeeditor",
+    "controlName": ["WinDateTimeEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{F4B378A8-D636-4450-99F7-B692183F5F31}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDateTimeEditor
+
+以下のリンクをクリックすると、WinDateTimeEditor コントロールに関する説明を読むことができます。
+
+* WinDateTimeEditor の理解
+** link:windatetimeeditor-about-windatetimeeditor.html[WinDateTimeEditor について]
+** link:winmaskededitorbase-spinning.html[スピン動作]
+** link:windatetimeeditor-smart-tag.html[WinDateTimeEditor スマート タグ]
+* WinDateTimeEditor の使用
+** link:windatetimeeditor-adding-selected-dates-to-wintree.html[ラベルの日付を変更]
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してエディターを増分]
+** link:windatetimeeditor-preventing-from-typing-into-windatetimeeditor.html[WinDateTimeEditor 入力の無効化]
+** link:windatetimeeditor-restricting-the-range-of-dates-accepted-by-the-datetimeeditor.html[DateTimeEditor が受け入れる日付の範囲を制限する]
+* link:windatatimeeditor-api-overview.html[API 概要]

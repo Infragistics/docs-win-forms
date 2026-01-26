@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "embedding-winchart-inside-wingrid-cells-using-a-drawfilter",
+    "controlName": [],
+    "tags": ["Application Scenarios","Charting","Grids"],
+    "guid": "{E97E14DF-00F8-4D92-97FB-CC91BC4931B3}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-10T13:46:16Z"
+}
+|metadata|
+////
+
+= 描画フィルターを使用して WinGrid セル内で WinChart を組み込む
+
+タブ形式のグリッド データをチャートを使ってエンティティのトレンドを示すことにより飛躍的にユーザーエクスペリエンスを向上させることができます。WinGrid™ や WinChart™ でこのような機能を使用するには、カスタムなコードが必要になり、また IUIElementDrawFilter インターフェースに対する深い知識や創造力も必要になってきます。以下のトピックは、この機能の事例のデザインと原理を説明します。
+
+image::Images/WinChart_Inside_WinGrid_DrawFilter_01.png[]
+
+以下のトピックでは事例の各部分について説明します。この機能を実現するさまざまな状況を確認できます。
+
+[start=1]
+. link:how-to-show-winchart-inside-wingrid-cells.html[WinGrid セル内で WinChart を表示する] – 関連するコントロールの制限事項、またこの機能に Draw Filter を使用する理由について説明します。
+[start=2]
+. link:the-winchart-inside-wingrid-drawfilter-implementation.html[WinGrid 内の WinChart 描画フィルターの実装] –WinGrid セル内でのチャートの表示に使用する描画フィルターのデザインを説明します。
+[start=3]
+. link:the-chartinfoeventargs-class.html[ChartInfoEventArgs クラス] – 最終版を使ってチャートとグリッドに関連する情報を公開するために使用されるクラスについて説明します。
+[start=4]
+. link:the-chartlayout-class.html[ChartLayout クラス] – 任意の時点での WinChart の状態を格納するために使用するクラスについて説明します。
+[start=5]
+. link:helper-functions.html[ヘルパー機能] – チャートの状態の保存および読み込みに使用できるメソッドについて説明します。
+[start=6]
+. link:using-the-winchart-inside-wingrid-drawfilter.html[WinGrid 内で WinChart 描画フィルターを使用する] – 開発者が、Windows Form 内で完全実装を使用する方法について説明します。

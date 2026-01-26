@@ -1,0 +1,45 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-wrapping-text-in-a-header",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{1176C539-2E8B-4441-BBD4-3EDF5E0A903F}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ヘッダ内テキストの折り返し
+
+この機能は、ヘッダの水平方向の幅が狭くてテキスト全体を表示できない場合、ヘッダ内のテキストを自動的に折り返します。折り返された複数行のテキストが列ヘッダの高さに収まらない場合は、高さも自動的に調整されます。
+
+このプロパティをデザインタイムに WinGrid デザイナによって設定することもできます。 この場合は次の手順に従います。
+
+[start=1]
+. UltraGrid を右クリックして [UltraGrid デザイナ] を選択します。デザイナ ダイアログが表示されます。
+[start=2]
+. デザイナの左ペインで、[コントロール設定] を選択します。
+[start=3]
+. 右ペインで、UltraGrid を展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[DisplayLayout]"]  を展開します。
+[start=5]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  を選択して展開します。
+[start=6]
+. 右側のプロパティ グリッドに Override オブジェクトのすべてのプロパティがリストされます。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~wrapheadertext.html[WrapHeaderText]"]  を探して True に設定します。
+[start=7]
+. 実際の動作を確かめるためにプロジェクトを実行します。初期状態では次のように表示されます。
+
+image::Images/WinGrid_Wrap_Text_Headers_01.png[]
+
+[start=8]
+. 列のサイズを小さくして、列のキャプション全体がヘッダの水平方向の幅に収まらないようにします。こうすると、ヘッダの高さが拡大され、ヘッダのキャプションが折り返されます。次のように、キャプションが隠れることなくすべて表示されます。
+
+image::Images/WinGrid_Wrap_Text_Headers_02.png[]
+
+[start=9]
+. ヘッダのキャプションが 1 行に収まるように列の幅を広げると、ヘッダの高さが再び 1 行分の高さに調整されます。
+
+image::Images/WinGrid_Wrap_Text_Headers_02.png[]

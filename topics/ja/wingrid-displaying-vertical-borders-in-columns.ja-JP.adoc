@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-vertical-borders-in-columns",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{C954849F-0894-40F2-907B-A769AFDF04BC}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列における垂直境界線の表示
+
+次のコードは、Cell の Appearance の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~bordercolor.html[BorderColor]"]  プロパティを使用して列境界線としての垂直線を表示する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DisplayingVerticalBordersinColumns_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Override.CellAppearance.BorderColor = Color.Red
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DisplayingVerticalBordersinColumns_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Override.CellAppearance.BorderColor = Color.Red;
+}
+----
+
+image::images/WinGrid_Display_Vertical_Borders_in_Columns_01.png[]

@@ -1,0 +1,78 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-handling-filtered-rows-using-filter-actions",
+    "controlName": ["WinGrid"],
+    "tags": ["Filtering","Grids","How Do I"],
+    "guid": "{D6F19AC2-0D01-4422-A426-13C8DF8CCDBE}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= フィルタ アクションによるフィルタリング行の操作
+
+WinGrid での行フィルタリングは、以前は「全か無か」のプロセスでした。つまり、フィルタリングした行を非表示にするか、またはフィルタリングをまったく実行しないかの 2 つの選択肢しかありませんでした。行フィルター アクションが追加されたことにより、フィルタリングされた行の取り扱いが非常に柔軟になりました。フィルタリングによって除外された行を非表示にすることも引き続き可能で、これがフィルタリングを適用するときのデフォルトのアクションです。
+
+新たに、フィルタリングの結果に基づいて行を色分けすることも可能になりました。フィルター条件に一致する行にある外観を適用し、一致しない行に別の外観を適用できます。その他に、フィルタリング操作によって除外された行を無効にすることもできます。
+
+書式設定に使用する pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  オブジェクトは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトに存在するので、グリッド レベルまたは個々のバンドレベルで適用できます。実行されるフィルター アクションのタイプは、Override オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowfilteraction.html[RowFilterAction]"]  プロパティによって決まります。
+
+デフォルト以外の行フィルター アクションを実装するには、次の手順に従います。このコードでは、フォーム上に UltraGrid が配置されていて、UltraGrid にデータを取り込むために必要な手順がすでに完了していると仮定しています。これを実行する支援が必要な場合には、pick:[win-forms="link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]"] を参照してください。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. グリッド エレメントの IntializeLayout イベントで、
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Override.AllowRowFiltering = DefaultableBoolean.True
+	e.Layout.Override.RowFilterAction = RowFilterAction.AppearancesOnly
+	e.Layout.Override.FilteredInCellAppearance.ForeColor = Color.DarkGreen
+	e.Layout.Override.FilteredOutCellAppearance.ForeColor = Color.DarkRed
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Override.AllowRowFiltering = DefaultableBoolean.True;
+	e.Layout.Override.RowFilterAction = RowFilterAction.AppearancesOnly;
+	e.Layout.Override.FilteredInCellAppearance.ForeColor = Color.DarkGreen;
+	e.Layout.Override.FilteredOutCellAppearance.ForeColor = Color.DarkRed;
+}
+----
+
+[start=3]
+. プロジェクトを実行すると、グリッドの列ヘッダ内に行フィルターが表示されます。複数の値が表示されている列を選び、その列のヘッダにある行フィルター　アイコンをクリックし、ドロップダウン　リストの値のひとつを選択します。行データは選択したフィルター基準に従って色分けされます。フィルター基準に合うデータは緑色で表示され、合わないデータは赤色で表示されます。
+
+赤色で表示されている任意のセルをクリックすると、そのセルはまだ編集可能であることがわかります。
+[start=4]
+. プロジェクトを再度実行し、前と同じように列ヘッダから行フィルター基準を選択します。今度は、フィルター基準に合うデータには緑色が適用され、合わないデータは無効になって、システムによって設定されている無効テキスト色で表示されます。無効行のいずれかをクリックしようとしても、もう編集できないことがわかります。一通り調べたらプロジェクトを終了します。
+
+この演習では行フィルタリング方法の変更について概要を示しています。該当セルの ForeColor の変更のみが示されていますが、以下の方法を使えば行フィルタリングを基にしてどのような外観関連プロパティも簡単に適用できます。

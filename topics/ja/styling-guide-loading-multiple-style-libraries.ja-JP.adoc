@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-loading-multiple-style-libraries",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{91711987-DFAA-4117-918B-2C456BCB6EFE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数のスタイル ライブラリをロード
+
+スタイルについては、アプリケーションはより多くの柔軟性を求めます。スタイル ライブラリには、デフォルトのスタイルセットおよびコントロール用の個々のスタイルセットが含まれます。ただし、同時に異なるスタイル ライブラリから複数の異なるコントロールに対して複数のスタイルを使用する必要がある場合があります。
+
+Application Styling Framework™ によって、必要なだけのスタイル ライブラリをロードすることができます。必要なのは、ユニークな名前でロードする各スタイル ライブラリを識別することだけです。StyleManager.Load メソッドのオーバーロードのひとつが 3 つのパラメータを受け付けます。
+
+* スタイル ライブラリのパス
+* ロードされた時にスタイル ライブラリを検証するかどうかを識別するブール値
+* アプリケーションがスタイル ライブラリとして認識する名前
+
+このオーバーロードを使用すれば、複数のスタイル ライブラリをロードして名前を付けることができます。アプリケーションのコントロールは、選択したスタイル ライブラリ名のひとつに StyleLibraryName プロパティを設定することで、これらのスタイル ライブラリのひとつを使用できます。
+
+以下のコードは、3 つの個別のスタイル ライブラリをロードし、それぞれが異なるスタイル ライブラリのひとつを使用するように 3 つの既存の WinButtons を設定します。
+
+image::images/Win_Loading_Multiple_Style_Libraries_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Public Sub New()
+	MyBase.New()
+	InitializeComponent()
+	' 3 つのスタイル ライブラリをロードします。
+	' 最初のパラメータはスタイル ライブラリへのパスです。
+	' 2 番目のパラメータは、検証するかどうかを示します。
+	' 3 番目のパラメータはスタイル ライブラリに指定する名前です。
+	StyleManager.Load("C:\\Application Styles\\Peach.isl", True, "styleLibrary1")
+	StyleManager.Load("C:\\Application Styles\\Pear.isl", True, "styleLibrary2")
+	StyleManager.Load("C:\\Application Styles\\Appletini.isl", True, "styleLibrary3")
+End Sub
+Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	' StyleLibraryName プロパティの設定は、コントロールに
+	' どのスタイル ライブラリを使用するかを指示します。この名前は、
+	' 上記の Load メソッドの 3 番目のパラメータ
+	' に対応します。
+	Me.UltraButton1.StyleLibraryName = "styleLibrary1"
+	Me.UltraButton2.StyleLibraryName = "styleLibrary2"
+	Me.UltraButton3.StyleLibraryName = "styleLibrary3"
+End Sub
+----
+
+*C# の場合：*
+
+----
+static void Main() 
+{
+	// 3 つのスタイル ライブラリをロードします。
+	// 最初のパラメータはスタイル ライブラリへのパスです。
+	// 2 番目のパラメータは、検証するかどうかを示します。
+	// 3 番目のパラメータはスタイル ライブラリに指定する名前です。
+	StyleManager.Load("C:\\Application Styles\\Peach.isl", true, "styleLibrary1");
+	StyleManager.Load("C:\\Application Styles\\Pear.isl", true, "styleLibrary2");
+	StyleManager.Load("C:\\Application Styles\\Appletini.isl", true, "styleLibrary3");
+	Application.Run(new Form1());
+}
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	// StyleLibraryName プロパティの設定は、コントロールに
+	// どのスタイル ライブラリを使用するかを指示します。この名前は、
+	// 上記の Load メソッドの 3 番目のパラメータ
+	// に対応します。
+	this.ultraButton1.StyleLibraryName = "styleLibrary1";
+	this.ultraButton2.StyleLibraryName = "styleLibrary2";
+	this.ultraButton3.StyleLibraryName = "styleLibrary3";
+}
+----

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wintoolbarsmanager-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0FDB3E5D-C3B4-4F53-A95A-D2618E4D2E75}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:20:40Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager 2007.1
+
+以下のリンクをクリックして、2007 Volume 1 リリースの Presentation Layer Framework™ に追加された WinToolbarsManager の新しい拡張を学習してください。
+
+* link:wintoolbarsmanager-controlcontainer-tool-now-works-inside-the-ribbon-whats-new-20071.html[ControlContainer がリボン内で機能する]
+* link:wintoolbarsmanager-new-glyphs-for-statebutton-tool-whats-new-20071.html[StateButton ツールの新しいグリフ]
+* link:wintoolbarsmanager-new-minitoolbar-whats-new-20071.html[新しい MiniToolbar]
+* link:wintoolbarsmanager-new-tab-item-toolbar-for-the-ribbon-whats-new-20071.html[リボン用の新しいタブ項目ツールバー]
+* link:wintoolbarsmanager-prevent-ribbon-keytips-from-overriding-menu-mnemonics-whats-new-20071.html[リボン KeyTips がメニュー ニーモニック を無効にすることを防止]
+* link:wintoolbarsmanager-the-ribbon-now-supports-glass-in-windows-vista.html[リボンは Windows Vista で Glass をサポート]
+* link:wintoolbarsmanager-you-can-now-merge-ribbons-in-a-multiple-document-interface-whats-new-20071.html[複数のドキュメント インタフェースでリボンの結合が可能]

@@ -1,0 +1,60 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-multi-stop-radial-gradient-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting","Design Environment"],
+    "guid": "{9677BB16-62AA-4C0C-AA0F-6B5848B1C942}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マルチストップ放射型グラデーションのブラシ エレメントを作成
+
+ゲージのプロパティの 3 色以上を円形に相互に混ぜたい場合には、マルチストップ放射型グラデーション ブラシ エレメントをプロパティに適用します。
+
+*デザインタイムにマルチストップ放射型グラデーション ブラシ エレメントをプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[リニア ゲージ] をクリックします。
+[start=3]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[マルチストップ放射型グラデーション] を選択します。これによって、新しいマルチストップ放射型グラデーションのブラシ エレメントが作成されます。
+[start=5]
+. 以下のプロパティを設定します。
+
+** 中心点 -- 75, 25
+** フォーカス スケール -- 0,0
+
+[start=6]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.multistopradialgradientbrushelement~colorstops.html[ColorStops]"]  プロパティをクリックして、次に省略記号（...）ボタンをクリックし ColorStops コレクション エディタを開きます。
+[start=7]
+. ColorStops コレクション エディタで、カラー スケールの下をクリックして新しいカラー ストップを追加します。
+[start=8]
+. カラー ストップを右クリックして、色を変更します。
+[start=9]
+. カラー ストップをドラッグして、オフセットを変更します。
+[start=10]
+. 以下の手順によって、より正確に値を編集することができます。
+[start=11]
+. 水平バーで小さい矢印をクリックします。次に以下のプロパティを設定します。
+
+** 開始色 - 最初の行の最初のセルをクリックします。ドロップダウン矢印をクリックします。カラー ピッカーが表示します。一番上で、[Web] をクリックして次に [黒] を選択します。
+** 開始色オフセット - 最初の行の 2 番目のセルをクリックします。テキスト ボックスに 0 という値を入力します。
+** カラー ストップ - 2 番目の行の最初のセルをクリックします。テキスト ボックスに 186, 0, 0 という値を入力します。
+** カラー ストップ オフセット - 2 番目の行の 2 番目のセルをクリックします。テキスト ボックスに 0.264 という値を入力します。
+** 終了色 - 3 番目の行の最初のセルをクリックします。テキスト ボックスに 254, 127, 0 という値を入力します。
+** 終了色オフセット - 3 番目の行の 2 番目のセルをクリックします。テキスト ボックスに 1 という値を入力します。
+
+== 関連トピック
+
+link:wingauge-multi-stop-radial-gradient-brush-element.html[マルチストップ放射型グラデーション ブラシ エレメント]
+
+link:wingauge-apply-the-multi-stop-radial-gradient-brush-element-at-run-time.html[ランタイムにマルチストップ放射型グラデーション ブラシ エレメントを適用]
+
+link:wingauge-apply-the-multi-stop-radial-gradient-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してマルチストップ放射型グラデーション ブラシ エレメントを適用]

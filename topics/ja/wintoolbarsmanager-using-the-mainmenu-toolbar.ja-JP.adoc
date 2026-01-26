@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-the-mainmenu-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{E9A01122-2151-47C6-9C4A-502219979291}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T15:50:28Z"
+}
+|metadata|
+////
+
+= MainMenu ツールバーの使用
+
+このセクションでは、MainMenu ツールバーに関連する固有のタスクの実行方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-add-an-mru-list-to-a-menu.html[MRU リストのメニューへの追加]
+* link:wintoolbarsmanager-add-toolbars-at-run-time.html[ランタイムのツールバーの追加]
+* link:wintoolbarsmanager-change-the-orientation-of-tools-on-a-toolbar.html[ツールバー上のツールの方向の変更]
+* link:wintoolbarsmanager-change-the-placement-of-tool-text.html[ツール テキストの配置の変更]
+* link:wintoolbarsmanager-manage-settings-of-toolbars-and-menus.html[ツールバーとメニューの設定管理]
+* link:wintoolbarsmanager-prevent-toolbar-merging.html[ツールバーのマージの禁止]

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-new-winformattedtexteditor-control-whats-new-20063",
+    "controlName": [],
+    "tags": ["Editing"],
+    "guid": "{B0B44C7A-BD2E-499A-9D04-5FE36DD5E424}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinFormattedTextEditor コントロール
+
+{ProductName} 2006 Volume 3 では、WinFormattedLinkLabel の編集コントロールである WinFormattedTextEditor コントロールが追加されました。WinFormattedTextEditor コントロールを使用すれば、WinFormattedLinkLabel が表示できるフォーマットされたテキストを表示できますが、編集のサポートが追加されています。
+
+WinFormattedTextEditor コントロールには、Infragistic エディタの期待された基本的な編集機能と、WinFormattedTextEditor で認められる複数の高度な機能が含まれます。標準の KeyActionMappings を使用して、ナビゲーション、コンテンツの修正（クリップボードのサポートを含む）、フォーマッティングなどの作業を実行します。
+
+切り取り、コピー、貼り付け、削除、および他のコンテンツ修正などの機能をサポートできる標準コンテキスト メニューがデフォルトで実装されています。ContextMenuItems プロパティを使用してメニューに表示したいことを決定できます。
+
+image::images/WinFormattedTextEditor_New_WinFormattedTextEditor_Control_Whats_New_20063_01.png[フォーマットされたテキストとコンテキスト メニューの画像]
+
+== 関連トピック
+
+link:winformattedtexteditor-about-winformattedtexteditor.html[WinFormattedTextEditor について]
+
+link:winformattedtexteditor-api-overview.html[API 概要]

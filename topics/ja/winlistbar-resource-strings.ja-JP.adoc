@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistbar-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{15A53263-F944-4154-BEB8-7008E0D9FF22}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListbar リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|GroupContextMenuAddGroup
+|グループの追加
+
+|GroupContextMenuAddItem
+|項目の追加
+
+|GroupContextMenuLargeIcons
+|大きいアイコン
+
+|GroupContextMenuRemoveGroup
+|グループの削除
+
+|ItemContextMenuRemoveItem
+|項目の削除
+
+|LDR_Group_defaultGroupText
+|新しいグループ
+
+|LDR_Item_defaultItemText
+|新しいリスト項目
+
+|LDR_UltraListBar_CantDeleteCurrentGroup_Message
+|現在のグループを削除できません。コントロールに少なくてもひとつはグループがなければなりません。
+
+|LDR_UltraListBar_CantDeleteCurrentGroup_Title
+|エラー
+
+|RemoveGroupDialogMessage
+|現在選択されているグループ('{0}')を削除しますか？
+
+|RemoveGroupDialogTitle
+|グループの削除
+
+|RemoveItemDialogMessage
+|項目 {0} を削除しますか?
+
+|RemoveItemDialogTitle
+|項目の削除
+
+|====

@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-selection-strategies",
+    "controlName": [],
+    "tags": ["API","Application Blocks","Selection","Tips and Tricks"],
+    "guid": "{15464BA3-EEB3-49A2-88D7-2C47353964E8}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択方式
+
+キーボードおよびマウスによる選択ロジックは、特に隣接範囲と非隣接範囲をサポートする場合に複雑になり、エラーを起こしやすくなります。PLF では、個々のコントロールに独自のロジックを実装するのではなく、選択処理を 1 組のインタフェースと基本クラスに抽象化することで、このロジックを PLF ベースのすべてのコンポーネントで容易に利用できるようになっています。このため、整合性と堅牢性が向上し、短期間での開発が可能になります。
+
+また、選択をサポートしているコントロールは SelectionFilter プロパティを提供しており、アプリケーション開発者はこれを利用してカスタムの選択方式を提供できます。注:これは必須ではなく、一般的でもありません。通常、各コントロールは、適切な選択方式を提供する列挙体プロパティを公開しています。たとえば、グリッドの Override オブジェクトは、SelectTypeRow、SelectTypeCell、SelectTypeCol、SelectTypeGroupByRow の各プロパティを提供しています。これらは、それぞれの選択可能なオブジェクトのタイプに対してどの選択方式が使用されるのか（なし、単一選択、複数選択など）を決定します。
+
+選択をサポートするために、PLF では次のインタフェースが定義されています。注:PLF をベースとするカスタムの選択方式またはコントロールを記述する場合以外は、これらのインタフェースを使用または実装する必要はありません。
+
+* pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.iselectableitem.html[Infragistics.Shared.ISelectableItem]"]  - 選択が可能なオブジェクト（行、セル、列ヘッダ、ツリー ノードなど）に実装されています。このインタフェースは、IsSelected、IsSelectable、IsDraggable、IsTabStop の 4 つの読み取り専用プロパティを持つ簡単なインタフェースです。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iselectionmanager.html[Infragistics.Win.ISelectionManager]"]  - コントロールに標準的に実装されています。このインタフェースには単一項目または項目範囲を選択または選択解除するためのメソッドがあります。また、ドラッグ選択やドラッグ中のスクロールをサポートするためのメソッドもあります。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iselectionstrategy.html[Infragistics.Win.ISelectionStrategy]"]  - SelectionStrategyBase によって実装されます。このインタフェースには、キーボードおよびマウスのメッセージを処理するためのメソッドと、選択方式が単一または複数の選択をサポートしているかどうかをマネージャに通知するための読み取り専用プロパティがあります。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iselectionstrategyfilter.html[Infragistics.Win.ISelectionStrategyFilter]"]  - アプリケーション開発者がカスタムの選択方式を提供するために実装します。このインタフェースは 1 つのメソッド（GetSelectionStrategy）を持つ簡単なインタフェースです。このメソッドは ISelectableItem を受け取り、そのオブジェクト タイプに対応する適切な ISelectionStrategy を返します。
+
+== マウス選択の例
+
+[start=1]
+. ユーザーがマウスの左ボタンを押します。
+[start=2]
+. PLF 内のロジックにより、マウスがどの UIElement の上にあるかが判断されて、その OnMouseDown メソッドが呼び出されます。このメソッドが True を返した場合、残りの手順は省略されます。
+[start=3]
+. UIElement の SelectableItem プロパティが ISelectableItem を返した場合（列ヘッダまたは行セレクタの上でクリックされた場合など）、その選択可能項目を指定して、ISelectionManager インタフェース（コントロールに実装されている）の GetSelectionStrategy メソッドが呼び出されます。このメソッドは、最初にユーザーが ISelectionStrategyFilter を指定したかどうかをチェックします。ユーザーが指定していれば、フィルターの GetSelectionStrategy メソッドを呼び出してその方式を返します（null でない場合）。指定していなければ、いくつかのプロパティ設定（SelectTypeRow、SelectTypeCell、SelectTypeCol など）に基づいて、適切な選択方式と、渡された選択可能項目のタイプを返します。
+[start=4]
+. 選択方式が返されると、その方式に応じてマウスがキャプチャされます。つまり、以降のマウス移動メッセージおよびマウスアップ メッセージがその OnMouseMessage メソッドを通じて選択方式に送られます。OnMouseMessage メソッドは、マウス メッセージ情報と共に、マウスが現在どの選択可能項目の上にあるかという情報（null の場合もある）を渡します。
+[start=5]
+. この後、ISelectionManager インタフェースの一連のメソッドが選択方式によって呼び出され、項目または項目範囲の選択/選択解除、範囲選択のためのピボット項目の設定、ドラッグ選択操作の開始、ドラッグ選択中のコントロールのスクロール、といった各種の操作が実行されます。
+
+== キーボード選択の例
+
+[start=1]
+. ユーザーがキーを押します。
+[start=2]
+. PLF 内のロジックにより、適用される可能性のあるすべてのマッピングが KeyActionMappings テーブルの中で検索されます。このとき、コントロールの現在の状態と、[Shift] キー、[Ctrl] キー、または [Alt] キーが押されているかどうかが考慮されます（「キーボード処理」のセクションを参照）。
+[start=3]
+. 適用されるマッピングごとに、コントロールの PerformAction メソッドが呼び出されます。
+[start=4]
+. いくつかのアクション（NextRow、NextCell、PreviousRow など）が選択に影響する場合があります（[Shift] キーが押されている場合など）。これらのアクションについて、PerformAction メソッドは、最初にどの選択可能項目（行、セル、ツリー ノードなど）を操作すべきかを調べ、その選択方式を取得します（上記のマウス選択例の 3 番目の項目を参照）。
+[start=5]
+. 選択方式の ProcessKeyBoardItem メソッドが呼び出されます。これにより、ISelectionManager インタフェースのメソッドが呼び出され、必要な操作が実行されます。
+
+== 利点
+
+* 選択ロジックを 1 組のインタフェースに抽象化することで、共通の選択方式を PLF の共有アセンブリに実装し、PLF をベースとするすべてのコントロールで利用できるようになります。このため、動作の安定性と堅牢性が向上し、コード サイズが小さくなります。
+* UIElement アーキテクチャとのシームレスな統合により、PLF ベースのコントロールを効率的に開発できます。
+* 選択方式フィルターによって、強力な拡張メカニズムが開発者に公開されます（ただしこれが必要となる機会は少ない）。

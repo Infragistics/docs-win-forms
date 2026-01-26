@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2011-volume-1",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "36019167-f67b-4f17-a421-f4f452e036ae",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T20:26:53.0940453Z"
+}
+|metadata|
+////
+
+= 2011 Volume 1 の新機能
+
+{ProductName} 2011 Volume 1 のリリースには、Windows Forms のコントロールおよびコンポーネントの機能をこれまで以上に活用することができる新しいコンポーネントと強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:win-whats-new-new-infragistics-word-library.html[新しい Infragistics Word ライブラリ]
+* link:whats-new-new-winformattedtextwordwriter.html[新しい WinFormattedTextWordWriter]
+* link:whats-new-new-wingridwordwriter.html[新しい WinGridWordWriter]
+* link:wants-new-for-wintoolbarsmanager.html[WinToolbarsManager の新機能]
+* link:whats-new-new-ig-styleset.html[新規 IG スタイルセット]
+* link:whats-new-exporter-events.html[新しいエクスポータ イベント]
+

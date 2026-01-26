@@ -1,0 +1,70 @@
+﻿////
+|metadata|
+{
+    "name": "win-using-global-assembly-cache-gac-deployment",
+    "controlName": [],
+    "tags": [],
+    "guid": "{517051BF-535D-46C6-82E4-B2C8F44DF5AB}",
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= グローバル アセンブリ キャッシュ（GAC）配備の使用
+
+アプリケーション コンポーネントのグローバル アセンブリ キャッシュ（GAC）へのインストールが有効になるのは、複数のアプリケーションが使用するコンポーネントを同一マシン上にインストールする場合や、同一アセンブリの複数のバージョンをひとつのマシン上で実行しなければならない場合です。
+
+デフォルトでは、Infragistics Windows Forms ツールセットをインストールすると、コントロールのアセンブリは GAC にインストールされます。アプリケーションの一部をなす Infragistics コンポーネントをクライアント コンピュータの GAC に配備したい場合、主要な方法は 3 つあります。
+
+=== Gacutil.exe を使ってコンポーネントを GAC に追加する
+
+Gacutil.exe ツールは基本の .NET フレームワークの一部としてインストールされるコマンドライン ユーティリティで、アプリケーション コンポーネントを GAC に追加したり、GAC から削除したりする際に使用できます。このツールは .NET Framework インストール ディレクトリにあります。デフォルトの場所は C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.2 Tools  です。
+
+Gacutil.exe tool を使用するには、次の手順に従ってください。
+
+[start=1]
+. Visual Studio のコマンド プロントを開きます
+
+［スタート］ > ［プログラム］ > ［Visual Studio 2017］ > ［Visual Studio Tools］ > 開発者コマンド プロンプト for Visual Studio 2017 ］
+[start=2]
+. Gacutil.exe コマンドを入力します。次の行は、MyApplication というアプリケーションのフォルダから Infragistics WinChart コンポーネントを GAC へ追加する作業を示しています。
+
+gacutil -i C:\Projects\MyApplication\Infragistics.Win.UltraWinChart.v{ProductVersion}.dll
+
+Gacutil.exe コマンド ラインは Gacutil.exe に実行させたい操作を指定できるいくつかのコマンドからなります。以下のリストは、使用可能なコマンドを説明します。
+
+* /i - アセンブリを GAC にインストールします。
+* /il - ひとつ以上のアセンブリを GAC にインストールします。
+* /u - アセンブリを GAC からアンインストールします。
+* /ul - 1 つ以上のアセンブリを GAC からアンインストールします。
+* /ungen - NGEN ユーティリティによってインストールされたネーティブ イメージをアンインストールします。
+* /l - <assembly_name> によってフィルタリングされた GAC をリストします。
+* /lr - GAC をリストします（トレースされた参照をすべて含む）。
+* /cdl - ダウンロード キャッシュの内容を削除します。
+* /ldl - ダウンロード キャッシュの内容をリストします。
+
+Gacutil.exe では、コマンドライン上でいくつかのオプションを指定できます。
+
+* /r - インストールまたはアンインストールするトレース済み参照を指定します。
+* /f - アセンブリを強制的に再インストールします。
+* /nologo - ロゴ バナーの表示を抑止します。
+* /silent - すべての出力の表示を抑止します。
+
+=== Windows エクスプローラ GAC エクステンションを使ってコンポーネントを GAC に追加する
+
+GAC は .NET アセンブリの複合的な保管場所であり、Windows の標準的なフォルダの内容を表示するのと同じようにその内容を表示するのは難しいです。ありがたいことに、.NET Framework SDK には Windows エクスプローラ エクステンション（SHFusion.dll）が含まれており、これを使えば Windows の標準フォルダとまったく同じ方法で GAC にアクセスできます。このエクステンションのおかげで、エクスプローラの標準メニューからファイルの表示/GAC への追加/GAC からの削除を行ったり、ドラッグ アンド ドロップ操作を実行することができます。
+
+$$.NET$$ Framework SDK をインストールしていた場合、 _C:\Windows\Assembly_  を開くことで Windows エクスプローラから GAC にアクセスできます。以下の画像は、エクステンションを使って Windows エクスプローラ内に GAC を表示する方法を示しています。
+
+image::images\Win_DeploymentGuide_DeploymentUsingtheGAC_01.png[Windows エクスプローラ エクステンションによる GAC の表示]
+
+このビューを使うと、単にアセンブリを ASSEMBLY フォルダにドラッグ アンド ドロップするだけで GAC に追加できます。GAC からファイルを削除するには、[ファイル] メニューまたはコンテキスト メニューから [削除] オプションを選択します。また、上記の画像からわかるように、GAC を使用すると、同一アセンブリの複数バージョンを同一マシン上にインストールできます。このアセンブリを参照するアプリケーションはそれぞれ、内部メタデータを基にして適切なバージョンを選択します。
+
+=== 詳細なグローバル アセンブリ キャッシュ情報
+
+GAC の使用およびアプリケーションの GAC へのインストールに関する詳細については、以下のリソースを参照してください。
+
+* link:http://msdn.microsoft.com/ja-jp/library/yf1d93sz.aspx[.NET Framework 開発者ガイド:グローバル アセンブリ キャッシュ]
+* link:http://msdn.microsoft.com/ja-jp/library/dkkx7f79.aspx[アセンブリをグローバル アセンブリ キャッシュにインストール]
+* link:http://msdn.microsoft.com/ja-jp/library/ex0ss12c.aspx[.NET Framework ツール:グローバル アセンブリ キャッシュ ツール（Gacutil.exe）]

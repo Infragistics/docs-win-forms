@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-invalid-value-behavior-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1952F2B3-3DD6-424C-8258-DDA6FD09444B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 無効値の動作
+
+ユーザーが無効な値を入力してセルを離れようとしたときの動作を指定できます。InvalidValueBehavior プロパティは以下のメンバを持ちます。
+
+* Default - Default は RetainValueAndFocus に解決されます。
+* RetainValueAndFocus - ユーザーが入力した値をそのまま残し、セルを編集モードに維持します。
+* RevertValue - 値を元の値に戻します。セルは編集モードではありません。
+* RevertValueAndRetainFocus - 入力された値を元の値に戻し、セルを編集モードに維持します。
+
+ユーザーが無効な値を入力後にセルをそのままにしようとする場合の動作を制御するための機能は、CellDataError イベントを通してこの機能を実装する前に既に存在します。CellDataErrorEventArgs は RetainFocus および RevertValue（他のプロパティの中）を持ち、新しい InvalidValueBehavior プロパティと同じことを行うことができます。InvalidValueBehavior プロパティは、主にユーザーが機能を発見して簡単に設定するために追加されました。
+
+== 関連トピック
+
+link:wingrid-handling-invalid-cell-input.html[無効なセル入力を処理する]

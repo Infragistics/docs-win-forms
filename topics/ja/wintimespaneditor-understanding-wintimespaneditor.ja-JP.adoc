@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimespaneditor-understanding-wintimespaneditor",
+    "controlName": ["WinTimeSpanEditor"],
+    "tags": [],
+    "guid": "2b6ca7af-8f76-4f87-af52-52cae9201848",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T21:00:31.6239265Z"
+}
+|metadata|
+////
+
+= WinTimeSpanEditor の理解
+
+WinTimeSpanEditor™ コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinTree を使用することの利点を理解できます。
+
+WinTimeSpanEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintimespaneditor-about-wintimespaneditor-.html[WinTimeSpanEditor について]
+* link:wintimespaneditor-setting-time-span-values.html[タイム スパン値を設定]
+* link:wintimespaneditor-wintimespaneditor-smart-tag.html[WinTimeSpanEditor スタートタグ]

@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-selecting-multiple-values-within-wincomboeditor",
+    "controlName": ["WinComboEditor"],
+    "tags": ["How Do I","Selection"],
+    "guid": "{2E223688-F6EB-42DA-BDD8-48F8F9716845}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinComboEditor 内で複数の値を選択
+
+WinComboEditor™ は、ドロップダウン リストの各項目の横にチェックボックスを表示する機能をサポートするように今回修正されました。複数項目のチェックがサポートされます。したがって一度に複数項目を選択する機能を提供します。
+
+[NOTE]
+====
+*注：* チェックボックスが表示されると、「Suggest モード」機能は無効になります。EditorValueSource が 'CheckedItems' に設定されると、文字入力は無効になり、編集部分は読み取り専用になります。
+====
+
+このトピックは、Northwind データベースの Employees Table をポイントする Visual Studio で生成した DataSet があることを前提としています。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraComboEditor1.DataSource = Me.northwindDataSet.Employees 
+Me.ultraComboEditor1.DisplayMember ="FirstName" 
+ultraComboEditor1.ValueMember ="EmployeeID" 
+'リストの各項目の横にチェックボックスを取得します 
+ultraComboEditor1.CheckedListSettings.CheckBoxStyle = Infragistics.Win.CheckStyle.CheckBox 
+'リストの項目に対してチェックボックスを配列します 
+ultraComboEditor1.CheckedListSettings.CheckBoxAlignment = ContentAlignment.MiddleRight 
+'チェックマークが付けられた項目がエディター値プロパティに割り当てられます。 
+'EditorValueSource をチェックマークが付けられた項目に設定すると、チェックマークが付けられた各項目の DataValue で構成されている一般的なオブジェクト リスト (List<object>) を返します。 
+ultraComboEditor1.CheckedListSettings.EditorValueSource = Infragistics.Win.EditorWithComboValueSource.CheckedItems 
+ultraComboEditor1.CheckedListSettings.ListSeparator = ", " 
+ultraComboEditor1.CheckedListSettings.ItemCheckArea = Infragistics.Win.ItemCheckArea.CheckBox
+----
+
+*C# の場合：*
+
+----
+this.ultraComboEditor1.DataSource = this.northwindDataSet.Employees;
+this.ultraComboEditor1.DisplayMember ="FirstName";
+ultraComboEditor1.ValueMember ="EmployeeID";
+//リストの各項目の横にチェックボックスを取得します
+ultraComboEditor1.CheckedListSettings.CheckBoxStyle = Infragistics.Win.CheckStyle.CheckBox;
+//リストの項目に対してチェックボックスを配列します
+ultraComboEditor1.CheckedListSettings.CheckBoxAlignment = ContentAlignment.MiddleRight;
+//チェックマークが付けられた項目がエディター値プロパティに割り当てられます。 
+//EditorValueSource をチェックマークが付けられた項目に設定すると、チェックマークが付けられた各項目の DataValue で構成されている一般的なオブジェクト リスト (List<object>) を返します。
+ultraComboEditor1.CheckedListSettings.EditorValueSource = Infragistics.Win.EditorWithComboValueSource.CheckedItems;
+ultraComboEditor1.CheckedListSettings.ListSeparator = ", ";
+ultraComboEditor1.CheckedListSettings.ItemCheckArea = Infragistics.Win.ItemCheckArea.CheckBox;
+----
+
+以下は、コンテンツの右側にチェックボックスを表示する WinComboEditor の画像で、編集部分はコンマで区切られたチェックマークが付けられた値のリストを表示します。
+
+image::Images/WinComboEditor_Selecting_Multiple_values_Within_WinComboEditor.png[]

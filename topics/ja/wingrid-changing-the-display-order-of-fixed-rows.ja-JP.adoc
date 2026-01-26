@@ -1,0 +1,102 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-display-order-of-fixed-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Templating"],
+    "guid": "{4999DB09-98C4-4F16-A2C5-C759C02FC055}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 固定行の表示順の変更
+
+固定テンプレート追加行、固定フィルター行および固定集計フッタ行の表示順序を制御できます。デフォルトでは、これらの行を次の順序で表示します。
+
+[start=1]
+. 固定集計行
+[start=2]
+. 固定テンプレート追加行
+[start=3]
+. 固定フィルター行
+
+この配列が要望に沿わない場合は、対応する各行タイプの Sequence プロパティを設定して表示順序を指定することができます。Sequence プロパティは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[DisplayLayout]"]  の Override オブジェクトでデフォルト値に設定できるように、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[UltraGridOverride]"]  クラスにあります。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  の Override オブジェクトを使って各バンドはプロパティに独自の値を持つことができます。
+
+最小値を持つ Sequence プロパティは他の Sequence プロパティの上に表示されたそれに関連する行タイプを持ちます。Sequence プロパティのデフォルト値が -1 なので、これらのプロパティの値が 0 以上になるようにします。
+
+== 固定行の表示順序を変更する
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. 固定テンプレート追加行の相対的位置を変更するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~sequencefixedaddrow.html[SequenceFixedAddRow]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AllowAddNew = AllowAddNew.TemplateOnTop
+Me.UltraGrid1.DisplayLayout.Override.SequenceFixedAddRow = 2
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowAddNew = AllowAddNew.TemplateOnTop;
+this.ultraGrid1.DisplayLayout.Override.SequenceFixedAddRow = 2;
+----
+
+[start=3]
+. 固定フィルター行の相対的位置を変更するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~sequencefilterrow.html[SequenceFilterRow]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AllowRowFiltering = DefaultableBoolean.True
+Me.UltraGrid1.DisplayLayout.Override.FilterUIType = FilterUIType.FilterRow
+Me.UltraGrid1.DisplayLayout.Override.SequenceFilterRow = 1
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowRowFiltering = DefaultableBoolean.True;
+this.ultraGrid1.DisplayLayout.Override.FilterUIType = FilterUIType.FilterRow;
+this.ultraGrid1.DisplayLayout.Override.SequenceFilterRow = 1;
+----
+
+[start=4]
+. 固定集計フッタ行の相対的位置を変更するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~sequencefilterrow.html[SequenceSummaryRow]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True
+Me.UltraGrid1.DisplayLayout.Override.SummaryDisplayArea = SummaryDisplayAreas.Top
+Me.UltraGrid1.DisplayLayout.Override.SequenceSummaryRow = 3
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True;
+this.ultraGrid1.DisplayLayout.Override.SummaryDisplayArea = SummaryDisplayAreas.Top;
+this.ultraGrid1.DisplayLayout.Override.SequenceSummaryRow = 3;
+----

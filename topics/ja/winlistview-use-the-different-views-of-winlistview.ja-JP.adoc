@@ -1,0 +1,138 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-use-the-different-views-of-winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{72EA8ADE-97C8-4BBE-9F7A-4BF241938941}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView のさまざまなビューの使用
+
+WinListView コントロールは、Microsoft® Windows® Explorer でサポートされているビューと同じビューをサポートしています。サポートされているビューのリストは、Windows Explorer で右側のペインの何もない部分で右クリックし、"View" をポイントすると表示されます。このメニューのサブアイテムは、それぞれがエンド ユーザーに対して表示されるさまざまなビューを表します。
+
+WinListView コントロールにある同様の機能は、コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティで拡張できます。このプロパティは、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewstyle.html[UltraListViewStyle]"]  タイプで、この列挙体のメンバは Windows Explorer で提供されている Details、Icons、Tiles、Thumbnails、および List と同じです。
+
+エンド ユーザーが WinListView コントロールで右マウス ボタンを押すと、コンテキスト メニューが開き、UltraListViewStyle 列挙体のさまざまな値が、コントロールの View プロパティの現在の選択された値を表す項目とともに表示されます。
+
+次のコード例は、IGContextMenu の構成方法、およびそれをエンド ユーザーが Windows Explorer で行うのと同じ方法でビューを選択できるように WinListView の ContextMenu プロパティに割り当てる方法を示しています。
+
+image::images/Win_WinListView_How_Do_I_Use_the_Different_Views_of_WinListView_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinListView
+Imports Infragistics.Win
+Imports Infragistics.Win.IGControls
+...
+Private Sub PopulateListViewContextMenu()
+	' 既存のメニュー項目を消去します。
+	Me.contextMenu1.MenuItems.Clear()
+	' コンテキスト メニューに UltraListViewStyle 列挙体の定数を格納し、
+	エンド ユーザーがビューを変更できるようにします。
+	Dim enumNames As String() = System.Enum.GetNames(GetType(UltraListViewStyle))
+	Dim enumValues As Array = System.Enum.GetValues(GetType(UltraListViewStyle))
+	Dim i As Integer
+	For i = 0 To enumValues.Length - 1
+		Dim menuItem As IGMenuItem = New IGMenuItem(enumNames(i), New EventHandler(AddressOf menuItem_Click))
+		Dim enumValue As UltraListViewStyle = enumValues.GetValue(i)
+		' 列挙体の値を Tag プロパティに代入します。
+		menuItem.Tag = enumValue
+		' このメニュー項目がコントロールの View プロパティと同じであれば、それを選択します。
+		menuItem.Checked = (Me.ultraListView1.View = enumValue)
+		Me.contextMenu1.MenuItems.Add(menuItem)
+	Next
+End Sub
+Private Sub menuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
+	' このメニュー項目の Tag プロパティに含まれる UltraListViewStyle の値を
+	' コントロールの View プロパティに割り当て、
+	' この項目を選択します。
+	If sender.GetType() Is GetType(IGMenuItem) Then
+		Dim menuItem As IGMenuItem = CType(sender, IGMenuItem)
+		Dim view As UltraListViewStyle = CType(menuItem.Tag, UltraListViewStyle)
+		menuItem.Checked = True
+		Me.ultraListView1.View = view
+	End If
+End Sub
+Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	' いくつかの項目を追加します。
+	Me.ultraListView1.Items.Add(Nothing, "Item 1")
+	Me.ultraListView1.Items.Add(Nothing, "Item 2")
+	Me.ultraListView1.Items.Add(Nothing, "Item 3")
+	Me.ultraListView1.Items.Add(Nothing, "Item 4")
+	Me.ultraListView1.Items.Add(Nothing, "Item 5")
+	' IGContextMenu を WinListViewのContextMenu プロパティに割り当てます。
+	Me.ultraListView1.ContextMenu = Me.contextMenu1
+End Sub
+Private Sub lvwFiles_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles lvwFiles.MouseDown
+	' エンド ユーザーが右マウス ボタンを押したときにコンテキスト メニューを格納します。
+	If e.Button = MouseButtons.Right Then Me.PopulateListViewContextMenu()
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinListView;
+using Infragistics.Win;
+using Infragistics.Win.IGControls;
+...
+private void PopulateListViewContextMenu()
+{
+	// 既存のメニュー項目を消去します。
+	this.contextMenu1.MenuItems.Clear();
+	// コンテキスト メニューに UltraListViewStyle 列挙体の定数を格納し、
+	// エンド ユーザーがビューを変更できるようにします。
+	string[] enumNames = Enum.GetNames( typeof(UltraListViewStyle) );
+	Array enumValues = Enum.GetValues( typeof(UltraListViewStyle) );
+	for ( int i = 0; i < enumValues.Length; i ++ )
+	{
+		IGMenuItem menuItem = new IGMenuItem( enumNames[i], new EventHandler(this.menuItem_Click) );
+		UltraListViewStyle enumvalue = (UltraListViewStyle)enumValues.GetValue(i);
+		// 列挙体の値を Tag プロパティに割り当てます。
+		menuItem.Tag = enumValue;
+		// このメニュー項目がコントロールの View プロパティと同じであれば、それを選択します。
+		menuItem.checked = (this.ultraListView1.View == enumValue);
+		this.contextMenu1.MenuItems.Add( menuItem );
+	}
+}
+private void menuItem_Click( object sender, EventArgs e )
+{
+	// このメニュー項目の Tag プロパティに含まれる UltraListViewStyle の値を
+	// コントロールの View プロパティに割り当て、
+	// この項目を選択します。
+	IGMenuItem menuItem = sender as IGMenuItem;
+	if ( menuItem != null )
+	{
+		if ( menuItem.Tag is UltraListViewStyle )
+		{
+			UltraListViewStyle view = (UltraListViewStyle)menuItem.Tag;
+			menuItem.checked = true;
+			this.ultraListView1.View = view;
+		}	
+	}
+}
+private void lvwFiles_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// エンド ユーザーが右マウス ボタンを押したときにコンテキスト メニューを格納します。
+	if ( e.Button == MouseButtons.Right )
+		this.PopulateListViewContextMenu();
+}
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	// いくつかの項目を追加します。
+	this.ultraListView1.Items.Add(null, "Item 1");
+	this.ultraListView1.Items.Add(null, "Item 2");
+	this.ultraListView1.Items.Add(null, "Item 3");
+	this.ultraListView1.Items.Add(null, "Item 4");
+	this.ultraListView1.Items.Add(null, "Item 5");
+	// IGContextMenu を WinListView の ContextMenu プロパティに割り当てます。
+	this.ultraListView1.ContextMenu = this.contextMenu1;
+}
+----

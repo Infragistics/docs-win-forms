@@ -1,0 +1,48 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2022 Volume 1 の新機能
+
+=== データ凡例
+
+link:{DataChartLink}.DataLegendName.html[{DataLegendName}] は `Legend` のように機能する新しいコンポーネントですが、シリーズの値の表示や、シリーズの行と値の列のフィルタリング、値のスタイルと書式を設定するための多くの構成プロパティを提供します。この凡例は、さまざまな Infragistics チャート コントロールのプロット領域内でマウスを動かすと更新されます。
+
+link:{DataChartLink}.{DataLegendName}.html[{DataLegendName}] の完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:categorychart-data-legend.html[{CategoryChartName} データ凡例]
+- link:datachart-data-legend.html[{DataChartName} データ凡例]
+
+=== データ ツールチップ レイヤー
+
+link:{DataChartLink}.DataToolTipLayer.html[DataToolTipLayer] は、シリーズの値とタイトル、およびシリーズの凡例バッジをツールチップに表示する新しい注釈レイヤーです。さらに、シリーズの行と値の列をフィルタリングし、値をスタイル設定し、書式を設定するための link:{DataChartLink}.{DataLegendName}.html[{DataLegendName}] の多くの構成プロパティを提供します。ツールチップの値は、さまざまな Infragistics チャート コントロールのプロット領域内でマウスを動かすと更新されます。
+
+link:{DataChartLink}.DataTooltipLayer.html[DataToolTipLayer] は、各 Infragistics チャート コントロールのデフォルトのツールチップ タイプになりました。link:{DataChartLink}.{DataChartName}.html[{DataChartName}] の link:{DataChartLink}.DataTooltipLayer.html[DataToolTipLayer] に存在する各プロパティは、link:{DataChartLink}.{CategoryChartName}.html[{CategoryChartName}] コントロールでも使用でき、`DataTooltip` がプレフィックスとして付けられます。
+
+上記のチャートの link:{DataChartLink}.DataTooltipLayer.html[DataToolTipLayer] についての完全なヘルプ トピックは、以下のリンクにあります。
+
+- link:categorychart-data-tooltip.html[{CategoryChartName} データ ツールチップ]
+- link:datachart-data-tooltip.html[{DataChartName} データ ツールチップ]
+
+=== データ チャート:
+
+ - 積層シリーズのアニメーションとトランジションインのサポートが追加されました。link:{DataChartLink}.categoryseries{ApiProp}IsTransitionInEnabled.html[IsTransitionInEnabled] プロパティを true に設定すると、アニメーションを有効にできます。そこから、link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.xamdomainchart{ApiProp}TransitionInDuration.html[TransitionInDuration] プロパティを設定してアニメーションが完了するまでの時間を決定し、link:{DataChartLink}.categoryseries{ApiProp}TransitionInMode.html[TransitionInMode] でアニメーションのタイプを決定できます。
+
+=== カテゴリ チャート、財務チャート、データ チャート
+
+ - 追加された link:{DataChartLink}.categoryseries{ApiProp}assigningcategorystyle_ev.html[AssigningCategoryStyle] イベントは、DataChart のすべてのシリーズで利用できるようになりました。このイベントは、背景色の `Fill` や強調表示など、シリーズ項目の外観を条件付きで構成する場合に処理されます。
+ - CalloutLayer の新しい link:{DataChartLink}.calloutlayer{ApiProp}AllowedPositions.html[AllowedPositions] 列挙体。チャート内のどこにコールアウトを配置するかを制限するために使用されます。デフォルトでは、コールアウトは最適な場所に配置されますが、これは TopLeft、TopRight、BottomLeft、または BottomRight を強制するために使用されます。
+ - 注釈レイヤーに追加された新しいコーナー半径プロパティ。各コールアウトのコーナーを丸めるために使用されます。コーナー半径がデフォルトで追加されていることに注意してください。
+	* CalloutLayer の link:{DataChartLink}.calloutlayer{ApiProp}CalloutCornerRadius.html[CalloutCornerRadius]
+	* FinalValueLayer の link:{DataChartLink}.finalvaluelayer{ApiProp}AxisAnnotationBackgroundCornerRadius.html[AxisAnnotationBackgroundCornerRadius]
+	* CrosshairLayer link:{DataChartLink}.crosshairlayer{ApiProp}XAxisAnnotationBackgroundCornerRadius.html[XAxisAnnotationBackgroundCornerRadius] と link:{DataChartLink}.crosshairlayer{ApiProp}YAxisAnnotationBackgroundCornerRadius.html[YAxisAnnotationBackgroundCornerRadius]
+ - さまざまな方法でスクロールバーを有効にするための新しい {ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.xamdomainchart{ApiProp}HorizontalViewScrollbarMode.html[HorizontalViewScrollbarMode] と link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.xamdomainchart{ApiProp}VerticalViewScrollbarMode.html[VerticalViewScrollbarMode] 列挙体。link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.xamdomainchart{ApiProp}IsVerticalZoomEnabled.html[IsVerticalZoomEnabled] または link:{ApiPlatform}{CategoryChartAssembly}{ApiProp}{CategoryChartNamespace}.xamdomainchart{ApiProp}IsHorizontalZoomEnabled.html[IsHorizontalZoomEnabled] と組み合わせると、チャートをナビゲートするための軸に沿ったスクロールバーを、常設またはフェードインおよびフェードアウトすることができます。
+ - 新しい link:{DataChartLink}.axis{ApiProp}FavorLabellingScaleEnd.html[FavorLabellingScaleEnd] は、軸がスケールの最後にラベルを表示することを優先するかどうかを決定します。数値軸 (NumericX、NumericY、PercentChangeY など) とのみ互換性があります。
+ - 新しい link:{DataChartLink}.splineseries.html[IsSplineShapePartOfRange] は、軸に要求された軸範囲にスプライン形状を含めるかどうかを決定します。
+ - 新しい link:{CategoryChartLink}.{CategoryChartName}{ApiProp}XAxisMaximumGap.html[XAxisMaximumGap] は、XAxisGap を使用するときにプロットされたシリーズの最大許容値を決定します。ギャップは、プロットされたシリーズの列またはバー間のスペースの量を決定します。
+ - 新しい link:{CategoryChartLink}.{CategoryChartName}{ApiProp}XAxisMinimumGapSize.html[XAxisMinimumGapSize] は、XAxisGap を使用するときに、プロットされたシリーズの最小許容ピクセルベース値を決定し、各カテゴリ間に常にある程度の間隔があることを保証します。

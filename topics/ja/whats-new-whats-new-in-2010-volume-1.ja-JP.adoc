@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-whats-new-in-2010-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A0660993-14EE-4395-B10A-55162C0E4CAD}",  
+    "buildFlags": [],
+    "createdOn": "2009-11-12T11:35:09Z"
+}
+|metadata|
+////
+
+= 2010 Volume 1 の新機能
+
+{ProductName} 2010 Volume 1 のリリースには、Windows Forms のコントロールとコンポーネントをこれまで以上に活用することができる多数の新しいコントロールと強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:whats-new-new-winactivityindicator-control.html[新しい WinActivityIndicator コントロール]
+* link:whats-new-new-winganttview-control.html[新しい WinGanttView コントロール]
+* link:whats-new-new-winmessageboxmanager-component.html[新しい WinMessageBoxManager コンポーネント]
+* link:whats-new-new-winsplitter-control.html[新しい WinSplitter コントロール]
+* link:whats-new-autosuggestfiltermode-for-wincombo-and-wincomboeditor.html[WinCombo および WinComboEditor の AutoSuggestFilterMode]
+* link:whats-new-winformattedtexteditor-performance-enhancements.html[WinFormattedTextEditor のパフォーマンスの拡張]
+* link:whats-new-wintoolbarsmanager-new-scenic-ribbon-style.html[WinToolBarsManager の新しい Scenic Ribbon スタイル]

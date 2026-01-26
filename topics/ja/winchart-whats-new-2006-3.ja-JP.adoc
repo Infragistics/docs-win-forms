@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2022845F-5986-435B-A3CB-1E0C7EB2F240}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:09:21Z"
+}
+|metadata|
+////
+
+= WinChart 2006.3
+
+2006 Volume 3 リリースで追加されたすべての新しい WinChart 機能および改善を学習してください。これらの新しい機能を使用すれば、 WinChart コントロールをより簡単かつ便利に使用できます。
+
+* link:winchart-can-customize-the-appearance-of-the-charts-background-whats-new-2006-3.html[チャートの背景の外観をカスタマイズできる]
+* link:winchart-customization-of-charts-on-a-per-series-basis-whats-new-2006-3.html[シリーズごとのチャートのカスタマイズ]
+* link:winchart-easier-to-hide-and-display-chart-series-whats-new-2006-3.html[チャート シリーズをより簡単に非表示/表示]
+* link:winchart-new-3d-spline-charts-whats-new-2006-3.html[新しい立体スプライン グラフ]
+* link:winchart-new-properties-to-determine-the-scrolled-or-scaled-axis-whats-new-2006-3.html[スクロールまたはスケールされた軸を判断するための新しいプロパティ]
+* link:winchart-office-2007-style-presets-available-for-charts-whats-new-2006-3.html[Office 2007 スタイルのプリセットをチャートで使用可能]

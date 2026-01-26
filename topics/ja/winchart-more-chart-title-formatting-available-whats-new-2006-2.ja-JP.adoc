@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-more-chart-title-formatting-available-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0956D969-03CF-4057-A4ED-E1040902911F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= より多くのチャート タイトルのフォーマッティングが使用可能
+
+2006 Volume 2 リリースでは、チャート タイトルを書式設定する方法でさらなる柔軟性を提供しています。新しいプロパティを使用すると以下を実行できます。
+
+* チャート タイトルの方向を変更（つまり水平または垂直）
+* 水平または垂直のチャート タイトルのテキストを反転
+* チャート タイトルの方向の角度を変更
+* チャート タイトルを表示するために十分な場所がない場合、チャート タイトルのテキストを切り取る
+* チャート タイトルのテキストが一定の長さ以上の場合、複数行にテキストを折り返す
+
+以下の例のチャートでは、チャート タイトルが複数行に折り返されています。
+
+image::Images/WinChart_More_Chart_Title_Formatting_Available_Whats_New_2006_2_01.png[]
+
+== 関連トピック
+
+link:chart-assign-chart-titles.html[チャート タイトルの割り当て]

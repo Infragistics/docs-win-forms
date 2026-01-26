@@ -1,0 +1,124 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{91DF83B9-166E-4E54-8BA2-96BE3A032AEC}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列の名前を示しています。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AddTabTransaction
+|タブの追加
+
+|ConvertTabControlDlgCancel
+|キャンセル
+
+|ConvertTabControlDlgDeleteTabControl
+|変換が完了したあとで TabControl を削除(&D)
+
+|ConvertTabControlDlgLabelTabControl
+|変換する TabControl を選択(&T)
+
+|ConvertTabControlDlgOk
+|OK
+
+|ConvertTabControlDlgOptions
+|オプション(&O)
+
+|ConvertTabControlDlgReparent
+|各 TabPage の子コントロールの親を再設定(&P)
+
+|ConvertTabControlDlgSetKeyValues
+|UltraTab の 'Key' プロパティに TabPage の 'Text' を設定(&K)
+
+|ConvertTabControlDlgTitle
+|TabControl を {0} に変換
+
+|ConvertTabControlTransaction
+|TabControl 変換
+
+|DefaultAction_Switch
+|切り替え
+
+|DefaultTabText
+|タブ{0}
+
+|DesigntimeVerbAbout
+|バージョン情報
+
+|DesigntimeVerbAddTab
+|タブの追加
+
+|DesigntimeVerbConvertTabControl
+|TabControl の変換...
+
+|DesigntimeVerbCustomPropertyPage
+|カスタム プロパティ ページ...
+
+|DesigntimeVerbExcludeSharedControls
+|共通コントロールの除外...
+
+|DesigntimeVerbRemoveTab
+|タブの削除
+
+|DesigntimeVerbShowSharedControls
+|共通コントロールを表示
+
+|ExcludeSharedControlsDlgApply
+|適用
+
+|ExcludeSharedControlsDlgCancel
+|キャンセル
+
+|ExcludeSharedControlsDlgLabelControls
+|共通コントロールページに配置されているコントロールの一覧です。項目をチェックすると、タブ上から除外されます。(&L)
+
+|ExcludeSharedControlsDlgLabelTab
+|タブ(&T)
+
+|ExcludeSharedControlsDlgOk
+|OK
+
+|ExcludeSharedControlsDlgTitle
+|共通コントロールの除外 - {0}
+
+|ExcludeSharedControlsTransaction
+|共通コントロールを除外します
+
+|MoveTabTransaction
+|タブの移動
+
+|PageNumberText
+|"{0}/{1} "
+
+|RemoveTabTransaction
+|タブの削除
+
+|SharedControlsPageDesignTimeLiteral
+|[共通コントロールページ]
+
+|SharedPageText
+|共有コントロール
+
+|TabHeaderAreaDesignTimeLiteral
+|[タブ ヘッダー領域]
+
+|UltraTabPagePropertyTabName
+|UltraTabControl
+
+|====

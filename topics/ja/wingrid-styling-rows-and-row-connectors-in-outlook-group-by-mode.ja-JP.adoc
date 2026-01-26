@@ -1,0 +1,117 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-styling-rows-and-row-connectors-in-outlook-group-by-mode",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{F061637F-96ED-41CC-BA60-2BD5CEB4A8E0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 行と行コネクターを Outlook Group By モードでスタイリング
+
+WinGrid™ で Outlook Group By のグループを作成する場合、展開されたグループの左の領域は GroupByRowConnector として認識されます。GroupByRowConnectorAppearance プロパティを使用して、コントロール全体または特定の列に対して行コネクターの外観をスタイルできます。特定の行の行コネクターをスタイルするために、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroupbyrow.html[UltraGridGroupByRow]"]  自体で行コネクターの外観を修正することもできます。これは RowConnectorAppearance プロパティによって実行できます。さらに、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowappearance.html[GroupByRowAppearance]"]  プロパティによって Group By 行自体をスタイルできます。
+
+これは Northwind データベースの Employees テーブルにバインドされた WinGrid コントロールがフォームにドロップされていることを前提とします。フォームの Load イベントに以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+' Outlook Group By を有効にします 
+Me.ultraGrid1.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy 
+' 行コネクターの背景色をマゼンタに設定します
+Me.ultraGrid1.DisplayLayout.Bands(0).Override.GroupByRowConnectorAppearance.BackColor = Color.Magenta
+----
+
+*C# の場合：*
+
+----
+// Outlook Group By を有効にします
+this.ultraGrid1.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+// 行コネクターの背景色をマゼンタに設定します
+this.ultraGrid1.DisplayLayout.Bands[0].Override.GroupByRowConnectorAppearance.BackColor = Color.Magenta;
+----
+
+image::Images/WinGrid_Styling_Rows_and_Row_Connectors_in_Outlook_Group_By_Mode_01.png[]
+
+*Visual Basic の場合：*
+
+----
+' すべての Group By 行の背景色の外観を設定します 
+Me.ultraGrid1.DisplayLayout.Bands(0).Override.GroupByRowAppearance.BackColor = Color.Pink
+----
+
+*C# の場合：*
+
+----
+// すべての Group By 行の背景色の外観を設定します 
+this.ultraGrid1.DisplayLayout.Bands[0].Override.GroupByRowAppearance.BackColor = Color.Pink;
+----
+
+image::Images/WinGrid_Styling_Rows_and_Row_Connectors_in_Outlook_Group_By_Mode_02.png[]
+
+*Visual Basic の場合：*
+
+----
+' FirstName 列でグループ化された行については、行コネクターの背景色をアクアに設定します 
+Me.ultraGrid1.DisplayLayout.Bands(0).Columns("FirstName").GroupByRowConnectorAppearance.BackColor = Color.Aqua
+----
+
+*C# の場合：*
+
+----
+// FirstName 列でグループ化された行については、行コネクターの背景色をアクアに設定します
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["FirstName"].GroupByRowConnectorAppearance.BackColor = Color.Aqua;
+----
+
+image::Images/WinGrid_Styling_Rows_and_Row_Connectors_in_Outlook_Group_By_Mode_03.png[]
+
+*Visual Basic の場合：*
+
+----
+' BirthDate 列でグループ化された Group By 行の背景色の外観を設定します 
+Me.ultraGrid1.DisplayLayout.Bands[0].Columns["BirthDate"].GroupByRowAppearance.BackColor = Color.BurlyWood;
+----
+
+*C# の場合：*
+
+----
+// BirthDate 列でグループ化された Group By 行の背景色の外観を設定します 
+this.ultraGrid1.DisplayLayout.Bands[0].Columns["BirthDate"].GroupByRowAppearance.BackColor = Color.BurlyWood;
+----
+
+image::Images/WinGrid_Styling_Rows_and_Row_Connectors_in_Outlook_Group_By_Mode_04.png[]
+
+以下のコードは、WinGrid をスタイルするために WinGrid コントロールの InitializeGroupByRow イベントをどのように処理できるかを示します。InitializeGroupByRow イベント内で以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+' WinGrid が Title 列でグループ化される場合に限ってコネクターの外観を設定します 
+If e.Row.Column.Header.Caption = “Title”
+Then 
+' 行コネクター領域の色を DarkOliveGreen に設定します 
+    e.Row.RowConnectorAppearance.BackColor = Color.DarkOliveGreen 
+End If
+----
+
+*C# の場合：*
+
+----
+// WinGrid が Title 列でグループ化される場合に限ってコネクターの外観を設定します 
+ if(e.Row.Column.Header.Caption = “Title”)
+{
+ // 行コネクター領域の色を DarkOliveGreen に設定します
+ e.Row.RowConnectorAppearance.BackColor = Color.DarkOliveGreen;
+}
+----
+
+image::Images/WinGrid_Styling_Rows_and_Row_Connectors_in_Outlook_Group_By_Mode_05.png[]
+
+*関連トピック*
+
+* link:wingrid-enabling-grouping.html[Group By モードを有効にする]

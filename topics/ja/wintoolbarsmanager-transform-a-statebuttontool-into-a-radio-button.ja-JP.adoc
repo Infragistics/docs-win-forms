@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-transform-a-statebuttontool-into-a-radio-button",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Tips and Tricks"],
+    "guid": "{CA9DECC7-6744-47DF-993F-E6CF1F0FFA2A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= StateButtonTool をラジオ ボタンに変換
+
+2007 Volume 1 では、WinToolbarsManager は、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool.html[StateButtonTool]"] 、特に、StateButtonTool の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool~toolbardisplaystyle.html[ToolbarDisplayStyle]"]  プロパティからチェックボックスとラジオ ボタンを表示する機能を得ました。 link:wintoolbarsmanager-transform-a-statebuttontool-into-a-checkbox.html[StateButtonTool をチェックボックスに変換する]、または追加のプロパティを設定してラジオ ボタンに変換できます。チェックボックスまたはラジオ ボタンを表示するには、同じプロパティ ToolbarDisplayStyle を変更する必要があります。このプロパティが変更することがグリフのルックで、チェックボックスまたはラジオ ボタンを見るかどうかです。デフォルトでは、このプロパティを設定すればチェックボックスが表示されます。ただし、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool~optionset.html[OptionSet]"]  プロパティを新しいまたは以前に作成した OptionSet にも設定すれば、グリフはラジオ ボタンとして表示されます。
+
+以下のコードは、'StateButtonTool1'、'StateButtonTool2'、および 'StateButtonTool3' という名前のリボン グループに 3 つの StateButtonTools があることを想定します。詳細は link:wintoolbarsmanager-add-a-tool-to-a-ribbon-group.html[「リボン グループにツールを追加」]を参照してください。OptionSet も既に作成されていると想定します。OptionSets の作成についての詳細は、 link:wintoolbarsmanager-create-groups-of-mutually-exclusive-statebuttons.html[「相互に排他的な StateButton のグループの作成」]を参照してください。
+
+コードの最初の行は、最初の StateButtonTool への参照を取得します。コードの 2 行目は、チェックボックス（グリフ）として StateButtonTool を表示します。コードの 3 行目は、その StateButtonTool に OptionSet を設定し、したがって、ツールをラジオ ボタンとしてして表示します。
+
+image::images/WinToolbarsManager_Transform_a_StateButtonTool_into_a_Radio_Button_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+' Creates a new OptionSet
+' AllowAllUp is set to True, so all state buttons can be unchecked at the same time
+Me.UltraToolbarsManager1.OptionSets.Add(True, "Layout")
+Dim Left As StateButtonTool = _
+  CType(Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools("Left"), _
+  StateButtonTool)
+Left.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph
+Left.OptionSet = Me.UltraToolbarsManager1.OptionSets(0)
+Dim Center As StateButtonTool = _
+  CType(Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools("Center"), _
+  StateButtonTool)
+Center.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph
+Center.OptionSet = Me.UltraToolbarsManager1.OptionSets(0)
+Dim Right As StateButtonTool = _
+  CType(Me.UltraToolbarsManager1.Ribbon.Tabs(0).Groups(0).Tools("Right"), _
+  StateButtonTool)
+Right.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph
+Right.OptionSet = Me.UltraToolbarsManager1.OptionSets(0)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+// Creates a new OptionSet
+// AllowAllUp is set to True, so all state buttons can be unchecked at the same time
+this.ultraToolbarsManager1.OptionSets.Add(true, "Layout");
+StateButtonTool Left =
+  this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools["Left"]
+  as StateButtonTool;
+Left.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph;
+Left.OptionSet = this.ultraToolbarsManager1.OptionSets[0];
+StateButtonTool Center =
+  this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools["Center"]
+  as StateButtonTool;
+Center.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph;
+Center.OptionSet = this.ultraToolbarsManager1.OptionSets[0];
+StateButtonTool Right =
+  this.ultraToolbarsManager1.Ribbon.Tabs[0].Groups[0].Tools["Right"]
+  as StateButtonTool;
+Right.ToolbarDisplayStyle = StateButtonToolbarDisplayStyle.Glyph;
+Right.OptionSet = this.ultraToolbarsManager1.OptionSets[0];
+----

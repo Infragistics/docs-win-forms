@@ -1,0 +1,40 @@
+﻿////
+|metadata|
+{
+    "name": "wintab-using-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{57FC0795-B814-42C7-811D-8A638D790824}",
+    "buildFlags": [],
+    "createdOn": "2007-07-11T15:28:59Z"
+}
+|metadata|
+////
+
+= WinTab と WinStrip の使用
+
+このセクションでは、WinTab™ コントロールと WinTabStrip™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+以下のリンクをクリックすると、さまざまなタスクの実行方法について読むことができます。
+
+* link:wintab-adding-tabs-through-code.html[コードを通して WinTab にタブを追加]
+* link:wintab-adding-image-to-a-tab.html[WinTab でタブに画像を追加]
+* link:wintab-adding-new-tab-button.html[新しいタブ ボタンを追加]
+* link:wintab-apply-tab-styles.html[タブ スタイルを適用]
+* link:wintab-apply-the-wizard-style.html[ウィザード スタイルを適用]
+* link:wintab-bind-wintabstrip-to-a-data-source.html[WinTabStrip をデータ ソースにバインド]
+* link:wintab-choosing-which-tab-control-to-use.html[使用するタブ コントロールの選択]
+* link:wintab-convert-a-tab-control-to-wintab.html[Tab コントロールを WinTab に変換する]
+* link:wintab-data-binding-the-wintabstrip-control.html[WinTabStrip コントロールのデータバインディング]
+* link:wintab-defining-the-appearance-of-wintab-and-wintabstrip.html[WinTab と WinTabStrip の外観を定義]
+* link:wintab-determine-which-tab-the-user-selected.html[ユーザがどのタブを選択したのかを判断]
+* link:wintab-disable-and-hide-tabs-in-wintab.html[WinTab でタブを無効または非表示]
+* link:wintab-display-a-close-button-on-a-tab.html[タブに閉じるボタンを表示]
+* link:wintab-placing-controls-on-wintab.html[WinTab でのコントロールの配置]
+* link:wintab-position-tabs-at-desired-locations.html[希望する位置にタブを配置]
+* link:wintab-specify-orientation-for-tabs-in-wintab.html[WinTab でタブの方向を指定]
+* link:wintab-sort-tabs.html[タブの並べ替え]
+* link:wintab-styling-wintab-scroll-buttons.html[WinTab スクロール ボタンをスタイル]
+* link:wintab-tab-layout.html[タブのレイアウト]
+* link:wintab-work-with-shared-controls.html[共通コントロールの操作]
+* link:wintab-using-the-notification-badge.html[通知バッジが使用されている WinTabControl および WinTabStripControl]

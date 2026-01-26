@@ -1,0 +1,116 @@
+﻿////
+|metadata|
+{
+    "name": "wincalcmanager-using-formulabuilder-at-run time",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{B949EB1D-E64B-4040-8AD8-2485C3CC17DC}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= フォーミュラ ビルダーをランタイムに使用する
+
+WinCalcManager™ FormulaBuilder はランタイムで表示できます。
+
+FomulaBuilder を表示するには以下の手順を実行します。
+
+[start=1]
+. コーディングを始める前にコード ビハインドに Using/Imports のディレクティブを配置することにより、メンバーの完全修飾名を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinCalcManager
+Imports Infragistics.Win.UltraWinCalcManager.FormulaBuilder
+Imports Infragistics.Win.CalcEngine
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinCalcManager;
+using Infragistics.Win.UltraWinCalcManager.FormulaBuilder;
+using Infragistics.Win.CalcEngine;
+----
+
+[start=2]
+. フォームに UltraCalcManager、3 つの UltraTextEditors および UltraButton を配置します。
+
+[start=3]
+. エディターを txtBox1"、"txtBox2" および "txtSumBox" に名前変更します。そして、各エディターの CalcSettings で PropertyName を Text に設定します。PropertyName を Text に設定しない場合、FormulaBuilderDialog にコントロールが表示されません。
+
+[start=4]
+. UltraButton の名前を btnShowFormulaBuilderDialog に変更します。ボタンの Text プロパティを Show Formula Builder Dialog に設定します。
+
+[start=5]
+. Infragistics.Win.UltraWinCalcManager.v{ProductVersion}.FormulaBuilder への参照を追加します。
+
+[start=6]
+. コードビハインドで、IFormulaProvider を渡す ShowFormulaBuilderDialog メソッドを作成します。
+
+[start=7]
+. ShowFormulaBuilderDialog メソッドで、ShowFormulaBuilderDialog に渡された IForumlaProvider 変数を渡す、新しい pick:[win-forms="link:{ApiPlatform}win.ultrawincalcmanager.formulabuilder~infragistics.win.ultrawincalcmanager.formulabuilder.formulabuilderdialog.html[FormulaBuilderDialog]"] メソッドを宣言します。
+
+[start=8]
+. FormulaBuilderDialog の宣言後、ShowFormulaBuilderDialog メソッドでダイアログを表示する必要があります。
+
+[start=9]
+. ダイアログの表示後、ダイアログがキャンセルされるか、また ShowFormulaBuilderDialog メソッドから戻ってくるかを確認する必要があります。ダイアログがキャンセルされない場合は、FormulaBuildDialog の Formula プロパティを取得し、渡された IFormulaProvider の Formula プロパティに割り当てる必要があります。
+
+次のコード例は、上記のコードを示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.ShowFormulaBuilderDialog(Me.UltraCalcManager1.GetCalcSettings(Me.UltraTextEditor1))
+End Sub
+Private Sub ShowFormulaBuilderDialog(ByVal formulaProvider As IFormulaProvider)
+	' 新しい FormulaBuilderDialog を宣言します。
+	Dim formulaBuilderDialog As New FormulaBuilderDialog(formulaProvider)
+	' ダイアログを表示します。 
+	Dim dResult As DialogResult = formulaBuilderDialog.ShowDialog(Me)
+	' ユーザーがキャンセルした場合は何もしません。 
+	If dResult = DialogResult.Cancel Then
+		Return
+	End If
+	' 数式を適用します。 
+	formulaProvider.Formula = formulaBuilderDialog.Formula
+	formulaBuilderDialog.ShowDialog()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	this.ShowFormulaBuilderDialog(this.ultraCalcManager1.GetCalcSettings(this.ultraTextEditor3));
+}
+private void ShowFormulaBuilderDialog(IFormulaProvider formulaProvider) 
+{ 
+	// 新しい FormulaBuilderDialog を宣言します。
+	FormulaBuilderDialog formulaBuilderDialog = new FormulaBuilderDialog(formulaProvider);                            
+	// ダイアログを表示します。 
+	DialogResult dResult = formulaBuilderDialog.ShowDialog(this); 
+	// ユーザーがキャンセルした場合は何もしません。 
+	if (dResult == DialogResult.Cancel) 
+		return; 
+	// 数式を適用します。 
+	formulaProvider.Formula = formulaBuilderDialog.Formula; 
+	formulaBuilderDialog.ShowDialog();
+}
+----
+
+[start=10]
+. デザイナーでボタンをダブルクリックすると、ボタンのクリック イベントが作成されます。イベントで、作成した ShowFormulaBuilderDialog メソッドを呼び出し、UltraCalcManager の GetCalcSettings メソッドを使用して txtSumBox コントロールの CalcSettings を渡し、実行時にコントロールの CalcSettings を取得します。
+
+[start=11]
+. プロジェクトをビルドして実行します。最初の 2 つのエディターに数字を入力し、[Show Formula Builder Dialog] ボタンを押します。次のようになります。必要な計算を入れ、[OK] をクリックすると結果の値が 3 番目のエディターに表示されます。
+
+
+image::images\WinCalcManager_Using_Formula_Builder_at_Run_Time_01.png[]

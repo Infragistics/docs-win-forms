@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-windows-vista-look-and-feel",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{3890E6A9-A538-433D-AF30-6240DB577A9E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Windows Vista のルック アンド フィール
+
+以下は、WinToolbarsManager™ の新しい Vista スタイルをサポートするために link:win-plf-overview.html[Presentation Layer Framework™ (PLF)] に追加した項目のリストです。
+
+* *Vista カラー テーブル* -- Vista スタイルで使用されるすべての色を管理するために新しい link:{ApiPlatform}win{ApiVersion}~infragistics.win.windowsvistacolortable.html[WindowsVistaColorTable] を追加しました。このカラー テーブルは WinToolbarsManager メニューおよびツールバーに影響し、2 つの link:{ApiPlatform}win{ApiVersion}~infragistics.win.windowsvistacolorscheme.html[ColorSchemes] を持ちます：BlueGreen および Blue。
+* *新しいグラデーション スタイル* -- 2006 Volume 3 で、Office 2007 のルック アンド フィールをサポートするために新しいグラス タイプのグラデーションを link:{ApiPlatform}win{ApiVersion}~infragistics.win.gradientstyle.html[GradientStyle] 列挙体に追加しました。Vista スタイルはツールバーのために若干異なるグラデーションを持っており、4 つの新しいグラデーションを列挙体に追加するように求めるプロンプトが表示されます。
+
+[cols="a,a,a,a"]
+|====
+|image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_01_01.png[]
+|image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_01_02.png[]
+|image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_01_03.png[]
+|image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_01_04.png[]
+
+|HorizontalWithGlassTop50
+|VerticalWithGlassRight50
+|HorizontalWithGlassBottom50
+|VerticalWithGlassLeft50
+
+|====
+
+* *新しいボタン スタイル* -- 標準の Vista ボタン (WindowsVistaButton) およびツールバー用に特に設計された Vista ボタン (WindowsVistaToolbarButton) をサポートするために link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementbuttonstyle.html[UIElementButtonStyles] 列挙体に 2 つの新しいボタン スタイルを追加しました。
+
+[cols="a,a"]
+|====
+|image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_02_01.png[]
+|image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_02_02.png[]
+
+|WindowsVistaButton
+|WindowsVistaToolbarButton
+
+|====
+
+* *新しい境界線スタイル* -- link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementborderstyle.html[UIElementBorderStyle] 列挙体に配置された新しい WindowsVista 境界線スタイルは 4 色の境界線で表示されます。関連する Appearance オブジェクトの BorderColor プロパティで選択した色に基づいて、上部の境界線は指定された色を表示し、残りの境界線は、選択した色のさまざまな影を表示します。上記の新しいグラデーション スタイル画像で、または以下のエディタ スタイルでこの境界線スタイルの例を表示できます。
+* *新しい埋め込みエディタ スタイル* -- link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableelementdisplaystyle.html[EmbeddableElementDisplayStyle] 列挙体に新しい WindowsVista オプションを追加しました。これらのエディタは、上記の新しい境界線スタイルで表示されます。
+
+image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_03.png[]
+
+* *新しいスクロールバー スタイル* -- Windows Vista でどのようにスクロールバーが表示されるかをエミュレートするために新しい WindowsVista オプションを link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinscrollbar.scrollbarviewstyle.html[ScrollBarViewStyle] 列挙体に追加しました。
+
+image::images/Win_New_Windows_Vista_Style_for_WinToolbarsManager_Whats_New_20073_04.png[]
+
+== 関連トピック
+
+link:wintoolbarsmanager-change-the-style-of-wintoolbarsmanager.html[WinToolbarsManager のスタイルの変更]

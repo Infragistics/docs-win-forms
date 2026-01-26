@@ -1,0 +1,110 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-properties-for-configuring-a-textdocument",
+    "controlName": [],
+    "tags": [],
+    "guid": "ad5305d9-3402-422c-800f-577efbddaea5",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1238573Z"
+}
+|metadata|
+////
+
+= TextDocument を構成するプロパティ
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、カスタム構成を可能とするために公開された `TextDocument` クラス プロパティについて説明します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref327861013,IsReadOnly プロパティ>>
+
+** <<_Ref326147531,説明>>
+
+* <<_Ref335122442,Language プロパティ>>
+
+** <<_Ref335122447,説明>>
+
+* <<_Ref335122452,UndoManager プロパティ>>
+
+** <<_Ref335122456,説明>>
+
+* <<_Ref335122461,関連コンテンツ>>
+
+** <<_Ref335122466,トピック>>
+
+[[_Append_Text_to]]
+[[_IsReadOnly_Property]]
+[[_Ref327861013]]
+[[_Ref324841253]]
+== IsReadOnly プロパティ
+
+[[_Description]]
+
+=== 説明
+
+`IsReadOnly` プロパティは、“true” に設定すると、ドキュメントに対して行われた変更を受け入れなくなります。
+
+[[_Code]]
+[[_Delete_Text_from]]
+[[_Language_Property]]
+[[_Ref335122442]]
+== Language プロパティ
+
+[[_Description_2]]
+
+Language プロパティは、特定のドキュメントに適用されるコード言語 (C# や Visual Basic など) を識別します。Language プロパティが設定されないと、構文規則のないシンプルなテキスト ファイルとしてドキュメントを扱います。この場合、このプロパティは PlainTextLanguage クラスのインスタンスを返します。
+
+[[_UndoManager_Property]]
+[[_Ref335122452]]
+== UndoManager プロパティ
+
+[[_Description_1]]
+
+`UndoManager` プロパティは変更の無制限の元に戻す/やり直し操作でサポートします。
+
+.注:
+[NOTE]
+====
+デフォルトでは、UndoManager のインスタンスの `TextDocument` の各インスタンスは、UndoManager の自身のインスタンスを作成します。ただし、このプロパティは構成可能であるため、複数のドキュメントで `UndoManager` の単一インスタンスを共有することが可能です。
+====
+
+[[_Code_1]]
+[[_Insert_Text_into]]
+[[_Replace_All_Occurrences]]
+[[_Replace_a_Single]]
+[[_Replace_Text_at]]
+[[_Related_Content]]
+[[_Ref335122461]]
+== 関連コンテンツ
+
+[[_Topics]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-textdocument-overview.html[TextDocument の概要]
+|このトピックでは、Infragistics Syntax Parsing Engine のメイン クラス、`TextDocument` について説明します。最も重要なメソッド、イベントおよびプロパティを概略するトピックへのリンクが含まれています。
+
+| link:ig-spe-events-for-interacting-with-a-textdocument.html[TextDocument を操作するイベント]
+|このトピックでは、コードスニペットを使用して `TextDocument` クラス イベントについて説明します。
+
+| link:ig-spe-methods-for-modifying-text-in-a-textdocument.html[TextDocument でテキストを変更するメソッド]
+|このトピックでは、コードスニペットを使用してテキストを編集する `TextDocument` クラス メソッドについて説明します。
+
+| link:ig-spe-implementing-a-textdocument-with-a-richtextbox.html[RichTextBox を含む TextDocument を実装]
+|このトピックでは、特定の言語に基づいて文書でキーワードを強調表示できる RichTextBox コントロールを使用する方法をコード スニペットを用いて説明します。
+
+|====

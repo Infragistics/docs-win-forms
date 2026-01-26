@@ -1,0 +1,25 @@
+﻿////
+|metadata|
+{
+    "name": "wincolorpicker-set-the-default-style-to-visualstudio",
+    "controlName": ["WinColorPalette", "UltraColorPalette"],
+    "tags": ["How Do I"]
+}
+|metadata|
+////
+
+= デフォルト スタイルを VisualStudio に設定
+
+すべての link:wincolorpicker.html[WinColorPickers] は、デフォルトで ColorPalette に設定された 
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracolorpicker~style.html[Style]
+プロパティで初期化されます。このようにしてドロップダウン エディターに WinColorPalette と同じ UI を定義します。VisualStudio スタイルを設定する場合、以下のコード例で示すように、Style プロパティを個別の WinColorPicker コントロールで設定できます。
+
+[source, csharp]
+ultraColorPicker1.Style = Infragistics.Win.UltraColorPalette.ColorPickerEditorStyle.VisualStudio;
+
+また、VisualStudio スタイルをすべてのコントロールで定義することも可能です。link:{ApiPlatform}win{ApiVersion}~infragistics.win.colorpickereditor.html[ColorPickerEditor] クラスの静的 link:{ApiPlatform}win{ApiVersion}~infragistics.win.colorpickereditor~defaultstyle.html[DefaultStyle]プロパティで設定します。以下はコード例です。
+
+[source, csharp]
+Infragistics.Win.ColorPickerEditor.DefaultStyle = Infragistics.Win.UltraColorPalette.ColorPickerEditorStyle.VisualStudio;
+
+WinColorPicker と共に初期化されるスタイルに影響することに注意ください。すなわち、WinColorPicker が初期化された後に DefaultStyle を設定した場合も (InitializeForm() など)、設定に効果はありません。

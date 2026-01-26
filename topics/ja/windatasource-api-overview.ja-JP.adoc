@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-api-overview",
+    "controlName": ["WinDataSource"],
+    "tags": ["API"],
+    "guid": "{A11A593C-663A-4CF7-87BE-04985A65A424}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinDataSource 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource_namespace.html[Infragistics.Win.UltraWinDataSource]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource.html[UltraDataSource]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatarow.html[UltraDataRow]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradataband.html[UltraDataBand]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatacolumn.html[UltraDataColumn]"]

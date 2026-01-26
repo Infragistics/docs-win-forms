@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupcolorpicker",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{0D16DF75-57D8-4472-BFAE-A3F6EEAB2C09}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupColorPicker
+
+PopupColorPicker tツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-popupcolorpicker-about-the-popupcolorpicker-tool.html[PopupColorPicker ツールについて]
+* link:wintoolbarsmanager-display-selected-color-in-colorpicker-image.html[選択した色の ColorPicker イメージでの表示]

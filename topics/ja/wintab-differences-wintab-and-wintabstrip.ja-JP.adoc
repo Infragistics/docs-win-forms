@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-differences-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started","Summaries","Tips and Tricks"],
+    "guid": "{F145490D-BD81-4FFE-89BE-DCCCB8EDBA28}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab と WinTabStip の違い
+
+WinTab および WinTabStrip コントロールはどちらも pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase.html[UltraTabControlBase]"]  抽象基本クラスから派生しており、大部分の機能が共通しています。これらの違いを次に示します。
+
+* *タブ単位の子コントロール* - さまざまな子コントロールをタブ単位で容易に提供できるのは UltraTabControl のみです。これには、タブごとに UltraTabPageControl を作成し、デザインタイムまたはランタイムに子コントロールを配置します。UltraTabStripControl では、代わりに単一の SharedControlsPage がすべてのタブ用のタブ ページとして使用されます。
+
+[NOTE]
+====
+*注* どちらのエレメントでも、SelectedTabChanging または SelectedTabChanged イベントハンドラを通じて子コントロールを変更、非表示、または表示することがいつでも可能です。
+====
+
+* *デザイン時の機能* - UltraTabControl には、追加のデザインタイムの機能があります。以下のとおりです。
+
+** '[共通コントロールを表示] - 共有コントロール ページを表示します。このページに置かれた子コントロールは、デフォルトですべてのタブに表示されます。UltraTabStripControl では共有コントロール ページが常に表示されています。
+** '[共通コントロールの除外...] - どの共有コントロールを特定のタブから除外するかを開発者が指定できるダイアログを表示します。
+** '[TabControlの変換...] - 既存の TabControl を UltraTabControl に変換する機能を提供するダイアログを表示します。これによりタブ構造が複製され、オプションで子コントロールの親が変更されます。ただし、既存のコードは変更されません。
+
+* *データ バインディング* - データソースへのバインディングをサポートしているのは UltraTabStripControl のみです。バインドされたデータのすべての行に対応するタブが追加されます。エレメントの DataSource プロパティを設定すると、次の変更が発生します。
+
+** 既存のタブがすべてクリアされます。
+** ランタイムには、バインドされたリストのすべての行に対応するタブが Tabs コレクションにロードされ、コレクションが読み取り専用としてマークされます。データソースで行が追加、削除、または変更されると、そのたびにコレクションが自動的に更新され、それらの変更が反映されます。各タブがロードされると、そのたびに TabDataInitialized イベントが発生します。
+** デザインタイムには、列の名前を表示する 1 組のサンプル タブが Tabs コレクションにロードされます。これらの名前はタブのテキストとして使用されます。これらのタブはデザインタイムに選択またはスクロールすることはできません。これらはコントロールのランタイムの外観をシミュレートするために提供されています。また、[タブの追加] および [タブの削除] が、InitialSelectedTab、SelectedTab、Tabs の各プロパティと共に無効になります。
+
+* *デフォルトのプロパティ設定の解決* - Tab および TabStrip コントロールでは、次のガイドラインに従い、特定のプロパティのデフォルト設定が異なる方法で解決されます。
+
+** UseMenmonics プロパティがデフォルト設定のままの場合は、データがバインドされた UltraTabStripControl（False に解決されます）を除いて、True に解決されます。
+** ScrollButtonTypes プロパティがデフォルト設定のままの場合は、データがバインドされた UltraTabStripControl（「NextPrevious」および「Thumb」に解決されます）を除いて、「NextPrevious」に解決されます。

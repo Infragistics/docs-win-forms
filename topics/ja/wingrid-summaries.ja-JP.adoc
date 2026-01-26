@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-summaries",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Summaries"],
+    "guid": "{2EE1E0FF-C247-4702-83BD-ED73BBB55660}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:33:10Z"
+}
+|metadata|
+////
+
+= 集計
+
+デフォルトでは、列で計算を実行すると、結果が集計として表示されます。このセクションでは、集計の表示と配置の方法が見つかります。
+
+* link:wingrid-displaying-non-scrolling-summaries.html[非スクロール集計を表示]
+* link:wingrid-displaying-summary-footers-for-all-groupby-rows.html[すべてのグループ行に対する集計フッターを表示]
+* link:wingrid-performing-external-summary-calculations.html[外部集計計算の実行]
+* link:wingrid-positioning-column-summaries.html[列集計の配置]
+* link:wingrid-separating-and-aligning-summaries-of-grouped-rows.html[グループ行の集計の分離と配置]
+* link:wingrid-using-the-minsummaryrowheight-and-defaultsummaryrowheight.html[MinSummaryRowHeight および DefaultSummaryRowHeight の使用。]

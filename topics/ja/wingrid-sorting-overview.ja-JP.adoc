@@ -1,0 +1,100 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-sorting-overview",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Sorting"],
+    "guid": "{6380DD76-C029-4C1C-9786-DBBDA47552E2}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 並べ替えの概要
+
+== バックグラウンド
+
+WinGrid では、ユーザーは列ヘッダをクリックすることにより単一列と複数列の両方でソートを実行できます。開発者は列でソートを実行するように UltraWinGrid に指示することも可能です。
+
+== 質問
+
+* 列ヘッダをクリックしたときにユーザーがソートすることができるように UltraWinGrid に指示するにはどうすればいいですか?
+* UltraWinGrid でデータベースから取得したデータは、表示したい順序でソートされません。コードを使用して列でソートを実行するように UltraWinGrid に指示するにはどうすればいいですか?
+
+== 解決策
+
+.HeaderClickAction プロパティを .SortSingle または .SortMulti に設定することによってユーザーがソートできるように UltraWinGrid に指示します。
+
+Column.SortIndicator を Descending に設定することによって、コードを使用して特定の列でソートを実行するように UltraWinGrid に指示します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは、ユーザーがさまざまな列ヘッダをクリックしたときにソートを実行するように構成されたマルチバンド グリッドを表示します。バンド 1 列 3 でグリッドにソートを実行させるボタンも提供します。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Sorting_Columns_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラが含まれます。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードは、すべてのバンドおよび列のデフォルトの HeaderClickAction を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+  	e.Layout.Override.HeaderClickAction = HeaderClickAction.SortSingle
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Override.HeaderClickAction = HeaderClickAction.SortSingle;
+}
+----
+
+Button イベント
+
+* Button1.Click - Button Click イベントのコードは、バンド 1 列 3 で降順にソートを実行するように UltraWinGrid に指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns(3).SortIndicator = SortIndicator.Descending
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns[3].SortIndicator = SortIndicator.Descending;
+}
+----
+
+== まとめ
+
+このサンプル プログラムは、列ヘッダをクリックしたときに列データをユーザーがソートできるプロパティ設定と、コードを使用して特定の列でソートを実行する方法を説明しました。

@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-lexical-analysis",
+    "controlName": [],
+    "tags": [],
+    "guid": "15d057ac-e5a0-415f-8ae2-4d02636f23fe",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0268476Z"
+}
+|metadata|
+////
+
+= 字句解析
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-lexical-analysis-overview.html[字句解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-terminal-symbols.html[終端記号]
+|このトピックは、文章校正の終端記号を説明します。
+
+|====

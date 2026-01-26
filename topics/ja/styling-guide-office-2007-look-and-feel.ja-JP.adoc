@@ -1,0 +1,21 @@
+﻿////
+|metadata|
+{
+    "name": "styling-guide-office-2007-look-and-feel",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{344B9B58-92E3-48FF-A651-BEBD4DA8626B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Office 2007 ルック アンド フィール
+
+Office 2007 ルック アンド フィールは、Microsoft® Office 2007 に対応するビジュアルなテーマです。ルック アンド フィールには、リボン、Office 2007 のカラー スキーム、オプション セットおよびチェックボックスのグリフ、グレー色のグラデーションなどの機能が含まれています。
+
+詳細は以下のトピックを参照してください。
+
+* link:styling-guide-about-the-office-2007-look-and-feel.html[Office 2007 のルック アンド フィールについて]
+* link:win-blend-a-custom-color-with-office-2007-style-color-schemes.html[カスタム カラーと Office 2007 スタイルのカラー スキームをブレンド]

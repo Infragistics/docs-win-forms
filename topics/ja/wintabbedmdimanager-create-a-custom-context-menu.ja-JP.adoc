@@ -1,0 +1,123 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-create-a-custom-context-menu",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{8430A0E9-1D7A-4DFE-B5A8-B3B19F46AD7E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタムコンテキストメニューの作成
+
+ユーザーがタブをドラッグして TabbedMDI ウィンドウのクライアント領域にドロップすると、水平または垂直のどちらかのタブ グループを選択するよう求めるコンテキスト メニューが表示されます。同様のメニューはユーザーがタブを右クリックしたときにも表示されます。これらのコンテキスト メニューは、ユーザーが特に何も設定しなくてもエレメントに必要な機能を自動的に提供するように設定されています。しかし、これらのメニューがアプリケーションのニーズに合わない場合は、メニューをカスタマイズできます。カスタマイズは、メニューに表示されるアイコンの変更といった単純なものから、既存の機能の代わりとなるまったく新しい機能の組み込みといった複雑なものまで、幅広く実施できます。
+
+コンテキスト メニューをカスタマイズするには、pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager~initializecontextmenu_ev.html[InitializeContextMenu]"]  イベントを使用します。このイベントに渡される e パラメータには、ユーザーによって呼び出されたコンテキスト メニューに関する情報が格納されており、これを通じてメニューの表示をカスタマイズできます。メニューを表示するかどうかを指定したり、呼び出されているメニューのタイプを調べたりできるほか、メニューの内容を確認して変更することもできます。
+
+次のコードは、既存のメニュー項目の内容を削除して 2 つのカスタム項目を追加する方法を示します。
+
+[NOTE]
+====
+*注：* このコードはメニュー項目の作成プロセスを解説しており、メニュー項目の機能の実装は別に行います。
+====
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTabbedMdi
+...
+Private Sub UltraTabbedMdiManager1_InitializeContextMenu(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinTabbedMdi.MdiTabContextMenuEventArgs) _
+  Handles UltraTabbedMdiManager1.InitializeContextMenu
+	If e.ContextMenuType = MdiTabContextMenu.Default Then
+		' 既存のメニュー項目を削除します。
+		e.ContextMenu.MenuItems.Clear()
+		' 新しいメニュー項目を作成します。
+		Dim item1 As New Infragistics.Win.IGControls.IGMenuItem("Move To First Group")
+		Dim item2 As New Infragistics.Win.IGControls.IGMenuItem("Move To Last Group")
+		' ImageList から表示するイメージのインデックスを設定します。
+		item1.Image = 0
+		item2.Image = 1
+		' メニュー項目をコンテキスト メニューに追加します。
+		e.ContextMenu.MenuItems.Add(item1)
+		e.ContextMenu.MenuItems.Add(item2)
+		' これを呼び出すタブにタグを設定します。
+		item1.Tag = e.Tab
+		item2.Tag = e.Tab
+		AddHandler item1.Click, New EventHandler(AddressOf OnCustomMenuItemMoveFirst)
+		AddHandler item2.Click, New EventHandler(AddressOf OnCustomMenuItemMoveLast)
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTabbedMdi;
+...
+private void ultraTabbedMdiManager1_InitializeContextMenu(object sender, 
+  Infragistics.Win.UltraWinTabbedMdi.MdiTabContextMenuEventArgs e)
+{
+	if (e.ContextMenuType == MdiTabContextMenu.Default)
+	{
+		// 既存のメニュー項目を削除します。
+		e.ContextMenu.MenuItems.Clear();
+		// 新しいメニュー項目を作成します。
+		Infragistics.Win.IGControls.IGMenuItem item1 = 
+		  new Infragistics.Win.IGControls.IGMenuItem("Move To First Group");
+		Infragistics.Win.IGControls.IGMenuItem item2 = 
+		  new Infragistics.Win.IGControls.IGMenuItem("Move To Last Group");
+		// ImageList から表示するイメージのインデックスを設定します。
+		item1.Image = 0;
+		item2.Image = 1;
+		// メニュー項目をコンテキスト メニューに追加します。
+		e.ContextMenu.MenuItems.Add(item1);
+		e.ContextMenu.MenuItems.Add(item2);
+		// これを呼び出すタブにタグを設定します。
+		item1.Tag = e.Tab;
+		item2.Tag = e.Tab;
+		item1.Click+=new EventHandler(OnCustomMenuItemMoveFirst);
+		item2.Click+=new EventHandler(OnCustomMenuItemMoveLast);
+	}
+}
+----
+
+追加したカスタム メニュー項目のイベントを処理するためには、それらのイベント ハンドラを実装する必要があります。上記のコードにの最後の 2 行には if 文がこのイベント ハンドラを設定しています。次に以下のコードをフォームに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub OnCustomMenuItemMoveFirst(ByVal sender As Object, ByVal e As EventArgs)
+	Dim mi As Infragistics.Win.IGControls.IGMenuItem = CType(sender, _
+	  Infragistics.Win.IGControls.IGMenuItem)
+	mi.Tag.MoveToGroup(Infragistics.Win.UltraWinTabbedMdi.MdiTabGroupPosition.First)
+End Sub
+Private Sub OnCustomMenuItemMoveLast(ByVal sender As Object, ByVal e As EventArgs)
+	Dim mi As Infragistics.Win.IGControls.IGMenuItem = CType(sender, _
+	  Infragistics.Win.IGControls.IGMenuItem)
+	mi.Tag.MoveToGroup(Infragistics.Win.UltraWinTabbedMdi.MdiTabGroupPosition.Last)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void OnCustomMenuItemMoveFirst( object sender, EventArgs e )
+{
+    Infragistics.Win.IGControls.IGMenuItem mi = sender as Infragistics.Win.IGControls.IGMenuItem;
+    Infragistics.Win.UltraWinTabbedMdi.MdiTab tab = mi.Tag as Infragistics.Win.UltraWinTabbedMdi.MdiTab;
+    tab.MoveToGroup(Infragistics.Win.UltraWinTabbedMdi.MdiTabGroupPosition.First);
+}
+private void OnCustomMenuItemMoveLast( object sender, EventArgs e )
+{
+    Infragistics.Win.IGControls.IGMenuItem mi = sender as Infragistics.Win.IGControls.IGMenuItem;
+    Infragistics.Win.UltraWinTabbedMdi.MdiTab tab = mi.Tag as Infragistics.Win.UltraWinTabbedMdi.MdiTab;
+    tab.MoveToGroup(Infragistics.Win.UltraWinTabbedMdi.MdiTabGroupPosition.Last);
+}
+----
+
+このコードは、カスタマイズしたコンテキスト メニューから発生したイベントを処理して、要求されたアクションを実行します。

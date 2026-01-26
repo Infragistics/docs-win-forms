@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-sort-columns-in-wintree",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I","Sorting"],
+    "guid": "{1CA104A7-AF37-4E56-9CB5-82A4F9EE1E60}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree 内で列をソート
+
+WinTree の前のバージョンでは、ノードの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~text.html[Text]"]  プロパティに基づいてプログラムからノードを並べ替えることができました。{ProductName} 2005 Volume 2 では、列サポートに加えて、特定の列のセル値に基づいてノードを並べ替える機能が追加されました。並べ替え順序はプログラムから制御できますが、ランタイムに列ヘッダをクリックして変更することもできます。
+
+デフォルトでは、ランタイムに複数列の並べ替えは有効になっていません。複数列の並べ替えを有効にした場合、［Shift］ キーを押さずに列ヘッダをクリックすると、関連付けられた pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[UltraTreeColumnSet]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset~sortedcolumns.html[SortedColumns]"]  が消去され、クリックした列がコレクションに追加されます。その列がすでに並べ替えられている場合は、並べ替えの方向を示す pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~sorttype.html[SortType]"]  プロパティが Ascending から Descending、またはその逆に切り替わります。列がまだ並べ替えられていない場合、SortType は Ascending に初期化されます。［Shift］ キーを押しながら列ヘッダをクリックすると、SortedColumns コレクションは消去されません。代わりに、クリックした列がコレクションの末尾に追加されます。列がすでに並べ替えられている場合は、［Shift］ キーを押さない場合と同様に、SortType が Ascending から Descending、またはその逆に切り替わります。この場合でも、クリックした列は SortedColumns コレクションの末尾に移動します。
+
+エンド ユーザーが UI を使用して並べ替えを変更できないようにするには次の方法があります。特定の列の場合には、その列の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~allowsorting.html[AllowSorting]"]  プロパティを使用します。列セット全体の場合には、その列セットの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset~allowsorting.html[AllowSorting]"]  プロパティを使用し、すべての列セットの場合には列設定の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~allowsorting.html[AllowSorting]"]  プロパティを使用します。
+
+[NOTE]
+====
+*注：* デフォルトでは、SortedColumns コレクションに追加するための修飾キーは ［Shift］ キーですが、このキーは pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~multisortmodifierkey.html[MultiSortModifierKey]"]  プロパティを使用して変更できます。
+====
+
+[start=1]
+. 変更前の WinTree は次のスクリーンショットのとおりです。
+
+image::Images/WinTree_Sorting_Columns_in_the_WinTree_01.png[]
+
+[start=2]
+. Last Name をクリックしてその列の値でソートします。ツリーは以下のようになります。
+
+image::Images/WinTree_Sorting_Columns_in_the_WinTree_02.png[]
+
+[start=3]
+. 続いて First Name 列のみを基準にして並べ替える場合は、単に First Name 列をクリックします。Last Name と First Name の両方を基準にして並べ替えるには、［Shift］ キーを押しながら First Name 列をクリックします。
+
+image::Images/WinTree_Sorting_Columns_in_the_WinTree_03.png[]

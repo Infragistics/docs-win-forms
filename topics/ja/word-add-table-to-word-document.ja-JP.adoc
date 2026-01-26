@@ -1,0 +1,436 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-add-table-to-word-document",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting","Getting Started","How Do I"],
+    "guid": "f8bfd701-eb0a-4d93-89fc-71d74695143c",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T14:27:32.391061Z"
+}
+|metadata|
+////
+
+= テーブルを Word ドキュメントに追加
+
+このドキュメントは、Word ドキュメントに見出し行とネストされたテーブルがあるテーブルを追加する方法を示します。
+
+トピックは以下のとおりです。
+
+* <<Intro,はじめに>>
+* <<Req,要件>>
+* <<FormatTable,書式設定されたテーブル - 概要>>
+* <<Ex,実例>>
+
+** <<ExTableWithHeader,実例 : ヘッダー行のあるテーブルを作成>>
+
+*** <<PrevTableWithHeader,プレビュー>>
+*** <<CodeTableWithHeader,コード サンプル>>
+
+** <<ExNestedTable,実例 : ネストされたテーブルを作成>>
+
+*** <<PrevNestedTable,プレビュー>>
+*** <<CodeNestedTable,コード サンプル>>
+
+* <<relatedTopics,関連トピック>>
+
+[[Intro]]
+== はじめに
+
+Infragistics® Word ライブラリによって、Word ドキュメントにテーブルを挿入することができます。テーブルによって簡単にテキストの列や行を配置できます。
+
+[[Req]]
+== 要件
+
+Infragsitics3.Documents.IO アセンブリへの参照が必要とされます。
+
+[[FormatTable]]
+== 書式設定されたテーブル - 概要
+
+書式設定されたテーブル、テーブルの行、テーブルのセルは、以下のようなさまざまなクラスで処理されます。
+
+* link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.tableproperties.html[TableProperties]
+* link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.tablerowproperties.html[TableRowProperties]
+* link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.tablecellproperties.html[TableCellProperties]
+* link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.tableborderproperties.html[TableBorderProperties]
+
+[[Ex]]
+== 実例
+
+[[ExTableWithHeader]]
+== 実例 : ヘッダー行のあるテーブルを作成
+
+以下のコードは、 link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] ストリーマー オブジェクトを使用して 2 列と 3 行のテーブルを作成します。最初の行は、TableRowProperties オブジェクトの link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.tablerowproperties~isheaderrow.html[IsHeaderRow] プロパティを使用してヘッダー行として設定されます。
+
+[[PrevTableWithHeader]]
+== プレビュー
+
+以下は最終結果のプレビューです。
+
+image::images/Word_Add_Table_To_Word_Document_01.png[]
+
+====== 図 1: サンプル コードによって作成された Word ドキュメントのヘッダーが付いたテーブル
+
+[[CodeTableWithHeader]]
+== コード サンプル
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+// コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+docWriter.StartDocument();
+// テーブルの境界線プロパティを作成します
+TableBorderProperties borderProps = docWriter.CreateTableBorderProperties();
+borderProps.Color = Color.Red;
+borderProps.Style = TableBorderStyle.Double;
+// テーブル プロパティを作成します
+TableProperties tableProps = docWriter.CreateTableProperties();
+tableProps.Alignment = ParagraphAlignment.Center;
+tableProps.BorderProperties.Color = borderProps.Color;
+tableProps.BorderProperties.Style = borderProps.Style;
+// テーブル行プロパティを作成します
+TableRowProperties rowProps = docWriter.CreateTableRowProperties();
+//行をヘッダーにします
+rowProps.IsHeaderRow = true;
+// テーブル セル プロパティを作成します
+TableCellProperties cellProps = docWriter.CreateTableCellProperties();
+cellProps.BackColor = Color.DarkGray;
+cellProps.TextDirection = TableCellTextDirection.LeftToRightTopToBottom;
+// 2 列があるテーブルを開始し、テーブル プロパティを適用します
+docWriter.StartTable(2, tableProps);
+// 行を開始し、テーブル行プロパティを適用します
+// この行は行プロパティによってヘッダー行として設定されます
+// ヘッダー行
+docWriter.StartTableRow(rowProps);
+// 第 1 の行、第 1 の列のセル値
+// 段落を開始し、テキスト ランをセルに追加します
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Header Row1 Col1");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+// 第 1 の行、第 2 の列のセル値
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Header Row1 Col2");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+// テーブル行を終了します
+docWriter.EndTableRow();
+// セル プロパティをリセットします。これによって
+// セル プロパティはヘッダー セルと異なります
+cellProps.Reset();
+cellProps.BackColor = Color.AliceBlue;
+// データ行
+docWriter.StartTableRow();
+// 第 2 の行、第 1 の列のセル値
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic. ");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+// 第 2 の行、第 2 の列のセル値
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Row2 Col2");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.EndTableRow();
+// データ行
+docWriter.StartTableRow();
+// 第 3 の行、第 1 の列のセル値
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Row3 Col1");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+// 第 3 の行、第 2 の列のセル値
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Row3 Col2");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.EndTableRow();
+docWriter.EndTable();
+docWriter.EndDocument();
+// WordDocumentWriter インスタンスを閉じます
+docWriter.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+'  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+Dim docWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\TestWordDoc.docx")
+docWriter.StartDocument()
+' テーブルの境界線プロパティを作成します
+Dim borderProps As TableBorderProperties = docWriter.CreateTableBorderProperties()
+borderProps.Color = Color.Red
+borderProps.Style = TableBorderStyle.[Double]
+' テーブル プロパティを作成します
+Dim tableProps As TableProperties = docWriter.CreateTableProperties()
+tableProps.Alignment = ParagraphAlignment.Center
+tableProps.BorderProperties.Color = borderProps.Color
+tableProps.BorderProperties.Style = borderProps.Style
+' テーブル行プロパティを作成します
+Dim rowProps As TableRowProperties = docWriter.CreateTableRowProperties()
+'行をヘッダーにします
+rowProps.IsHeaderRow = True
+' テーブル セル プロパティを作成します
+Dim cellProps As TableCellProperties = docWriter.CreateTableCellProperties()
+cellProps.BackColor = Color.DarkGray
+cellProps.TextDirection = TableCellTextDirection.LeftToRightTopToBottom
+' 2 列があるテーブルを開始し、テーブル プロパティを適用します
+docWriter.StartTable(2, tableProps)
+'  行を開始し、テーブル行プロパティを適用します
+' この行は行プロパティによってヘッダー行として設定されます
+' ヘッダー行
+docWriter.StartTableRow(rowProps)
+' 第 1 の行、第 1 の列のセル値
+' 段落を開始し、テキスト ランをセルに追加します
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Header Row1 Col1")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+' 第 1 の行、第 2 の列のセル値
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Header Row1 Col2")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+'  テーブル行を終了します
+docWriter.EndTableRow()
+' セル プロパティをリセットします。これによって
+' セル プロパティはヘッダー セルと異なります
+cellProps.Reset()
+cellProps.BackColor = Color.AliceBlue
+' データ行
+docWriter.StartTableRow()
+' 第 2 の行、第 1 の列のセル値
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic. ")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+' 第 2 の行、第 2 の列のセル値
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Row2 Col2")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.EndTableRow()
+' データ行
+docWriter.StartTableRow()
+' 第 3 の行、第 1 の列のセル値
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Row3 Col1")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+' 第 3 の行、第 2 の列のセル値
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Row3 Col2")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.EndTableRow()
+docWriter.EndTable()
+docWriter.EndDocument()
+docWriter.Close()
+----
+
+[[ExNestedTable]]
+== 実例 : ネストされたテーブルを作成
+
+ネストされたテーブルは、別のテーブル内に表示されるテーブルです。以下のコードは、2 つの列、2 つの行、および 2 つの列と行があるネストされたテーブルのある主テーブルを作成します。主テーブルの最初の行の第 2 列にネストされたテーブルが格納されます。
+
+[[PrevNestedTable]]
+== プレビュー
+
+以下は最終結果のプレビューです。
+
+image::images/Word_Add_Table_To_Word_Document_02.png[]
+
+====== 図 2: サンプル コードによって作成された Word ドキュメントのネストされたテーブル
+
+[[CodeNestedTable]]
+== コード サンプル
+
+*C# の場合:*
+
+----
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+// コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+TableCellProperties cellProps = docWriter.CreateTableCellProperties();
+cellProps.BackColor = Color.LightGray;
+docWriter.StartDocument();
+// 2 つの列があるテーブルを開始します
+docWriter.StartTable(2);
+// テーブル行を開始します
+docWriter.StartTableRow();
+// 最初の行の最初の列のテーブル セルを開始します
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Row1 Col1");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+// 最初の行の第 2 の列のテーブル セルを開始します
+docWriter.StartTableCell(cellProps);
+#region // ネストされたテーブル
+docWriter.StartParagraph();
+docWriter.AddTextRun("Nested Table");
+docWriter.AddNewLine();
+docWriter.EndParagraph();
+docWriter.StartTable(2);
+docWriter.StartTableRow();
+cellProps.Reset();
+cellProps.BackColor = Color.Yellow;
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Nested Table Row1 Col1");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Nested Table Row1 Col2");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.EndTableRow();
+docWriter.StartTableRow();
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Nested Table Row2 Col1");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Nested Table Row2 Col2");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.EndTableRow();
+// ネストされたテーブルについては、セル内にテーブルを追加した後に少なくともひとつの段落を追加する必要があります
+// EndTable メソッドは、空の段落を追加するオーバーロードを公開します 
+docWriter.EndTable(true);
+#endregion // ネストされたテーブル
+docWriter.EndTableCell();
+docWriter.EndTableRow();
+docWriter.StartTableRow();
+cellProps.Reset();
+cellProps.BackColor = Color.LightGray;
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Row2 Col1");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.StartTableCell(cellProps);
+docWriter.StartParagraph();
+docWriter.AddTextRun("Row2 Col2");
+docWriter.EndParagraph();
+docWriter.EndTableCell();
+docWriter.EndTableRow();
+docWriter.EndTable();
+docWriter.EndDocument();
+// WordDocumentWriter インスタンスを閉じます
+docWriter.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+'  静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+'  新しいインスタンスを作成します
+'  コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+Dim docWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\TestWordDoc.docx")
+'string WordDocname = Application.StartupPath + "\\TestWordDoc.docx";
+'WordDocumentWriter docWriter = WordDocumentWriter.Create(WordDocname);
+Dim cellProps As TableCellProperties = docWriter.CreateTableCellProperties()
+cellProps.BackColor = Color.LightGray
+docWriter.StartDocument()
+' 2 つの列があるテーブルを開始します
+docWriter.StartTable(2)
+' テーブル行を開始します
+docWriter.StartTableRow()
+' 最初の行の最初の列のテーブル セルを開始します
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Row1 Col1")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+' 最初の行の第 2 の列のテーブル セルを開始します
+docWriter.StartTableCell(cellProps)
+'#Region ""
+docWriter.StartParagraph()
+docWriter.AddTextRun("Nested Table")
+docWriter.AddNewLine()
+docWriter.EndParagraph()
+docWriter.StartTable(2)
+docWriter.StartTableRow()
+cellProps.Reset()
+cellProps.BackColor = Color.Yellow
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Nested Table Row1 Col1")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Nested Table Row1 Col2")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.EndTableRow()
+docWriter.StartTableRow()
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Nested Table Row2 Col1")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Nested Table Row2 Col2")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.EndTableRow()
+' ネストされたテーブルについては、セル内にテーブルを追加した後に
+' 少なくともひとつの段落を追加する必要があります
+'  EndTable メソッドは、空の段落を追加するオーバーロードを公開します
+docWriter.EndTable(True)
+'#End Region
+docWriter.EndTableCell()
+docWriter.EndTableRow()
+docWriter.StartTableRow()
+cellProps.Reset()
+cellProps.BackColor = Color.LightGray
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Row2 Col1")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.StartTableCell(cellProps)
+docWriter.StartParagraph()
+docWriter.AddTextRun("Row2 Col2")
+docWriter.EndParagraph()
+docWriter.EndTableCell()
+docWriter.EndTableRow()
+docWriter.EndTable()
+docWriter.EndDocument()
+' WordDocumentWriter インスタンスを閉じます
+docWriter.Close()
+----
+
+[[relatedTopics]]
+== 関連トピック
+
+* link:word-create-a-word-document.html[Word ドキュメントの作成]
+* link:word-apply-formatting-to-word-document.html[書式設定を Word ドキュメントに適用]
+* link:word-add-images-to-word-document.html[画像を Word ドキュメントに追加]
+* link:word-headers-footers-and-page-numbers.html[ヘッダー、フッター、ページ番号]
+* link:word-understanding-infragistics-word-library.html[Infragistics Word ライブラリの理解]

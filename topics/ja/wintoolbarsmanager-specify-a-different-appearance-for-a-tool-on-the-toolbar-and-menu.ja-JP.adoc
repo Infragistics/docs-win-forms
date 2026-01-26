@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-specify-a-different-appearance-for-a-tool-on-the-toolbar-and-menu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Styling"],
+    "guid": "{6FD0BF3B-584E-44C4-9BBD-F41A852DED8A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーとメニュー上のツールに別の外観を指定
+
+ツールバーとメニューに同じツールを同時に表示し、それぞれのツール インスタンスの外観を異なるものにすることができます。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~appearanceontoolbar.html[AppearanceOnToolBar]"]  プロパティおよび pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~appearanceonmenu.html[AppearanceOnMenu]"]  プロパティでこれを行います。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~hottrackappearanceontoolbar.html[HotTrackAppearanceOnToolBar]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~hottrackappearanceonmenu.html[HotTrackAppearanceOnMenu]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~pressedappearanceontoolbar.html[PressedAppearanceOnToolBar]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances~pressedappearanceonmenu.html[PressedAppearanceOnmenu]"]  プロパティもツールのツールバーとメニュー外観の違いに影響を及ぼします。
+
+これらのプロパティは、 AppearancesLarge および AppearancesSmall プロパティから返される pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolappearances.html[ToolAppearance]"]  オブジェクトに格納されています。これらのプロパティは、ツールの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.sharedprops.html[SharedProps]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.instanceprops.html[InstanceProps]"]  の両方のオブジェクトにあります。AppearancesSmall が返す ToolAppearance には、小さなイメージが表示されるときにツールに使用される外観設定があります。AppearancesLarge は、メニューの Large Icons オプションまたは ToolBar の Large Icon を選択するときに使用します。
+
+== デザインタイムの場合
+
+[start=1]
+. Customize エディタで、あらかじめ作成した Button ツールを選択します。
+[start=2]
+. Button ツールの SharedProps オブジェクトで、AppearanceOnMenu と AppearanceOnToolBar を選択し、それぞれでいくつかのプロパティを設定します（希望する場合には、HotTrackAppearanceOnMenu、HotTrackAppearanceOnToolBar、PressedAppearanceOnMenu、および PressedAppearanceOnToolBar のプロパティを設定することもできます）。
+[start=3]
+. Button ツールをツールバーと、PopUpMenu ツールのドロップダウンに追加します。
+[start=4]
+. プロジェクトを実行すると、ツールの 2 つのインスタンスで異なる外観が表示されます。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+Imports Infragistics.Win
+...
+Private Sub DifferentToolAppearanceonToolbarandMenu_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.Tools("ButtonTool1").SharedProps. _
+	  DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	Me.UltraToolbarsManager1.Tools("ButtonTool1").SharedProps.AppearancesSmall. _
+	  AppearanceOnMenu.FontData.Bold = DefaultableBoolean.True
+	Me.UltraToolbarsManager1.Tools("ButtonTool1").SharedProps.AppearancesSmall. _
+	  AppearanceOnToolbar.FontData.Bold = DefaultableBoolean.False
+	Me.UltraToolbarsManager1.Tools("ButtonTool1").SharedProps.AppearancesSmall. _
+	  HotTrackAppearanceOnMenu.ForeColor = Color.AntiqueWhite
+	Me.UltraToolbarsManager1.Tools("ButtonTool1").SharedProps.AppearancesSmall. _
+	  HotTrackAppearanceOnToolbar.ForeColor = Color.FromArgb(100, 200, 175)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+using Infragistics.Win;
+...
+private void DifferentToolAppearanceonToolbarandMenuy_Load(object sender, System.EventArgs e)
+{
+	this.ultraToolbarsManager1.Tools["ButtonTool1"].SharedProps.
+	  DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	this.ultraToolbarsManager1.Tools["ButtonTool1"].SharedProps.
+	  AppearancesSmall.AppearanceOnMenu.FontData.Bold = DefaultableBoolean.True;
+	this.ultraToolbarsManager1.Tools["ButtonTool1"].SharedProps.
+	  AppearancesSmall.AppearanceOnToolbar.FontData.Bold = DefaultableBoolean.False;
+	this.ultraToolbarsManager1.Tools["ButtonTool1"].SharedProps.
+	  AppearancesSmall.HotTrackAppearanceOnMenu.ForeColor = Color.AntiqueWhite;
+	this.ultraToolbarsManager1.Tools["ButtonTool1"].SharedProps.
+	  AppearancesSmall.HotTrackAppearanceOnToolbar.ForeColor = Color.FromArgb(100, 200, 175);
+}
+----

@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-minimize-and-maximize-a-window",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{EBDE681D-C8A4-466B-8135-D75FAE2419BC}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ウィンドウを最大化および最小化
+
+ドック可能なウィンドウは、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase~minimized.html[最小化]"] およびpick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase~maximized.html[最大化]"] できます。ウィンドウを最大化すると、ウィンドウが pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablegrouppane.html[DockableGroupPane]"]  領域全体を占めます。ウィンドウを最小化すると、他のコントロールの表示サイズが大きくなり、最小化されたペインが占めていた領域に広がります。
+
+ウィンドウの最小化および最大化はコードの中で実行するか、またはユーザーがランタイムに行うことができます。
+
+以下のコードは、ボタン クリックを使用して、ウィンドウを最小化する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnMinimize_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnMinimize.Click
+	Me.UltraDockManager1.DockAreas(0).Panes(0).Minimized = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnMinimized_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.DockAreas[0].Panes[0].Minimized = true;
+}
+----
+
+以下のコードは、ボタン クリックを使用して、ウィンドウを最大化する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnMaximized_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnMaximized.Click
+	Me.UltraDockManager1.DockAreas(0).Panes(0).Maximized = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnMaximized_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.DockAreas[0].Panes[0].Maximized = true;
+}
+----
+
+ユーザーは、ペインの右上隅にある適切なアイコンをクリックすることによって、ペインを最小化または最大化することも可能です。
+
+ひとつのペインの最小化および最大化を切り替える機能をユーザーが有効/無効にするためには、ペインの pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.panesettings.html[Settings]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.panesettings~allowminimize.html[AllowMinimize]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.panesettings~allowmaximize.html[AllowMaximize]"]  プロパティを使用します。
+
+すべてのウィンドウの最大化または最小化の機能を有効/無効にしたい場合には、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager.html[UltraDockManager]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~showmaximizebutton.html[ShowMaximizeButton]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~showminimizebutton.html[ShowMinimizeButton]"]  を使用することによって、アイコンをオフにします。デフォルトで、ShowMaximizeButton および ShowMinimizeButton は False に設定されます。必要な場合には、これがオンになっていることを確認します。

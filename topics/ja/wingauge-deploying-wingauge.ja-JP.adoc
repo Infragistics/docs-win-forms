@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-deploying-wingauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{7759E9D9-7B2D-4D90-BF3A-A3637378DA0B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGauge の配備
+
+$$.NET$$ アプリケーションを配備する時、実行ファイルに加えて特定のファイルを配布する必要があります。アプリケーションがひとつ以上の Infragistics要素を含む場合、アプリケーションの一部としてひとつ以上の Infragistics アセンブリ ファイルを配布または配備する必要があります。このトピックでは、再配布する必要があるファイルの概要を述べます。
+
+[NOTE]
+====
+*注* このトピックで説明していないファイルは再配布できないと考えてください。ご使用の Infragistics 製品に含まれているがここにリストされていないファイルは、配布用にライセンスされていません。したがってライセンスされた Infragistics 製品がインストールされているマシン以外のマシンにコピー、移動、または共有しないでください。
+====
+
+アプリケーションを配備するためには、以下のファイルを再配布する必要があります。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Win.UltraWinGauge.v{ProductVersion}.dll
+|UltraWinGauge エレメントを含む .NET アセンブリ
+
+|====
+
+上記のアセンブリ ファイルに加えて、Infragistics の WinForms 製品を配備するには次のファイルの再配布も必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|{ApiPlatform}Shared.v{ProductVersion}.dll
+|$$.NET$$ 用の Infragistics Shared サポート アセンブリ
+
+|====

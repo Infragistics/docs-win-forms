@@ -1,0 +1,444 @@
+﻿////
+|metadata|
+{
+    "name": "win-known-issues-in-2012-volume-2",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{85723EC6-6E49-41F8-BDF6-E83F099C1110}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2012 Volume 2 の既知の問題
+
+== コード化された UI テストの拡張機能
+
+=== UltraTrackBar
+
+*問題:*
+
+* グリッド セルのドロップダウンまたはエディター ボタンをクリックすると、正しく再生されません。
+
+*回避策:*
+
+* つまみをドラッグした後に、つまみで MouseUp を実行するか、スクリプトで直接 UltraTrackBar の SetValue を実行します。
+
+=== UltraGrid
+
+*問題:*
+
+* UltraTrackBar では、マウス アップをつまみで実行しない場合、レコードはドラッグの代わりにクリックされます。
+
+*詳細:*
+
+* デフォルトでは、マウスをセル上に移動するまで、セルのボタンを表示しません。この動作を変更するには、UltraGridColumn の CellDisplayStyle プロパティを設定できます。ボタンが表示されない場合、CodedUITests はマウスの移動を毎回記録しないため、再生で CodedUITest が見つかりません。
+
+*回避策:*
+
+* 記録時はボタンをクリックする前にマウスがセルの境界線内になるよう常にセル自身をクリックします。
+
+=== UltraGrid の列ドラッグ
+
+*問題:*
+
+* ドラッグ操作でドラッグ インジケーターとして使用される不透明なウィンドウのため、コード化された UI テスト フレームワークが正しくドロップ位置を決定できません。
+
+*回避策:*
+
+* これを回避するには、スクリプトでドラッグ先の UITestControl をデスクトップの代わりに他のヘッダーに変更する必要があります。
+
+=== コード
+
+生成されたコードは以下のようになります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// Move 'Title' HeaderItem from (56, 11) to 'Desktop' client (38, 14)
+uIDesktopClient.EnsureClickable(new Point(38, 14));
+Mouse.StartDragging(uITitleHeaderItem, new Point(56, 11));Mouse.StopDragging(uIDesktopClient, new Point(38, 14));
+----
+
+次に変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// Move 'Title' HeaderItem from (56, 11) to 'LastName' HeaderItem (14, 16)
+uILastNameHeaderItem.EnsureClickable(new Point(14, 16));
+Mouse.StartDragging(uITitleHeaderItem, new Point(56, 11));Mouse.StopDragging(uILastNameHeaderItem, new Point(14, 16));
+----
+
+=== キャッシュされた DropDown ウィンドウ
+
+*問題:*
+
+* スクリプトが 2 つ以上の DropDown (ValueList) でレコードされる場合、適切な ValueListItem を検索できないために再生を失敗する可能性があります。新しいドロップダウン インスタンスを作成する代わりに、再生プロセスが同じドロップダウン ウィンドウをキャッシュして使用するためです。
+
+*回避策:*
+
+* DropDownWindow の WinWindow (普通に UIValueListDropDownWindow を名前付き) は AlwaysSearch の SearchConfiguration を含むためにスクリプトを変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.SearchConfigurations.Add(SearchConfiguration.AlwaysSearch);
+----
+
+=== 複製のコントロール名
+
+*問題:*
+
+* 同じ ControlName を持つ複数のコントロールが同じフォームにある場合 (同じユーザー コントロールの複数インスタンスを使用する場合など)、UITestControl が再生で正しくないインスタンスを一致する可能性があります。
+
+*回避策:*
+
+* コントロールを上位する WinWindow が正しいインスタンス数を含むためにスクリプトを変更します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.SearchProperties[UITestControl.PropertyNames.Instance] = instance_number;
+----
+
+=== 表示されていない ValueListItems が UltraGrid で表示される (MDI アプリケーション)
+
+*問題:*
+
+* MdiChild フォームのグリッドがドロップダウン ValueList (FilterRow または EdlitroWithCombo を持つ列など) を表示する場合、再生は ValueList で表示されない ValueLIstItems を検索できないし、選択できません。
+
+*回避策:*
+
+* Mouse.Click() の前に ListItem UITestControl で EnsureClickable() を呼び出すためにスクリプトを変更します。
+
+=== 無効なコントロール
+
+*問題:*
+
+* 無効にしたコントロールに assert ステートメントに追加する場合、マウス位置に最も下のプロバイダーの変わりにコントロール ラッパー (WinWindow) の UITestControl が選択されます。MSAA と UIA のトランジジョンおよびインタラクティブな UI オブジェクトを検索するフレームワークのためです。
+
+*回避策:*
+
+* 子プロバイダーがナビゲーション矢印を使用してアサーション ウィンドウにアクセスできます。
+
+=== スクロールバー操作
+
+*問題:*
+
+* CUIT フレームワークは一般的にスクロールバーで実行した操作をレコードしません。ただし、識別メソッドのため、無視するスクロールバーとして Infragistics スクロールバーとして設定されません。したがって、スクロールバーの操作がレコードされます。
+
+*回避策:*
+
+* ユーザーがレコードされたスクロールバー操作を削除できます。TechnologyManager が正しい UIA スクロール パターンを使用します。
+
+== Visual Studio 2005 (Infragistics 2012.1 以前のバージョン)
+
+*問題:*
+
+* WinGrid と WinTree がいくつかのバンドがある階層データソースにバインドされていると、データ関連の操作（行のナビゲート、追加、削除、変更など）が非常に遅くなることがあります。
+
+*回避策:*
+
+* このパフォーマンスが低下する問題は、データ ソースとデータ メンバーを BindingSource オブジェクト内にラップし、その BindingSource オブジェクトを UltraGrid に割り当てることにより解決できます。BindingSource は、Visual Studio 2005（.NET Framework 2.0）から新たに追加された .NET フレームワーク クラスです。
+
+=== コード
+
+次のコード例は、WinGrid でのコーディングを示したものですが、最後の行の WinGrid を WinTree に変更すれば WinTree にも適用できます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+Object dataSource;
+String dataMember;
+BindingSource bindingSource = new BindingSource( dataSource, dataMember );
+this.ultraGrid1.DataSource = bindingSource;
+----
+
+== Visual Studio 2008 (Infragistics 2012.1 以前のバージョン)
+
+=== WinGauge
+
+以下の表は Visual Studio 2008 内での {ProductName} コントロールおよびコンポーネントの既知の問題を示しています。
+
+[options="header", cols="a,a"]
+|====
+| *概要* | *回避方法* 
+
+|Visual Studio 2008 の下での特定のケースで、複数の連続する反復でゲージ デザイナーを繰り返し起動すると予期しない動作の原因となる可能性があることが確認されています。作業は頻繁に保存することを推奨します。
+|なし
+
+|====
+
+== バージョン ユーティリティ
+
+バージョン ユーティリティのアドイン インターフェイスは、Visual Studio 2008、2010、および 2012でのみ使用できます。
+
+== Microsoft Visual Studio のヘルプを同時にインストール
+
+Visual Studio 2010 Help Installer を使用している場合には、1 台のコンピューターに同じ製品のマニュアルの複数バージョンを同時にインストールすることはできません。たとえば、同じコンピュータに {ProductName} 2010.2 の製品マニュアルとともに {ProductName} 2010.1 の製品マニュアルをインストールすることはできません。新しいバージョンの製品ヘルプをインストールするには、古いヘルプをアンインストールしてから新しいヘルプをインストールしなければなりません。
+
+== WinControlContainerEditor
+
+WinControlContainerEditor コンポーネントに割り当てられたレンダリング コントロールは DrawToBitmap メソッドをサポートする必要があります。
+
+== DocumentEngine
+
+=== WinGridDocumentExporter の PDF エクスポート
+
+日本語が含まれるデータを PDF 形式にエクスポートした場合、Windows OS 上の Adobe PDF Reader X 以外で日本語が正しく表示されません。
+
+=== 暗号化のサポートは存在しない
+
+*注:* {label} 弊社の知る限り、Microsoft® サードパーティの企業が XPS ドキュメント生成のための製品を開発することを禁止していません。ただし、XML Paper Specification Patent License に従い、情報として以下の通知を提供する必要があります。
+
+本製品はマイクロソフト社が所有する知的財産を組み込んでいる場合があります。マイクロソフト社が当該の知的財産の使用を許諾する条項および条件は、 link:http://www.microsoft.com/whdc/XPS/XpsLicense.mspx[http://www.microsoft.com/whdc/XPS/XpsLicense.mspx] (英語) を参照してください。
+
+エクスポート制限に関して政府の承認がペンディング状態であるため、暗号関連の機能は 2007 Volume 2 リリースでは無効になっています。今後のリリースでこの機能は有効になる予定です。
+
+以下はこの制限が影響するプロパティの一覧です:
+
+* Infragistics.Documents.Reports.PDF.IPermissions.Add
+* Infragistics.Documents.Reports.PDF.IPermissions.Copy
+* Infragistics.Documents.Reports.PDF.IPermissions.Modify
+* Infragistics.Documents.Reports.PDF.IPermissions.Print
+* Infragistics.Documents.Reports.Report.Preferences.PDF.IPassword.Owner
+* Infragistics.Documents.Reports.Report.Preferences.PDF.IPassword.User
+
+== Excel Engine
+
+*AutomaticExceptForDataTables*  *:*
+
+* link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.workbook~calculationmode.html[Workbook.CalculationMode] が AutomaticExceptForDataTables の時、モードが Automatic であるかのように数式は解決されます。機能面では、ランタイムで 2 つのモードは同じです。ただし、Workbook ファイルに保存されファイルが開かれている時に Excel に表示されるオプションはこれまで同様選択された計算モードを正確に反映します。
+
+*外部参照:*
+
+* 外部の Workbook からの参照が数式で使用されると、数式は #REF! エラーになります。外部参照の値は数式の解決のために現在取得できません。ただし、数式は今後も Workbook に正しく保存するため、ファイルが Excel で開かれる時に数式は自動的に正しく解決されます。
+
+*関数ライブラリ:*
+
+* すべての Excel 関数が Excel アセンブリで解決できるわけではありません。Excel アセンブリによって解決できない関数を持つセルに数式が適用される場合、セルは #NAME? エラーになります。これは link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.errorvalue~wrongfunctionname.html[ErrorValue.WrongFunctionName] シングルトン値によって表されます。ただし、Workbook が Workbook ファイルにエクスポートされ Microsoft Excel でファイルが開かれる場合、数式は再計算され正しい値を表示します。
+
+*UnknownShape 基本タイプ:*
+
+* link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.unknownshape.html[UnknownShape] クラスは、現在 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshape.html[WorksheetShape] の代わりに、 link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetshapewithtext.html[WorksheetShapeWithText] から派生します。WorksheetShapeWithText も WorksheetShape から派生するため、これは重大な変更点ではありません。
+
+== Infragistics AppStylist® for Windows Forms
+
+=== Vista オペレーティング システムでのトライアル版の問題
+
+Infragistics のトライアル版をインストールしてある場合、ユーザー アカウント制御 (UAC) を有効にした状態で Windows® Vista で Infragistics AppStylist for Windows Forms アプリケーションを実行するとライセンス エラーを受け取る場合があります。この問題を回避するには、次のいずれかで実行できます:
+
+* 管理者として（つまり高いセキュリティ権限で）Infragistics AppStylist を実行する
+* Microsoft Visual Studio® を実行して、試用期間を開始するためにフォーム デザイナーに Infragistics コントロールのいずれかのインスタンスを配置する
+
+== WinAnimation
+
+=== Windows Vista における WinAnimation
+
+WinAnimation コントロールは Vista ではサポートされません。代わりに、Windows Vista で作業をする間インボックスの Picture Box コントロールを使用できます。
+
+== WinEditors™
+
+=== Windows メッセージのサポート
+
+一部のネイティブ Windows Messages は特定の WinEditor コントロールではサポートされません。WinEditor コントロールは、TextEditorControlBase、UltraWinEditorMaskedControlBase および UltraFormattedTextEditor という基本カテゴリに分類されます。これらのカテゴリに分類されるコントロールのリストについては、 link:wineditors-editor-controls-classification.html[「エディター コントロールの分類」]を参照してください。
+
+一部のメッセージに対する制限を以下にリストします。
+
+[options="header", cols="a,a"]
+|====
+|フィールド|説明
+
+|WM_CLEAR
+|1. _UltraTimeSpanEditor_ _™_ コントロールはコードでの Text プロパティの設定をサポートしないため、編集モードでない場合はこのメッセージをサポートしません。 
+
+2. WM_CLEAR メッセージには選択が必要です。編集モードでない時に、コントロールの UltraWinEditorMaskedControlBase グループは選択したテキストの設定をサポートしないため、編集以外のモードではこのメッセージをサポートしません。
+
+|EM_REPLACESEL
+|1. TextEditorControlBase コントロールは、編集モードでない時には wParam (fCanUndo) をサポートしません。したがって、このフラグに True を渡しても動作しません。 
+
+2. UltraTimeSpanEditor コントロールはコードでの Text プロパティの設定をサポートしないため、編集モードでない場合はこのメッセージをサポートしません。 
+
+3. コントロールの UltraWinEditorMaskedControlBase グループは、編集モードでない時にこのメッセージをサポートしません。 
+
+4. wParam (fCanUndo) はこれらのコントロールでサポートされません。 
+
+5. UltraFormattedTextEditor コントロールはコードによるテキストの選択をサポートしないため、このメッセージをサポートしません。
+
+|EM_LINEFROMCHAR
+|このメッセージは、カレットの現在の位置に依存します。TextEditorControlBase コントロールは、編集モードでない時に、カレットが 1 行の終わりにあるのか、それとも次行の先頭にあるのかを識別できません。
+
+|EM_LINEINDEX
+|このメッセージは、カレットの現在の位置に依存します。TextEditorControlBase コントロールは、編集モードでない時に、カレットが 1 行の終わりにあるのか、それとも次行の先頭にあるのかを識別できません。
+
+|EM_GETCHARFORMAT
+|CHARFORMAT フィールドと CHARFORMAT2 フィールドの一部は _UltraFormattedTextEditor_ _™_ コントロールでサポートされません。CHARFORMAT および CHARFORMAT2 の結果: 
+
+CFE_PROTECTED 
+
+CFE_ALLCAPS 
+
+CFE_EMBOSS 
+
+CFE_HIDDEN 
+
+CFE_IMPRINT 
+
+CFE_LINK 
+
+CFE_OUTLINE 
+
+CFE_REVISED 
+
+CFE_SHADOW 
+
+CFE_SMALLCAPS 
+
+CFE_SUBSCRIPT 
+
+dwEffects フィールドの CFE_SUPERSCRIPT は UltraFormattedTextEditor でサポートされません。 
+
+CHARFORMAT2 フィールドの Spacing、lcid および wKerning は _UltraFormattedTextEditor_ でサポートされません。
+
+|====
+
+== WinGrid
+
+=== 列ヘッダーを回転する時ソート インジケーターを予約
+
+_WinGrid_   _™_   で列ヘッダーのテキストを垂直に回転する時に、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn_members.html[UltraGridColumn] クラスの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~performautoresize.html[PerformAutoResize] メソッドを使用して、ヘッダーによって使用される合計のスペースを減らすことができます。ただし、列ヘッダーのサイズ編億で並べ替えインジケーターが消える場合があります。この問題に対応するために、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~reservesortindicatorspacewhenautosizing.html[ultraGrid.DisplayLayout.Override.ReserveSortIndicatorSpaceWhenAutoSizing] プロパティを `Default`、WhenColumnIsSortable、または WhenVisible 設定のいずれかに設定します。
+
+=== 子バンド作成の要件
+
+_WinGrid_   _™_   は、少なくとも 1 行含む、ITypedList インターフェイスを実装する、または IBindingList インターフェイスを実装して AllowNew プロパティで True を返さない限り、リストに子バンドを生成できません。
+
+== WinGridWordWriter
+
+=== Band 0 のみのエクスポート
+
+Microsoft® Word® への  _WinGrid_   _™_   データのエクスポートは、WinGrid のルート バンドに制限され、子バンドのデータはエクスポートされません。
+
+=== Word で BackColor として表示されるグラデーションとハッチ
+
+Microsoft Word では、グラデーションの背景の描画をサポートしないため、グラデーションを使用して描画される画面上の WinGrid のオブジェクトは、Word では BackColor のみを使用します。BackColor2 と BackGradientStyle は無視されます。ハッチ ブラシでも同じことが発生します。
+
+=== カードビューまたは水平ビューでのエクスポートの制限
+
+現在のエクスポーターはいずれも、カードビューまたは水平ビューでの WinGrid コントロールのエクスポートをサポートしません。サポートされるのは、デフォルトの Vertical（または OutlookGroupBy) ViewStyles のみです。
+
+=== インポートの禁止
+
+既存の Word 文書を開いて変更できません。ただし、新しい Word 文書を作成して、WinGrid コントロールをこのドキュメントにエクスポートするだけでなく、追加のコンテンツをドキュメントのグリッドの前または後ろに挿入できます。
+
+=== BorderStyle エクスポートの制限
+
+Microsoft Word の境界線スタイルの実装は、画面上の WinGrid の境界線スタイルと異なります。Word の表は、セル、表では境界線スタイルをサポートしますが、行ではサポートしません。Microsoft Word は Infragistics® BorderStyle がサポートするほとんどのスタイルをサポートしません。Header、Cell、および Summary の境界線スタイルは、以下のテーブルの Infragistics UIElementBorderStyle から Microsoft Word BorderStyle へのマッピングで説明したように解決されます。
+
+[options="header", cols="a,a"]
+|====
+| *Infragistics*   *UIElementBorderStyle* | *Microsoft Word*   *BorderStyle* 
+
+|Solid
+|Single
+
+|Dotted
+|Dotted
+
+|Dashed
+|Dashed
+
+|なし
+|なし
+
+|Inset 
+
+InsetSoft
+|Single 
+
+インセットは Infragistics Word ライブラリでサポートされます。しかし、表では CellSpacing を設定することも必要であり、どの境界線スタイルがすべてのヘッダー、セルおよびサマリー用であるかを事前に知ることができないため、WinGridWordWriter ではインセットはサポートされません。
+
+|Etched 
+
+Raised 
+
+RaisedSoft 
+
+Rounded1 
+
+Rounded1Etched 
+
+Rounded3 
+
+Rounded4 
+
+Rounded4Thick 
+
+TwoColor 
+
+WindowsVista
+|Microsoft Word にはこれらに匹敵する設定がないため、これらすべての設定はデフォルトで Single になります。
+
+|====
+
+=== セル形式のエクスポートの制限
+
+WinGrid のほとんどのセルは、プレーン テキストでエクスポートします。ValueList のあるセルでは、画面上に表示されるテキストがエクスポートされ、DataValue はエクスポートされません。WinGrid 列の Format プロパティを使用して数値が書式設定されると、書式設定されたテキストは画面に表示された通りにエクスポートされます。
+
+また、WinGrid の特定のセルは、そのセルによって使用されるエディタによって処理が異なります。これは、PDF のエクスポートに実行されるのと基本的に同じです。
+
+以下の表は、エディターのエクスポート制限を示しています。
+
+[options="header", cols="a,a"]
+|====
+| *エディター* | *エクスポートされた結果* 
+
+|UltraCheckEditor
+|プレーンなフラットのチェック ボックスの画像がセルにエクスポートされます。
+
+|EmbeddableImageRenderer
+|画像がセルにエクスポートされます。
+
+|UltraFormattedTextEditor
+|書式設定されたテキストがエクスポートされます。内部では、UltraFormattedTextWordWriter コンポーネントが使用されます。
+
+|UltraControlContainerEditor
+|エディタによって使用される RenderingControl の画像（ある場合）がエクスポートされます。そうでない場合には、セルが EditorWithText を使用しているかのようにテキストのみがエクスポートされます。 
+
+.注: 
+
+[NOTE] 
+
+==== 
+
+適切な画像サイズを決定する方法はありません。Word 文書のセルのサイズが事前にわからないためです。このため、画面上の WinGrid のセルのサイズがガイドとして使用されます。 
+
+====
+
+|====
+
+== WinToolbarsManager
+
+=== Glass が有効な場合に Vista でツール テキストが半透明で表示される
+
+Glass が有効な場合に link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.textboxtool_members.html[TextBoxTool]、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.comboboxtool_members.html[ComboBoxTool] または link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.fontlistmruitemscollection~fontlisttool.html[FontListTool] が Microsoft® Windows® Vista で Quick Access Toolbar（QAT）またはリボンのキャプション領域に置かれると、テキストとカーソルが半透明で表示されます。この問題は、Vista で Desktop Window Manager (DWM) が Glass として何を描画すべきかをどのように決定するのかの結果です。DWM は Vista でグラスを描画するために黒色を使用するので、拡張されたグラス領域 (QAT またはキャプション エリアなど) 上に配置されたコントロールはこの制限を受けます。
+
+=== リボン スタイルセット
+
+標準的なツールバーとリボン ユーザー インターフェイスの間で UI ロールが競合するという問題を解決するために、各 ISL ファイルにはリボンやその要素で作業をするために特に設計されたスタイル セットがあります。スタイル セット名は RibbonStyleSet で、提供された各 ISL ファイルで見つけることができます。したがって、使用可能なスタイルを問題なくリボンに適用するためには、UltraToolBarsManager オブジェクトの link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~stylesetname.html[StyleSetName] プロパティを RibbonStyleSet に設定することが必要です。
+
+例:
+
+*C# の場合:*
+
+[source,csharp]
+----
+Infragistics.Win.AppStyling.StyleManager.Load("Nautilus.isl"); 
+this.ultraToolbarsManager1.StyleSetName = "RibbonStyleSet";
+----

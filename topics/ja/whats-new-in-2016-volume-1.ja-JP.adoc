@@ -1,0 +1,117 @@
+﻿////
+|metadata|
+{
+    "name": "whats-new-in-2016-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "b254fdb4-ba3c-45c9-99b0-6b23ad8c287f",
+    "buildFlags": [],
+    "createdOn": "2016-03-03T16:42:48.9401529Z"
+}
+|metadata|
+////
+
+= 2016 Volume 1 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Infragistics® Windows Forms 2016 Volume 1 リリースの新しいコントロール、新機能および拡張機能の概要について紹介します。
+
+[[_Ref386478097]]
+[[_Configuring_a_Custom]]
+== 新機能:
+
+== UltraSpreadsheet
+
+
+UltraSpreadsheet™ コントロールでは、Infragistics Excel Engine でサポートされるデータ モデルによって表されるスプレッドシートを表示し、編集できます。以下のスクリーンショットは、スプレッドシート データを表示する UltraSpreadsheet™コントロールを示します。
+
+image::Images/Spreadsheet_13.png[]
+
+*関連トピック:*
+
+* link:spreadsheet-overview.html[概要]
+* link:spreadsheet-adding.html[UltraSpreadsheet コントロールをページに追加]
+
+== UltraGrid
+
+=== 列グループの縮小
+
+UltraGridGroups コレクションでは、ExpansionIndicators がサポートされるため、グループに割り当てられた列の非表示が可能です。重要な情報にすばやく優先順位をつけ、グリッドの読みやすさを向上します。
+
+* link:wingrid-collapsing-column-groups.html[列グループの縮小]
+
+=== AutoEditMode
+
+AutoEditMode プロパティは、表示可能な記号を入力するとアクティブ セルが自動的に編集モードに入り、セルがすでに編集モードに入っているように記号を処理する設定で使用されます。編集モードにないセルを選択してアクティブ化し、直ちに入力してセル コンテンツを編集します。F2 キーの押下など、追加のキーボード操作は必要ありません。
+
+* link:wingrid-enabling-autoeditmode.html[AutoEditMode の有効化]
+
+=== ChildBand 行の縮小/展開
+
+UltraGrid では、すべての子バンドのヘッダーに BandExpansionIndicators がサポートされるため、子バンドの縮小/展開が可能です。大きいデータセットを含む兄弟バンド間のナビゲーションが容易になり、UI の情報量が簡略化されます。
+
+* link:wingrid-collapsible-child-bands.html[縮小可能な子バンド]
+
+== UltraPieChart
+
+
+UltraPieChart™ は、セクションに分割された円形の領域で構成される、円チャートを表示する専用のコントロールです。各セクションには、基本データ値に比例する円弧の長さがあります。
+
+image::Images/Piechart.png[]
+
+==== 関連トピック:
+
+* link:piechart-getting-started-with-piechart.html[PieChart を使用した作業の開始]
+* link:piechart-using-piechart.html[UltraPieChart の構成]
+
+== UltraDoughnutChart
+
+変数または複数の変数の比率を同心リングに表示する UltraDoughnutChart™ コントロールは、UltraPieChart™ に類似しています。以下のスクリーンショットは、データを表示する UltraDoughnutChart コントロールを示します。
+
+image::Images/Doughnut.png[]
+
+==== 関連トピック:
+
+* link:xamdoughnutchart-overview.html[概要]
+* link:xamdoughnutchart-adding.html[UltraDoughnutChart の追加]
+
+== UltraRadialGauge
+
+UltraRadialGauge™ コントロールは、ゲージを表示するデータ ビジュアライゼーション ツールです。スケール、目盛り、ラベル、針、および範囲などの複数の視覚要素を含むことができます。MinimumValue および MaximumValue 値を設定してスケールを作成し、Value プロパティを設定すると、針で値をポイントします。またゲージは、スケールの視覚的な合図を示す範囲もサポートします。詳しくは、 link:radialgauge-configuring-ranges.html[範囲の構成] のトピックをご参照ください。
+
+image::Images/RadialGauge_13.png[]
+
+==== 関連トピック:
+
+* link:radialgauge-getting-started-with-radialgauge.html[UltraRadialGauge の追加]
+* link:radialgauge-using-radialgauge.html[RadialGauge の構成]
+
+== バーコード
+
+産業界では、その業種に特有の機能を提供するバーコードの作成など、バーコード技術の基準を設けています。Barcode™ コントロールは、さまざまな幅広く採用されたバーコード標準に一致するスクリーン バーコード画像の描画ができるコントロールをユーザーに提供することにより、バーコード書式でデータをアプリケーションに簡単に組み込むことができます。コントロールは、ほとんどの手順とバーコードを作成する手間を省くことができ、アプリケーションに簡単にバーコードを埋め込むことができます。Barcode™ コントロールは、以下のバーコード記号をサポートします。
+
+image::Images/winBarcode_Code128Barcode_01.png[]
+
+link:xambarcode-configuring-code128.html[UltraCode128BarCode]
+
+image::Images/winBarcode_Adding_QR_Code_07.png[]
+
+link:xambarcode-configuring-qr-code.html[UltraQRCodeBarcode]
+
+==== 関連トピック:
+
+* link:xambarcode-about-xambarcode.html[バーコードについて]
+* link:xambarcode-getting-started-with-xambarcode.html[バーコードを使用した作業の開始]
+
+== UltraTabControl および UltraTabStripControl
+
+=== 右から左のサポート
+
+UltraTabControl および UltraTabStripControl   の右から左モードは、タブとコントロール上部のタブ位置に適用されます。
+
+*関連トピック:*
+
+* link:right-to-left-support.html#WinTabControl[右から左のサポート]

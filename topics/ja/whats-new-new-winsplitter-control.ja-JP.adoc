@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new-winsplitter-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{743F06B7-DE88-4F6F-B0F5-5198B0D1FB43}",  
+    "buildFlags": [],
+    "createdOn": "2009-11-12T11:38:53Z"
+}
+|metadata|
+////
+
+= 新しい WinSplitter コントロール
+
+WinSplitter™ コントロールを使用してランタイムにドッキングされたコントロールをリサイズできます。 提示するデータの長さが多様なコントロールがあるフォームに最適です。 このコントロールの優れた機能のひとつは、コントロールで使用可能な縮小/復元ボタンを使用して、分離したコントロールを縮小および復元する機能です。 Appearance オブジェクトおよび Appstyling を使用して、その他の任意の {ProductName} コントロール スイートと同じように WinSplitter コントロールをスタイルできます。
+
+image::images/WinSplitter_Whats_New_01.png[]
+
+== 関連トピック
+
+* link:winsplitter-understanding-winsplitter.html[WinSplitter の理解]
+* link:winsplitter-getting-started-with-winsplitter.html[WinSplitter で開始]
+* link:winsplitter-using-winsplitter.html[WinSplitter の使用]

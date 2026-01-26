@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wincalendarlook-using-wincalendarlook",
+    "controlName": ["WinCalendarLook"],
+    "tags": ["Scheduling","Styling"],
+    "guid": "{6FB5C331-27FF-4663-AEEB-AEBD55F1BAD7}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:01:46Z"
+}
+|metadata|
+////
+
+= WinCalendarLook の使用
+
+このセクションには、WinCalendarLook™ コンポーネントの機能を使用する方法を説明する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wincalendarlook-assign-appearances-to-dayofweek-headers.html[DayOfWeek ヘッダへの外観の割り当て]
+* link:wincalendarlook-assign-saved-appearances-to-holidays.html[休日への保存された外観の割り当て]

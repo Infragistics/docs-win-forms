@@ -1,0 +1,139 @@
+﻿////
+|metadata|
+{
+    "name": "winmessageboxmanager-setting-up-the-startposition-and-startlocation-properties",
+    "controlName": [],
+    "tags": [],
+    "guid": "c8a61992-8eae-4db6-a6b2-18a92d5cefd6",
+    "buildFlags": [],
+    "createdOn": "2015-07-01T21:01:03.0812596Z"
+}
+|metadata|
+////
+
+= StartPosition および StartLocation プロパティの設定
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxinfo_members.html[UltraMessageBoxInfo] コントロールで StartPosition および StartLocation プロパティを使用する方法を紹介します。
+
+=== 前提条件
+
+このトピックを理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winmessageboxmanager-working-with-winmessageboxmanager.html[WinMessageBoxManager の使用]
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxinfo_members.html[UltraMessageBoxInfo] の基本的使用法を紹介するチュートリアルを含みます。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref423428887,StartPosition>>
+
+** <<_Ref421266503,概要>>
+** <<_Ref423429317,ダイアログの初期位置を指定>>
+** <<_Ref423429116,例>>
+
+* <<_Ref423429125,StartLocation>>
+
+** <<_Ref423529891,概要>>
+** <<_Ref423529941,ダイアログの初期位置を指定>>
+** <<_Ref423529958,例>>
+
+[[_Configuring_a_Custom]]
+[[_Ref423428887]]
+[[_Ref386478097]]
+== StartPosition
+
+[[_Ref421266503]]
+
+=== 概要
+
+StartPosition プロパティは既定の位置 (DialogStartPosition 列挙対) からダイアログの初期位置を指定します。プロパティが DialogStartPosition.Manual に設定された場合、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxmanager_members.html[UltraMessageBoxManager] の位置は StartLocation プロパティによって決定されます。
+
+StartPosition プロパティは link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxinfo_members.html[UltraMessageBoxInfo] および link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxmanager_members.html[UltraMessageBoxManager] クラスに存在し、WinMessageBoxManager に関連付けられたすべてのメッセージ ボックス、または UltraMessageBox ごとに位置設定を可能にしています。
+
+[[_Ref423429317]]
+
+=== ダイアログの初期位置を指定
+
+StartPosition プロパティは既定の位置からダイアログの初期位置を決定します。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|プロパティ タイプ|説明
+
+|StartPosition
+|DialogStartPosition
+|ディアログの初期位置を指定します。 
+
+列挙体が Manual に設定された場合、フォームの位置は StartLocation プロパティによって決定されます。
+
+|====
+
+[[_Ref423429116]]
+
+=== 例
+
+StartPosition を設定するコード例。
+
+*C# の場合:*
+[source,scharp]
+
+messageBoxInfo.StartPosition = DialogStartPosition.CenterActiveScreen;
+
+
+
+*Visual Basic の場合:*
+[source, vb]
+messageBoxInfo.StartPosition = DialogStartPosition.CenterActiveScreen
+
+
+[[_Ref423429125]]
+== StartLocation
+
+[[_Ref423529891]]
+
+=== 概要
+
+StartPosition プロパティが Manual に設定された場合、StartLocation プロパティはメッセージ ボックスの初期位置を指定します。
+
+[[_Ref423529941]]
+
+=== ダイアログの初期位置を指定
+
+StartLocation はダイアログが表示される特定の位置を決定します。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|プロパティ タイプ|説明
+
+|StartLocation
+|ポイント
+|メッセージ ボックスの初期位置を指定します。 
+
+StartPosition プロパティを Manual に設定する場合に限り考慮されます。
+
+|====
+
+[[_Ref423529958]]
+
+=== 例
+
+StartLocation を設定するコード例。
+
+*C# の場合:*
+[source,csharp]
+messageBoxInfo.StartPosition = DialogStartPosition.Manual;messageBoxInfo.StartLocation = new Point(500, 300);
+
+*Visual Basic の場合:*
+[source,vb]
+messageBoxInfo.StartPosition = DialogStartPosition.ManualmessageBoxInfo.StartLocation = new Point(500, 300)

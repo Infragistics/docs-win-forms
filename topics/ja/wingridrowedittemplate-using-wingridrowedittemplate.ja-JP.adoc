@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridrowedittemplate-using-wingridrowedittemplate",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I","Templating"],
+    "guid": "{2303588F-3A67-436C-B8E4-E61E7203C0EB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridRowEditTemplate の使用
+
+このセクションは、WinGridRowEditTemplate™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:wingridcellproxy-add-a-wingridcellproxy-to-a-wingridrowedittemplate.html[WinGridCellProxy を WinGridRowEditTemplate に追加]
+* link:wingridrowedittemplate-adding-a-wingridrowedittemplate-dialog-box-to-wingrid.html[WinGridRowEditTemplate ダイアログボックスを WinGrid に追加]
+* link:wingridrowedittemplate-adding-buttons-to-wingridrowedittemplates-dialog-box.html[ボタンを WinGridRowEditTemplate のダイアログボックスに追加]
+* link:wingridrowedittemplate-creating-a-wingridrowedittemplate-programmatically.html[WinGridRowEditTemplate をプログラムで作成]

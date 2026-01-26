@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-the-taskpane-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{1B522E1A-9CE2-4088-B9B5-6A6F1C3B7A48}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T15:55:12Z"
+}
+|metadata|
+////
+
+= TaskPane ツールバーの使用
+
+このセクションでは、TaskPane ツールバーに関連する固有のタスクの実行方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-add-tools-to-a-wintaskpane-toolbar.html[WinTaskPane ツールバーへのツールの追加]
+* link:wintoolbarsmanager-create-a-wintaskpane-toolbar.html[WinTaskPane ツールバーの作成]
+* link:wintoolbarsmanager-working-with-the-taskpane-toolbar-and-tool.html[タスクペインのツールバーおよびツールの操作]
+* link:wintoolbarsmanager-working-with-dynamically-created-taskpane-toolbars.html[動的に作成されたタスクペインのツールバーの操作]

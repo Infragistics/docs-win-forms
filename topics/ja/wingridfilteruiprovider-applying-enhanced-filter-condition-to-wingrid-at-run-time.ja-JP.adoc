@@ -1,0 +1,55 @@
+﻿////
+|metadata|
+{
+    "name": "wingridfilteruiprovider-applying-enhanced-filter-condition-to-wingrid-at-run-time",
+    "controlName": [],
+    "tags": ["Filtering","How Do I","Tips and Tricks"],
+    "guid": "{D44FFB4F-5F4E-48BA-8CD2-F1B542D98CC9}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムで拡張フィルター条件を WinGrid に適用
+
+場合によっては、任意の特定の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  でランタイムにフィルター条件を適用しなければならない場合があります。これによって、エンド ユーザーに表示されるフィルター済みの行を制御できます。
+
+以下のコードは WinGrid™ が Northwind Orders テーブルにバインドされていることが前提となっています。以下のコードは、RequiredDate 列値が 1 月の範囲内に入るすべての行をフィルターします。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Me.ultraGrid1.DisplayLayout.Bands[0].ColumnFilters[ “RequiredDate”].FilterConditions.Add
+                (Infragistics.Win.UltraWinGrid.FilterComparisionOperator.Equals, Infragistics.Win.UltraWinGrid.SpecialFilterOperands.January)
+----
+
+*C# の場合：*
+[source,csharp]
+----
+this.ultraGrid1.DisplayLayout.Bands[0].ColumnFilters[“RequiredDate”].FilterConditions.Add
+                (Infragistics.Win.UltraWinGrid.FilterComparisionOperator.Equals, Infragistics.Win.UltraWinGrid.SpecialFilterOperands.January);
+----
+
+=== DateTime ツリーの外観を修正
+
+DateTime オブジェクトのツリーの外観は pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.filteruiprovidertreesettings~datehierarchylevel.html[DateHierarchyLevel]"]  プロパティを使用して修正できます。このプロパティによって、フィルタリングの日付を指定する詳細さを定義することができます (たとえば、年 $$->$$ 月 $$->$$ 日 $$->$$ 時 $$->$$ 分 $$->$$ 秒)。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+'DateTime オブジェクトのツリー レベルを Second にまで下げて表示します。 
+Me.ultraGridFilterUIProvider1.TreeSettings.DateHierarchyLevel = DateHierarchyLevel.Second
+----
+
+*C# の場合：*
+[source,csharp]
+----
+//DateTime オブジェクトのツリー レベルを Second にまで下げて表示します。 
+ this.ultraGridFilterUIProvider1.TreeSettings.DateHierarchyLevel = DateHierarchyLevel.Second;
+----
+
+*関連トピック*
+
+* link:wingridfilteruiprovider-enabling-enhanced-filtering-on-wingrid.html[WinGrid で拡張フィルタリングを有効にする]
+* link:wingridfilteruiprovider-adding-a-custom-filter-to-enhanced-filtering-ui-on-a-wingrid.html[カスタムのフィルターを拡張フィルタリング UI に追加]

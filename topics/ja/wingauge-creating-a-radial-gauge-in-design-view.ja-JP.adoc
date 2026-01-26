@@ -1,0 +1,95 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-radial-gauge-in-design-view",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{51183820-8FE4-43C9-A433-2A94C1FB5A51}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン ビューでラジアル ゲージを作成
+
+このトピックは、ラジアル ゲージを WinGauge に追加する方法を示します。
+
+[start=1]
+. デザイン ビューで、フォーム上の UltraGauge コントロールをクリックします。
+[start=2]
+. [プロパティ] ウィンドウで、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.win.ultrawingauge.ultragauge~gauges.html[Gauges]"]  プロパティをクリックします。 次に省略記号（...）ボタンをクリックして、ゲージ コレクション エディターを開きます。
+[start=3]
+. ゲージ コレクション エディターで、[追加] をクリックして、[ラジアル ゲージの追加] を選択します。
+
+image::Images/Gauge_Adding_a_Radial_Gauge_01.png[]
+
+[start=5]
+. この時点で、ラジアル ゲージが追加されましたが、特定のプロパティが設定されていないため表示されません。 ゲージの構成を開始するには、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=6]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  プロパティをクリックして、新しい BrushElement オブジェクトを作成します。 次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=7]
+. BrushElement プロパティを展開し、Color プロパティをシルバーに設定します。
+[start=8]
+. この時点で、ラジアル ゲージの目盛盤が表示されます。
+
+image::Images/Gauge_Adding_a_Radial_Gauge_02.png[]
+
+[start=10]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティをクリックすることにより、新しいスケールが作成されます。 次にドロップダウン リスト内から、省略記号（...）ボタンをクリックしてスケール コレクション エディターを開きます。
+[start=11]
+. [追加] をクリックして新しいスケールを作成します。
+[start=12]
+. スケールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugescale~axis.html[Axis]"]  プロパティをクリックして、新しい Axis オブジェクトを作成します。 次にドロップダウン リストから、[数値軸] を選択します。
+[start=13]
+. Axis プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~startvalue.html[StartValue]"]  プロパティを 0 に設定します。 次に pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~endvalue.html[EndValue]"]  プロパティを 100 に設定します。
+[start=14]
+. BrushElement プロパティをクリックして、新しい BrushElement オブジェクトを作成します。 次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=15]
+. BrushElement プロパティを展開し、Color プロパティを白に設定します。
+[start=16]
+. StartAngle プロパティを 100 に、EndAngle プロパティを 435 に設定します。これらのプロパティを設定すると、セクションが開始および終了する場所が変わり、開始と終了の間に小さいスペースが入ります。
+[start=17]
+. スケールが目盛盤の外側の境界線に触れることが分かります。 pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugerange~outerextent.html[OuterExtent]"]  プロパティを 85 に設定することによって、これを変更します。
+[start=18]
+. プロジェクトを実行すると、以下のような形になるはずです。
+
+image::Images/Gauge_Adding_a_Radial_Gauge_03.png[]
+
+[start=20]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~majortickmarks.html[MajorTickmarks]"]  プロパティを展開することによって、主目盛をスケールに追加します。 次に、BrushElement プロパティをクリックすることによって新しい BrushElement を作成して、ドロップダウン リストから [単色塗りつぶし] を選択します。
+[start=21]
+. BrushElement プロパティを展開し、Color プロパティを黒に設定します。
+[start=22]
+. 目盛の外側の端を揃えるために、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~endextent.html[EndExtent]"]  プロパティを 85 に設定します。これは前に追加したセクションと同じです。
+[start=23]
+. 値が EndExtent プロパティよりも小さくなるように pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~startextent.html[StartExtent]"]  プロパティを変更することも必要です。 StartExtent プロパティを 75 に設定します。
+[start=24]
+. 目盛が多すぎることが分かります。 pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugescaletickmarkappearance~frequency.html[Frequency]"]  プロパティを 10 に設定して目盛を減らします。これによって、軸に定義された 10 単位ごとに目盛が表示されます。
+[start=25]
+. この時点で、プロジェクトを実行すると、以下のような形になるはずです。
+
+image::Images/Gauge_Adding_a_Radial_Gauge_04.png[]
+
+[start=27]
+. これで必要となるのは、表示すべき現在の値を示すマーカーだけです。 スケールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~markers.html[Markers]"]  プロパティをクリックして、省略記号（…）ボタンをクリックして、マーカー コレクション エディターを開きます。
+
+image::Images/Gauge_Adding_a_Radial_Gauge_05.png[]
+
+[start=29]
+. [追加] をクリックして、[針の追加] を選択します。
+[start=30]
+. これで針が追加されますが、ブラシ要素が作成されていないので表示されません。
+[start=31]
+. BrushElement プロパティをクリックして、新しい BrushElement オブジェクトを作成します。 次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=32]
+. BrushElement プロパティを展開し、Color プロパティを赤に設定します。
+[start=33]
+. 値が指定されたいなかったので、針はまだ表示されません。 Value プロパティを 20 に設定します。
+[start=34]
+. 針の長さを短くするには、MidExtent プロパティを 65 に設定し、EndExtent プロパティを 80 に設定します。
+[start=35]
+. プロジェクトを実行します。 以下の形のように表示されるはずです。
+
+image::Images/Gauge_Adding_a_Radial_Gauge_06.png[]

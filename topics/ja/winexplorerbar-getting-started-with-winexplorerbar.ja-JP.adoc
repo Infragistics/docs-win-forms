@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-getting-started-with-winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Getting Started"],
+    "guid": "{D9B77A50-AE0D-4177-824A-52B4745501BB}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar で開始
+
+以下のリンクをクリックすると、WinExplorerBar コントロールをすばやく起動して実行する方法についての説明が表示されます。
+
+link:winexplorerbar-using-the-winexplorerbar-designer.html[WinExplorerBar デザイナの使用] -- WinExplorerBar デザイナにアクセスして使用する方法を説明しています。

@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-about-wingauge",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{C6E29E08-AA73-4523-B389-50232030ED67}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGauge について
+
+Gauge コントロールは、針とマーカーを使用して、値の範囲内にあるひとつまたは複数の値をグラフィックで示します。このコントロールは、企業および工業アプリケーションで使用されているダッシュボードスタイルのユーザー インターフェイスで一般的に使用されます。Gauge コントロール自体を、ひとつまたは複数の個々のゲージをホストできる面として見なすことができます。最も複雑な一連の表示情報を実現するために任意の方法でゲージを配置できます。
+
+image::images/Gauge_About_02.png[]
+
+ゲージは以下の機能をサポートします。
+
+* Gauges コレクション – ひとつまたは多数のゲージをゲージに追加して、任意のパターンで配置することができます。
+* ゲージ タイプ – LinearGauge、RadialGauge および DigitalGauge タイプの中から選択します。
+* ブラシ エレメント – BrushElement プロパティを活用することによって、さまざまな描画されたグラフィカル エレメントを高度にカスタマイズできます。
+* 目盛 – 一定の範囲内の値を表すために、多様な頻度でグラフィカルな「目盛」を表示します。
+* ラベル – 一定の範囲内にさまざまな頻度で個々の値を表示します。
+* マーカー – 針または棒マーカーを使用することによって現在の値を示します。
+* 注釈 - ボックスまたは楕円形を使用してゲージ内の任意のポイントに注釈を付けます。
+
+== 関連トピック
+
+link:wingauge-gauge-types.html[ゲージ タイプ]
+
+link:wingauge-designer.html[ゲージ デザイナ]
+
+link:wingauge-getting-started-with-wingauge.html[WinGauge で作業を開始]
+
+link:wingauge-using-gauge.html[Gauge を使用]
+
+link:wingauge-deploying-wingauge.html[WinGauge の配備]

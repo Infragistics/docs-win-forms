@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-display-a-currency-mask-without-the-currency-symbol-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D8C10F0B-A52C-480E-9BD0-E2E67CAFF3A6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 通貨記号なしで通貨マスクを表示
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithmask.html[EditorWithMask]"]  基本クラスおよび WinCurrencyEditor コントロールの両方で使用される既存の通貨マスクにフラグを追加しました。 _no_symbol_  フラグによって、実際の通貨記号（すなわち、¥, £, €, $）を使用することなく特定の通貨を指定することができます。たとえば、{currency:n.m:no_symbol} マスクを使用して、ドル記号を表示せずにアメリカの通貨のドルとセント（$5.50 は 5.50 と表示される）を表示することができます。これらのマスクの詳細は、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor~maskinput.html[MaskInput]"]  プロパティを参照してください。

@@ -1,0 +1,129 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-wintoolbarsmanager-and-ribbon",
+    "controlName": [],
+    "tags": [],
+    "guid": "aecbe0d2-3d03-4377-99d0-500fa6733a17",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T23:53:31.7910971Z"
+}
+|metadata|
+////
+
+= タッチ対応の WinToolbarsManager と Ribbon
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _Infragistics_   のタッチ対応  _WinToolbarsManager_™ とリボン要素を紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref366599891, _WinToolbarsManager_   タッチ対応要素および _リボン_  要素>>
+** <<_Ref367199176,タッチ対応要素>>
+** <<_Ref366599907,ジェスチャ サポート>>
+
+* <<_Ref366600017,関連コンテンツ>>
+
+[[_Ref366599891]]
+== _WinToolbarsManager_   タッチ対応要素および _リボン_  要素
+
+[[_Ref366599899]]
+
+=== タッチ対応要素
+
+以下のスクリーンショットに、 link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager_members.html[UltraToolbarsManager] コントロール要素および _リボン_  要素を示します。タッチ要素は、ユーザー操作を簡単にするタッチ対応モードでは若干大きく表示されます。
+
+[options="header", cols="a,a"]
+|====
+|要素|画像
+
+|ツール
+|image::images/Touch_Ribbon_(WinToolbarsManager)_1.png[]
+
+|リボン タブ
+|image::images/Touch_Ribbon_(WinToolbarsManager)_2.png[]
+
+|アプリケーション メニュー ボタン (Office 2010、Office 2013、Scenic Ribbon)
+|image::images/Touch_Ribbon_(WinToolbarsManager)_3.png[]
+
+|GrabHandles ツールバー
+|image::images/Touch_Ribbon_(WinToolbarsManager)_4.png[]
+
+|TaskPane ツールバーと [閉じる] ボタン
+|image::images/Touch_Ribbon_(WinToolbarsManager)_5.png[]
+
+|[RibbonGroup DialogLauncher] ボタン
+|image::images/Touch_Ribbon_(WinToolbarsManager)_6.png[]
+
+|[キャプション] ボタン (グラスは無効)
+|image::images/Touch_Ribbon_(WinToolbarsManager)_7.png[]
+
+|[ドロップダウン] ボタン
+|image::images/Touch_Ribbon_(WinToolbarsManager)_8.png[]
+
+|[QuickCustomize] ボタン
+|image::images/Touch_Ribbon_(WinToolbarsManager)_9.png[]
+
+|ポップアップ メニュー項目
+|image::images/Touch_Ribbon_(WinToolbarsManager)_10.png[]
+
+|GalleryTool 項目
+|image::images/Touch_Ribbon_(WinToolbarsManager)_11.png[]
+
+|[GalleryTool プレビュー] ボタン
+|image::images/Touch_Ribbon_(WinToolbarsManager)_12.png[]
+
+|ポップアップ メニューのサイズ変更ハンドル
+|image::images/Touch_Ribbon_(WinToolbarsManager)_13.png[]
+
+|ポップアップ メニューの分離型ハンドル
+|image::images/Touch_Ribbon_(WinToolbarsManager)_14.png[]
+
+|[リボン ピン] ボタン
+|image::images/Touch_Ribbon_(WinToolbarsManager)_15.png[]
+
+|====
+
+[[_Ref366599907]]
+
+=== ジェスチャ サポート
+
+_WinToolbarsManager_   は、以下のジェスチャをサポートします:
+
+* [リボン] タブ項目の水平パン
+
+* リボン グループ領域の水平パン
+
+* メニュー (ポップアップ メニュー、アプリケーション メニュー) の垂直パン
+
+* ギャラリー プレビュー (リボンとドロップダウンの両方) の垂直パン
+
+* Backstage の水平および垂直パン
+
+[[_Ref366600017]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider.html[タッチ サポート]
+|このセクションには、Infragistics のコントロールとコンポーネントを使用して、タッチ対応アプリケーションを開発するための機能について説明する特定のトピックへのリンクが含まれています。
+
+| link:touch-gestures.html[タッチ ジェスチャ]
+|このグループのトピックは、 _Infragistics_ タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+| link:wintoolbarsmanager.html[WinToolbarsManager]
+|このセクションには、コンポーネントについての概要からアプリケーションで使用する理由、コンポーネントを使用して共通タスクを実行する手順などの _WinToolbarsManager_ についての有益な情報が含まれています。
+
+|====

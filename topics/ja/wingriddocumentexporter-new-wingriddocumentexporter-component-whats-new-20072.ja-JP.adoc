@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-new-wingriddocumentexporter-component-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4E495CBC-0483-4C29-B811-97A8ED22DBEC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinGridDocumentExporter コンポーネント
+
+2007 Volume 2 リリースで特筆すべきなのは、Infragistics Document Engine™ が初めて提供されることです。独自のコード ライブラリによって、直感的なドキュメント オブジェクト モデルを使用して、完全なカスタムメードのレポートを PDF または XML Paper Specification（XPS）フォーマットで作成することができます。この機能を借りて、WinGridDocumentExporter™ コンポーネントは WinGrid™ 全体（または任意の部分）を PDF ファイルまたは XPS ファイルにエクスポートできます。
+
+WinGridDocumentExporter は、グリッドをエクスポートするために必要なのが pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter.html[WinGridDocumentExporter]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~export.html[Export]"]  メソッドを呼び出すことだけである点で、WinGridExcelExporter™ コンポーネントに非常に似ています。もちろん、それだけではありません。コンポーネントに含まれているのは、何がどのようにエクスポートされるのかに対しての絶対的な制御を提供する広範なイベント モデルです。
+
+== 関連トピック
+
+link:wingriddocumentexporter-export-wingrid-to-a-new-pdf-document.html[WinGrid を新しい PDF ドキュメントにエクスポート]
+
+link:wingriddocumentexporter-export-wingrid-to-an-existing-report.html[WinGrid を既存のレポートにエクスポート]
+
+link:wingriddocumentexporter-use-a-file-buffer-when-exporting.html[エクスポートするときにファイル バッファを使用]
+
+link:wingriddocumentexporter-change-the-paper-orientation-and-size.html[用紙の方向とサイズを変更]
+
+link:wingriddocumentexporter-modifying-wingrids-layout-before-exporting-to-a-pdf-document.html[PDF ドキュメントにエクスポートする前に WinGrid のレイアウトを修正]

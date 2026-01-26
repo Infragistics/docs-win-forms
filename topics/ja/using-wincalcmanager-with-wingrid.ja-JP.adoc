@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "using-wincalcmanager-with-wingrid",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Extending","Grids"],
+    "guid": "{6E986641-DE8A-46EB-84E1-93761EC86783}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid での WinCalcManager の使用
+
+このトピックは、次の 3 つの記事で構成されています。
+
+* link:wincalcmanager-creating-a-calculated-column-in-wingrid.html[WinGrid での計算された列の作成]
+* link:wincalcmanager-exporting-formulas-to-excel.html[Excel へ数式をエクスポート]
+* link:wincalcmanager-using-wincalcmanager-to-create-running-totals-in-wingrid.html[WinGrid での WinCalcManager による現在の合計値の作成]
+* link:wincalcmanager-using-wincalcmanager-to-create-a-calculated-summary-in-wingrid.html[WinGrid での WinCalcManager による計算された集計値の作成]

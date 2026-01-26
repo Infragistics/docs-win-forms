@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-api-overview",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["API","Navigation"],
+    "guid": "{BA5084C7-E57F-49F9-A1B3-DE87B6F0E6C7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキークラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinMisc 名前空間:
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc_namespace.html[Infragistics.Win.Misc]
+
+=== キークラス：
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar.html[UltraNavigationBar]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation.html[UltraNavigationBarLocation]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarrootlocation.html[UltraNavigationBarRootLocation]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbaractionbuttonscollection.html[NavigationBarActionButtonsCollection]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbarlocationscollection.html[NavigationBarLocationsCollection]
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbarpreviouslocationscollection.html[NavigationBarPreviousLocationsCollection]

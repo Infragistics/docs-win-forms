@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtextwordwriter-api-overview",
+    "controlName": ["WinFormattedTextWordWriter"],
+    "tags": ["API"],
+    "guid": "c897448e-a422-4478-9087-520588c53eae",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T15:28:33.0353797Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WinFormattedTextWordWriter 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter_namespace.html[Infragistics.Win.UltraWinFormattedText.WordWriter Namespace]"]
+
+=== キー クラス:
+
+link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}~infragistics.win.ultrawinformattedtext.wordwriter.ultraformattedtextwordwriter.html[UltraFormattedTextWordWriter]

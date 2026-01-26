@@ -1,0 +1,171 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-customizing-how-winspellchecker-spell-checks-documents",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Application Scenarios","Validation"],
+    "guid": "{E8989687-BE7F-4B4B-A72E-48F7B9656AF4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker がドキュメントのスペル チェックをする方法をカスタマイズ
+
+WinSpellChecker は、ユニークな SpellOptions オブジェクトからエンド ユーザーのスペルチェック エクスペリエンスをカスタマイズする機能です。このオブジェクトは複数のプロパティを持ち、何をチェックして、何をチェックしないか、そしてどのようなタイプの修正候補を示すかなどをスペルチェックのエンジンに指示します。これらのプロパティのほとんどはシンプルなブールで、大文字のワードまたは複数の大文字があるワードを許可するかなどを理解します。これらのプロパティの一部はスペルチェック エンジンの核心で、スペルミスのワードの修正を提案するためにハッシュまたは音声をエンジンが使用するかどうかを判断します。各プロパティはデフォルト値と共に以下に詳細に説明され、デフォルト値を変更する時に何が起こるかを正確に開発者が理解するための事例です。
+
+[options="header", cols="a,a,a,a"]
+|====
+|プロパティ|デフォルト値|説明|例
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~allowcapitalizedwords.html[AllowCapitalizedWords]"] 
+|False
+|WinSpellChecker は、すべての大文字が含まれるワードのスペルをチェックします。たとえば、Example 列のワードはスペルミスです。
+|AJAX 
+
+ATLAS 
+
+XML
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~allowcaseinsensitivesuggestions.html[AllowCaseInsensitiveSuggestions]"] 
+|True
+|WinSpellChecker はスペルチェック前にワード全体を小文字に変換します。たとえば、Example 列のワードは、同じ修正候補となります。
+|Infragistics 
+
+Infragistics
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~allowmixedcase.html[AllowMixedCase]"] 
+|False
+|WinSpellChecker は、大文字と小文字が混ざったワードがそっくりそのまま辞書になければ、それはスペルミスであると取り扱います。たとえば、Example 列のワードはスペルミスです。
+|HoUsE 
+
+PeoPLe 
+
+DoG
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~allowwordswithdigits.html[AllowWordsWithDigits]"] 
+|False
+|WinSpellChecker は、数値のあるワード（Example 列を参照）をスペルミスのワードと取り扱います。
+|ultraWinGrid1 
+
+e11even 
+
+Allevi8
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~allowxml.html[AllowXml]"] 
+|True
+|WinSpellChecker は、XML および HTML タグのスペルチェックを試みません。たとえば、Example 列のタグは無視されます。
+|<html> 
+
+<tr> 
+
+<span>
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~checkcompoundwords.html[CheckCompoundWords]"] 
+|False
+|WinSpellChecker は、スペースで区切られたワードを無視します。このプロパティは、複合語（たとえば、liederhosen）を形成するために 2 つのワードが結合されるドイツ語などの言語で便利です。たとえば、Example 列のワードは、このプロパティを True に設定するとスペルミスでないと判断されます。 
+
+[NOTE] 
+
+==== 
+
+*注：* このプロパティを Ture に設定すると、パフォーマンスが大幅に低下します。 
+
+====
+|Helloworld 
+
+Twolips 
+
+Tooltips 
+
+CheckCompoundWords
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~checkhyphenatedtext.html[CheckHyphenatedText]"] 
+|True
+|WinSpellChecker は、スペルミスがあるかどうかを判断するためにハイフンを使用したワードの各部分を調べます。このプロパティを False に設定すると、強制的に WinSpellChecker は、区切られた部分ではなく、ハイフンを使用したワード全体を辞書で調べます。たとえば、このプロパティを False に設定すると、区切られたワードが正しいスペルであっても、Example 列のワードはすべてスペルミスとなります。
+|right-click 
+
+spell-checker 
+
+hair-gel
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~considerationrange.html[ConsiderationRange]"] 
+|80
+|WinSpellChecker はスペルミスのワードに対して最大 80 文字で修正候補のワードを検討します。このプロパティを小文字に設定すると、WinSpellChecker が修正候補を検索する速度が増します。この値をラン タイムにマイナスの値に設定すると、80 にデフォルト設定されます。
+|ConsiderationRange が 3 でスペルミスのワードが 'carr' である場合、WinSpellChecker は 'car' を提案します。ConsiderationRange が 4 に設定されている場合、WinSpellChecker は 'care' と 'car' を提案します。
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~includeuserdictionaryinsuggestions.html[IncludeUserDictionaryInSuggestions]"] 
+|True
+|WinSpellChecker は、スペルミスのワードの修正候補を提案する場合にユーザー辞書とデフォルト辞書を使用します。
+|
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~languageparser.html[LanguageParser]"] 
+|0
+|WinSpellChecker は、句読点の使用についてのヒントをスペルチェック エンジンに与えるために 9 つの異なる言語解析を使用できます。このプロパティは、使用されている辞書ファイルの言語と一致する必要があります。
+|0 – 英語 
+
+1 – オランダ語 
+
+2 – フランス語 
+
+3 – ドイツ語 
+
+4 – イタリア語 
+
+5 – ポルトガル語 
+
+6 – スペイン語
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~separatehyphenwords.html[SeparateHyphenWords]"] 
+|False
+|WinSpellChecker はハイフンが含まれるワードを 1 語として扱います。True に設定すると、ハイフンが含まれるワードのスペルミス部分だけがエラーとして扱われます。
+|SeparateHyphenWords = False: 
+
+____ 
+
+右クリック（ワード全体がエラー） 
+
+____ 
+
+SeparateHyphenWords = True: 
+
+____ 
+
+右クリック（'clck' だけがエラー） 
+
+____
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~splitwordthreshold.html[SplitWordThreshold]"] 
+|2
+|WinSpellChecker は、2 文字のワードの修正候補を取得します。SuggestSplitWords は、このプロパティを使用するために Ture に設定する必要があります。
+|SplitWordThreshold = 2 
+
+____ 
+
+Asfault ('As fault' is considered) 
+
+____ 
+
+SplitWordThreshold = 3 
+
+____ 
+
+Asfault ('As fault' is not considered) 
+
+____
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~suggestionmethod.html[SuggestionsMethod]"] 
+|0
+|WinSpellChecker は、スペルミスのワードをハッシュすることで修正候補を見つけます。PhoneticSuggestions に設定すると、WinSpellChecker は音声学的に修正候補を検索します。
+|0 – HashingSuggestions 
+
+1 – PhoneticSuggestions
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.spelloptions~suggestsplitwords.html[SuggestSplitWords]"] 
+|True
+|WinSpellChecker は、結合したワードが 2 つの区切られたワードであると確認できれば、分割したワードが修正候補として表示されます。CheckCompoundWords は、このプロパティが使用されるために、False に設定する必要があります。
+|'helloword' は 'hello world' という修正候補になります。
+
+|====

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-taskpane-tool-about-the-taskpane-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{324B1E59-F90C-483B-99AC-C88D584C6758}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== TaskPane
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]
+
+派生元：Toolbase
+
+説明：TaskPaneTool はタスク ペイン タイプのツールバー（UltraTaskPaneToolbar）でひとつの項目を表します。選択すると、関連するコントロールがタスク ペインのコンテンツ領域に表示されます。
+
+サンプル：
+
+複数の TaskPaneTools を表示する UltraTaskPaneToolbar のナビゲーション メニュー
+
+image::Images/WinToolbarsManager_About_Tools_18.png[]

@@ -1,0 +1,77 @@
+﻿////
+|metadata|
+{
+    "name": "wincomboeditor-using-limittolist-and-itemnotinlist",
+    "controlName": ["WinEditors"],
+    "tags": ["Data Presentation","How Do I"],
+    "guid": "{A74A2F55-D499-44DE-98CC-213505F68AD9}",
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= LimitToList と ItemNotInList を使用
+
+2005 Volume 1 では、WinComboEditor コントロールに pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~limittolist.html[LimitToList]"]  を可能にする機能が追加されました。このプロパティでは、入力されたテキストが pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~items.html[Items]"]  コレクションに含まれない場合、WinComboEditor からフォーカスが移動しないように設定できます。また、入力された値が Items コレクションに含まれないときに発生するイベントが追加されました。
+
+[start=1]
+. 新しい C# または VB.NET Windows アプリケーションを作成します。デザイン ビューのフォームで UltraComboEditor コントロールとボタン コントロールを追加します。
+[start=2]
+. UltraComboEditor のプロパティ グリッドで Items コレクションを探し、それを選択して ValueListItem コレクション エディタを開きます。このエディタで、UltraComboEditor ドロップダウンに表示する新しい項目をいくつか追加します。
+
+image::Images/WinEditors_Use_LimitToList_and_ItemNotInList_01.png[]
+
+[start=3]
+. 項目を追加してエディタを閉じます。次に Form Load イベントをコード ビハインドで作成し、次のコードをこのイベントに記述します。
+
+*Visual Basic の場合：*
+
+----
+ Private Sub UsingLimitToListandItemNotInList_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraComboEditor1.LimitToList = True
+	Me.UltraComboEditor1.SelectedIndex = 0
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void UsingLimitToListandItemNotInList_Load(object sender, System.EventArgs e)
+{
+	this.ultraComboEditor1.LimitToList = true;
+	this.ultraComboEditor1.SelectedIndex = 0;
+}
+----
+
+[start=4]
+. ここで、そのフォームのコード ファイルに移動し、UltraComboEditor の pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~itemnotinlist_ev.html[ItemNotInList]"]  イベントのハンドラを作成します。このイベントは、入力された値が Items コレクションに含まれないときに発生します。このイベントを使用する場合に LimitToList を True に設定する必要はありません。両者は互いに依存しません。ItemNotInList イベントに次のコードを追加します。このコードは、エンド ユーザーにエラーを知らせるメッセージ ボックスを表示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraComboEditor1_ItemNotInList(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinEditors.ValidationErrorEventArgs) _
+  Handles UltraComboEditor1.ItemNotInList
+	MessageBox.Show(Me.UltraComboEditor1.Text.ToString() + " is not a valid item.")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraComboEditor1_ItemNotInList(object sender, 
+  Infragistics.Win.UltraWinEditors.ValidationErrorEventArgs e)
+{
+	MessageBox.Show(this.ultraComboEditor1.Text.ToString() + " is not a valid item.");
+}	
+----
+
+[start=5]
+. フォームを作成して実行し、UltraComboEditor に例えば "Soundtrack" と入力してコントロールからタブで移動しようとすると、作成した MessageBox が表示されます。
+
+image::Images/WinEditors_Use_LimitToList_and_ItemNotInList_02.png[]
+
+[start=6]
+. LimitToList プロパティを True に設定すると、有効な項目を入力しない限り、コントロールからフォーカスを移動することはできず、フォームの隅の X ボタンをクリックしてフォームを閉じることもできません。LimitToList を False に設定した場合は、無効な項目を入力するとメッセージ ボックスが表示されますが、UltraComboEditor からフォーカスを移動することは可能です。

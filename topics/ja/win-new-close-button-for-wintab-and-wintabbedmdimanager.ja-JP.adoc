@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-new-close-button-for-wintab-and-wintabbedmdimanager",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D16245A1-432B-45C9-A611-DC48737D8090}",  
+    "buildFlags": [],
+    "createdOn": "2008-08-01T16:11:45Z"
+}
+|metadata|
+////
+
+= WinTab および WinTabbedMdiManager の新しい [閉じる] ボタン
+
+Mozilla® Firefox® および Microsoft® Internet Explorer® の両方によって、ユーザーはタブ付きのインタフェースを使用してインターネットを閲覧することができ、同時に複数の Web サイトを開くことができます。これらの Web ブラウザは両方とも、各タブの右側にある [閉じる] ボタンをクリックして個々の Web サイトを閉じることができます。確かに、どちらのブラウザも独自の方法で [閉じる] ボタンを実装していますが、WinTab および WinTabbedMdiManager に [閉じる] ボタンが今回追加されたことで、ユーザー固有のアプリケーションに相応しいタブを閉じる機能を実装できます。
+
+WinTab および WinTabbedMdiManager の新しい [閉じる] ボタンは、ユーザーが考えるよりもカスタマイズが簡単です。[閉じる] ボタンの外観を変更するための Appearance オブジェクトなどの標準の link:win-plf-overview.html[Presentation Layer Framework™] 機能と共に、タブを微調整する手助けとなる複数の表示および配置機能を取得します。[閉じる] ボタンを含めないことを選択したり、選択したタブ、選択したタブとホットトラックしたタブの両方、すべてのタブ、またはスクロール ボタンの隣りのヘッダ領域に表示できます。[閉じる] ボタンを配置する場所を決定したら、タブ上の場合は、近くまたは遠くにボタンを配置でき、タブが表示される場所に基づき、左側または右側に表示されます。
+
+image::images/Win_New_Close_Button_for_WinTab_and_WinTabbedMdiManager_01.png[]
+
+== 関連トピック
+
+link:wintab-display-a-close-button-on-a-tab.html[タブに [閉じる] ボタンを表示]

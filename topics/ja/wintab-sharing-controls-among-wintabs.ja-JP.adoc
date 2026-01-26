@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-sharing-controls-among-wintabs",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{9FD53C68-643A-4E09-A68B-9828B648E4D9}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTabs 間でのコントロールの共有
+
+[NOTE]
+====
+*注* すべての子コントロールがタブ間で共有されるので、このセクションの内容は WinTabStrip には適用されません。
+====
+
+WinTabStrip とは対照的に、WinTab ではタブごとにタブ ページ コントロールが作成され、個々のタブに異なるコントロールを配置できます。しかし、場合によっては 1 つまたは複数のコントロールを一部または全部のタブに表示したほうが望ましいこともあります。UltraTabControl では「共有コントロール ページ」を通じてこのことを容易に実現できます。共有コントロール ページは、タブ間で共有する必要のあるコントロールを格納するために自動的に作成される、特殊なページです。
+
+UltraTabControl をデザインタイムに初めてフォームに追加すると、共有コントロール　ページが自動的に作成され、コントロールのクライアント領域全体を占めるように表示されます。デザインタイムには、共有コントロール ページに [共有コントロール ページ] という文字列が表示されます。このページに配置されたコントロールはすべて、自動的に pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.sharedcontrolscollection.html[SharedControls]"]  コレクションに追加されます。タブが選択されると、これらのコントロールの親がそのタブのタブ ページに自動的に変更されます。
+
+タブを追加した後は、[共通コントロールを表示] を選択することで共有コントロール ページを再表示できます。また、次のダイアログを表示する [共通コントロールの除外...] もあります。
+
+image::Images/WinTabs_Sharing_Controls_Among_WinTabs_01.png[]
+
+このダイアログでは、特定のタブを親として設定しない共有コントロールを指定できます。これにより、UltraTab オブジェクトで公開されている ExcludedSharedControls コレクションを容易に操作できます。

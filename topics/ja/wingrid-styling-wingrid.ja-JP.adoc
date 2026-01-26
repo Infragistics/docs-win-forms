@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-styling-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Styling"],
+    "guid": "{0971884F-B5F9-4315-B34E-CF7D4AF3F1D4}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:36:49Z"
+}
+|metadata|
+////
+
+= WinGrid のスタイル設定
+
+以下のリンクをクリックして、™ コントロールをスタイルできるさまざまな方法について知ることができます。
+
+* link:wingrid-alpha-blending.html[アルファ ブレンディング]
+* link:wingrid-applying-a-gradient-background-to-a-row.html[行の背景にグラデーションを適用]
+* link:wingrid-applying-presets-at-run-time.html[ランタイムにプリセットを適用]
+* link:wincomboeditor-autosuggest-highlight-appearance.html[AutoSuggest 拡張表示の外観]
+* link:wingrid-changing-the-style-of-column-headers-row-selectors.html[列ヘッダーおよび行セレクターのスタイルを変更]
+* link:wingrid-changing-the-appearance-of-wingrid-bands.html[WinGrid バンドの外観変更]
+* link:wingrid-changing-the-appearance-of-wingrid-headings.html[WinGrid ヘッディングの外観変更]
+* link:wingrid-changing-the-appearance-of-wingrid-rows.html[WinGrid 行の外観を変更]
+* link:wingrid-changing-the-appearance-of-wingrid-columns.html[WinGrid 列の外観変更]
+* link:wingrid-changing-the-appearance-of-wingrid-cells.html[WinGrid セルの外観変更]
+* link:wingrid-changing-default-style-of-lines-connecting-rows-or-child-bands.html[行または子バンドを接続する線のデフォルト スタイルを変更]
+* link:wingrid-create-apply-appearances.html[外観の作成と適用]
+* link:wingrid-customizing-the-focus-rectangle-on-an-active-element-using-drawfilter.html[DrawFilter を使用してアクティブ要素でフォーカスを示す四角形をカスタマイズ]
+* link:wingrid-displaying-vertical-borders-in-columns.html[列で垂直境界線を表示]
+* link:wingrid-enabling-selection-overlay-for-selected-cells.html[選択セルの選択オーバーレイを有効にする]
+* link:wingrid-highlighting-an-active-row-with-background-color.html[選択行を背景色で強調表示]
+* link:wingrid-removing-grid-lines.html[グリッド線の削除]
+* link:wingrid-setting-active-cell-border-thickness.html[アクティブ セルの境界線の太さを設定]
+* link:wingrid-setting-alternate-row-colors.html[隔行の色の設定]
+* link:wingrid-setting-cell-active-and-selected-appearance.html[セルのアクティブおよび選択された外観を設定]
+* link:wingrid-setting-the-style-of-buttons.html[ボタンのスタイルを設定]
+* link:wingrid-showing-empty-rows.html[空行の表示]
+* link:wingrid-styling-active-cell-row-selector-and-column-header-appearances.html[アクティブ セルの行セレクターと列ヘッダーの外観をスタイリング]
+* link:wingrid-styling-rows-and-row-connectors-in-outlook-group-by-mode.html[Outlook Group By モードで行および行コネクターをスタイリング]
+* link:wingrid-styling-row-selector-images-for-different-states-of-a-row.html[行のさまざまな状態の行セレクター画像をスタイリング]

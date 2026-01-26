@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-whats-new-2005-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{EDD2A805-2847-4FB3-AAB0-C7FCC23E718D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree 2005.2
+
+== マルチカラムのサポート
+
+UltraTree は複数列のデータの表示をサポートします。ViewStyle は列の表示の仕方を決定し、次の 3 つの列スタイルから構成されています。詳細については、 link:wintree-styles-of-wintree.html[「WinTree のスタイル」]を参照してください。
+
+=== Outlook Express スタイル
+
+OutlookExpress に設定されると、RootColumnSet プロパティによって決まるコントロールの上部に 1 組の列ヘッダが表示されます。すべてのノードでその列内にあるセル値が表示されます。このスタイルがよく使用されるのは、ツリー全体で同種データを表示するが、ノードに異なる列セットを割り当てること、ルート列セット内のどの列に列を表示するのかを示すことが可能な場合です。
+
+image::images/Whats_New_UltraWinTree_2005_2_01.png[]
+
+=== Grid スタイル
+
+*Grid* に設定すると、列ヘッダは各ノード コレクションの上部に表示されます。この表示スタイルがよく使われるのは、ノード コレクションが同種のデータ群を含んでいるが、ツリー全体で同種でないときです。
+
+image::images/Whats_New_UltraWinTree_2005_2_02.png[]
+
+=== FreeForm スタイル
+
+FreeForm に設定すると、各ノードは独自の列ヘッダ群を持つことになります。このスタイルがよく使用されるのは、ノード コレクション内のノードが別の構造を持っている場合です。
+
+image::images/Whats_New_UltraWinTree_2005_2_03.png[]
+
+[NOTE]
+====
+*注：* 既存のバージョンで利用できる機能を提供し、列が表示されない設定値、Standard もあります。
+====
+
+== 複数列サポートの制限
+
+[start=1]
+. 今回追加された初期機能はデータの読み取りのみをサポートします。ツリーは基本的にナビゲーション ツールなので、データはデータ ソースに書き戻されません。
+[start=2]
+. WinTree がノードをバインドしたときの切り取り/コピー/貼り付けはサポートされません。
+[start=3]
+. バインドされたノード コレクションへのノードの追加/削除
+
+** バインドされたノード コレクションへのノードの追加は許可されません。
+** バインド ノードへアンバインド子ノードを追加できます。
+
+[start=4]
+. ［F2］ キーを使ってノードを編集モードにドロップするのは、バインド ツリーでは許可されません。
+
+== DataBinding のサポート
+
+UltraTree はツリーまたは特定のノード コレクションのバインドをサポートします。コントロールの DataSource プロパティと DataMember プロパティでルート ノード コレクションをバインドできます。さらに、アンバインド ノードの Nodes コレクションの SetDataBinding メソッドでこのコレクションをあるデータ ソースにバインドし、それによってバインド データ ノードをアンバインド ノードの下に表示します。
+
+image::images/Whats_New_UltraWinTree_2005_2_04.png[]
+
+== 関連トピック
+
+link:wintree-columnset-layout-designer.html[列セット レイアウト デザイナ]
+
+link:wintree-move-columns-in-wintree.html[WinTree 内で列を移動]
+
+link:wintree-sort-columns-in-wintree.html[WinTree 内で列をソート]
+
+link:wintree-binding-wintree-to-a-dataset-or-data-table.html[WinTree をデータセットまたはデータテーブルにバインド]
+
+link:wintree-binding-wintree-to-windatasource.html[WinTree を WinDataSource にバインド]

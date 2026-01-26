@@ -1,0 +1,138 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-printing-support-in-winschedule",
+    "controlName": ["WinSchedule"],
+    "tags": ["Printing","Styling"],
+    "guid": "{FC2CB617-E9DB-4AED-848F-90FB05894712}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule での印刷サポート
+
+WinSchedule の印刷サポートは、.NET Framework の PrintDocument クラスから派生した単独のコンポーネントとして実装されています。そのため、このクラスを既存の.NET印刷クラス（ link:ms-help://ms.netframeworksdk/cpref/html/frlrfsystemwindowsformsprintdialogclasstopic.htm[PrintDialog]、 link:ms-help://ms.netframeworksdk/cpref/html/frlrfsystemwindowsformspagesetupdialogclasstopic.htm[PageSetupDialog]、 link:ms-help://ms.netframeworksdk/cpref/html/frlrfsystemwindowsformsprintpreviewcontrolclasstopic.htm[PrintPreviewControl]、 link:ms-help://ms.netframeworksdk/cpref/html/frlrfsystemwindowsformsprintpreviewdialogclasstopic.htm[PrintPreviewDialog] など）や、PrinterDocument クラスを扱うカスタムプリンタオブジェクトと共に使用できます。これはまた、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo.html[UltraCalendarInfo]"]  オブジェクトで管理されている情報を別コンポーネントによって異なるビューで表示するという UltraWinSchedule のインフラストラクチャにも対応しています。
+
+== 印刷スタイル
+
+ここでは、スケジュール データを印刷するために pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument.html[UltraSchedulePrintDocument]"]  クラスで使用できる印刷スタイルの概要を示します。WinSchedule では、Microsoft Outlook のモデルがエミュレートされています。Outlook には 6 種類のカレンダー印刷スタイルがありますが、WinSchedule では 7 番目のスタイルとして年間印刷スタイルが追加されています。
+
+* *Daily Style（１日スタイル）* - これは基本的には、特定の日の特定の時間範囲内にある予定、メモ、および仕事を出力したものです。このスタイルは 1 ページまたは 2 ページに印刷できます。予定は常に 1 ページ目に印刷されます。2 ページ目は、メモ、罫線入りメモ、および仕事リストの印刷に使用されます。メモとは、印刷した後にメモを記入できる無地の領域のことです。
+
+image::Images/WinSchedule_Printing_and_Print_Styles_01.gif[]
+
+image::Images/WinSchedule_Printing_and_Print_Styles_02.gif[]
+
+* *Weekly Style（週間スタイル）* - このスタイルは 1 週間の情報を出力するときに使用します。日付の並びを「左から右へ」に設定すると、フォーム上の DayView に 1 週間分の日が表示されたようになり、「上から下へ」に設定すると、WeekView 要素に日が表示されたようなレイアウトになります。日付の並びを「上から下へ」に設定した場合は、週末を印刷しないオプションと、印刷する時間範囲を選択するオプションを使用できます。これらのオプションは、「左から右へ」を選択した場合は使用できません。また、並び順にかかわらず、レイアウトを 1 ページまたは 2 ページから選択し、メモと仕事リストを印刷するかどうかを指定できます。
+
+image::Images/WinSchedule_Printing_and_Print_Styles_03.gif[]
+
+image::Images/WinSchedule_Printing_and_Print_Styles_04.gif[]
+
+* *Monthly Style（月間スタイル）* - このスタイルは１か月の情報を出力するときに使用します。レイアウトは 1 ページまたは 2 ページから選択でき、メモと仕事リストを含めることができます。また、週末を印刷しないオプションと、1 ページに 1 か月分を印刷するオプションもあります。後者を True に設定すると、最初の表示日が月表示に含まれる月のみが出力され、先頭日と後続日を含む週のスロットは（日番号も含めて）空白になります。それでもヘッダは 2 か月になる場合がある点に注意してください。1 ページに 1 か月分を印刷するオプションを False に設定すると、現在表示されている週から 5 週間が出力されます。
+
+image::Images/WinSchedule_Printing_and_Print_Styles_05.gif[]
+
+image::Images/WinSchedule_Printing_and_Print_Styles_06.gif[]
+
+* *Yearly Style（年間スタイル）* - このスタイルは 1 年の情報を出力するときに使用します。
+* *TriFold Style（3 つ折りスタイル）* - これは基本的には、1 ページを 3 つに分割したものです。各セクションには、1 日カレンダー、週間カレンダー、月間カレンダー、無地のメモ、罫線入りメモ、または仕事リストを印刷できます。3 つのセクションのうち少なくとも 1 つは日付関連にする必要があります。そうしなければ、エラー メッセージが表示されます。印刷されるページ数は最小の日付関連項目によって決まります。たとえば、1 日カレンダーと月間カレンダーを含めた場合は、1 日につき 1 ページが印刷され、月間カレンダーはページごとに繰り返されます。
+
+image::Images/WinSchedule_Printing_and_Print_Styles_07.gif[]
+
+* *Calendar Details Style（カレンダー詳細スタイル）* - このスタイルでは、日付範囲内の、アクティビティを含む日の日付と曜日がヘッダ セクションに出力されます。日付ヘッダの下には、アクティビティ、アクティビティの開始時刻と終了時刻、件名、場所、および説明のリストが続きます。日、週、月のいずれで改ページするかを指定するオプションがあります。
+
+image::Images/WinSchedule_Printing_and_Print_Styles_08.gif[]
+
+* *Memo Style（メモ スタイル）* - これは特別なスタイルで、少なくとも 1 つの予定（アクティビティ）を選択する必要があります。基本的に、各項目にはユーザー名（つまりオーナー）があり、その下に下線で区切ってアクティビティの詳細が続きます。アクティビティの詳細には、件名、場所、開始日時、終了日時、その他の情報（繰り返し予定、繰り返しパターン、必要な出席者、説明、会議の状況など）が含まれます。
+
+image::Images/WinSchedule_Printing_and_Print_Styles_09.gif[]
+
+すべての場合において、提示されるページ設定ダイアログには以下の 3 つのタブが含まれています。
+
+* *Format* - このタブでは、レイアウト（ページ数や日付の並びなど）、同時に印刷する項目（仕事リスト、メモなど）、時間範囲（該当する場合）、日付の見出しと予定のフォント、および網掛け印刷をするかどうかを選択します。このページは印刷スタイルごとに異なります。
+* *Paper* - このタブは、ページ設定ダイアログのページ（余白、向き、用紙サイズなど）とよく似ています。
+* *Header/Footer* - このタブはヘッダとフッタについて左、中央、右のセクションに分かれており、現在の日付、時刻、ページ番号、およびユーザー名を表す特別なタグを含めることができます。また、偶数ページでセクションの位置を逆転するオプションもあります。
+
+ページ設定ダイアログは要素の一部では _ありません_ （これらは UltraWinSchedule アセンブリにビルドされません）。UltraWinSchedule には、要素を使用してこれらのダイアログを作成する方法を示す Printing サンプル プロジェクトが付属しています。このサンプルに含まれるカスタムのページ設定ダイアログ ボックスを各自のアプリケーションで使用できます。ダイアログ ボックスを含む印刷サンプルは、Infragistics SDK インストールの一部として使用できます。デフォルトで、印刷サンプルは、オペレーティング システムによって、以下のインストール フォルダに配置されています。
+
+* XP
+
+** VB.NET -- {InstallPathXP}{ProductNameVersion}\Samples\WinForms\WinSchedule\VB\Printing
+** C# -- {InstallPathXP}{ProductNameVersion}\Samples\WinForms\WinSchedule\CS\Printing
+
+* Vista
+
+** VB.NET -- {InstallPathVista}{ProductNameVersion}\Samples\WinForms\WinSchedule\VB\Printing
+** C# -- {InstallPathVista}{ProductNameVersion}\Samples\WinForms\WinSchedule\CS\Printing
+
+== ヘッダおよびフッタテキストの置換可能なタグ
+
+次の置換可能なエスケープ タグを使用して、印刷するページのヘッダまたはフッタに可変の情報を挿入できます。これらの値は、ヘッダまたはフッタ ページ セクションのテキスト プロパティ( link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textleft.html[TextLeft] link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textleft.html[TextLeft]、 link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textcenter.html[TextCenter] link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textcenter.html[TextCenter] および link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textright.html[TextRight] link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.headerfooterpagesection~textright.html[TextRight] など）に対して指定できます。
+
+[options="header", cols="a,a"]
+|====
+|置換可能なエスケープ タグ|目的
+
+|[Page #]
+|現在のページ番号を挿入します。
+
+|[Date Printed]
+|印刷操作が開始された日付を挿入します。
+
+|[User Name]
+|*System.Environment.UserName* から取得したユーザー名を挿入します。
+
+|[Time Printed]
+|印刷操作が開始された時刻を挿入します。
+
+|====
+
+== 印刷プロセス
+
+WinSchedule の印刷はカスタムの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument.html[PrintDocument]"]  クラスを作成することによって実行されます。このクラスは基本印刷ドキュメント クラスの pick:[win-forms="link:ms-help://infragistics.win/win/infragistics.win{ApiVersion}~infragistics.win.printing.ultraprintdocument.html[UltraPrintDocument]"]  から派生します。これは Infragistics.Win アセンブリに含まれていて、ヘッダやフッタ、およびその他の一般的な印刷機能のサポートをカプセル化しています。
+
+UltraPrintDocument クラスは Infragistics.Win アセンブリに含まれていて、ヘッダやフッタ、およびその他の一般的な印刷機能のサポートをカプセル化しています。ヘッダ/フッタ セクションでは、ページ番号、日付、時刻、およびユーザー名に置換可能なトークンを使用できます。UltraPrintDocument クラスは OnPrintPage メソッドをオーバーライドし、ヘッダ/フッタおよびその他のページの外観をレンダリングしてから、.NET Framework の基本実装を呼び出します。.NET Frameworkでは、残りの領域にのみレンダリングしていることをイベントのリスナーに知らせるために、pick:[win-forms="link:ms-help://ms.netframeworksdkv1.1/cpref/html/frlrfsystemdrawingprintingprintpageeventargsclasstopic.htm[PrintPageEventArgs]"]  で余白の内側の部分が縮小される場合があります。
+
+UltraPrintDocument 基本クラスのイベント シーケースは次のとおりです。
+
+[options="header", cols="a,a"]
+|====
+|イベント|発生
+
+|PagePrinting
+|ページが印刷される前に発生します。
+
+|PageHeaderPrinting
+|ページのヘッダが印刷される前に発生します。
+
+|PageHeaderPrinted
+|ページのヘッダが印刷された後に発生します。
+
+|PageFooterPrinting
+|ページのフッタが印刷される前に発生します。
+
+|PageFooterPrinted
+|ページのフッタが印刷された後に発生します。
+
+|PageBodyPrinting
+|ページ本体の内容が印刷される前に発生します。
+
+|PageBodyPrinted
+|ページ本体が印刷された後に発生します。
+
+|PagePrinted
+|ページが印刷された後に発生します。
+
+|====
+
+UltraWinScheduleのPrintDocumentクラスには、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~calendarinfo.html[CalendarInfo]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~calendarlook.html[CalendarLook]"]  プロパティが追加されています。両者がどちらも明示的に設定されていない場合、対応するプロパティが要求されたときに外観オブジェクトが作成されます。UltraSchedulePrintDocument クラスは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~drawfilter.html[DrawFilter]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~creationfilter.html[CreationFilter]"]  プロパティも公開しており、これらを使用することで要素のオーナー描画を実装できます。
+
+印刷操作の間、印刷ドキュメントはカレンダー関連の印刷操作に使用するスケジュール コントロールのインスタンスを作成します。要素は、それぞれの「テンプレート」コントロールに基づいて初期化されます。たとえば、印刷操作のために作成された DayView 要素は、TemplateDayView を使用して初期化されます。これらのコントロールでは、印刷にとって意味のないプロパティ（スクロール バー、現在時刻マーカー、スクロール ボタンなど）は無効になります。
+
+新しいインスタンスが作成されるたびに Initialize イベント（InitializeDayView など）が発生して要素を初期化することができます。これは、表示に影響するために要素でプロパティを変更するための機会を提供します。プロパティの中には、印刷操作が要求されている場合でもオーバーライドされるものがあるので注意してください（たとえば MonthViewSingle の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsingle~visibleweeks.html[VisibleWeeks]"]  プロパティは、その月を印刷する際にレンダリングする必要がある週の数に設定されます）。
+
+生成される出力のスタイルは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~printstyle.html[PrintStyle]"]  プロパティに基づきます。Outlookでサポートされている 6 種類のスタイルのほかに、7 番目のスタイルとして年間スタイルもサポートされています。Memo 印刷スタイルの内容は、関連する CalendarInfo クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~selectedappointments.html[SelectedAppointments]"]  コレクションに基づきます。その他のスタイルはすべて、関連する CalendarInfoの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~selecteddateranges.html[SelectedDateRanges]"]  か、選択した pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.daterange.html[DateRange]"]  に基づく印刷ドキュメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~startdate.html[StartDate]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultrascheduleprintdocument~enddate.html[EndDate]"]  プロパティのどちらかに基づきます。このプロパティは、デフォルトでは SelectedDateRanges を使用するようになっていますが、DateRange を指定することもできます。SelectedDateRanges を選択した場合で、選択された日付がないときは、ActiveDay が使用されます。

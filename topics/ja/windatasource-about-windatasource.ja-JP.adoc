@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-about-windatasource",
+    "controlName": ["WinDataSource"],
+    "tags": ["Getting Started"],
+    "guid": "{FFF48120-7135-4A7F-A3C2-66EF6C43187D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource について
+
+WinGrid コントロールをアンバウンド モードで使用する場合の問題点のひとつに、IList、ITypedList、または IBindingList インタフェースを実装しなければならない点があります。これは経験の浅い開発者にとっては難しい作業で、経験豊富な開発者でも容易ではありません。新しい WinDataSource コンポーネントを利用すると、アンバウンド モードの UltraWinGrid でも簡単に使用できます。このコンポーネントは、通常はデータバウンド モードで動作するコントロールをアンバウンド モードで実装する場合にも役立ちます。
+
+WinDataSource コンポーネントは、アンバウンド機能を従来のデータ バインディングと共存可能な方法で実装します。WinDataSource は、データをコンポーネントで管理するか、または開発者側で提供するかを必要に応じて使い分けできるという意味で、動的なデータ ソースと言えます。
+
+以下は、WinDataSource コンポーネントを使用する一般的なシナリオです。フォームのコンポーネント トレイに UltraDataSource コンポーネントを追加します（これはコンポーネントであいコントロールではありません。したがって、フォーム上ではなくコンポーネント トレイに表示されます）。
+
+image::images/WinDataSource_Introduction_01.png[]
+
+コンポーネントがインスタンス化されると、すべてのデータ認識コントロール（UltraWinGrid など）の DataSource プロパティに関連付けられたドロップダウン リストに UltraDataSource のインスタンスが表示されます。UltraWinGrid を UltraDataSource にバインドするために必要な操作は、他のデータソースの場合と同じように、UltraWinGrid の DataSource プロパティに移動してドロップダウン リストから UltraWinDataSource を選択することだけです。
+
+UltraDataSource のデータ構造を定義するために、"Define Data Structure" アクションが用意されています。右クリック メニューか、プロパティ グリッドのアクション リストからこのアクションを起動すると、データ構造を定義するためのダイアログが表示されます。"Input Data" アクションも用意されており、これを使用するとデザインタイムにダイアログを通じてデータを入力できます。データ入力用のダイアログは、データ構造を定義するダイアログとは異なります。デザインタイムに入力したデータは UltraWinDataSource によってシリアル化されるため、開発者が UltraWinDataSource に簡単にデータを入力するための非常に簡単な方法を提供します。
+
+UltraWinGrid は pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  オブジェクトで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~loadstyle.html[LoadStyle]"]  プロパティを公開しています。開発者がオプションでこのプロパティを LoadOnDemand に設定すると、UltraWinGrid に行が遅延ロードされます（つまり、必要になって初めて行がロードされます）。これにより、UltraWinDataSource コンポーネントの行数が多い場合にロード時間が短縮され、パフォーマンスを向上できます。
+
+UltraWinDataSource は pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.celldatarequestedeventargs.html[CellDataRequested]"]  イベントを公開しています。このイベントは、UltraWinDataSource からのデータの要求に対してデータが提供されなかったときに発生します。このイベントを使用すると、イベント ハンドラからデータを提供できます。また、イベント引数の pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.celldatarequestedeventargs~cachedata.html[CacheData]"]  プロパティを True に設定することで、提供したデータをキャッシュするよう指定することもできます。UltraWinDataSource は、キャッシュされたデータを持つセルでは、CellDataRequested イベントを発生しません。CacheData がデフォルト値である False のままであるなら、UltraWinDataSource はデータをキャッシュしません。そして、セルがデータを必要とする場合、次の機会にイベントを発生させます。このような仕組みにより、柔軟なデータの管理を実現できます。UltraWinDataSource は事実上、「仮想的な」データソースか、「項目を保持する」データ ソースのどちらかになります。このため、UltraWinDataSource は動的なデータ ソースと呼ばれます。
+
+UltraWinDataSource は階層的なデータ構造をサポートします。最上位バンドのデータ構造は pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~band.html[Band]"]  プロパティで指定します。バンドは UltraDataBand オブジェクトによって表されます。UltraDataBand には、列のコレクションを含む pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradataband~columns.html[Columns]"]  プロパティがあります。各列は UltraDataColumn オブジェクトによって表されます。UltraDataBand には、UltraDataBand オブジェクトのコレクションを含む pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradataband~childbands.html[ChildBands]"]  プロパティもあります。階層はこの子バンド コレクションによって定義されます。
+
+下の図は、Customers を親バンド、Orders を子バンドとする 2 階層の構造をオブジェクト モデルの視点から表しています。
+
+----
+UltraDataSource
+  Band: UltraDataBand(Customers)
+    Columns[]:
+      UltraDataColumn(CustomerID, NonChaptered)
+      UltraDataColumn(Name, NonChaptered)
+      UltraDataColumn(Address, NonChaptered)
+      UltraDataColumn(Orders, Chaptered)
+    ChildBands[]:
+      UltraDataBand(Orders)
+        Columns[]:
+          UltraDataColumn[OrderDate]
+          UltraDataColumn[ShipDate]
+          UltraDataColumn[OrderTotal]
+----
+
+UltraDataBand オブジェクトと UltraDataColumn オブジェクトはデータ構造の定義に使用しますが、それ自体にデータは格納されません。UltraWinDataSource は、UltraDataRowsCollection 型の pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~rows.html[Rows]"]  プロパティを公開しています。UltraDataRowsCollection には UltraDataRow オブジェクトが含まれます。個々の UltraDataRow オブジェクトには、対応する行のデータを格納できます。UltraDataSource を「項目を保持する」データ ソースとして使用する場合は、UltraDataRow オブジェクトにセル データを入力します。UltraDataSource を「仮想的な」データ ソースとして使用する場合は、UltraDataRow オブジェクトにセル データを持たせないようにします。こうすると、UltraDataSource は CellDataRequested イベントを発生させてセル データを要求します。
+
+アプリケーションのユーザーが、UltraDataSource がバインドされているコントロールでセルの内容を変更すると、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.celldataupdatingeventargs.html[CellDataUpdating]"]  イベントが発生します。このイベントをキャンセルしなかった場合、セルのデータは更新されて pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.celldataupdatedeventargs.html[CellDataUpdated]"]  イベントが発生します。CellDataUpdating で、データ ソースに送り返す値を変更するには、イベント引数の pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.celldataupdatingeventargs~newvalue.html[NewValue]"]  プロパティを新しい値に設定します。
+
+同様に、ユーザーが行を追加しようとすると、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.rowaddingeventargs.html[RowAdding]"]  イベントが発生します。このイベントをキャンセルしなかった場合、新しい行が追加されて pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.rowaddedeventargs.html[RowAdded]"]  イベントが発生します。RowAdded イベントが発生した後、新しい行を初期化するために pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.initializedataroweventargs.html[InitializeDataRow]"]  イベントが発生します。RowAdding イベントでは、新しい行を追加する行コレクション内のインデックスを指定できます。
+
+ユーザーが行を削除しようとすると、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.rowdeletingeventargs.html[RowDeleting]"]  イベントが発生します。このイベントをキャンセルしなかった場合、行が削除されて pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.rowdeletedeventargs.html[RowDeleted]"]  イベントが発生します。
+
+UltraDataSource は pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.initializerowscollectioneventargs.html[InitializeRowsCollection]"]  イベントも公開しています。このイベントを使用すると、行コレクション全体を初期化できます。これは階層的なデータ構造の場合に役立ちます。階層的なデータ構造では、親行の子行コレクションが必要になるたびに（たとえば、ユーザーが UltraGrid で親行を展開したときなど）、子行コレクションに対して InitializeRowsCollection が発生します。InitializeRowsCollection イベントは通常、子行を取得し、取得した子行を行コレクションに格納します。

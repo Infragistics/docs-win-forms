@@ -1,0 +1,71 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-removing-grid-lines",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{C1A86281-10EF-41DF-885E-37BD65133906}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グリッド線の削除
+
+== バックグラウンド
+
+ユーザーの体験を向上させるため、グリッド線を削除したい場合があります。グリッド線を削除するには、セルの境界線を透明に設定し、行の境界線の色をセルの背景と同じ色にします。
+
+== 質問
+
+* グリッド線を削除するにはどうすればいいですか?
+
+== 解決策
+
+セルの境界線を透明に設定し、行の境界線の色をセルの背景と同じ色にします。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、グリッド線が削除されたグリッドが表示されます。
+
+image::Images/WinGrid_Removing_Grid_Lines_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードは、セルの境界線を Transparent に設定し、行の境界線の色をシステム ウィンドウ カラーに設定します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' グリッド線を削除します。
+	e.Layout.Reset()
+	e.Layout.Override.CellAppearance.BorderAlpha = Alpha.Transparent
+	e.Layout.Override.RowAppearance.BorderColor = Color.White
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// グリッド線を削除します。
+	e.Layout.Reset();
+	e.Layout.Override.CellAppearance.BorderAlpha = Alpha.Transparent;
+	e.Layout.Override.RowAppearance.BorderColor = Color.White;
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、グリッド線を削除する方法を示しました。グリッド線を削除するには、セルの境界線を透明に設定し、行の境界線をセルの背景と同じ色にします。

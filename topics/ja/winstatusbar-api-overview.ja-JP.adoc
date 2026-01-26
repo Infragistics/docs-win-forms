@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-api-overview",
+    "controlName": ["WinStatusBar"],
+    "tags": ["API"],
+    "guid": "{483DF442-93EB-4A55-A1ED-55F2D46A1E9B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinStatusBar 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar_namespace.html[Infragistics.Win.UltraWinStatusBar]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatusbar.html[UltraStatusBar]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel.html[UltraStatusPanel]"]

@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-whats-new-20081",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5BD01540-60EC-4317-9177-333E6354873B}",  
+    "buildFlags": [],
+    "createdOn": "2008-09-01T09:30:53Z"
+}
+|metadata|
+////
+
+= WinTree 2008.1
+
+2008 Volume 1 の WinTree™ コンポーネントに追加された新機能を確認するには、以下のリンクをクリックしてください。
+
+* link:win-you-can-now-select-nodes-from-different-levels-in-wintree.html[WinTree で異なるレベルから複数のノードを選択できる]
+* link:win-wintree-windows-vista-style.html[WinTree Windows Vista スタイル]

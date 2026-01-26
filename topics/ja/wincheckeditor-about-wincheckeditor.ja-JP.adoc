@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincheckeditor-about-wincheckeditor",
+    "controlName": ["WinCheckEditor"],
+    "tags": [],
+    "guid": "{099A7271-A531-44AF-9459-5B20AA5688F7}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCheckEditor について
+
+WinCheckEditor コントロールは、.NET Framework で提供される組み込みのチェックボックスとよく似たチェック エディタを提供しますが、以下のような機能が追加されています。
+
+* 外観のサポート - Normal、Checked、Indeterminate、HotTracking の各 Appearance について、アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* ItemAppearance のサポート - コントロールの Items コレクションの各項目はそれぞれ独自の Appearance オブジェクトを持ちます。
+* 自動テキスト折り返し - MinColumnWidth プロパティと MaxColumnWidth プロパティにより、テキストが自動的に複数行に折り返されます。
+* 複数のチェック スタイル - WinCheckEditor は従来のチェック スタイルのほかに、状態ボタン スタイルとカスタム スタイルで表示できます。
+
+image::Images/WinEditors_Control_Overview_09.png[]

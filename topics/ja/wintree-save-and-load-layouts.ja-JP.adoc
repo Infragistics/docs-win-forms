@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-save-and-load-layouts",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{FF7743DE-562E-42B7-BB10-C9F4B2972B23}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= レイアウトの保存とロード
+
+WinTree バージョン 3 では、コントロールのレイアウトを保存およびロードする機能が導入されています。レイアウトに保存される情報には、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[Nodes]"]  コレクション、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"]  オブジェクトとサブオブジェクト、関連するすべてのプロパティなど、ツリーの外観に作用するあらゆる情報が含まれます。
+
+ツリーのレイアウトはバイナリ形式または XML 形式のどちらかで保存できます。バイナリ形式では保存に必要な領域が少なく済みますが、XML 形式では他のテクノロジーとの相互運用性が高くなります。レイアウトは、ストレージ ストリームにシリアル化するか、またはディスク上のファイルに書き込むかを選択できます。レイアウト ファイルをツリーにロードするときは、ファイルの保存に使用したメソッドに対応するメソッドを使用してください。たとえば、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~saveasbinary.html[SaveAsBinary]"]  メソッドを使用してレイアウト ファイルを作成した場合は、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~loadfrombinary.html[LoadFromBinary]"]  メソッドを使用してそのファイルをロードし、保存したレイアウトを復元します。同様に、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~saveasxml.html[SaveAsXml]"]  メソッドで作成したファイルは、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~loadfromxml.html[LoadFromXml]"]  メソッドで復元します。
+
+ツリー レイアウトを Xml 形式で特定の場所のローカルファイルに書き込むには、次のようなコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSave_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSave.Click
+	Me.UltraTree1.SaveAsXml("UWTree1.xml")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSave_Click(object sender, System.EventArgs e)
+{
+	this.ultraTree1.SaveAsXml("UWTree1.xml");
+}
+----
+
+[NOTE]
+====
+*注：* バイナリレイ Save または Load メソッドを使用すれば、レイアウト ファイルに対してあらかじめ定義されたファイル拡張子はありません。適切と思われるファイル拡張子であればどのようなものでも使用できますが、必ずその拡張子を一貫して使用してください。
+====
+
+以前に保存したファイルをツリーにロードして復元するには、次のようなコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnLoad_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnLoad.Click
+	Me.UltraTree1.LoadFromXml("UWTree1.xml")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnLoad_Click(object sender, System.EventArgs e)
+{
+	this.ultraTree1.LoadFromXml("UWTree1.xml");
+}
+----

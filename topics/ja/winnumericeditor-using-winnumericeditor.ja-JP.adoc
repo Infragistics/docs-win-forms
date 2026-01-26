@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnumericeditor-using-winnumericeditor",
+    "controlName": ["WinNumericEditor"],
+    "tags": ["How Do I"],
+    "guid": "{CBF1BD0A-3854-4483-80D4-9F8F7C5D697B}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-12T14:37:57Z"
+}
+|metadata|
+////
+
+= WinNumericEditor の使用
+
+このセクションでは、WinNumericEditor™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winnumericeditor-custom-buttons-and-events.html[カスタム ボタンおよびイベント]
+* link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してエディターをインクリメント]

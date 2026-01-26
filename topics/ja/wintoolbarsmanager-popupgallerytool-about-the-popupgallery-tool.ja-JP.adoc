@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupgallerytool-about-the-popupgallery-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{F9556F4D-B93C-4D41-8EA8-89827DFB20CC}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T17:31:03Z"
+}
+|metadata|
+////
+
+= PopupGallery ツールについて
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.comにお問い合わせください。
+====
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== PopupGallery
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupgallerytool.html[PopupGalleryTool]"]
+
+派生元：Toolbase > PopupToolBase > TearawayToolBase > PopupMenuTool
+
+説明：PopupGalleryTool はプレビューとドロップダウンの両方を含む項目のギャラリーです。プレビューはリボンに便利に位置し、エンド ユーザーに一目でどのようなオプションを選択できるかを示します。希望するオプションがプレビューになければ、ドロップダウン矢印をクリックして項目の大きな選択を表示する必要があります。ドロップダウンはサイズを変更可能で、効率的に最大表示することができます。
+
+サンプル：
+
+リボンの PopupGalleryTool のプレビュー：
+
+image::Images/WinToolbarsManager_PopupGalleryTool_About_the_PopupGallery_Tool_01.png[]
+
+グループとフィルタリングが含まれる PopupGalleryTool のドロップダウン：
+
+image::Images/WinToolbarsManager_PopupGalleryTool_About_the_PopupGallery_Tool_02.png[]

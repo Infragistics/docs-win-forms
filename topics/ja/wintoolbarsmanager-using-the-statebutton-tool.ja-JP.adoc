@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-the-statebutton-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{2B766EF4-3AEE-4B18-8627-7A2BB394DE68}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T16:12:19Z"
+}
+|metadata|
+////
+
+= StateButton ツールの使用
+
+このセクションでは、StateButton ツールに関連する固有のタスクの実行方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-add-a-statebutton-tool-to-a-toolbar.html[ツールバーへの StateButton ツールの追加]
+* link:wintoolbarsmanager-create-groups-of-mutually-exclusive-statebuttons.html[相互に排他的な StateButton のグループの作成]
+* link:wintoolbarsmanager-display-a-checkbox-for-the-statebutton-tool.html[StateButton ツール用のチェックボックスの表示]
+* link:wintoolbarsmanager-transform-a-statebuttontool-into-a-checkbox.html[StateButtonTool をチェックボックスに変換]
+* link:wintoolbarsmanager-transform-a-statebuttontool-into-a-radio-button.html[StateButtonTool をラジオ ボタンに変換]

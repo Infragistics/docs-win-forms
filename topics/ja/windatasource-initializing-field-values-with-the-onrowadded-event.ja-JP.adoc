@@ -1,0 +1,85 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-initializing-field-values-with-the-onrowadded-event",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios","Getting Started"],
+    "guid": "{CF526657-0BC2-41F4-AF26-A3FE6DDA8EA0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= OnRowAdded イベントによるフィールド データの初期化
+
+このヘルプ トピックは、 link:windatasource-getting-started.html[「WinDataSource のサブクラス化によるビジネス クラスの作成（パート 1）」]から始まる 5 つのパートから構成されるチュートリアルの続きです。
+
+前のセクションである link:windatasource-inserting-and-updating-data-in-your-business-class.html[「WinDataSource のサブクラス化によるビジネス クラスの作成（パート 3）」]に戻って確認することができます。
+
+OnRowAdded イベントも一部のフィールド値を初期化するために重要です。この特定の実装で、デクリメントした負の整数値をプライマリ キーに割り当てる必要があります。追加する行が増えるほど、一時的な自動番号は継続して減少します。データベースにレコードを保存するときには必ず、実際のサーバーが生成した自動番号を取得して、プライマリ キー列に割り当てます以下はそのためのコードです。
+
+*Visual Basic の場合：*
+
+----
+' 行が追加されると、次のローカルの自動番号を割り当てることができます。
+Protected Overrides Sub OnRowAdded(ByVal e As Infragistics.Win.UltraWinDataSource.RowAddedEventArgs)
+  MyBase.OnRowAdded(e)
+	e.Row.Band.Columns("CategoryID").ReadOnly = DefaultableBoolean.False
+	e.Row.Item("CategoryID") = Me.NextAutoNumber
+	e.Row.Band.Columns("CategoryID").ReadOnly = DefaultableBoolean.True
+End Sub
+----
+
+*C# の場合：*
+
+----
+// 行が追加されると、次のローカルの自動番号を割り当てることができます。
+protected override void OnRowAdded(RowAddedEventArgs e)
+{
+	base.OnRowAdded (e);
+	e.Row.Band.Columns["CategoryID"].ReadOnly = Infragistics.Win.DefaultableBoolean.False;
+	e.Row["CategoryID"] = this.NextAutoNumber;
+	e.Row.Band.Columns["CategoryID"].ReadOnly = Infragistics.Win.DefaultableBoolean.True;
+}
+----
+
+処理する必要がある最後のイベントは OnRowDeleting イベントです。このイベントで、プライマリ キーの値を取得して、このレコードを削除するためにデータベースに対してコマンドを実行します。以下にコードを示します。
+
+*Visual Basic の場合：*
+
+----
+' ここでデータベースからレコードを削除します。 
+Protected Overrides Sub OnRowDeleting(ByVal e As Infragistics.Win.UltraWinDataSource.RowDeletingEventArgs)
+  MyBase.OnRowDeleting(e)
+	Dim cn As New SqlConnection(_cn)
+	Dim cm As SqlCommand = cn.CreateCommand()
+	cm.CommandText = "DELETE FROM Categories WHERE CategoryID=@CategoryID"
+	cm.CommandType = CommandType.Text
+	cm.Parameters.Add("@CategoryID", e.Row.Item("CategoryID"))
+	cn.Open()
+	cm.ExecuteNonQuery()
+	cn.Dispose()
+End Sub
+----
+
+*C# の場合：*
+
+----
+// ここでデータベースからレコードを削除します。
+protected override void OnRowDeleting(RowDeletingEventArgs e)
+{
+	base.OnRowDeleting (e);
+	SqlConnection cn = new SqlConnection(_cn);
+	SqlCommand cm = cn.CreateCommand();
+	cm.CommandText = "DELETE FROM Categories WHERE CategoryID=@CategoryID";
+	cm.CommandType = CommandType.Text;
+	cm.Parameters.Add("@CategoryID", e.Row["CategoryID"]);
+	cn.Open();
+	cm.ExecuteNonQuery();
+	cn.Dispose();
+}
+----
+
+これは 5 つのパートから構成されるチュートリアルの 4 番目のパートで、最後のパートを見たい場合には次のリンクをクリックしてください。 link:windatasource-using-your-business-class-in-an-application.html[WinDataSource のサブクラス化によるビジネス クラスの作成（パート 5）]

@@ -1,0 +1,123 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-custom-diagnostics-and-annotations",
+    "controlName": [],
+    "tags": [],
+    "guid": "cc91ec0c-1ab0-42dc-9420-87cde4bd7770",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1378587Z"
+}
+|metadata|
+////
+
+= カスタム診断および注釈
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、構文ツリーにデータを追加、取得する方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-syntax-tree-overview.html[構文ツリーの概要]
+|このトピックは、構文ツリーが作成される場合とアクセス方法について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350326109, はじめに >>
+* <<_Ref350326113, 注釈の追加 >>
+* <<_Ref350326117, 診断の追加 >>
+* <<_Ref350326121, 関連コンテンツ >>
+
+[[_Ref350326109]]
+== はじめに
+
+=== 概要
+
+構文ツリーから情報を取得するには、ツリー上にも情報を保存します。ツリー内の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxtree.html[SyntaxTree] およびすべてのオブジェクトは不変であり、そのため追加情報を保存する唯一の方法は、含まれる追加データのあるツリーのコピーを作成することです。これは、診断情報 (セマンティック エラーまたは警告など) または注釈のために実施します。どの種類のデータでもかまいません。このデータをツリーにアタッチできるメソッドは、`SyntaxTree` 上で定義されます。
+
+注:
+
+[NOTE]
+====
+注釈または診断情報をアタッチすると新しいツリーが作成され、元のツリーと同じスナップショットが含まれます。どちらのツリーも同じテキスト コンテンツを表し、同一ノード構造を有し、論理的に「兄弟ツリー」とみなされます。ノード構造が同じであるため、情報をツリーにアタッチする場合にいずれかの兄弟ツリーからノードを指定できます。
+====
+
+[[_Ref350326113]]
+== 注釈の追加
+
+=== 注釈のサマリー
+
+注釈をアタッチするには、`SyntaxTree` の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxtree~addannotation.html[AddAnnotation] メソッドを使用して、アタッチする link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxannotation.html[SyntaxAnnotation] を提供します。`SyntaxAnnotation` クラスは、いずれかのデータをノードにアタッチできるように導出できます。結果として、`AddAnnotation` メソッドは、指定されたノードにアタッチされた新しい注釈で構文ツリーのコピーを返します。
+
+特定のノードに関する注釈情報を得るには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode~hasannotations.html[HasAnnotations] プロパティを使用して特定のノードに注釈があるかどうか、特定のノードにアタッチされた注釈を取得するための link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode~getannotations.html[GetAnnotations] オーバーロード メソッド、およびそのノードのサブツリー内に注釈のあるノードを列挙するための link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode~getannotatednodes.html[GetAnnotatedNodes] オーバーロード メソッドがあるかどうかを判断します。ここで説明したメソッドはどちらも `Type` をとるオーバーロードを有するため、その `SyntaxAnnotation` インスタンスが特定のタイプであるまたは導出された注釈を持つノードまたは注釈を取得します。
+
+以下は、注釈のアタッチ方法例です。
+
+*C# の場合:*
+
+[source,csharp]
+----
+var document = new TextDocument();
+document.Language = CSharpLanguage.Instance;
+// ...ドキュメントを解析します。
+var originalTree = document.SyntaxTree;
+var node1 = originalTree.RootNode.GetChild(0);
+var node2 = originalTree.RootNode.GetChild(1);
+var annotatedTree = originalTree.AddAnnotation(node1, new SyntaxAnnotation());
+var annotatedTreeAgain = annotatedTree.AddAnnotation(node2, new SyntaxAnnotation());
+----
+
+注:
+
+[NOTE]
+====
+`node2` をどのように `originalTree` から取得するものの `annotatedTree` に渡すかにご注意ください。これは、`originalTree`、`annotatedTree` および `annotatedTreeAgain` が兄弟ツリーであるためルール違反ではありません。
+====
+
+[[_Ref350326117]]
+== 診断の追加
+
+=== 診断のサマリー
+
+診断情報をアタッチするには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.diagnostic.html[Diagnostic] と診断をアタッチするツリー ノードを取得する `SyntaxTree` の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxtree~adddiagnostic.html[AddDiagnostic] メソッドを使用します。結果として、`AddDiagnostic` メソッドは、指定されたノードにアタッチされた新しい注釈で構文ツリーのコピーを返します。
+
+診断情報を取得するには、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode~containsdiagnostics.html[ContainsDiagnostics] プロパティと link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode~getdiagnostics.html[GetDiagnostics] メソッドを link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode.html[SyntaxNode] クラス上で使用します。これらのメソッドは、Syntax Parsing Engine の診断とカスタム診断を区別しないため、これらのメンバーはすべての診断情報を自動的にノードとその子孫から返します。
+
+[[_Ref350326121]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-ignored-content.html[無視されるコンテンツ]
+|このトピックは、構文解析中に起こる無視されたコンテンツへのアクセス方法について説明します。
+
+| link:ig-spe-pruning-the-syntax-tree.html[構文ツリーのプルーニング]
+|このトピックでは、Syntax Parsing Engine が行う構文ツリーのプルーニングについて説明します。
+
+|====

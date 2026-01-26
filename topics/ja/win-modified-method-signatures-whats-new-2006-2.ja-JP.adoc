@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-modified-method-signatures-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{ACAC887E-2390-478C-B536-42D096BDCCEC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 変更されたメソッド シグネチャ
+
+{ProductName} 2006 Volume 2 では、アプリケーション スタイリングをサポートするためにコントロールに複数の改善が行われました。これらの改善に含まれるものは、いくつかのメソッド シグネチャの変更です。以下は、本リリースで修正されたメソッドのリストです。
+
+== Infragistics.Win.UltraWinTabs.ICustomMdiTab
+
+[options="header", cols="a,a"]
+|====
+|メンバ|変更
+
+|ResolveAppearance
+|このメソッドのシグネチャは、解決の順番中に使用される UIRole および ResolutionOrder を渡すように変更されました。これは必須なので DockManager は、TabbedMdiManager からの適切なロールと解決の順番を使用できます。
+
+|====
+
+== Infragistics.Win.UltraWinToolbarsManager.ToolBase
+
+[options="header", cols="a,a"]
+|====
+|メンバ|変更
+
+|ResolveAppearancePhase
+|この保護された仮想メソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするためのロール情報だけでなく古いパラメータを含む構造を渡します。
+
+|====
+
+== Infragistics.Win.IValueList
+
+[options="header", cols="a,a"]
+|====
+|メンバ|変更
+
+|ResolveItemAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために ComponentRole を渡すことが必要です。
+
+|====
+
+== Infragistics.Win.UltraWinSchedule.UltraCalendarLook
+
+[options="header", cols="a,a"]
+|====
+|メンバ|変更
+
+|ResolveAppointmentAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|ResolveDayAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|ResolveDayHeaderAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|ResolveHolidayAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|ResolveMonthAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|ResolveNoteAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|ResolveWeekAppearance
+|このメソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために UltraScheduleControlRoleBase インスタンスを渡すことが必要です。このオブジェクトは、UltraWinSchedule コントロールの ComponentRole プロパティをキャストすることによって取得できます。
+
+|====
+
+== Infragistics.Win.UltraWinTabbedMdi.UltraTabbedMdiManager
+
+[options="header", cols="a,a"]
+|====
+|メンバ|変更
+
+|ResolveSplitterAppearance
+|この保護された仮想メソッドのシグネチャは変更されました。アプリケーション スタイリングをサポートするために Orientation を渡します。
+
+|====

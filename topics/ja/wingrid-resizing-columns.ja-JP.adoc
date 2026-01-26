@@ -1,0 +1,226 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-resizing-columns",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{C57531EE-0DD8-4931-AF63-54EB64AC0414}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列のサイズ変更
+
+toc::[]
+
+== 背景
+
+WinGrid はさまざまな列サイズ変更のシナリオを数多くサポートします。列のサイズは列セパレータを左右にドラッグすれば変更でき、列セパレータをダブルクリックすると、列の自動サイズ変更を要求できます。開発者は個々に各列の幅を設定し、AutoFitColumns プロパティを True に設定できます。グリッドは比例して列のサイズを変更してグリッドの幅に収まるようにし（垂直スクロール バーの狭い領域以下）、マルチバンド グリッドでは .Override.AllowColSizing を Free に設定し、あらゆる列オブジェクトの PerformAutoResize メソッドを呼び出せます。
+
+== 質問
+
+* 利用できるグリッド幅で表示されるようにすべての列のサイズを変更するには、どうしたらいいでしょうか?
+* 内容が収まるように列のサイズを変更するには、どうしたらいいでしょうか?
+* マルチバンド グリッドがあり、バンド 1 の列がバンド 0 の列の幅と同じようです。異なるバンドにある列のサイズを個別に設定するには、どうしたらいいでしょうか?
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは、マルチバンド DataSet を表示する UltraWinGrid と、列のサイズ変更を行うさまざまなプロパティやメソッドを呼び出す 5 つのボタンから構成されています。プロジェクトを実行し、さまざまなボタンをクリックすると、列のサイズがどのように変更するのかがわかります。さまざまな列のサイズ変更オプションを使用する順序は重要です。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Resizing_Columns_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラーが含まれます:
+
+* UltraGrid1.InitializeRow - InitializeRow イベントのコードによってすべての行が展開されます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' 行を展開させます。
+	e.Row.ExpandAll()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// 行を展開させます。
+	e.Row.ExpandAll();
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します。
+
+* btnAutoFitColumns.Click - AutoFitColumns ボタンの Click イベントのコードは、グリッドの AutoFitStyle プロパティを True に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnAutoFitColumns_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnAutoFitColumns.Click
+	' AutoFitStyle を設定します
+	Me.UltraGrid1.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnAuotFitColumns_Click(object sender, System.EventArgs e)
+{
+	// AutoFitStyle を設定します
+	this.ultraGrid1.DisplayLayout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+}
+----
+
+* btnAllowColSizingFree.Click - AllowColSizingFree ボタンの Click イベントのコードは、グリッドの AllowColSizing プロパティを True に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnAllowColSizingFree_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnAllowColSizingFree.Click
+	' AllowColSizing = Free を設定します
+	Me.UltraGrid1.DisplayLayout.Override.AllowColSizing = AllowColSizing.Free
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnAllowColSizingFree_Click(object sender, System.EventArgs e)
+{
+	// AllowColSizing = Free を設定します
+	this.ultraGrid1.DisplayLayout.Override.AllowColSizing = AllowColSizing.Free;
+}
+----
+
+* btnAutoResizeContactNameColumn.Click - AutoResizeContactNameColumn ボタンの Click イベントのコードは、CustomerName 列の PerformAutoResize メソッドを呼び出します。PerformAutoResize メソッドは列幅を表示されたデータの要件に合うように設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnAutoResizeContactNameColumn_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnAutoResizeContactNameColumn.Click
+	' ContactName 列に自動サイズ変更を実行します
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns("ContactName").PerformAutoResize()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnAutoResizeContactNameColumn_Click(object sender, System.EventArgs e)
+{
+	// ContactName 列に自動サイズ変更を実行します
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns["ContactName"].PerformAutoResize();
+}
+----
+
+* btnSetColumnWidthsWithCode.Click - SetColumnWidthsWithCode ボタンの Click イベントのコードは、バンド 0 内の 3 列の幅を特定の値に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSetColumnWidthsWithCode_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSetColumnWidthsWithCode.Click
+	' 列幅のいくつかを設定します
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Width = 30
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(1).Width = 50
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(2).Width = 30
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSetColumnWidthsWithCode_Click(object sender, System.EventArgs e)
+{
+	// 列幅のいくつかを設定します
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Width = 30;
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[1].Width = 50;
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[2].Width = 30;
+}
+----
+
+* btnResetToDefaults.Click - ResetToDefaults ボタンの Click イベントのコードは、グリッドの DataSource をなしに設定し、DisplayLayout をリセット、さらにサンプル DataSet をグリッドに再バインドします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnResetToDefaults_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnResetToDefaults.Click
+	' グリッドのレイアウトをデフォルトにリセットします
+	Me.UltraGrid1.DataSource = Nothing
+	Me.UltraGrid1.DisplayLayout.Reset()
+	Me.UltraGrid1.DataSource = Me.WinGrid1.Customers
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnResetToDefaults_Click(object sender, System.EventArgs e)
+{
+	// グリッドのレイアウトをデフォルトにリセットします
+	this.ultraGrid1.DataSource = null;
+	this.ultraGrid1.DisplayLayout.Reset();
+	this.ultraGrid1.DataSource = this.winGrid1.Customers;
+}
+----
+
+== ColPosChanged イベント
+UI を使用して列をサイズ変更すると、
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforecolposchanged_ev.html[BeforeColPosChanged]
+および
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~aftercolposchanged_ev.html[AfterColPosChanged]
+イベントが発生します。同様に、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroup.html[UltraGridGroup]をサイズ変更すると、
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforegroupposchanged_ev.html[BeforeGroupPosChanged]
+および
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~aftergroupposchanged_ev.html[AfterGroupPosChanged] イベントが発生します
+
+この相互作用をリッスンするには、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.beforecolposchangedeventargs~ColumnPosChangedType.html[ColumnPosChangedType] が link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.poschangedtype.html[PosChangedType] になることをトラップします。次のコードに示すように、イベント引数に Sized を追加します。
+
+*C# の場合:*
+[source, csharp]
+private void UltraGrid1_AfterColPosChanged(object sender, AfterColPosChangedEventArgs e)
+{
+    bool hasSizeChanged = (e.ColumnPosChangedType & PosChangedType.Sized) == PosChangedType.Sized;
+    if(hasSizeChanged)
+    {
+        //コードを追加
+    }
+}
+    
+*Visual Basic の場合:*
+[source, vb]
+Private Sub UltraGrid1_AfterColPosChanged(sender As Object, e As AfterColPosChangedEventArgs)
+    Dim hasSizeChanged As Boolean = (e.ColumnPosChangedType And PosChangedType.Sized) = PosChangedType.Sized
+    If hasSizeChanged Then
+        'コードを追加
+    End If
+End Sub

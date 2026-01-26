@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-shape-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{FB3C775F-060E-4AD9-BE34-7DB631F97A32}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 形状ペイン
+
+[形状] ペインは、目盛盤の形状を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~shape.html[形状]"]  -- この値は、目盛盤が楕円形か矩形かを指定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~expansion.html[展開]"]  -- この値を -999 から 99 の値に設定します。
+
+image::images/Shape_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-dial-layout-tab.html[目盛盤レイアウト タブ]

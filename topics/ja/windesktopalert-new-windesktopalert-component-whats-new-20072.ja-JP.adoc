@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-new-windesktopalert-component-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B36A5ACE-8D0F-4774-A55F-6A3EE9E67F0A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinDesktopAlert コンポーネント
+
+コンピュータで一生懸命作業をしていて問題の原因となっている新しいコードのブロックについて考え込んでいます。またこの混乱を解決してくれるであろう同僚からの重要な電子メールを待っています。コードと格闘中も、問題と関連の低い電子メールは多数受信しています。しかしこれらの電子メールは小さいデスクトップ アラート ウィンドウに目立たずにポップアップするので煩わされることはありません。最終的に一瞥して、待ちに待っていた電子メールの到着に気付き、件名の行をクリックして電子メール全体を開きます。これは新しい WinDesktopAlert™ コンポーネントのおかげです。
+
+WinDesktopAlert コンポーネントは、Microsoft® Outlook® デスクトップ アラートならびに Windows Live™ Messenger のアラートのルック アンド フィールに似ています。デスクトップ アラート ウィンドウは、 link:win-presentation-layer-framework-plf.html[Presentation Layer Framework]™ によって完全にカスタマイズ可能で、ほとんどの UI 要素のための link:win-appearance-objects.html[Appearance] オブジェクトを公開しています。各デスクトップ アラート ウィンドウには完全なイベント モデルがあり、エンド ユーザーはウィンドウの任意の場所の周辺だけをクリックだけでアプリケーションに最適であればどのような関数であっても実行することができます。WinDesktopAlert コンポーネントの最もいいところは、使い方が簡単なところです。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~show.html[Show]"]  メソッドを呼び出し、キャプションとテキストを提供するだけで、デスクトップ アラート ウィンドウはデフォルトの設定で表示します。
+
+=== Office 2007 スタイル
+
+デスクトップ アラート ウィンドウは企業の至る所でなじみのある Outlook デスクトップ アラートの鏡像です。WinDesktopAlert は、Outlook デスクトップ アラートのすべての機能を公開しているため、Outlook が提供している機能を完全にエミュレートできます。コントロールの WinSchedule™ スイートと連動して、将来の予定をエンド ユーザーに警告することができます。
+
+image::images/WinDesktopAlert_New_WinDesktopAlert_Component_Whats_New_20072_01.png[Office 2007 Style デスクトップ アラート ウィンドウの画像]
+
+=== Windows Live Messenger スタイル
+
+Windows Live Messenger は次世代 Windows® Messaging サービスです。いくつかのその他の機能とともに、Messenger アラートは完全にイメージチェンジしました。WinDesktopAlert では固有のインスタント メッセージング サービスを補足するためにこのスタイルのアラートを使用することができます。またはデータベースの更新やシステム メッセージなどの標準的な通知のためにこのスタイルの警告を使用したい場合もあるでしょう。
+
+image::images/WinDesktopAlert_New_WinDesktopAlert_Component_Whats_New_20072_02.png[Windows Live Messenger Style デスクトップ アラート ウィンドウの画像のためのプレースホルダ]
+
+== 関連トピック
+
+link:windesktopalert-about-windesktopalert.html[WinDesktopAlert について]
+
+link:windesktopalert-the-look-and-feel-of-windesktopalert.html[WinDesktopAlert のルック アンド フィール]

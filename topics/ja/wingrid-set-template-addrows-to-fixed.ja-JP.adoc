@@ -1,0 +1,110 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-set-template-addrows-to-fixed",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{0DE549B2-C8B4-444B-9E6E-43CF360D86F6}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= テンプレート AddRows を固定に設定
+
+この機能は Microsoft Outlook における追加行の動作をエミュレートします。注目すべき点は追加行が固定できることです。追加行を固定した場合、他の行をスクロールしても追加行はスクロールされません。Microsoft Outlook では追加行は上部に表示されますが、WinGrid では固定追加行を行コレクションの先頭または最後に表示できます。この機能を簡単に利用できるように、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.allowaddnew.html[AllowAddNew]"]  列挙体（Override の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~allowaddnew.html[AllowAddNew]"]  プロパティに関連します）で FixedAddRowOnTop と FixedAddRowOnBottom の各メンバが使用できるようになりました。これらの列挙体メンバは、UltraGrid をスクロールしても追加行がスクロールされないように固定される点で、TemplateOnTop および TemplateOnBottom メンバとは異なります。テンプレート追加行はすべてのバンドに表示できますが、固定できるのはルート バンドの追加行のみです。また、行が列によってグループ化されている場合、列の追加はサポートされません。
+
+[NOTE]
+====
+*注:* このヘルプ トピックで説明されている内容はテンプレート追加行機能の一部だけです。テンプレート追加行機能の概要については、 link:wingrid-using-addrow-feature.html[「追加行の操作」]を参照してください。
+====
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. この機能を有効にするには、AllowAddNew プロパティを FixedAddRowOnTop または FixedAddRowOnBottom に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.AllowAddNew = _
+  AllowAddNew.FixedAddRowOnTop
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.AllowAddNew = 
+  AllowAddNew.FixedAddRowOnTop;
+----
+
+[start=3]
+. また、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~templateaddrowprompt.html[TemplateAddRowPrompt]"]  プロパティを設定することで、テンプレート追加行にプロンプトを表示することもできます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.TemplateAddRowPrompt = _
+  "Click here to add rows..."
+----
+
+*C# の場合:*
+
+----
+this.ultraGrid1.DisplayLayout.Override.TemplateAddRowPrompt = 
+  "Click here to add rows...";
+----
+
+[start=4]
+. デフォルトでは、プロンプトは複数のセルにまたがって表示されます。プロンプトの表示を１つのセル内に制限するには、バンドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~specialrowpromptfield.html[SpecialRowPromptField]"]  プロパティを列のキーに設定します。こうすると、プロンプトの表示はテンプレート追加行のその列のセル内に制限されます。
+
+*Visual Basic の場合：*
+
+----
+' 列の名前が "Address" の場合
+Me.UltraGrid1.DisplayLayout.Bands(0).SpecialRowPromptField = "Address"
+----
+
+*C# の場合：*
+
+----
+// 列の名前が "Address" の場合
+this.ultraGrid1.DisplayLayout.Bands[0].SpecialRowPromptField = "Address";
+----
+
+[start=5]
+. プロンプトの外観を変更するには、Override の TemplateAddRowPromptAppearance プロパティを使用します。デフォルトでは、プロンプトは透明です。プロンプトを不透明にするには、BackColor を目的の色に設定するか、AlphaLevel を Opaque に設定します。次のコードは、プロンプト テキストの色を制御する ForeColor を設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.TemplateAddRowPromptAppearance.ForeColor = _
+  Color.Blue
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.TemplateAddRowPromptAppearance.ForeColor = 
+  Color.Blue;
+----
+
+[start=6]
+. 次のスクリーンショットは、固定テンプレート追加行を行コレクションの先頭に表示した場合を示します。
+
+image::Images/WinGrid_Set_Template_AddRows_to_Fixed_01.png[]

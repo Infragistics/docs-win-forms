@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-an-mdiwindowlist-tool-to-a-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{36F97D7F-4AE1-47A9-963E-AF24B602C9B4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーへの MDIWindowList ツールの追加
+
+WinToolbarsManager コンポーネントには、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[ToolBar]"]  に追加できる 15 種類のツールが含まれています。ここでは、MDI 親フォームに属するメニューに pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.mdiwindowlisttool.html[MDIWindowList]"]  ツールを作成する方法を示します。MDIWindowList ツールには、親フォームに属する MDI 子ウィンドウのうち現在開いているもののリストが表示されます。この動作はメニューに MDIWindowList を配置するだけで実現できます。残りの処理は MDIWindowList 自体が行うため、コードは必要ありません。
+
+[start=1]
+. 必要となる親フォームの IsMdiContainer プロパティを True に設定します。
+[start=2]
+. UltraToolbarsManager エレメントを Toolbox から追加します。
+[start=3]
+. UltraWinToolbar エレメントを設定するため、UltraToolbarManager エレメント上で右クリックし、[ユーザー設定] を選択して、[ユーザー設定] ダイアログを開きます。
+[start=4]
+. 新しいツールを作成するため、ユーザー設定の [ツール] タブをクリックしてから [新規] ボタンをクリックします。
+[start=5]
+. ツールの種類として PopupMenu ツールを選択し、[追加] ボタンをクリックします。
+[start=6]
+. MdiWindowListTool を選択し、ツールの種類として [追加] ボタンをクリックします。
+[start=7]
+. ユーザー設定の [ツールバー] タブをクリックしてから [新規作成] ボタンをクリックします。
+[start=8]
+. [ツール] タブをクリックし、PopupMenu ツールをフォーム上の ToolBar にドラッグします。
+[start=9]
+. MdiWindowList ツールを PopupMenu ツールにドラッグします。
+[start=10]
+. もう 1 つのフォームをプロジェクトに追加します。
+[start=11]
+. 次のコードを Form1_Load イベント プロシージャに配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UsetheMDIWindowListTool_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim frm As New MDIWindowListToolChildForm()
+	frm.MdiParent = Me
+	frm.Show()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void UsetheMDIWindowListTool_Load(object sender, System.EventArgs e)
+{
+	MDIWindowListToolChildForm frm = new MDIWindowListToolChildForm();
+	frm.MdiParent = this;
+	frm.Show();
+}
+----
+
+[start=12]
+. プロジェクトを実行し、メニューをクリックしてドロップダウンすると、MDIWindowList ツールが表示されます。Form2 はアクティブ化されたフォームであるため、チェックマークが付いています。

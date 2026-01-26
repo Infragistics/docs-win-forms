@@ -1,0 +1,22 @@
+﻿////
+|metadata|
+{
+    "name": "winnumericeditor-understanding-winnumericeditor",
+    "controlName": ["WinNumericEditor"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{9343A1D5-6D6F-41C5-B7B7-A371451E141B}",
+    "buildFlags": [],
+    "createdOn": "2009-08-12T14:30:54Z"
+}
+|metadata|
+////
+
+= WinNumericEditor の理解
+
+WinNumericEditor™ コントロール、その主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinNumericEditor を使用することの利点を理解できます。
+
+WinNumericEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winnumericeditor-about-winnumericeditor.html[WinNumericEditor について] -- WinNumericEditor コントロールの概要を説明しています。
+* link:winmaskededitorbase-spinning.html[スピン動作] -- WinNumericEditor のスピン動作について説明します。
+* link:winnumericeditor-smart-tag.html[WinNumericEditor のスマートタグ] -- WinNumericEditor コントロールのスマートタグで表示されるプロパティと設定値について説明しています。

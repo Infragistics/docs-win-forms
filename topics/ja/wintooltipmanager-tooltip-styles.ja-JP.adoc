@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-tooltip-styles",
+    "controlName": ["WinToolTipManager"],
+    "tags": ["Styling"],
+    "guid": "{23AD78BF-5680-48B1-BBE6-FC25188B3D9C}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールチップのスタイル
+
+WinToolTipManager では、ツールヒントのスタイル、色、イメージ、およびフォントを指定できます。
+
+== DisplayStyle プロパティ
+
+WinToolTipManager の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~displaystyle.html[DisplayStyle]"]  プロパティは、ToolTip の基本スタイルを制御します。通常の DotNet ToolTip クラスと同じような四角形の標準ツールヒントのほか、角の丸いバルーンヒントや、吹き出しのようなコールアウトを表示するオプションがあります。
+
+image::images/WinToolTips_Styling_a_ToolTip_01.png[]
+
+image::images/WinToolTips_Styling_a_ToolTip_02.png[]
+
+== タイトル
+
+WinToolTip では、標準ツールヒントのようにテキストを表示するだけでなく、タイトルも表示できます。タイトルはテキストの上に表示され、イメージを含めることができます。ツールヒントにタイトルを設定するには、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~tooltiptitle.html[ToolTipTitle]"]  プロパティを使用します。このプロパティは、UltraWinToolTipManager コンポーネントと pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipinfo.html[UltraToolTipInfo]"]  クラスの両方に存在します。そのため、すべてのツールヒントに適用する 1 つのタイトルを設定してから、特定のコントロールでそのタイトルをオーバーライドできます。同じことが pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~tooltipimage.html[ToolTipImage]"]  にも当てはまります。
+
+image::images/WinToolTips_Styling_a_ToolTip_03.png[]
+
+image::images/WinToolTips_Styling_a_ToolTip_04.png[]
+
+== 色とフォント
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawintooltip.ultratooltipmanager~appearance.html[Appearance]"]  プロパティを使用して、ツールヒントの色とフォントを変更し、カスタム イメージを提供できます。また、背景にグラデーションやハッチブラシを使用することもできます。Appearance も ToolTipTitle プロパティや ToolTipImage プロパティと同様に、UltraWinToolTipManager コンポーネントと UltraToolTipInfo クラスの両方に存在します。そのため、すべてのツールヒントに適用する Appearance プロパティを設定してから、特定のコントロールでそれをオーバーライドできます。
+
+image::images/WinToolTips_Styling_a_ToolTip_05.png[]
+
+image::images/WinToolTips_Styling_a_ToolTip_06.png[]
+
+image::images/WinToolTips_Styling_a_ToolTip_07.png[]

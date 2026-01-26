@@ -1,0 +1,688 @@
+﻿= Ultimate UI for WinForms Changelog
+
+=== In this topic
+
+This topic contains the following sections:
+
+* <<Ref_25_2_65, 25.2.65 (December 2025)>>
+* <<Ref_25_2_41, 25.2.41 (November 2025)>>
+* <<Ref_25_1_100, 25.1.100 (October 2025)>>
+* <<Ref_25_1_63, 25.1.63 (July 2025)>>
+* <<Ref_25_1, 25.1 (2025)>>
+* <<Ref_24_2_27, 24.2.27 (February 2025)>>
+* <<Ref_24_2, 24.2 (2024)>>
+** <<BC_24_2,.Breaking Change>>
+* <<Ref_24_1_57, 24.1.57>>
+* <<Ref_24_1_38,24.1.38 (August 2024)>>
+** <<BC_24_1_13,Breaking Changes 24.1.38 (August 2024)>>
+* <<Ref_23_2_180,23.2.180 (June 2024)>>
+* <<Ref_23_2_131,23.2.131 (April 2024)>>
+* <<Ref_23_2, 23.2 (2023)>> 
+
+[[Ref_25_2_65]]
+
+== 25.2.65 (December 2025)
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+
+|Bug Number|Control|Description
+
+|`33808`
+|UltraDataChart
+|The scale set for IntervalType Ticks in TimeAxisInterval is not displayed.
+
+|`34255`
+|UltraDataChart
+|0.00001 scale tick marks are displayed overlapping each other.
+
+|`38510`
+|UltraDataChart
+|AssigningCategoryStyle event support for Stacked Series
+
+|`39970`
+|UltraDataChart
+|When two or more DateTime values with the same value exist in the data source, they may not show in the same order as in the data in TimeXAxis
+
+|`40763`
+|UltraDataChart
+|Default tooltip for UltraDataChart displays a line or a misplaced border
+
+|====
+
+=== Enhancements
+
+==== Charts
+
+- Added LabelFormatOverride event to TimeXAxisLabelFormat so you can now override the formatting with an event at all time-formatting levels on the TimeXAxis.
+
+[[Ref_25_2_41]]
+
+== 25.2.41 (November 2025)
+
+=== .NET 10 Support
+
+As of version 2025.2, the Ultimate UI for Windows Forms toolset supports .NET 10. For more information on .NET 10 please refer to link:https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/overview[this article on Microsoft's site].
+
+For more details please visit link:https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-and-net-core[Microsoft .NET lifecycle].
+
+Note, we no longer support .NET 6 and .NET 7.
+
+=== Azure Map Imagery is now RTM
+
+=== New Chart Features
+
+==== Collision Detection for Axis annotations (Beta)
+
+Ability for axis annotations to automatically detect collisions and truncate to fit better. To enable this feature you must set the following properties:
+
+- `ShouldAvoidAnnotationCollisions`
+- `ShouldAutoTruncateAnnotations`
+
+==== User Annotations Layer (Beta)
+
+In {ProductName}, you can now annotate the `{DataChartName}` with slice, strip, and point annotations at runtime using the new user annotations feature. This allows the end user to add more details to the plot such as calling out single important events such as company quarter reports by using the slice annotation or events that have a duration by using the strip annotation. You can also call out individual points on the plotted series by using the point annotation or any combination of these three.
+
+image::images/userAnnotationLayers.png[]
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+
+|Bug Number|Control|Description
+
+|`32618`
+|UltraMaskedEditor
+|UltraMaskedEdit narrator does not read the AccessibileName
+
+|`36205`
+|UltraDataChart
+|BrushCollection is throwing an error in its Equals function
+
+|`38375`
+|UltraGrid
+|UltraGrid ValueList search is not working correctly when set the column CellMultiLine to true
+
+|`38876`
+|UltraDataSource
+|Compatibility issues with DataPieChart and Category Chart
+
+|`38968`
+|UltraTree
+|NullReferenceException occurs when deleting a child node from the first parent
+
+|`39807`
+|App Styling
+|AppStyle ISL not applying correctly to UltraButton in .NET 9
+
+|`40136`
+|Excel Library
+|FormulaParseException exception when loading an Excel workbook
+
+|`40262`
+|UltraSpreadsheet
+|#Circularity! is displayed when there are warnings. Request to match Excel - display a value eg. 0 instead
+
+|====
+
+[[Ref_25_1_100]]
+
+== 25.1.100 (October 2025)
+
+=== Azure Map Imagery Support for UltraGeographicMap (Beta)
+
+=== New Axis Label Events for UltraDataChart (Beta)
+
+The following events have been added to the `UltraDataChart` to allow you to detect different operations on the axis labels:
+
+- `LabelMouseDown`
+- `LabelMouseUp`
+- `LabelMouseEnter`
+- `LabelMouseLeave`
+- `LabelMouseMove`
+- `LabelMouseClick`
+
+=== Companion Axis for Charts (Beta)
+
+We have added `CompanionAxis` properties to the X and Y axis that allow you to quickly create a clone of an existing axis. When enabled using the `CompanionAxisEnabled` property, this will default the cloned axis to the opposite position of the chart and you can then configure that axes' properties.
+
+=== RadialPieSeries Inset Outlines (Beta)
+
+We have added a new property called `UseInsetOutlines` to control how outlines on the `RadialPieSeries` are rendered. Setting this value to `true` will inset the outlines within the slice shape, whereas a `false` (default) value will place the outlines half-in half-out along the edge of the slice shape.
+
+image::images/UseInsetOutlinesFeature.png[]
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+
+|Bug Number|Control|Description
+
+|`23697`
+|UltraGrid
+|InvalidOperationException happens on page 5 of the UltraGrid designer wizard if an UltraCalcManager is present
+
+|`33861`
+|Excel Library
+|Adding line chart corrupts excel File for German culture
+
+|`36790`
+|Excel Library
+|SUMIFS function is not calculated properly
+
+|`37930`
+|UltraDataChart
+|Data Annotation Overlay Text Color not working
+
+|`38016`
+|UltraToolbarsManager
+|When opening a separate Form with a ShortcutKey, popup menus don't close correctly
+
+|`38100`
+|UltraExpandableGroupBox
+|With high resolution, expandable group box lays elements out wrong and occludes the +/- button
+
+|`38101`
+|UltraDataChart
+|ChartPosition and PlotAreaPosition are reversed on non-WPF platforms
+
+|`38125`
+|UltraToolbarsManager
+|Long running operations when multiple monitors are positioned above each other can result in OverflowException with toolbars manager
+
+|`38376`
+|UltraCalculatorDropDown
+|When in EU-format the UltraCalculatorDropDown, the control incorrectly converts values
+
+|`38377`
+|UltraCalculatorDropDown
+|NullReferenceException occurs when opening the drop-down and a comma is entered in the textbox
+
+|`38487`
+|Editors
+|Tooltips throw Null Reference Exception when DPI is changed at runtime
+
+|`38488`
+|UltraToolbarsManager
+|The Commands ListBox in the Customize dialog of the UltraToolbarsManager ignores App Styling
+
+|`38544`
+|UltraGrid
+|Crash with UltraGridExcelexporter using image column
+
+|`38664`
+|UltraComboEditor
+|UltraComboEditor dropdown shows behind embedded form with TopMost
+
+|`39070`
+|UltraSpreadsheet
+|Object reference not set to an instance error while uploading a excel sheet
+
+|====
+
+=== Enhancements
+
+==== UltraBulletGraph
+
+- Added new `LabelsVisible` property (Beta)
+
+==== Charts
+
+- New properties added to the DataToolTipLayer, ItemToolTipLayer, and CategoryToolTipLayer to aid in styling: `ToolTipBackground`, `ToolTipBorderBrush`, and `ToolTipBorderThickness`
+
+- New properties added to the DataLegend to aid in styling: `ContentBackground`, `ContentBorderBrush`, and `ContentBorderThickness`. The `ContentBorderBrush` and `ContentBorderThickness` default to transparent and 0 respectively, so to see these borders, you will need to set these properties.
+
+- Added a new property to `ChartMouseEventArgs` called `WorldPosition` that provides the world relative position of the mouse. This position will be a value between 0 and 1 for both the X and Y axis within the axis space.
+
+- Added `HighlightingFadeOpacity` to `SeriesViewer` and `DomainChart`. This allows you to configure the opacity applied to highlighted series.
+
+- Expose `CalloutLabelUpdating` event for domain charts.
+
+==== UltraLinearGauge
+
+- Added new `LabelsVisible` property (Beta)
+
+[[Ref_25_1_63]]
+== 25.1.63 (July 2025)
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+|Bug Number|Control|Description
+
+|`28320`
+|UltraGrid
+|Wrong item is unexpectedly selected when dropdown list is opened at the cell which is not fully in the view at the bottom
+
+|`33420`
+|UltraSpreadsheet
+|Formatting numbers is showing wrong result with custom number format
+
+|`34575`
+|Charts
+|DataTooltip background does not render correctly on multiple chart types
+
+|`35105`
+|UltraListView
+|UseFlatMode = true combined with ThemedElementAlpha = transparent causes a width resize
+
+|`36204`
+|UltraSplitter
+|UltraSplitter does not scale correctly with high-DPI settings
+
+|`36448`
+|UltraRadialGauge
+|Radial label format properties do not work (eg. Title, SubTitles)
+
+|`37244`
+|Excel Library
+|Custom DataValidation not working correctly
+
+|`37499`
+|UltraGrid
+|Using the Start button in the UltraGrid designer changes the Cursor of the grid to Hand
+
+|`38142`
+|ValueList
+|Null check request from the customer in ValueListDropDownAppearanceManager
+
+|====
+
+=== Enhancements
+
+==== UltraDataChart
+
+- Add MaximumExtent and MaximumExtentPercentage properties to Axis Labels (Beta)
+
+[[Ref_25_1]]
+== 25.1.26
+
+=== {DataChartName}
+
+=== Data Annotation Band Layer (Beta)
+
+The link:{DataChartLink}.DataAnnotationBandLayer.html[DataAnnotationBandLayer] is a new annotation layer that displays over the series.
+
+The full documentation topics for the link:{DataChartLink}.DataAnnotationBandLayer.html[DataAnnotationBandLayer] can be found at the following links:
+
+- link:datachart-data-annotation-band-layer.html[{DataChartName} Data Annotation Band Layer]
+
+=== Data Annotation Line Layer (Beta)
+
+The link:{DataChartLink}.DataAnnotationLineLayer.html[DataAnnotationLineLayer] is a new annotation layer that displays over the series.
+
+The full documentation topics for the link:{DataChartLink}.DataAnnotationLineLayer.html[DataAnnotationLineLayer] can be found at the following links:
+
+- link:datachart-data-annotation-line-layer.html[{DataChartName} Data Annotation Line Layer]
+
+=== Data Annotation Rect Layer (Beta)
+
+The link:{DataChartLink}.DataAnnotationRectLayer.html[DataAnnotationRectLayer] is a new annotation layer that displays over the series.
+
+The full documentation topics for the link:{DataChartLink}.DataAnnotationRectLayer.html[DataAnnotationRectLayer] can be found at the following links:
+
+- link:datachart-data-annotation-rect-layer.html[{DataChartName} Data Annotation Rect Layer]
+
+=== Data Annotation Slice Layer (Beta)
+
+The link:{DataChartLink}.DataAnnotationSliceLayer.html[DataAnnotationSliceLayer] is a new annotation layer that displays over the series.
+
+The full documentation topics for the link:{DataChartLink}.DataAnnotationSliceLayer.html[DataAnnotationSliceLayer] can be found at the following links:
+
+- link:datachart-data-annotation-slice-layer.html[{DataChartName} Data Annotation Slice Layer]
+
+=== Data Annotation Strip Layer (Beta)
+
+The link:{DataChartLink}.DataAnnotationStripLayer.html[DataAnnotationStripLayer] is a new annotation layer that displays over the series.
+
+The full documentation topics for the link:{DataChartLink}.DataAnnotationStripLayer.html[DataAnnotationStripLayer] can be found at the following links:
+
+- link:datachart-data-annotation-strip-layer.html[{DataChartName} Data Annotation Strip Layer]
+
+=== Data Legend and DataTooltip LayoutMode
+
+The `UltraDataLegend` and `DataToolTipLayer` elements now expose a `LayoutMode` property that you can use to layout the legend in either a table or vertical structure. More information on this can be found in the respective topics for this documentation linked below:
+
+- link:datachart-data-legend.html[Data Legend]
+- link:datachart-data-tooltip.html[Data ToolTip]
+
+=== Drag Selection (Beta)
+
+There is a new enumeration for the `DefaultInteraction` property on the chart named `DragSelect`. This will use the preview Rect of the chart to select points of a series.
+
+=== Overlay Text (Beta)
+
+The following series types now support overlaying text for additional annotation in the chart by using the new `OverlayText` property:
+
+- link:{DataChartLink}.ValueLayer.html[ValueLayer]
+- link:{DataChartLink}.ValueOverlay.html[ValueOverlay]
+
+In addition to to the series types mentioned, the new data annotation layers listed above also support this feature.
+
+You can configure how this overlay text appears in aspects such as angle, color, background, padding, margin, font, etc. by using the many OverlayText-prefixed properties. For example, `OverlayTextBrush` will configure the color.
+
+=== Trendline Layer
+
+The `TrendlineLayer` is a new series type that allows you to apply a single trend line per trend line layer to a particular series. This allows the usage of multiple trend lines on a single series since you can have multiple `TrendlineLayer` series types in the chart.
+
+=== Enhancements
+==== UltraDataPieChart
+
+- The chart now exposes a `GetOthersContext()` method. This will return the contents of the others slice.
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+|Bug Number|Control|Description
+
+|`34918`
+|General
+|It takes more time in disposing a form with many ultra controls than one with many standard controls.
+
+|`36504`
+|UltraGrid
+|In high DPI the column header is only half-shown when moving it
+
+|`37005`
+|UltraComboEditor
+|NullReferenceException with UltraComboEditorColumn in a DataGridView
+
+|====
+
+[[Ref_24_2_27]]
+== 24.2.27 (February 2025)
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+|Bug Number|Control|Description
+
+|`28383`
+|UltraToolbarsManager
+|RibbonGroup elements take new keys after form designers change
+
+|`33103`
+|UltraDoughnutChart
+|UltraDoughnutChart is causing a memory leak while adding series
+
+|`33456`
+|UltraGrid
+|Cannot edit milliseconds within a DateTime column in the UltraGrid
+
+|`33605`
+|UltraDataChart
+|ScatterLineSeries does not show the color of the line correctly in the UltraLegend
+
+|`33768`
+|UltraToolbarsManager
+|PopupMenuTool is not opening when dragging and dropping to add new tools
+
+|`33769`
+|UltraToolbarsManager
+|PopupMenuTool Designer tab does not allow deletion/removal of tools that were added
+
+|`34425`
+|UltraGrid
+|UltraGrid doesn't filter correctly when items contain a comma
+
+|`34439`
+|UltraGrid
+|ArgumentNullException occurs when opening the grid in a dialog and having the mouse over it while it loads
+
+|`34879`
+|UltraDataChart
+|InvalidOperationException: cross thread operation not valid when opening and closing UltraDataChart in dialogs
+
+|`35777`
+|UltraStatusBar
+|Unhandled exception in OnPaint event in UltraStatusBar
+
+|`36200`
+|Excel
+|Spreadsheet/Excel - async calculations breaking change
+
+|`36379`
+|Excel
+|Colors with any alpha channel in an excel workbook fail to load.
+
+|====
+
+[[Ref_24_2]]
+== 24.2 (2024 Release)
+
+=== .NET 9 support
+
+As of version 2024.2, the Ultimate UI for Windows Forms toolset supports .NET 9. For more information on .NET 9 please refer to link:https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview[this article on Microsoft's site].
+
+With this release and per the link:https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core[Microsoft .NET lifecycle], we no longer support .NET 3.1, .NET 5, or .NET 7.
+
+[[BC_24_2]]
+==== Breaking Change
+
+With the release of .NET 9, the Binary Formatter used by many save and load methods in the Ultimate UI for Windows Forms toolset has been removed by Microsoft. For more information on this removal and resolutions to it, link:binary-formatter-net-9.html[see this topic].
+
+[[Ref_24_1_57]]
+== 24.1.57 (September 2024)
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+|Bug Number|Control|Description
+
+|`28019`
+|General
+|Window sizing issues clipping text and options
+
+|`28839`
+|UltraSpreadsheet
+|Cell value is not recalculated when a cell which is in a referenced range in a formula is updated
+
+|`29794`
+|UltraDataChart
+|When the UltraDataChart is placed in a Form that is shown by ShowDialog(), closing it and the parent Form causes an ArgumentException
+
+|`31121`
+|UltraTextEditor
+|Buttons of UltraTextEditor are duplicating when the control is extended
+
+|`31405`
+|UltraValidator
+|NullReferenceException occurs at line 440
+
+|`31689`
+|UltraGeographicMap
+|Map is displayed as blank after another map instance is disposed
+
+|`32546`
+|UltraDataSource
+|Key Already Exists error when changing a column key at run time
+
+|`32873`
+|UltraDataChart
+|Chart stops refreshing during real-time data update
+
+|====
+
+
+[[Ref_24_1_38]]
+== 24.1.38 (August 2024)
+
+=== {DataPieChartName}
+
+The link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] is a new component that renders a pie chart. This component works similarly to the link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}], in that it will automatically detect the properties on your underlying data model while allowing selection, highlighting, animation and legend support via the ItemLegend component.
+
+The full documentation for the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] can be found using the link below:
+
+- link:data-pie-chart.html[{DataPieChartName}].
+
+=== Data Legend & Data Tooltip Grouping
+
+New link:{DataChartLink}.{DataChartName}.html[{DataChartName}] grouping feature added. The property `GroupRowVisible` toggles grouping with each series opting in can assign group text via the `DataLegendGroup` property. If the same value is applied to more than one series then they will appear grouped. Useful for large datasets that need to be categorized and organized for all users.
+
+=== Chart Selection
+
+New series selection. This is adopted broadly across all category, financial and radial series for link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}] and link:{DataChartLink}.{DataChartName}.html[{DataChartName}]. Series can be clicked and shown a different color, brightened or faded, and focus outlines. The colors can be modified via the `SelectionBrush` and FocusBrush` properties. Manage which items are effected through individual series or entire data item. Multiple series and markers are supported. Useful for illustrating various differences or similarities between values of a partcular dataitem. Also  `SelectedSeriesItemsChanged` event and `SelectedSeriesItems` are available for additional help to build out robust business requirements surrouding other actions that can take place within an application such as a popup or other screen with data analysis based on the selection. In addition, you can read the selected items via the `SelectedSeriesItems` collection.
+
+=== Proportional Category Angle Axis
+
+New axes for the Radial Pie Series in the link:{DataChartLink}.{DataChartName}.html[{DataChartName}], to enable creating pie charts in the allowing robust visualizations using all the added power of the data chart.
+
+[[BC_24_1_13]]
+== Breaking Changes
+
+=== Radial/Polar series
+The plot area for polar and radial series is now expanded to fill the entire chart space and is no longer forced to be square, this allows for labels to expand into the bleed area.
+
+[[Ref_23_2_180]]
+== 23.2.180 (June 2024)
+
+[options="header", cols="a,a,a"]
+|====
+|Bug Number|Control|Description
+
+|`25709`
+|UltraGrid
+|Save column filter to XML not working
+
+|`27836`
+|UltraGrid
+|Not able to type Euro sign in the 1st time
+
+|`28405`
+|Excel Library
+|Loading an Excel with Hidden formula made formula visible
+
+|`28839`
+|UltraSpreadsheet
+|Cell value is not recalculated when a cell which is in a referenced range in a formula is updated
+
+|`29736`
+|UltraToolbarsManager
+|UltraToolbarsManager designers issue with some specific scenarios
+
+|`29793`
+|UltraDataChart
+|Calling Reset() on a  series prevents the ability to show tooltips even if you set ShowDefaultTooltip back to true
+
+|`29794`
+|UltraDataChart
+|When the UltraDataChart is placed in a Form that is shown by ShowDialog(), closing it and the parent Form causes an ArgumentException
+
+|`30078`
+|UltraTabControl
+|NotificationBadgeText is not displayed on a tab header if UltraTabControl.Style is set to StateButtons
+
+|`30345`
+|UltraGrid
+|Rows.VisibleRowCount returns 1 when all rows are filtered out
+
+|`31103`
+|UltraToolbarsManager
+|In .net 8 application cannot Insert New Tool in PopupMenu (File Menu) when setting FileMenuStyle to ApplicationMenu2010
+
+|`31185`
+|UltraGrid
+|Massive difference when dropping the grid to the designers 
+
+|`31200`
+|UltraGrid
+|UltraGrid export to Excel showing up hidden cell and not all columns are visible
+
+|`31203`
+|UltraDataChart
+|Null Reference Exception occurs when setting the Brush of a series to a LinearGradientBrush
+
+|`31701`
+|UltraDataChart
+|System.InvalidOperationException occurs when opening and closing a Form with a chart tooltip
+
+|====
+
+[[Ref_23_2_131]]
+== 23.2.131 April Release
+
+=== Funnel Chart Highlighting
+
+As of the 23.2 April release, the link:{FunnelChartLink}.{FunnelChartName}.html[{FunnelChartName}] has a highlighting overlay. It exposes this overlay through multiple highlighting properties, namely `HighlightedItemsSource`, `HighlightValueDisplayMode`, `HighlightedValueMemberPath`, and `HighlightingOpacity`.
+
+When the `HighlightValueDisplayMode` is set to `Overlay`, this works in tandem with the `HighlightedItemsSource` and `HighlightedValueMemberPath` to provide a highlighted overlay the displays the difference between the values in the chart's `ItemsSource` and the `HighlightedItemsSource`. You can control the opacity of the highlight overlay with the `HighlightingOpacity` property.
+
+=== Gauge Highlighting Features
+
+The link:{RadialGaugeLink}.{RadialGaugeName}.html[{RadialGaugeName}], link:{LinearGaugeLink}.{LinearGaugeName}.html[{LinearGaugeName}], and link:{BulletGraphLink}.{BulletGraphName}.html[{BulletGraphName}] now expose `HighlightValue` and `HighlightValueDisplayMode` properties.
+
+In the `{RadialGaugeName}` and `{LinearGaugeName}`, when provided a value and a `HighlightValueDisplayMode` of `Overlay`, this will make the main needle appear faded and an additional needle will appear.
+
+In the `{BulletGraphName}`, the performance bar will now reflect a difference between the value and the `HighlightValue` when the `HighlightValueDisplayMode` is set to `Overlay`. The highlighted value will show a filtered/subset measured percentage as a filled-in color while the remaining bar's appearance will be faded to the assigned value.
+
+=== Radial Chart Label Mode
+
+The `CategoryAngleAxis` for the link:{DataChartLink}.{DataChartName}.html[{DataChartName}] now exposes a `LabelMode` property that allows you to further configure the location of the labels. This allows you to toggle between the default mode by selecting the `Center` enum, or use the new mode, `ClosestPoint`, which will bring the labels closer to the circular plot area.
+
+=== Radial Gauge Optical Scaling
+
+The link:{RadialGaugeLink}.{RadialGaugeName}.html[{RadialGaugeName}] now has the ability to change its scaling for its labels, subtitle and title. This is done by setting the `OpticalScalingEnabled` property to true. Then, you can set the `OpticalScalingSize` which manages the size at which labels have 100% optical scaling. Essentially, labels will have larger fonts when the gauge's size is larger.
+
+For example, labels will have a 200% larger font size when this property is set to 500 and the gauge size is 1000.
+
+=== Radial Gauge Title and Subtitle
+
+New title and subtitle properties for the link:{RadialGaugeLink}.{RadialGaugeName}.html[{RadialGaugeName}] are now available. `TitleText` and `SubtitleText` will show the corresponding title near the bottom the gauge. In addition, various title and subtitle font properties were added such as `TitleFontSize`, `TitleFontFamily`, `TitleFontStyle`, `TitleFontWeight` and `TitleExtent`. Finally, the new `TitleDisplaysValue` will allow the value to correspond with the needle's position.  
+
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+|Bug Number|Control|Description
+
+|`28442`
+|UltraComboEditor
+|Hidden items in UltraComboEditor using Arial font
+
+|`28521`
+|General
+|Source link is incorrectly in assemblies when compiled with the latest .NET SDK.
+
+|`29794`
+|UltraDataChart
+|When the UltraDataChart is placed in a Form that is shown by ShowDialog(), closing it and the parent Form causes an ArgumentException.
+
+|`30270`
+|UltraSpreadsheet
+|Copying a cell that has a formula referencing another cell in the same workbook does not paste properly in the UltraSpreadsheet.
+
+|`274447`
+|Excel Library
+|Auto filter is applied automatically after loading .xlsm Excel file.
+
+|====
+
+[[Ref_23_2]
+== 23.2 (2023 Release)
+
+=== .NET 8.0 support
+
+As of version 2023.2, the Ultimate UI for WPF toolset supports .NET 8. For more information on .NET 8 please refer to link:
+https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8[this article on Microsoft's site].
+
+=== Chart Highlight Filter
+
+The link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}] and link:{DataChartLink}.{DataChartName}.html[{DataChartName}] now expose a way to highlight and animate in and out of a subset of data. The display of this highlight depends on the series type. For column and area series, the subset will be shown on top of the total set of data where the subset will be colored by the actual brush of the series, and the total set will have a reduced opacity. For line series, the subset will be shown as a dotted line.
+
+image:images/chart-highlight-filter.png[]
+
+This feature includes a new filter syntax that is OData-like that you can use with the link:{CategoryChartLink}.{CategoryChartName}.html[{CategoryChartName}].
+
+The following documentation describes the various ways that you can apply the highlight filter to the chart controls:
+
+- link:datachart-highlight-filter.html[{DataChartName} Highlight Filter]
+- link:categorychart-highlight-filter.html[{CategoryChartName} Highlight Filter]

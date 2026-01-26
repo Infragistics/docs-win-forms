@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-create-a-control-container-group",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{FA9BFFC8-27BB-44CD-A335-3B7D208CE2D1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールコンテナ Group の作成
+
+WinExplorerBar コントロールは、通常pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[グループ]"] を構成するpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[項目]"] の代わりに Windows Forms コントロールの使用をサポートします。グループの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~style.html[Style]"]  プロパティを ControlContainer に設定すると、そのグループは WinForms コントロールをホストできるようになります。このスタイルを選択した場合、UltraWinExplorerBar は子 ControlContainer コントロールを自動的に作成し、グループの領域全体を埋めるように ControlContainer コントロールを配置します。グループ内の既存の項目はすべて、このコンテナ コントロールの背後に完全に隠れてしまうため、アクセスできなくなります。
+
+UltraWinExplorerBar のグループでコントロールをセットアップする最も簡単な方法は、デザインタイムにグループを作成し、Windows Formsの場合と同様に、Visual Studio のツールボックスからそのグループの中に直接コントロールを配置することです。
+
+デザインタイムにコントロール コンテナ グループをセットアップする手順の簡単な要約を次に示します（デザインタイムにグループを追加する方法の詳細な説明は、 link:winexplorerbar-add-groups-and-items-at-design-time.html[「デザインタイムにグループと項目を追加」]を参照してください。）
+
+[start=1]
+. Visual Studio で新しい Windows Application プロジェクトを作成します。
+[start=2]
+. UltraWinExplorerBar を含む「ツールボックス」タブを選択します（ツールボックスに UltraWinExplorerBar がない場合は、ツールボックスにコントロールを追加します）。ツールボックスの項目をダブルクリックして、フォームにコントロールを追加します。
+[start=3]
+. コントロールのコンテキスト メニューを表示して [UltraExplorerBar デザイナ...] を選択するか、またはエレメントを選択してプロパティ シートの下部ペインにある [UltraExplorerBar デザイナ...] リンクをクリックします。[UltraExplorerBar デザイナ] ユーティリティが表示されます。[グループと項目] タブがすでに選択されています。選択されていない場合は選択してください。
+[start=4]
+. [グループの追加] ボタンをクリックし、エレメントに新しいグループを追加します。新しく追加したグループのプロパティがダイアログの右側に表示されます。
+[start=5]
+. プロパティ ペインの Settings プロパティをダブルクリックして展開します。Style プロパティが表示されるまで下にスクロールします。
+[start=6]
+. Style プロパティをクリックして選択し、使用可能なオプションのリストから ControlContainer を選択します。
+
+image::images\WinExplorerBar_Creating_a_Control_Container_Group_01.png[]
+
+[start=7]
+. [閉じる] をクリックしてダイアログを閉じ、変更を適用します。グループ ヘッダが表示され、コンテナ コントロール領域がコントロールに追加されます。
+[start=8]
+. グループ ヘッダの真下のコントロール コンテナ領域をクリックします。コントロール コンテナの範囲を示す境界線が表示されます。この境界線を下端からサイズ変更することで、コントロール領域のサイズを変更できます。
+[start=9]
+. テキスト ボックスなどの WinForms コントロールをツールボックスから選択します。コントロール コンテナ領域の中にコントロールを描画します。コントロールを描画したら、そのコントロールの境界線がハイライト表示され、コントロールのプロパティが変更可能になります。コントロール コンテナの範囲内でコントロールをドラッグしたり、サイズ変更したりすることもできます。
+[start=10]
+. グループ ヘッダをクリックします。グループが縮小され、配置したコントロールが非表示になります。
+
+ランタイムにコントロールをグループのコンテナ コントロールに追加することもできます。そのためには、グループのコンテナ コントロールを取得してから、コントロールの親をコンテナに変更する必要があります。次のコードはこのプロセスを示しています。ここでは、コントロール内に、Style が ContainerControl に設定されたグループがひとつあり、TextBox1 という名前のテキスト ボックスがフォーム上にすでに存在しているとします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub CreatingaControlContainerGroup_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.TextBox1.Parent = Me.UltraExplorerBar1.Groups(0).Container
+	' コントロールがコンテナの範囲内に表示されるように、 
+	' コントロールの位置を変更します。
+	Me.TextBox1.Location = New Point(0, 0)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void CreatingaControlContainerGroup_Load(object sender, System.EventArgs e)
+{
+	this.textBox1.Parent = this.ultraExplorerBar1.Groups[0].Container;
+	// コントロールがコンテナの範囲内に表示されるように、 
+	// コントロールの位置を変更します。
+	this.textBox1.Location = new Point(0, 0);
+}
+----
+
+image::images\WinExplorerBar_Create_a_Control_Container_Group_01.png[]
+
+同様のプロセスに従って、コントロールをグループに追加する前にコードによってコントロールを作成できます。こうすれば、テキスト ボックスをフォームに配置する必要がなくなります。

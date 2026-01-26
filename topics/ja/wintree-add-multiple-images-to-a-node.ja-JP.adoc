@@ -1,0 +1,87 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-add-multiple-images-to-a-node",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{B51DA64C-6BC3-4122-86C7-BB384228B805}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードに複数の画像を追加する
+
+このトピックでは、ノードに複数のイメージ画像を追加する方法について説明します。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~leftimages.html[LeftImages]"]  コレクションを使用するとノード テキストの左にイメージを追加でき、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~rightimages.html[RightImages]"]  コレクションを使用すると右に追加できます。
+
+これらのイメージ コレクションは、ノードの外観を構成する通常のノード イメージへの追加となります。
+
+ImageList コントロール有り/無しで行うことができます。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+----
+
+[start=2]
+. ImageList コントロールを使用してさまざまなイメージを格納する場合は、フォームにそのコントロールを追加します。任意の数のイメージを使用できますが、ここでは少なくとも 1 つのイメージを扱うものとします。
+[start=3]
+. 次に、WinTree に ImageList を接続する必要があります。
+
+このためにはフォーム上で pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree.html[UltraTree]"]  コントロールを選択して、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~imagelist.html[ImageList]"] プロパティを設定します。
+
+リストをドロップ ダウンして、適切な ImageList コントロールを選択します。
+[start=4]
+. ノードにイメージを追加する前に、目的のノードへの参照が必要です。これにはいくつかの方法があります。このトピックでは、ツリーの最初のノードにイメージを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub AddMultipleImagestoaNode_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim aNode As UltraTreeNode
+	aNode = UltraTree1.Nodes(0)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void AddMultipleImagestoaNode_Load(object sender, System.EventArgs e)
+{
+	UltraTreeNode aNode;
+	aNode = ultraTree1.Nodes[0];
+}
+----
+
+[start=5]
+. テキストの左でノードにイメージを追加するには、LeftImages コレクションにそのイメージを追加します。このコードにある 0 という数字は、ImageList におけるイメージのインデックスです。テキストの右でノードにイメージを追加するには、RightImages コレクションにそのイメージを追加します。
+
+*Visual Basic の場合：*
+
+----
+aNode.LeftImages.Add(0)
+aNode.RightImages.Add(0)
+----
+
+*C# の場合：*
+
+----
+aNode.LeftImages.Add(0);
+aNode.RightImages.Add(0);
+----
+
+[start=6]
+. LeftImages または RightImages コレクションに好きなだけのイメージを追加することができます。イメージは、コレクションと同じ順序でノードに表示されます。

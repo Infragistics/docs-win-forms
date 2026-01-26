@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-inserting-a-node-at-a-specific-index",
+    "controlName": ["WinTree"],
+    "tags": ["Events","How Do I"],
+    "guid": "{A953051F-2867-4504-B20D-850A919C349E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 特定のインデックスにノードを挿入する
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[TreeNodesCollection]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection~insert.html[Insert]"]  メソッドは特定のインデックス位置にノードを挿入します。
+
+デフォルトで、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[UltraTreeNodes]"]  コレクションの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection~add.html[Add]"]  メソッドはコレクションの最後にノードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+' 新しいノードを宣言します。 
+Dim node As New UltraTreeNode("insertedNode", "InsertedNode")
+'インデックス位置 1 に新しいノードを挿入します。この事例では、2 つのノードはそれぞれインデックス位置 0 と 1 にすでに存在しています。 
+Me.ultraTree1.Nodes.Insert(1, node)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+// 新しいノードを宣言します。
+UltraTreeNode node = new UltraTreeNode("insertedNode", "InsertedNode");
+//インデックス位置 1 に新しいノードを挿入します。この事例では、2 つのノードはそれぞれインデックス位置 0 と 1 にすでに存在しています。
+this.ultraTree1.Nodes.Insert(1, node);
+----

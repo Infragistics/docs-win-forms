@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-a-tool-to-a-ribbon-group",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{EF3A4B8E-F01A-4F1D-BCBF-4FA58C17B07E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リボン グループにツールを追加
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.comにお問い合わせください。
+====
+
+リボンの構造はタブを作成することで構築され、それらのタブ内にグループを配置し、そしてグループ内にツールを配置します。以下の図は、この構造的な関係を示しています。
+
+image::images/WinToolbarsManager_Add_a_Tab_to_a_Ribbon_01.png[リボン オブジェクト関係の画像]
+
+このトピックは、[リボン] グループにツールを追加する方法を説明します。このトピックは、リボンにタブが既に存在し、そしてそのタブにグループが存在することを想定しています。そうでなければ、詳細は link:wintoolbarsmanager-add-a-tab-to-the-ribbon.html[「リボンにタブを追加」]および link:wintoolbarsmanager-add-a-group-to-a-ribbon-tab.html[「リボン タブにグループを追加」]を参照してください。
+
+デザイン タイムまたはラン タイムに [リボン] グループにツールを追加できます。デザイン タイムには、WinToolbarsManager コンポーネントがコンポーネント トレイで選択され、[リボンを表示] ボタンがクリックされていることを確認してください。[リボン] タブおよびグループを既にもっている場合、[新しいツールを挿入] ボタンが表示されます。それをクリックしてください。新しいポップアップ メニューが表示され、新しいツールまたは既存のツールを挿入することができます。あるいは、以下のコードを FormLoad イベントに追加して新しいツールを [リボン] タブ内の [リボン] グループに追加できます。
+
+image::images/WinToolbarsManager_Add_a_Tool_to_a_Ribbon_Group_02.png[リボン オブジェクト関係の画像]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+' タブを作成してリボンに追加します。
+Dim homeTab As New RibbonTab("Home")
+Me.UltraToolbarsManager1.Ribbon.Tabs.Add(homeTab)
+' グループを作成してタブに追加します。
+Dim fontGroup As New RibbonGroup("Font")
+Me.UltraToolbarsManager1.Ribbon.Tabs("Home").Groups.Add(fontGroup)
+' ドロップダウン フォント リストを持つツールを作成します。
+Dim fontFaceTool As New FontListTool("FontFace")
+' リボンに追加する前に、メイン Tools コレクションに
+' ツールを追加する必要があります。
+Me.UltraToolbarsManager1.Tools.Add(fontFaceTool)
+' [リボン] タブにツール、そして上記で作成したグループを追加します。
+' Ribbon グループへのツールの追加は、標準のツールバー
+' に追加する手順と似ています。
+fontGroup.Tools.AddTool(fontFaceTool.Key, False)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+// タブを作成してリボンに追加します。
+RibbonTab homeTab = new RibbonTab("Home");
+this.ultraToolbarsManager1.Ribbon.Tabs.Add(homeTab);
+// グループを作成してタブに追加します。
+RibbonGroup fontGroup = new RibbonGroup("Font");
+this.ultraToolbarsManager1.Ribbon.Tabs["Home"].Groups.Add(fontGroup);
+// ドロップダウン フォント リストを持つツールを作成します。
+FontListTool fontFaceTool = new FontListTool("FontFace");
+// リボンに追加する前に、メイン Tools コレクションに
+// ツールを追加する必要があります。
+this.ultraToolbarsManager1.Tools.Add(fontFaceTool);
+// [リボン] タブにツール、そして上記で作成したグループを追加します。
+// Ribbon グループへのツールの追加は、標準のツールバー
+// に追加する手順と似ています。
+fontGroup.Tools.AddTool(fontFaceTool.Key,  false);
+----

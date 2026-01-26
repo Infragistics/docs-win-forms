@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-manage-settings-of-toolbars-and-menus",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{F9EA1CDB-1701-46A4-8A6C-D35F1EB6B8DD}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーとメニューの設定管理
+
+WinToolbarsManager の Toolbar オブジェクトと PopupMenu オブジェクトのプロパティには、すべてのツールバーおよびメニューに作用するものと、特定のツールバーおよびメニューだけに作用するものがあります。
+
+このトピックでは、フォームはすでに WinToolbarsManager があり 2 つの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[Toolbars]"]  が追加されており、フォームに表示されていることを前提とします。さらに、2 番目のツールバーに pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbase~key.html[Key]"]  PopupMenuTool2 とともに pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]  が存在していることも必要です。

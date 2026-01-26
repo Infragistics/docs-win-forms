@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2006-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0CDED09E-9B08-4441-A3D4-ADAE120F44ED}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2006 Volume 2 の新機能
+
+以下に、2006 Volume 2 リリースで追加または強化されたコントロール/コンポーネントをリストアップします。以下のリンクをクリックすると、各コントロール/コンポーネントの機能の説明を読むことができます。
+
+* link:win-valuelist-object-whats-new-2006-2.html[ValueList オブジェクト]
+* link:win-application-styling-whats-new-20062.html[アプリケーション スタイリング]
+* link:win-migrating-to-2006-2-whats-new-2006-2.html[2006.2 への移行]
+* link:win-project-upgrade-utility-whats-new-2006-2.html[プロジェクト アップグレード ユーティリティ]
+* link:winchart-whats-new-2006-2.html[WinChart]
+* link:winspellchecker-whats-new-20062.html[WinSpellChecker]

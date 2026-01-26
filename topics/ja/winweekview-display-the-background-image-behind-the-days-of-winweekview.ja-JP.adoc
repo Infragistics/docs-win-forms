@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "winweekview-display-the-background-image-behind-the-days-of-winweekview",
+    "controlName": ["WinWeekView"],
+    "tags": ["Styling"],
+    "guid": "{D8E0FA69-FD8D-47A0-838F-ABF5D97578A4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinWeekView の日付の背後での背景イメージの表示
+
+次の例は、WinWeekView の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook.html[CalendarLook]"]  オブジェクトとアルファブレンディング機能を使用して、日付の「背後」に pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultraweekview.html[UltraWeekView の]"]  pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~imagebackground.html[ImageBackground]"]  を表示する方法を示しています。これはたとえば、エンド ユーザーの操作の邪魔にならないようにコントロールに企業ロゴを表示するといった場合に使用できます。
+
+[start=1]
+. UltraWeekView の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearance]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraWeekView1.Appearance.ImageBackground = _
+  Image.FromFile("Program Dependent Files\Sunset.jpg")
+----
+
+*C# の場合：*
+
+----
+this.ultraWeekView1.Appearance.ImageBackground =  
+  Image.FromFile(@"Program Dependent Files\Sunset.jpg");
+----
+
+[start=2]
+. UltraWeekView の CalendarLook の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~dayappearance.html[DayAppearance]"]  を半透明に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraWeekView1.CalendarLook.DayAppearance.AlphaLevel = 128
+----
+
+*C# の場合：*
+
+----
+this.ultraWeekView1.CalendarLook.DayAppearance.AlphaLevel = 128;
+----
+
+[start=3]
+. UltraWeekView の CalendarLook の DayAppearance の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~backcoloralpha.html[BackColorAlpha]"]  を、前のステップで指定した AlphaLevel を使用するように設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraWeekView1.CalendarLook.DayAppearance.BackColorAlpha = _
+  Infragistics.Win.Alpha.UseAlphaLevel
+----
+
+*C# の場合：*
+
+----
+this.ultraWeekView1.CalendarLook.DayAppearance.BackColorAlpha = 
+  Infragistics.Win.Alpha.UseAlphaLevel;
+----
+
+[start=4]
+. UltraWeekView の DayAppearance は WeekAppearance よりも上位層にあるため、ImageBackgroundが表示されるように、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarlook~weekappearance.html[WeekAppearance]"]  の BackColorAlpha を透明に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraWeekView1.CalendarLook.WeekAppearance.BackColorAlpha = _
+  Infragistics.Win.Alpha.Transparent
+----
+
+*C# の場合：*
+
+----
+this.ultraWeekView1.CalendarLook.WeekAppearance.BackColorAlpha = 
+  Infragistics.Win.Alpha.Transparent;
+----

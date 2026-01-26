@@ -1,0 +1,175 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-determining-which-band-the-user-clicked",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{74414BF2-D31C-48B5-93E2-52066ED7B140}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ユーザがクリックしたバンドを決定する
+
+== バックグラウンド
+
+WinGrid コントロールで作業をするとき、マウスの X、Y 座標から Band を特定したい場合があります。これは、マウスの位置から UIElement へのオブジェクト参照を取得し、さらにこの UIElement オブジェクトから他のBandに付属するオブジェクト（Row や Column）への参照を取得し、その UIElement オブジェクトの .Band.Index プロパティを取得することにより可能です。
+
+== 質問
+
+* ユーザーがどのバンドをクリックしたかを判断するにはどうすればいいですか?
+
+== 解決策
+
+UltraWinGrid の UIElementFromPoint メソッドを使用してマウス ポインタ下の UIElement を参照したオブジェクトを取得します。次にこの UIElement を使用してバンドと関連付けられているオブジェクトを参照しているオブジェクトを取得します。次に最終的なオブジェクト参照がバンドをポイントします。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトはバンドに関連付けがあるかどうかを確認するために、開発者にマウスをグリッドの各種エレメントの上を移動することを許可します。行オブジェクトと列オブジェクトはバンド関連付けのためクエリーされます。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Determining_Which_Band_the_User_Clicked_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベント内のコードは両方のバンドのバンド ヘッダをオンにします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' バンド ヘッダをオンにします
+	e.Layout.Bands(0).HeaderVisible = True
+	e.Layout.Bands(1).HeaderVisible = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// バンド ヘッダをオンにします
+	e.Layout.Bands[0].HeaderVisible = true;
+	e.Layout.Bands[1].HeaderVisible = true;
+}
+----
+
+* UltraGrid1.InitializeRow - InitializeRow イベント内のコードはバンド 0 の行を展開します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' バンド 0 の行を展開します
+	If e.Row.Band.Index = 0 Then
+		e.Row.ExpandAll()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// バンド 0 の行を展開します
+	if(e.Row.Band.Index == 0)
+		e.Row.ExpandAll();
+}
+----
+
+* UltraGrid1.MouseMove - MouseMove イベント内のコードは現在マウスのある位置から UIElement へのオブジェクト参照を取得し、Row オブジェクトと Column オブジェクトを探索し、見つかった場合はそれぞれのバンドへの参照を取得し、最終的にバンド インデックスを表示するか TextBox にメッセージを表示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_MouseMove(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) _
+  Handles UltraGrid1.MouseMove
+	' UIElement への参照を宣言して取得します。
+	Dim aUIElement As UIElement
+	aUIElement = Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+	If aUIElement Is Nothing Then Exit Sub
+	Dim aBand As UltraGridBand
+	' 行を探します。
+	Dim aRow As UltraGridRow
+	aRow = aUIElement.GetContext(GetType(UltraGridRow))
+	If Not aRow Is Nothing Then
+		aBand = Me.UltraGrid1.DisplayLayout.Bands(aRow.Band.Index)
+	End If
+	If aBand Is Nothing Then
+		' 列を探します。
+		Dim aColumn As UltraGridColumn
+		aColumn = aUIElement.GetContext(GetType(UltraGridColumn))
+        If Not aColumn Is Nothing Then
+			aBand = Me.UltraGrid1.DisplayLayout.Bands(aColumn.Band.Index)
+		End If
+	End If
+	’ バンドが見つかったらバンド インデックスを表示します。
+	If Not aBand Is Nothing Then
+		Me.UltraTextEditor1.Text = "Band(" & aBand.Index.ToString & ")"
+	Else
+		Me.UltraTextEditor1.Text = "$$*$$ no band associated with this location $$* $$"
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// UIElement への参照を宣言して取得します。
+	UIElement aUIElement = 
+		this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(new Point(e.X, e.Y));
+	if(aUIElement == null)
+		return;
+	UltraGridBand aBand = null;
+	// 行を探します。
+	UltraGridRow aRow = (UltraGridRow)aUIElement.GetContext(typeof(UltraGridRow));
+	if(aRow != null)
+		aBand = this.ultraGrid1.DisplayLayout.Bands[aRow.Band.Index];
+	if(aBand == null)
+	{
+		// 列を探します。	
+		UltraGridColumn aColumn = 
+		  (UltraGridColumn)aUIElement.GetContext(typeof(UltraGridColumn));
+		if(aColumn != null)
+			aBand = this.ultraGrid1.DisplayLayout.Bands[aColumn.Band.Index];
+	}
+	// バンドが見つかったらそのインデックスを表示します。
+	if(aBand != null)
+		this.ultraTextEditor1.Text = "Band(" + aBand.Index.ToString() + ")";
+	else
+		this.ultraTextEditor1.Text = "$$*$$ no band associcated with this location";
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトはマウスの現在の位置と関連しているバンドを参照しているオブジェクトを取得する方法を紹介しています。

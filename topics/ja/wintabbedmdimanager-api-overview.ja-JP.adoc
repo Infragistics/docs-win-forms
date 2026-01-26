@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-api-overview",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": ["API"],
+    "guid": "{48AEF668-3B0C-4642-A9AC-8FD5D236F037}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinTabbedMDIManager 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi_namespace.html[Infragistics.Win.UltraWinTabbedMdi]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager.html[UltraTabbedMdiManager]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabsettings.html[MdiTabSettings]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditab.html[MdiTab]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.mditabgroup.html[MdiTabGroup]"]

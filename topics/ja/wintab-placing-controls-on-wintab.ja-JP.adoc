@@ -1,0 +1,153 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-placing-controls-on-wintab",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{F837C38D-5D75-48CA-B518-5FCFE1A7EEE4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab でのコントロールの配置
+
+== バックグラウンド
+
+デザインタイムに WinTab または WinTabStrip エレメントのコンテナ領域にコントロールを直接配置して、Windows Formsの場合と同様にそれらのコントロールの位置やサイズを設定できます。エレメントのタブ領域はデザインタイムにアクティブになっており、タブ間の切り替えやコントロールの追加が簡単に行えます。
+
+WinTab エレメントでは、必要に応じてコントロールを共有コントロール ページに追加できます。このページに追加されたコントロールは、すべてのタブに表示されます。WinTabStrip エレメントでは、コントロールは常にタブ間で共有されます。
+
+== 質問
+
+* デザインタイムにコントロールを WinTab または WinTabStrip エレメントに追加するにはどうすればいいですか。
+
+== 解決策
+
+以下の手順に従って、タブとコントロールを WinTab または WinTabStrip エレメントに追加します。
+
+== サンプル プロジェクト
+
+[start=1]
+. 新しい Visual Basic Windows Application プロジェクトを作成します。単一の Windows Formsが表示されます。
+[start=2]
+. Visual Studio のツールボックスから UltraTabControl エレメントを選択して、フォームに追加します。
+
+タブ コントロールに 2 つの別々の部分があることがすぐにわかります。コントロールの上部はタブ ヘッダ領域です。ここにはタブが表示されます。この領域の下にあるのがコントロール領域で、初期状態では「共通コントロール ページ」と表示されています。この領域に格納されるコントロールはタブ間で共有されます。現在、コントロールにはタブがまだ存在しないため、この領域が表示されています。
+[start=3]
+. [共通コントロールページ] というキャプションをクリックします。すると、コントロールのハイライト表示が変わります。Visual Studio のプロパティ シート（まだ表示されていなければ [F4] キーを押して開きます）を見ると、現在のコントロールの名前が変更されたことがわかります。Tab エレメントが UltraTabControl1 という名前であれば、現在選択されたコントロールは UltraTabsharedControlsPage1 となります。
+
+これによってタブ ページの概念が導入されます。コントロールをホストするため、作成するタブにはそれぞれ固有のタブ ページが用意されます。タブ ページは、必要に応じて Tab エレメントにより自動的に作成および破棄される、特殊なコンテナ コントロールです。これらのコントロールは WinTab エレメントそのものから独立して存在しているわけではありませんが、あたかも独立しているかのようにアクセスできます。
+
+エレメントには、タブごとにページが用意されるほか、複数のタブに表示可能な共有コントロール用の単一のページも用意されています。現在表示、選択されているのは、このページです。
+[start=4]
+. タブ ヘッダ領域をクリックし、Tab エレメントそのものを再度選択します（プロパティ シートを表示している場合は、名前が変更されることがわかります）。次に、Tab エレメントをサイズ変更します。このとき、Tab エレメントがフォームの大部分を占めるようにしますが、フォーム上にもう 1 つ小さなコントロールを配置できるように下部にスペースを残しておきます。
+[start=5]
+. この時点では、コントロールにタブは 1 つもありません。コントロールのコンテキスト メニューを呼び出し、[タブの追加] を選択します。これにより、2 つの動作が発生します。まず、「tab1」というラベルのタブがタブ ヘッダ領域に表示されます。そして、共有コントロール ページ用のラベルが消えます。
+[start=6]
+. タブ ヘッダの下のコントロール領域をクリックします。プロパティ シートを見ると、「UltraTabPageControl1」という新しいエレメントが作成されたことがわかります。これが、新しいタブに対応するコントロール コンテナ ページになります。
+[start=7]
+. ツールボックスで、[Windows Forms] セクションを選択してから、Button コントロールをダブルクリックします。ボタンがフォームに直接追加されずに、選択したタブ コントロール ページに追加されることがわかります。同じ操作は、フォームの場合とまったく同様に、ボタン ツールをシングルクリックしてタブ上にボタンを描画することでも実現できます。
+[start=8]
+. コントロールのコンテキスト メニューを呼び出し、もう一度 [Add Tab] を選択します。今度は「tab2」がタブ ヘッダ領域に表示されることがわかります。
+[start=9]
+. 「tab2」ヘッダをクリックします。これにより、2 つの動作が発生します。まず、タブ 2 がアクティブになったことを示すようにタブの視覚的な外観が変更されます。そして、追加したボタンが消えます。
+
+[NOTE]
+====
+*注：* このとき、作成したタブはデザインタイムにアクティブであり、ユーザーがランタイムに操作するのとまったく同じように、ヘッダをクリックすることによってタブを切り替えることができます。また、コントロール領域を選択し、新しいタブ ページ「UltraTabPageControl2」が作成されたことを確認することもできます。
+====
+
+[start=10]
+. ツールボックスに戻り、TextBox ツールを選択します。TextBox ツールを Tab コントロールのコントロール領域にドラッグし、上部付近に配置します。
+[start=11]
+. これで、それぞれに異なるタイプのコントロールを持つ 2 つのタブができます。2 つのタブの切り替えはヘッダをクリックすることで簡単に実行できます。タブを選択するとそのコントロールが表示されることがわかります。
+
+しかし、最初にコントロールを作成したときに表示されていた共有コントロール ページはどうなったのでしょうか。共有コントロールページは引き続き存在していますが、その上を作成したタブが覆っているため見えなくなっています。再度表示するには、コントロールのコンテキスト メニューを呼び出し、[共通コントロールを表示] を選択します。すると、どちらのタブも選択されていないことを示すようにタブの外観が変更され、[共通コントロールページ] というキャプションが再び表示されます。
+[start=12]
+. ツールボックスに戻り、CheckBox コントロールを選択します。CheckBox コントロールを共有コントロール ページに追加し、下部付近に配置します。
+[start=13]
+. タブ ヘッダ領域でタブ 1 をクリックします。ボタンが再び表示されますが、チェックボックスもまだ表示されています。タブ 2 をクリックしてもチェックボックスは表示されたままであり、どちらのタブを選択しても表示されています。
+[start=14]
+. ここまで、デザインタイムにコントロールをタブに追加する方法を見てきました。ランタイムにも、少しのコードを使用するだけでコントロールを簡単に追加できます。
+
+ツールボックスに戻り、もう一度 Button コントロールを選択します。ただし、今度は Tab コントロールの下にあるフォーム上の空の領域に直接配置します。
+[start=15]
+. コントロールでタブ 1 を選択してから、Button1 コントロールをダブルクリックします。次のコードをボタンの Click イベントに入力します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Button1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles Button1.Click
+	Dim ctrlIndex As Integer
+	' コントロールを 1 番目のタブに追加します。
+	Me.UltraTabPageControl1.Controls.Add(Me.Button2)
+	' 追加したコントロールのコレクション内でのインデックスを返します。
+	ctrlIndex = Me.UltraTabPageControl1.Controls.GetChildIndex(Me.Button2)
+	' 新しく追加したコントロールの位置を設定します。
+	Me.UltraTabPageControl1.Controls(ctrlIndex).Location = New Point(10, 40)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void button1_Click(object sender, System.EventArgs e)
+{
+	// コントロールを 1 番目のタブに追加します。
+	this.ultraTabPageControl1.Controls.Add(this.button2);
+	// 追加したコントロールのコレクション内でのインデックスを返します。
+	int ctrlIndex = this.ultraTabPageControl1.Controls.GetChildIndex(this.button2);
+	// 新しく追加したコントロールの位置を設定します。
+	this.ultraTabPageControl1.Controls[ctrlIndex].Location = new Point(10, 40);
+}
+----
+
+[start=16]
+. Button2 をダブルクリックし、次のコードをそのボタンの Click イベントに入力します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Button2_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles Button2.Click
+	Dim TextBox2 As New TextBox()
+	Dim ctrlIndex As Integer
+	TextBox2.Text = "TextBox2"
+	Me.UltraTabPageControl1.Controls.Add(TextBox2)
+	ctrlIndex = Me.UltraTabPageControl1.Controls.GetChildIndex(TextBox2)
+	Me.UltraTabPageControl1.Controls(ctrlIndex).Location = New Point(10, 80)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void button2_Click(object sender, System.EventArgs e)
+{
+	TextBox TextBox2 = new TextBox();
+	TextBox2.Text = "TextBox2";
+	this.ultraTabPageControl1.Controls.Add(TextBox2);
+	int ctrlIndex = this.ultraTabPageControl1.Controls.GetChildIndex(TextBox2);
+	this.ultraTabPageControl1.Controls[ctrlIndex].Location = new Point(10, 80);
+}
+----
+
+[start=17]
+. プロジェクトを実行し、Button1 をクリックします。Button2 が、Button1 と同じタブの、指定した位置（コンテナからの相対的な位置）に移動します。この方法を使用して、アプリケーションにすでに存在するコントロールを取得し、その親を選択したタブに変更できます。
+
+image::images\WinTab_Placing_Controls_on_WinTab_01.png[]
+
+[start=18]
+. Button2 をクリックします。コード内で定義されたテキストボックス（TextBox2）が、同じタブ上の、Button2 の真下に表示されます。この方法を使用して、ランタイムに動的にコントロールを作成し、必要に応じてタブ上に配置できます。
+
+image::images\WinTab_Placing_Controls_on_WinTab_02.png[]
+
+作業が終わったら、プロジェクトを終了します。
+
+== まとめ
+
+この演習では、デザインタイムおよびランタイムにコントロールをタブ エレメントに追加する方法を示しました。タブ ページをコントロール コンテナとして使用してコントロールを保持する方法と、共有のコントロール コンテナを使用してコントロールを複数のタブに表示する方法を示しました。また、ランタイムにコントロールをタブに追加する方法を 2 通り示しました。

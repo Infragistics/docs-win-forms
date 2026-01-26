@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{102B96D0-8DF8-42B5-9416-5EA87052D114}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列の名前を示しています。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|LDR_UltraDataColumn_P_AllowDBNull
+|この列に null 値を格納できるかどうかを指定します。
+
+|LDR_UltraDataSource_P_About
+|バージョン情報
+
+|====

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlabel-about-winlabel",
+    "controlName": ["WinLabel"],
+    "tags": ["Getting Started"],
+    "guid": "{6DBFC388-CAF1-43C6-8E63-CA97CDE7F14D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinLabel について
+
+WinLabel エレメントは、基本的なラベル タイプのコントロールです。組み込みラベルに含まれる多くの機能（自動サイズ調整、ニーモニック、画像、およびテキスト）の他に、次の追加機能が提供されます。
+
+* 外観のサポート - アルファ ブレンディングやグラデーションなどを含め、外観が完全にサポートされます。
+* HotTracking - マウスがエレメントの上に来たときにラベルの外観を変更します。
+* BorderStyleInner/BorderStyleOuter - これら 2 つの境界線スタイルを使用することにより、境界線に対する付加的な効果（「浮き出し」など）を作成できます。InnerBorderPadding は、内側の境界線と外側の境界線の間に割り当てられたスペースを制御します。
+* ImageSize - ラベルに表示される画像のサイズを制御します。
+* WrapText - エレメントにテキスト全体を表示できない場合にテキストを折り返すかどうかを決定します。
+
+image::Images/WinMisc_Overview_13.png[]

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winflowlayoutmanager",
+    "controlName": [],
+    "tags": ["Getting Started","Layouts"],
+    "guid": "{F4BDF424-5C9C-4F9A-B903-0B107828FEF1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFlowLayoutManager
+
+以下のリンクをクリックすると、WinFlowLayoutManager コンポーネントに関する説明を読むことができます。
+
+* link:winflowlayoutmanager-about-winflowlayoutmanager.html[WinFlowLayoutManager について] -- WinFlowLayoutManager コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winflowlayoutmanager-smart-tag.html[WinFlowLayoutManager スマート タグ] -- WinFlowLayoutManager コンポーネントのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winflowlayoutmanager-aligning-controls-with-winflowlayoutmanager.html[WinFlowLayoutManager でコントロールを配置] -- WinFlowLayoutManager を使用して、フォーム上にコントロールを配置する方法を説明します。
+* link:winflowlayoutmanager-api-overview.html[API の概要] -- WinFlowLayoutManager コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

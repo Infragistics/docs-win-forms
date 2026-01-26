@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-use-the-click-to-add-indicator",
+    "controlName": ["WinSchedule"],
+    "tags": ["Appointments"],
+    "guid": "{DBB285DD-F419-4AFE-874F-06D70F8156FC}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T08:24:31Z"
+}
+|metadata|
+////
+
+= 追加インジケータにクリックを使用
+
+{ProductName} 2006 Volume 3 では、新しい pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.viewstyle.html[ViewStyle]"]  が WinCalendarLook: Office2007 に追加されました。ViewStyle が Office2007 に設定されるとデフォルトで有効となる機能のひとつは、Click to Add インジケータです。このインジケータは、WinDayView コントロールの TimeSlot または AllDayEvent 領域、または WinWeekView および WinMonthViewSingle コントロールの日領域にマウス ポインタをエンド ユーザーが重ねると表示されます。これは、予定ダイアログを起動せずに予定を追加するための方法を提供します。インジケータをクリックすると、新しい予定が追加され、編集モードになります。最初は、予定は件名がありません。したがって、エンド ユーザーは件名を提供せずに編集モード セッションを終了する、または、Escape キーを押してキャンセルすることでと、予定は Appointments コレクションから削除されます。
+
+Click to Add 機能は Outlook2007 の新しい機能であるので、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultradayview~showclicktoaddindicator.html[ShowClickToAddIndicator]"]  プロパティ（WinDayView、WinWeekView、および WinMonthViewSingle コントロール）を介して、ViewStyle プロパティのすべての設定の下で WinSchedule でサポートされます。プロパティのデフォルト値である Default は、関連する UltraCalendarLook の ViewStyle プロパティの現在の設定に適切な機能を有効または無効にします。ViewStyle が Office2007 に設定されている場合、この機能は有効になり、ViewStyle プロパティのすべての他の設定では、これは無効になります。ViewStyle プロパティの設定では、Click to Add 機能は、このプロパティの値を Ture または False に設定することで明示的にオンまたはオフにすることができます。
+
+以下のサンプル コードは、Click to Add インジケータを有効または無効にする方法を示しています。
+
+image::images/WinSchedule_Use_the_Click_to_Add_Indicator_01.png[Click to Add 機能の画像]
+
+*Visual Basic の場合：*
+
+----
+Dim enabled As Boolean = True
+If enabled Then
+    Me.ultraDayView1.ShowClickToAddIndicator = DefaultableBoolean.True
+Else
+    Me.ultraDayView1.ShowClickToAddIndicator = DefaultableBoolean.False
+End If
+----
+
+*C# の場合：*
+
+----
+bool enabled = true;
+if ( enabled )
+    this.ultraDayView1.ShowClickToAddIndicator = DefaultableBoolean.True;
+else
+    this.ultraDayView1.ShowClickToAddIndicator = DefaultableBoolean.False;
+----

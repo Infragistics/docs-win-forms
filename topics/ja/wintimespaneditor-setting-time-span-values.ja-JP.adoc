@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimespaneditor-setting-time-span-values",
+    "controlName": ["WinTimeSpanEditor"],
+    "tags": ["Editing","How Do I"],
+    "guid": "82f0e781-32b8-4f6c-8ed5-df10af110641",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T20:43:17.9823459Z"
+}
+|metadata|
+////
+
+= タイム スパン値を設定
+
+以下のコード例は、タイム スパン値の設定とフォーマッティングについて示します。TimeSpan プロパティを使用して特定のタイム スパンを設定できます。 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimespaneditor~minvalue.html[MinValue] プロパティと link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimespaneditor~maxvalue.html[MaxValue] プロパティを使用して最小値と最大値を TimeSpanEditor に対して設定できます。タイム スパン値は link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratimespaneditor~format.html[Format] プロパティを使用してフォーマットできます。
+
+*Visual Basic の場合：*
+
+----
+' ultraTimeSpanEditor の初期値を設定するためにタイム スパン値を作成します。
+Dim toStartWithValue As New TimeSpan(4, 0, 0, 0)
+' 最小および最大のタイム スパン値を作成します。
+Dim minValue As New TimeSpan(1, 0, 0, 0)
+Dim maxValue As New TimeSpan(20, 0, 0, 0)
+' 初期のタイム スパン値を設定します。
+Me.ultraTimeSpanEditor1.TimeSpan = toStartWithValue 
+' ultraTimeSpanEditor の最小および最大のタイム スパン値を作成します。
+Me.ultraTimeSpanEditor1.MinValue = minValue 
+Me.ultraTimeSpanEditor1.MaxValue = maxValue 
+' 時間の単位を日にちに設定します。
+Me.ultraTimeSpanEditor1.Format = TimeSpanFormat.Days 
+' 日数が 1 よりも大きい時に表示される文字列を設定します。
+Me.ultraTimeSpanEditor1.FormatInfo.DayDisplayStringPlural = "DAYS" 
+' スピン ボタンを表示しないでください。 
+' this.ultraTimeSpanEditor1.HasSpinButton = false;
+' ultraTimeSpanEditor 内の値が変わる時にイベントを発生させます。
+AddHandler Me.ultraTimeSpanEditor1.ValueChanged, AddressOf ultraTimeSpanEditor1_ValueChanged
+Private Sub ultraTimeSpanEditor1_ValueChanged(ByVal sender As Object, ByVal e As EventArgs)
+    ' TODO:変更される値の実装ロジック 
+End Sub
+----
+
+*C# の場合：*
+
+----
+// ultraTimeSpanEditor の初期値を設定するためにタイム スパン値を作成します。
+TimeSpan toStartWithValue = new TimeSpan(4, 0, 0, 0);
+// 最小および最大のタイム スパン値を作成します。
+TimeSpan minValue = new TimeSpan(1, 0, 0, 0);
+TimeSpan maxValue = new TimeSpan(20, 0, 0, 0);
+// 初期のタイム スパン値を設定します。
+this.ultraTimeSpanEditor1.TimeSpan = toStartWithValue;
+// ultraTimeSpanEditor の最小および最大のタイム スパン値を作成します。
+this.ultraTimeSpanEditor1.MinValue = minValue;
+this.ultraTimeSpanEditor1.MaxValue = maxValue;
+// 時間の単位を日にちに設定します。
+this.ultraTimeSpanEditor1.Format = TimeSpanFormat.Days;
+// 日数が 1 よりも大きい時に表示される文字列を設定します。
+this.ultraTimeSpanEditor1.FormatInfo.DayDisplayStringPlural = "DAYS";
+// スピン ボタンを表示しないでください。
+// this.ultraTimeSpanEditor1.HasSpinButton = false;
+// ultraTimeSpanEditor 内の値が変わる時にイベントを発生させます。
+this.ultraTimeSpanEditor1.ValueChanged += new EventHandler(ultraTimeSpanEditor1_ValueChanged);
+void ultraTimeSpanEditor1_ValueChanged(object sender, EventArgs e)
+{
+   // TODO:変更される値の実装ロジック
+}
+----

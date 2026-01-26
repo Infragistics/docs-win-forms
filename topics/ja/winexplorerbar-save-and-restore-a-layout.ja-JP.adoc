@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-save-and-restore-a-layout",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Layouts"],
+    "guid": "{3C36B64D-D769-4B21-A8B1-5F14C00771CC}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= レイアウトの保存とリストア
+
+WinExplorerBar エレメントのインタフェースの設定方法には、デザインタイムにプロパティ シートまたは UltraExplorerBar デザイナによって設定する方法と、ランタイムにコードによって各種プロパティを設定する方法があります。また、ユーザーがアプリケーションの実行中に、グループの追加や並べ替え、グループ間での項目のドラッグなどを行うことで、インタフェースをカスタマイズすることもできます。
+
+UltraWinExplorerBar コントロールの現在のレイアウトはいつでもファイルに保存でき、後で再ロードして復元できます。ランタイムにコントロールのレイアウトをストレージ ストリームに永続化し、そこから復元することも可能です。エレメントによって永続化されたレイアウトには、エレメントの各種 Settings オブジェクトによって維持されるすべてのプロパティ値が含まれます（Settings オブジェクトはエレメントで使用されるすべての pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance.html[Appearances]"]  をカプセル化します）。これには、エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[GroupSettings]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[ItemSettings]"]  プロパティ、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[Group]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup~settings.html[Settings]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup~itemsettings.html[ItemSettings]"]  プロパティ、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[Item]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem~settings.html[Settings]"]  プロパティを返すオブジェクトが含まれます。エレメントの Groups コレクション（およびその中にあるグループによってカプセル化されたすべての Item オブジェクト）も永続化されます。
+
+デザインタイムにレイアウトを保存するには、次の手順に従ってください。
+
+[start=1]
+. UltraWinExplorerBar エレメントを選択します。
+[start=2]
+. エレメントのコンテキスト メニューを表示して [レイアウトの保存...] を選択する、
+
+_または_ 
+
+$$.NET$$ プロパティシートの下部ペインにある [レイアウトの保存...] リンクをクリックします。
+
+[レイアウトの保存] ダイアログが表示されます。
+
+image::images\WinExplorerBar_Saving_and_Restoring_a_Layout_01.png[]
+
+[start=3]
+. レイアウト ファイルに使用する形式を選択します。ファイルはバイナリ形式または XML 形式で保存できます。バイナリ ファイル形式の方がサイズが小さくなりますが、用途が限定されます。 XML は汎用の形式ですが、一般にファイル サイズが大きくなります。
+[start=4]
+. 省略ボタン（...）をクリックしてレイアウト ファイルのファイル名を入力し、場所を選択します。ファイル名の拡張子は、[レイアウトのロード] ダイアログで選択したファイルのタイプによって決まります。ファイル名を入力したら、[保存] をクリックします。レイアウト情報を含む、指定したタイプのファイルが作成されます。
+
+デザインタイムに保存したレイアウトを復元するには、次の手順に従ってください。
+
+[start=1]
+. UltraWinExplorerBar エレメントを選択します。
+[start=2]
+. エレメントのコンテキスト メニューを表示して [レイアウトのロード...] を選択する、
+
+_または_ 
+
+$$.NET$$ プロパティ シートの下部ペインにある [レイアウトのロード...] リンクをクリックします。
+
+[レイアウトのロード] ダイアログが表示されます。
+[start=3]
+. ロードするレイアウト ファイルの形式を選択します。バイナリ形式または XML 形式のレイアウト ファイルを選択できます。
+[start=4]
+. 省略ボタン（...）をクリックしてレイアウト ファイルのファイル名を入力し、場所を選択します。ファイル名の拡張子は、[レイアウトのロード] ダイアログで選択したファイルのタイプによって決まります。ファイル名を入力したら、[保存] をクリックします。レイアウト情報を含む、指定したタイプのファイルが作成されます。
+
+ランタイムにレイアウトを保存するには、次の手順に従ってください。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSave_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnSave.Click
+	Me.UltraExplorerBar1.SaveAsXml("ExplorerBarLayoutFile.xml")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSave_Click(object sender, System.EventArgs e)
+{
+	this.ultraExplorerBar1.SaveAsXml("ExplorerBarLayoutFile.xml");
+}
+----
+
+ランタイムにレイアウトをロードするには、次の手順に従ってください。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnLoad_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnLoad.Click
+	Me.UltraExplorerBar1.LoadFromXml("ExplorerBarLayoutFile.xml")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnLoad_Click(object sender, System.EventArgs e)
+{
+	this.ultraExplorerBar1.LoadFromXml("ExplorerBarLayoutFile.xml");
+}
+----

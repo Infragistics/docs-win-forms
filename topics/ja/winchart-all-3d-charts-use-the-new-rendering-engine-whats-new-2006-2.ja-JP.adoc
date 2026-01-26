@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-all-3d-charts-use-the-new-rendering-engine-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{60A9470F-F272-42C4-B882-7422D51C9412}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= すべての立体チャートは新しいレンダリング エンジンを使用
+
+2006 Volume 1 リリースでは、 link:winchart-new-3d-chart-rendering-engine-whats-new-2006-1.html[新しい立体チャート レンダリング エンジン] を活用するように既存の立体チャートを再デザインするだけでなく、多数の新しい立体チャートを提供しました。
+
+本リリースでは、既存の立体チャートの再デザインが完了したので、すべての立体チャートは改善された立体レンダリング エンジンの能力を活用できるようになりました。今回大幅に改善された残りの立体チャートの画像サンプルを表示するには以下の各リンクをクリックしてください。
+
+* link:images/winchart-all-3d-charts-use-the-new-rendering-engine-whats-new-2006-2-03.png[エリア]
+* link:images/winchart-all-3d-charts-use-the-new-rendering-engine-whats-new-2006-2-04.png[ヒート マップ]
+* link:images/winchart-all-3d-charts-use-the-new-rendering-engine-whats-new-2006-2-05.png[折れ線]
+
+レンダリング品質の劇的な向上の例は、以下の立体折れ線グラフのスクリーンショットで示されています。左側はオリジナルの立体エンジンを使用してレンダリングされた折れ線グラフの例で、右側は新しい立体レンダリング エンジンを使用してレンダリングされた同じ折れ線グラフの例です。新しい立体チャート レンダリング エンジンでレンダリングされた、立体折れ線グラフのレンダリング品質と外観を見ると、陰と光の効果が大きく改善されていることを含み、大幅に改善されたことが分かります。
+
+image::Images/WinChart_All_3D_Charts_Use_the_New_Rendering_Engine_Whats_New_2006_2_01.png[]
+
+image::Images/WinChart_All_3D_Charts_Use_the_New_Rendering_Engine_Whats_New_2006_2_02.png[]
+
+== 関連トピック
+
+link:chart-chart-types.html[チャート タイプ]

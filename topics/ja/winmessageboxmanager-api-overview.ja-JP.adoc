@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "name": "winmessageboxmanager-api-overview",
+    "controlName": ["WinMessageBoxManager"],
+    "tags": ["API"],
+    "guid": "{FD5D2051-2C6B-4B3E-AB69-CE72D1444DF7}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。 また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。 このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+
+=== UltraMessageBox 名前空間:
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox_namespace.html[Infragistics.Win.UltraMessageBox 名前空間]
+
+=== キー クラス: 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxinfo.html[UltraMessageBoxInfo]
+
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultramessagebox.ultramessageboxmanager.html[UltraMessageBoxManager]
+

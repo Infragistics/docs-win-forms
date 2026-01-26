@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "winbutton-about-winbutton",
+    "controlName": ["WinButton"],
+    "tags": ["API","Validation"],
+    "guid": "{AC0D44ED-50FE-4DA8-B148-AD0AA9B015A1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinButton について
+
+UltraButton コントロールは、標準のボタン タイプのコントロールです。インボックス ボタンと同様に、UltraButton はフォームの AcceptButton または CancelButton として使用できます。UltraButton には次のような機能もあります。
+
+* AutoSize - ボタンがその内容に基づいて自動的にサイズ調整されるかどうかを決定します。
+* Windows XP テーマのサポート - Windows XP で実行するときに、XP テーマを使用して描画します。
+* ShapeImage - 不規則な形のボタンの作成に使用されます。
+* AutoRepeat - ボタンが押されている間、クリック イベントを繰り返し発生させます。
+* HotTracking - マウスがボタンの上に来たときにボタンの外観を自動的に変更します。
+* PressedAppearance - ボタンが押されたときのボタンの表示を制御する、追加の外観。
+* ImageSize - ボタンに表示されるイメージのサイズを制御します。
+* AcceptsFocus - ボタンがフォーカスを受け取らないようにします。
+* ShowFocusRect - コントロールにフォーカスがあるときに表示されるフォーカス四角形を非表示にします。
+* UseMnemonic - テキスト内のアンパサンドがニーモニック文字として解釈されるかどうかを決定します。
+* WrapText - コントロールにテキスト全体を表示できない場合にテキストを折り返すかどうかを決定します。
+* ShowOutline - ボタンがフォームのデフォルト ボタンである場合に、そのボタンの周囲に追加の境界線を描画するかどうかを決定します。
+
+image::Images/WinMisc_Overview_15.png[]

@@ -1,0 +1,77 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintouchprovider",
+    "controlName": [],
+    "tags": [],
+    "guid": "a424684a-65bf-467a-ba70-67e4945bb529",  
+    "buildFlags": [],
+    "createdOn": "2013-01-08T16:45:00.8716476Z"
+}
+|metadata|
+////
+
+= タッチ サポート
+
+=== はじめに
+
+このセクションは、タッチ可能なアプリケーションを開発するための機能について説明する特定なトピックへのリンクが含まれます。
+
+=== トピック
+
+このセクションには、タッチ サポート要素に関する詳細なトピックが含まれています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider-overview.html[WinTouchProvider の概要]
+|このトピックでは、Infragistics のタッチ対応のコントロールおよびコンポーネントについての概念を提供します。
+
+| link:touch-enabled-editor-controls.html[タッチ対応のエディター コントロールおよび要素]
+|このトピックでは、Infragistics のタッチ対応のエディターコントロールおよび要素について説明します。
+
+| link:touch-enabled-tab-controls.html[タッチ対応のタブ コントロールおよびコンポーネント]
+|このトピックでは、 _WinTab_ および _WinTabStrip_ 、 _WinTabbedMdiManager_ を含む、Infragistics タッチ対応の Tab コントロールおよびコンポーネントについて説明します。
+
+| link:touch-enabled-windesktopalert.html[タッチ対応の WinDesktopAlert]
+|このトピックでは、Infragistics のタッチ対応の _WinDesktopAlert™_ コントロールおよび要素について説明します。
+
+| link:touch-enabled-windockmanager.html[タッチ対応の WinDockManager]
+|このトピックでは、Infragistics のタッチ対応の _WinDockManager™_ コントロールおよび要素について説明します。
+
+| link:touch-enabled-winexplorerbar.html[タッチ対応の WinExplorerBar]
+|このトピックでは、Infragistics のタッチ対応の _WinExplorerBar™_ コントロールおよび要素について説明します。
+
+| link:touch-enabled-winganttview.html[タッチ対応の WinGanttView]
+|このトピックでは、Infragistics のタッチ対応の _WinGanttView™_ コントロールおよび要素について説明します。
+
+| link:touch-enabled-wingrid-control-elements.html[タッチ対応の WinGrid コントロール要素]
+|__ このトピックでは、Infragistics のタッチ対応の _WinGrid_ コントロール要素について説明します。
+
+| link:touch-enabled-winlistview-control.html[タッチ対応の WinListView コントロール]
+|このトピックでは、Infragistics のタッチ対応の _WinListView_ コントロール要素について説明します。
+
+| link:touch-enabled-winmessagebox.html[タッチ対応の WinMessageBox]
+|このトピックでは、Infragistics のタッチ対応の _WinMessageBox™_ コントロール要素について説明します。
+
+| link:touch-enabled-schedule-controls.html[タッチ対応の WinSchedule コントロール]
+|このトピックでは、Infragistics のタッチ対応の _WinSchedule™_ コントロール要素について説明します。
+
+| link:touch-enabled-wintilepanel.html[タッチ対応の WinTilePanel]
+|このトピックは、Infragistics のタッチ対応 _WinTilePanel™_ コントロール要素を紹介します。
+
+| link:touch-enabled-wintimelineview.html[タッチ対応の WinTimelineView]
+|このトピックでは、Infragistics のタッチ対応の _WinTimelineView™_ コントロール要素について説明します。
+
+| link:touch-enabled-wintoolbarsmanager-and-ribbon.html[タッチ対応の WinToolbarsManager および Ribbon]
+|このトピックでは、Infragistics のタッチ対応の _WinToolbarsManager™_ および _Ribbon_ コントロール要素について説明します。
+
+| link:touch-enabled-wintree-control.html[タッチ対応の WinTree コントロール]
+|このトピックでは、Infragistics のタッチ対応の _WinTree_ コントロール要素について説明します。
+
+| link:touch-gestures.html[タッチ ジェスチャ]
+|このグループのトピックは Infragistics タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+|====

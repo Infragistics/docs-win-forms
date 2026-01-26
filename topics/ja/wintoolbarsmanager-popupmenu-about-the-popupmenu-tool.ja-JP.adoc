@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupmenu-about-the-popupmenu-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{1EB7FEC4-B693-4762-A800-A1D321A75E94}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupMenu ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== PopupMenu
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopupMenuTool]"]
+
+派生元：Toolbase $$->$$ PopupToolBase $$->$$ TearawayToolBase
+
+説明：PopupMenu ツールを使用すると、ツールバーから、または別のメニューから（サブメニューとして）、あるいはデスクトップ上のどこからでも（コンテキスト メニューとして）、ツールのメニューを表示できます。オプションで、サイドストリップ付きのメニューを表示できます。サイドストリップはメニューの左端に表示される垂直領域で、垂直に描画されるテキストやイメージを格納できます。サイドストリップの外観は Windows 2000 の Start メニューと同じです。すべての TearawayToolBase 派生ツールと同様に、「AllowTearaway」と呼ばれるプロパティを持っています。このプロパティを使用すると、メニューを「切り離して」固有のウィンドウにフローティングできます。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_12.png[]
+
+PopupStyle 付きのメニュー = メニュー
+
+image::Images/WinToolbarsManager_About_Tools_13.png[]
+
+PopupStyle 付きの同じメニュー = ツールバー
+
+image::Images/WinToolbarsManager_About_Tools_14.png[]
+
+PopupStyle 付きのメニュー = コンテキスト メニューとして表示されるツールバー
+
+image::Images/WinToolbarsManager_About_Tools_15.png[]

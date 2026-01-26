@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-ignored-content",
+    "controlName": [],
+    "tags": [],
+    "guid": "40e4bde7-37d7-43ef-b2f6-4749a4280ff5",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1318581Z"
+}
+|metadata|
+////
+
+= 無視されるコンテンツ
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、構文解析中に起こる無視されたコンテンツへのアクセス方法について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis-overview.html[字句解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-syntax-tree-overview.html[構文ツリーの概要]
+|このトピックは、構文ツリーが作成される場合とアクセス方法について説明します。
+
+|====
+
+== 無視されるコンテンツ
+
+=== 概要
+
+構文アナライザーが重要でないトークンを無視し予期しないトークンをスキップしても、構文ツリーはドキュメントのフルコンテンツを表現しなければならないため構文ツリー内に保存されたままになります。構文アナライザーは無視できるコンテンツに遭遇すると、それを集めて、無視されない次のトークンノード上で「無視されるコンテンツ」として保存します。このコンテンツは、その後、トークン ノードと、最初のトークン ノードであるそのすべての先祖ノード上で link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxnode~getleadingignoredcontent.html[GetLeadingIgnoredContent] メソッドでアクセスできます。このメソッドは link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ignoredcontentlist.html[IgnoredContentList] クラスを返します。これは、以下のキー メンバーを持つコレクションです。
+
+[options="header", cols="a,a"]
+|====
+|*プロパティ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ignoredcontentlist~count.html[カウント]
+|コレクション内で無視されるコンテンツの個数
+
+|====
+
+[options="header", cols="a,a"]
+|====
+|*インデクサー*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ignoredcontentlist~item.html[項目]
+|コレクション内で指定されたゼロ ベースのインデックスにおける無視されるコンテンツの個数
+
+|====
+
+[options="header", cols="a,a"]
+|====
+|*メソッド*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ignoredcontentlist~gettext.html[GetText]
+|コレクション内ですべての無視されたコンテンツのテキストを含む文字列を返します。
+
+|====
+
+`IgnoredContentList` コレクションのインデクサ－は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.ignoredcontent.html[IgnoredContent] 値を返します。これは、無視される単一のコンテンツを表します。
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-pruning-the-syntax-tree.html[構文ツリーのプルーニング]
+|このトピックでは、Syntax Parsing Engine が行う構文ツリーのプルーニングについて説明します。
+
+| link:ig-spe-custom-diagnostics-and-annotations.html[カスタム診断および注釈]
+|このトピックは、構文ツリーにデータを追加、また構文ツリーからデータを取得する方法について説明します。
+
+|====

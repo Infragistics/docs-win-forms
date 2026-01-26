@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo",
+    "controlName": ["WinCalendarInfo"],
+    "tags": [],
+    "guid": "{47E2B76F-FA27-4262-95AA-9FB0585D82AD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalendarInfo
+
+以下のリンクをクリックすると、WinCalendarInfo コンポーネントに関する説明を読むことができます。
+
+* link:wincalendarinfo-about-wincalendarinfo.html[WinCalendarInfo について] -- WinCalendarInfo コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wincalendarinfo-smart-tag.html[WinCalendarInfo スマート タグ] -- WinCalendarInfo コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:win-wincalendarinfo-using-wincalendarinfo.html[WinCalendarInfo の使用] -- このセクションは、WinCalendarInfo コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。

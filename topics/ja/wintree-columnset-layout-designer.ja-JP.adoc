@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-columnset-layout-designer",
+    "controlName": ["WinTree"],
+    "tags": ["Layouts"],
+    "guid": "{9C7337E7-A471-42C5-81A9-351379B8CC41}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ColumnSet レイアウト デザイナ
+
+In {ProductName} 2005 Volume 2 では、WinTree に列のサポートが追加されました。この機能追加により、ツリーの列セットのプロパティを定義する pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[UltraTreeColumnSet]"]  クラスが新しく追加されました。ColumnSet レイアウト デザイナは、列セットを構成する列を作成したり、列の位置を変更したりするための視覚的なデザイナです。このトピックでは、このデザイナの機能といくつかの利点について説明します。
+
+このトピックのスクリーンショットは、 link:wintree-binding-wintree-to-windatasource.html[「WinTree を WinDataSource にバインド」]の結果に基づきます。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~datamember.html[DataMember]"]  プロパティは、WinDataSource のスキーマで定義した Customers バンドに設定する必要があります。
+
+レイアウト デザイナ ダイアログを表示するには、フォーム デザイナで UltraTree を右クリックして ［ColumnSet レイアウト デザイナ］ を選択します。デザイナ ダイアログはいくつかのセクションに分かれています。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_01.png[]
+
+一番上のセクションには、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~columnsets.html[ColumnSets]"]  コレクションに含まれる UltraTreeColumnSet オブジェクトのリストを示すコンボボックスがあります。コンボのすぐ右横には、サイズ変更ガイドを表示するかどうかを示すチェックボックスがあります。サイズ変更ガイドとは、すべてのセルと列ヘッダの右辺と下辺に表示されるハンドルのことです。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_02.png[]
+
+サイズ変更ハンドルは、セルおよびヘッダのサイズまたはスパンサイズを調整するときに使用します。正方形のハンドルは項目の幅/高さを調整するときに、菱形のハンドルは項目のスパン サイズを調整するときにそれぞれ使用します。［サイズ変更ガイドを表示］ を OFF にすると、サイズ変更ガイドが非表示になります。この場合は、セルおよび列の右辺または下辺をドラッグしてサイズを変更します。サイズ変更ガイドが非表示のときにスパンサイズを変更するには、［Ctrl］ キーを押しながら各辺をドラッグします。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_03.png[]
+
+メインセクション（上のスクリーンショットを参照）には、上部のコンボボックスで選択した列セットを含む UltraTree が表示されます。ツリーに表示された列とセルは、上記の手順でサイズ変更できます。また、列ヘッダの上でマウスを押してドラッグすることで、列を移動できます。ドラッグ中、マウスが有効なドロップ領域の上に来ると、ドロップ インジケータ（赤の矢印か四角形。 位置変更アクションによって異なる）が表示されます。また、列ヘッダをツリーの範囲の外側にドラッグしてマウスを放すと、その列が非表示になります。
+
+この領域を右クリックすると、右クリックした領域によって 2 種類のコンテキスト メニューのどちらかが表示されます。列ヘッダを右クリックすると、その列を調整するオプション（列を非表示にする、セルに対するラベルの位置を調整する）、列を選択するオプション、およびその列の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~layoutinfo.html[LayoutInfo]"]  プロパティを ［列の設定］ ペインに表示するオプションが表示されます。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_04.png[]
+
+セルまたは列ヘッダのない空白の領域を右クリックすると、特定のペインをアクティブにするオプション、すべての列を選択または非表示にするオプション、およびレイアウトをリセットするオプションを含むコンテキスト メニューが表示されます。レイアウトのリセット オプションは、ダイアログを表示した直後のレイアウトに戻すのではなく、すべての列が 1 行に表示されるように、すべての列のレイアウト情報をリセットします。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_05.png[]
+
+左のセクションには、UltraDockManager 内でホストされている 3 つの領域があります。
+
+* *利用可能な列* - このセクションには、選択した列セットの非表示列のリストが表示されます。これらの列は、右側の UltraTree にドラッグできます。項目が有効なドロップ位置に来ると、ドロップ インジケータ（項目が既存の列の隣に挿入されることを示す赤の矢印のペアか、項目が配置される位置を示す赤の四角形）が表示されます。また、ヘッダをダブルクリックして列を非表示にしたり、逆にレイアウトに追加したりすることもできます。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_06.png[]
+
+* *レイアウト デザイン* - このセクションには、選択した UltraTreeColumnSet の各種プロパティを制御するオプションのリストが表示されます。これらの設定の多くはエンド ユーザーにレイアウトの操作を許可するかどうかに関係するもので（例： セルのサイズ変更、列の移動など）、デザイナ自体には適用されません。
+
+image::Images/WinTree_The_ColumnSet_Layout_Designer_07.png[]
+
+* *列の設定* - このセクションにはプロパティ グリッドが表示されます。このプロパティグリッドでは、右側 のUltraTree で選択した列の LayoutInfo 設定を変更できます。
+
+[NOTE]
+====
+*注：* これらのセクションは配置を変更することが可能で、変更した配置はセッションを終了しても保存されます。また、ダイアログ自体のサイズと位置も保存されます。
+====

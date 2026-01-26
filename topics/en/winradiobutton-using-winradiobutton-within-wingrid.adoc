@@ -1,0 +1,28 @@
+﻿= Using WinRadioButton within WinGrid
+
+The `WinRadioButton` can be used as an editor within a `WinGrid` column by setting the column's
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~style.html[Style]
+to one of the following:
+
+* link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnstyle.html[RadioButtonByBand] -- All of the radio buttons within the band are grouped for exclusive selection.
+* link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnstyle.html[RadioButtonByRowsCollection] -- The radio buttons with the same rows collection are grouped for exclusive selection. Therefore, the radio buttons within a row's child rows will be grouped together, and will check/uncheck irrespective of the radio buttons of the parent collection, sibling collections, or child collections.
+
+== Uncommitted Changes
+Normally, the WinGrid will automatically commit any changes made to a row when a cell in that row loses focus. When a radio button is checked, it forces all other radio buttons grouped with it to become unchecked. Because this change happens without focus, these changes are not automatically committed to the data source. They can be committed by updating that row:
+
+[source, csharp]
+row.Update();
+
+or by updating the whole grid:
+
+[source, csharp]
+grid.UpdateData();
+
+== Exclusive Selection Limitations with WinGrid Functionality
+There are two functionalities of the WinGrid which can bypass the exclusive selection aspect of radio buttons:
+
+=== Cancelling Action
+Because the radio button is an editor in the WinGrid, it's interactions are cancellable. If a radio button is selected, this triggers all appropriate radio buttons to uncheck. If the new selection is then cancelled, any previously checked radio buttons will not revert to checked, resulting in a radio button group without any selected radio button.
+
+=== Grouping
+If `ColumnStyle` is set to `RadioButtonByRowsCollection` and grouping/ungrouping causes child rows to be in new RowsCollections,  this can result in two selected rows grouped into the same `RowsCollection`. In this case, they will retain their checked state. For any new selections, they will adhere to exclusive selecting within their new collection as long as they are in that collection.

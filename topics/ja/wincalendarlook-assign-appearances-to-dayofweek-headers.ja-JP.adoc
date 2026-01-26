@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarlook-assign-appearances-to-dayofweek-headers",
+    "controlName": ["WinCalendarLook"],
+    "tags": ["Scheduling","Styling"],
+    "guid": "{7FC76C3C-0076-4E72-8227-4BDDF9B958FB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= DayOfWeek ヘッダへの外観の割り当て
+
+次の例は、右揃えのテキストと画像を使用して、WinMonthViewSingle で pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweek.html[DayOfWeek]"]  ヘッダをカスタマイズする方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub CustomizeDayofWeekHeaders_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance. _
+	  FontData.Name = "Tahoma"
+	Me.UltraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance. _
+	  FontData.SizeInPoints = 14
+	Me.UltraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance. _
+	  TextHAlign = Infragistics.Win.HAlign.Right
+	Me.UltraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance. _
+	  BackColor = Color.Aquamarine
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void CustomizeDayofWeekHeaders_Load(object sender, System.EventArgs e)
+{
+	this.ultraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance.
+	  FontData.Name = "Tahoma";
+	this.ultraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance.
+	  FontData.SizeInPoints = 14;
+	this.ultraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance.
+	  TextHAlign = Infragistics.Win.HAlign.Right;
+	this.ultraMonthViewSingle1.CalendarLook.DayOfWeekHeaderAppearance.
+	  BackColor = Color.Aquamarine;
+}
+----

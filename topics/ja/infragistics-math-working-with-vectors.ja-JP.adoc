@@ -1,0 +1,475 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-working-with-vectors",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "06886099-1ac2-4c7a-9469-9200d7e310bb",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:13:46.7818811Z"
+}
+|metadata|
+////
+
+= ベクトルでの作業
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrixbase.html[MatrixBase] のインスタンス メソッドは、すべてベクトルのサイズ コンポーネントと関係しています。これらは、ベクトルが空かどうか、ひとつの要素があるかどうか、行ベクトルか列ベクトルか、2 次元かどうか、正方形のデータ構造かどうかを決定します。
+
+このトピックは、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] インスタンスの使用方法を説明しますが、すべてのベクトル タイプ ( link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector]、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] および link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexVector]) に適用されます。
+
+== ベクトル演算のタイプ
+
+ベクトルによってサポートされる演算は、以下の基本的な分類項目に分類されます。
+
+* <<Indexing,インデックス付け>>
+* <<Arithmetical,算術演算 (+、-、$$*$$、/、%) - *Vector* および *ComplexVector* のみ>>
+* <<Logical,論理演算 (!、&、|) - *BooleanVector* のみ>>
+* <<Comparison,比較演算 (<、$$<=$$、>、>=、==、!=)>>
+* <<Unitary,ユニタリ ベクトル演算>>
+
+[[Indexing]]
+== インデックス付け
+
+インデックス付けはベクトルの特定の位置にある要素を取得します。
+
+== 配列としてインデックスを付ける (デフォルト)
+
+Infragistics Math Library では、ベクトルを配列としてインデックス付けできます。
+
+*Visual Basic の場合:*
+
+----
+’新しいベクトルを作成します
+Dim x As New Vector(1, 10)
+’ベクトルの最初の要素を取得します
+Dim c As Double = x(0)
+’ベクトルの最初の要素を設定します
+x(0) = 2
+----
+
+*C# の場合：*
+
+----
+//新しいベクトルを作成します
+Vector x = new Vector(1, 10);
+//ベクトルの最初の要素を取得します
+double c = x[0];
+//ベクトルの最初の要素を設定します
+x[0] = 2;
+----
+
+== ベクトルでインデックス付け
+
+ベクトルにインデックスを付ける時、別のベクトルは必要とされるインデックスを提供できます。以下のコードは、値を持つベクトルおよびインデックスを持つベクトルを作成します。3 番目のベクトルは後で作成され、2 番目のベクトルの値の位置にある最初のベクトルからの要素を保存します。このタイプのインデックス付けは、値の取得だけでなく、値の設定にも使用できます。
+
+*Visual Basic の場合:*
+
+----
+’新しいベクトルを作成します
+Dim v As Vector = New Double() {1, 2, 3, 4, 5}
+’新しいベクトルを作成します。これは
+'最初のベクトルのインデックスを
+'保持します
+Dim ind As Vector = New Double() {0, 2, 4}
+Dim result As Vector = v(ind)
+'新しいベクトルの「結果」は
+'0、2 および 4 の位置にある、ベクトル「v」からの要素を保持します
+----
+
+*C# の場合：*
+
+----
+//新しいベクトルを作成します
+Vector v = new double[] { 1, 2, 3, 4, 5 };
+//新しいベクトルを作成します。これは
+//最初のベクトルのインデックスを
+//保持します
+Vector ind = new double[] { 0, 2, 4 };
+Vector result = v[ind];
+//新しいベクトルの「結果」は
+//0、2 および 4 の位置にある、ベクトル「v」からの要素を保持します
+----
+
+== 2 次元インデックス付け
+
+ベクトルは行列としてインデックス付けすることも可能です。つまり、2 次元でインデックス付けできますが、インデックスのひとつは方向に応じて (行または列ベクトル) 0 でなければなりません。
+
+*Visual Basic の場合:*
+
+----
+'行ベクトルをインデックス付けします
+’新しい行ベクトルを作成します
+Dim rowVector As New Vector(VectorType.Row, 0, 1, 2, 3, 4)
+'行の最初の列にある要素を取得します
+Dim c0 As Double = rowVector(0, 0)
+'Get the element at the second column of the row.
+Dim c1 As Double = rowVector(0, 1)
+'行の 3 番目の列にある要素を取得します
+Dim c2 As Double = rowVector(0, 2)
+'列ベクトルをインデックス付けします
+’新しい列ベクトルを作成します
+Dim columnVector As New Vector(VectorType.Row, 0, 1, 2, 3, 4)
+'列の最初の行にある要素を取得します
+Dim r0 As Double = columnVector(0, 0)
+'列の 2 番目の行にある要素を取得します
+Dim r1 As Double = columnVector(1, 0)
+'列の 3 番目の行にある要素を取得します
+Dim r2 As Double = columnVector(2, 0)
+----
+
+*C# の場合：*
+
+----
+//行ベクトルをインデックス付けします
+//新しい行ベクトルを作成します
+Vector rowVector = new Vector(VectorType.Row, 0, 1, 2, 3, 4);
+//行の最初の列にある要素を取得します
+double c0 = rowVector[0, 0]; 
+//行の 2 番目の列にある要素を取得します
+double c1 = rowVector[0, 1]; 
+//行の 3 番目の列にある要素を取得します
+double c2 = rowVector[0, 2]; 
+//列ベクトルをインデックス付けします
+//新しい列ベクトルを作成します
+Vector columnVector = new Vector(VectorType.Row, 0, 1, 2, 3, 4);
+//列の最初の行にある要素を取得します
+double r0 = columnVector[0, 0]; 
+//列の 2 番目の行にある要素を取得します
+double r1 = columnVector[1, 0]; 
+//列の 3 番目の行にある要素を取得します
+double r2 = columnVector[2, 0];
+----
+
+[[Arithmetical]]
+== 算術演算
+
+算術演算は Vector と ComplexVector でサポートされます。
+
+== サポートされる演算
+
+Infragistics Math Library のベクトルは、以下の算術演算をサポートします。
+
+* 加算 (+)
+* 減算 (-)
+* 乗算 ($$* $$)
+* 除算 (/)
+* 余りのある除算 (%)
+
+行列のためのすべての標準的な算術演算はベクトルにも定義されます。乗算と除算は対応する要素を掛けたり割ったりすることで計算されます (加算と減算のように) 。
+
+== 要件
+
+行列と同じように、ベクトルは同じ次元でなければなりません。たとえば、行ベクトルと列ベクトルは算術演算で使用できません (使用されると例外がスローされます) 。
+
+== コード例
+
+=== 2 つの行ベクトルの追加
+
+以下のコード例は 2 つの行ベクトルを追加します。
+
+*Visual Basic の場合:*
+
+----
+Dim a As New Vector(VectorType.Row, 1, 2, 3, 4)
+Dim b As New Vector(VectorType.Row, 1, 5, 4, 1)
+Dim c As Vector = a + b
+'a { 1  2  3  4 }
+'    +  +  +  + 
+'b { 1  5  4  1 }
+'    =  =  =  =
+'c { 2  7  7  5 }
+----
+
+*C# の場合：*
+
+----
+Vector a = new Vector(VectorType.Row, 1, 2, 3, 4);
+Vector b = new Vector(VectorType.Row, 1, 5, 4, 1);
+Vector c = a + b; 
+//a { 1  2  3  4 }
+//    +  +  +  + 
+//b { 1  5  4  1 }
+//    =  =  =  =
+//c { 2  7  7  5 }
+----
+
+=== ベクトルから double を引く
+
+以下の例はベクトルから double を引きます。これは、ベクトルのすべての要素からその数を引くことを意味します。
+
+*Visual Basic の場合:*
+
+----
+Dim a As New Vector(VectorType.Row, 1, 2, 3, 4)
+Dim c As Vector = a - 1
+'a { 1  2  3  4 }
+'    -  -  -  - 
+'  { 1  1  1  1 }
+'    =  =  =  =
+'c { 0  1  2  3 }
+----
+
+*C# の場合：*
+
+----
+Vector a = new Vector(VectorType.Row, 1, 2, 3, 4);
+Vector c = a - 1; 
+//a { 1  2  3  4 }
+//    -  -  -  - 
+//  { 1  1  1  1 }
+//    =  =  =  =
+//c { 0  1  2  3 }
+----
+
+[[Logical]]
+== 論理演算
+
+論理演算は BooleanVector に定義されます。
+
+論理 NOT はブール ベクトルの各要素で実行されます。論理 AND および OR は 2 つのベクトルの対応する要素で実行されます。論理演算の結果として、新しいブール ベクトルが返されます。
+
+== サポートされる演算
+
+* AND (&)
+* OR (|)
+* NOT (!)
+
+== 要件
+
+行列と同じように、ベクトルは同じ次元でなければなりません。たとえば、行ベクトルと列ベクトルは論理演算で使用できません(使用すると、例外がスローされます) 。
+
+== コード例
+
+以下のコードは、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] の論理演算の使用を示します。
+
+*Visual Basic の場合:*
+
+----
+Dim x As BooleanVector = New Boolean() {True, True, False, False}
+Dim y As BooleanVector = New Boolean() {True, False, True, False}
+'NOT
+Dim NOT_x As BooleanVector = Not x
+'{ false, false, true, true }
+'AND
+Dim x_AND_y As BooleanVector = x And y
+'{ true, false, false, false }
+'OR
+Dim x_OR_y As BooleanVector = x Or y
+'{ true, true, true, false }
+----
+
+*C# の場合：*
+
+----
+BooleanVector x = new bool[] { true, true, false, false };
+BooleanVector y = new bool[] { true, false, true, false };
+//NOT
+BooleanVector NOT_x = !x;
+//{ false, false, true, true }
+//AND
+BooleanVector x_AND_y = x & y;
+//{ true, false, false, false }
+//OR
+BooleanVector x_OR_y = x | y;
+//{ true, true, true, false }
+----
+
+論理演算はブール ベクトルとブール変数の間でも実行できます。この演算はベクトルの各要素と変数間で計算されます。
+
+[[Comparison]]
+== 比較演算
+
+== サポートされる演算
+
+Infragistics Math Library の行列は、以下の比較演算をサポートします。
+
+* 等しい (==)
+* 等しくない (!=)
+* ～より大きい (>)
+* ～より小さい (<)
+* 以上 (>=)
+* 以下 ($$<=$$)
+
+== 演算子と != 演算子はベクトルの要素と次元を比較してブール値を返します。
+
+<、$$<=$$、> および >= 演算子はベクトルの対応する値を比較します。これらの演算子は、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] インスタンスを返しますが、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] と link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexvector.html[ComplexVectovr] のみに対して定義されます。
+
+== *要件*
+
+行列と同じように、ベクトルは同じ次元でなければなりません。これは、行ベクトルと列ベクトルは比較できないことを意味します (比較されると例外がスローされます) 。
+
+== コード例
+
+=== ベクトルを値と比較
+
+double と link:{ApiPlatform}math{ApiVersion}~infragistics.math.complex.html[Complex] は比較できるため、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] と link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexvector.html[ComplexVector] は互いに、また double および Complex と比較することができます。
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] はブール値とも比較できます。以下のコードは異なるベクトルを値と比較します。
+
+*Visual Basic の場合:*
+
+----
+Dim a As Vector = New Double() {1, 2, 3, 4, 5}
+Dim a1 As BooleanVector = a > 3
+'a1 = { false, false, false, true, true }
+Dim b As BooleanVector = New Boolean() {True, False, True}
+Dim b1 As BooleanVector = b <> True
+'b1 = { false, true, false }
+----
+
+*C# の場合：*
+
+----
+Vector a = new double[] { 1, 2, 3, 4, 5 };
+BooleanVector a1 = a > 3;
+//a1 = { false, false, false, true, true }
+BooleanVector b = new bool[] { true, false, true};
+BooleanVector b1 = b != true;
+//b1 = { false, true, false }
+----
+
+=== ベクトルの比較
+
+以下の例は 2 つのベクトルを比較します。
+
+*Visual Basic の場合:*
+
+----
+Dim x1 As New Vector(1, 10)
+Dim x2 As New Vector(1, 10)
+Dim areEqual As Boolean = x1 = x2
+'True - x1 と x2 の次元と要素は
+'等しいです
+----
+
+*C# の場合：*
+
+----
+Vector x1 = new Vector(1, 10);
+Vector x2 = new Vector(1, 10);
+bool areEqual = x1 == x2; 
+//True - x1 と x2 の次元と要素は
+//等しいです
+----
+
+=== 比較の結果を保存
+
+以下のコードは、2 つの link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] インスタンスを比較して、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] インスタンスに結果を保存します。
+
+*Visual Basic の場合:*
+
+----
+Dim a As Vector = New Double() {1, 2, 3}
+Dim b As Vector = New Double() {2, 1, -1}
+Dim c As BooleanVector = a > b
+'a {   1    2    3 }
+'      >    >    >
+'b {   2    1    -1}
+'      =    =    =
+'c { False True True }
+----
+
+*C# の場合：*
+
+----
+Vector a = new double[] { 1, 2, 3 };
+Vector b = new double[] { 2, 1, -1 };
+BooleanVector c = a > b;
+//a {   1    2    3 }
+//      >    >    >
+//b {   2    1    -1}
+//      =    =    =
+//c { False True True }
+----
+
+=== 比較結果でベクトルにインデックス付け
+
+比較演算子はベクトル インデクサーへの入力として使用できます。以下のコードは、ベクトル x のすべての要素を 7 と比較し、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] クラスの link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~find.html[Find] メソッドを使用して、7 より大きいすべての要素のインデックスを取得します。これらのインデックスは、x から値を取得するために後で使用できます。
+
+*Visual Basic の場合:*
+
+----
+'7 より大きい要素を取得します
+Dim x As Vector = New Double() {5, 6, 7, 8, 9, 10}
+Dim b As BooleanVector = x > 7
+Dim ind As Vector = Compute.Find(b)
+Dim greaterThan7 As Vector = x(ind)
+'同値
+Dim x As Vector = New Double() {5, 6, 7, 8, 9, 10}
+Dim greaterThan7 As Vector = x(Compute.Find(x > 7))
+----
+
+*C# の場合：*
+
+----
+//7 より大きい要素を取得します
+Vector x = new double[] { 5, 6, 7, 8, 9, 10 };
+BooleanVector b = x > 7;
+Vector ind = Compute.Find(b);
+Vector greaterThan7 = x[ind];
+//同値
+Vector x = new double[] { 5, 6, 7, 8, 9, 10 };
+Vector greaterThan7 = x[Compute.Find(x > 7)];
+----
+
+[[Unitary]]
+== ユニタリ ベクトル演算
+
+ユニタリ ベクトルは行ベクトルと列ベクトルの両方です。double は暗示的にユニタリ ベクトルに変換できることを留意してください。以下のコードは、ユニタリ ベクトルを用いたさまざまな演算を示します。
+
+*Visual Basic の場合:*
+
+----
+’ユニタリ ベクトルを作成します
+Dim x As Vector = 1
+’ユニタリ ベクトルは空ではありません
+Dim isEmpty As Boolean = x.IsEmpty()
+'false
+'ユニタリ ベクトルにひとつの要素があります
+Dim isUnitary As Boolean = x.IsUnitary()
+'true
+'ユニタリ ベクトルにユニタリの最初の次元があります
+Dim isRow As Boolean = x.IsRow()
+'true
+'ユニタリ ベクトルにユニタリの 2 番目の次元があります
+Dim isColumn As Boolean = x.IsColumn()
+'true
+’ユニタリ ベクトルは 2 次元です
+Dim isTwoDimensional As Boolean = x.IsTwoDimensional()
+'true
+’ユニタリ ベクトルに 2 つの等しい次元があります
+Dim isSquare As Boolean = x.IsSquare()
+'true
+----
+
+*C# の場合：*
+
+----
+//ユニタリ ベクトルを作成します
+Vector x = 1;
+//ユニタリ ベクトルは空ではありません
+bool isEmpty = x.IsEmpty(); //false
+//ユニタリ ベクトルにひとつの要素があります
+bool isUnitary = x.IsUnitary(); //true
+//ユニタリ ベクトルにユニタリの最初の次元があります
+bool isRow = x.IsRow(); //true
+//ユニタリ ベクトルにユニタリの 2 番目の次元があります
+bool isColumn = x.IsColumn(); //true
+//ユニタリ ベクトルは 2 次元です
+bool isTwoDimensional = x.IsTwoDimensional(); //true
+//ユニタリ ベクトルに 2 つの等しい次元があります
+bool isSquare = x.IsSquare(); //true
+----
+
+== 関連トピック
+
+link:infragistics-math-creating-vectors.html[ベクトルの作成]
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-matrices.html[行列]
+
+link:infragistics-math-mathematical-functions.html[数学関数]
+
+link:infragistics-math-api-overview.html[API の概要]

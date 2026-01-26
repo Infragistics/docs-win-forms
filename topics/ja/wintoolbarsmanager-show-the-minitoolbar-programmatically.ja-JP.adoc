@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-show-the-minitoolbar-programmatically",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{C8AE2B45-FBC2-4229-A1DA-9F1143C1F520}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プログラミングによる MiniToolbar の表示
+
+[NOTE]
+====
+注：{ProductName} の一部として提供されている Microsoft Office 2007 UI 機能を使用する場合、本ライセンスが、ユーザーに MICROSOFT OFFICE 2007 UI に対する権利を付与するものではないことに注意してください。詳細は、 officeui@microsoft.com にお問い合わせください。
+====
+
+MiniToolbar は、そのサイズのために「ミニ」と呼ばれているのではなく、可搬性のためです。MiniToolbar にツールを配置し、標準のツールバーと同じ効果を得ることができます。任意の時間または場所でポップアップできるフロートするツールバーとして MiniToolbar を考えてください。 link:wintoolbarsmanager-creating-a-minitoolbar.html[MiniToolbar の作成] は他の標準のツールバーの設定と同様に簡単ですが、プログラムで表示することはより簡単です。MiniToolbar には pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.minitoolbar~show.html[Show]"]  メソッドが付属しており、必要な時および場所でアプリケーションに表示できます。
+
+以下のコードを使用して、WinGrid を右クリックしたときに MiniToolbar を表示します。これは個々のセルでフォーマッティングと外観を変更する場合に役立ちます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ultraGrid1_MouseUp(sender As Object, e As System.Windows.Forms.MouseEventArgs)
+' 右マウス ボタンがグリッドでクリックされる場合。
+   If e.Button = MouseButtons.Right Then
+' MiniToolbar を表示します。
+      Me.ultraToolbarsManager1.MiniToolbar.Show()
+   End If
+End Sub 'ultraGrid1_MouseUp
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// 右マウス ボタンがグリッドでクリックされる場合。
+	if(e.Button == MouseButtons.Right)
+	{
+		// MiniToolbar を表示します。
+		this.ultraToolbarsManager1.MiniToolbar.Show();
+	}
+}
+----

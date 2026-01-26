@@ -1,0 +1,173 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-grouping-rows-by-custom-logic-using-igroupbyevaluator",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Grouping"],
+    "guid": "{4B7D5ECF-CF53-4653-AFC2-B0183A027021}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= IGroupByEvaluator を使用してカスタム ロジックで行をグループ化
+
+== 始める前に
+
+列によってバンドのレコードをグループ化するさまざまな方法があります。GroupByMode プロパティによって、ユーザーのデータをグループ化できる複数の定義済みの Outlook Group By 動作のひとつを選択できます。GroupByMode プロパティを単に設定すること以外にカスタム ロジックを使用して、グリッド行をグループ化する必要がある可能性があります。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.igroupbyevaluator.html[IGroupByEvaluator]"]  インタフェースは、いずれの GroupByMode 値がユーザーの要件を満たさない時は常に行をグループ化するためのカスタム ロジックを供給するために使用できます。また、行のソートがグループ化の基準と一致しない場合、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.igroupbyevaluatorex.html[IGroupByEvaluatorEx]"]  インタフェースを実装する必要があります。
+
+== 達成すること
+
+この詳細なガイドでは、IGroupByEvaluator インタフェースを実装することでカスタム ロジックを使用して行をグループ化する方法を学習します。グループ化の順序と一致しないソートを実行するためには、IGroupByEvaluatorEx インタフェースも実装します。このサンプルでは、グループ化は ProductName 列の最後の 2 文字に基づき、ProductName 列の最初の 2 文字でソート（降順）されます。この詳細なガイドを通してこれらのインタフェースがどのように実装されるかを理解することによって、ユーザーの固有の要件を満たすより高度でカスタマイズされた実装を作成することができます。
+
+== 次の手順を実行します
+
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
++
+*Visual Basic の場合：*
+[source, vb]
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+
+
++
+*C# の場合：*
+[source, csharp]
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+
+
+. Visual Studio® Toolbox から UltraGrid™ をドラッグしてフォームにドロップします。UltraGrid コントロールを Northwind データベースの Products テーブルにバインドします。WinGrid™ のデータソースへのバインドの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid を フラット データ ソースにバインドする」]トピックを参照してください。
+. UltraButton™ をフォームに追加します。
+. IGroupByEvaluator および IGroupByEvaluatorEx インタフェースを実装する MyGroupByEvaluator という名前のクラス ファイルを作成します。このクラスは、IGroupByEvaluator インタフェースのメンバーである pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.igroupbyevaluator~getgroupbyvalue.html[GetGroupByValue]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.igroupbyevaluator~doesgroupcontainrow.html[DoesGroupContainRow]"]  メソッド、また IGroupByEvaluatorEx インタフェースのメンバーである pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.igroupbyevaluatorex~compare.html[Compare]"]  メソッドを実装するコードを含みます。MyGroupByEvaluator クラス内で以下のコードを記述します。
++
+*Visual Basic の場合：*
+[source, vb]
+Public Function GetGroupByValue(groupbyRow As UltraGridGroupByRow, row As UltraGridRow) As Object 
+    Dim val As String 
+    ' groupbyRow からデフォルト値を取得します。 
+    If groupbyRow.Value Is Nothing Then 
+        val = "" 
+    Else 
+        val = groupbyRow.Value.ToString() 
+    End If 
+    ' 2 文字を超える場合は切り捨てます。 
+    If val.Length > 2 Then 
+        val = val.Substring((val.Length - 2), 2) 
+    End If 
+    '最後の 2 文字を取得します 
+    ' group-by 行の説明での表示のために文字列を大文字に変換します。 
+    Return val.ToUpper() 
+End Function 
+Public Function DoesGroupContainRow(groupbyRow As UltraGridGroupByRow, row As UltraGridRow) As Boolean 
+    ' 関連するセルの値を文字列として取得します。 
+    Dim cellValue As String = row.Cells(groupbyRow.Column).Value.ToString() 
+    ' 2 文字を超える場合は切り捨てます。 
+    If cellValue.Length > 2 Then 
+        cellValue = cellValue.Substring((cellValue.Length - 2), 2) 
+    End If 
+    '最後の 2 文字を取得します 
+    ' 大文字小文字を区別しない比較を実行します。 
+    Return 0 = String.Compare(groupbyRow.Value.ToString(), cellValue, True) 
+End Function
+#Region "IGroupByEvaluatorEx Members" 
+Public Function Compare(cell1 As UltraGridCell, cell2 As UltraGridCell) As Integer 
+    ' 関連するセルの値を文字列として取得します。 
+    Dim cell1Value As String = DirectCast(cell1.Value, String) 
+    'Cell1 の最初の 2 文字を取得します 
+    ' 2 文字を超える場合は切り捨てます。 
+    If cell1Value.Length > 2 Then 
+        cell1Value = cell1Value.Substring(0, 2) 
+    End If 
+    Dim cell2Value As String = DirectCast(cell2.Value, String) 
+    'Cell2 の最初の 2 文字を取得します 
+    ' 2 文字を超える場合は切り捨てます。 
+    If cell2Value.Length > 2 Then 
+        cell2Value = cell2Value.Substring(0, 2) 
+    End If 
+    'この比較は降順でのソートを設定します。 
+    Return cell2Value.CompareTo(cell1Value) 
+End Function 
+#End Region
+
++
+*C# の場合：*
+[source, csharp]
+public object GetGroupByValue(UltraGridGroupByRow groupbyRow, UltraGridRow row)
+        {
+            string val;
+            // groupbyRow からデフォルト値を取得します。
+            if (groupbyRow.Value == null)
+                val = "";
+            else
+                val = groupbyRow.Value.ToString();
+            // 2 文字を超える場合は切り捨てます。
+            if (val.Length > 2)
+                val = val.Substring((val.Length - 2), 2); //最後の 2 文字を取得します 
+            // group-by 行の説明での表示のために文字列を大文字に変換します。
+            return val.ToUpper();
+        }
+        public bool DoesGroupContainRow(UltraGridGroupByRow groupbyRow, UltraGridRow row)
+        {
+            // 関連するセルの値を文字列として取得します。
+            string cellValue = row.Cells[groupbyRow.Column].Value.ToString();
+            // 2 文字を超える場合は切り捨てます。
+            if (cellValue.Length > 2)
+                cellValue = cellValue.Substring((cellValue.Length - 2), 2); //最後の 2 文字を取得します
+            // 大文字小文字を区別しない比較を実行します。
+            return 0 == string.Compare(groupbyRow.Value.ToString(), cellValue, true);
+        }
+#region IGroupByEvaluatorEx Members
+        public int Compare(UltraGridCell cell1, UltraGridCell cell2)
+        {
+            // 関連するセルの値を文字列として取得します。
+            string cell1Value = (string)cell1.Value;
+            //Cell1 の最初の 2 文字を取得します
+            // 2 文字を超える場合は切り捨てます。 
+            if (cell1Value.Length > 2)
+                cell1Value = cell1Value.Substring(0, 2);
+                  string cell2Value = (string)cell2.Value;
+             //Cell2 の最初の 2 文字を取得します
+            // 2 文字を超える場合は切り捨てます。
+            if (cell2Value.Length > 2)
+                cell2Value = cell2Value.Substring(0, 2);
+            //この比較は降順でのソートを設定します。
+            return cell2Value.CompareTo(cell1Value);
+        }
+        #endregion
+
+. ボタンの Click イベントで、以下のコードを記述します。
++
+*Visual Basic の場合：*
+[source, vb]
+Me.ultraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.OutlookGroupBy 
+' ProductName 列を取得します。 
+Dim column As UltraGridColumn = Me.ultraGrid1.DisplayLayout.Bands(0).Columns("ProductName") 
+' 列の GroupByEvaluator を MyGroupByEvaluator のインスタンスに設定します 
+column.GroupByEvaluator = New MyGroupByEvaluator() 
+' 各行に会社名すべてを表示したい各文字列の最初の 2 文字でグループ化しているので、 
+' 列の HiddenWhenGroupBy プロパティを 
+' False に設定します。 
+column.HiddenWhenGroupBy = DefaultableBoolean.[False] 
+' それでは、列で行をグループ化します。 
+Me.ultraGrid1.DisplayLayout.Bands(0).SortedColumns.Add(column, False, True)
++
+*C# の場合：*
+[source, csharp]
+this.ultraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.OutlookGroupBy;
+            // ProductName 列を取得します。
+            UltraGridColumn column = this.ultraGrid1.DisplayLayout.Bands[0].Columns["ProductName "];
+            // 列の GroupByEvaluator を MyGroupByEvaluator のインスタンスに設定します
+            column.GroupByEvaluator = new MyGroupByEvaluator();
+            // 各行に会社名すべてを表示したい各文字列の最初の 2 文字でグループ化しているので、
+            // 列の HiddenWhenGroupBy プロパティを
+            // False に設定します。
+            column.HiddenWhenGroupBy = DefaultableBoolean.False;
+            // それでは、列で行をグループ化します。
+            this.ultraGrid1.DisplayLayout.Bands[0].SortedColumns.Add(column, false, true);
+
+
+. アプリケーションを実行します。ボタンをクリックすると、ProductName の最後の 2 文字で行がグループ化され、最初の 2 文字でソート（降順）されます。
+
+image::Images/WinGrid_Grouping_Rows_by_Custom_Logic_Using_IGroupByEvaluator.png[]

@@ -1,0 +1,355 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-wingrid-control-elements",
+    "controlName": [],
+    "tags": [],
+    "guid": "2b6fcca7-ebb0-4fd1-8741-84285169d6c5",  
+    "buildFlags": [],
+    "createdOn": "2013-01-09T15:01:47.5313953Z"
+}
+|metadata|
+////
+
+= タッチ対応の WinGrid コントロール要素
+
+== トピックの概要
+
+=== 目的
+
+このトピックは Infragistics のタッチ対応  _WinGrid_™ コントロール要素を紹介します。
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref342757484,WinGrid タッチ対応要素>>
+
+** <<_Ref342757493,概要>>
+** <<_Ref342944043,カードの展開インジケーター>>
+** <<_Ref342944051,[列の選択] ボタン>>
+** <<_Ref342944062,列ヘッダーのチェックボックス>>
+** <<_Ref342944071,フィルターのクリア ボタン>>
+** <<_Ref342944079,フィルターのドロップダウン ボタン>>
+** <<_Ref342944088,フィルター演算子>>
+** <<_Ref342944098,固定ヘッダーのインジケーター>>
+** <<_Ref342944108,固定行のインジケーター>>
+** <<_Ref342944118,行の展開インジケーター>>
+** <<_Ref342944127,行セレクターの編集テンプレート>>
+** <<_Ref342944136,行セレクター>>
+** <<_Ref342944145,行集計ボタン>>
+** <<_Ref342944156,切り替えるボタン>>
+
+* <<_Ref342757647,関連コンテンツ>>
+
+[[_Ref342757484]]
+== WinGrid タッチ対応要素
+
+[[_Ref342757493]]
+
+=== 概要
+
+以下のセクションは  _WinGrid_   のタッチ対応要素を紹介し、有効にする方法を説明するコード例を提供します。
+
+[[_Ref342944043]]
+
+=== カードの展開インジケーター
+
+カードの展開インジケーターは、`Band` が `CardView` モードに設定し、`CardSettings.Style` が  _Compressed_   スタイルに設定される場合に表示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Bands[0].CardView = true;
+ultraGrid1.DisplayLayout.Bands[0].CardSettings.Style = CardStyle.Compressed;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Bands(0).CardView = True
+ultraGrid1.DisplayLayout.Bands(0).CardSettings.Style = CardStyle.Compressed
+----
+
+image::images/Touch_WinGrid_Control_Elements_1.png[]
+
+[[_Ref342944051]]
+
+=== [列の選択] ボタン
+
+`Override.RowSelectorHeaderStyle` =  _ColumnChooserButton_   または  _ColumnChooserButtonFixedSize_   に設定すると、行セレクターの上に表示される列チューザー ボタンを有効にします。
+
+.注:
+[NOTE]
+====
+列チューザーを表示するには、最初に<<_Ref342944136,行セレクター>>を有効にする必要があります。
+====
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.RowSelectorHeaderStyle = RowSelectorHeaderStyle.ColumnChooserButton;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.RowSelectorHeaderStyle = RowSelectorHeaderStyle.ColumnChooserButton
+----
+
+image::images/Touch_WinGrid_Control_Elements_2.png[]
+
+[[_Ref342944062]]
+
+=== 列ヘッダーのチェックボックス
+
+`Override.HeaderCheckBoxVisibility` =  _Always_   または  _WhenUsingCheckEditor_   に設定すると、列ヘッダーのチェックボックスを有効にします。
+
+image::images/Touch_WinGrid_Control_Elements_3.png[]
+
+[[_Ref342944071]]
+
+=== フィルターのクリア ボタン
+
+フィルターのクリア ボタンを有効にするには、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectors.html[FilterRow] にフィルター演算子を設定します。
+
+image::images/Touch_WinGrid_Control_Elements_4.png[]
+
+[[_Ref342944079]]
+
+=== フィルターのドロップダウン ボタン
+
+以下のコードは、列ヘッダーのフィルターのドロップダウン ボタンを有効にする方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.AllowRowFiltering = DefaultableBoolean.True;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.AllowRowFiltering = DefaultableBoolean.[True]
+----
+
+image::images/Touch_WinGrid_Control_Elements_5.png[]
+
+[[_Ref342944088]]
+
+=== フィルター演算子
+
+以下のコードは、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectors.html[FilterRow] フィルター演算子を有効にする方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.FilterUIType = FilterUIType.FilterRow;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.FilterUIType = FilterUIType.FilterRow
+----
+
+image::images/Touch_WinGrid_Control_Elements_6.png[]
+
+[[_Ref342944098]]
+
+=== 固定ヘッダーのインジケーター
+
+以下のコードは、列ヘッダーの固定ヘッダー インジケーターを有効にする方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.UseFixedHeaders = true;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.UseFixedHeaders = True
+----
+
+image::images/Touch_WinGrid_Control_Elements_7.png[]
+
+[[_Ref342944108]]
+
+=== 固定行のインジケーター
+
+以下のコードは、`Override.FixedRowIndicator` =  _Button_   を設定すると、行セレクターに表示される固定行インジケーターを有効にするほうほうを示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.FixedRowIndicator = FixedRowIndicator.Button;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.FixedRowIndicator = FixedRowIndicator.Button
+----
+
+image::images/Touch_WinGrid_Control_Elements_8.png[]
+
+[[_Ref342944118]]
+
+=== 行の展開インジケーター
+
+以下のコードは、行の行展開インジケーターを有効にする方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.ExpansionIndicator = ShowExpansionIndicator.Always;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.ExpansionIndicator = ShowExpansionIndicator.Always
+----
+
+「タッチを有効にする前」の画像および「タッチを有効にした後」の画像を比較してください。展開インジケーターのサイズは同じですが、タッチが有効な場合、タッチ対応領域が大きくなります。
+
+==== タッチを有効にする前
+
+image::images/Touch_WinGrid_Control_Elements_9.png[]
+
+==== タッチを有効にした後
+
+image::images/Touch_WinGrid_Control_Elements_10.png[]
+
+[[_Ref342944127]]
+
+=== 行セレクターの編集テンプレート
+
+次のコードは、行編集テンプレートが表示される行セレクターを有効にする方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.RowEditTemplateUIType = RowEditTemplateUIType.RowSelectorImage;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.RowEditTemplateUIType = RowEditTemplateUIType.RowSelectorImage
+----
+
+image::images/Touch_WinGrid_Control_Elements_11.png[]
+
+[[_Ref342944136]]
+
+=== 行セレクター
+
+以下のコードは、行セレクターを有効する方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Bands[0].Override.RowSelectors = DefaultableBoolean.True;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Bands(0).Override.RowSelectors = DefaultableBoolean.[True]
+----
+
+image::images/Touch_WinGrid_Control_Elements_12.png[]
+
+[[_Ref342944145]]
+
+=== 行集計ボタン
+
+以下のコードは、列ヘッダーに表示される行集計ボタンを有効にする方法を示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.True;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.AllowRowSummaries = AllowRowSummaries.[True]
+----
+
+image::images/Touch_WinGrid_Control_Elements_13.png[]
+
+[[_Ref342944156]]
+
+=== 切り替えるボタン
+
+以下のコードは、列ヘッダーの切り替えるボタンを有効にする方法を示します。グループまたはバンド内の列の交換を有効にします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.AllowColSwapping = AllowColSwapping.WithinBand;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.AllowColSwapping = AllowColSwapping.WithinBand
+----
+
+image::images/Touch_WinGrid_Control_Elements_14.png[]
+
+[[_Ref342757647]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider-overview.html[タッチ サポートの概要]
+|このトピックは Infragistics のタッチ対応コントロールのタッチ機能の概要を提供します。
+
+| link:touch-enabled-editor-controls.html[タッチ エディター コントロールおよび要素]
+|このトピックは Infragistics のタッチ対応エディター コントロールおよび要素を紹介します。
+
+| link:touch-enabled-tab-controls.html[タッチ タブ コントロールおよびコンポーネント]
+|このトピックは Infragistics のタッチ対応タブ コントロールおよびコンポーネントを紹介します。 _WinTab_ および _WinTabStrip_ コントロールおよび _WinTabbedMdiManager_ コンポーネントを含みます。
+
+| link:touch-enabled-winlistview-control.html[タッチ WinListView コントロール]
+|このトピックは Infragistics のタッチ対応 _WinListView_ コントロール要素を紹介します。
+
+| link:touch-enabled-wintree-control.html[タッチ WinTree コントロール]
+|このトピックは Infragistics のタッチ対応 _WinTree_ コントロール要素を紹介します。
+
+|====

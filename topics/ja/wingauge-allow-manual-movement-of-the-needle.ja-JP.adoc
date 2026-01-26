@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-allow-manual-movement-of-the-needle",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{6F99A66E-4264-4633-BB79-71CFC006BAEB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 針の手動による移動を可能にする
+
+このトピックは、エンド ユーザーが針をドラッグするように構成する方法を示します。針が指し示すスケール上の値をエンド ユーザーが調整できるようにするため、この機能は便利です。
+
+このトピックは、ゲージを作成済みであることを前提としています。ゲージの作成方法については、 link:wingauge-creating-a-gauge-in-design-view.html[「デザインビューでゲージを作成」]を参照してください。
+
+*ゲージで針の手動による移動を可能にするには、次の手順に従ってください。*
+
+[start=1]
+. マーカー エディタで、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle.html[RadialGaugeNeedle]"]  プロパティをクリックして、そのプロパティから pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~allowdrag.html[AllowDrag]"]  プロパティを指定します。
+[start=2]
+. AllowDrag プロパティを True に設定します。
+[start=3]
+. [OK] ボタンをクリックしてすべてのダイアログを閉じます。
+[start=4]
+. アプリケーションを保存して実行します。
+
+これで、ゲージのスケール上で異なる値を指し示すために針をドラッグすることができるようになります。
+
+image::images/Gauge_Allow_Manual_Movement_of_the_Needle_01.png[]

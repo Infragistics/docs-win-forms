@@ -1,0 +1,46 @@
+﻿////
+|metadata|
+{
+    "name": "winganttview-api-overview",
+    "controlName": ["WinGanttView"],
+    "tags": ["API"],
+    "guid": "{1FDB87C4-CE60-4449-808D-08D04BE262DF}",
+    "buildFlags": [],
+    "createdOn": "2010-05-01T11:14:17Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。 WinGanttView コントロールでプログラムする間に使用するいくつかのキー クラスも提供します。 このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+[cols="a,a"]
+|====
+|*WinGanttView 名前空間:* +
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview_namespace.html[Infragistics.Win.UltraWinGanttView 名前空間]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview.html[UltraGanttView]"]
+
+|*Infragistics.Win.UltraWinGanttView.UIElements 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.uielements_namespace.html[Infragistics.Win.UltraWinGanttView.UIElements 名前空間]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.uielements.taskareauielement.html[TaskAreaUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.uielements.gridareauielement.html[GridAreaUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.uielements.timelineareauielement.html[TimelineAreaUIElement]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.uielements.ultraganttviewuielement.html[UltraGanttViewUIElement]"]
+
+|*Infragistics.Win.UltraWinSchedule.TaskUI 名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinschedule.taskui_namespace.html[Infragistics.Win.UltraWinSchedule.TaskUI 名前空間]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinschedule.taskui.taskdialog.html[TaskDialog]"]
+
+|====

@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-use-winlistview-as-a-listbox",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{239878A5-FCBD-41CC-A824-8EEC0AC91091}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView を ListBox として使用
+
+WinListView コントロールは、ListView、ListBox、および CheckedBox の 3 つのコントロールをエミュレートできる、多目的コントロールです。List Box は、標準のテキスト ボックスに似ていますが、各行に 1 項目のみが表示されます。List Box は、基本的に項目のリストを含むボックスです。WinListView コントロールを ListBox コントロールに変更するには、2 つのプロパティを設定する必要があります。WinListView の pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティを pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewstyle.html[List]"]  に設定し、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewlistsettings.html[ViewSettingsList]"]  クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewlistsettings~multicolumn.html[MultiColumn]"]  プロパティを False に設定すると、WinListView コントロールが ListBox コントロールと同様の機能を果たすようになります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinListView
+...
+Private Sub Form1_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraListView1.View = UltraListViewStyle.List
+	Me.UltraListView1.ViewSettingsList.MultiColumn = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinListView;
+...
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	this.ultraListView1.View = UltraListViewStyle.List;
+	this.ultraListView1.ViewSettingsList.MultiColumn = false;
+}
+----

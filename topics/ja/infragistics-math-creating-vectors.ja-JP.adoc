@@ -1,0 +1,230 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-creating-vectors",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "0a9cef86-eb62-44b6-9ebd-7e79914b27b4",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:08:05.4877551Z"
+}
+|metadata|
+////
+
+= ベクトルの作成
+
+== はじめに
+
+Infragistics Math Library™ はベクトルを作成するためにいくつかのアプローチを提供します。このトピックは link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] インスタンスの作成方法のみを説明しますが、示されるアプローチはすべてのベクトル タイプ ( link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector]、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[BooleanVector] および link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexvector.html[ComplexVector]) に適用されます。これは Infragistics Math Library の行列クラスおよびベクトル クラスがすべて link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrixbase.html[MatrixBase] クラスから派生するためです。したがって、これらのインスタンスは一般的な方法で作成および使用されます。
+
+== 概要
+
+以下はベクトルのさまざまな作成方法の概略です。
+
+ベクトルを作成する時には、以下を実行できます
+
+* <<Elements_and_Dimensions,要素と次元を指定することによってベクトルを作成する>>
+* <<Elements,要素を指定することによってベクトルを作成する>>
+* <<Length,長さを指定することによってベクトルを作成する>>
+* <<Elements_and_the_Length,要素の値と長さを指定することによってベクトルを作成する>>
+* <<Implicit_Conversion,暗示的な変換を使用することによってベクトルを作成する>>
+* <<Empty_Vector,空のベクトルを作成する>>
+
+== ベクトルの作成
+
+[[Elements_and_Dimensions]]
+== 要素と次元を指定することによってベクトルを作成する
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] の最も一般的なコンストラクターは、ベクトルの次元を指定する整数配列とともに、ベクトルの要素を含む任意の *IList<double>* を取得します。
+
+以下は、2 つのベクトルを作成するコードです。
+
+*Visual Basic の場合:*
+
+----
+'行ベクトルとして 10 の要素を持つベクトルを作成します
+Dim elements As Double() = New Double(9) {}
+Dim dimensions As Integer() = New Integer() {1, 10}
+Dim rowVector As New Vector(elements, dimensions)
+'列ベクトルとして 10 の要素を持つベクトルを作成します
+Dim elements As Double() = New Double(9) {}
+Dim dimensions As Integer() = New Integer() {10, 1}
+Dim columnVector As New Vector(elements, dimensions)
+----
+
+*C# の場合：*
+
+----
+//行ベクトルとして 10 の要素を持つベクトルを作成します
+double[] elements = new double[10];
+int[] dimensions = new int[]{ 1, 10 };
+Vector rowVector = new Vector(elements, dimensions);
+//列ベクトルとして 10 の要素を持つベクトルを作成します
+double[] elements = new double[10];
+int[] dimensions = new int[]{ 10, 1 };
+Vector columnVector = new Vector(elements, dimensions);
+----
+
+[[Elements]]
+== 要素を指定することによってベクトルを作成する (行ベクトルを作成する)
+
+ベクトルには 2 つの次元がありますが、これらの次元のひとつはユニタリでなければなりません。次元配列を除外することによってより簡単な方法でベクトル インスタンスを構成できます。デフォルトは行ベクトルの作成です。
+
+*Visual Basic の場合:*
+
+----
+Dim elements As Double() = New Double(9) {}
+Dim x As New Vector(elements)
+----
+
+*C# の場合：*
+
+----
+double[] elements = new double[10];
+Vector x = new Vector(elements);
+----
+
+同等の列ベクトルを作成したい場合には、2 つの方法で実行できます。以下のコードは 2 つのアプローチを示します。
+
+*Visual Basic の場合:*
+
+----
+'このアプローチは行ベクトルを作成し、次に列ベクトルに入れ替えます
+Dim elements As Double() = New Double(9) {}
+Dim x As New Vector(elements)
+x.Transpose()
+'上記のアプローチと似ていますが、
+'Compute.Transpose メソッドを使用します
+Dim elements As Double() = New Double(9) {}
+Dim x As New Vector(elements)
+x = Compute.Transpose(x)
+----
+
+*C# の場合：*
+
+----
+//このアプローチは行ベクトルを作成し、次に列ベクトルに入れ替えます
+double[] elements = new double[10];
+Vector x = new Vector(elements);
+x.Transpose();
+//上記のアプローチと似ていますが、
+//Compute.Transpose メソッドを使用します 
+double[] elements = new double[10];
+Vector x = new Vector(elements);
+x = Compute.Transpose(x);
+----
+
+これらは同じ演算を指定する 2 つの異なる方法ではありません。インスタンス メソッドでは、整数配列の次元はインスタンス自体で変わります。2 番目の事例では、データは新しいベクトルにコピーされ、次にそのデータが入れ替えられます。このインスタンス メソッドが変更されたベクトルをまだ返すことに注目しておく必要があります。これによって数学演算をつなぐことができます。このため、インスタンス メソッドの呼び出しを新しい変数に割り当てることができます。
+
+以下のコードで、変数は同じメモリの位置をポイントします。
+
+*Visual Basic の場合:*
+
+----
+Dim elements As Double() = New Double(9) {}
+Dim x1 As New Vector(elements)
+Dim x2 As Vector = x1.Transpose()
+----
+
+*C# の場合：*
+
+----
+double[] elements = new double[10];
+Vector x1 = new Vector(elements);
+Vector x2 = x1.Transpose();
+----
+
+上記のコードで、*x1* と *x2* は両方とも列ベクトルになります。事実、これらは同じベクトルになります。
+
+[[Length]]
+== 長さを指定することによってベクトルを作成する
+
+整数の長さ *N* をコンストラクターに渡すと、長さ *N* の行ベクトルを提供します。これは link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] クラスの link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~zeros.html[Zeros] メソッドでも実行できます。以下のコードは 2 つのアプローチを示します。
+
+*Visual Basic の場合:*
+
+----
+Dim N As Integer = 10
+Dim x1 As New Vector(N)
+Dim x2 As Vector = Compute.Zeros(N)
+----
+
+*C# の場合：*
+
+----
+int N = 10; 
+Vector x1 = new Vector(N);
+Vector x2 = Compute.Zeros(N);
+----
+
+[[Elements_and_the_Length]]
+== 要素の値と長さを指定することによってベクトルを作成する
+
+すべての要素に対して同じ値を持つ行ベクトルは、double と整数の長さを渡すことによって構成できます。
+
+*Visual Basic の場合:*
+
+----
+Dim N As Integer = 10
+Dim c As Double = 1
+Dim x As New Vector(c, N)
+----
+
+*C# の場合：*
+
+----
+int N = 10;
+double c = 1;
+Vector x = new Vector(c, N);
+----
+
+[[Implicit_Conversion]]
+== 暗示的な変換を使用することによってベクトルを作成する
+
+さらに、*double[]* は暗示的に link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] に変換し、これにより要素単位でベクトルを指定できます。この作業を実行するためにもコンストラクターが存在します。最初のパラメーターとして方向を指定する列挙体を取得します。以下の例で、*x1* と *x2* は同じ値を含み同じ方向になります。
+
+*Visual Basic の場合:*
+
+----
+Dim x1 As Vector = New Double() {0, 1, 2, 3, 4}
+Dim x2 As New Vector(VectorType.Row, 0, 1, 2, 3, 4)
+----
+
+*C# の場合：*
+
+----
+Vector x1 = new double[]{ 0, 1, 2, 3, 4 };
+Vector x2 = new Vector(VectorType.Row, 0, 1, 2, 3, 4);
+----
+
+[[Empty_Vector]]
+== 空のベクトルを作成する
+
+デフォルトのコンストラクターは空のベクトルを返しますが、これは link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[Vector] クラスで静的な変数として構成することも可能です。
+
+*Visual Basic の場合:*
+
+----
+Dim empty1 As New Vector()
+Dim empty2 As Vector = Vector.Empty
+----
+
+*C# の場合：*
+
+----
+Vector empty1 = new Vector();
+Vector empty2 = Vector.Empty;
+----
+
+== 関連トピック
+
+link:infragistics-math-working-with-vectors.html[ベクトルでの作業]
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-matrices.html[行列]
+
+link:infragistics-math-mathematical-functions.html[数学関数]
+
+link:infragistics-math-api-overview.html[API の概要]

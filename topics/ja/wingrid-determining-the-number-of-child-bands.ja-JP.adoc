@@ -1,0 +1,117 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-determining-the-number-of-child-bands",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{26618F5B-5068-4B03-962E-C8E2C5EC05DF}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 子バンドの数を判断する
+
+WinGrid をトラバースするコードを作成する場合があり、特定バンドの子バンドの数を知る必要があります。WinGrid コントロールは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[Band]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~childbands.html[ChildBands]"]  プロパティを介してこの情報を提供します。
+
+== 子バンドの数を特定
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. GetNumberOfChildBands という関数を定義します。この関数は Band オブジェクトを受け入れ、子バンドの数を返します。
+
+*Visual Basic の場合：*
+
+----
+Private Function GetNumberOfChildBands(ByVal aBand As _
+  Infragistics.Win.UltraWinGrid.UltraGridBand) As Integer
+----
+
+*C# の場合：*
+
+----
+private int GetNumberofChildBands(Infragistics.Win.UltraWinGrid.UltraGridBand aBand)
+{
+----
+
+[start=3]
+. Band オブジェクトの実体は特殊なタイプの列です。バンド内の列をループして Band オブジェクトを利用できます。For...Each ループを設定して、関数へ渡されたバンド内の列をループします。
+
+*Visual Basic の場合：*
+
+----
+Dim aCol As UltraGridColumn
+For Each aCol In aBand.Columns
+----
+
+*C# の場合：*
+
+----
+int GetNumberofChildBands = 0;
+foreach(UltraGridColumn aCol in aBand.Columns)
+{
+----
+
+[start=4]
+. 各列を一度に１列ずつチェックして、バンドかどうかを判断します。
+
+*Visual Basic の場合：*
+
+----
+If aCol.IsChaptered Then
+----
+
+*C# の場合：*
+
+----
+if(aCol.IsChaptered)
+----
+
+[start=5]
+. 列がバンドである場合、関数の戻り値に 1 を加えます。
+
+*Visual Basic の場合：*
+
+----
+	GetNumberOfChildBands = GetNumberOfChildBands + 1
+End If
+----
+
+*C# の場合：*
+
+----
+	GetNumberofChildBands = GetNumberofChildBands + 1;
+}	
+----
+
+[start=6]
+. ループをクローズします。
+
+*Visual Basic の場合：*
+
+----
+Next aCol
+----
+
+*C# の場合：*
+
+----
+	return GetNumberofChildBands;
+}
+----

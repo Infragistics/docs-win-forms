@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-spoke-pane",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{08C4FE35-3253-4CC6-BE4F-F2B8FBE8A30F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スポーク ペイン
+
+[スポーク] ペインはアンカーの形状を編集するために使用されます。深さ値 100 とスイープ値 360 は円です。値が小さくなると、スポークはよりはっきりと表示されます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~spokedepth.html[深さ]"]  -- この値を 0 から 100 の整数に設定します。この値は、各スポークとラジアル ゲージの中心の間の距離です。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~spokesweep.html[スイープ]"]  -- この値を 0 から 360 の整数に設定します。この値は各スポークの角度の測定です。アンカーの「スポーク」の外観は、スイープ値が 100 未満の時に限って表示されます。
+
+image::images/Spoke_Pane_01.png[]
+
+以下のスクリーンショットは、半径値 45、深さ値 80、スイープ値 20 に設定されたアンカーを示しています。
+
+image::images/Gauge_Spoke_01.png[]
+
+== 関連トピック
+
+link:wingauge-anchor-layout-tab.html[アンカー レイアウト タブ]

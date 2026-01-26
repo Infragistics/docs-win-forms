@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{47E38857-1CF6-4415-8389-1C5F7845FD4D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 2006.1
+
+Infragistics 2006 Volume 1 リリースに新たに追加された強力なWinGrid™ 機能について説明しています。
+
+* link:wingrid-clipboard-support-for-wingrid-whats-new-2006-1.html[WinGrid のクリップボードサポート] -- WinGrid と Microsoft® Excel® の間で [コピー]（Ctrl-C）と [貼り付け]（Ctrl-V）を使用できるようになりました。
+* link:wingrid-recursive-rows-enumerator-whats-new-2006-1.html[反復行列挙体] -- 1 回の foreach（For Each）ループで WinGrid 全体を容易にループ処理できるようになりました。

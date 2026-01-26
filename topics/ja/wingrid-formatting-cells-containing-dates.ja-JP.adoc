@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-formatting-cells-containing-dates",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Localization"],
+    "guid": "{EC9B86B9-908F-4173-BB16-A78BF10D3805}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 通貨および日付格納セルの書式
+
+== 背景
+
+日付を含むセルへのユーザー入力は表示用に書式化する必要があり、またローカライズ ガイドラインに従って地域が異なれば日付を異なる形式で表示しなければなりません。
+
+== 質問
+
+* 月、日、年のみからなる日付/時刻をどう表示すればいいですか?
+* 月、日、年が Windows ロケール設定に準拠するように表示するにはどうしたらいいですか?
+
+== 解決策
+
+上記の問題すべてに対する解答は、列オブジェクトの .Format プロパティを使用することです。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは 3 列を表示します。OrderDate 列は「ローカライズされた」短い日付の標準書式を使用し、RequiredDate は日付フィールドの時刻部分を "hh:mm:ss" 書式で表示します。
+
+image::Images/WinGrid_Formatting_Cells_Containing_Dates_01.png[]
+
+UltraGrid1.InitializeLayout -- UltraWinGrid の InitializeLayout イベント内のコードは、列をグリッドの幅に合わせ、3 列を指示通り書式化するようにグリッドに指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Bands(0).Columns("OrderDate").Format = "d"
+	e.Layout.Bands(0).Columns("RequiredDate").Format = "hh:mm:ss"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Bands[0].Columns["OrderDate"].Format = "d";
+	e.Layout.Bands[0].Columns["RequiredDate"].Format = "hh:mm:ss";
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトは、Column オブジェクトの .Format プロパティを使用して列を書式化する最も単純なメソッドを示しています。「書式化関数」に関連する Microsoft ドキュメントを参照して、.Format プロパティの機能の詳細を確認してください。

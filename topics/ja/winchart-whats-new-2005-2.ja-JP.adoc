@@ -1,0 +1,141 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-whats-new-2005-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{652B884E-D647-43F7-9483-1E6BDE7A5A0B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinChart 2005.2
+
+== チャート アセンブリの統合
+
+WinChart では、アセンブリ数が 2 から 1 に削減されました。
+
+Infragistics.UltraChart.Resources アセンブリが、Infragistics.WebUI.UltraWebChart と Infragistics.Win.UltraWinChart の両方にマージされました。
+
+WinChart アセンブリに Assembly:AllowPartiallyTrustedCallers() 属性がマークされ、WinChart を使用する Windows Forms アプリケーションではノータッチ配備が可能になります。
+
+== チャート ウィザードの自動起動
+
+WinChart コントロールをフォームにドラッグすると、チャート ウィザードが自動的に開きます。
+
+[NOTE]
+====
+*注:*  チャート ウィザードのチェックボックスの選択を解除することによって、この機能を無効にすることができます。
+====
+
+== チャート ウィザードの改良
+
+チャート ウィザードの [軸] タブに [軸の間隔とマージン] エディタを追加しました。このエディタはチャート軸と軸マージンの配置を簡略化します。
+
+image::images/Whats_New_UltraWinChart_2005_2_01.png[]
+
+== カスタマイズ可能な軸マージン
+
+AxisAppearance クラスに Margin プロパティが追加されました。このプロパティは、すべての軸について軸の近い側または遠い側にマージンを指定する方法を提供します。値はパーセンテージ、データ値、またはピクセルで指定できます。詳細については、 link:chart-axis-margins.html[「軸のマージン」]を参照してください。
+
+image::images/Whats_New_UltraWinChart_2005_2_02.png[]
+
+== 補間
+
+ほとんどのチャート タイプ（ColumnChart.NullHandling や LineChart.NullHandling など）の下にプロパティ "NullHandling" があります。NullHandling Enum 内の2つの値は “Zero” と “DontPlot” です。
+
+“InterpolateSimple” と “InterpolateCustom” という 2 つの新しい値が NullHandling 列挙体に追加されました。これらの新しい null 処理オプションは、NullHandling プロパティを提供する各チャート タイプ（ColumnChart.NullHandling や LineChart.NullHandling など）に使用できます。
+
+InterpolateSimple は null 値の前後にある値と値の間で単純な線形補間を実行します。InterpolateCustom は InterpolateValues イベントを発生させます。このイベント内でアプリケーション開発者は、自分のデータから作成された配列を渡されるので、null のまま残る値がないようにこの配列にデータを取り込むことになります。NullHandling.InterpolateCustom を使用すると、アプリケーション開発者は、データソース内の null が見つかった場所に正しい値を補間または置換する適当なビジネス ロジックをすべて使用できます。
+
+補間済みの値の外観をカスタマイズするために新しいプロパティ、UltraChart.Data.EmptyStyle が提供されています。
+
+次の 4 つの画像では異なるタイプの null 処理を使用します。上部の領域で点 C は null です。下部の領域で点 G は null です。次の 4 つの画像で、領域 A は青色、領域 B は茶色と想定してください。これらの領域のソース データ内で、null とされている点はどれでしょうか（あてはまるすべてをチェックしてください）。詳細については、 link:chart-customize-the-display-of-null-values.html[「Null 値の表示をカスタマイズ」]を参照してください。
+
+[options="header", cols="a,a"]
+|====
+|NullHandling.Zero|NullHandling.DontPlot
+
+|image::images/Whats_New_UltraWinChart_2005_2_03.png[]
+|image::images/Whats_New_UltraWinChart_2005_2_04.png[]
+
+|NullHandling.InterpolateSimple|NullHandling.InterpolateCustom
+
+|image::images/Whats_New_UltraWinChart_2005_2_05.png[]
+|image::images/Whats_New_UltraWinChart_2005_2_06.png[]
+
+|====
+
+== 積層型エリア グラフ（平面）
+
+積層型エリア グラフは、各データ点でエリアが累積されているためエリアが重複しないエリア グラフです。100% 積層型エリア グラフの場合、各エリアはパーセント表示の軸範囲上に各データ点の合計を示します。
+
+エリア グラフは、折れ線グラフの 1 形式ですが、データ マーカーを結ぶ折れ線と水平軸（X）との間のエリアに色を付けます。これにより、複数のデータ シリーズで取り囲まれてデータ点が重なっている個所がはっきりわかります。詳細については、 link:chart-about-stacked-area-charts.html[「積層型エリア グラフについて」]を参照してください。
+
+image::images/Whats_New_UltraWinChart_2005_2_07.png[]
+
+== 積層型折れ線グラフ（平面）
+
+積層型折れ線グラフは、各データ点で折れ線が累積されているため折れ線が交差しない折れ線グラフです。100% 積層型折れ線グラフの場合、各折れ線はパーセント表示の軸範囲上に各データ点の合計を示します。詳細については、 link:chart-about-stacked-line-charts.html[「積層型折れ線グラフについて」]を参照してください。
+
+image::images/Whats_New_UltraWinChart_2005_2_08.png[]
+
+== 積層型スプライン エリア グラフ（平面）
+
+積層型エリア グラフは、各データ点でエリアが累積されているためエリアが重複しないエリア グラフです。100% 積層型エリア グラフの場合、各エリアはパーセント表示の軸範囲上に各データ点の合計を示します。
+
+エリア グラフは、折れ線グラフの 1 形式ですが、データ マーカーを結ぶ折れ線と水平軸（X）との間のエリアに色を付けます。これにより、複数のデータ シリーズで取り囲まれてデータ点が重なっている個所がはっきりわかります。
+
+積層型スプライン エリア グラフは、各線の点をつなぐためにスプライン テンションを使用するので、積層型エリア グラフと異なります。詳細については、 link:chart-about-stacked-spline-area-charts.html[「積層型スプライン エリア グラフについて」]を参照してください。
+
+image::images/Whats_New_UltraWinChart_2005_2_09.png[]
+
+== 100% 積層型スプライン グラフ（平面）
+
+積層型折れ線グラフは、各データ点で折れ線が累積されているため折れ線が交差しない折れ線グラフです。100% 積層型折れ線グラフの場合、各折れ線はパーセント表示の軸範囲上に各データ点の合計を示します。
+
+積層型スプライン グラフは、各線の点をつなぐためにスプライン応力を使用するので、積層型折れ線グラフと異なります。詳細については、 link:chart-about-stacked-spline-charts.html[「積層型スプライン グラフについて」]を参照してください。
+
+image::images/Whats_New_UltraWinChart_2005_2_10.png[]
+
+== スマートな軸ラベル
+
+チャートの範囲計算がスマートになりました。単にデータの最小値/最大値を軸の最小値/最大値として使用するのではなく、AxisTickStyle.Smart プロパティによって最小値以下および最大値以上で四捨五入を行ってから使用します。スマートな間隔を用いて、データの最小、最大の 1 ファクタである四捨五入を計算します。詳細については、 link:chart-smart-tickmarks.html[「スマート目盛り」]を参照してください。
+
+image::images/Whats_New_UltraWinChart_2005_2_11.png[]
+
+== パレート図（平面）
+
+パレート図は、値によって（最大値から最小値に）ソートされた柱状グラフで、現在の合計を全体のパーセントとして表す折れ線が付随しています。詳細については、 link:chart-about-pareto-charts.html[「パレート図について」]を参照してください。
+
+Y 軸は柱に対応するデータ値を示し、Y2 軸は折れ線に対応するパーセント値を示します。
+
+[NOTE]
+====
+*注:* Y2 軸を表示するには、UltraChart.Axis.Y2.Visible プロパティを True に設定します。
+====
+
+このグラフは品質管理に使用され、通常 80/20 ルールを具体的に示すのに最適と言われています。たとえば、問題の 80% は原因の 20% を追跡することによって解決され、売上高の 80% は製品の 20% から得られると言われています。
+
+image::images/Whats_New_UltraWinChart_2005_2_12.png[]
+
+== 同心ドーナツ型グラフ（平面）
+
+image::images/Whats_New_UltraWinChart_2005_2_13.png[]
+
+== タブ付きチャート タイプ プロパティ エディタ
+
+タブを使用して 34 個のチャート タイプを構成できるようになりました。
+
+image::images/Whats_New_UltraWinChart_2005_2_14.png[]
+
+image::images/Whats_New_UltraWinChart_2005_2_15.png[]
+
+image::images/Whats_New_UltraWinChart_2005_2_16.png[]
+
+image::images/Whats_New_UltraWinChart_2005_2_17.png[]
+
+image::images/Whats_New_UltraWinChart_2005_2_18.png[]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintpreviewdialog-api-overview",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{7037E454-2174-4A3F-8F65-CBF6E7615DAC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinPrintPreviewDialog 名前空間
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}~infragistics.win.printing_namespace.html[Infragistics.Win.Printing]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}~infragistics.win.printing.ultraprintpreviewdialog.html[UltraPrintPreviewDialog]"]

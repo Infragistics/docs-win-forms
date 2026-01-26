@@ -1,0 +1,120 @@
+﻿////
+|metadata|
+{
+    "name": "winactivityindicator-displaying-text-on-activity-indicator",
+    "controlName": ["WinActivityIndicator"],
+    "tags": [],
+    "guid": "d282fd66-cdfd-40e4-934b-3fe74af1ee34","buildFlags": [],
+    "createdOn": "2013-01-23T17:12:11.8438589Z"
+}
+|metadata|
+////
+
+= アクティビティ インジケーターにテキストの表示
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、アニメーションが有効または開始された場合にアクティビティ インジケーターのテキストを表示する概要を提供します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winactivityindicator-understanding-winactivityindicator.html[WinActivityIndicator の理解]
+|このセクションのトピックを読むと、アプリケーションで WinActivityIndicator コントロールを使用することの利点を理解できます。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref345936090, _WinActivityIndicator_   にテキストの表示>>
+
+** <<_Ref341518673,概要とプレビュー>>
+** <<_Ref341518679,プロパティ設定>>
+
+* <<_Ref341518687,関連コンテンツ>>
+
+[[_Ref341518665]]
+[[_Ref343696074]]
+[[_Ref345936090]]
+== _WinActivityIndicator_   にテキストの表示
+
+[[_Ref341518673]]
+
+=== 概要とプレビュー
+
+13.1 以前のバージョンでは、 _WinActivityIndicator™_   は、アニメーション再生時のテキスト表示のサポートはなく、アニメーションのみのサポートでした。以下の画像では、アニメーション再生時に  _処理しています…_  テキストを表示し、アニメーションを停止時には「停止」テキストを表示するアクティビティ インジケーターを示します。
+
+アニメーションを再生しています
+
+image::images/WinActivityIndicator_Displaying_Text_on_Activity_Indicator_1.png[]
+
+アニメーションを停止しました
+
+image::images/WinActivityIndicator_Displaying_Text_on_Activity_Indicator_2.png[]
+
+.注:
+[NOTE]
+====
+コントロールの `UseOsThemes` プロパティはデフォルトで Off に設定されます。On に設定する場合、アニメーション テキストをオーバーレイします。アプリケーションをスタイルするには、Infragistics link:styling-guide-application-styling-framework-asf.html[AppStylist]® を使用することができます。
+====
+
+[[_Ref341518679]]
+
+=== プロパティ設定
+
+_WinActivityIndicator_   コントロールは link:https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.text[Text] および link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~animationenabledtext.html[AnimationEnabledText] の 2 つのプロパティを公開します。`Text` プロパティは、アニメーションを再生していないときにテキストを表示します。`AnimationEnabledText` プロパティは、アニメーションを再生しているときにテキストを表示します。
+
+以下のシナリオはテキストの解決処理を説明します。
+
+1.`AnimationEnabled = True` の場合
+
+* コントロールが null 値または空ではない場合、`AnimationEnabledText` プロパティの値を表示します。
+
+* コントロールは、`AnimationEnabledText` プロパティが null 値または空の場合、`Text` プロパティの値を表示します。
+
+2.`AnimationEnabled = False` の場合
+
+* コントロールは `Text` プロパティの値を表示します。
+
+コードまたは Visual Studio デザイン ビューにプロパティを設定できます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraActivityIndicator1.Text = "Stopped";
+ultraActivityIndicator1.AnimationEnabledText = "Please wait while processing...";
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraActivityIndicator1.Text = "Stopped"
+ultraActivityIndicator1.AnimationEnabledText = "Please wait while processing..."
+----
+
+[[_Ref341518687]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winactivityindicator-using-winactivityindicator.html[WinActivityIndicator の使用]
+|このセクションでは、 _WinActivityIndicator_ コントロールに関連する特定のタスクを実行する方法を簡潔に説明するタスク ベースのトピックを紹介します。
+
+|====

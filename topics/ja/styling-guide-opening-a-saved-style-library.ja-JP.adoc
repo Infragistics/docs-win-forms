@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-opening-a-saved-style-library",
+    "controlName": [],
+    "tags": ["How Do I","Styling"],
+    "guid": "{928AA64E-DA14-4285-B705-14AA590A2AE8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 保存されたスタイル ライブラリを開く
+
+保存されたスタイル ライブラリを開くことができる方法は 3 つあります。[ファイル] メニューから [スタイル ライブラリを開く...] メニューを使用することができます。または最近スタイル ライブラリを使用した場合には、[開始] ページの [最近のファイルを開く] セクションだけでなく、[ファイル] メニューの [最近使用したファイル] セクションに表示されます。
+
+*保存されたスタイル ライブラリを開くには、次の手順に従ってください。*
+
+[start=1]
+. [ファイル] メニューで、[スタイル ライブラリを開く...] をクリックします。
+
+image::images/AppStyling_Opening_a_Saved_Style_Library_01.png[]
+
+[スタイル ライブラリを開く] ダイアログ ボックスが開きます。
+
+image::images/AppStyling_Opening_a_Saved_Style_Library_02.png[]
+
+[start=2]
+. スタイル ライブラリを保存したフォルダを指定します。
+[start=3]
+. ロードしたいファイルを選択して [開く] をクリックします。スタイル ライブラリが AppStylist for Windows Forms にロードされます。

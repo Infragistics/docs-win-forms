@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager",
+    "controlName": ["WinToolTipManager"],
+    "tags": [],
+    "guid": "{07B86D6B-2E00-40A1-8BCA-6A53E96407BD}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolTipManager
+
+WinToolTipManager コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。その内容は、WinToolTipManager の機能、このコンポーネントをアプリケーションに使用することの利点、このコンポーネントを使用する一般的なタスクの手順を追った作成方法などです。
+
+以下のリンクをクリックすると、WinToolTipManager コンポーネントに関する重要な説明を読むことができます。
+
+== link:wintooltipmanager-understanding-wintooltipmanager.html[WinToolTipManager の概要]
+
+このセクションでは、WinToolTipManager コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。
+
+== link:win-wintooltipmanager-using-wintooltipmanager.html[WinToolTipManager の使用]
+
+このセクションは、WinTooltipManager コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:wintooltipmanager-api-overview.html[API 概要]
+
+このトピックでは、WinToolTipManager コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」にリンクしています。

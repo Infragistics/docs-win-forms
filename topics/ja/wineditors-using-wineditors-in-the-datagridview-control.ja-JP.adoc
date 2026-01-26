@@ -1,0 +1,221 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-using-wineditors-in-the-datagridview-control",
+    "controlName": ["WinEditors"],
+    "tags": ["Application Scenarios"],
+    "guid": "{CCAD02F0-E31F-4C7B-84A9-1063EA4E262E}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= DataGridView コントロールでの WinEditors の使用
+
+UltraDataGridViewColumns は DataGridViewColumn から派生したコンポーネントです。これらの列は、System.Windows.Forms 名前空間に属する標準の DataGridViewColumn 派生クラス（DataGridViewTextColumn や DataGridViewCheckBoxColumn など）と同じように使用できます。UltraDataGridViewColumns には WinEditors の機能が追加されています。そのため、Appearances などの Infragistics 共通の機能を利用できます。また、日付、イメージ、計算機、ドロップダウン リストなど多くの機能専用の列を使用することも可能です。
+
+13 種類の異なる列タイプがあります。どの列タイプも基本機能は同じですが、それぞれが特定の目的に特化されています。この例では、DataGridView で最も一般的な列タイプを利用するアプリケーションを作成します。
+
+[start=1]
+. *新しいプロジェクトを作成します。*
+
+Visual Studio 2005 で新しいプロジェクトを作成します。
+
+DataGridView コントロールをフォームに追加します。
+
+DataGridView は幅広いデータ ソースをサポートしますが、この例では WinDataSource を使用します。UltraDataSource コンポーネントをフォームに追加します。
+[start=2]
+. *スキーマを設定します。*
+
+コンポーネント トレイにある UltraDataSource を右クリックして [UltraDataSource デザイナ] を選択します。
+
+次の列を UltraDataSource の Band 0 に指定のデータ型で追加します。
+
+** ProductID – System.Int32
+** ProductName – System.String
+** Size – System.Int32
+** Color – System.Drawing.Color
+** Price – System.Decimal
+** InStock – System.Boolean
+
+必要であれば、[データ入力] 画面に切り替えて製品テーブルにテスト データを入力します。Size の値は 1、2、3 のいずれかにしてください。
+
+[OK] をクリックして UltraDataSource の設定を終了します。
+[start=3]
+. *グリッドをバインドします。*
+
+DataGridView の DataSource を UltraDataSource1 に設定します。
+
+DataMember を Band 0 に設定します。
+
+この時点で、フォーム上の DataGridView がデータ ソースの列ごとに列を自動的に作成するのが分かります。これらの列は、Visual Studio 2005 で使用可能なデフォルトの DataGridViewColumns のみを使用して作成されます。そのため、すべての列を削除します。グリッドの Columns プロパティで省略（...）ボタンをクリックして [列の編集] ダイアログを表示します。すべての列がなくなるまで [削除] をクリックします。次に [OK] をクリックします。
+[start=4]
+. *プロジェクトを参照します。*
+
+UltraDataGridViewColumns を使用するためには、次の参照をプロジェクトに追加する必要があります。
+
+** {ApiPlatform}Shared.v{ProductVersion}
+** {ApiPlatform}Win.v{ProductVersion}
+
+*注:* このプロジェクトにはすでに UltraDataSource コンポーネントが含まれているため、これら 2 つの参照はすでにプロジェクトに追加されています。
+
+これら 2 つのアセンブリは Infragistics フレームワークであり、ほとんどすべて（ただし完全にすべてではない）の UltraDataGridViewColumns へのアクセスを可能にします。
+
+** UltraCheckEditorColumn
+** UltraColorPickerColumn
+** UltraComboEditorColumn
+** UltraDateTimeEditorColumn
+** UltraFontNameEditorColumn
+** UltraImageRendererColumn
+** UltraMaskEditorColumn
+** UltraOptionSetEditorColumn
+** UltraProgressBarEditorColumn
+** UltraTextEditorColumn
+** UltraTimeZoneEditorColumn
+
+次の 2 つの追加の列タイプは他のアセンブリによって提供されます。
+
+** UltraGridComboColumn は {ApiPlatform}Win.UltraWinGrid.v{ProductVersion} アセンブリによって提供されます。
+** UltraCalendarComboColumn は {ApiPlatform}Win.UltraWinSchedule.v{ProductVersion} アセンブリによって提供されます。
+
+この例ではこれら 2 つの列タイプを利用しないので、これらを追加する必要はありません。
+[start=5]
+. *ランタイムに列を追加します。*
+
+コードで列を作成するには、UltraDataGridView 名前空間を含むように using/imports 文をプロジェクトに追加します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraDataGridView
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraDataGridView;
+----
+
+Form_Load イベントのハンドラに次のコードを追加して列を作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim column As DataGridViewColumn = Nothing
+' Product ID 列
+column = New UltraTextEditorColumn()
+column.Name = "ProductID"
+column.HeaderText = "Product ID"
+column.DataPropertyName = "ProductID"
+Me.dataGridView1.Columns.Add(column)
+' Product Name 列
+column = New UltraTextEditorColumn()
+column.Name = "ProductName"
+column.HeaderText = "Product Name"
+column.DataPropertyName = "ProductName"
+Me.dataGridView1.Columns.Add(column)
+' Product Name 列
+column = New UltraComboEditorColumn()
+column.Name = "Size"
+column.HeaderText = "Size"
+column.DataPropertyName = "Size"
+Me.dataGridView1.Columns.Add(column)
+column = New UltraColorPickerColumn()
+column.Name = "Color"
+column.HeaderText = "Color"
+column.DataPropertyName = "Color"
+Me.dataGridView1.Columns.Add(column)
+column = New UltraMaskEditorColumn()
+column.Name = "Price"
+column.HeaderText = "Price"
+column.DataPropertyName = "Price"
+Me.dataGridView1.Columns.Add(column)
+column = New UltraCheckEditorColumn()
+column.Name = "In Stock"
+column.HeaderText = "In Stock"
+column.DataPropertyName = "In Stock"
+Me.dataGridView1.Columns.Add(column)
+----
+
+*C# の場合：*
+
+----
+DataGridViewColumn column = null;
+// Product ID 列
+column = new UltraTextEditorColumn();
+column.Name = "ProductID";
+column.HeaderText = "Product ID";
+column.DataPropertyName = "ProductID";
+this.dataGridView1.Columns.Add(column);
+// Product Name 列
+column = new UltraTextEditorColumn();
+column.Name = "ProductName";
+column.HeaderText = "Product Name";
+column.DataPropertyName = "ProductName";
+this.dataGridView1.Columns.Add(column);
+// Product Name 列
+column = new UltraComboEditorColumn();
+column.Name = "Size";
+column.HeaderText = "Size";
+column.DataPropertyName = "Size";
+this.dataGridView1.Columns.Add(column);
+column = new UltraColorPickerColumn();
+column.Name = "Color";
+column.HeaderText = "Color";
+column.DataPropertyName = "Color";
+this.dataGridView1.Columns.Add(column);
+column = new UltraMaskEditorColumn();
+column.Name = "Price";
+column.HeaderText = "Price";
+column.DataPropertyName = "Price";
+this.dataGridView1.Columns.Add(column);
+column = new UltraCheckEditorColumn();
+column.Name = "In Stock";
+column.HeaderText = "In Stock";
+column.DataPropertyName = "In Stock";
+this.dataGridView1.Columns.Add(column);
+----
+
+[start=6]
+. *列のプロパティを設定します。*
+
+ここでアプリケーションを実行した場合、グリッドを編集して新しい行を追加できます。
+
+ただし、Size 列のドロップダウン矢印は機能しません。これはリストに項目がひとつもないためです。
+
+これを修正するには、次のコードを Form_Load イベントの最後に追加します。
+
+*Visual Basic の場合：*
+
+----
+' Size 列を UltraComboEditorColumn にキャストします。
+' これで UltraComboEditorColumn 固有のプロパティにアクセスできるようになります。
+Dim ultraComboEditorColumn As UltraComboEditorColumn = _
+   DirectCast(Me.dataGridView1.Columns("Size"), UltraComboEditorColumn)
+' リストに値を移植します。
+UltraComboEditorColumn.ValueList.ValueListItems.Add(1, "Small")
+UltraComboEditorColumn.ValueList.ValueListItems.Add(2, "Medium")
+UltraComboEditorColumn.ValueList.ValueListItems.Add(3, "Large")
+----
+
+*C# の場合：*
+
+----
+// Size 列を UltraComboEditorColumn にキャストします。
+// これで UltraComboEditorColumn 固有のプロパティにアクセスできるようになります。
+UltraComboEditorColumn ultraComboEditorColumn = 
+this.dataGridView1.Columns["Size"] as UltraComboEditorColumn;
+// リストに値を移植します。
+ultraComboEditorColumn.ValueList.ValueListItems.Add(1, "Small");
+ultraComboEditorColumn.ValueList.ValueListItems.Add(2, "Medium");
+ultraComboEditorColumn.ValueList.ValueListItems.Add(3, "Large");
+----
+
+[start=7]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行して各列を編集できます。Size 列のドロップダウンリストも正常に機能し、項目を選択すると DisplayText が表示されて、基になる DataValue が整数列に格納されることを確かめてください。
+
+image::images/WinEditors_Using_WinEditors_in_the_DataGridView_Control_01.png[]

@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-the-style-of-buttons",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{95047546-F7ED-4177-A04C-92DA54D681CD}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ボタンのスタイルの設定
+
+WinGrid のボタンの外観は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~buttonstyle.html[ButtonStyle]"]  プロパティを設定することで簡単に指定できます。このプロパティによって制御されるボタンは、セル内のボタン（Button スタイル ボタンと EditorButton スタイル ボタンの両方）と AddNew ボックスにあるボタンです。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~buttonstyle.html[ButtonStyle]"]  プロパティは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  オブジェクトと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscollection~band.html[Band]"]  オブジェクトによって公開されている Override オブジェクトで使用できます。ButtonStyle プロパティの型は pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementbuttonstyle.html[UIElementButtonStyle]"]  です。
+
+== DisplayLayout の Override の ButtonStyle プロパティに値を指定するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+[start=2]
+. デザインタイムに WinGrid を右クリックして [UltraGrid デザイナ] を選択します。
+[start=3]
+. デザイナで、[コントロール設定] オプションを選択します。下にスクロールして DisplayLayout プロパティを展開します。Override プロパティが表示するまで下にスクロールしてプロパティを展開し、Override プロパティの中で ButtonStyle プロパティが表示するまで下にスクロールします。
+
+このプロパティを Band の Override で設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub SettingtheStyleofButtons_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Style = UltraWinGrid.ColumnStyle.Button
+	Me.UltraGrid1.DisplayLayout.Bands(0).Override.ButtonStyle = UIElementButtonStyle.Button3D
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SettingtheStyleofButtons_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Style = UltraWinGrid.ColumnStyle.Button;
+	this.ultraGrid1.DisplayLayout.Bands[0].Override.ButtonStyle = UIElementButtonStyle.Button3D;
+}
+----
+
+次のスクリーンショットは、"Office2003ToolbarButton" スタイルを使用した WinGrid を示します。
+
+image::Images/WinGrid_Set_the_Style_of_Buttons_01.png[]

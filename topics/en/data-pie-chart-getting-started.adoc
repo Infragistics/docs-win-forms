@@ -1,0 +1,167 @@
+﻿////
+|metadata|
+{
+    "name": "data-pie-chart-getting-started",
+    "controlName": ["{DataPieChartName}"],
+    "tags": [],
+    "buildFlags": []
+}
+|metadata|
+////
+
+= Getting Started with {DataPieChartName}
+
+=== Purpose
+
+This topic explains using a code example how to add the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] control to {PlatformName} applications.
+
+=== In this topic
+
+This topic contains the following sections:
+
+* <<Adding,Adding {DataPieChartName} to the {PlatformName} application>>
+
+** <<Introduction,Introduction>>
+** <<Preview,Preview>>
+** <<Prerequisites,Requirements>>
+** <<Overview,Overview>>
+** <<Steps,Steps>>
+
+[[Adding]]
+== Adding {DataPieChartName} to the {PlatformName} application
+
+[[Introduction]]
+
+=== Introduction
+
+The following procedure demonstrates adding the {DataPieChartName} to {PlatformName} applications.
+
+[[Preview]]
+
+=== Preview
+
+The following is a screenshot of the  {DataPieChartName}
+
+* TODO: DATA PIE CHART SCREEN HERE
+
+[[Prerequisites]]
+== Requirements
+
+Following are the general requirements for adding the {DataPieChartName} control.
+
+ifdef::wpf[]
+
+Add the following NuGet package reference to your main project:
+
+** Infragistics.WPF.Charts
+
+For more information on setting up the NuGet feed and adding NuGet packages, you can take a look at the following documentation: link:nuget-feeds.html[NuGet Feeds].
+
+endif::wpf[]
+
+ifdef::win-forms[]
+Add the following Infragistics assemblies to your main project:
+
+** {ApiPlatform}{DataPieChartAssembly}.{DllVersion}dll 
+** {ApiPlatform}{DataVizAssembly}.{DllVersion}dll 
+** {ApiPlatform}Win.Portable.Core.{DllVersion}dll 
+endif::win-forms[]
+
+ifdef::wpf[]
+*In XAML:*
+[source,xaml]
+----
+xmlns:ig="http://schemas.infragistics.com/xaml"
+----  
+endif::wpf[]
+ 
+ifdef::wpf,win-forms[]
+*In C#:* 
+[source,csharp]
+----
+using {DataPieChartNamespace};  
+----  
+endif::wpf,win-forms[]
+ 
+ifdef::wpf,win-forms[] 
+*In VB:* 
+[source,vb]
+----
+Imports {DataPieChartNamespace}
+---- 
+endif::wpf,win-forms[]
+  
+[[Overview]]
+
+=== Overview
+
+Following is a conceptual overview of the process:
+
+*1. Adding the {DataPieChartName} control to {PlatformName} applications*
+
+*2. Verifying the results*
+
+[[Steps]]
+
+=== Steps
+
+The following procedure takes you through the steps necessary for adding the  {DataPieChartName} control to a page.
+
+=== 1. Add the {DataPieChartName} control to the page.
+
+The following code demonstrates adding the {DataPieChartName} control with the minimum code and property settings required for display.
+
+ifdef::xaml[]
+
+*In XAML:*
+
+[source,xaml]
+----
+<Grid x:Name=”LayoutRoot”>
+ <ig:{DataPieChartName} DataSource="{Binding DataCollection}" />
+</Grid>
+----
+
+endif::xaml[]
+
+
+
+ifdef::wpf[]
+*In Visual Basic:*
+[source,vb]
+----
+Dim dataPieChart As New {DataPieChartName}()
+dataPieChart.DataSource = data
+Me.LayoutRoot.Children.Add(dataPieChart)  
+----
+
+*In C#:*
+[source,csharp]
+----
+var dataPieChart = new {DataPieChartName}();
+dataPieChart.DataSource = data;
+this.LayoutRoot.Children.Add(dataPieChart);  
+----
+endif::wpf[]
+
+ifdef::win-forms[]
+*In Visual Basic:*
+[source,vb]
+----
+Dim dataPieChart As New {DataPieChartName}()
+dataPieChart.DataSource = data
+Me.Controls.Add(dataPieChart)  
+----
+
+*In C#:*
+[source,csharp]
+----
+var dataPieChart = new {DataPieChartName}();
+dataPieChart.DataSource = data;
+this.Controls.Add(dataPieChart);  
+----
+endif::win-forms[]
+
+=== 2. Verify the results.
+
+Build and run your project to verify the result. If you have implemented the steps correctly, the displayed {DataPieChartName} should look like the one in the Preview section above.

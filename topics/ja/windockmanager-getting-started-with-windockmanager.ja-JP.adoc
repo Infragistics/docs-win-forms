@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-getting-started-with-windockmanager",
+    "controlName": ["WinDockManager"],
+    "tags": ["Getting Started"],
+    "guid": "{14E8C831-C68C-4F55-B125-C5B4BF7B7914}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDockManager で開始
+
+以下のリンクをクリックすると、WinDockManager コンポーネントをすばやく起動して実行する方法についての説明を読むことができます。
+
+* link:windockmanager-adding-windockmanager-to-a-form.html[WinDockManager のフォームへの追加] -- WinDockManager コンポーネントを Windows Formsに配置する方法を説明しています。
+* link:windockmanager-docking-controls-with-windockmanager-through-code.html[コードによる WinDockManager の作成] -- WinDockManager コンポーネントのインスタンスをプログラミングにより作成する方法を説明しています。

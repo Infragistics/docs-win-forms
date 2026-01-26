@@ -1,0 +1,44 @@
+﻿////
+|metadata|
+{
+    "name": "whats-new-exporter-events",
+    "controlName": [],
+    "tags": ["Events","Exporting"],
+    "guid": "f74fe645-c295-4197-bb5f-31b4c29397ca",
+    "buildFlags": [],
+    "createdOn": "2011-05-13T18:29:27.1296752Z"
+}
+|metadata|
+////
+
+= 新しいエクスポータ イベント
+
+link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.exportstartedeventargs.html[ExportStarted]、 link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.exportendingeventargs.html[ExportEnding] および link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.exportendedeventargs.html[ExportEnded] の 3 つの新しいイベントが WinGridDocumentExporter™ コンポーネントと WinGridExcelExporter™ コンポーネントに追加されました。
+
+{ProductName} 2011 Volume 1 リリースから、これらの新しいイベントが、表 1 に示されるように対応する以前のイベントと置き換わります。
+
+表 1: イベント置換チャートと新しいイベントの機能
+
+[options="header", cols="a,a,a"]
+|====
+|以前のイベント|新しいイベント|新しいイベントの機能
+
+|BeginExport
+|ExportStarted
+|同じ
+
+|EndExport
+|ExportEnding
+|ExportEnding イベントは、グリッドのエクスポート処理と、ワークブック（Excel エクスポートの場合）またはドキュメント（ドキュメントのエクスポートの場合）のファイルまたはストリームへの書き込み処理の両方の終了の前に発生します。
+
+|EndExport
+|ExportEnded
+|ExportEnded イベントは、グリッドのエクスポート処理と、ワークブックまたはドキュメントのファイルまたはストリームへの書き込み処理の両方の終了の後で発生します。
+
+|====
+
+.注:
+[NOTE]
+====
+「終了」イベントである、ExportEnding と ExportEnded が EndExport イベントの代わりに追加されています。エクスポートされたファイルに EndExport イベントでアクセスできないからです。たとえば、Excel のエクスポートの場合、EndExport イベントは、グリッドのエクスポートの後、ワークブックまたはドキュメントのファイルまたはストリームへの書き込み前に発生するために使用されます。
+====

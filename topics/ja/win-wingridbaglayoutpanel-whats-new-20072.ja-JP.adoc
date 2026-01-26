@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingridbaglayoutpanel-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D79849F8-F75D-4409-9555-1594C6A44111}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridBagLayoutPanel 2007.2
+
+以下のリンクをクリックして、2007 Volume 2 リリースの Presentation Layer Framework™ に追加された新しい WinGridBagLayoutPanel コントロールを学習してください。
+
+* link:wingridbaglayoutpanel-new-wingridbaglayoutpanel-control-whats-new-20072.html[New WinGridBagLayoutPanel コントロール]

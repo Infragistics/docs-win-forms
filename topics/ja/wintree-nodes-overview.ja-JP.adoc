@@ -1,0 +1,331 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-nodes-overview",
+    "controlName": ["WinTree"],
+    "tags": ["Events","Getting Started","How Do I","Styling"],
+    "guid": "{3995C927-9235-476A-B3F0-F9EAF7A8E7C3}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードの概要
+
+WinTree コントロールはノードの階層に基づいています。ツリー内の階層はそれぞれ子ノードのコレクションを持つことができ、それらが展開可能な階層形式で表示されます。 
+
+== オーバーライド
+
+ノードのプロパティの多くはツリーの複数のレベルで制御できるため、さまざまな要求に柔軟に対応できます。ノードの大きなグループに対してプロパティを設定してから、同じ設定を単一ノードやノードの小さなグループでオーバーライドすることが可能です。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"]  オブジェクトは 4 つのレベルに存在します。各レベルのスコープは下位に行くほど狭くなり、スコープが狭いほど優先順位は高くなります。 
+
+Override オブジェクトの優先順位（下に行くほど優先順位が高い）
+
+[options="header", cols="a,a,a"]
+|====
+|名前|スコープ|例
+
+|ツリー
+|UltraTree コントロールのすべてのノードに作用します。
+|UltraTree1.Override.NodeAppearance
+
+|Indentation
+|特定のインデントにあるすべてのノードに作用します。
+|UltraTree1.NodeLevelOverrides[0].NodeAppearance
+
+|コレクション
+|特定の Nodes コレクションにあるすべてのノードに作用します。
+|UltraTree1.Nodes.Override.NodeAppearance
+
+|ノード
+|単一のノードに作用します。
+|UltraTree1.Nodes[0].Override.NodeAppearance
+
+|====
+
+== 外観
+
+Override オブジェクトには、ノードの状態に基づいてノードに適用される複数の Appearance プロパティがあります。これにより、ノードが展開されている、縮小されている、アクティブである、選択されているなど、現在のノードの状態に基づいて、異なるイメージ、色、フォントなどを簡単にノードに適用することができます。 
+
+Node Appearance オブジェクトの優先順位（下に行くほど優先順位が高い）
+
+[options="header", cols="a,a"]
+|====
+|名前|州
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~nodeappearance.html[NodeAppearance]"] 
+|ノードのデフォルトの外観
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~expandednodeappearance.html[ExpandedNodeAppearance]"] 
+|ノードが展開されているときの外観
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~selectednodeappearance.html[SelectedNodeAppearance]"] 
+|ノードが選択されているときの外観
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~activenodeappearance.html[ActiveNodeAppearance]"] 
+|ノードがアクティブなときの外観
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~hottrackingnodeappearance.html[HotTrackingNodeAppearance]"] 
+|ノードがホットトラッキングされているときの外観
+
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~labeleditappearance.html[LabelEditAppearance]"] 
+|ノードの編集モードのときのpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~labeledit.html[LabelEdit]"] コントロールの外観
+
+|====
+
+== LeftImages と RightImages
+
+Appearance オブジェクトによって適用される標準イメージのほかに、ノードのテキストの左右に一連のイメージを表示できます。ノードに追加イメージを表示するには、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~leftimages.html[LeftImages]"] コレクションまたはpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~rightimages.html[RightImages]"]  コレクションにイメージを追加します。 
+
+== NodeStyle
+
+UltraWinTree には、アプリケーションに豊富なUIを提供するために複数のノード スタイルが用意されています。単一ノードまたはノードのグループのスタイルを変更するには、適切な Override オブジェクトの NodeStyle プロパティを設定します。以下の表は、NodeStyle のリストです。 
+
+[options="header", cols="a,a"]
+|====
+|名前|説明
+
+|デフォルト
+|いずれかの階層レベルにある Override オブジェクトによってオーバーライドされない限り、Standard スタイルが適用されます。
+
+|標準
+|ノードのテキストのみが表示されます。 テキストは編集できる場合とできない場合があります。
+
+|CheckBox
+|テキストとイメージに加えて、ユーザーがON/OFFできるチェックボックスが表示されます。ノードのチェックボックスの状態を確認するには、ノードのpick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~checkedstate.html[CheckedState]"] プロパティを使用します。
+
+|TriStateCheckBox
+|不定状態を示すことができる点以外は CheckBox と同じです。
+
+|OptionSet
+|ノードのグループに対してオプション ボタンが表示されます。OptionSet スタイルはコレクション内の 1 度に 1 つのノードだけがチェックすることを可能とします。OptionSet ノードのチェック状態を確認するためには CheckedState プロパティを使用してください。
+
+|====
+
+== ノードの操作
+
+ツリー内のノードには pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~index.html[Index]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~key.html[Key]"]  を使用してアクセスします。ノードのキーには、ノードをツリーに追加するときに、ツリー全体を通じて一意の値を指定する必要があります。したがって、子ノードのキーを、その親ノード、子ノード、または同じツリー コントロール内の別のノードと同じにすることはできません。この規則の唯一の例外は、ノードがキーを持たない場合です。この場合キーは null になり、null キーを持つノードはいくつでも追加できます。ただし、ノードに簡単にアクセスできるように、ツリー内のすべてのノードに一意のキーを割り当てることをお勧めします。 
+
+== インデックスを使用したノードへのアクセス
+
+ノードは標準のキー付きコレクションの階層に格納されます。そのため、ノードのインデックスを使用してノードにアクセスできます。たとえば、ツリー内のルート ノードをすべてループ処理するには、次のように記述します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnReturnRootNodes_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnReturnRootNodes.Click
+	Dim i As Integer
+	For i = 0 To Me.UltraTree1.Nodes.Count - 1
+		Me.UltraTextEditor1.Text += Me.UltraTree1.Nodes(i).Text
+		Me.UltraTextEditor1.Text += " "
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnReturnRootNodes_Click(object sender, EventArgs e)
+{
+	for ( int i=0; i < this.ultraTree1.Nodes.Count; i++ )
+	{
+		this.ultraTextEditor1.Text += this.ultraTree1.Nodes[i].Text;
+		this.ultraTextEditor1.Text += " ";
+	}
+}
+----
+
+== ツリー内のすべてのノードをループ処理する
+
+上記のメソッドはどちらも、ツリーのルート ノードのみを返します。子ノードは各ノードの Nodes コレクションに格納されています。そのため、ツリー内のすべてのノードをループ処理するには、再帰的なメソッドを使用する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+Private Sub btnLoopEveryNode_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnLoopEveryNode.Click
+	Dim rootNode As UltraTreeNode
+	For Each rootNode In Me.UltraTree1.Nodes
+		IterateNodes(rootNode)
+	Next
+End Sub
+Private Sub IterateNodes(ByVal node As UltraTreeNode)
+	Me.UltraTextEditor1.Text += node.Text
+	Me.UltraTextEditor1.Text += " "
+	Dim childNode As UltraTreeNode
+	For Each childNode In node.Nodes
+		IterateNodes(childNode)
+	Next
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+private void btnLoopEveryNode_Click(object sender, EventArgs e)
+{
+	foreach ( UltraTreeNode rootNode in this.ultraTree1.Nodes )
+		IterateNodes( rootNode );
+}
+private void IterateNodes ( UltraTreeNode node )
+{
+	this.ultraTextEditor1.Text += node.Text;
+	this.ultraTextEditor1.Text += " ";
+	foreach ( UltraTreeNode childNode in node.Nodes )
+		IterateNodes ( childNode );
+}
+----
+
+== 特定のノードへのアクセス
+
+キーを持つ特定のノードにアクセスする場合は、そのノードがツリーのどの階層レベルにあるかにかかわらず、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~getnodebykey.html[GetNodeByKey]"]  メソッドを使用します。このメソッドの使用は、次のセクションの「相対ノードへのアクセス」で説明されます。
+
+== 相対ノードへのアクセス
+
+別のノードから相対的な位置にあるノードを取得する場合は、ノードの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~hassibling.html[HasSibling]"]  メソッドと pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~getsibling.html[GetSibling]"]  メソッドを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+Private Sub btnSiblings_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSiblings.Click
+	Dim aNode As UltraTreeNode
+	aNode = Me.UltraTree1.GetNodeByKey("Walkthroughs")
+	Dim firstNode, nextNode, previousNode, lastNode As UltraTreeNode
+	If (aNode.HasSibling(NodePosition.First)) Then
+		firstNode = aNode.GetSibling(NodePosition.First)
+		Me.UltraTextEditor1.Text += firstNode.Text
+		Me.UltraTextEditor1.Text += " "
+	End If
+	If (aNode.HasSibling(NodePosition.Last)) Then
+		lastNode = aNode.GetSibling(NodePosition.Last)
+		Me.UltraTextEditor1.Text += lastNode.Text
+		Me.UltraTextEditor1.Text += " "
+	End If
+	If (aNode.HasSibling(NodePosition.Next)) Then
+		nextNode = aNode.GetSibling(NodePosition.Next)
+		Me.UltraTextEditor1.Text += nextNode.Text
+		Me.UltraTextEditor1.Text += " "
+	End If
+	If (aNode.HasSibling(NodePosition.Previous)) Then
+		previousNode = aNode.GetSibling(NodePosition.Previous)
+		Me.UltraTextEditor1.Text += previousNode.Text
+		Me.UltraTextEditor1.Text += " "
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+private void btnSiblings_Click(object sender, EventArgs e)
+{
+	UltraTreeNode aNode = null;
+	aNode = this.ultraTree1.GetNodeByKey("Walkthroughs");
+	UltraTreeNode firstNode, nextNode, previousNode, lastNode;
+	if (aNode.HasSibling(NodePosition.First)) 
+	{
+		firstNode = aNode.GetSibling(NodePosition.First);
+		this.ultraTextEditor1.Text += firstNode.Text;
+		this.ultraTextEditor1.Text += " ";
+	}
+	if (aNode.HasSibling(NodePosition.Last))
+	{
+		lastNode = aNode.GetSibling(NodePosition.Last);
+		this.ultraTextEditor1.Text += lastNode.Text;
+		this.ultraTextEditor1.Text += " ";
+	}
+	if (aNode.HasSibling(NodePosition.Next))
+	{
+		nextNode = aNode.GetSibling(NodePosition.Next);
+		this.ultraTextEditor1.Text += nextNode.Text;
+		this.ultraTextEditor1.Text += " ";
+	}
+	if (aNode.HasSibling(NodePosition.Previous))
+	{
+		previousNode = aNode.GetSibling(NodePosition.Previous);
+		this.ultraTextEditor1.Text += previousNode.Text;
+		this.ultraTextEditor1.Text += " ";
+	}
+}
+----
+
+== マウス位置にあるノードへのアクセス
+
+現在のマウス位置（つまりツリー コントロール内の特定の座標）にあるノードを取得するには、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~getnodefrompoint.html[GetNodeFromPoint]"]  メソッドを使用します。 
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+Private Sub UltraTree1_MouseUp(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) _
+  Handles UltraTree1.MouseUp
+	Dim tree As UltraTree
+	tree = DirectCast(sender, UltraTree)
+	Dim aNode As UltraTreeNode
+	aNode = tree.GetNodeFromPoint(e.X, e.Y)
+	If (Not aNode Is Nothing) Then
+		Me.UltraTextEditor1.Text = aNode.Text
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+private void ultraTree1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	UltraTree tree;
+	tree = sender as UltraTree;
+	UltraTreeNode aNode;
+	aNode = tree.GetNodeFromPoint(e.X, e.Y);
+	if (aNode != null)
+		this.ultraTextEditor1.Text = aNode.Text;  
+}
+----
+
+== ノードの再配置
+
+ノードを新しい位置に移動するには、ノードの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~reposition.html[Reposition]"]  メソッドを使用します。同じ親の中だけでなく、別の親や別のツリー コントロールに移動することもできます。 
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+Private Sub btnReposition_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnReposition.Click
+	Dim myNode As UltraTreeNode
+	myNode = Me.UltraTree1.GetNodeByKey("Walkthroughs")
+	' Node8 を位置 0 に移動します。
+	myNode.Reposition(Me.UltraTree1.Nodes, 0)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+private void btnReposition_Click(object sender, EventArgs e)
+{
+	UltraTreeNode myNode;
+	myNode = this.ultraTree1.GetNodeByKey("Walkthroughs");
+	// Node8 を位置 0 に移動します。
+	myNode.Reposition(this.ultraTree1.Nodes, 0);
+}
+----

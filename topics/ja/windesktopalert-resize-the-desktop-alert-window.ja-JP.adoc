@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-resize-the-desktop-alert-window",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{FB5CD2D9-0398-4487-9F51-4D2DC4E8669E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デスクトップ アラート ウィンドウのサイズを変更
+
+エンド ユーザーに伝達しなければならない情報量に基づいて、デスクトップ アラート ウィンドウのサイズを変更しなければならない場合があります。デフォルトで、アラート ウィンドウは含まれるテキストの量に基づいてウィンドウのサイズを水平方向に変更します。同様にアラート ウィンドウを水平方向に広げたい場合があります。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert.html[UltraDesktopAlert] クラスの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~fixedsize.html[FixedSize] プロパティを設定することにより、アラート　ウィンドウのサイズを手動で変更できます。FixedSize プロパティは、タイプ System.Drawing.Size でアラート　ウィンドウの幅と高さとして 2 つの "ints" を渡すことができます。
+
+以下のコードを使用して、デスクトップ アラート ウィンドウのサイズを変更します。コードは、プライマリ画面の作業領域の幅の半分に幅を設定し、プライマリ画面の作業領域の高さの半分に高さを設定することによって、最初にアラート ウィンドウのサイズを修正します。　これは、その他すべてのデフォルト設定を使用すると、アラート ウィンドウはプライマリ画面の作業領域の右下 4 分の 1 全体を占めることを意味します。
+
+*Visual Basic の場合：*
+
+----
+' FixedSize タイプが Size であるため、幅と高さの 2 つの ints を
+' 受け付けることができます。Screen クラスを使用すると、
+' 作業領域（タスクバーを除いた画面領域）
+' を取得して、デスクトップ アラート ウィンドウをその半分に
+' 設定することができます。このように、より多くの情報を表示することができます。
+Me.UltraDesktopAlert1.FixedSize = _
+  New Size(Screen.PrimaryScreen.WorkingArea.Width / 2, _
+  Screen.PrimaryScreen.WorkingArea.Height / 2)
+' サンプル テキストを表示したデスクトップ アラート ウィンドウを表示します。
+Me.UltraDesktopAlert1.Show("Test Alert", "This is only a test")
+----
+
+*C# の場合：*
+
+----
+// FixedSize タイプが Size であるため、幅と高さの 2 つの ints を
+// 受け付けることができます。Screen クラスを使用すると、
+// 作業領域（タスクバーを除いた画面領域）
+// を取得して、デスクトップ アラート ウィンドウをその半分に
+// 設定することができます。このように、より多くの情報を表示することができます。
+this.ultraDesktopAlert1.FixedSize =
+  new Size(Screen.PrimaryScreen.WorkingArea.Width / 2,
+  Screen.PrimaryScreen.WorkingArea.Height / 2);
+// サンプル テキストを表示したデスクトップ アラート ウィンドウを表示します。
+this.ultraDesktopAlert1.Show("Test Alert", "This is only a test");
+----

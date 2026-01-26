@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2006-volume-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{23AEE47A-BBD7-41D0-93EC-24E7D13B3488}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-08T20:57:05Z"
+}
+|metadata|
+////
+
+= 2006 Volume 3 の新機能
+
+{ProductName} 2006 Volume 3 のリリースには、Windows Formsのコントロールおよびコンポーネントの機能をこれまで以上に活用することができる多くの強力な新しい特性と機能が含まれています。
+
+以下に、2006 Volume 3 リリースで追加または強化されたコントロール/コンポーネントをリストアップします。リンクをクリックして提供されている機能のリストを確認してください。
+
+* link:win-application-styling-whats-new-20063.html[アプリケーション スタイリング]
+* link:win-office-2007-look-and-feel-whats-new-2006-3.html[Office 2007 のルック アンド フィール]
+* link:winchart-whats-new-2006-3.html[WinChart]
+* link:wincombo-whats-new-2006-3.html[WinCombo]
+* link:windockmanager-whats-new-2006-3.html[WinDockManager]
+* link:wineditors-whats-new-2006-3.html[WinEditors]
+* link:winformattedlinklabel-whats-new-2006-3.html[WinFormattedLinkLabel]
+* link:winformattedtexteditor-whats-new-2006-3.html[WinFormattedTextEditor]
+* link:wingrid-whats-new-2006-3.html[WinGrid]
+* link:wintoolbarsmanager-whats-new-2006-3.html[WinToolbarsManager]
+* link:wintooltipmanager-whats-new-2006-3.html[WinTooltipManager]

@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-navigate-to-a-new-location",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["Navigation"],
+    "guid": "{A6D097C6-E70B-4053-BC9F-6231BF09849D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい場所にナビゲート
+
+フォームがロードする時にコレクションを完全にロードするか、エンド ユーザーがコレクションを参照する時に動的にロードするのいずれかによって、WinNavigationBar™ link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbarlocation.html[Locations] を移植することができます。コレクションを完全にロードする時に、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~navigateto.html[NavigateTo] メソッドを呼び出すことによってこれらの位置のひとつにプログラムでナビゲートすることができます。引数としてナビゲートする必要があるパスを渡すだけです。WinNavigationBar はパスを解析し、このパスに沿って各項目に一致する位置を検索します。WinNavigationBar が項目のひとつに対して一致する位置を見つけることができない場合、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~navigationpathparseerror_ev.html[NavigationPathParseError] イベントを発生させます。解析が成功すると、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~selectedlocationchanging_ev.html[SelectedLocationChanging] および link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~selectedlocationchanged_ev.html[SelectedLocationChanged] イベントが順に発生します。
+
+WinNavigationBar の Location を遅延移植することを決定した場合、NavigateTo メソッドに渡すパスに注意が必要です。そのパスが未だ存在していない場合があるからです。WinNavigationBar を遅延移植するための最も実用的な方法は、InitializeLocations イベントを使用することです。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~initializelocations_ev.html[InitializeLocations] は、ユーザーが初めて個別の位置にアクセスする時に発生します。EventArgs.ParentLocation オブジェクトに基づき位置の子を移植することができます。WinNavigationBar の遅延移植についての詳細は、 link:winnavigationbar-lazily-populate-winnavigationbar.html[「WinNavigationBar を遅延移植」]を参照してください。
+
+以下のコードは、"C:\Program Files" フォルダを表す位置にナビゲートします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraNavigationBar1.NavigateTo("C:\Program Files", True)
+----
+
+*C# の場合：*
+
+----
+this.ultraNavigationBar1.NavigateTo("C:\\Program Files", true);
+----

@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2005-volume-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{8BD55BBD-2B45-4A3C-93CB-EFA52DC6BCCD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2005 Volume 3 の新機能
+
+Infragistics 2005 Volume 3 のリリースには、Windows Formsのコントロールとコンポーネントの機能をこれまで以上に活用するための、いくつかの強力な新機能と機能性が追加されています。
+
+以下に、2005 Volume 3 リリースで追加または改良したコントロールをあげます。リンクをクリックして、各コントロールで提供される機能のリストを確認します。
+
+* link:win-visual-studio-2005-specific-features.html[Visual Studio 2005 固有の機能]
+* link:winchart-whats-new-2005-3.html[WinChart]
+* link:windockmanager-whats-new-2005-3.html[WinDockManager]
+* link:wineditors-whats-new-2005-3.html[WinEditors]
+* link:wingrid-whats-new-2005-3.html[WinGrid]
+* link:winschedule-whats-new-2005-3.html[WinSchedule]
+* link:wintooltip-whats-new-2005-3.html[WinToolTip]
+* link:wintree-whats-new-2005-3.html[WinTree]

@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmessageboxmanager-custom-text-for-messagebox-buttons",
+    "controlName": ["WinMessageBoxManager"],
+    "tags": ["How Do I"],
+    "guid": "056c0ea2-2f30-4367-9cb3-8725e572fb34",  
+    "buildFlags": [],
+    "createdOn": "2010-07-22T14:52:04.2092747Z"
+}
+|metadata|
+////
+
+= MessageBox ボタンのカスタム テキスト
+
+WinMessageBoxManager™ コンポーネントはテキストをカスタマイズできるボタンの付いたメッセージ ボックスを表示します。デフォルトで、MessageBox ボタンはオペレーティング システムで定義される文字列を使用します。ただし、これらのボタンに使用されるテキストは、pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.resourcecustomizer.html[ResourceCustomizer]"]  オブジェクトを使用してカスタマイズできます。カスタマイズできる MessageBoxManager リソース文字列のリストは、 link:win-resource-strings.html[「Win リソース文字列」]を参照してください。
+
+以下のコード例は、MessageBox ボタンの文字列リソースをカスタマイズする方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Shared
+Dim rc As ResourceCustomizer
+' 'Infragistics.Win' アセンブリのリソース カスタマイザー オブジェクトを取得します
+' そして文字列リソースをカスタマイズします
+rc = Infragistics.Win.Resources.Customizer 
+' Ok MessageBox ボタンのテキストをカスタマイズします
+rc.SetCustomizedString("MessageBoxButtonOK", "Yes") 
+' Abort MessageBox ボタンのテキストをカスタマイズします
+rc.SetCustomizedString("MessageBoxButtonAbort", "Stop") 
+' Retry MessageBox ボタンのテキストをカスタマイズします 
+rc.SetCustomizedString("MessageBoxButtonRetry", "Try Again")
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Shared;
+ResourceCustomizer rc;
+// 'Infragistics.Win' アセンブリのリソース カスタマイザー オブジェクトを取得します
+// そして文字列リソースをカスタマイズします
+rc = Infragistics.Win.Resources.Customizer;
+// Ok MessageBox ボタンのテキストをカスタマイズします
+rc.SetCustomizedString("MessageBoxButtonOK", "Yes");
+// Abort MessageBox ボタンのテキストをカスタマイズします
+rc.SetCustomizedString("MessageBoxButtonAbort", "Stop");
+// Retry MessageBox ボタンのテキストをカスタマイズします
+rc.SetCustomizedString("MessageBoxButtonRetry", "Try Again");
+----

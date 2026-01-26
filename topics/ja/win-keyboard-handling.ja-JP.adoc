@@ -1,0 +1,126 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-keyboard-handling",
+    "controlName": [],
+    "tags": ["Application Blocks","Tips and Tricks"],
+    "guid": "{65384227-AA4D-47CC-8F3C-3FEC3E471956}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= キーボード処理
+
+入力フォーカスを受け付ける複雑なコントロール（グリッドやツリーなど）では、総合的なキーボード サポートの実装が難しく、エラーを起こす可能性が高くなります。また、使いやすいキーボード動作拡張メカニズムがサードパーティ製のコントロールから提供されることもほとんどありません。このことは、サードパーティ製コントロールのキーボード動作をカスタマイズしようとして大変な作業を強いられた多くの開発者にとって、悩みの種になっています。
+
+プレゼンテーション層フレームワークでは、これらの問題に対処するため、入力フォーカスを受け付ける複雑なコントロールから次の機能が提供されています。
+
+[start=1]
+. コントロールが実行できると予想されるすべてのアクション（次のセルをアクティブ化する、前のセルをアクティブ化する、1 行目をアクティブ化する、編集モードを開始する、編集モードを終了する、リストをドロップダウン表示する、など）の列挙体。注:これらの列挙体は対象となるコントロールに対してのみ意味を持ちます。
+[start=2]
+. コントロールの現在の状態（アクティブな行があるか、アクティブなセルがあるか、セルが編集モードかどうか、セルのリストがドロップダウン表示されているか、など）を 1 組のビット フラグとして返すメソッドまたはプロパティ。注:これらのフラグは対象となるコントロールに対してのみ意味を持ちます。
+[start=3]
+. KeyActionMapping オブジェクトのコレクション。各 KeyActionMapping オブジェクトには次のものが格納されます。
+
+** キーコード（左矢印、右矢印、[Home]、[End]、スペースバー、文字など）
+** アクション コード（上の手順 1 で説明したもの）
+** このマッピングを適用するために必要なコントロールの状態（上の手順 2 で説明したもの）
+** このマッピングを適用するためにコントロールが「取ってはいけない」状態（上の手順 2 で説明したもの）
+** このマッピングを適用するために押されなければならない特殊キー（[Shift]、[Ctrl]、[Alt]）
+** このマッピングを適用するために押してはいけない特殊キー（[Shift]、[Ctrl]、[Alt]）
+
+[start=4]
+. コントロールのデフォルトの KeyActionMappings をロードするためのメソッド（通常は静的テーブルからロードする）。
+[start=5]
+. アクションを実行するためのメソッド（「PerformAction」と呼ばれます）。このメソッドはアクション コード（上の手順 1 で説明したもの）を入力パラメータとして受け取ります。
+
+次のコードは、カスタムのキー/アクションのマッピングをグリッドに追加する方法を示しています。 このマッピングは、グリッドがフォーカスを持っていて、かつ編集モードでないときに、ユーザーが [H] キーを押した場合グリッド内の 1 行目に移動します（[Alt] キーも同時に押した場合は除く）。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Dim newMapping As GridKeyActionMapping
+    newMapping = New GridKeyActionMapping(Keys.H, UltraGridAction.FirstRowInGrid, UltraGridState.InEdit, 0, Infragistics.Win.SpecialKeys.Alt, 0)
+    Me.UltraGrid1.KeyActionMappings.Add(newMapping)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.KeyActionMappings.Add( 
+		new GridKeyActionMapping( 
+			// キー コード
+			Keys.H,
+			// 実行するアクション
+			UltraGridAction.FirstRowInGrid,
+			// アクションの実行が禁止される状態
+			UltraGridState.InEdit, 
+			// 必要な状態（なし）
+			0, 
+			// アクションの実行が禁止される特殊キー
+			Infragistics.Win.SpecialKeys.Alt, 
+			// 必要な特殊キー（なし）
+			0 ) );
+}
+----
+
+次のコードは、グリッドがどの状態にあるのかを調べ、現在の状態に基づいてアクションを実行する方法を示しています。この例ではセルが選択された場合に編集モードを開始します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Dim state As UltraGridState
+' グリッドの現在の状態を取得します。
+    state = Me.UltraGrid1.CurrentState
+' 状態ビット フラグをチェックし、InEdit ビットがセットされているかどうかを確認します。
+    If ((state And UltraGridState.InEdit) = 0) Then
+' 編集モードではないため、セルが選択されているかどうかを
+' 決めるビットをチェックします。セルが選択されていれば
+' PerformAction を呼び出して編集モードを開始します。
+        If ((state And UltraGridState.Cell) = UltraGridState.Cell) Then
+            Me.UltraGrid1.PerformAction(UltraGridAction.EnterEditMode)
+        End If
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+private void button1_Click(object sender, System.EventArgs e)
+{
+	// グリッドの現在の状態を取得します。
+	UltraGridState state = this.ultraGrid1.CurrentState;
+	// 状態ビット フラグをチェックし、InEdit ビットがセットされているかどうかを確認します。
+	if ( ( state & UltraGridState.InEdit ) == 0 )
+	{
+		// 編集モードではないため、セルが選択されているかどうかを
+		// 決めるビットをチェックします。セルが選択されていれば
+		// PerformAction を呼び出して編集モードを開始します。
+		if ( ( state & UltraGridState.Cell ) == UltraGridState.Cell )
+			this.ultraGrid1.PerformAction( UltraGridAction.EnterEditMode );
+	}
+}
+----
+
+この仕組みには次のような利点があります。
+
+* コントロール固有のロジック（PerformAction メソッド内のロジック）のほとんどを KeyActionMappings コレクションから切り離すことで、どちらか一方に変更を加えても他方にエラーを引き起こすおそれがない。また、コードの大幅な簡素化につながる。
+* KeyDown イベントの処理、KeyActionMappings コレクション全体の検索、および該当するアクション コードを指定した PeformAction メソッドの呼び出しを実行する一連のコードが、PLF の共有アセンブリに実装される。そのため、すべてのコントロールがこの共有実装を利用できる。
+* コントロールによって PerformAction メソッドが提供されるため、ユーザーはそれを直接呼び出し、コントロールがサポートしているあらゆるアクションを実行できる。
+* KeyActionMappings コレクションによって、KeyActionMapping オブジェクトの追加、削除、変更を行うための各種メソッドが提供されているため、ユーザーはコントロールのキーボード動作を容易にカスタマイズできる。

@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-custom-merge-cell-logic",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{B50A4AFC-6D24-47F5-BC04-152466661805}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= セルを結合するためのカスタム ロジックを指定
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.imergedcellevaluator.html[IMergedCellEvaluator]"]  インタフェースを実装し、そのインスタンスを pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  オブジェクトのpick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~mergedcellevaluator.html[MergedCellEvaluator]"] プロパティに割り当てることによって、セルをマージするための独自のカスタム ロジックを組み込むことができます。次のコードは、CustomMergedCellEvaluator クラスに IMergedCellEvaluator を実装し、WinGrid の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベント ハンドラで、そのインスタンスを ShippedDate 列に設定しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Class CustomMergedCellEvaluator Implements Infragistics.Win.UltraWinGrid.IMergedCellEvaluator
+	Function ShouldCellsBeMerged(ByVal row1 As UltraGridRow, ByVal row2 As UltraGridRow, ByVal column As UltraGridColumn) As Boolean Implements IMergedCellEvaluator.ShouldCellsBeMerged
+		Dim date1 As DateTime = DirectCast(row1.GetCellValue(column), DateTime)
+		Dim date2 As DateTime = DirectCast(row2.GetCellValue(column), DateTime)
+		' 基本の DateTime セル値の日付部分に基づいてセルをマージします。
+		' 時刻部分は無視します。たとえば、"1/1/2004 10:30 AM" と
+		' 1/1/2004 1:15 AM" は日付が同じであるため、両者はマージします。
+		Return date1.Date = date2.Date
+	End Function
+End Class
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles ultraGrid1.InitializeLayout
+	' MergedCellStyle プロパティを設定してマージされたセル機能を有効にします。
+	' MergedCellStyle は、セルをマージする対象の列も指定します。
+	e.Layout.Override.MergedCellStyle = MergedCellStyle.Always
+	' MergedCellEvaluator プロパティを使用して、セルをマージするためのカスタム ロジック
+	' を指定します。
+	e.Layout.Bands(0).Columns("ShippedDate").MergedCellEvaluator = New CustomMergedCellEvaluator()
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+public class CustomMergedCellEvaluator: Infragistics.Win.UltraWinGrid.IMergedCellEvaluator
+{
+	public CustomMergedCellEvaluator()
+	{
+	}
+	public bool ShouldCellsBeMerged(UltraGridRow row1, UltraGridRow row2, UltraGridColumn column)
+	{
+		DateTime date1 = (DateTime)row1.GetCellValue(column);
+		DateTime date2 = (DateTime)row2.GetCellValue(column);
+		// 基本のDateTime セル値の日付部分に基づいてセルをマージします。
+		// 時刻部分は無視します。たとえば、"1/1/2004 10:30 AM" と
+		// 1/1/2004 1:15 AM" は日付が同じであるため、両者はマージします。
+		return date1.Date == date2.Date;
+	}
+}
+private void ultraGrid1_InitializeLayout(object sender, Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// MergedCellStyle プロパティを設定してマージされたセル機能を有効にします。
+	// MergedCellStyle は、セルをマージする対象の列も指定します。
+	e.Layout.Override.MergedCellStyle = MergedCellStyle.Always;
+	// MergedCellEvaluator プロパティを使用して、セルをマージするためのカスタム ロジック
+	// を指定します。
+	e.Layout.Bands[0].Columns["ShippedDate"].MergedCellEvaluator = new CustomMergedCellEvaluator();
+}
+----

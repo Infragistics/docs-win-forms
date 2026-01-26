@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-box-annotations",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{7AD13880-75A7-49EA-AB6D-6F3C05317164}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ボックス注釈
+
+注釈は、追加情報を追加する、またはゲージに視覚的な手がかりを提供するために使用されます。ボックス注釈は矩形で、端が丸められたり、その中にオプションのテキストが付けられている場合があります。
+
+たとえば、温度計を表すためにリニア ゲージを作成した場合、測定の単位を示すためにテキストを [摂氏] に設定して注釈を作成することができます。
+
+以下のスクリーンショットは、ボックス注釈が付いたラジアル ゲージの例を示しています。
+
+image::images/Gauge_Box_Annotations_01.png[]
+
+== 関連トピック
+
+link:wingauge-create-a-box-annotation-on-a-gauge.html[ゲージでボックス注釈を作成]

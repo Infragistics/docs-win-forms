@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-infragistics-cab-extensibility-kit-add-on-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{901267DA-BA2F-46E6-A21F-8FEED6670A99}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics CAB Extensibility Kit アドオン
+
+Composite UI Application Block（CAB）フレームワークは、エンタプライズ クラスのスマート クライアント アプリケーションを構築するための実証済みのプラクティスとして、Microsoft® の patterns & practices チームによってリリースされました。CAB フレームワークは、Microsoft Visual Studio® 2005（.NET Framework 2.0）をベースとしたソース コードベースのコンポーネントです。
+
+Infragistics は、Windows Forms 2006 Volume 1 リリースの構成要素として Infragistics CAB Extensibility Kit™ を提供しています。この製品は、{ProductName}（CLR 2.0）製品のアドオンで、{ProductName} 製品を拡張して CAB フレームワークとのシームレスな相互運用を可能にします。このアドオンを使用すると、{ProductName} のツールセットで提供されているコントロールとコンポーネントを使って高度なスマート クライアント アプリケーションを開発できます。また、キットを使用することによって、定義済みのルック アンド フィール、プリセット、および外観設定を使用して、エンタプライズ クラスのアプリケーションに相応しい豊富で詳細な外観と動作を開発チームは提供できます。
+
+Infragistics CAB Extensibility Kit では、Infragistics CompositeUI ソース コード ソリューションと、{ProductName} のコントロール/コンポーネントを使用するクイックスタート ソリューション（Microsoft から移植されます）がインストールされます。これらは、{ProductName}（CLR 2.0）製品と CAB アプリケーションをシームレスに統合するための主要要素です。
+
+image::images/Win_Infragistics_CAB_Extensibility_Kit_Add_On_Whats_New_2006_1_01.png[]

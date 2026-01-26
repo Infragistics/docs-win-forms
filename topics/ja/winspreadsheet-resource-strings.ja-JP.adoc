@@ -1,0 +1,412 @@
+﻿////
+|metadata|
+{
+    "name": "winspreadsheet-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "cd4f2dc9-be14-4a35-a886-aa5c82034574",
+    "buildFlags": [],
+    "createdOn": "2016-03-13T01:12:52.1454159Z"
+}
+|metadata|
+////
+
+= WinSpreadsheet リソース文字列
+
+このトピックは、このアセンブリを参照する `WinSpreadsheet` コントロールの内部的に定義されたテキスト要素をカスタマイズするために使用される `WinSpreadsheet` アセンブリ リソース文字列のリストを提供します。リソース文字列には、ダイアログ ボックスのキャプションや警告メッセージ、アラートなどが含まれます。
+
+以下の表は、このアセンブリで使用されるリソース文字列の名前および文字列のカスタマイズ可能なデフォルト テキスト値をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|CopyError_InvalidSelection_Message
+| 現在の選択範囲で操作を実行できません。 複数の選択範囲がある場合は、領域が長方形で重複しないようにしてください。
+
+|CustomValidationInformationMessage
+| {0}
+
+|CustomValidationStopMessage
+| {0}
+
+|CustomValidationWarningMessage
+| {0} 続行しますか?
+
+|DefaultHyperlinkToolTip
+| {0} - フォローするには 1 回クリックします。 このセルを選択するためにクリック アンド ホールドします。 
+
+|DefaultValidationInformationMessage
+| 入力した値は無効です。 ユーザーの設定によって、セルに入力できる値が制限されています。 
+
+|DefaultValidationStopMessage
+| 入力した値は無効です。 ユーザーの設定によって、セルに入力できる値が制限されています。 
+
+|DefaultValidationWarningMessage
+| 入力した値は無効です。 ユーザーの設定によって、セルに入力できる値が制限されています。 続行しますか? 
+
+|DeleteWorksheets_Message
+| ワークシートの削除を取り消すことはできません。データの一部が削除される場合があります。 必要ない場合は OK をクリックしてください。 
+
+|Error_ChangePartOfDataTableError_Message
+| データ テーブル部分を変更できません。 
+
+|Error_DeletingLockedColumnCells_Message
+| ロックされたセルを含む列を削除しようとしています。 ワークシートが保護されているときにロックされたセルは削除できません。
+
+|Error_DeletingLockedRowCells_Message
+| ロックされたセルを含む行を削除しようとしています。 ワークシートが保護されているときにロックされたセルは削除できません。
+
+|Error_IntersectsMergedCells_Message
+| 選択領域が結合セルと交わるため、操作が実行できません。 
+
+|Error_InvalidArrayFormulaLockedState_Message
+| すべてロックされているまたはロック解除されているセル範囲に配列数式を入力できません。 
+
+|Error_InvalidHyperlinkAddress_Message
+| 指定したファイルを開けません。 
+
+|Error_InvalidHyperlinkReference_Message
+| 参照が無効です。 
+
+|Error_InvalidProtectedWorksheetChange_Message
+| 変更しようとしているセルのシートが保護されています。 
+
+|Error_NoSingleAllowedEditRange_Message
+| 変更しようとしているセルはパスワードで保護されていますが、すべてのセルへアクセス可能なシングル パスワードはありません。 
+
+|InvalidCommand_MixedSelection_Message
+| このコマンドは、他のセルとすべての行/列を組み合わせた選択では使用できません。 すべての行、すべての列、またはセル グループのみのいずれかでお試しください。 
+
+|InvalidCommand_MultipleSelection_Message
+| コマンドが複数の選択で使用されません。 1 範囲を選択し、再びコマンドを呼び出してください。 
+
+|InvalidCommand_OverlappingSelection_Message
+| このコマンドは重複した選択には使用できません。
+
+|InvalidCommand_TableChangeWithMultipleSheetSelection_Message
+| 複数のシートが選択されているため、表を変更できません。 
+
+|InvalidDateTimeToolTip
+| 負の日時、または大きすぎる日時の値は $$#####$$ で表示されます。 
+
+|InvalidNameBoxValue_Message
+| 移動する有効な参照、または選択の有効な名を入力してください。 
+
+|MenuItem_AutoFit_Columns
+| 列の幅の自動調整 
+
+|MenuItem_AutoFit_Rows
+| 行の高さの自動調整 
+
+|MenuItem_ClearContents
+| コンテンツをクリア
+
+|MenuItem_Copy
+| コピー
+
+|MenuItem_Cut
+| 切り取り 
+
+|MenuItem_Delete
+| 削除 
+
+|MenuItem_DeleteCells
+| 削除 
+
+|MenuItem_DeleteCells_Column
+| 列全体
+
+|MenuItem_DeleteCells_Row
+| 行全体 
+
+|MenuItem_DeleteCells_ShiftLeft
+| 左方向にシフト 
+
+|MenuItem_DeleteCells_ShiftUp
+| 上方向にシフト 
+
+|MenuItem_DeleteWorksheets
+| 削除 
+
+|MenuItem_Hide
+| 非表示 
+
+|MenuItem_Insert
+| 挿入 
+
+|MenuItem_InsertCells
+| 挿入 
+
+|MenuItem_InsertCells_Column
+| 列全体 
+
+|MenuItem_InsertCells_Row
+| 行全体 
+
+|MenuItem_InsertCells_ShiftDown
+| 下方向にシフト 
+
+|MenuItem_InsertCells_ShiftRight
+| 右方向にシフト 
+
+|MenuItem_InsertWorksheets
+| 挿入 
+
+|MenuItem_OpenHyperlink
+| ハイパーリンクを開く 
+
+|MenuItem_Paste
+| 貼り付け 
+
+|MenuItem_RemoveHyperlink
+| ハイパーリンクの削除 
+
+|MenuItem_RemoveHyperlinks
+| ハイパーリンクの削除 
+
+|MenuItem_RenameWorksheet
+| 名前の変更 
+
+|MenuItem_SelectAllWorksheets
+| すべてのシートを選択 
+
+|MenuItem_Unhide
+| 非表示解除 
+
+|MenuItem_UnselectWorksheets
+| シートのグループを解除 
+
+|NewSheetName
+| Sheet{0}
+
+|PasteError_CellRangeSize_Message
+| コピー領域と貼り付け領域のサイズが異なるため、貼り付け操作は実行できません。 以下のいずれかを試してください。 
+$$*$$ セルを 1 つクリックして貼り付けます。$$*$$ 同じサイズの長方形を選択して貼り付けます 
+
+|PasteError_General_Message
+| 貼り付け処理でエラーが発生しました。{0} 
+
+|PasteError_IntersectsMergedCells_Message
+| 貼り付け領域が結合セルと交わるため、貼り付け操作が実行できません。 
+
+|PasteError_InvalidSelectedSheetCount_Message
+| コピーされたワークシート数と貼り付け領域のサイズが異なるため貼り付け操作を実行できません。
+
+|PasteError_InvalidSourceRanges_Message
+| 貼り付け操作は指定したコピー領域で実行できません。 
+
+|PasteError_MultipleSourceAndTargetRanges_Message
+| ソースおよびターゲット ワークシートで複数選択されているため、貼り付け操作を実行できません。
+
+|SheetNameError_Message_Invalid
+| '{0}' は無効なシート名です。 以下に従ってください。 $$*$$ 名前が空でない。 $$*$$ 名前が 31 文字以下。 $$*$$ 名前の最初または最後に単一引用符 (') を使用していない。 $$*$$ 名前に次の文字が含まれていない: : \ / ? $$* $$ [ ]
+
+|SheetNameError_Message_NameIsUsed
+| '{0}' という名前がワークブックに既に存在します。 
+
+|ToolTip_FormulaBarCancelButton
+| キャンセル 
+
+|ToolTip_FormulaBarEnterButton
+| Enter 
+
+|ToolTip_FormulaBarNameBox
+| 名前ボックス 
+
+|ToolTip_FormulaBarTextEditor
+| 数式バー
+
+|UltraSpreadsheet_ContextMenuItem_AutoFitColumnWidth
+| 列の幅の自動調整(&A) 
+
+|UltraSpreadsheet_ContextMenuItem_AutoFitRowHeight
+| 行の高さの自動調整(&A) 
+
+|UltraSpreadsheet_ContextMenuItem_ClearContents
+| コンテンツをクリア(&N) 
+
+|UltraSpreadsheet_ContextMenuItem_Copy
+| コピー(&C) 
+
+|UltraSpreadsheet_ContextMenuItem_Cut
+| 切り取り(&T) 
+
+|UltraSpreadsheet_ContextMenuItem_Delete
+| 削除(&D) 
+
+|UltraSpreadsheet_ContextMenuItem_EntireColumn
+| 列全体(&C) 
+
+|UltraSpreadsheet_ContextMenuItem_EntireRow
+| 行全体(&R) 
+
+|UltraSpreadsheet_ContextMenuItem_Hide
+| 非表示(&H) 
+
+|UltraSpreadsheet_ContextMenuItem_Insert
+| 挿入(&I)
+
+|UltraSpreadsheet_ContextMenuItem_OpenHyperlink
+| ハイパーリンクを開く(&O) 
+
+|UltraSpreadsheet_ContextMenuItem_Paste
+| 貼り付け(&P) 
+
+|UltraSpreadsheet_ContextMenuItem_RemoveHyperlinks
+| ハイパーリンクの削除(&R) 
+
+|UltraSpreadsheet_ContextMenuItem_Rename
+| 名前の変更(&R) 
+
+|UltraSpreadsheet_ContextMenuItem_SelectAllSheets
+| すべてのシートの選択(&S) 
+
+|UltraSpreadsheet_ContextMenuItem_ShiftCellsDown
+| 下方向にシフト(&D) 
+
+|UltraSpreadsheet_ContextMenuItem_ShiftCellsLeft
+| 左方向にシフト(&L) 
+
+|UltraSpreadsheet_ContextMenuItem_ShiftCellsRight
+| 右方向にシフト(&I) 
+
+|UltraSpreadsheet_ContextMenuItem_ShiftCellsUp
+| 上方向にシフト(&U) 
+
+|UltraSpreadsheet_ContextMenuItem_UngroupSheets
+| シートのグループの解除(&U) 
+
+|UltraSpreadsheet_ContextMenuItem_Unhide
+| 非表示解除(&U) 
+
+|Undo_Bold
+| 太字 
+
+|Undo_Borders
+| 境界線
+
+|Undo_BottomAlignment
+| 下揃え 
+
+|Undo_CenterAlignment
+| 中央揃え 
+
+|Undo_ClearCellContents
+| {0} をクリア 
+
+|Undo_ClearCellFormats
+| クリア 
+
+|Undo_ClearHyperlinks
+| ハイパーリンクをクリア 
+
+|Undo_ClearTables
+| テーブルのクリア 
+
+|Undo_CreateNamedReference
+| 名前の定義 
+
+|Undo_CreateTable
+| テーブルの作成 
+
+|Undo_Cut
+| 切り取り 
+
+|Undo_Delete
+| 削除 
+
+|Undo_EditCell
+| {0} に '{1}' を入力 
+
+|Undo_Filter
+| フィルター 
+
+|Undo_Font
+| フォント 
+
+|Undo_FontSize
+| フォント サイズ 
+
+|Undo_FormatCells
+| セルの書式設定 
+
+|Undo_Group
+| グループ化 
+
+|Undo_Hyperlink
+| ハイパーリンク 
+
+|Undo_InsertCells
+| セルの挿入 
+
+|Undo_InsertColumns
+| 列の挿入 
+
+|Undo_InsertRows
+| 行の挿入 
+
+|Undo_Italic
+| 斜体 
+
+|Undo_JustifyAlignment
+| 両端揃え 
+
+|Undo_LeftAlignment
+| 左揃え 
+
+|Undo_MergeCells
+| セルの結合 
+
+|Undo_MiddleAlignment
+| 上下中央揃え配置 
+
+|Undo_Paste
+| 貼り付け
+
+|Undo_RemoveHyperlinks
+| ハイパーリンクの削除 
+
+|Undo_RemoveTable
+| テーブルの削除 
+
+|Undo_ResetOptions
+| オプションのリセット 
+
+|Undo_ResizeColumn
+| 列の幅 
+
+|Undo_ResizeRow
+| 行の高さ
+
+|Undo_RightAlignment
+| 右揃え 
+
+|Undo_Sort
+| 並べ替え 
+
+|Undo_Strikethrough
+| 取り消し線 
+
+|Undo_Style
+| スタイル 
+
+|Undo_TabColor
+| タブの色 
+
+|Undo_TopAlignment
+| 上揃え 
+
+|Undo_Underline
+| 下線 
+
+|Undo_View
+| 表示の変更 
+
+|Undo_WrapText
+| テキストを折り返す 
+
+|Undo_Zoom
+| ズーム 
+
+|====

@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-imagelist-keys-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{70270EDB-AEED-4EC6-8013-0680604C19B5}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ImageList キー
+
+Visual Studio 2005 (.NET Framework 2.0) は、ImageList で項目に文字列名を指定できます。Appearance オブジェクトの Image プロパティが変更され、関連する ImageList の画像のキーを設定できるようになりました。これまで Image プロパティには画像そのものか、ImageList の Images コレクション内の画像のインデックスを示す整数のどちらかしか設定できませんでした。

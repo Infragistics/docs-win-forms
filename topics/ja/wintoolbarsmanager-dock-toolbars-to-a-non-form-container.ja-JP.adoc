@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-dock-toolbars-to-a-non-form-container",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Layouts"],
+    "guid": "{66F871EA-C383-4460-8EFA-E839B50289CD}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 非フォーム コンテナにツールバーをドッキング
+
+WinToolbarsManager コンポーネントは、フォーム以外のコンテナにドックするツールバーを作成できます。この機能を利用するには、エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~dockwithincontainer.html[DockWithinContainer]"]  プロパティを使用します。
+
+== デザインタイムの場合
+
+パネルなどのコンテナをフォームに追加します。UltraToolBarsManager エレメントの ［プロパティ］ ウィンドウに移動し、[Behavior] で DockWithinContainer プロパティを選択します。ここでは、フォームの内部にあり、ツールバーのドッキング領域として使用できるすべてのコンテナを選択できます。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Private Sub DockingToolbarstoaNonFormContainer_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' UltraToolBarsManager エレメントをパネルにドッキングします。
+	Me.UltraToolbarsManager1.DockWithinContainer = Me.Panel1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DockingToolbarstoaNonFormContainer_Load(object sender, System.EventArgs e)
+{
+	// UltraToolBarsManager エレメントをパネルにドッキングします。
+	this.ultraToolbarsManager1.DockWithinContainer = this.panel1;
+}
+----

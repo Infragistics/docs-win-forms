@@ -1,0 +1,190 @@
+﻿////
+|metadata|
+{
+    "name": "wingridfilteruiprovider-adding-a-custom-filter-to-enhanced-filtering-ui-on-a-wingrid",
+    "controlName": [],
+    "tags": ["Filtering","How Do I"],
+    "guid": "{5E7DFB4E-19EE-44DF-88ED-570CD806FA20}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid でカスタム フィルターを拡張フィルタリング UI に追加
+
+=== 始める前に
+
+拡張フィルタリング UI で示した全項目は FilterTool の概念によって作成されたメニューに表示するツールです。これらのツールは再配列、削除、または WinGridFilterUIProvider™ で pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider~beforemenupopulate_ev.html[BeforeMenuPopulate]"]  および pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider~aftermenupopulate_ev.html[AfterMenuPopulate]"]  イベントを通して新しいツールを追加できます。新しいツールが追加されると、ツールがクリックされた時に実行する必要がある必須アクションにも注意を払う必要があります。UltraGridFilterUIProvider の pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.ultragridfilteruiprovider~buttontoolclick_ev.html[ButtonToolClick]"]  イベントを処理し、どのツールがクリックされたのかを判断して適切なアクションを取るためのイベント引数を使用することによってこれを達成できます。
+
+=== 達成すること
+
+さまざまなツールを使用して、カスタム フィルターを拡張フィルタリング UI に追加できます。以下のツリーはツールの継承構造を示します:
+
+* FilterTool
+
+** FilterButtonTool
+
+*** FilterOperandTool
+
+** FilterMenuTool
+
+** FilterTreeTool
+
+.注：
+[NOTE]
+手動で作成できない唯一のツールは pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.filtertreetool.html[FilterTreeTool]"]  です。ただし、このツールはリストで削除または再配置できます。
+
+
+この詳細なガイドでは、カスタム フィルターを作成して WinGrid で既存の拡張フィルターに追加する方法を学習します。
+
+=== 次の手順を実行します。
+
+このトピックは拡張フィルターが有効にされた WinGrid コントロールがすでにあることが前提となっています。これに関する詳細は、 link:wingridfilteruiprovider-enabling-enhanced-filtering-on-wingrid.html[「WinGrid で拡張フィルタリングを有効にする」]トピックを参照してください。
+
+[start=1]
+. UltraGridFilterUIProvider の BeforeMenuPopulate および ButtonToolClick イベントを処理します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+AddHandler UltraGridFilterUIProvider1.BeforeMenuPopulate, AddressOf ultraGridFilterUIProvider1_BeforeMenuPopulate
+AddHandler UltraGridFilterUIProvider1.ButtonToolClick, AddressOf ultraGridFilterUIProvider1_ButtonToolClick
+----
+
+*C# の場合：*
+[source,csharp]
+----
+ultraGridFilterUIProvider1.BeforeMenuPopulate += new BeforeMenuPopulateEventHandler(ultraGridFilterUIProvider1_BeforeMenuPopulate);
+ultraGridFilterUIProvider1.ButtonToolClick +=new ButtonToolClickEventHandler(ultraGridFilterUIProvider1_ButtonToolClick);
+----
+
+[start=2]
+. BeforeMenuPopulate イベント内で、手動でツールを移植する以下のコードを記述します（たとえば、フィルター プロバイダーによって表示されるフィルター メニュー）。Order Dates をフィルターするカスタムの Date フィルターが WinGrid コントロールの OrderDate 列に追加されます。年 (1997) を表示するためにひとつの pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.filtermenutool.html[FilterMenuTool]"]  が作成され、月の期間 (1 月から 4 月と 5 月から 8 月)を表示するために 2 つの pick:[win-forms="link:{ApiPlatform}win.supportdialogs{ApiVersion}~infragistics.win.supportdialogs.filteruiprovider.filtermenutool.html[FilterButtonTools]"]  が作成されます。またフィルタリング コードがイベント内で記述されます。
+
+.注：
+[NOTE]
+この場合、カスタムのフィルター メニューが拡張フィルタリング UI の既存のメニューに追加されます。カスタム フィルターがフィルタープロバイダーによって示される唯一のフィルターとなるようにしたい場合には、BeforeMenuPopulate のイベント引数の Handled プロパティを True に設定する必要があります。これは組み込みのフィルター ツールの作成を基本的に中止し、カスタムの作成されたツールのみが表示します。
+
+
+*Visual Basic の場合：*
+[source,vb]
+----
+e.Handled = true
+----
+
+*C# の場合：*
+[source,csharp]
+----
+e.Handled = true;
+----
+
+*Visual Basic の場合：*
+[source,vb]
+----
+	    'WinGrid でカスタムの Filter を OrderDate Column のみに適用します
+	    If e.ColumnFilter.Column.Key = "OrderDate" Then
+'子メニュー (この場合は月) を保持できる年を表示するためのツール
+			Dim yearTool As New FilterMenuTool()
+			yearTool.DisplayText = "1997"
+			'月の子メニューを表示するためのクリック可能なツール。このツールがクリックされると、対応するアクションを ButtonToolClick イベントで処理できます。
+			Dim monthTool As New FilterButtonTool("1997")
+			monthTool.DisplayText = "January - April"
+			yearTool.Tools.Add(monthTool)
+			'月の子メニューを表示するためのクリック可能なツール。 
+			monthTool = New FilterButtonTool("1997")
+			monthTool.DisplayText = "May - August"
+			yearTool.Tools.Add(monthTool)
+			e.MenuItems.Add(yearTool)
+           End If
+----
+
+*C# の場合：*
+[source,csharp]
+----
+//WinGrid でカスタムの Filter を OrderDate Column のみに適用します
+            if (e.ColumnFilter.Column.Key == "OrderDate")
+            {
+		//子メニュー (この場合は月) を保持できる年を表示するためのツール
+                FilterMenuTool yearTool = new FilterMenuTool();
+                yearTool.DisplayText = "1997";
+		//月の子メニューを表示するためのクリック可能なツール。このツールがクリックされると、対応するアクションを ButtonToolClick イベントで処理できます。
+		FilterButtonTool monthTool = new FilterButtonTool("1997");
+                monthTool.DisplayText = "January - April";
+                yearTool.Tools.Add(monthTool);
+		//月の子メニューを表示するためのクリック可能なツール。
+                monthTool = new FilterButtonTool("1997");
+                monthTool.DisplayText = "May - August";
+                yearTool.Tools.Add(monthTool);
+                e.MenuItems.Add(yearTool);
+             }
+----
+
+[start=3]
+. 'OrderDate' 列でカスタム フィルターがクリックされるときに必要とされるフィルタリング条件のためのコードを記述します。UltraGridFilterUIProvider の ButtonToolClick イベントで次のコードを入力します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+'WinGrid で Filter 条件を 'OrderDate' 列のみに適用します 
+        If e.ColumnFilter.Column.Key = "OrderDate" Then
+            'どの ButtonTool がクリックされるかをチェックします 
+            If e.Tool.Id = "1997" Then
+                Dim fromDate As String = Nothing
+                Dim toDate As String = Nothing
+                If e.Tool.DisplayText = "January - April" Then
+                    fromDate = "1/1/1997"
+                    toDate = "4/30/1997"
+                ElseIf e.Tool.DisplayText = "May - August" Then
+                    fromDate = "5/1/1997"
+                    toDate = "8/31/1997"
+                End If
+               ''OrderDate' 列の Row Filter 条件を定義します。 
+ 	      Dim filter As New FilterCondition(FilterComparisionOperator.GreaterThanOrEqualTo, fromDate) 
+                e.ColumnFilter.FilterConditions.Add(filter) 
+                filter = New FilterCondition(FilterComparisionOperator.LessThanOrEqualTo, toDate)
+                e.ColumnFilter.FilterConditions.Add(filter)
+ 'Filter 条件は '01/01/1997' と '04/30/1997' 間の Order Dates を取得することです。 
+ 'したがって上記の 2 つの条件を結合するために論理 AND 演算子が使用されます。 
+                e.ColumnFilter.LogicalOperator = FilterLogicalOperator.[And]
+             End If
+  End If
+----
+
+*C# の場合：*
+[source,csharp]
+----
+//WinGrid で Filter 条件を 'OrderDate' 列のみに適用します
+            if (e.ColumnFilter.Column.Key == "OrderDate")
+            {
+ //どの ButtonTool がクリックされるかをチェックします
+                if (e.Tool.Id == "1997")
+                {
+                    string fromDate = null;
+                    string toDate   = null;
+                    if (e.Tool.DisplayText == "January - April")
+                    {
+                        fromDate    = "1/1/1997";
+                        toDate      = "4/30/1997";
+                    }
+                    else if (e.Tool.DisplayText == "May - August")
+                    {
+                        fromDate    = "5/1/1997";
+                        toDate      = "8/31/1997";
+                    }
+ //'OrderDate' 列の Row Filter 条件を定義します。 
+ 	           FilterCondition filter = new FilterCondition(FilterComparisionOperator.GreaterThanOrEqualTo, fromDate);
+                    e.ColumnFilter.FilterConditions.Add(filter);
+	          filter = new FilterCondition(FilterComparisionOperator.LessThanOrEqualTo, toDate);
+                    e.ColumnFilter.FilterConditions.Add(filter);
+//Filter 条件は '01/01/1997' と '04/30/1997' 間の Order Dates を取得することです。 
+//したがって上記の 2 つの条件を結合するために論理 AND 演算子が使用されます。
+		 e.ColumnFilter.LogicalOperator = FilterLogicalOperator.And;
+                }
+             }   
+----
+
+[start=4]
+. アプリケーションを実行します。WinGrid は OrderDate 列にカスタムの Date Filter(1997$$->$$January-April と May-August) を表示します。サブメニュー January-April でフィルター条件がクリックされると、対応する行がフィルターされてリストされます。
+
+image::Images/WinGrid_Adding_a_Custom_Filter_to_Enhanced_Filtering_UI_on_a_WinGrid.png[]

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-new-wincontrolcontainereditor-component",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F7A61EBB-CACE-4614-84BB-E2D4D29EC711}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T11:27:40Z"
+}
+|metadata|
+////
+
+= 新しい WinControlContainerEditor コンポーネント
+
+新しい WinControlContainerEditor™ コンポーネントは埋め込みエディターをサポートする Infragistics® Windows Forms コントロール内にカスタムのユーザー コントロールを埋め込むための簡単な方法を提供します。これまでは、WinGrid™、WinTree™ または WinSchedule™ のようなコントロール内に pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iprovidesembeddableeditor.html[IProvidesEmbeddableEditor]"]  インターフェイスを実装しないコントロールを組み込むことは困難でした。しかし、新しい WinControlContainerEditor コンポーネントによって、複雑な IProvidesEmbeddableEditor インターフェイスの実装に関連付けられた複雑なロジックや配管工事（plumbing）を心配することなくより簡単に任意のコントロールをプラグインできます。
+
+== 関連トピック
+
+* link:wincontrolcontainereditor-about-wincontrolcontainereditor.html[WinControlContainerEditor について]

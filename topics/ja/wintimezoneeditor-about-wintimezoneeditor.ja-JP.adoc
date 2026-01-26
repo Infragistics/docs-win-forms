@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimezoneeditor-about-wintimezoneeditor",
+    "controlName": ["WinTimeZoneEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{6E670C61-235F-414B-9991-7BB2E477C33D}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimeZoneEditor について
+
+WinTimeZoneEditor コントロールは、レジストリに登録されている時間帯の名前がすべて最初から設定されているリストを持った ComboBox と同様のコントロールを提供します。WinTimeZoneEditor エレメントは、それが派生した元の UltraComboEditor クラスと同様に以下のような追加機能があります。
+
+* Appearance のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* ItemAppearance のサポート - コントロールの Items コレクションの各項目およびその編集部分がそれぞれ独自の Appearance オブジェクトを持ちます。これは、各項目に異なるフォント、前景色、背景色、イメージなどを設定できることを意味します。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* インク対応 -  ユーザーは、FreeForm のインク入力と仮想キーボード入力を切り替て使用できます。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+* MRU（Most Recently Used）機能 - 最近入力された情報のリストを表示します。
+* 単語の自動補完 - 新しい文字を入力したときに、項目リストの項目に合わせて編集部分が自動的に更新されます。
+* リストの並べ替え - 複数の並べ替えオプションがあり、ドロップダウン リストに値リスト項目を表示するときの項目の並べ替え方法を指定できます。
+
+image::Images/WinEditors_Control_Overview_06.png[]

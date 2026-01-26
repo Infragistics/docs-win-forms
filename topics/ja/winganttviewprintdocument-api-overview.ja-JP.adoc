@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttviewprintdocument-api-overview",
+    "controlName": ["WinGanttView"],
+    "tags": ["API"],
+    "guid": "bbd56202-0508-4392-9aef-6ea1bab26058",  
+    "buildFlags": [],
+    "createdOn": "2012-02-09T15:34:37.3543016Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは弊社の API マニュアルに直接リンクします。
+
+=== WinGanttView 名前空間:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview_namespace.html[Infragistics.Win.UltraWinGanttView 名前空間]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttviewprintdocument.html[UltraGanttViewPrintDocument]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.detailsareasettings_members.html[DetailsAreaSettings]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.keyareasettings_members.html[KeyAreaSettings]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.legendsettings_members.html[LegendSettings]"]

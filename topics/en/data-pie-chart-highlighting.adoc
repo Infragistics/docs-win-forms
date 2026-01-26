@@ -1,0 +1,113 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= Selection
+
+This topic provides information for enabling and using the different highlighting features in the link:{DataPieChartLink}.{DataPieChartName}.html[{DataPieChartName}] control. 
+
+The topic contains the following sections:
+
+* <<Requirements,Requirements>>
+* <<Overview,Highlighting Overview>>
+* <<HighlightBehaviors, Highlighting Behaviors>>
+* <<HighlightModes,Highlighting Modes>>
+* <<RelatedTopics,Related Content>>
+
+[[Requirements]]
+== Requirements
+
+This article assumes you have already read the link:data-pie-chart-data-binding.html[Data Binding] topic, and uses the code within it as a starting point.
+
+[[Overview]]
+== Highlighting Overview
+
+The {DataPieChartName} supports mouse over highlighting, as well as a highlighting overlay that can be configured by providing a separate data source. The following sections describe these features in more detail:
+
+[[HighlightBehaviors]]
+=== Highlighting Behaviors
+
+The `HighlightingBehavior` property determines how a slice will be highlighted. This is represented by a `SeriesHighlightingBehavior` enumeration. The following are the options of that enumeration and what they do:
+
+- `DirectlyOver`: The slices are only highlighted when the mouse is directly over them.
+- `NearestItems`: The nearest slice to the mouse position will be highlighted.
+- `NearestItemsAndSeries`: The nearest slice and series to the mouse position will be highlighted.
+- `NearestItemsRetainMainShapes`: The nearest items to the mouse position will be highlighted and the main shapes of the series will not be de-emphasized.
+
+
+[[HighlightModes]]
+=== Highlighting Modes
+
+The `HighlightingMode` property determines how the data pie chart slices respond to being highlighted. This property is defined by the `SeriesHighlightingMode` enumeration. The following are the options of that enumeration and what they do:
+
+- `Brighten`: The series will have its color brightened when the mouse position is over or near it.
+- `BrightenSpecific`: The specific slice will have its color brightened when the mouse position is over or near it.
+- `FadeOthers`: The series will retain its color when the mouse position is over or near it, while the others will appear faded. 
+- `FadeOthersSpecific`: The specific slice will retain its color when the mouse position is over or near it, while the others will appear faded.
+- `None`: The series and slices will not be highlighted.
+
+[[HighlightFilter]]
+=== Highlighting Filter
+
+The highlight filter of the {DataPieChartName} is applied by specifying a `HighlightedDataSource` for the control and by setting the `HighlightedValuesDisplayMode` property to `Overlay`. The `HighlightedDataSource` expects a subset of the data assigned to the `DataSource` property of the {DataPieChartName}.
+
+When these conditions are met, the values of the subset will be highlighted, while the remainder of the full set of data will be faded - effectively creating a highlight for the subset and allowing easier visualization of a subset of your data within the same control.
+
+[[CodeExample]]
+
+== Code Example
+
+ifdef::wpf[]
+
+*In XAML:*
+
+[source,xaml]
+----
+TODO
+----
+
+*In C#:*
+
+[source, csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    HighlightingMode = SeriesHighlightingMode.BrightenSpecific,
+    HighlightingBehavior = SeriesHighlightingBehavior.NearestItems
+};
+----
+
+endif::wpf[]
+
+ifdef::win-forms[]
+
+*In C#:*
+
+[source,csharp]
+----
+{DataPieChartName} dataPieChart = new {DataPieChartName}()
+{                
+    DataSource = data,
+    Dock = DockStyle.Fill,
+    HighlightingMode = SeriesHighlightingMode.BrightenSpecific,
+    HighlightingBehavior = SeriesHighlightingBehavior.NearestItems
+};
+----
+
+endif::win-forms[]
+
+[[RelatedTopics]]
+== Related Content
+
+* link:data-pie-chart-data-binding.html[Data Binding]
+* link:data-pie-chart-others-category.html[Others Category]

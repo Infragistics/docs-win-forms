@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2CFA921D-A267-4145-ABA4-B9985AF1F74E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinChart 2006.2
+
+2006 Volume 2 リリースで追加されたすべての強力な新しい WinChart™ 機能および改善を学習してください。これは弊社が提供しているグラフ機能の最大のセットです。
+
+* link:winchart-all-3d-charts-use-the-new-rendering-engine-whats-new-2006-2.html[すべての立体チャートは新しいレンダリング エンジンを使用]
+* link:winchart-anti-collision-axis-labels-whats-new-2006-2.html[衝突防止軸ラベル]
+* link:winchart-custom-layers-can-be-added-to-composite-charts-whats-new-2006-2.html[カスタム レイヤを合成チャートに追加できる]
+* link:winchart-default-preset-available-for-new-charts-whats-new-2006-2.html[新しいチャートで使用できるデフォルトのプリセット]
+* link:winchart-extended-the-swap-rows-and-columns-feature-whats-new-2006-2.html[拡張された行と列の入れ替え機能]
+* link:winchart-more-chart-title-formatting-available-whats-new-2006-2.html[より多くのチャート タイトルのフォーマッティングが使用可能]
+* link:winchart-new-charts-whats-new-2006-2.html[新しいチャート]
+* link:winchart-smart-tickmarks-now-available-for-3d-charts-whats-new-2006-2.html[立体チャートで使用できるスマート目盛り]
+* link:winchart-specific-annotations-can-be-hidden-whats-new-2006-2.html[特定の注釈を非表示にすることができる]

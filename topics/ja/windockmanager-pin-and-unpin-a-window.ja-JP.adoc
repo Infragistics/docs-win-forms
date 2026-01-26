@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-pin-and-unpin-a-window",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{A4DD94AD-3B93-4AFD-863A-9AA68CE6CD2C}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ウィンドウのピンおよびピンの解除
+
+WinDockManager コンポーネントを使用すると、ピンで固定されたウィンドウのピンを解除し、非表示にできます。同様に、非表示で、マウスの移動によってフライアウトされるウィンドウをピンで固定し、常に表示されるようにできます。ウィンドウのピンの固定および解除はコードの中で実行するか、またはユーザーがランタイムに行うことができます。
+
+以下のコードは、ボタン クリックを使用してpick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase.html[ペイン]"] をpick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablecontrolpane~pin.html[ピン]"] する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnPin_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnPin.Click
+	Me.UltraDockManager1.DockAreas(0).Panes(0).Pin()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnPin_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.DockAreas[0].Panes[0].Pin();
+}
+----
+
+以下のコードは、ボタン クリックを使用して、UltraDockManager に関連付けられているペインを pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~pinall.html[PinAll]"]  する（すべてをピンで固定）方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnPinAll_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnPinAll.Click
+	Me.UltraDockManager1.PinAll()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnPinAll_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.PinAll();
+}
+----
+
+以下のコードは、ボタンクリックを使用して、ペインの pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablecontrolpane~unpin.html[Unpin]"] (ピンを解除）する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnUnpin_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnUnpin.Click
+	Me.UltraDockManager1.DockAreas(0).Panes(0).Unpin()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnUnpin_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.DockAreas[0].Panes[0].Unpin();
+}
+----
+
+以下のコードは、ボタン クリックを使用して、UltraDockManager に関連付けられているペインの pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~unpinall.html[UnpinAll]"]  する（すべてのピンを解除）方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnUnpinAll_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnUnpinAll.Click
+	Me.UltraDockManager1.UnpinAll()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnUnpinAll_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.UnpinAll();
+}
+----
+
+ユーザーは、ペインの右上隅にある画びょうアイコンをクリックすることで、ペインのピンを固定するかどうかを切り替えることができます。この方法は、Visual Studio.NET や Outlook などの Microsoft 製品でウィンドウのピンを固定する方法に似ています。この機能は、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~showpinbutton.html[ShowPinButton]"]  を設定することによって無効にできます。これによって、ペインの上右隅からアイコンを削除できます。

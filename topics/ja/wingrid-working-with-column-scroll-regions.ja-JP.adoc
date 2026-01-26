@@ -1,0 +1,166 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-working-with-column-scroll-regions",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","Layouts"],
+    "guid": "{2A642201-E01A-4048-A9C6-BB6B08B9928F}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列スクロール領域の操作
+
+== バックグラウンド
+
+多くの列を含むグリッドは、画面領域が制限されたディスプレイでの作業は困難な場合があります。列スクロール領域によって、ユーザーや開発者は画面を水平方向に分割することができるので、各領域に異なる列を表示できます。
+
+列スクロール領域のもうひとつの使用目的は、領域に列を「ロック」するための手段を提供することで、もうひとつの領域にどのような列が表示されるのかに関係なく継続して表示されます。ただし、WinGrid のバージョン 3 からは、類似の動作は、組み込み固定ヘッダ機能を使用して簡単に実装することができます。固定ヘッダは列および列グループをロックする機能を提供し、レイアウトおよびヘッダのプロパティを簡単に設定することでスクロールを防止することができます。詳細については、 link:wingrid-specifying-fixed-columns.html[「固定列の指定」]を参照してください。
+
+新しい固定ヘッダ機能は、ほとんどのインスタンスで列をロックするためのより良い代替策ですが、以下に説明する古い方法を使用したい理由もあります。ひとつは、固定ヘッダ機能は、新しい行レイアウト機能が有効である場合には動作しないということです。何らかの理由で列のロックを手動で制御する必要がある場合には、ここで説明するスクロール領域技術はこれまでと同様に役に立ちます。
+
+== 質問
+
+* 画面を水平方向に分割して、複数セットの列を表示できるようにするにはどうすればいいですか?
+* 列をロックして常に表示できるようにするにはどうすればいいですか?
+* ユーザーを制限し追加の列スクロール領域を作成できないようにするにはどうすればいいですか?
+
+== 解決策
+
+列分割ボックスを右にドラッグすることによって、画面を水平に分割できます。
+
+列を列スクロール領域にロックするには、開発者は Column オブジェクトの .ExclusiveColumnScrollRegion プロパティをアクティブな ColumnScrollRegion に設定できます。このプロパティを設定すると、列は残りの領域に表示されません。
+
+ユーザーが列スクロール領域を作成できないように画面から列分割ボックスを削除するには、.DisplayLayout.MaxColScrollRegions = 1 に設定します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは、列スクロール領域に関連するオプションをいくつか説明します。[列スクロール領域を分割] ボタンは領域を 2 つの新しい領域に分割します。[排他的な列スクロール領域] ボタンは、両方のバンドから列 0 を領域 0 に移動します。[ひとつの列スクロール領域] ボタンは領域 0 以外すべてを削除し、MaxColScrollRegions を 1 に設定します。これによって列分割ボックスは今後表示されません。
+
+image::Images/WinGrid_Working_with_Column_Scroll_Regions_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラーが含まれます:
+
+* UltraGrid1.InitializeRow - InitializeRow イベントのコードによって行が表示するときに展開します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' すべての行を展開します。
+	e.Row.ExpandAll()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// すべての行を展開します。
+	e.Row.ExpandAll();
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します:
+
+* btnSplitColumnScrollRegion.Click - SplitColumnScrollRegion Click イベントのコードは Max Regions を 10 に設定し、領域 0 を分割します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnSplitColumnScrollRegion_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnSplitColumnScrollRegion.Click
+	' 最大の ColScrollRegions を設定し、領域 0 を分割します
+	Me.UltraGrid1.DisplayLayout.MaxColScrollRegions = 10
+	Me.UltraGrid1.DisplayLayout.ColScrollRegions(0).Split()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnSplitColumnScrollRegion_Click(object sender, System.EventArgs e)
+{
+	// 最大の ColScrollRegions を設定し、領域 0 を分割します
+	this.ultraGrid1.DisplayLayout.MaxColScrollRegions = 10;
+	this.ultraGrid1.DisplayLayout.ColScrollRegions[0].Split();
+}
+----
+
+* btnExclusiveColumnScrollRegion.Click - ExclusiveColumnScrollRegion Click イベントのコードは両方のバンドから列 0 を ColScrollRegion 0 に移動します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnExclusiveColumnScrollRegion_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnExclusiveColumnScrollRegion.Click
+	' 両方のバンドから列 0 を ColScrollRegion 0 に配置します
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Header.ExclusiveColScrollRegion = _
+	  Me.UltraGrid1.DisplayLayout.ColScrollRegions(0)
+	Me.UltraGrid1.DisplayLayout.Bands(1).Columns(0).Header.ExclusiveColScrollRegion = _
+	  Me.UltraGrid1.DisplayLayout.ColScrollRegions(0)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnExclusiveColumnScrollRegion_Click(object sender, System.EventArgs e)
+{
+	// 両方のバンドから列 0 を ColScrollRegion 0 に配置します
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Header.ExclusiveColScrollRegion =
+	  this.ultraGrid1.DisplayLayout.ColScrollRegions[0];
+	this.ultraGrid1.DisplayLayout.Bands[1].Columns[0].Header.ExclusiveColScrollRegion =
+	  this.ultraGrid1.DisplayLayout.ColScrollRegions[0];
+}
+----
+
+* btnOneColumnScrollRegion.Click - OneColumnScrollRegion Click イベントのコードは領域 0 以外のすべてを削除し、最大領域を 1 に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnOneColumnScrollRegion_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnOneColumnScrollRegion.Click
+	' ColScrollRegion 0 以外のすべてを削除し、最大領域を 1 に設定します
+	If Me.UltraGrid1.DisplayLayout.ColScrollRegions.Count > 1 Then
+		Dim intPtr As Integer
+		For intPtr = Me.UltraGrid1.DisplayLayout.ColScrollRegions.Count - 1 To 1 Step -1
+			Me.UltraGrid1.DisplayLayout.ColScrollRegions.Remove( _
+			  Me.UltraGrid1.DisplayLayout.ColScrollRegions(intPtr))
+		Next
+	End If
+	Me.UltraGrid1.DisplayLayout.MaxColScrollRegions = 1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnOneColumnScrollRegion_Click(object sender, System.EventArgs e)
+{
+	// ColScrollRegion 0 以外のすべてを削除し、最大領域を 1 に設定します
+	if(this.ultraGrid1.DisplayLayout.ColScrollRegions.Count > 1)
+	{
+		for(int intPtr = this.ultraGrid1.DisplayLayout.ColScrollRegions.Count-1; 
+		  intPtr >= 1; intPtr--)
+		{
+			this.ultraGrid1.DisplayLayout.ColScrollRegions.Remove(
+			  this.ultraGrid1.DisplayLayout.ColScrollRegions[intPtr]);
+		}
+	}
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトは、列スクロール領域を使用して、多くの列が表示されるようにしてグリッドの使いやすさを高める方法をいくつか説明しました。

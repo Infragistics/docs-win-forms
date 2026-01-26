@@ -1,0 +1,103 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-about-winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Getting Started"],
+    "guid": "{4F636FFF-E6A8-41EA-94EE-6DB7B2EA94A1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar について
+
+WinExplorerBar エレメントの主な機能の一覧を次に示します。
+
+* エレメントの基本レイアウトと動作を制御する pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~style.html[Style]"]  プロパティ。使用可能なエレメント スタイルは次のとおりです。
+
+** ExplorerBar - Windows XP の Explorer の ExplorerBar のルック アンド フィールをエミュレートします。
+** Listbar - Microsoft Outlook と Infragistics の UltraListbar エレメントの OutlookBar のルック アンド フィールをエミュレートします。
+** Toolbox - Visual Basic 6 と Visual Studio .NET の Toolboxのルック アンド フィールをエミュレートします。
+** OutlookNavigationPane - Outlook 2003 のナビゲーション ペインのルック アンド フィールをエミュレートします。
+** VisualStudio2005Toolbox -Visual Studio 2005 の Toolboxのルック アンド フィールをエミュレートします。
+
+* エレメント スタイルごとに異なる外観を選択することを可能にするpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~viewstyle.html[ViewStyle]"]  。Style プロパティが基本レイアウトを決定することでエレメントの外観に寄与するのに対し、ViewStyle はエレメントの主要な部分を描画するためのスタイルを決定します。[デフォルト] に設定すると、現在のエレメント スタイルの「従来の」外観が自動的に選択されます。使用可能な ViewStyle は次のとおりです。
+
+** XPExplorerBar - XP テーマを使用して（使用可能な場合）、Windows XP Explorer の ExplorerBar の外観をシミュレートします。
+** XP - グラデーション、陰影付き境界線、およびシステム カラーを使用して、XP によく似たクリーンな外観を提供します。
+** Office2000 - システム 3D カラーとベベル付き境界線を使用して、Office 2000 の外観をエミュレートします。
+** Office2003 - Office 2003 の外観をエミュレートする色を使用します。
+** VisualStudio2005 - Visual Studio 2005 の Toolbox の外観をエミュレートする色を使用します。
+** Office2007 - Office 2007 の外観をエミュレートする色を使用します。
+
+* Infragistics のプレゼンテーション層フレームワーク（PLF）クラス ライブラリを使用して作成されています。PLFは、開発者にさまざまな柔軟性を提供する、堅牢で信頼性の高いフレームワークです。UIElements から DrawFilters、CreationFilters、Appearances などにいたるまで、PLF では UltraExplorerBar をアプリケーションのプレゼンテーション層要件に合わせてカスタマイズできます。
+* ひとつ以上の _グループ_ の中にひとつ以上の _項目_ が含まれるという、OutlookBar と XP ExplorerBar のメタファーに従います。
+* 作成可能なpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[グループ]"] とpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritem.html[項目]"] の数は、使用可能なメモリによってのみ制限されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~groupsettings.html[GroupSettings]"]  オブジェクトには、グループの外観と動作を制御する多数のプロパティがあります。GroupSettings オブジェクトは Group オブジェクトとエレメント自体の両方に存在します。GroupSettings オブジェクトのほとんどのプロパティには [デフォルト] 設定があるため、エレメントの GroupSettings オブジェクトでプロパティを設定し、特定のグループの Group の GroupSettings オブジェクトでそれらの設定を選択的にオーバーライドできます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemsettings.html[ItemSettings]"]  オブジェクトには、項目の外観と動作を制御する多数のプロパティがあります。ItemSettings オブジェクトは、Item オブジェクト、Group オブジェクト、およびエレメント自体に存在します。ItemSettings オブジェクトのほとんどのプロパティには [デフォルト] 設定があるため、エレメントとグループの ItemSettings オブジェクトの両方またはいずれか一方でプロパティを設定し、次に Group オブジェクトと Item の ItemSettings オブジェクトの両方またはいずれか一方でそれらの設定を選択的にオーバーライドできます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings.html[GroupSettings]"]  オブジェクトには、グループの動作や外観を決定する pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~style.html[Style]"]  プロパティが含まれます。グループ スタイルは次のとおりです。
+
+** デフォルト - グループ スタイルはエレメント スタイルに基づいて自動的に選択されます。エレメント スタイルとそれに関連付けられたデフォルトのグループ スタイルのリストは次のとおりです。
+
+*** エレメント スタイル ExplorerBar - グループ スタイルの「SmallImagesWithText」を使用します。
+*** エレメント スタイル Listbar - グループ スタイルの「LargeImagesWithText」を使用します。
+*** エレメント スタイル Toolbox - グループ スタイルの「LargeImages」を使用します。
+*** エレメント スタイル OutlookNavigationPane - グループ スタイルの「SmallImagesWithText」を使用します。
+*** エレメント スタイル VisualStudio2005Toolbox - グループ スタイルの「SmallImagesWithText」を使用します。
+
+** SmallImages - グループ内の項目は項目の小さい画像を使用して描画されます。項目は行および列形式で左から右、上から下に整列されます。このスタイルは通常、エレメント スタイルが「Toolbox」のときに使用されます。
+** SmallImagesWithText - グループ内の項目は、項目の小さい画像と項目のテキストを使用して描画されます。テキストは画像の右に表示されます。項目は、他の項目の上にひとつずつ、縦に整列されます。これはエレメント スタイルが「ExplorerBar」の場合のデフォルト スタイルです。
+** LargeImages - グループ内の項目は、項目の大きい画像を使用して描画されます。項目は行および列形式で左から右、上から下に整列されます。これはエレメント スタイルが「Toolbox」の場合のデフォルト スタイルです。
+** LargeImagesWithText - グループ内の項目は、項目の大きい画像と項目のテキストを使用して描画されます。テキストは画像の右に表示されます。項目は、他の項目の上にひとつずつ、縦に整列されます。これはエレメント スタイルが「Listbar」の場合のデフォルト スタイルです。
+** LargeImagesWithTextBelow - グループ内の項目は、項目の大きい画像と項目のテキストを使用して描画されます。テキストは画像の下に表示されます。項目は、他の項目の上にひとつずつ、縦に整列されます。このスタイルは通常、エレメント スタイルが「Listbar」の場合に使用されます。
+** ControlContainer - グループの項目は存在していても表示されず、その代わりに UltraExplorerBarContainerControl がグループ内に自動的に配置されます。これを使用すると、グループは link:winexplorerbar-host-net-winforms-controls-in-winexplorerbar.html[.NET WinForms コントロールをホスト]できます。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings.html[ItemSettings]"]  オブジェクトには、項目の動作や外観を決定する pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~style.html[Style]"]  プロパティが含まれます。使用可能な項目スタイルは次のとおりです。
+
+** Button - 項目はボタンのように動作し、マウスでクリックすると Click イベントが発生します。
+** StateButton - 項目はラジオ ボタンのように動作し、マウスでクリックするとチェック状態が切り替わります。項目の Checked プロパティの値はその項目のチェック状態を反映します。
+** Label - 項目はラベルのように動作します。テキストが表示されますが、マウスでクリックしても反応せず、状態も変わりません。
+** Separator - 項目はメニューのセパレータのように動作します。1 ピクセルの線が表示されますが、マウスでクリックしても反応せず、状態も変わりません。ItemSettings オブジェクトの SeparatorStyle プロパティによって、垂直と水平のどちらのセパレータが表示されるかが決まります。
+
+* コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~statebuttoncheckstyle.html[StateButtonCheckStyle]"]  プロパティによって、StateButton 型の項目が切り替えられる範囲が決定します。StateButtonCheckStyle の設定は次のとおりです。
+
+** Default - StateButtonCheckStyleの値は、エレメント スタイルに基づいて自動的に設定されます。
+
+*** ExplorerBar、Listbar、OutlookNavigationPane および VisualStudio2005Toolbox - 使用される StateButtonCheckStyle は「ExclusiveWithinControl」です。
+*** Toolbox - 使用される StateButtonCheckStyle は「ExclusiveWithinGroup」です。
+
+** ExclusiveWithinControl - 常にエレメント内のすべてのグループでひとつの StateButton 型項目のみをチェックできます。
+** ExclusiveWithinGroup - 常にグループあたりひとつの StateButton 型項目をチェックできます。
+
+* GroupSettings オブジェクトと ItemSettings オブジェクトの MaxLines プロパティを介して、項目とグループでテキストの折り返し（複数行テキスト）がサポートされます。
+* エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~animationenabled.html[AnimationEnabled]"]  プロパティを介して、グループの開閉をアニメーション表示できます。
+
+[NOTE]
+====
+*注:* アニメーションはエレメント スタイル "OutlookNavigationPane" では使用できません）。アニメーションの速度はエレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~animationspeed.html[AnimationSpeed]"]  プロパティによって制御できます。
+
+====
+
+* グループと項目の両方に Visible プロパティと Enabled プロパティがあります。
+* Items の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~indent.html[Indent]"]  プロパティを使用して、特定のピクセル数だけ Items をインデントできます。
+
+[NOTE]
+====
+*注:* このプロパティは、Style が SmallImagesWithText または LargeImagesWithText に設定されたグループに属する項目のみに対して意味があります。
+====
+
+* エレメントはフォーカスを取得することができるため、キーボード ナビゲーションとニーモニックを完全にサポートします。該当するキーボードの組み合わせを押すことでニーモニックが「起動」すると、そのニーモニックを含むエレメントでマウス クリックがシミュレートされます。
+* エレメント プロパティ pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~acceptsfocus.html[AcceptsFocus]"] （DefaultableBoolean プロパティ）によって、エレメントがフォーカスを取得することができるかどうかを決定します。[0 - Default] に設定すると、エレメント スタイルに基づいて値が解決されます。エレメント スタイルが [0 - Explorer Bar] の場合は True に解決され、それ以外のエレメント スタイルの場合は False に解決されます。
+* このエレメントではグループ間で項目を移動する際にドラッグ アンド ドロップが完全にサポートされます（詳細については link:winexplorerbar-control-dragging-and-dropping-items.html[「項目のドラッグ アンド ドロップを制御」]を参照してください)。ItemSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~allowdragcopy.html[AllowDragCopy]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~allowdragmove.html[AllowDragMove]"]  プロパティによって、項目のドラッグ方法を制御できます。GroupSettings オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~allowitemdrop.html[AllowItemDrop]"]  プロパティによって、項目をグループにドロップできるかどうかを制御します。pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemdragging_ev.html[ItemDragging]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemdragover_ev.html[ItemDragOver]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~itemdropped_ev.html[ItemDropped]"]  の各イベントは項目のドラッグ プロセスに開発者の関与が必要です。
+* バイナリ形式および XML 形式によるプロパティのシリアル化を完全にサポートします。
+* エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~columncount.html[ColumnCount]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~columnspacing.html[ColumnSpacing]"]  プロパティを指定することで、ExplorerBar エレメント スタイルの使用時にグループを複数列で表示できます。グループの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup~columnsspanned.html[ColumnsSpan]"]  プロパティは、そのグループが何列に及ぶかを示します。
+* エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~margins.html[Margins]"]  プロパティによって、グループとエレメントの端との間隔を管理できます。
+* エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~groupspacing.html[GroupSpacing]"]  プロパティによって、グループ間の間隔を管理できます。
+* エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~scrollbars.html[Scrollbars]"]  プロパティには、ExplorerBar エレメント スタイルの使用時に垂直スクロール バーがいつ表示されるかを指定するオプションがあります。使用可能な設定は、Always、Never、または Automatic です。
+* エレメント スタイル OutlookNavigationPane で、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationmaxgroupheaders.html[NavigationMaxGroupHeaders]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationcurrentgroupareaminheight.html[NavigationCurrentGroupAreaMinHeight]"]  プロパティが連動することによって、選択グループに割り当てられる領域のサイズと、ナビゲーション領域に（グループ ヘッダおよびオーバーフロー ボタンとして）表示されるグループの数を制御できます。
+* エレメント スタイル OutlookNavigationPane の場合、エレメントの下部にあるオーバーフロー ボタン領域にグループを表すボタンが表示されます。選択グループとその項目を表示するためのスペースを確保した後、残りのグループはオーバーフロー ボタン領域に押し出され、ツールバー ボタンとして表示されます。エレメントの幅が足りないために表示できないオーバーフロー ボタンには、QuickCustomize フライアウト メニューを使用してアクセスできます。
+* エレメント スタイルが OutlookNavigationPane の場合、エンド ユーザーはデフォルトのコンテキスト メニューから [ナビゲーション ペイン オプション] ダイアログを表示できます。このダイアログでは、グループの表示/非表示と表示順序を設定できます。
+* エレメント スタイルが OutlookNavigationPane の場合、ナビゲーション オーバーフロー ボタン _領域_ にある QuickCustomize ボタンを使用して、グループの表示/非表示の切り替え、ナビゲーション領域に表示されるグループ ヘッダの数の変更、および [ナビゲーション ペイン オプション] ダイアログの表示を行うことができます。

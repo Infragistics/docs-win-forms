@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-new-formattedtexteditor-option-added-to-columnstyle-enumeration-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{AB67B3C7-E25C-499A-88AE-930CE76B3834}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-10T13:46:59Z"
+}
+|metadata|
+////
+
+= ColumnStyle 列挙体に追加された新しい FormattedTextEditor オプション
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.columnstyle.html[ColumnStyle]"]  列挙体は、特定の列がどのように動作するかを定義します。2006 Volume 1 では、組み込み可能なエディタとして WinFormattedLinkLabel コントロールをサポートするために、この列挙体に FormattedText オプションを追加しました。現在、組み込み可能なエディタとして WinFormattedTextEditor コントロールをサポートするために、同じ列挙体に FormattedTextEditor オプションを追加しました。この 2 つの違いは、FormattedTextEditor は編集をサポートしますが、FormattedText はサポートしないことです。本質的には、これによって WinGrid 列のフォーマットされたテキストを編集できます。WinGrid 列に WinFormattedTextEditor コントロールを組み込むことについての詳細は、 link:winformattedtexteditor-embedding-winformattedtexteditor-in-a-wingrid-column.html[「WinGrid 列に WinFormattedTextEditor を組み込む」]を参照してください。

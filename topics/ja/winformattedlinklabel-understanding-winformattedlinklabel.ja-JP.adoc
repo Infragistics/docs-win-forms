@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-understanding-winformattedlinklabel",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["Getting Started"],
+    "guid": "{BC0A6DA5-2106-4442-B35A-85F6EC251C4D}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel の理解
+
+WinFormattedLinkLabel コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinFormattedLinkLabel コントロールを使用することの利点を理解できます。
+
+WinFormattedLinkLabel コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winformattedlinklabel-about-winformattedlinklabel.html[WinFormattedLinkLabel について] -- WinFormattedLinkLabel コントロールの概要を説明しています。
+* link:winformattedlinklabel-formatting-text-and-hyperlinks.html[テキストとハイパーリンクのフォーマット] -- XML タグを使用してテキストをフォーマットする方法を詳細に説明しています。
+* link:winformattedtexteditor-style-attribute.html[Style 属性] -- 上記のトピックにに非常に似ていますが、Style 属性および Span タグに焦点を置きます。
+* link:winformattedlinklabel-smart-tag.html[WinFormattedLinkLabel スマート タグ] -- WinFormattedLinkLabel コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+

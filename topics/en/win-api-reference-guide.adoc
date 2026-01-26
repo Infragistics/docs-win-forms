@@ -1,0 +1,68 @@
+﻿////
+|metadata|
+{
+    "name": "win-api-reference-guide",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{2D5DDE0F-D911-452D-AD18-26BCD2FBFD2F}",
+    "buildFlags": [],
+    "createdOn": "2005-03-10T00:00:00Z"
+}
+|metadata|
+////
+
+= API Reference Guide
+
+The application programming interface (API) is the foundation for all of our Windows Forms controls and components. The API Reference Guide offers a definitive listing of all the {ProductName} classes, enumerations, interfaces, and delegates -- organized by Windows Forms assembly.
+
+* link:{ApiPlatform}documents.reports{ApiVersion}.html[Infragistics.Documents.Reports]
+* link:{ApiPlatform}documents.excel{ApiVersion}.html[Infragistics.Documents.Excel]
+* link:{ApiPlatform}documents.io{ApiVersion}.html[Infragistics.Documents.IO]
+* link:{ApiPlatform}documents.textdocument{ApiVersion}.html[Infragistics.Documents.TextDocument]
+* link:{ApiPlatform}documents.word{ApiVersion}.html[Infragistics.Documents.Word]
+* link:{ApiPlatform}math{ApiVersion}.html[Infragistics.Math]
+* link:{ApiPlatform}shared{ApiVersion}.html[Infragistics.Shared]
+* link:{ApiPlatform}undo{ApiVersion}.html[Infragistics.Undo]
+* link:{ApiPlatform}win{ApiVersion}.html[Infragistics.Win]
+* link:{ApiPlatform}win.appstylistsupport{ApiVersion}.html[Infragistics.Win.AppStylistSupport]
+* link:{ApiPlatform}win.codeduitest.uia.vs10{ApiVersion}.html[Infragistics.Win.CodedUITest.UIA.VS10]
+* link:{ApiPlatform}win.codeduitest.uia.vs11{ApiVersion}.html[Infragistics.Win.CodedUITest.UIA.VS11]
+* link:{ApiPlatform}win.codeduitest.uia.vs12{ApiVersion}.html[Infragistics.Win.CodedUITest.UIA.VS12]
+* link:{ApiPlatform}win.codeduitest.uia.vs14{ApiVersion}.html[Infragistics.Win.CodedUITest.UIA.VS14]
+* link:{ApiPlatform}win.codeduitest.uia.vs15{ApiVersion}.html[Infragistics.Win.CodedUITest.UIA.VS15]
+* link:{ApiPlatform}win.codeduitest.uia.vs16{ApiVersion}.html[Infragistics.Win.CodedUITest.UIA.VS16]
+* link:{ApiPlatform}win.misc{ApiVersion}.html[Infragistics.Win.Misc]
+* link:{ApiPlatform}win.supportdialogs{ApiVersion}.html[Infragistics.Win.SupportDialogs]
+* link:{ApiPlatform}win.ultrawincalcmanager{ApiVersion}.html[Infragistics.Win.UltraWinCalcManager]
+* link:{ApiPlatform}win.ultrawincalcmanager.formulabuilder{ApiVersion}.html[Infragistics.Win.UltraWinCalcManager.FormulaBuilder]
+* link:{ApiPlatform}win.ultrawincarousel{ApiVersion}.html[Infragistics.Win.UltraWinCarousel]
+* link:{ApiPlatform}win.ultrawinchart{ApiVersion}.html[Infragistics.Win.UltraWinChart]
+* link:{ApiPlatform}win.datavisualization.barcode{ApiVersion}.html[Infragistics.Win.DataVisualization.Barcode]
+* link:{ApiPlatform}win.datavisualization.ultradatachart{ApiVersion}.html[Infragistics.Win.DataVisualization.UltraDataChart]
+* link:{ApiPlatform}win.datavisualization.ultragauges{ApiVersion}.html[Infragistics.Win.DataVisualization.UltraGauges]
+* link:{ApiPlatform}win.ultrawindatasource{ApiVersion}.html[Infragistics.Win.UltraWinDataSource]
+* link:{ApiPlatform}win.ultrawindock{ApiVersion}.html[Infragistics.Win.UltraWinDock]
+* link:{ApiPlatform}win.ultrawineditors{ApiVersion}.html[Infragistics.Win.UltraWinEditors]
+* link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}.html[Infragistics.Win.UltraWinExplorerBar]
+* link:{ApiPlatform}win.ultrawinformattedtext.wordwriter{ApiVersion}.html[Infragistics.Win.UltraWinFormattedText.WordWriter]
+* link:{ApiPlatform}win.ultrawinganttview{ApiVersion}.html[Infragistics.Win.UltraWinGanttView]
+* link:{ApiPlatform}win.ultrawingauge{ApiVersion}.html[Infragistics.Win.UltraWinGauge]
+* link:{ApiPlatform}win.ultrawingrid{ApiVersion}.html[Infragistics.Win.UltraWinGrid]
+* link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}.html[Infragistics.Win.UltraWinGrid.DocumentExporter]
+* link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}.html[Infragistics.Win.UltraWinGrid.ExcelExporter]
+* link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}.html[Infragistics.Win.UltraWinGrid.WordWriter]
+* link:{ApiPlatform}win.ultrawinlistview{ApiVersion}.html[Infragistics.Win.UltraWinListView]
+* link:{ApiPlatform}win.ultrawinlivetileview{ApiVersion}.html[Infragistics.Win.UltraWinLiveTileView]
+* link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}.html[Infragistics.Win.UltraWinMaskEdit]
+* link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}.html[Infragistics.Win.UltraWinOfficeNavBar]
+* link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}.html[Infragistics.Win.UltraWinPivotGrid]
+* link:{ApiPlatform}win.ultrawinprintpreviewdialog{ApiVersion}.html[Infragistics.Win.UltraWinPrintPreviewDialog]
+* link:{ApiPlatform}win.ultrawinradialmenu{ApiVersion}.html[Infragistics.Win.UltraWinRadialMenu]
+* link:{ApiPlatform}win.ultrawinschedule{ApiVersion}.html[Infragistics.Win.UltraWinSchedule]
+* link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}.html[Infragistics.Win.UltraWinSpellChecker]
+* link:{ApiPlatform}win.ultrawinspreadsheet{ApiVersion}.html[Infragistics.Win.UltraWinSpreadsheet]
+* link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}.html[Infragistics.Win.UltraWinStatusBar]
+* link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}.html[Infragistics.Win.UltraWinTabbedMdi]
+* link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}.html[Infragistics.Win.UltraWinTabControl]
+* link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}.html[Infragistics.Win.UltraWinToolbars]
+* link:{ApiPlatform}win.ultrawintree{ApiVersion}.html[Infragistics.Win.UltraWinTree]

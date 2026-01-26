@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-using-winvalidator",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{7520CF81-5992-4465-B68D-FF95C4D7EFF2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinValidator の使用
+
+このセクションは、WinValidator™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:winvalidator-validate-during-a-specific-event.html[固有のイベント中に検証]
+* link:winvalidator-validate-a-single-control.html[単一のコントロールを検証]
+* link:winvalidator-validate-all-controls-associated-with-winvalidator.html[WinValidator に関連付けられたすべてのコントロールを検証]
+* link:winvalidator-validate-a-group-of-controls.html[コントロールのグループを検証]
+* link:winvalidator-validate-a-range-of-values.html[コントロールの範囲を検証]
+* link:winvalidator-determine-if-a-value-is-in-a-specified-list.html[値が指定したリストにあるかどうかを決定]
+* link:winvalidator-handling-a-validation-error.html[検証エラーを処理]

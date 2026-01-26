@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-smart-tag-support-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F05D5060-E4CE-4542-8403-075D55678DE7}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スマート タグのサポート
+
+Visual Studio 2005（.NET Framework 2.0）の新機能であるスマート タグ機能では、コントロールのデザイン画面を終了することなく、最も一般的に使われるプロパティやオプションにすばやくアクセスしたり、通常のタスクを実行したりできます。
+
+生産性向上を図るため、Infragistics の Windows Formsコントロール/コンポーネントにもそれぞれ固有のスマート タグが装備されました。シングル クリックで、フォームからフォーカスを移動せずに、特定のコントロール/コンポーネントの最も一般的に使われるプロパティやオプションにアクセスできます。
+
+その際、フォームからフォーカスを移動する必要はありません。次の図は WinChart のスマート タグの例です。
+
+image::images/Win_Whats_New_VS2005_Smart_Tag_Support_01.png[]

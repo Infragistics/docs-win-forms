@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-2008-full-support-for-visual-studio-2008",
+    "controlName": [],
+    "tags": [],
+    "guid": "{CFB1C625-2341-40E0-855F-9D75A03EF251}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Visual Studio 2008 のフルサポート
+
+2008 Volume 1 リリースでは、Visual Studio 2008 が完全にサポートされます。{ProductName} コントロールおよびコンポーネントは、Visual Studio 2008 開発環境で機能することを保証するために十分なテストが行われます。.NET Language Integrated Query (LINQ) などの新技術とも互換性があります。
+
+== 関連トピック
+
+link:wincombo-binding-wincombo-to-data-using-linq-to-sql.html[LINQ to SQL を使用して WinCombo をデータにバインド]
+
+link:wingrid-binding-wingrid-to-data-using-linq-to-sql.html[LINQ to SQL を使用して WinGrid をデータにバインド]

@@ -1,0 +1,88 @@
+﻿= 2016 Volume 2 の新機能
+
+このトピックは、Infragistics® Windows Forms 2016 Volume 2
+リリースの新しいコントロール、新機能、および更新コントロールと機能の概要を提供します。
+
+
+== WinOfficeNavBar
+
+link:winofficenavbar.html[WinOfficeNavBar]™
+は、ビュー間を簡単にナビゲートし、プレビュー
+ウインドウと呼ばれるポップアップ
+ウィンドウでビューのサブセットにすばやくアクセスできます。
+
+image:images\officenavbar-screen.png[alt=""]
+
+* link:winofficenavbar-about.html[WinOfficeNavbar について]
+* link:winofficenavbar-peek-window.html[プレビュー ウィンドウ]
+
+
+== WinColorPalette、WinColorPicker および WinPaletteInfo
+
+色選択のエクスペリエンスを向上し、あらゆる色の選択を可能とするモダンな
+UI を提供しています。
+
+image:images\colorpalette-modes.png[alt=""]
+
+=== WinColorPalette
+
+WinColorPalette
+は、新しい色選択エクスペリエンスに重要なコントロールとなります。簡単でユーザー
+フレンドリな手順で詳細な色の選択を可能にする、複数のパーツから構成されています。アプリケーションに表示されるパーツを選択することによって、エクスペリエンスを完全に制御できます。
+
+スタンドアロン コントロールである WinColorPalette は、すぐに Windows
+Forms に追加できます。
+
+* link:wincolorpalette-about.html[WinColorPalette について]
+
+=== WinColorPicker
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracolorpicker~style.html[WinColorPicker.Style]
+プロパティを追加することによって WinColorPalette
+をドロップダウン形式にできます。デフォルトの WinColorPicker
+スタイルである
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracolorpalette.colorpickereditorstyle.html[ColorPickerEditorStyle.ColorPalette]
+は、WinColorPicker のドロップダウンで WinColorPalette と同じ UI
+を使用します。以前のスタイルは VisualStudio
+スタイルとして使用できます。フォームのすべての WinColorPickers は
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracolorpalette.colorpickereditorstyle.html[ColorPickerEditor.DefaultStyle]
+静的プロパティでこのスタイルに設定できます。
+
+* link:wincolorpicker-about-wincolorpicker.html[WinColorPicker について]
+
+=== WinPaletteInfo
+
+
+フォームには、スタンドアロンコントロール (WinColorPalette)
+として、またはドロップダウン (WinColorPicker) フォームとして複数の
+ColorPalette を含めることが可能です。ColorPalette の設定を含む
+WinPaletteInfo クラスを作成して設定の同期を可能にしました。
+
+各 ColorPalette の link:winpaletteinfo.html[PaletteInfo] を同じ
+WinPaletteInfo
+オブジェクトに設定することによって設定を同期し、フォーム内で一貫性のある色選択エクスペリエンスを提供します。
+
+* link:winpaletteinfo-about.html[WinPaletteInfo について]
+
+== WinZoomPanel
+
+
+WinZoomPanel™
+は、コンテンツをズームインし、ズームされたコンテンツをスクロールするコントロール
+コンテナです。ユーザーがコントロールを最適なサイズにできる、高インタラクションをUI
+の実現可能にします。ズーム可能な単一の
+link:wingrid.html[UltraGrid]、またはズーム可能な UI 全般、WinZoomPanel
+はユーザー アクセシビリティを向上します。
+
+image:images\zoom-panel-screen.png[alt=""]
+
+Infragistics 2016 Volume 2 で WinZoomPanel
+は、link:wingrid.html[UltraGrid]、link:wintree.html[UltraTree]、link:wincombo.html[UltraCombo]
+および link:winschedule.html[UltraSchedule]
+など、人気のコントロールをサポートします。現在サポートされるすべてのコントロルはlink:winzoompanel-zoom-supported-controls.html[ズーム
+サポートのコントロール] ページを参照ください。
+また、今後サポートされる予定のコントロールはここに記載します。
+
+* link:winzoompanel-about.html[WinZoomPanel について]
+* link:winzoompanel-zoom-supported-controls.html[ズーム
+サポートのコントロール]

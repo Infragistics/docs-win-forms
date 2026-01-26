@@ -1,0 +1,158 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-styling-winpivotgrid",
+    "controlName": [],
+    "tags": [],
+    "guid": "c107d1be-5b64-45fa-a8e0-ff13dacb6657",  
+    "buildFlags": [],
+    "createdOn": "2014-03-13T21:35:20.9438837Z"
+}
+|metadata|
+////
+
+= WinPivotGrid のスタイル設定
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _WinPivotGrid_™ コントロールの外観のカスタマイズ化で利用可能なオプションと構成を紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref381024372,WinPivotGrid のスタイル設定>>
+
+** <<_Ref381024381,はじめに>>
+** <<_Ref382343824,要素のスタイル設定>>
+
+* <<_Ref382343835,AppStylist の使用>>
+
+** <<_Ref382343847,ランタイムで AppStylist の使用>>
+** <<_Ref382343857,AppStylist ライブラリの使用>>
+
+* <<_Ref381024436,関連コンテンツ>>
+
+[[_Ref381024372]]
+== WinPivotGrid のスタイル設定
+
+[[_Ref381024381]]
+
+=== はじめに
+
+_WinPivotGrid_   コントロールの視覚要素の外観をスタイルする複数の方法があります。各要素の外観はコントロールの `appearance` プロパティで変更できます。 _WinPivotGrid_   が  _AppStylist_   もサポートしているため、希望するスタイルで各要素のスタイル設定ライブラリ ファイルを作成し、ピボット グリッドのテーマ ファイルとして保存できます。 _AppStylist_   も既存のライブラリを提供します。このファイルを使用し、 _WinPivotGrid_   をカスタマイズできます。
+
+[[_Ref382343824]]
+
+=== 要素のスタイル設定
+
+行、列、ドロップ領域、コントロールに外観プロパティがあります。以下のコードは、外観プロパティのカスタマイズ方法を紹介します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraPivotGrid1.RowHeaderAppearance.Normal.BackColor = Color.LightSkyBlue;
+ultraPivotGrid1.ColumnHeaderAppearance.Normal.BackColor = Color.LightSeaGreen;
+ultraPivotGrid1.CellAppearance.Normal.BackColor = Color.LightGray;
+ultraPivotGrid1.CellAppearance.Normal.BorderColor = Color.DarkSlateBlue;
+ultraPivotGrid1.Appearance.BackColor = Color.LightSteelBlue;
+ultraPivotGrid1.FilterDropArea.Appearance.Normal.BackColor = Color.MediumOrchid;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraPivotGrid1.RowHeaderAppearance.Normal.BackColor = Color.LightSkyBlue
+ultraPivotGrid1.ColumnHeaderAppearance.Normal.BackColor = Color.LightSeaGreen
+ultraPivotGrid1.CellAppearance.Normal.BackColor = Color.LightGray
+ultraPivotGrid1.CellAppearance.Normal.BorderColor = Color.DarkSlateBlue
+ultraPivotGrid1.Appearance.BackColor = Color.LightSteelBlue
+ultraPivotGrid1.FilterDropArea.Appearance.Normal.BackColor = Color.MediumOrchid
+----
+
+結果。
+
+image::images/Styling_WinPivotGrid_1.png[]
+
+[[_Ref382343835]]
+== AppStylist の使用
+
+[[_Ref382343847]]
+
+=== ランタイムで AppStylist の使用
+
+ランタイムで AppStylist を使用するには、フォームに link:{ApiPlatform}win.appstylistsupport{ApiVersion}~infragistics.win.appstyling.runtime.appstylistruntime_members.html[AppStylistRuntime] コントロールを追加し、コードで AppStylist を起動するメソッドを呼び出す必要があります。以下に手順を 2 つ示します。
+
+1.フォームに `AppStylistRuntime` コントロールをドロップします。
+
+image::images/Styling_WinPivotGrid_2.png[]
+
+2.AppStylist を起動するには、以下のコードを使用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+appStylistRuntime1.ShowRuntimeApplicationStylingEditor(this, "AppStylist");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+appStylistRuntime1.ShowRuntimeApplicationStylingEditor(Me, "AppStylist")
+----
+
+以下の画像は、ピボット グリッドの行ドロップ領域をカスタマイズするランタイムの  _AppStylist_   を表示します。
+
+アプリケーションを  _AppStylist_   でスタイル設定する方法の詳細については、「 link:styling-guide-setting-up-your-application-for-styling.html[アプリケーションにスタイルを設定]」トピックを参照してください。
+
+image::images/Styling_WinPivotGrid_3.png[]
+
+[[_Ref382343857]]
+
+=== AppStylist ライブラリの使用
+
+コントロールをスタイル設定するには、 _AppStylist_   のライブラリ ファイルを使用できます。スタイル ライブラリ ファイルを作成し保存してから、 _WinPivotGrid_   を使用するアプリケーションに追加できます。 _AppStylist_   ライブラリ ファイルを作成した後、アプリケーションに追加し、以下のコードでファイルを読み込みます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+Infragistics.Win.AppStyling.StyleManager.Load("..\\PivotGridStyleSet.isl");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Infragistics.Win.AppStyling.StyleManager.Load("..\PivotGridStyleSet.isl")
+----
+
+最後の結果。
+
+image::images/Styling_WinPivotGrid_4.png[]
+
+[[_Ref381024436]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-binding-data-to-winpivotgrid.html[WinPivotGrid をデータにバインド]
+|このトピックは、 _WinPivotGrid_ を各サポートされるデータ ソースとプロバイダーへのデータ バインディングを紹介します。
+
+| link:winpivotgrid-glossary.html[用語集]
+|このセクションは、ピボット グリッドのトピックでよく使用される用語を説明します。
+
+|====

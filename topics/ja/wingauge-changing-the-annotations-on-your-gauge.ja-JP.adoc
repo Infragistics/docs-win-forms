@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-changing-the-annotations-on-your-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{32F127A9-7CC9-455C-9675-8F61D430AC99}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ上の注釈の変更
+
+[プロパティ] パネルでは [注釈] タブを使用することによって、注釈をゲージに追加できます。たとえば、[注釈] タブを使用して、ラジアル ゲージで注釈の位置を指定できます。
+
+以下のリンクをクリックして、[プロパティ] パネルで使用できる [注釈] タブについての情報を確認してください。
+
+* link:wingauge-annotations-tab.html[注釈タブ]

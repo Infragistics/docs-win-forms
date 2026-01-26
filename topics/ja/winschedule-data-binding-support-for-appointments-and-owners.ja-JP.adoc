@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-data-binding-support-for-appointments-and-owners",
+    "controlName": ["WinSchedule"],
+    "tags": ["Appointments"],
+    "guid": "{31AED606-8A3B-4BEB-AB2E-A583EC8F22D4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 予定とオーナーのデータバインドのサポート
+
+WinSchedule の {ProductName} 2004 Volume 2 リリースには、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.afterappointmentediteventargs~appointment.html[Appointments]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayview.dayuielement~owner.html[Owners]"]  に対するデータ バインディングのサポートが含まれています。これにより、Appointments コレクションおよび Owners コレクションへのデータの入力とその内容の保存を、ADO.NET データ ソースを通じて行うことが可能になります。Appointments コレクションの内容は pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding.html[AppointmentsDataBinding]"]  オブジェクトによって扱われ、Owners コレクションの内容は pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ownersdatabinding.html[OwnersDataBinding]"]  オブジェクトによって扱われます。データ バインディングをサポートするために、DataBindingsForAppointments と DataBindingsForOwners という 2 つの新しいプロパティが UltraCalendarInfo コンポーネントに追加されました。
+
+== AppointmentsDataBinding オブジェクト
+
+データ ソースから Appointments コレクションにデータを入力するためには、取り扱うデータ ソースと、各 Appointment オブジェクトのプロパティ値を含むフィールド名を、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding.html[AppointmentsDataBinding]"]  オブジェクトに認識させる必要があります。DataSource プロパティは Object 型で、DataTable などの有効なデータ ソースを設定する必要があります。UltraWinSchedule のデータ バインディング メカニズムによってデータから予定を作成するには、AppointmentsDataBinding のプロパティを少なくともさらに 3 つ設定する必要があります。それは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~subjectmember.html[SubjectMember]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~startdatetimemember.html[StartDateTimeMember]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~enddatetimemember.html[EndDateTimeMember]"]  です。これらのプロパティは String 型で、それぞれ Appointment オブジェクトの Subject、StartDateTime、EndDateTime の各プロパティに対応します。これらのプロパティには、それぞれが対応するプロパティのデータが格納されたテーブルのフィールド名を設定する必要があります。AppointmentsDataBinding オブジェクトには、その他の Appointment プロパティに対応するプロパティもあります。AppointmentsDataBinding オブジェクトのフィールド名プロパティは、対応する Appointment プロパティ+「Member」という名前になっているので、簡単に特定できます。pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~allpropertiesmember.html[AllPropertiesMember]"]  という特別なフィールド名プロパティもあります。このプロパティを使用すると、Appointment オブジェクト全体をバイト配列としてひとつのフィールドに格納できます。
+
+必ずしもすべての Appointment プロパティをデータ フィールドにバインドする必要がありませんが、値が永続化されるプロパティはバインドする必要があります。たとえば、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~recurrenceidmember.html[RecurrenceIdMember]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~recurrencemember.html[RecurrenceMember]"]  プロパティは、繰り返し予定と変更された回を永続化するために、有効なデータ フィールドに設定する必要があります。RecurrenceMember プロパティを設定しなければ、Appointment の Recurrence プロパティの値を保存するデータ フィールドがわからないため、繰り返し予定のルートである予定は永続化されません。同様に、RecurrenceIdMember プロパティを設定しなければ、繰り返し予定に関連するバリアンスがわからなくなります。これは、RecurrenceIdMember プロパティを永続化しなければ、繰り返し予定のルートと関連するバリアンスとのリンクを維持できないためです。
+
+== OwnersDataBinding オブジェクト
+
+予定のデータ バインディングと同様、データ ソースから Appointments コレクションにデータを入力するためには、取り扱うデータソースと、各 Owner オブジェクトのプロパティ値を含むフィールド名を、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ownersdatabinding.html[OwnersDataBinding]"]  オブジェクトに認識させる必要があります。AppointmentsDataBinding オブジェクトと同じように、OwnersDataBinding オブジェクトでも pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.databindingsbase~datasource.html[DataSource]"]  プロパティが公開されています。OwnersDataBinding オブジェクトでは、値を提供するプロパティ名に対応するフィールド名メンバも存在します。有効なバインディングのために設定しなければならないフィールド名メンバは pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ownersdatabinding~keymember.html[KeyMember]"]  プロパティだけです。これも予定のデータ バインディングと同じですが、Owner オブジェクト全体をバイト配列としてひとつのフィールドに格納できるように、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointmentsdatabinding~allpropertiesmember.html[AllPropertiesMember]"]  プロパティが公開されています。

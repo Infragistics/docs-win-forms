@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmonthviewsingle-api-overview",
+    "controlName": ["WinMonthViewSingle"],
+    "tags": ["API"],
+    "guid": "{10D87BC0-32F0-4708-B798-3E867DE02F06}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinMonthViewSingle 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle_namespace.html[Infragistics.Win.UltraWinSchedule.MonthViewSingle]"]
+
+=== キー クラス:
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.appointmentuielement.html[AppointmentUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.dayuielement.html[DayUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.monthareauielement.html[MonthAreaUIElement]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.monthviewsingle.weekuielement.html[WeekUIElement]"]

@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-syntax-analysis-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "ebb6a39c-f512-475f-9ca1-14f8cea8059f",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0288478Z"
+}
+|metadata|
+////
+
+= 構文解析の概要
+
+== トピックの概要
+
+=== 目的
+
+このグループのトピックでは、Syntax Parsing Engine が実施する構文解析について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+|====
+
+[[_Ref349221028]]
+== 構文解析
+
+[[_Ref349221033]]
+
+=== 概要
+
+Syntax Parsing Engine は、字句解析で生成されるトークンの構文解析を実施します。この解析の結果は、ドキュメントの文章校正構造を表す構文ツリーです。構文解析は、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~nonterminalsymbols.html[Grammar.NonTerminalSymbols] コレクションの非終端記号の定義に基づいています。
+
+[[_Ref349233091]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-non-terminal-symbols.html[非終端記号]
+|このトピックは、文章校正の非終端記号について説明します。
+
+| link:ig-spe-defining-productions.html[生産の定義]
+|このトピックでは、非終端記号を作成する方法を説明します。
+
+| link:ig-spe-restrictions.html[制約]
+|このトピックでは、文章校正の定義に関する制限を説明します。
+
+| link:ig-spe-ambiguities.html[あいまいさ]
+|このトピックでは、ドキュメントの解析中に発生しうる曖昧さおよびその取扱方法について説明します。
+
+|====

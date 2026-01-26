@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": ["Getting Started"],
+    "guid": "{C963A6FC-B2EE-46F9-B02B-134EA1E91D12}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView
+
+WinTimelineView™ コントロールに関する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。 このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinTimelineView についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinTimelineView コントロールについての情報にアクセスします。
+
+== link:wintimelineview-understanding-wintimelineview.html[WinTimelineView の理解]
+
+WinTimelineView コントロールの機能、およびアプリケーション内でこのコントロールを使いたくなる理由について記述します。
+
+== link:wintimelineview-using-wintimelineview.html[WinTimelineView の使用]
+
+このセクションには役に立つ短いトピックがあり、WinTimelineView コントロールを使って特定の作業を実行する方法を示すサンプル コードが付いています。
+
+== link:wintimelineview-api-overview.html[API の概要]
+
+このトピックは、WinTimelineView コントロールでプログラミングする間に作業をする名前空間とクラスをリストします。 このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API リファレンス ガイド」セクションへリンクしていて便利です。

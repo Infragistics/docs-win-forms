@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-wingridexcelexporter-exporting-formulas-to-excel",
+    "controlName": [],
+    "tags": [],
+    "guid": "{6B98870C-2021-49C6-AFBA-B7F24B2A7CC7}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-09T14:40:32Z"
+}
+|metadata|
+////
+
+= WinGridExcelExporter が数式を Excel にエクスポート
+
+WinGridExcelExporter™ は、Excel 関数のように WinCalcManager™ 式を Excel にエクスポートする機能を持つようになりました。以前は、WinGrid データを Excel にエクスポートするために WinGridExcelExporter を使用する場合、WinCalcManager の計算されたセルは実際に評価された値としてエクスポートされました。計算された WinGrid 列は、Excel ファイルの実際の値となり、Excel ワークシート セルに変更を行っても値の再計算は実行されません。Excel 関数として WinCalcManager 式をエクスポートすることによって、エンド ユーザーはワークシート セルに変更して、値を再計算することが可能となりました。
+
+WinGridExcelExporter には pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~formulaexporting_ev.html[FormulaExporting]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~formulaexported_ev.html[FormulaExported]"]  イベントも装備されており、これによって特定の式のエクスポートをキャンセルしたり、エクスポート後に式を修正または変更することができます。式を Excel にエクスポートする時に発生する場合があるエラーを捉えて処理するために使用できる pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~formulaexporterror_ev.html[FormulaExportError]"]  イベントも提供されます。
+
+この新しい機能は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~exportformulas.html[ExportFormulas]"]  WinGridExcelExporter プロパティを False に設定することでオフにすることもできます。
+
+== *関連トピック*
+
+link:wingridexcelexporter-exporting-formulas-to-excel.html[Excel へ数式をエクスポートする]

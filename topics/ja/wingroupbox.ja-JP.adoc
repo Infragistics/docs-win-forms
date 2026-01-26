@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingroupbox",
+    "controlName": ["WinGroupBox"],
+    "tags": [],
+    "guid": "{A4D15B16-367E-4B72-871A-E4A2249DBB33}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGroupBox
+
+以下のリンクをクリックすると、WinGroupBox コントロールに関する説明を読むことができます。
+
+* link:wingroupbox-about-wingroupbox.html[WinGroupBox について] -- WinGroupBox コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wingroupbox-smart-tag.html[WinGroupBox スマート タグ] -- WinGroupBox コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:wingroupbox-using-wingroupbox.html[WinGroupBox の使用] -- WinGroupBox コントロールにコントロールを追加する方法を説明しています。
+* link:wingroupbox-api-overview.html[API の概要] -- WinGroupBox コントロールを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。
+
+WinExpandableGroupBox コントロールと連携して、WinGroupBox コントロールがよく使用されます。これは WinGroupBox の機能を拡張しています。WinExpandableGroupBox コントロールの詳細は、 link:winexpandablegroupbox.html[WinExpandableGroupBox] を参照してください。

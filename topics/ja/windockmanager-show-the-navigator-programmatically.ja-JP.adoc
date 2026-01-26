@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-show-the-navigator-programmatically",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{06EA61D3-AB24-4B6F-8AF0-4668EC8DC48E}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プログラミングによるナビゲータの表示
+
+このトピックでは、ランタイムにコードを使用して WinDockManagerの Navigator を表示する方法を説明します。このような方法は、ユーザーに対し特定の開かれているファイルを選択するように促すダイアログ ボックスを表示するために必要となります。また、Navigator を表示するためのキーの組み合わせ（Ctrl-Tab）がすでに他のプログラムに使用されている場合も、この方法が有効です。ただし、この場合には、Navigator を無効にする必要があります。Navigator を無効にする方法については、 link:windockmanager-prevent-the-navigator-from-being-displayed.html[「Navigator の非表示化」]を参照してください。Navigator は、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~shownavigator.html[ShowNavigator]"]  メソッドを起動すれば、表示できます。次のコードは、ボタンがクリックされたときに Navigator を表示する設定例です。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.UltraDockManager1.ShowNavigator()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.ShowNavigator();
+}
+----

@@ -1,0 +1,88 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-smart-tag",
+    "controlName": ["WinCombo"],
+    "tags": ["Design Environment"],
+    "guid": "{8B633070-2D04-4312-B79C-98F2C519AF05}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-11T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCombo スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、{ProductName} コントロール/コンポーネントがそれぞれ固有のスマート タグを備えています。コントロールやコンポーネントを選択するだけで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WinCombo スマート タグには、以下のセクションと共にコントロールの名前が含まれます。
+
+* 外観 -- コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* 動作 -- フォーム上でのコントロールの動作を制御するプロパティに簡単にアクセスできます。
+* データ -- コントロールが使用している基になるデータ（データ ソースやデータ メンバなど）を参照します。
+* レイアウト -- コントロールをフォームのどこに、どのように配置するかを指定するプロパティがあります。
+
+各セクションの項目（たとえば、フィールド、ドロップダウン リスト、チェックボックス）およびプロパティ グリッドの項目の対応するプロパティの説明については以下を参照してください。
+
+image::images/WinGrid_The_WinCombo_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|表示スタイル
+|WinCombo のスタイルを、Office 2000、Office XP、Office 2003、Visual Studio 2005、Office 2007 に似たスタイルに変更します。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~displaystyle.html[DisplayStyle]
+
+|ドロップダウン スタイル
+|WinCombo のドロップダウン スタイルをドロップダウン形式またはドロップダウン リスト形式のどちらかに設定します。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~dropdownstyle.html[DropDownStyle]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|動作|説明|対応するプロパティ
+
+|自動編集
+|WinCombo で使用可能なデータを使用して単語または値を自動補完する場合はこのチェックボックスを選択します。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~autocompletemode.html[AutoCompleteMode]
+
+|リストへの制限
+|このチェックボックスを選択すると、ユーザーが入力できる値がコントロールのValueListに含まれている値に制限されます。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo~limittolist.html[LimitToList]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|データ|説明|対応するプロパティ
+
+|データ メンバ
+|有効なデータ ソースを選択した後、このドロップダウンから使用可能なすべてのデータ メンバを選択できます。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~datamember.html[DataMember]
+
+|データ ソース
+|ドロップダウンをクリックすると、プロジェクトで使用可能なすべてのデータ ソースが表示されます。データ ソースがまだ設定されていない場合は、[プロジェクト データ ソースの追加...] を選択してデータ ソースを作成できます。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~datasource.html[DataSource]
+
+|表示メンバ
+|表示メンバは、編集領域に表示するデータ ソースからのフィールドです。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~displaymember.html[DisplayMember]
+
+|値メンバ
+|値メンバは、データに実際にバインドされるデータ ソースからのフィールドです。
+| link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultradropdownbase~valuemember.html[ValueMember]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|レイアウト|説明|対応するプロパティ
+
+|列
+|WinCombo のドロップダウンには複数の列を表示できます。ここでは Columns コレクションを編集できます。Columns コレクションの編集はプロパティ グリッドでも可能です。 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragriddisplaylayout.html[DisplayLayout] を展開し、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~bands.html[Bands] を展開して、Band 0 を展開します（これは "0 - _tablename_ " としてグリッドに表示されます）。Band 0 の下で、Columns 列で省略記号（...）をクリックして、Columns コレクションを開きます。
+|なし
+
+|====

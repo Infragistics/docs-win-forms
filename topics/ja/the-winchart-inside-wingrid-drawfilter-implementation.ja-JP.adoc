@@ -1,0 +1,483 @@
+﻿////
+
+|metadata|
+{
+    "name": "the-winchart-inside-wingrid-drawfilter-implementation",
+    "controlName": [],
+    "tags": ["Application Scenarios","Charting","Grids"],
+    "guid": "{E1CFB718-FA68-4F8D-BD1F-B37A1326F0B3}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-10T13:49:14Z"
+}
+|metadata|
+////
+
+= WinGrid Draw フィルタ実装内の WinChart
+
+このトピックでは、特定の列のセルでグラフを表示するためにカスタマイズできるように、WinGrid™ の内部描画エンジンにアクセスするために使用される ChartInsideGridCellDrawFilter クラスのデザインおよび作成を説明します。このサンプルで行った作業の大部分がこのクラスに存在します。これは固有の WinGrid UIElements およびそれらのプロパティがアクセスする場所なので、特定の WinGrid セルの四角形の境界内に WinChart™ を配置できます。
+
+以下の Imports/using 文は、コードをよりシンプルにするために Draw Filter クラスで参照されています。Draw Filter は IUIElementDrawFilter インタフェースを実装するクラスに過ぎません。
+
+*Visual Basic の場合：*
+
+----
+Imports System
+Imports System.Drawing
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+Imports Infragistics.Win.UltraWinChart
+Public Class ChartInsideGridCellDrawFilter
+	Implements IUIElementDrawFilter
+----
+
+*C# の場合：*
+
+----
+using System;
+using System.Drawing;
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+using Infragistics.Win.UltraWinChart;
+public class ChartInsideGridCellDrawFilter : IUIElementDrawFilter
+----
+
+クラスには WinChart および WinGrid コントロールへのプライベート参照が含まれます。Draw Filter が添付先の WinGrid 上のプロパティだけでなく、固有の WinGrid セルで描画されるグラフにアクセスできるように、これが必要とされます。特定のグラフが初期化される時に常に発生するカスタム イベントの作成を手助けするためにカスタム デリゲートが定義されます。これは、WinGrid の InitializeRow イベントと同様に動作します。
+
+*Visual Basic の場合：*
+
+----
+#Region "Members"
+	'グラフへの参照
+        Private _theChart As UltraChart
+        'グリッドへの参照	
+	Private _theGrid As UltraGrid 
+	Public Delegate Sub ChartInfoRequestedDelegate(ByVal Sender As Object, ByVal e As ChartInfoEventArgs)
+	Public Event ChartInfoRequested As ChartInfoRequestedDelegate
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Members
+       //グラフへの参照
+         UltraChart _theChart;
+       //グリッドへの参照
+         private   UltraGrid _theGrid; 
+         public delegate void ChartInfoRequestedDelegate(object Sender, ChartInfoEventArgs e);
+         public event ChartInfoRequestedDelegate ChartInfoRequested;
+#endregion
+----
+
+パラメータとして WinGrid を DrawFilter の唯一のコンストラクタに追加することによって、その列のひとつに WinChar を表示するために使用される実際の WinGrid への参照を提供することを開発者に求めます。
+
+このコンストラクタでは、複数の初期化を処理します。WinChart の新しいインスタンスはコンストラクタで作成されます。WinGrid コントロールをホストするフォームへの参照を取得するために使用されるテクニックに注意してください。動的に作成した Windows Forms コントロールと同じように、フォームに WinChart コントロールを追加します。
+
+次に、WinGrid の MouseEnterElement イベントをイベント ハンドラに接続します。これは WinChart を表示するセルにエンド ユーザーがマウス カーソルを移動する時をいつでも識別するためにこのイベントを使用するので重要です。このイベントでは、マウス オーバーされている WinGrid セルを表す四角形内に WinChart を表示および配置します。
+
+最後に、WinChart の MouseLeave イベントをイベント ハンドラに接続します。このイベント ハンドラは、非インタラクティブな画像スナップショットでグラフを置き換える間、その状態を保存すると同時に表示から WinChart を隠すために使用されます。グリッド行のすべてをまたいで再使用され、他のグラフがただのプレーンな画像であるひとつの WinChart インスタンスだけが存在するので、これは最高のパフォーマンスを提供するために選択したモデルです。
+
+*Visual Basic の場合：*
+
+----
+#Region "Constructor"
+	Public Sub New(ByVal theGrid As UltraGrid)
+		_theGrid = theGrid
+		_theChart = New UltraChart()
+		theGrid.FindForm().Controls.Add(_theChart)
+		AddHandler _theGrid.MouseEnterElement, AddressOf _theGrid_MouseEnterElement
+		AddHandler _theChart.MouseLeave, AddressOf _theChart_MouseLeave
+	End Sub
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Constructor
+public ChartInsideGridCellDrawFilter(UltraGrid theGrid)
+{
+	_theGrid = theGrid;
+	_theChart = new UltraChart();
+	theGrid.FindForm().Controls.Add(_theChart);
+	_theGrid.MouseEnterElement += new UIElementEventHandler(_theGrid_MouseEnterElement);
+	_theChart.MouseLeave += new EventHandler(_theChart_MouseLeave);
+}
+#endregion
+----
+
+我々が必要な内部機能の重要なビットは、WinGrid の現在の UltraGridCell への参照を取得するための機能です。これは Draw Filter 内のプロパティとして公開されます。
+
+DrawFilter の内部 WinChart への参照の取得は、パブリック プロパティを介してそれを公開することによっても達成されます。
+
+*Visual Basic の場合：*
+
+----
+#Region "Props"
+	Private _currentCell As UltraGridCell = Nothing
+	Public Property CurrentCell() As UltraGridCell
+		'現在の WinGrid セルへの参照：
+		Get
+			Return _currentCell
+		End Get
+		Set(ByVal value As UltraGridCell)
+			_currentCell = value
+		End Set
+	End Property
+	Public ReadOnly Property Chart() As UltraChart
+		'グラフへの参照
+		Get
+			Return _theChart
+		End Get
+	End Property
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Props
+//現在の WinGrid セルへの参照：
+private UltraGridCell _currentCell = null;
+public UltraGridCell CurrentCell
+{
+	get { return _currentCell; }
+	set { _currentCell = value; }
+}
+//グラフへの参照
+public UltraChart Chart
+{
+	get { return _theChart; }
+}
+#endregion
+----
+
+WinGrid の MouseEnterElement イベントは、WinGrid のセル内に WinChart コントロールを示すために使用されます。マウス オーバーされた UIElement と WinGrid 自体は、Draw Filter で定義される ShowChartInCell メソッドに渡されます。
+
+*Visual Basic の場合：*
+
+----
+#Region "Grid Events"
+	Private Sub _theGrid_MouseEnterElement(ByVal sender As Object, ByVal e As Infragistics.Win.UIElementEventArgs)
+		Me.ShowChartInCell(e.Element, _theGrid)
+	End Sub
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Grid Events
+private void _theGrid_MouseEnterElement(object sender,
+	Infragistics.Win.UIElementEventArgs e)
+{
+	this.ShowChartInCell(e.Element, _theGrid);
+}
+#endregion
+----
+
+WinChart の MouseLeave イベントは、後で取得するために状態設定を保持するために使用されます。このイベント ハンドラでは、表示できる WinChart コントロールを受け付けるヘルパー関数を使用し、いくつかの重要な Chart プロパティを ChartLayout オブジェクトにコピーするだけです。ChartLayout オブジェクトは、Draw Filter の CurrentCell プロパティに配置されます。WinChart はその Visible プロパティを False に設定することで即座に非表示にされます。
+
+*Visual Basic の場合：*
+
+----
+#Region "Chart Events"
+	Private Sub _theChart_MouseLeave(ByVal sender As Object, ByVal e As EventArgs)
+		Me.CurrentCell.Tag = HelperFunctions.ChartToLayout(Me.Chart)
+		Me.Chart.Visible = False
+	End Sub
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Chart Events
+private void _theChart_MouseLeave(object sender, EventArgs e)
+{
+	this.CurrentCell.Tag = HelperFunctions.ChartToLayout(this.Chart);
+	this.Chart.Visible = false;
+}
+#endregion
+----
+
+ShowChartInCell メソッドはこのアプリケーションで重要です。エンド ユーザーのマウス カーソルが WinGrid UIElement を入力するたびに呼び出されることに注意してください。このメソッドが呼び出される時は常に、入力された UIElement が EditorWithTextDisplayUIElement タイプであるかどうかを速やかにテストします。そうでなければ、何も行わずにメソッドを終了します。そのタイプである場合、WinGridCell に関連する UIElement を入力した可能性が非常に高いです。UIElement は実際のコントロールのオブジェクト モデルのペイントされたグラフィカル表示であるので（たとえば、UltraGridCell、UltraGridColumn）、UIElement の GetContext メソッドを使用することで基本オブジェクトを取得したい場合があります。GetContext メソッドを呼び出した後、呼び出しが成功したかどうかをテストしたい場合が確実にあります。成功しなければ、UltraGridCell 参照は null になります。UltraGridCell に関連付けられていない EditorWithTextDisplayUIElement から GetContext メソッドを呼び出した場合に発生します。成功すれば、実際の UltraGridCell への参照を持ちます。
+
+セルにグラフを配置したくないので、このセルがバインドされていない列の一部であるかどうかをテストしたい場合があります。Column Key をチェックしてこれをテストします。このケースでは、Column Key は “CHART” に設定されます。
+
+特定の UIElement で WinChart を配置するには、四角形が必要です。四角形の幅、高さ、および位置に依存します。以下のコードでは、WinChart を配置するために 2 つの四角形のひとつが使用されることに注意してください。このロジックでは、グリッドがリサイズされるかどうかを示すスクロールバーなどの他の UIElements によって UltraGridCell の UIElement がクリップされることをチェックします。クリップされる場合は「クリップされた」四角形を使用します。クリップされない場合、UIElement の標準四角形を使用するだけです。UIElements は一般的に変更しない Rectangle プロパティを持ち、他の UIElement が現在の UIElement をクリップするかどうかを示すことができる通常の四角形と比較する時の Clipped Rectangle プロパティも持ちます。これを行わない場合、希望しない UltraGridCell を UIElement がクリップしているものの上に描画されます。
+
+どの四角形を使用するかを決定すれば、WinChart SetLocation メソッドを使用して、UltraGridCell をサイズ設定して配置します。CurrentCell の Tag プロパティに保存される以前の ChartLayout オブジェクトを取得し、LayoutToChart と呼ばれるヘルパー メソッドを使用することでそのプロパティ値を WinChart に指定します。次にグラフを表示できるようにして、フォントを指定して、それにフォーカスを設定します。これによって、エンド ユーザーのマウス カーソルの下のグラフが表示されて応答の準備ができます。
+
+*Visual Basic の場合：*
+
+----
+#Region "Methods"
+Private Sub ShowChartInCell(ByVal theUIElement As UIElement, ByVal theGrid As UltraGrid)
+	'以下のエレメント タイプだけを対象にします：
+	If TypeOf theUIElement Is EditorWithTextDisplayTextUIElement Then
+		'この UIElement に関連付けられた WinGrid セルを取得します
+		Dim theCell As UltraGridCell = TryCast(theUIElement.GetContext(GetType(UltraGridCell)), UltraGridCell)
+		'グラフ コンポーネントを受け取る "CHART" セル
+		'であることを確認します：
+		If theCell IsNot Nothing AndAlso theCell.Column.Key = "CHART" AndAlso theCell.Tag IsNot Nothing Then
+			Me.CurrentCell = theCell
+			Dim r As Rectangle = theUIElement.Rect
+			'クリップされた四角形が使用されているかどうかを決定します
+			If theUIElement.ClipRect.Width < theUIElement.Rect.Width Then
+				r = theUIElement.ClipRect
+			End If
+			'現在のセルを参照します
+			'グラフの SetBounds メソッドを使用して
+			'現在のセルを表す UIElement の上で直接
+			'配置およびサイズ設定します
+			Me.Chart.SetBounds(r.Location.X + theGrid.Location.X, r.Location.Y + theGrid.Location.Y, r.Width, r.Height)
+			'CurrentCell のタグ内に保存される
+			'ChartLayout オブジェクトを取得して、そのプロパティ値を
+			'グラフに適用します
+			HelperFunctions.LayoutToChart(TryCast(Me.CurrentCell.Tag, ChartLayout), Me.Chart)
+			'グラフを表示して、フォントに持っていきます：
+			Me.Chart.Visible = True
+			Me.Chart.BringToFront()
+			Me.Chart.Focus()
+			Me.Chart.Refresh()
+		End If
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+#region Methods
+private void ShowChartInCell(
+	UIElement theUIElement, UltraGrid theGrid)
+{
+	//以下のエレメント タイプだけを対象にします：
+	if (theUIElement is EditorWithTextDisplayTextUIElement)
+	{
+		//この UIElement に関連付けられた WinGrid セルを取得します
+		UltraGridCell theCell =theUIElement.GetContext(typeof(UltraGridCell)) as UltraGridCell;
+		//グラフ コンポーネントを受け取る "CHART" セル
+		//であることを確認します：
+		if (theCell != null &&
+			theCell.Column.Key == "CHART" &&
+			theCell.Tag != null)
+		{
+			this.CurrentCell = theCell; //現在のセルを参照します
+			Rectangle r = theUIElement.Rect;
+			//クリップされた四角形が使用されているかどうかを決定します
+			if (theUIElement.ClipRect.Width < theUIElement.Rect.Width)
+			{
+				r = theUIElement.ClipRect;
+			}
+			//グラフの SetBounds メソッドを使用して
+			//現在のセルを表す UIElement の上で直接
+			//配置およびサイズ設定します
+			this.Chart.SetBounds(
+				r.Location.X + theGrid.Location.X,
+				r.Location.Y + theGrid.Location.Y,
+				r.Width,
+				r.Height);
+			//CurrentCell のタグ内に保存される
+			//ChartLayout オブジェクトを取得して、そのプロパティ値を
+			//グラフに適用します
+			HelperFunctions.LayoutToChart(
+				this.CurrentCell.Tag as ChartLayout,
+				this.Chart);
+			//グラフを表示して、フォントに持っていきます：
+			this.Chart.Visible = true;
+			this.Chart.BringToFront();
+			this.Chart.Focus();
+			this.Chart.Refresh();
+		}
+	}
+}
+----
+
+このメソッドは、ChartInfoRequested イベントを発生するために使用されます。このメソッドは、特定のグリッド行に関連付けられる WinChart コントロールに特定のデータを提供できるように、イベントを発生してカスタム ChartInfoEventArgs を開発者に渡したいかどうかにかかわらず呼び出されます。ChartInfoEventArgs は現在の WinGrid 行コンテキストおよび存在する WinChart を含み、その行を表します。開発者はその行から情報を取得して、関連データを取得してグラフに指定することができます。他のプロパティはそれをさらにカスタマイズし、行に対して一意にするためにイベント ハンドラの WinChart に設定できます。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub onChartInfoRequested(ByVal e As ChartInfoEventArgs)
+	RaiseEvent ChartInfoRequested(Me, e)
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void onChartInfoRequested(ChartInfoEventArgs e)
+{
+	if (ChartInfoRequested != null)
+	{
+		ChartInfoRequested(this, e);
+	}
+	else
+	{
+		throw new ApplicationException(
+			"The ChartInfoRequested event must be handled otherwise the Chart will not render");
+	}
+}
+#endregion
+----
+
+Draw Filter の GetPhasesToFilter メソッドは、Draw Filter によって利用されるカスタム ロジックで実際に呼び出すために描画サイクルの段階を正確に決定するために WinGrid によって使用されます。それは固有の WinGrid セル内のグラフを使用して描画したい BeforeDrawBackColor 段階の間です。
+
+*Visual Basic の場合：*
+
+----
+#Region "IUIElementDrawFilter Members"
+Public Function GetPhasesToFilter(ByRef drawParams As UIElementDrawParams) As Infragistics.Win.DrawPhase Implements IUIElementDrawFilter.GetPhasesToFilter
+	Return DrawPhase.BeforeDrawBackColor
+	'エレメントの backColor を描画するための時間で発生する
+	'段階を使用したい希望があります。
+End Function
+----
+
+*C# の場合：*
+
+----
+#region IUIElementDrawFilter Members
+public Infragistics.Win.DrawPhase GetPhasesToFilter(
+	ref UIElementDrawParams drawParams)
+{
+	return DrawPhase.BeforeDrawBackColor; //エレメントの backColor を描画するための時間で発生する
+	//段階を使用したい希望があります。
+}
+----
+
+Draw Filter 実装では、DrawElement メソッドは BeforeDrawBackColor 段階で呼び出されます。DrawElement メソッドは、グラフを表示する実装ロジックを含みます。
+
+retVal Boolean 変数はこのメソッドで重要です。このメソッドが True を返す場合、WinGrid は変更した UIElements を描画するために DrawElement メソッドで定義したロジックを使用します。False を返す場合、UIElements を変更するために使用されるコードとロジックは完全に無視されます。
+
+次に、EditorWithTextDisplayTextUIElement タイプの UIElements を対象としたいだけで、 一般的に UltraGridCell が EditorWithTextDisplayTextUIElement に添付されるのですべてが無視されます。言い換えると、固有のグリッド セルに関係しないので、列ヘッダーまたは行セレクタ UIElements を対象にしたくありません。
+
+探している UIElement を取得する場合、添付される UltraGridCell への参照を取得しようとします。これは UIElement GetContext メソッドで達成されます。このメソッドは、特定の UIElement に関連付けられる可能性がある基本の WinGrid オブジェクトを返そうとするだけです。この場合、UltraGridCell を探します。
+
+セルを取得すれば、グラフを表示することを意図する列に属することを確認します。言い換えれば、この WinGrid は WinGrid 行毎にひとつのグラフを表示することが目的の主な「グラフ」を持つ補足的なバインドされていない列を持ちます。
+
+次に、セルの Tag プロパティから ChartLayout オブジェクトの抽出を試みます。これがこのプロパティにアクセスする最初である場合、null になります。これは、グラフのデータ ソースや他のプロパティ設定などの情報を開発者が提供できるように、ChartInfoRequested イベントを発生させなければならないことを意味します。ChartLayout オブジェクトが作成および移植され、最終的に後で取得するためにセルの Tag に保存されます。
+
+グラフの境界と位置を表す四角形を確立する必要があります。UIElement 自体は、この情報とともに Rect プロパティを提供しますが、オリジナルの UIElement の小さい境界を表す四角形を提供する ClippedRect プロパティも提供します。別の UIElement が現在の UIElement で描画される場合に限って ClippedRect は小さくできるので、表示からそれをクリップします。この例は、一連のセルを描画する ScrollBar UIElement になります。セルは境界を表す特定の標準四角形を持ちますが、ClippedRect は見ることができる “ViewPort” または小さい表示可能な領域を表します。どの四角形を使用するかを決定するために単純な計算を行います。ClippedRect の幅または高さが Rect の幅および高さよりも小さい場合は ClippedRect を使用します。そうでなければ Rect を使用します。このロジックを採用しない場合、このアプリケーションの悪影響は、セルをクリップする UIElements でグラフを描画することです。言い換えれば、Scrollbars などのエレメント上にグラフが描画されることが予測されます。
+
+セルの Tag プロパティから ChartLayout オブジェクトへの参照を取得し、それが最初または以降である場合、このオブジェクトにアクセスし、グラフに適用される一部のプロパティ設定を持ちます。データおよびプロパティ設定はグラフに提供され、グラフは選択したばかりの四角形に注意深く配置されます。本質的には、セルの四角形の上にグラフを重ねるので、WinGrid の一部のように見えます。
+
+*Visual Basic の場合：*
+
+----
+Public Function DrawElement(ByVal drawPhase As Infragistics.Win.DrawPhase, ByRef drawParams As UIElementDrawParams) As Boolean Implements IUIElementDrawFilter.DrawElement
+	'TRUE:自分で描画を処理します
+	'FALSE:コントロールにエレメントを描画させます
+	Dim retVal As Boolean = False
+	'以下のエレメント タイプだけを対象にします：
+	If TypeOf drawParams.Element Is EditorWithTextDisplayTextUIElement Then
+		Dim g As Graphics = drawParams.Graphics
+		'この UIElement に関連付けられた WinGrid セルを取得します
+		Dim theGridCell As UltraGridCell = TryCast(drawParams.Element.GetContext(GetType(UltraGridCell)), UltraGridCell)
+		'CHART セル/列にあることを確認します
+		If theGridCell IsNot Nothing AndAlso theGridCell.Column.Key = "CHART" Then
+			Dim theChartLayout As ChartLayout = TryCast(theGridCell.Tag, ChartLayout)
+			'存在する場合はグラフ画像に対してセルのタグを調べます
+			If theChartLayout Is Nothing Then
+				' 新しい EventArg を作成します 
+				Dim e As New ChartInfoEventArgs(_theChart, theGridCell.Row)
+				'Chart Info Requested イベントを発生させ、
+				'開発者にグラフと現在のグリッド行を
+				'公開します
+				Me.onChartInfoRequested(e)
+				'グラフが表示する場所を配置および設定します
+				'これは現在のセルの UIElement 四角形と同じ
+				'場所である必要があります
+				_theChart.SetBounds(drawParams.Element.Rect.X, drawParams.Element.Rect.Y, drawParams.Element.Rect.Width, drawParams.Element.Rect.Height)
+				_theChart.Data.DataBind()
+				'グラフのプロパティを Layout オブジェクトにコピーするので
+				'グラフをこれらの設定に後で
+				'リストアすることができます
+				theChartLayout = HelperFunctions.ChartToLayout(_theChart)
+				'セルの Tag にレイアウトを保存します
+				theGridCell.Tag = theChartLayout
+			End If
+                  'System.Diagnostics.Debug.WriteLine("DrawFilter: " + theGridCell.Row.Cells["CustomerID"].Value.ToString() );
+			'いずれかの方法で実際のグラフ画像を取得し、
+			'現在の UIElement の四角形を使用し、
+			'画像を四角形に描画します
+			g.DrawImage(theChartLayout.Image, drawParams.Element.Rect)
+			retVal = True
+		End If
+	End If
+	Return retVal
+End Function
+#End Region
+----
+
+*C# の場合：*
+
+----
+public bool DrawElement(Infragistics.Win.DrawPhase drawPhase,
+	ref UIElementDrawParams drawParams)
+{
+	//TRUE:自分で描画を処理します
+	//FALSE:コントロールにエレメントを描画させます
+	bool retVal = false;
+	//以下のエレメント タイプだけを対象にします：
+	if (drawParams.Element is EditorWithTextDisplayTextUIElement)
+	{
+		Graphics g = drawParams.Graphics;
+		//この UIElement に関連付けられた WinGrid セルを取得します
+		UltraGridCell theGridCell =
+			drawParams.Element.GetContext(typeof(UltraGridCell)) as UltraGridCell;
+		//CHART セル/列にあることを確認します
+		if (theGridCell != null && theGridCell.Column.Key == "CHART")
+		{
+			ChartLayout theChartLayout = theGridCell.Tag as ChartLayout;
+			Rectangle r = drawParams.Element.Rect;
+			//存在する場合はグラフ画像に対してセルのタグを調べます
+			if (theChartLayout == null)
+			{
+				//新しい EventArg を作成します 
+				ChartInfoEventArgs e =
+					new ChartInfoEventArgs(_theChart, theGridCell.Row);
+				//Chart Info Requested イベントを発生させ、
+				//開発者にグラフと現在のグリッド行を
+				//公開します
+				this.onChartInfoRequested(e);
+				//クリップされた四角形が使用されているかどうかを決定します
+				if (drawParams.Element.ClipRect.Width < drawParams.Element.Rect.Width)
+				{
+					r = drawParams.Element.ClipRect;
+				}
+				else
+				{
+					r = drawParams.Element.Rect;
+				}
+				//グラフが表示する場所を配置および設定します
+				//これは現在のセルの UIElement 四角形と同じ
+				//場所である必要があります
+				_theChart.SetBounds(r.X,
+					r.Y,
+					r.Width,
+					r.Height);
+				_theChart.Data.DataBind();
+				//グラフのプロパティを Layout オブジェクトにコピーするので
+				//グラフをこれらの設定に後で
+				//リストアすることができます
+				theChartLayout = HelperFunctions.ChartToLayout(_theChart);
+				//セルの Tag にレイアウトを保存します
+				theGridCell.Tag = theChartLayout;
+			}
+			//System.Diagnostics.Debug.WriteLine("DrawFilter: " + theGridCell.Row.Cells["CustomerID"].Value.ToString() );
+			//いずれかの方法で実際のグラフ画像を取得し、
+			//現在の UIElement の四角形を使用し、
+			//画像を四角形に描画します
+			g.DrawImage(theChartLayout.Image, r);
+			retVal = true;
+		}
+	}
+	return retVal;
+}
+#endregion
+----
+
+以下のトピックは、データを各グラフに移植する開発者にグラフおよびグリッド情報を公開する ChartInfoEventArgs クラスのデザインおよび実装を理解する手助けとなります： link:the-chartinfoeventargs-class.html[ChartInfoEventArgs クラス]

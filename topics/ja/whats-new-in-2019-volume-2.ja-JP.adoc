@@ -1,0 +1,85 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2019 Volume 2 の新機能
+
+toc::[]
+
+=== データ チャート - 軸注釈
+
+各値オーバーレイに注釈を追加し、さらにすべてのチャートレイヤーの背景、前景、アウトライン、ストロークの太さをカスタマイズができます。これにより、重要な傾向とデータポイントを強調して明確に可視化することができます。
+
+image::Images/axis_annotations.png[]
+ 
+=== Dock Manager - 右から左へのサポート
+
+UltraDockManager では、RightToLeft および RightToLeftLayout のフォームレベル プロパティが有効な場合に RTL がサポートされるようになりました。link:https://docs.microsoft.com/ja-jp/dotnet/framework/winforms/advanced/bi-directional-support-for-windows-forms-applications[Windows フォーム アプリケーションの双方向サポート (MSDN)] を参照してください。
+
+=== .NET Core 3 サポートと制限
+
+Infragistics コントロールの使用で新しい環境がサポートされます。バージョン 2019.2 以降、アセンブリで NuGet を介した .NET Core 3.0 環境がサポートされます。
+
+$$.NET$$ Core 3.0 については、link:https://docs.microsoft.com/ja-jp/dotnet/core/whats-new/dotnet-core-3-0[この MSDN 掲載記事 (Microsoft サイト)] をご確認ください。
+
+*Visual Studio ツールボックス*
+ 
+Visual Studio ツールボックスは使用できません。NetCore プロジェクトと並行して .NET Framework プロジェクトを作成することを推奨します。
+
+*Soap* 
+
+Infragistics Windows Forms の多くのコントロールは、Xml および Binary から/へさまざまなプロパティと設定を保存およびロードするためのメソッドがあります。 
+
+Xml へ/からの保存および読み込みには、System.Runtime.Serialization.Formatters.Soap 名前空間が必要です。これは、Net Core 3 には存在しません。
+
+したがって、データを Soap で Xml に保存またはロードできるすべてのメソッドは削除されました。Binary の保存と読み込みのためのメソッドはそのままです。 
+
+ 
+
+*UltraInkProvider*
+
+UltraInkProvider が依存する Microsoft.Ink アセンブリは、Microsoft でサポートされなくなった link:http://windows.microsoft.com/ja-jp/windows/xp-downloads#2TC=featured[Microsoft®Windows®XP] の一部である link:https://msdn.microsoft.com/ja-jp/library/ms840464.aspx[Tablet PC Platform SDK] の一部です。
+
+結果として InkProvider の Infragistics サポートは v15.1 で廃止されました。 
+
+Net Core 3 には Ink サポートが含まれていないため、NetCore 用の Ink Provider アセンブリはありません。  
+
+ShowInkButton 列挙とその参照は削除されました。
+
+ 
+
+*レポート (PDF/XPS)* 
+
+Net Core で TransparentProxies がサポートまたは作成されていないため、Canvas の CreateGraphics メソッドが削除されました。 
+
+ 
+
+*Diagnostics* 
+
+Diagnostics アセンブリは System.Web.Services に依存していますが、これは Net Core 3 で使用できません。そのため、Diagnostics アセンブリは削除されました。
+
+ 
+
+*FlatDataSource* 
+
+Flat DataSource は、2 つの方法でデータへ接続できます。 
+
+* FlatDataSourceAdapterType.Sql 
+* FlatDataSourceAdapterType.OleDb 
+
+Net Core は OleDb をサポートしません。したがって、OleDb オプションは、アセンブリの Net Core バージョンに存在しません。
+
+*UltraWinChart および UltraWinGauge* 
+
+これらのコントロールは、UltraDataChart および UltraGauge などの新しいコントロールにより、非推奨になりました。Net Core では提供されていません。
+
+ 
+
+*AppStylist* 
+
+AppStylistRuntime コンポーネントは、Net Core に含まれています。ただし、NuGet ディストリビューションでは許可されていないため、AppStylist 実行可能ファイルは含まれていません。

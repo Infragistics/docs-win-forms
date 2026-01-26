@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridbaglayoutpanel-understanding-wingridbaglayoutpanel",
+    "controlName": ["WinGridBagLayoutPanel"],
+    "tags": [],
+    "guid": "{4C71EF0C-59F0-4A95-89B1-3160E7B53C05}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridBagLayoutPanel の理解
+
+WinGridBagLayoutPanel コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinGridBagLayoutPanel コントロールを使用することの利点を理解できます。
+
+WinGridBagLayoutPanel コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wingridbaglayoutpanel-about-wingridbaglayoutpanel.html[WinGridBagLayoutPanel について]
+* link:wingridbaglayoutpanel-arranging-controls-in-wingridbaglayoutpanel.html[コントロールを WinGridBagLayoutPanel に配置]
+* link:wingridbaglayoutpanel-smart-tag.html[WinGridBagLayoutPanel スマート タグ]

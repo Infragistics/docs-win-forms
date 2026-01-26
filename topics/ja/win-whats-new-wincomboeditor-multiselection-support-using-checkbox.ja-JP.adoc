@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-wincomboeditor-multiselection-support-using-checkbox",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1E857B62-6CC9-4DC3-ABB1-6A933E486F01}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= チェックボックスを使用して WinComboEditor MultiSelection のサポート
+
+EditorWithCombo の埋め込みエディタは、ドロップダウン リストの各項目の横にチェックボックスを表示する機能をサポートするように今回修正されました。複数項目のチェックがサポートされます。したがって一度に複数項目を選択する機能を提供します。基本的な複数選択機能の他に、この機能はチェックボックスを表示するかどうか、残りの項目の内容に関係してどこに表示するか、また項目をクリックするとその CheckState を自動的に切り替えるかどうかを決定する機能もサポートします。チェックされた項目は一般的なオブジェクト リストとして取得できます (つまり List<object>)。
+
+*関連トピック*
+
+link:wincomboeditor-selecting-multiple-values-within-wincomboeditor.html[WinComboEditor 内で複数の値を選択]

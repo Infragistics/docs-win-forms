@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-extent-pane",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{43BAAEAD-F978-4ED2-B7C7-C703533B04A8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 範囲ペイン
+
+[範囲] ペインはリニア ゲージまたはラジアル ゲージのスケールのレンジの位置と太さを決定します。レンジを表示できる方法は多数あります。たとえば、レンジを細く開始して終了点で太くなるように設定することができます。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugerange~innerextentstart.html[内側の開始]"]  -- この値を 0 から 100 の整数に設定します。この値は、ラジアル ゲージの中心からレンジの内側の縁上にある開始点までの距離を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugerange~innerextentend.html[内側の終了]"]  -- この値を 0 から 100 の整数に設定します。この値は、ラジアル ゲージの中心からレンジの内側の縁上にある終了点までの距離を決定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugerange~outerextent.html[外側]"]  -- この値を 0 から 100 の整数に設定します。この値は、ラジアル ゲージの中心からレンジの外側の縁上にあるあらゆる点までの距離を決定します。
+
+image::images/Range_Scale_Extent_Pane_01.png[]
+
+== 関連トピック
+
+link:wingauge-range-layout-tab.html[レンジ レイアウト タブ]

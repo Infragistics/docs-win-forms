@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-about-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{CCD8F08A-7899-4B67-9AC3-360E7D470373}",  
+    "buildFlags": [],
+    "createdOn": "2010-05-01T11:01:45Z"
+}
+|metadata|
+////
+
+= WinGanttView について
+
+WinGanttView™ コントロールはプロジェクト管理のために設計されています。 pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task.html[Task]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~milestone.html[Milestone]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~deadline.html[Deadline]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.task~dependencies.html[Dependencies]"]  などのいくつかのプロジェクト関連の詳細を GanttView コントロールに追加することによって、プロジェクトを効果的かつ効率的に管理できます。 このコントロールは、グリッド セクション、ガント チャート セクション、垂直スプリッター、水平および垂直スクロールバーという構成パーツで構成されています。 コントロールのグリッド セクションはツリー構造を提供し、各タスクの詳細を表示します。 コントロールのガント チャート セクションは、完全なプロジェクトのインタラクティブな表現を提供します。 WinTimelineView™ コントロールに似た水平タイムラインに沿って時間の間隔を表示します。 スプリッターはコントロールのグリッドとチャート セクションを分離します。
+
+WinGanttView コントロールが Infragistics.Win.UltraWinGanttView アセンブリに追加されており、その他の WinSchedule™ コントロールでも使用される UltraCalendarInfo コンポーネントと UltraCalendarLook コンポーネントを通して機能を取得します。
+
+WinGanttView コントロールの機能のいくつかは以下のとおりです。
+
+* タスクを追加/更新/削除します。
+* サマリー タスクと呼ばれる子タスク（または「サブタスク」）を持つタスクは、コントロールのガント チャート セクションにサマリー バーとして表されます。
+* コントロールのグリッドおよびガント チャート セクションではタスクの詳細を同期します。
+* コントロールのグリッド セクションで列ヘッダーを並べ替えます（複数列の並べ替え）。
+* タスク、マイルストーン、サマリー バーなど豊富なツールチップをサポートします。
+* WinSchedule がサポートするデータ ソースにバインドできます。
+* 稼働時間と非稼働時間をサポートします。
+* タスクを無効または非アクティブに設定します。
+* Appearance オブジェクトだけでなく Infragistics AppStyling で WinGanttView をスタイリングします。
+* Infragistics 独自の作成および描画フィルターをサポートします。
+
+== 関連トピック
+
+* link:winganttview-terms-and-concepts.html[用語と概念]
+* link:winganttview-using-winganttview.html[WinGanttView の使用]

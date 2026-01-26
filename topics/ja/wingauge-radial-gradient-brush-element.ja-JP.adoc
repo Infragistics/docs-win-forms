@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-radial-gradient-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{42716BC1-6FEF-4D67-821F-BA2F229BDD89}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 放射型グラデーション ブラシ エレメント
+
+ゲージのプロパティの 2 色を円形に相互に混ぜたい場合には、ブラシ タイプを RadialGradient に適用します。RadialGradient ブラシ エレメントを選択すると、中心点とフォーカス スケールだけでなく、中心と周囲の色を指定できます。以下を使用して放射型グラデーション ブラシ エレメントをゲージのプロパティに適用することができます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、以下の設定で目盛盤の BrushElement を RadialGradientBrushElement に設定した状態のラジアル ゲージを表示します。
+
+* 中心の色 -- Peach Puff
+* 周囲の色 -- Sandy Brown
+* 中心点 -- 25, 25
+* フォーカス ポイント -- 0, 0
+* 中心点の単位 -- パーセント
+
+image::images/Gauge_Radial_Gradient_02.png[]

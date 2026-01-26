@@ -1,0 +1,244 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-implementing-a-textdocument-with-a-richtextbox",
+    "controlName": [],
+    "tags": [],
+    "guid": "53557c82-76cf-46a1-860f-eda2f6a56b2a",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.1268576Z"
+}
+|metadata|
+////
+
+= RichTextBox を含む TextDocument を実装
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、TextDocument クラスを使用して RichTextBox コントロールを含む構文を解析する方法に関して概念的概要をコードとともに提供します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref324841248,はじめに>>
+
+** <<_Ref327859845,RichTextBox を含む TextDocument を実装の概要>>
+
+* <<_Ref327861013,ステップ 1: Grammar オブジェクトの作成 – コード例>>
+
+** <<_Ref326147531,説明>>
+** <<_Ref326147537,コード>>
+
+* <<_Ref335122245,ステップ 2: カスタム言語クラスの生成 – コード例>>
+
+** <<_Ref335122253,説明>>
+** <<_Ref335122256,コード>>
+
+* <<_Ref335122264,ステップ 3: ドキュメントを TextDocument で解析 – コード例>>
+
+** <<_Ref335122271,説明>>
+** <<_Ref335122276,コード>>
+
+* <<_Ref335122283,ステップ 4: 解析したテキストを RichTextBox に表示 – コード例>>
+
+** <<_Ref335122290,説明>>
+** <<_Ref335122296,画像>>
+** <<_Ref335122301,コード>>
+
+* <<_Ref335122305,関連コンテンツ>>
+
+** <<_Ref335122311,トピック>>
+
+[[_Introduction]]
+[[_Ref324841248]]
+== はじめに
+
+[[_Implementing_TextDocument_with]]
+
+=== RichTextBox を含む TextDocument を実装の概要
+
+裏側で使用される `TextDocument` クラスはカスタム定義の言語の文章校正に基づいてテキストを RichTextBox コントロールで強調表示できます。これによってテキストできっちりと強調表示されるキーワードでドキュメントの構造を表示することができます。以下のセクションではこの機能を実装するために必要とされる基本的なステップを概略します。
+
+.注:
+[NOTE]
+====
+`TextDocument` を使用するために、プロジェクトは以下のいずれかへの参照を持つ必要があります。
+
+{ApiPlatform}Documents.TextDocument.v{ProductVersion}.dllまたは
+
+Infragistics.Documents.TextDocument.dll.
+====
+
+[[_Ref324842387]]
+
+[[_Ref324841253]]
+
+[[_Step_1:_Create]]
+[[_Ref327861013]]
+== ステップ 1: Grammar オブジェクトの作成 – コード例
+
+[[_Description_3]]
+
+=== 説明
+
+`FromEbnf()` メソッドを呼び出して Extended Backus–Naur Form (EBNF) スクリプトの文字列コンテンツと `EbnfParser` の新しいインスタンスを渡すことによって、カスタム言語のための新しい Grammar オブジェクトを作成します。このステップは EBNF スクリプトを必要とします。文法、レクサー状態、終端記号およびカスタム言語のその他の属性です。
+
+このステップは、EBNF から Grammar オブジェクトを作成します。それ以降のステップで使用される Grammar オブジェクトは `TextDocument` によって使用される C# クラスを生成します。
+
+以下のコード例では、XML のための文章校正を定義する EBNF スクリプトへの参照とともにこのステップを示します。
+
+[[_Code_3]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+//  リソース “EBNF.XML.ebnf” から EBNF スクリプトを取得して文字列に割り当てる
+string ebnf = GetEbnf("EBNF.XML.ebnf");
+//  EbnfParser を使用して、EBNF スクリプトから Grammar インスタンスを作成する
+Grammar grammar = new Grammar();
+EbnfParser ebnfParser = new EbnfParser();
+//  Grammar を作成して、問題なく完了したことを確認するために 
+//  操作の結果をキャプチャする 
+EbnfParseResult result = grammar.FromEbnf(ebnf, ebnfParser);
+----
+
+[[_Step_2:_Generate]]
+[[_Ref335122245]]
+== ステップ 2: カスタム言語クラスの生成 – コード例
+
+[[_Description]]
+
+=== 説明
+
+静的な `LanguageGenerator` クラスの `GenerateClass()` メソッドを呼び出してカスタムの言語クラスを作成し、ステップ 1 で以前入力作成した Grammar オブジェクトを渡します。
+
+以下のコード例では、 _XMLLanguage.cs_   コード ファイルを作成して、“XML 言語” と呼ばれる言語の API を提供します。新たに作成されたファイル、 _XMLLanguage.cs_   は、強調表示されたトークンで XML ドキュメントを表示することができる RichTextBoxes を含むアプリケーションでコンパイルできます (以下のそれ以降のステップを参照してください)。
+
+[[_Code]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+//  LanguageBase 派生クラスのコードを文章校正から生成する
+//  これは内部レクサーとパーサーに必要とされるデータを作成する
+LanguageGenerationParams args = new LanguageGenerationParams(grammar, "XMLLanguage", "XMLLanguage.cs", true);
+LanguageGenerator.GenerateClass(args);
+----
+
+[[_Step_3:_Parse]]
+[[_Ref335122264]]
+== ステップ 3: ドキュメントを TextDocument で解析 – コード例
+
+[[_Description_1]]
+
+=== 説明
+
+`TextDocument` オブジェクトを使用してメモリでドキュメントを解析します。
+
+以下のコード例では、上記のステップ 2 で作成されたカスタムの言語クラス ( _XMLLanguage.cs_ ) を使用して TextBox コントロールから XML テキストを解析するインスタンス化される `TextDocument` を示します。この時点で、メモリの `TextDocumentSnapshot` オブジェクトは解析されたドキュメントを保管します。ただし、UI はまだそれを表示しません。
+
+[[_Code_1]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+//  LanguageGenerator によって以前に生成された XMLLanguage のインスタンスで 
+// TextDocument を作成する
+private TextDocument _textDocument;
+_textDocument = new TextDocument();
+_textDocument.Language = XMLLanguage.Instance;
+// 現在の TextDocumentSnapshot にあるかもしれないテキストを削除する
+//  フォームで TextBox からテキストを追加する
+//  XMLLanguage 言語のインスタンスで文法規則にしたがってテキストを解析する
+_textDocument.Delete();
+_textDocument.Append(textBox.Text);
+_textDocument.Parse();
+----
+
+[[_Step_4:_Display]]
+[[_Ref335122283]]
+== ステップ 4: 解析したテキストを RichTextBox に表示 – コード例
+
+[[_Description_2]]
+
+=== 説明
+
+カスタム言語にしたがって強調表示されたさまざまなトークンで RichTextBox に解析されたテキストを表示できます。RichTextBox は次の図のようになります。
+
+[[_Image]]
+
+=== 画像
+
+image::images/Implementing_TextDocument_with_RichTextBox_1.png[]
+
+[[_Code_2]]
+
+=== コード
+
+*C# の場合:*
+
+[source,csharp]
+----
+//  ツリーが作成されたスナップショットを取得します。
+TextDocumentSnapshot snapshot = _textDocument.SyntaxTree.Snapshot;
+//  すべてのトークンを含むトークン列挙子を取得します
+IEnumerable<Token> tokens = snapshot.GetTokens();
+//  トークンを列挙し、リッチ テキストボックスを生成します。
+RichTextBox rtb = richTextBox1;
+rtb.Text = snapshot.GetText();
+int breakOffsets = 0;
+foreach (Token token in tokens)
+{
+    string tokenText = token.Text;
+    if (tokenText.Length == 0)
+        continue;
+    if (tokenText.Equals("\r\n"))
+    {
+        breakOffsets++;
+        continue;
+    }
+    rtb.Select(token.OverallOffset - breakOffsets, tokenText.Length);
+    // 言語で定義した項目に基づいて
+    // トークンの色を設定します。
+    Color color = XMLLanguage.GetColor(token.TerminalSymbol);
+    rtb.SelectionColor = color;
+}
+----
+
+[[_Related_Content]]
+[[_Ref335122305]]
+== 関連コンテンツ
+
+[[_Topics]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-methods-for-modifying-text-in-a-textdocument.html[TextDocument でテキストを変更するメソッド]
+|このトピックは、コードスニペットを使用してテキストを編集する `TextDocument` クラス メソッドについて説明します。
+
+| link:ig-spe-events-for-interacting-with-a-textdocument.html[TextDocument を操作するイベント]
+|このトピックでは、コードスニペットを使用して `TextDocument` クラス イベントについて説明します。
+
+| link:ig-spe-properties-for-configuring-a-textdocument.html[TextDocument を構成するプロパティ]
+|このトピックでは、コード スニペットを使用して `TextDocument` クラス プロパティについて説明します。
+
+|====

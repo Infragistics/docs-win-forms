@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-position-tabs-at-desired-locations",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{3B2F0309-BB5C-49E5-86BC-57BA0DBFEF72}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 希望する位置にタブを配置
+
+WinTab のタブは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~allowtabmoving.html[AllowTabMoving]"]  プロパティを True に設定すれば、手動でドラッグおよび再配置することでランタイムに順番に並べたり、再配置することができます。また、Tab オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~reposition.html[Reposition]"]  メソッド pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~visibleindex.html[VisibleIndex]"]  プロパティを使用してコードからも実行できます。
+
+このトピックは、WinTab コントロールがタブが 4 つあるフォームにドロップされたことを前提とします。以下のコードはタブがどのように再配置可能であるかを示します。
+
+*Visual Basic の場合：*
+
+----
+' ポジション 2 に Tab 0 のインデックス位置を設定します 
+Me.ultraTabControl1.Tabs(0).VisibleIndex = 2 
+' Tab 0 を Tab 3 の後に再配置します 
+Me.ultraTabControl2.Tabs(0).Reposition(Me.ultraTabControl2.Tabs(3), Infragistics.Win.RelativePosition.After)
+----
+
+*C# の場合：*
+
+----
+// ポジション 2 に Tab 0 のインデックス位置を設定します
+this.ultraTabControl1.Tabs[0].VisibleIndex = 2;
+// Tab 0 を Tab 3 の後に再配置します
+this.ultraTabControl2.Tabs[0].Reposition(this.ultraTabControl2.Tabs[3], Infragistics.Win.RelativePosition.After);
+----

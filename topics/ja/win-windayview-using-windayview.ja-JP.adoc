@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-windayview-using-windayview",
+    "controlName": ["WinDayView"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{F73D3AB9-7A18-4490-A566-C30DAEE2AF29}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:05:45Z"
+}
+|metadata|
+////
+
+= WinDayView の使用
+
+このセクションには、WinDayView™ に適用する機能を使用する方法を説明する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:windayview-set-specific-working-hours.html[特定の就業時間の設定]
+* link:windayview-setting-different-working-hours-for-different-owners.html[オーナーごとに異なる就業時間を設定]
+* link:windayview-showing-multiple-owners-on-windayview.html[WinDayView で複数のオーナーを表示]

@@ -1,0 +1,227 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-showing-empty-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{EEA9F657-F01E-4776-AC88-907C4B0F9A27}",  
+    "buildFlags": [],
+    "createdOn": "2005-12-09T00:00:00Z"
+}
+|metadata|
+////
+
+= 空行の表示
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、空行の外観にスタイルを適用して表示する方法の概要およびコード例を提供します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref341898631,空行の表示>>
+
+** <<_Ref341951653,はじめに>>
+** <<_Ref341898648,前提条件>>
+** <<_Ref341898660,手順>>
+
+* <<_Ref341518687,関連コンテンツ>>
+
+[[_Ref341898631]]
+== 空行の表示
+
+[[_Ref341898639]]
+
+=== はじめに
+
+空行機能を使用すると、外観を向上するために最後の表示行以降の空白領域を空行で埋めることができます。空行の表示とその外観の制御に関するプロパティは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.emptyrowsettings_members.html[EmptyRowSettings]"]  オブジェクトによって公開されています。
+
+* `AlignWithDataRows`
+* `ExtendFirstCell` (デフォルト値)
+* `ExtendRowSelector`
+* `HideRowSelector`
+* `PrefixWithEmptyCell`
+
+.注:
+[NOTE]
+====
+空行はユーザー インタラクティブではありません。
+====
+
+[[_Ref341898648]]
+
+=== 前提条件
+
+コードの記述を開始する前に、コード ビハインドに `using (C#)` または `imports (Visual Basic)` のディレクティブを配置します。これにより、メンバーは完全修飾名を常に入力する必要がなくなります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+`ShowEmptyRows` を True に設定すると、空行機能が有効になります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 空行を表示します
+this.ultraGrid1.DisplayLayout.EmptyRowSettings.ShowEmptyRows = true;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 空行を表示します
+Me.ultraGrid1.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
+----
+
+[[_Ref341898660]]
+
+=== 手順
+
+空の行は、デフォルトでグリッドの左側に配置するために左側に描画されます。これを構成するには、Style プロパティを設定します。Style プロパティは空行を拡張するかどうか、どのように拡張するかについていくつかの異なるオプションを提供します。
+
+1.以下のコードは Style を `AlignWithDataRows` に設定します。空行はデータを含む行と配置なります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.ultraGrid1.DisplayLayout.EmptyRowSettings.Style = EmptyRowStyle.AlignWithDataRows;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.ultraGrid1.DisplayLayout.EmptyRowSettings.Style = EmptyRowStyle.AlignWithDataRows
+----
+
+2.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.emptyrowsettings_members.html[EmptyRowSettings]"]  オブジェクトは空行の外観を制御するプロパティも公開しています。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// EmptyRowSettings の CellAppearance プロパティは、空行のセルの外観を 
+// 制御します
+this.ultraGrid1.DisplayLayout.EmptyRowSettings.CellAppearance.BackColor = Color.LightYellow;
+// EmptyRowSettings の RowAppearance プロパティは、空行のセルの外観を 
+// 制御します。注: 行の背景の一部分が公開された場合に限り
+// これが有効になります。デフォルトで、セルはすべての行をカバーします。ただし、
+// CellSpacing のような一部の設定によって、行背景の一部分を公開
+// することになります
+this.ultraGrid1.DisplayLayout.EmptyRowSettings.RowAppearance.BackColor = Color.LightYellow;
+// EmptyRowSettings の RowSelectorAppearance プロパティは、空行の行セレクターが 
+// 表示されている場合に、その外観を制御します
+this.ultraGrid1.DisplayLayout.EmptyRowSettings.RowSelectorAppearance.BackColor = Color.Gray;
+// EmptyRowSettings の EmptyAreaAppearance プロパティは、空行の領域の外観
+// を制御します。空行領域にはすべての空行が含まれます
+this.ultraGrid1.DisplayLayout.EmptyRowSettings.EmptyAreaAppearance.BackColor = Color.LightSkyBlue;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' EmptyRowSettings の CellAppearance プロパティは、空行のセルの外観を 
+' 制御します
+Me.ultraGrid1.DisplayLayout.EmptyRowSettings.CellAppearance.BackColor = Color.LightYellow
+' EmptyRowSettings の RowAppearance プロパティは、空行のセルの外観を 
+' 制御します。注: 行の背景の一部分が公開された場合に限り
+' これが有効になります。デフォルトで、セルはすべての行をカバーします。ただし、
+' CellSpacing のような一部の設定によって、行背景の一部分を公開
+' することになります
+Me.ultraGrid1.DisplayLayout.EmptyRowSettings.RowAppearance.BackColor = Color.LightYellow
+' EmptyRowSettingsのRowSelectorAppearanceプロパティは、空行の行セレクターが 
+' 表示されている場合に、その外観を制御します
+Me.ultraGrid1.DisplayLayout.EmptyRowSettings.RowSelectorAppearance.BackColor = Color.Gray
+' EmptyRowSettings の EmptyAreaAppearance プロパティは、空行の領域の外観
+' を制御します。空行領域にはすべての空行が含まれます
+Me.ultraGrid1.DisplayLayout.EmptyRowSettings.EmptyAreaAppearance.BackColor = Color.LightSkyBlue
+----
+
+以下の画像は上の設定および外観が適用された空行を表示します。
+
+image::images/WinGrid_Showing_Empty_Rows_1.png[]
+
+.注:
+[NOTE]
+====
+セル外観は行外観より優先されます。
+====
+
+以下の表は、セル外観および行外観が設定される場合に `BackColor` 設定の結果を説明し、画像を表示します。
+
+[options="header", cols="a,a"]
+|====
+|設定|結果
+
+|CellAppearance.BackColor = Color.LightYellow; 
+
+RowAppearance.BackColor = Color.Red;
+|image::images/WinGrid_Showing_Empty_Rows_2.png[]
+
+|====
+
+3. _WinGrid_   は、隔行設定を適用するために link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowalternateappearance.html[RowAlternateAppearance] プロパティを紹介しました。以下のプレビューおよびコード例は、空行の隔行外観を設定するために適用する必要な設定を紹介します。
+
+.注:
+[NOTE]
+====
+このため、最初に `CellAppearance` を無効にする必要があります。
+====
+
+この画像は、`HideRowSelector` スタイル オプションを使用して空行の隔行外観を表示します。
+
+image::images/WinGrid_Showing_Empty_Rows_3.png[]
+
+以下のコードは空行に隔行設定を適用し、行の外観のスタイルを設定するオプションがあります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.EmptyRowSettings.RowAlternateAppearance.BackColor = Color.LightSteelBlue;
+ultraGrid1.DisplayLayout.EmptyRowSettings.Style = EmptyRowStyle.HideRowSelector;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.EmptyRowSettings.RowAlternateAppearance.BackColor = Color.LightSteelBlue
+  ultraGrid1.DisplayLayout.EmptyRowSettings.Style = EmptyRowStyle.HideRowSelector
+----
+
+[[_Ref341518687]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-using-wingrid.html[WinGrid の使用]
+|このトピックは _WinGrid_ コントロールの関連付けられるトピックへのリンクおよび説明を含むセクションのリストを含みます。
+
+|====

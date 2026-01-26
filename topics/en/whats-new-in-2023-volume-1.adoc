@@ -1,0 +1,30 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2023 Volume 1
+
+=== Chart Dash Array
+
+The series in the link:{DataChartLink}.{DataChartName}.html[{DataChartName}] now support the ability to apply a `DashArray` to them to visualize them as a dashed line. The dash array can also be applied to the trendlines of the series via the `TrendLineDashArray` property.
+
+In addition to this, the axes support dash arrays for the axis lines and the major and minor gridlines of the axis. This is done via the `StrokeDashArray`, `MajorStrokeDashArray`, `MinorStrokeDashArray` properties of the axes, respectively.
+
+The following documentation describes the various dash arrays that you can apply to the link:{DataChartLink}.{DataChartName}.html[{DataChartName}]:
+
+- link:datachart-configuring-major-and-minor-intervals.html[Axis Stroke, Major and Minor Gridlines Dash Array]
+- link:datachart-category-line-series#DashArray.html[Line Series Dash Array]
+- link:datachart-trend-lines.html[Trendlines Dash Array]
+
+=== Chart Value Layer
+
+A new series type named the link:{DataChartLink}.valuelayer.html[ValueLayer] is now available which allows you to render an overlay for different focal points of the plotted data such as Maximum, Minimum, and Average. This is rendered as a dashed line in the plot area of the chart.
+
+The following topic reviews this new series type in more detail:
+
+- link:datachart-series-value-layer.html[ValueLayer]

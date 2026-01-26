@@ -1,0 +1,179 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-using-the-wingrid-clickcell-event-to-show-a-context-menu",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Events","Grids"],
+    "guid": "{D3F3EA75-6B34-42A3-A324-B30451EC4C21}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid ClickCell イベントを使用してコンテキスト メニューを表示
+
+*始める前に*
+
+WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~clickcell_ev.html[ClickCell]"]  イベントは、どのセルをエンド ユーザーがクリックしたかを監視するために役立ちます。ClickCell イベント引数を使用すると、セル値、それが属する行、クリックされるセルのヘッダーだけでなくその兄弟セルと値にアクセスできます。
+
+*達成すること*
+
+この詳細なガイドは、クリックされるセルへにアクセスの取得、クリックされた行の選択、ヘッダー キャプションおよびクリックされたセルに対応するセル値の表示、そしてコンテキスト メニューのポップアップの方法の手順を説明します。この詳細なガイドは、このイベントおよびイベント引数から WinGrid と応答する方法を学ぶことを手助けする良い練習です。
+
+*以下の手順を実行します。*
+
+[start=1]
+. Visual Studio® ツールボックスから UltraGrid をフォームにドラッグ アンド ドロップします。UltraGrid を Northwind データベースのカテゴリ テーブルにバインドします。WinGrid のデータ バインドについての詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインド」]を参照してください。
+[start=2]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前をタイプする必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+Imports Infragistics.Win.UltraWinToolbars
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+using Infragistics.Win.UltraWinToolbars;
+----
+
+[start=3]
+. フォームのコード ビハインドで、セルがクリックされる時のマウス ボタン情報を保存するためのプライベート変数を追加します。
+
+*Visual Basic の場合：*
+
+----
+Private _theButton As MouseButtons = MouseButtons.None
+----
+
+*C# の場合：*
+
+----
+private MouseButtons _theButton = MouseButtons.None;
+----
+
+[start=4]
+. Visual Studio® ツールボックスから UltraToolbarsManager™ をフォームに追加します。
+[start=5]
+. 以下のコードを Form_Load イベント ハンドラに追加します。
+
+*Visual Basic の場合：*
+
+----
+'以下のコード行はポップアップ メニューを作成および設定します。 
+    Dim b As ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool ("Delete")
+b.SharedProps.Caption = "Delete" 
+    Dim p As PopupMenuTool = New Infragistics.Win.UltraWinToolbars.PopupMenuTool ("Operations")
+Me.ultraToolbarsManager1.Tools.AddRange (New ToolBase () {p, b}) 
+p.Tools.AddTool ("Delete") 
+AddHandler Me.ultraToolbarsManager1.ToolClick, AddressOf_ ultraToolbarsManager1_ToolClick 
+Me.Text = "WinGrid CellClick Example" 
+' TODO: このコードの行は 'nwindDataSet.Categories' テーブルにデータをロードします。必要に応じて、移動や削除ができます。 
+Me.categoriesTableAdapter.Fill (Me.nwindDataSet.Categories)
+----
+
+*C# の場合：*
+
+----
+// 以下のコード行はポップアップ メニューを作成および設定します。 
+            ButtonTool b = new Infragistics.Win.UltraWinToolbars.ButtonTool("Delete");
+            b.SharedProps.Caption = "Delete";
+            PopupMenuTool p = new Infragistics.Win.UltraWinToolbars.PopupMenuTool("Operations");
+            this.ultraToolbarsManager1.Tools.AddRange(new ToolBase[] { p, b });
+            p.Tools.AddTool("Delete");
+            this.ultraToolbarsManager1.ToolClick+=new ToolClickEventHandler(ultraToolbarsManager1_ToolClick);
+           // ヘッダー テキストをフォームに指定します
+            this.Text = "WinGrid CellClick Example";
+// TODO: このコードの行は 'nwindDataSet.Categories' テーブルにデータをロードします。必要に応じて、移動や削除ができます。
+            this.categoriesTableAdapter.Fill(this.nwindDataSet.Categories);
+----
+
+[start=6]
+. UltraGrid の MouseDown イベント ハンドラで、このコード行を追加します。
+
+*Visual Basic の場合：*
+
+----
+_theButton = e.Button
+----
+
+*C# の場合：*
+
+----
+_theButton = e.Button
+----
+
+[start=7]
+. UltraToolbarsManager の ToolClick イベント ハンドラを追加し、アクティブ WinGrid 行を削除するために以下のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+Select Case e.Tool.Key 
+    Case "Delete" 
+        If Me.categoriesUltraGrid.ActiveRow IsNot Nothing Then 
+            Me.categoriesUltraGrid.ActiveRow.Delete() 
+        End If 
+        Exit Select 
+End Select
+----
+
+*C# の場合：*
+
+----
+switch (e.Tool.Key)
+              {
+                case "Delete":
+                    if (this.categoriesUltraGrid.ActiveRow != null)
+                    {
+                        this.categoriesUltraGrid.ActiveRow.Delete();
+                    }
+                    break;
+ }
+----
+
+[start=8]
+. WinGrid コントロールの ClickCell イベント ハンドラを追加し、以下のコード行を配置します。
+
+*Visual Basic の場合：*
+
+----
+'クリックした行をアクティブ化して選択します 
+DirectCast (sender, UltraGrid).Selected.Rows.Clear () 
+e.Cell.Row.Activate () 
+e.Cell.Row.Selected = True 
+'ヘッダー キャプションおよびセル値を表示するためにフォーム テキストを設定します。 
+Me.Text = String.Format ("{0}: {1}", e.Cell.Column.Header.Caption, e.Cell.Value.ToString ()) 
+'右クリックするとコンテキスト メニューを表示します 
+If _theButton = MouseButtons.Right Then 
+    Me.ultraToolbarsManager1.ShowPopup ("Operations") 
+End If
+----
+
+*C# の場合：*
+
+----
+//クリックした行をアクティブ化して選択します
+            ((UltraGrid)sender).Selected.Rows.Clear();
+            e.Cell.Row.Activate();
+            e.Cell.Row.Selected = true;
+            //ヘッダー キャプションおよびセル値を表示するためにフォーム テキストを設定します。 
+            this.Text = 
+                string.Format("{0}: {1}", e.Cell.Column.Header.Caption, e.Cell.Value.ToString());
+            //右クリックするとコンテキスト メニューを表示します
+            if (_theButton == MouseButtons.Right)
+            {
+                this.ultraToolbarsManager1.ShowPopup("Operations");
+ }
+----
+
+[start=9]
+. アプリケーションを実行して各セルを右クリックします。右クリックした時の Form.Text の変化および Delete コンテキスト メニュー ポップアップを観察します。
+
+image::Images/WinGrid_ClickCell_Event_Showing_Context_Menu.png[ultragrid クリック イベントを使用してコンテキスト メニューを表示します]

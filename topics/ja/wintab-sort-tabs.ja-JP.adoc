@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-sort-tabs",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Sorting"],
+    "guid": "{F7CD49E2-F916-4A4E-99E4-1F26201BD3A4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの並べ替え
+
+エレメント内のタブは、pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabscollection.html[Tabs]"]  コレクションに格納されている順序で表示されます。エレメントに収められたタブは、表示されているテキストを基準としてアルファベット順に並べ替えることができます。
+
+この機能は WinTab と WinTabStrip の両方のエレメントで使用できますが、通常は WinTabStrip エレメントで使用するほうが便利です。WinTab エレメントの場合、プログラマは Tab を追加する順序（したがって表示する順序）をいつでも決定できます。しかし WinTabStrip エレメントでは、タブのテキストがデータソースから設定される場合があり、その場合はタブが取得された順序で表示されます。WinTabStrip エレメントが設定された後にタブを並べ替えることで、アルファベット順の使いやすいインタフェースをユーザーに表示できます。
+
+どちらのエレメントでも、並べ替えの方向を制御できます。WinTab エレメントは、常にタブの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratab~text.html[Text]"]  プロパティを基準として並べ替えられます。WinTabStrip コントロールでは、エレメントの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabstripcontrol~sortmember.html[SortMember]"]  プロパティを使用することで、データソースのどのフィールドを並べ替えの基準として使用するかを指定できます。
+
+エレメント内のタブを並べ替えるには、次のようなコードを使用します。
+
+WinTab エレメントの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTabControl
+...
+Private Sub SortingTabs_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' Text プロパティを使用して昇順ですべての表示可能な 
+	' タブをソートします。
+	Me.UltraTabControl1.VisibleTabs.Sort(SortDirection.Ascending)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTabControl;
+...
+private void SortingTabs_Load(object sender, System.EventArgs e)
+{
+	// Text プロパティを使用して昇順ですべての表示可能な 
+	// タブをソートします。
+	this.ultraTabControl1.VisibleTabs.Sort(SortDirection.Ascending);
+}
+----
+
+image::images\WinTab_Sort_Tabs_01.png[]
+
+WinTabStrip エレメントの場合
+
+*Visual Basic の場合：*
+
+----
+Private Sub SortingTabs_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' タブを DataSource 内の Value フィールドを基準として並べ替えます。
+	Me.UltraTabStripControl1.SortMember = "Value"
+	' タブを降順に並べ替えます。
+	Me.UltraTabStripControl1.SortDirection = SortDirection.Descending
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void SortingTabs_Load(object sender, System.EventArgs e)
+{
+	// タブを DataSource 内の Value フィールドを基準として並べ替えます。
+	this.ultraTabStripControl1.SortMember = "Value";
+	// タブを降順に並べ替えます。
+	this.ultraTabStripControl1.SortDirection = SortDirection.Descending;
+}
+----
+
+image::images\WinTab_Sort_Tabs_02.png[]

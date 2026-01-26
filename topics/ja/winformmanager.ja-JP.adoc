@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformmanager",
+    "controlName": ["WinFormManager"],
+    "tags": [],
+    "guid": "0740f945-ba26-4818-819e-c31f8720242e",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T22:00:35.2375105Z"
+}
+|metadata|
+////
+
+= WinFormManager
+
+WinFormManager™ コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、このコントロールの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順に至るまで、WinFormManager に関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、WinFormManager コントロールに関する重要な情報にアクセスします。
+
+== link:winformmanager-understanding-winformmanager.html[WinFormManager の理解]
+
+このセクションでは、WinFormManager コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。
+
+== link:winformmanager-api-overview.html[API の概要]
+
+このトピックでは、WinFormManager コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API リファレンス ガイド」セクションへリンクしていて便利です。

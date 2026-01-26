@@ -1,0 +1,129 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-adding-alert-buttons-to-the-desktop-alert-reminder",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{04479E12-3546-4B64-AAB4-139C1DFB86F0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デスクトップ アラート リマインダにアラート ボタンを追加
+
+== 始める前に
+
+これは遭遇するかもしれない一般的なシナリオで動作するいくつかの主要な WinDesktopAlert™ 機能を例示することを目的とした 3 部構成の詳細なガイドの 2 番目のトピックです。このシナリオの詳細については、 link:windesktopalert-creating-a-desktop-alert-reminder-for-winschedule.html[「WinSchedule のデスクトップ アラート リマインダを作成」]を参照してください。最初のトピック、 link:windesktopalert-displaying-a-desktop-alert-window-when-a-winschedule-reminder-comes-due.html[「WinSchedule アラームの設定時間になるとデスクトップ アラート ウィンドウを表示」]が完了していない場合には、最初のトピックを完了してください。2 番目のトピックは最初のトピックに基づいて構築されているからです。
+
+WinDesktopAlert にはデスクトップ アラート ウィンドウの左下隅に表示する link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertbutton.html[UltraDesktopAlertButtons] のコレクションがあります。WinToolbarsManager™ に詳しい場合には、このコレクションはツールバー上のツールに非常に似ています。以前のトピックで使用した link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.desktopalertlinkclickedeventargs.html[DesktopAlertLinkClickedEventArgs] クラスと同じように、 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.alertbuttonclickedeventargs.html[AlertButtonClickedEventArgs] クラスは link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertwindowinfo.html[UltraDesktopAlertWindowInfo] オブジェクトを渡します。再度、UltraDesktopAlertWindowInfo オブジェクトによって、 link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointment] への参照を取得します。
+
+== 達成すること
+
+このトピックはデスクトップ アラート ウィンドウにアラート ボタンを追加する方法を例示します。アラート ボタンを作成し、これらのボタンを AlertButtons コレクションに追加して、次に link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalert~alertbuttonclicked_ev.html[AlertButtonClicked] イベントを処理します。これによって、デスクトップ アラート リマインダを再通知または解除することができます。
+
+== 次の手順を実行します
+
+[start=1]
+. *2 つのアラート ボタンを作成します。*
+
+フォームの Load イベントで 2 つのアラート ボタンを作成します。デザイン ビューでフォームのヘッダをダブルクリックすることによって、Load イベントのイベント ハンドラを作成できます。いくつかのプロパティを設定してボタンをインスタンス化したら、ボタンを AlertButtons コレクションに追加して、次に AlertButtonClicked イベントのイベント ハンドラを作成する必要があります。フォームの Load イベントに以下のコードを配置します。
+
+[NOTE]
+====
+*注：* プロジェクトの起動パスに link:images/snooze.gif[Snooze] 画像と link:images/dismiss.gif[Dismiss] 画像を配置する必要があります。各画像を右クリックし、[ターゲットを新規保存] を選択して、次にプロジェクトの起動パスを指定して、[保存] をクリックします。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim snoozeButton As UltraDesktopAlertButton = New UltraDesktopAlertButton()
+	Dim dismissButton As UltraDesktopAlertButton = New UltraDesktopAlertButton()
+	snoozeButton.Key = "SnoozeButton"
+	dismissButton.Key = "DismissButton"
+	snoozeButton.Appearance.Image = _
+	  New Bitmap(Application.StartupPath + "\Snooze.gif")
+	dismissButton.Appearance.Image = _
+	  New Bitmap(Application.StartupPath + "\Dismiss.gif")
+	Me.UltraDesktopAlert1.AlertButtons.AddRange(New UltraDesktopAlertButton() _
+	  {snoozeButton, dismissButton})
+	AddHandler UltraDesktopAlert1.AlertButtonClicked, AddressOf UltraDesktopAlert1_AlertButtonClicked
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, EventArgs e)
+{
+	UltraDesktopAlertButton snoozeButton = new UltraDesktopAlertButton();
+	UltraDesktopAlertButton dismissButton = new UltraDesktopAlertButton();
+	snoozeButton.Key = "SnoozeButton";
+	dismissButton.Key = "DismissButton";
+	snoozeButton.Appearance.Image =
+	  new Bitmap(Application.StartupPath + @"..\Snooze.gif");
+	dismissButton.Appearance.Image =
+	  new Bitmap(Application.StartupPath + @"..\Dismiss.gif");
+	this.ultraDesktopAlert1.AlertButtons.AddRange(new UltraDesktopAlertButton[]
+	  { snoozeButton, dismissButton });
+	this.ultraDesktopAlert1.AlertButtonClicked += 
+	  new AlertButtonClickedHandler(this.ultraDesktopAlert1_AlertButtonClicked);
+}
+----
+
+[start=2]
+. *アラート ボタンの Click イベントを処理します。*
+
+2 つのアラート ボタンはそれぞれ [アラーム] ダイアログ ボックスを再通知および解除します。したがって、AlertButtonClicked イベントを作成し、これら 2 つのタスクを実行するためのコードを追加する必要があります。EventArgs で Appointment オブジェクトへの参照を取得することによって開始します。参照を取得したら、switch/select ステートメントを使用して異なるボタンのクリック イベントを処理できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraDesktopAlert1_AlertButtonClicked _
+  (ByVal sender As System.Object, ByVal e As AlertButtonClickedEventArgs) _
+  Handles UltraDesktopAlert1.AlertButtonClicked
+	Dim alertButtonAppt As Appointment = e.WindowInfo.Data
+	Select Case e.Button.Key
+		Case "SnoozeButton"
+			alertButtonAppt.Reminder.Snooze(SnoozeIntervalUnits.Minutes, 15)
+			MessageBox.Show("You will be reminded again in 15 minutes.")
+		Case "DismissButton"
+			alertButtonAppt.Reminder.Enabled = False
+			MessageBox.Show("You will not be reminded about " + _
+			alertButtonAppt.Subject + " again.")
+	End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraDesktopAlert1_AlertButtonClicked(object sender,
+  AlertButtonClickedEventArgs e)
+{
+	Appointment alertButtonAppt = e.WindowInfo.Data as Appointment;
+	switch (e.Button.Key)
+	{
+		case "SnoozeButton":
+			alertButtonAppt.Reminder.Snooze(SnoozeIntervalUnits.Minutes, 15);
+			MessageBox.Show("You will be reminded again in 15 minutes.");
+			break;
+		case "DismissButton":
+			alertButtonAppt.Reminder.Enabled = false;
+			MessageBox.Show("You will not be reminded about " + 
+			alertButtonAppt.Subject + " again.");
+			break;
+	}
+}
+----
+
+[start=3]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行して [予定の作成] ボタンをクリックすると、デスクトップ アラート リマインダに追加されたのが分かります。デスクトップ アラート ウィンドウの左下隅に 2 つのボタンが表示されます。最初のボタンをクリックするとリマインダを再通知してリマインダが再通知されたことを確認するダイアログ ボックスが表示します。2 番目のボタンをクリックするとリマインダを解除してリマインダが解除されたことを確認するダイアログ ボックスが表示します。次のタスクは link:windesktopalert-adding-a-menu-to-the-desktop-alert-reminders-dropdown-button.html[「デスクトップ アラート リマインダのドロップダウン ボタンにメニューを追加」]です。
+
+image::images/WinDesktopAlert_Adding_Alert_Buttons_to_the_Desktop_Alert_Reminder_01.png[]

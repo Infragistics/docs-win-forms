@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2004-volume-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{95C8735F-6F81-45EC-A38C-919EB962122C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2004 Volume 3 の新機能
+
+Infragistics 2004 Volume 3 のリリースには、Windows Formsのコントロールとコンポーネントの機能をこれまで以上に活用するための、いくつかの強力な新機能と機能性が追加されています。
+
+以下に、2004 Volume 3 リリースで追加または改良したコントロールをあげます。リンクをクリックして、各コントロールで提供される機能のリストを確認します。
+
+* link:winchart-whats-new-2004-3.html[WinChart]
+* link:wineditors-whats-new-2004-3.html[WinEditors]
+* link:winexplorerbar-whats-new-2004-3.html[WinExplorerBar]
+* link:wingrid-whats-new-2004-3.html[WinGrid]
+* link:winschedule-whats-new-2004-3.html[WinSchedule]
+* link:wintoolbars-whats-new-2004-3.html[WinToolbars]
+* link:wintree-whats-new-2004-3.html[WinTree]

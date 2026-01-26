@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-ellipse-annotations",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{24FE06C6-2A51-47B7-89E3-01AB81ED6BAF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 楕円形注釈
+
+楕円形注釈は楕円形をしたオブジェクトで、その中にテキストが配置されます。楕円形注釈を使用して、ゲージに追加情報を表示することができます。
+
+たとえば、ガソリン ゲージを表すためにラジアル ゲージを作成した場合、スケールのそれぞれの端に「Full」と「Empty」とテキストを設定した注釈を追加できます。
+
+以下のスクリーンショットは、楕円形注釈が付いたラジアル ゲージの例を示しています。
+
+image::images/Gauge_Ellipse_Annotation_01.png[]

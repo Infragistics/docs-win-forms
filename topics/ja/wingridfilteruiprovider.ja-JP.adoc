@@ -1,0 +1,22 @@
+﻿////
+|metadata|
+{
+    "name": "wingridfilteruiprovider",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{C0D25AAD-877D-44BF-9A22-5B4ACE3E0FAE}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridFilterUIProvider
+
+WinGridFilterUIProvider™ コンポーネントに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コンポーネントについての概要からアプリケーションで使用する理由、コンポーネントを使用して一般的なタスクを完了するための方法の手順などの WinGridFilterUIProvider についての有益な情報を含んでいます。
+
+以下のリンクをクリックすると、WinGridFilterUIProvider コンポーネントに関する重要な情報にアクセスします。
+
+* link:wingridfilteruiprovider-about-wingridfilteruiprovider.html[WinGridFilterUIProvider について] -- WinGridFilterUIProvider コントロールの機能、およびアプリケーション内でこのコントロールを使いたくなる理由について記述します。このセクションでは、WinGridFilterUIProvider コンポーネントの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコンポーネントの機能を使いたくなる理由が説明されています。 
+* link:wingridfilteruiprovider-using-wingridfilteruiprovider.html[WinGridFilterUIProvider の使用] このセクションでは、WinGridFilterUIProvider コンポーネントを使用して特定のタスクを実現するための短い、有益なトピックがコード例のスニペットとともに紹介されています。
+* link:wingridfilteruiprovider-api-overview.html[API の概要] -- このトピックは WinGridFilterUIProvider コンポーネントを使用してプログラミングする際に作業する名前空間とクラスをリストします。このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API 参照ガイド」セクションへリンクしていて便利です。

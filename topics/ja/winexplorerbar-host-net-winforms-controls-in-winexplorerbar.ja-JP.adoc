@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-host-net-winforms-controls-in-winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Tips and Tricks"],
+    "guid": "{089CAE05-D7C7-4CCA-8764-38FDBA578D22}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar で.NET WinFormsコントロールをホストする
+
+WinExplorerBar の強力な機能のひとつに、任意の .NET WinForms コントロールをホストする機能があります。WinExplorerBar でホストされるコントロールは、グループで定義した項目（存在する場合）の代わりに、グループの項目領域に表示されます。
+
+以下は WinForms コントロールのコンテナとして機能する WinExplorerBar グループを示す 2 つの例です（WinExplorerBar エレメント スタイルを使用する例と WinListbar エレメント スタイルを使用する例）。
+
+image::Images/WinExplorerBar_Hosting_NET_WinForms_Controls_in_WinExplorerBar_01.png[]
+
+== グループをコントロール コンテナにする
+
+グループで WinForms コントロールをホストするには、グループの GroupSettings オブジェクトの Style プロパティを Control Container に設定します。
+
+このようにグループがコントロール コンテナとして指定されると、次のことが起こります。
+
+[start=1]
+. UltraExplorerBarContainerControl という特別なコントロールが自動的に作成されます。これはグループの項目領域内に収まるようにサイズを調整して配置されます。これで WinForms コントロールを UltraExplorerBarContainerControl の上に配置することができます。
+[start=2]
+. グループを縮小するか（ExplorerBar エレメント スタイル）、選択解除するか（Listbar および Toolbox エレメント スタイル）、または単にスクロールして表示されなくすると、UltraExplorerBarContainerControl は見えなくなります。
+[start=3]
+. グループで定義した項目（存在する場合）は表示されませんが、グループの Items コレクションの中には残っています。後でグループの Style を ControlContainer 以外のものに変更すると、項目が表示されるようになります。
+
+== コントロールをコントロール コンテナ グループに追加する
+
+コントロールをコントロール コンテナ グループ（Settings.Style プロパティが「ControlContainer」に設定されたグループ）に追加するにはいくつかの方法があります。
+
+* ランタイムに次のコード行を実行します。この例は、最初のグループに WinForms ComboBox コントロールを追加します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinExplorerBar
+...
+Private Sub HostingNETWinFormsControlsinWinExplorerBar_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraExplorerBar1.Groups(0).Settings.Style = GroupStyle.ControlContainer
+	' ComboBox コントロールを作成して、グループに追加します。
+	Me.UltraExplorerBar1.Groups(0).Container.Controls.Add(New ComboBox())
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinExplorerBar;
+...
+private void HostingNETWinFormsControlsinWinExplorerBar_Load(object sender, System.EventArgs e)
+{
+	// グループ スタイルが ControlContainer であることを確認します。
+	this.ultraExplorerBar1.Groups[0].Settings.Style = GroupStyle.ControlContainer;
+	// ComboBox コントロールを作成し、グループに追加します。
+	this.ultraExplorerBar1.Groups[0].Container.Controls.Add(new ComboBox());
+}
+----
+
+image::images\WinExplorerBar_Host_NET_WinForms_Controls_in_WinExplorerBar_01.png[]

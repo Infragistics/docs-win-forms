@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-api-overview",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{861E0379-D78B-4A44-8AD4-D8275DDA84A3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinTree 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree_namespace.html[Infragistics.Win.UltraWinTree]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree.html[UltraTree]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode.html[UltraTreeNode]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn.html[UltraTreeNodeColumn]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecell.html[UltraTreeNodeCell]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[UltraTreeColumnSet]"]
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings.html[UltraTreeColumnSettings]"]

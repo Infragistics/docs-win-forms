@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-improved-logic-of-date-time-intervals-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1E7521F9-5D9D-4B91-951D-C347B9EFE657}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 強化された日付/時刻間隔ロジック
+
+チャートで時間のスケール軸上に日付/時刻のデータをプロットするときには、次の日付/時刻間隔を使用できます。
+
+* パーセンテージ間隔-- X 軸上で開始日から終了日まで、 _n_ % ごとに目盛りが表示されます。
+* 数値間隔 – 開始日から終了日まで、線または目盛りが  _n_  個ごとに表示されます。
+
+デフォルトで、日付/時刻間隔はパーセンテージに設定されており、間隔の値は 10 です。したがって、グラフ上の目盛りは、データ範囲の 10％ ごとに表示されます。通常時間は 10 単位では表示しないので、時間のスケール軸上の目盛り表示は多くの場合不適切です。以下のガント チャートでは、X 軸上で一部の日付が抜けています。
+
+image::Images/WinChart_Improved_Logic_of_Date_Time_Intervals_Whats_New_2006_1_01.png[]
+
+この問題を解決するために、時間スケール軸を使用するグラフの日付/時刻間隔のロジックを改善しました。スマート目盛りを使用すると、Chart コントロールで時間（日数、週数、月数など）に関して合理的な間隔の目盛りが生成されます。以下のガント チャートの例では、時間のスケール軸が使われています。
+
+image::Images/WinChart_Improved_Logic_of_Date_Time_Intervals_Whats_New_2006_1_02.png[]
+
+== 関連トピック
+
+link:chart-display-data-on-a-time-scale-axis.html[時間のスケール軸でデータを表示]
+
+link:chart-display-labels-at-intervals-on-a-time-scale-axis.html[時間の連続的スケール軸への間隔ラベルの表示]
+
+link:chart-numeric-set-label-and-date-time-axes.html[数値、セット ラベル、または日付/時刻の軸]

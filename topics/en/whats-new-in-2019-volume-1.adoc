@@ -1,0 +1,37 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2019 Volume 1
+
+toc::[]
+
+=== DPI Scaling (CTP)
+
+Several controls have been updated to support high-dpi scaling. High-dpi scaling is more common with, but not limited, high resolution monitors; which maintain overall quality and fidelity for our controls providing the end users with a natural experience regardless of the resolution being used. 
+
+*Related topics:*
+
+* link:dpi-scaling-support.html[Dpi Scaling Support (CTP)]
+
+== {SpreadsheetName} Features
+=== Chart Support
+
+image:images/charts.png[]
+
+A popular Excel feature is now here! Visualize your data in a ways that create maximum impact on your target audience. The new SpreadsheetChartAdapter class has been added and integrated into the {SpreadsheetName} making this sought after experience all the more easier to configure. In addition, the chart adapters are complimented by our Excel Engine, where link:excelengine-adding-a-chart-to-an-excel-worksheet.html[chart support was added in volume 18.2]. 
+
+There are over 35 chart types supported by the Spreadsheet ChartAdapters including, Line, Area, Column, and Doughnut.
+
+For more information about the Excel Charts in the {SpreadsheetName}, please see the link:spreadsheet-adding-chart.html[Displaying Charts in the {SpreadsheetName} Control] topic.
+
+=== Combination Charts
+
+A combination chart is a chart that combines two or more chart types in a single chart. 
+
+image:images/whats_new_combination_charts.png[]

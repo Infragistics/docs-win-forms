@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-list",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{2C4ACC4A-7989-4084-A50D-CA9211CD6355}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= List
+
+リスト ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-list-about-the-list-tool.html[リスト ツールについて]
+* link:wintoolbarsmanager-add-a-list-tool-to-a-toolbar.html[ツールバーへのリスト ツールの追加]

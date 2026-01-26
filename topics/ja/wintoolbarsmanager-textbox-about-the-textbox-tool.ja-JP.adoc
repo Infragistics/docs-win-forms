@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-textbox-about-the-textbox-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{0417E208-1D43-4178-9C40-A813F6DC72DF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= TextBox ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== TextBox
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.textboxtool.html[TextBoxTool]"]
+
+派生元：Toolbase $$->$$ EditorToolBase $$->$$ TextEditorToolBase
+
+説明：TextBox ツールは、Windows の持つ標準のテキストボックスの機能を提供するもので、ツールバーやメニューにツールとして配置できます。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_17.png[]

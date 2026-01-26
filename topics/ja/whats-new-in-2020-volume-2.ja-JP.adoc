@@ -1,0 +1,20 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2020 Volume 2 の新機能
+
+
+=== .NET 5.0 サポート
+
+Infragistics コントロールの使用で新しい環境がサポートされます。バージョン 2020.2 以降、アセンブリで NuGet を介した .NET 5.0 環境がサポートされます。 
+NET 5.0 は、3.1 に続く .NET Core の次のメジャー リリースです。
+
+$$.NET 5.0$$ については、link:https://docs.microsoft.com/en-us/dotnet/core/dotnet-five[Microsoft サイト]をご確認ください。
+
+Infragistics NuGet パッケージを使用するための環境設定については、link:nuget-feeds.html[NuGet フィード]および link:nuget-packages.html[NuGet パッケージ]のトピックを参照してください。

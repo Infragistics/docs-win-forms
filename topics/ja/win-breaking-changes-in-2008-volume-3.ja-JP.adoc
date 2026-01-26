@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2008-volume-3",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "{9506CC69-65B4-420F-A078-9CBE0EA034A8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2008 Volume 3 の重大な変更
+
+== *Excel エンジン*
+
+*WorksheetCell.Value*
+
+数式、配列数式、またはデータ テーブルがセルに適用される場合、WorksheetCell の pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetcell~value.html[Value]"]  プロパティは、セルに適用される Formula、ArrayFormula、または WorksheetDataTable インスタンスを返しません。これはセルの計算値を返します。セルの数式または配列数式を取得するために、Formula または ArrayFormula インスタンスを返す新しい pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetcell~formula.html[Formula]"]  プロパティがあります。数式がセルに適用されなければ、このプロパティは null を返します。セルのデータ テーブルを取得するために、セルに適用される pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetdatatable.html[WorksheetDataTable]"]  インスタンスを返す新しい pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetcell~associateddatatable.html[AssociatedDataTable]"]  プロパティがあります。セルがデータ テーブル内のセルでない場合、このプロパティは null を返します。
+
+*WorksheetMergedCellsRegion.Value*
+
+数式が結合されたセル領域に適用されると、pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetmergedcellsregion.html[WorksheetMergedCellsRegion]"]  の pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetmergedcellsregion~value.html[Value]"]  プロパティは、セルに適用される Formula インスタンスを返しません。これはセルの計算値を返します。結合されたセル領域の数式を取得するために、Formula インスタンスを返す新しい pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetmergedcellsregion~formula.html[Formula]"]  プロパティがあります。数式が結合されたセル領域に適用されない場合、このプロパティは null を返します。
+
+*結合されたセル領域の左上セル以外*
+
+Excel の以前のバージョンでは、結合されたセル領域内のセルの値の取得は、関連付けられた結合されたセル領域の値を返しました。これは実際は不正確で、数式の使用を通して検証できます（数式で結合されたセル領域の左上セル以外の参照は、セルの値に対して null またはゼロを使用します）。左上セルを除いて結合されたセル領域に関連付けられたセルに null が返されます。これは結合されたセル領域の値を返すために続行されます。左上セル以外のセル値の設定は動作せず、例外を発生しません。結合されたセル領域の左上セルの値の設定で、結合されたセル領域の値も設定されます。
+
+*ワークシートの削除*
+
+pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheet.html[Worksheet]"]  が所有する pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.workbook.html[Workbook]"]  から削除される場合、ワークシートはセル データを失います。以前は、ワークシートに参照を保持し、ワークブックから削除後にデータにアクセスすることが可能でしたが、現在はすべてのセルが null 値を持ちます。
+
+== *WinCalcManager*
+
+*UltraCalcManager の演算子に対する無効値*
+
+以前のバージョンで UltraCalcManager を使用している場合、非数値を演算子に渡すと（“Hello”+5 など）、#NUM! エラーが発生します。これは Excel と不整合になります。これで #VALUE! エラーが正しく発生します。

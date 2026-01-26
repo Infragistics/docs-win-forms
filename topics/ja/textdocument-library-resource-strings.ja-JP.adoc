@@ -1,0 +1,514 @@
+﻿////
+
+|metadata|
+{
+    "name": "textdocument-library-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "fb678909-bab6-4081-a11e-828ef166ab8d",  
+    "buildFlags": [],
+    "createdOn": "2012-08-30T16:53:54.3426903Z"
+}
+|metadata|
+////
+
+= TextDocument ライブラリ リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|ClassificationType_Comment_Description
+|コメントの ClassificationType。
+
+|ClassificationType_Comment_Name
+|コメント
+
+|ClassificationType_CompilerError_Description
+|コンパイラ エラーの ClassificationType。
+
+|ClassificationType_CompilerError_Name
+|CompilerError
+
+|ClassificationType_DateLiteral_Description
+|日付リテラルの ClassificationType。
+
+|ClassificationType_DateLiteral_Name
+|DateLiteral
+
+|ClassificationType_DocCommentStart_Description
+|ドキュメント コメントの開始を表す要素の ClassificationType。
+
+|ClassificationType_DocCommentStart_Name
+|DocCommentStart
+
+|ClassificationType_DocCommentTag_Description
+|ドキュメント コメントの XML タグの ClassificationType。
+
+|ClassificationType_DocCommentTag_Name
+|DocCommentTag
+
+|ClassificationType_DocCommentText_Description
+|ドキュメント コメント内のテキストの ClassificationType。
+
+|ClassificationType_DocCommentText_Name
+|DocCommentText
+
+|ClassificationType_Identifier_Description
+|識別子の ClassificationType。
+
+|ClassificationType_Identifier_Name
+|識別子
+
+|ClassificationType_Keyword_Description
+|キーワードの ClassificationType。
+
+|ClassificationType_Keyword_Name
+|キーワード
+
+|ClassificationType_Number_Description
+|数値の ClassificationType。
+
+|ClassificationType_Number_Name
+|Number
+
+|ClassificationType_NumericLiteral_Description
+|数値リテラルの ClassificationType。
+
+|ClassificationType_NumericLiteral_Name
+|NumericLiteral
+
+|ClassificationType_Operator_Description
+|演算子の ClassificationType。
+
+|ClassificationType_Operator_Name
+|演算子
+
+|ClassificationType_PreprocessorDirective_Description
+|プリプロセッサ命令の ClassificationType。
+
+|ClassificationType_PreprocessorDirective_Name
+|PreprocessorDirective
+
+|ClassificationType_PreprocessorDirectiveText_Description
+|プリプロセッサ命令テキストの ClassificationType。
+
+|ClassificationType_PreprocessorDirectiveText_Name
+|PreprocessorDirectiveText
+
+|ClassificationType_Punctuation_Description
+|句読点の ClassificationType。
+
+|ClassificationType_Punctuation_Name
+|Punctuation
+
+|ClassificationType_StringLiteral_Description
+|文字列リテラルの ClassificationType。
+
+|ClassificationType_StringLiteral_Name
+|StringLiteral
+
+|ClassificationType_SyntaxError_Description
+|シンタックス エラーの ClassificationType。
+
+|ClassificationType_SyntaxError_Name
+|SyntaxError
+
+|ClassificationType_Undefined_Description
+|未定義の言語要素 ClassificationType。
+
+|ClassificationType_Undefined_Name
+|未定義
+
+|ClassificationType_UndefinedError_Description
+|未定義エラーの ClassificationType。
+
+|ClassificationType_UndefinedError_Name
+|UndefinedError
+
+|ClassificationType_Unrecognized_Description
+|未認識の言語要素の ClassificationType。
+
+|ClassificationType_Unrecognized_Name
+|Unrecognized
+
+|ClassificationType_Warning_Description
+|警告の ClassificationType。
+
+|ClassificationType_Warning_Name
+|警告
+
+|ClassificationType_Whitespace_Description
+|ホワイトスペースの ClassificationType。
+
+|ClassificationType_Whitespace_Name
+|Whitespace
+
+|Collection_Exception_ParseInProgress
+|関連付けられた Grammar の Parse メソッドが実行されているときに、このコレクションのコンテンツは変更できません。
+
+|CollectionIsReadOnly
+|コレクションは読み取り専用です。変更できません。
+
+|CollectionReadOnly
+|コレクションは読み取り専用です。
+
+|DocumentIsBeingUpdated
+|ドキュメントは変更処理中です。変更が完了するまで編集できません。
+
+|DocumentIsReadOnly
+|ドキュメントは読み取り専用です。
+
+|EbnfParseError_Description_DuplicateAssignmentSymbol
+|複製割り当て記号 ({0})。
+
+|EbnfParseError_Description_DuplicateIdentifier
+|識別子 '{0}' は、他のステートメントで使用されています。
+
+|EbnfParseError_Description_DuplicateStartSymbol
+|StartSymbol の複製は '{0}' を参照してください。
+
+|EbnfParseError_Description_EmptyGrammarDefinition
+|文法の定義は空です。
+
+|EbnfParseError_Description_EmptyTerminalSymbolValue
+|終了記号の値は空の文字列に設定しました。
+
+|EbnfParseError_Description_GroupingSymbolMismatch
+|グループ化記号が一致しません。{0} がありませんでした。
+
+|EbnfParseError_Description_IncompleteStatement
+|ステートメントの右側に式が見つかりませんでした。
+
+|EbnfParseError_Description_InvalidAssignment
+|ステートメントの左側に割り当てが無効なコンテンツを含みます。
+
+|EbnfParseError_Description_InvalidConjunctionRuleDescendant
+|Conjunction または Negation ルールに 1 つ以上の無効な子孫ルールがあります。
+
+|EbnfParseError_Description_InvalidDeclaration
+|'{0}' の値はこの場所で無効です。
+
+|EbnfParseError_Description_InvalidOperator
+|'{0}' の演算子はこの場所で無効です。
+
+|EbnfParseError_Description_InvalidPropertyValue
+|'{0}' を有効な値に変換できませんでした。
+
+|EbnfParseError_Description_InvalidRegularExpression
+|値 '{0}' は有効な正規表現パターンではありません。
+
+|EbnfParseError_Description_InvalidTerminalDeclaration
+|終了の記号宣言を有効なステートメントに解析できませんでした。
+
+|EbnfParseError_Description_InvalidXml
+|無効な XML: {0}
+
+|EbnfParseError_Description_LexerStateAlreadySet
+|TerminalSymbol '{0}' は既に LexerState '{1}' の開始記号に割り当てられています。
+
+|EbnfParseError_Description_LineCol
+|{0} 行目 {0}、{1} 列にエラーが発生しました。
+
+|EbnfParseError_Description_MissingAssignmentSymbol
+|割り当て記号 ({0}) が必要です。
+
+|EbnfParseError_Description_MissingDeclaration
+|ステートメントの左側を有効な識別子に解析できませんでした。
+
+|EbnfParseError_Description_MissingEndOfStatement
+|ステートメントの終了記号 ({0}) が必要です。
+
+|EbnfParseError_Description_MissingName
+|'Name' プロパティの値が指定されませんでした。
+
+|EbnfParseError_Description_MissingOperand
+|オペランドが必要です。
+
+|EbnfParseError_Description_MissingOperator
+|値 '{0}' の近くに演算子がありません。
+
+|EbnfParseError_Description_MissingValue
+|XML タグに値がありません。
+
+|EbnfParseError_Description_NegationRuleIsFirstDescendant
+|最初のサブルールで Negation ルールがあります。
+
+|EbnfParseError_Description_OpenLiteralString
+|値 '{0}' は引用符文字で開始しますが、引用符で終了しません。
+
+|EbnfParseError_Description_StartSymbolIsReferenced
+|他のルールによって参照されるため、'{0}' を StartSymbol として設定できません。
+
+|EbnfParseError_Description_UnbalancedXmlTag
+|XML タグ '{0}' を一致するタグがありません。
+
+|EbnfParseError_Description_UndeclaredReference
+|記号参照 '{0}' が宣言されませんでした。
+
+|EbnfParseError_Description_UnrecognizedContent
+|ステートメントは無効なコンテンツを含みます。
+
+|EbnfParseError_Description_UnrecognizedXmlTag
+|XML タグ '{0}' の名前は特別なシーケンスで無効です。
+
+|EbnfParserNotationDefinition_CannotModify
+|このインスタンスを変更できません。
+
+|EbnfParserNotationDefinition_DuplicatePropertyValue
+|'{2}' プロパティは同じ値を返すことができないため、{0} プロパティを値 '{1}' に設定できません。
+
+|EmptyEnumerator
+|空の列挙子。
+
+|EnumeratorDisposed
+|列挙子はすでに破棄されています。
+
+|EnumeratorNotinitialized
+|列挙子が初期化されていないか、最後に達しています。
+
+|EnumeratorPassedEnd
+|列挙子は初期化されていないか、項目の最後をパスしました。
+
+|EOS_DisplayText
+|EndOfStream ($)
+
+|ErrorAlias_Argument
+|引数
+
+|ErrorAlias_Attribute
+|属性
+
+|ErrorAlias_ClassDeclaration
+|クラス 宣言
+
+|ErrorAlias_Expression
+|式
+
+|ErrorAlias_GetOrSet
+|get または set
+
+|ErrorAlias_Identifier
+|識別子
+
+|ErrorAlias_LockStatement
+|ロック
+
+|ErrorAlias_NamespaceDeclaration
+|名前空間宣言
+
+|ErrorAlias_NumericType
+|数値型
+
+|ErrorAlias_RankSpecifier
+|配列のディメンション
+
+|ErrorAlias_Statement
+|ステートメント
+
+|ErrorAlias_StringLiteral
+|文字列または文字リテラル
+
+|ErrorAlias_Type
+|タイプ
+
+|ErrorAlias_TypeArgumentList
+|ジェネリック引数リスト
+
+|ErrorAlias_UsingDirective
+|Using
+
+|ErrorAlias_UsingStatement
+|using
+
+|ErrorAlias_Void
+|void
+
+|Exception_ParseInProgress
+|関連付けられた Grammar の Parse メソッドが実行されているときに、{0} プロパティは変更できません。
+
+|Grammar_EndOfStreamSymbol_Description
+|ストリームの終了
+
+|Grammar_Exception_CannotModify
+|コンパイル済みのため、文書校正を変更できません。
+
+|Grammar_Exception_NoStartSymbol
+|StartSymbol プロパティが null のため、入力文字列を解析できません。構文解析の開始ポイントを定義するには、StartSymbol プロパティに NonTerminalSymbol を割り当てます。
+
+|Grammar_Exception_ParseActionConflicts
+|文章校正を正しくコンパイルできません。 {0} 解析アクションで競合が発生しました。
+
+|Grammar_Exception_StartSymbolIsReferenced
+|1 つ以上の他の NonTerminalStartSymbol によって参照されているため、 NonTerminalSymbol '{0}' は無効な StartSymbol です。StartSymbol は他の NonTerminalSymbol によって参照できません。
+
+|Grammar_Import_InvalidFile
+|指定されたファイル '{0}' はテキストを含みません。
+
+|Grammar_Import_UnsupportedFormat
+|'{0}' ファイル形式はサポートされていません。
+
+|Grammar_NewLineSymbol_Description
+|newline
+
+|Grammar_WhitespaceSymbol_Description
+|空白
+
+|InvalidCircularReferenceException_Message
+|循環参照が NonTerminalSymbol '{0}' および　NonTerminalSymbol '{1}' の間に存在しますが、TerminalSymbol が間にありません。循環参照がサポートされますが、互いに参照する NonTerminalSymbols は介在する TerminalSymbol を含む必要があります。
+
+|InvalidDescendantOfConjunctionException_Message
+|{0} は ConjunctionRule または NegationRule の子孫チェーンで無効です。
+
+|InvalidEnumValue
+|{0} に無効な列挙値。
+
+|LALRParserDebugger_Exception_LanguageGuidMismatch
+|{0} 言語に指定した XML 内に含まれる Guid と異なる Guid があります。Guid が一致しない場合、言語デバッガーを作成できません。
+
+|LanguageGenerationParams_Exception_IsLocked_Generate
+|指定した LanguageGenerationParams インスタンスは現在使用中です。
+
+|LanguageGenerationParams_Exception_IsLocked_Property
+|言語生成の処理中に '{0}' プロパティは編集できません。
+
+|Lexer_Exception_UnrecognizedContent
+|文字位置 {0} に無効なコンテンツがあります。値 '{1}' をトークナイズできません。
+
+|LexerState_Exception_TerminalSymbol
+|TerminalSymbol '{0}' は、LexerState '{2}' に既に割り当てられているため、LexerState '{1}' の最初の記号に割り当てることができません。LexerState の最初の記号は他の LexerState に関連付けることができません。
+
+|LexerStatesCollection_Exception_DuplicateKey
+|'{0}' という名前の LexerState が、このコレクションに既に存在します。すべての LexerState は一意の名前に設定する必要があります。
+
+|MissingTerminalRuleException_Message
+|構文ルール '{0}' (NonTerminalSymbol '{1}' の子孫) が終了ルールを含みません。構文ルール ツリーのすべての分岐は終了ルールを表すリーフ ノードで終了する必要があります。
+
+|NegationRuleIsInvalidDescendantException_Message
+|NegationRule はルール {0} の最初のサブルールとして設定できません。
+
+|NonTerminalSymbolsCollection_Exception_DuplicateKey
+|'{0}' という名前の NonTerminalSymbol が、このコレクションに既に存在します。すべての NonTerminalSymbols は一意の名前に設定する必要があります。
+
+|NotPredecessorOrSuccessorSnapshot
+|ターゲット スナップショットは、スナップショットの先行または後続ではありません。
+
+|ObjectAlreadyDisposed
+|オブジェクトは既に破棄されています。
+
+|SnapshotsDontMatch
+|スナップショットが一致しません。
+
+|SyntaxError_EndOfStream
+|ファイルの最後
+
+|SyntaxError_Expected
+|{0} が予想されます
+
+|SyntaxError_Unexpected
+|予期しないトークン '{0}' があります。
+
+|SyntaxRulesCollection_Exception_CircularReference
+|循環参照を作成するため、ルール '{0}' をこのコレクションに追加できません。循環参照は NonTerminalRule のみでサポートされています。
+
+|SyntaxRulesCollection_Exception_RuleEqualsParent
+|このコレクションの先祖であるため、ルール '{0}' をこのコレクションに追加できません。
+
+|SyntaxValidationError_Description_Expected
+|必要な要素: '{0}'。
+
+|SyntaxValidationError_Description_Invalid
+|無効なトークン '{0}' があります (行 {1}、列 {2})。
+
+|SyntaxValidationError_Description_Missing
+|トークン '{0}' がありません (行 {1}、列 {2})。
+
+|SyntaxValidationError_Description_Missing_Expected_Literal
+|必要な要素: '{0}'。
+
+|SyntaxValidationError_Description_Missing_Expected_Regex
+|パターン '{0}' に一致する値が必要です。
+
+|SyntaxValidationError_Description_UnrecognizedContent
+|{0} 行目 {0}、{1} 列にエラーが発生しました。認識されないコンテンツ。
+
+|TerminalBoundary_Exception_DifferentGrammar
+|終了記号 '{0}' は別の Grammar と関連付けられています。
+
+|TerminalSymbol_BadRegex
+|値 '{0}' は有効な正規表現パターンではありません。
+
+|TerminalSymbol_Comparison_BadRegex
+|Value プロパティの現在値 '{0}' は有効な正規表現パターンではありません。
+
+|TerminalSymbol_Exception_CannotModifyWhitespaceSymbol
+|WhitespaceSymbol プロパティから返された TerminalSymbol インスタンスのプロパティを変更できません。
+
+|TerminalSymbol_Exception_LanguageElement
+|{1} に割り当てられているため、'{0}' に LanguageElement プロパティを設定することができません。
+
+|TerminalSymbol_Exception_MatchingSymbol_CannotReferenceSelf
+|MatchingSymbol プロパティに割り当てられた値は別の TerminalSymbol に参照する必要があります。
+
+|TerminalSymbol_Exception_MatchingSymbol_DifferentGrammar
+|MatchingSymbol プロパティに割り当てられた値は、割り当てられているインスタンスとの同じ Grammar に属する必要があります。
+
+|TerminalSymbolsCollection_Exception_DuplicateKey
+|'{0}' という名前の TerminalSymbol が、このコレクションに既に存在します。すべての TerminalSymbols は一意の名前に設定する必要があります。
+
+|ThreadAccessError
+|{0} のインスタンスのプロパティおよびメソッドは、作成されたスレッドからのみアクセスできます。
+
+|Undo_AutoIndent
+|AutoIndent
+
+|Undo_DeleteText
+|テキストの削除
+
+|Undo_DeleteTextDetailed
+|{0} の削除
+
+|Undo_InsertNewLine
+|新規行の挿入
+
+|Undo_InsertTab
+|タブの挿入
+
+|Undo_InsertText
+|テキストの挿入
+
+|Undo_InsertTextDetailed
+|{0} を挿入
+
+|Undo_NewLineLiteral
+|新規行
+
+|Undo_RemoveLine
+|行の削除
+
+|Undo_RemoveTab
+|前のタブを削除
+
+|Undo_ReplaceAll
+|すべて置換
+
+|Undo_ReplaceAllDetailed
+|すべての '{0}' を '{1}' と置換
+
+|Undo_ReplaceText
+|テキストの置換
+
+|Undo_ReplaceTextDetailed
+|'{0}' を '{1}' と置換
+
+|Undo_TabLiteral
+|Tab
+
+|Whitespace_DisplayText
+|{0} (空白)
+
+|====

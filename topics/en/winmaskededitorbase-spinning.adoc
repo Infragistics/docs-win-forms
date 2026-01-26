@@ -1,0 +1,43 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": ["WinEditors"]
+}
+|metadata|
+////
+
+= WinEditorMaskedControlBase Spin
+
+== Spinning Behavior
+The link:windatetimeeditor.html[WinDateTimeEditor], link:wincurrencyeditor.html[WinCurrencyEditor], link:winmaskededit.html[WinMaskedEdit], and link:winnumericeditor.html[WinNumericEditor] each has the ability to increment the current value when the user gives a certain input. There are three ways this behavior can be triggered:
+
+. The user presses the up/down arrow key.
+. The user clicks a spin button.
+. The `UpKeyAction` or `DownKeyAction` are performed on the control using
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase~performaction.html[PerformAction()].
+
+[NOTE]
+.Note
+Spinning can only be implemented while the editor is in edit mode. It is possible to trigger PerformAction() with the up or down key action when the editor is out of edit mode, which will result in an error. Please look to link:winmaskededitorbase-increment-an-editor-using-custom-input.html[Increment an Editor Using Custom Input] to see an example of coding against this scenario.
+
+== Spinning Sections
+When spin behavior is triggered, the section which the cursor is currently in will be incremented up or down corresponding to the arrow used to trigger it. For the `WinDateTimeEditor`, these sections can be month, day, year, while for `WinCurrencyEditor` and `WinNumericEditor` these can be the integer and decimal sections.
+
+If the link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditor~spinincrement.html[SpinIncrement] is set, the cursor position will be ignored and the value will be incremented/decremented according to the `SpinIncrement` setting.
+
+== Spin Wrapping
+When a section reaches its maximum value while incrementing, or minimum value while decrementing, the behavior for what happens on the next increment/decrement is defined by the link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrawineditormaskedcontrolbase~spinwrapbehavior.html[SpinWrapBehavior] property. This can be set to:
+
+* `Default` -- By default, the control will follow the `WrapAcrossSections` behavior.
+* `NoWrapping` -- The value will stop incrementing/decrementing at the max/min.
+* `WrapAcrossSections` -- The value will go to the min/max and increment/decrement the next high section.
++
+For example, if a month set at 12 is incremented, the month will go to 1 and the year will be incremented by 1.
+* `WrapCurrentSection` -- The value will go to the min/max and no other sections will be affected.
++
+For example, if a month set at 12 is incremented, the month will go to 1 and the year will remain the same.
+
+== Related Topics
+* link:winmaskededitorbase-increment-an-editor-using-custom-input.html[Increment a Spinnable Editor Using Custom Input]
+* link:winnumericeditor-incrementing-the-spin-value.html[Incrementing the Spin Value]

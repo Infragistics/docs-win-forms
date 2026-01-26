@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-statebutton-about-the-statebutton-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{576A780C-A68A-4279-B66D-94666B8BFE4C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= StateButton ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== StateButton
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool.html[StateButtonTool]"]
+
+派生元：Toolbase $$->$$ ButtonTool
+
+説明：StateButton ツールは、ラジオ ボタンのようにグループ内で動作する切り替え型のボタンです。ステート ボタンの状態を示す Checked プロパティと、ステート ボタンを StateButton のグループの一部として識別する OptionSet プロパティを持っています。同じ OptionSet に割り当てられた StateButton はすべて、1 つのグループとして動作します。OptionSet 内では、常に 1 つしかボタンをチェックできません。また、OptionSet には AllowAllUp プロパティがあります。このプロパティは、グループ内のすべてのボタンを同時に「アップ」状態、つまりチェック解除状態にできるかどうかを示します。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_16.png[]

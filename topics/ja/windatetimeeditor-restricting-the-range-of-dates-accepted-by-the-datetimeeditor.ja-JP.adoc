@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatetimeeditor-restricting-the-range-of-dates-accepted-by-the-datetimeeditor",
+    "controlName": ["WinEditors"],
+    "tags": ["How Do I","Validation"],
+    "guid": "{E22BEED0-D4B4-4E2C-B682-05579055A396}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= DateTimeEditor が受け入れる日付の範囲を制限する
+
+WinDateTimeEditor コントロールは、エレメントが受け入れる日付の範囲を制限する機能を提供します。これを行うには、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultradatetimeeditor~mindate.html[MinDate]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultradatetimeeditor~maxdate.html[MaxDate]"]  プロパティを設定します。これらのプロパティを設定すると、ドロップダウン カレンダーによってエレメントは指定範囲外の日付に移動できなくなります。さらに、MinDate プロパティと MaxDate プロパティで指定された範囲に含まれない日付をエレメントの編集部分に入力すると、エレメントがフォーカスを失ったときに、入力した日付が最後の有効な日付に戻ります。

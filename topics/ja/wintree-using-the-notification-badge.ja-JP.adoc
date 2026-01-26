@@ -1,0 +1,110 @@
+﻿= 通知バッジが使用されている WinTree
+
+このトピックは、link:wintree.html[UltraTree] の NotificationBadge プロパティの使用方法を紹介します。
+
+toc::[]
+
+== 概要
+
+通知バッジは重要なイベントをユーザーにお知らせします。通知バッジに関連するほとんどすべての設定は、`UltraTree` のさまざまなレベルにある `NotificationBadgeSettings` プロパティで公開されています。ツリーと各ノードの `Override` プロパティに含まれます。設定は、より具体的なインスタンスを使用してから、より一般的なインスタンスを使用して解決されます。たとえば、ツリーのノードに通知バッジを表示すると、ノードの通知設定がツリーの通知設定よりも優先されます。`NotificationBadgeSettings` クラスに含まれていない NotificationBadges に関連する唯一のプロパティは `NotificationBadgeText` で、各ノードに直接に表示されます。
+
+NotificationBadges のサイズはそのコンテンツ サイズによって決定され、`DisplayArea` に制限されます。テキストをもつバッジの場合、通知は表示領域を超えない程度、指定のフォントのテキストを表示するためのサイズになります。画像表示の場合、通知バッジは画像のサイズを使用します (同じく、表示領域を超えない程度)。
+
+== Appearance プロパティ
+
+`NotificationBadgeSettings` プロパティは `Appearance` プロパティを公開します。`NotificationBadgeSettings` プロパティは、ツリー、各ノード、および各 Nodes コレクションに公開されている Override に公開されます。通知バッジは、デフォルトで背景色と境界線が赤色、前景色は白となります。
+
+*C# の場合:*
+[source,csharp]
+----
+// 通知バッジのフォント サイズを 8pt にします
+this.ultraTree1.Override.NotificationBadgeSettings.Appearance.FontData.SizeInPoints = 8;
+// グループの通知バッジでサイズを小さくします
+this.ultraTree1.Override.NotificationBadgeSettings.Appearance.FontData.SizeInPoints = 5.5f;
+// 最初のグループで Calibri フォントを使用します
+this.ultraTree1.Override.NotificationBadgeSettings.Appearance.FontData.Name = "Calibri";
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 通知バッジのフォント サイズを 8pt にします
+Me.UltraTree1.Override.NotificationBadgeSettings.Appearance.FontData.SizeInPoints = 8
+' グループの通知バッジでサイズを小さくします
+Me.UltraTree1.Override.NotificationBadgeSettings.Appearance.FontData.SizeInPoints = 5.5F
+' 最初のグループで Calibri フォントを使用します
+Me.UltraTree1.Override.NotificationBadgeSettings.Appearance.FontData.Name = "Calibri"
+----
+
+== Style プロパティ
+
+`NotificationBadgeSettings` のスタイル プロパティは `BorderStyle` および `DisplayShadow` プロパティです。`BorderStyle` は通知境界線のスタイルを決定する一方、`DisplayShadow` プロパティは通知が影付きになるかどうかを決定します。
+
+デフォルトの境界線のスタイルは Rounded3 で通知は影なしになります。デフォルトの影付き色は Gray です。通知外観の `BorderColor3DBase` プロパティで設定されます。
+
+*C# の場合:*
+[source,csharp]
+----
+// NotificationBadges の周りに影を表示します
+this.ultraTree1.Override.NotificationBadgeSettings.DisplayShadow = DefaultableBoolean.True;
+// NotificationBadges の BorderStyle を Rounded1 に設定します
+this.ultraTree1.Override.NotificationBadgeSettings.BorderStyle = UIElementBorderStyle.Rounded1;
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+' NotificationBadges の周りに影を表示します
+Me.UltraTree1.Override.NotificationBadgeSettings.DisplayShadow = DefaultableBoolean.[True]
+' NotificationBadges の BorderStyle を Rounded1 に設定します
+Me.UltraTree1.Override.NotificationBadgeSettings.BorderStyle = UIElementBorderStyle.Rounded1
+----
+
+== Visibility プロパティ
+
+`Visibility` プロパティは、Tree が NotificationBadges を表示する条件を決定します。デフォルトでは NonNullOrEmpty に設定されます。すなわち、コンテンツ (NotificationBadge に割り当てられたテキストや画像) がある場合にのみ表示されます。`Visibility` を Always に設定し、NotificationBadges がコンテンツを含まなくても表示されるように設定できます。また、Never に設定し非表示にすることもできます。`Visibility` を Never に設定することで NotificationBadges が不要な位置に表示されないようにできます。
+
+*C# の場合:*
+[source,csharp]
+----
+// NotificationBadges を非表示にします
+this.ultraTree1.Override.NotificationBadgeSettings.Visibility = NotificationBadgeVisibility.Never;
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+' NotificationBadges を非表示にします
+Me.UltraTree1.Override.NotificationBadgeSettings.Visibility = NotificationBadgeVisibility.Never
+----
+
+== NotificationBadgeText プロパティ
+
+このプロパティは NotificationBadgeSettings クラスに含まれておらず、ノードに直接に含まれます。NotificationBadge に表示されるテキストを決定します。
+
+*C# の場合:*
+[source,csharp]
+----
+// 項目のテキストを設定します
+node1.NotificationBadgeText = "7";
+node2.NotificationBadgeText = "新規";
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+' 項目のテキストを設定します
+Node1.NotificationBadgeText = "7"
+Node2.NotificationBadgeText = "新規"
+----
+
+== 関連コンテンツ
+
+以下のトピックでは、他のコンポーネントで通知バッジを使用する方法について説明します。
+
+* link:wintoolbarsmanager-using-the-notification-badge.html[WinToolbarsManager 通知バッジの使用]
+* link:winlistview-using-the-notification-badge.html[通知バッジが使用されている WinListView]
+* link:winstatusbar-using-the-notification-badge.html[通知バッジが使用されている WinStatusBar]
+* link:winexplorerbar-using-the-notification-badge.html[通知バッジが使用されている WinExplorerBar]
+* link:wintab-using-the-notification-badge.html[通知バッジが使用されている WinTab]

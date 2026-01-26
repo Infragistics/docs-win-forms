@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-use-add-and-insert-methods-with-arrays",
+    "controlName": ["WinDataSource"],
+    "tags": ["How Do I"],
+    "guid": "{547CE961-A3BF-4EB2-BCB1-802A39FEBA17}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 配列を用いる Add/Insert メソッドの使用
+
+2005 Volume 1 では、WinDataSource コンポーネントの Add メソッドと Insert メソッドに新しいオーバーロードが追加されました。新しいオーバーロードでは、セル値の配列を渡して新しい行を初期化できます。このトピックでは、この機能について説明します。
+
+[start=1]
+. 新しい C# または VB.NET Windows アプリケーションを作成します。デザイン ビューで UltraGrid コントロールと UltraDataSource コンポーネントをフォームに追加します。
+[start=2]
+. UltraDataSource を右クリックして、コンテキスト メニューから [UltraDataSource デザイナ] を選択します。次のスクリーンショットのような UltraDataSource デザイナが表示されます。
+
+image::Images/WinDataSource_Use_Add_and_Insert_Methods_with_Arrays_02.png[]
+
+[start=3]
+. [データ列] というラベルの付いた 2 番目のペインで列の追加ボタンをクリックします。これで新しい列が追加されます。一番右のペインで "Key" を選択し、「Last Name」と入力します。同じ操作を繰り返して、「First Name」という新しい列を作成します。
+[start=4]
+. フォームのコード ファイルで、Form_Load イベントのハンドラを作成します。ここで、UltraDataSource にデータを追加する Add および Insert メソッドを呼び出します。
+[start=5]
+. まず、新しい Add メソッドのオーバーロードについて見てみます。各オーバーロードの説明はコメントを参照してください。
+
+*Visual Basic の場合：*
+
+----
+ ' 値の配列のみを渡して行を作成します。
+Me.UltraDataSource1.Rows.Add(New Object() {"Mize", "Rachel"})
+Me.UltraDataSource1.Rows.Add(New Object() {"Jones", "William"})
+' ブール値は、Add メソッドを呼び出したときに
+' UltraDataSource で Add イベントを発生させるフラグです。
+Me.UltraDataSource1.Rows.Add(True, New Object() {"Craft", "Joe"})
+----
+
+*C# の場合：*
+
+----
+ // 値の配列のみを渡して行を作成します。
+this.ultraDataSource1.Rows.Add(new object[] {"Mize", "Rachel"});
+this.ultraDataSource1.Rows.Add(new object[] {"Jones", "William"});
+// ブール値は、Add メソッドを呼び出したときに
+// UltraDataSource で Add イベントを発生させるフラグです。
+this.ultraDataSource1.Rows.Add(true, new object[] {"Craft", "Joe"});
+----
+
+[start=6]
+. The Insert method also has similar new overloads. The comments explain the two new overloads.
+
+*Visual Basic の場合：*
+
+----
+ ' 値の配列を渡し、指定した位置に挿入します。
+Me.UltraDataSource1.Rows.Insert(2, New Object() {"Crump", "Bethany"})
+' ブール値は、Add メソッドを呼び出したときに
+' UltraDataSource で Insert イベントを発生させるフラグです。
+Me.UltraDataSource1.Rows.Insert(0, True, New Object() {"Hill", "Elizabeth"})
+----
+
+*C# の場合：*
+
+----
+ // 値の配列を渡し、指定した位置に挿入します。
+this.ultraDataSource1.Rows.Insert(2, new object[] {"Crump", "Bethany"});
+// ブール値は、Add メソッドを呼び出したときに
+// UltraDataSource で Insert イベントを発生させるフラグです。
+this.ultraDataSource1.Rows.Insert(0, true, new object[] {"Hill", "Elizabeth"});
+----
+
+[start=7]
+. プロパティ グリッドで UltraGrid の DataSource を、作成した UltraDataSource に設定します。プロジェクトをビルドして実行すると、次のスクリーンショットのようなフォームが表示されます。
+
+image::Images/WinDataSource_Use_Add_and_Insert_Methods_with_Arrays_01.png[]

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{E5CC4E82-9AC5-4AD8-B98B-1505EEE5E575}",  
+    "buildFlags": [],
+    "createdOn": "2010-05-01T10:55:54Z"
+}
+|metadata|
+////
+
+= WinGanttView
+
+WinGanttView™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このセクションをご覧ください。 このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinGanttView についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinGanttView コントロールについての情報にアクセスします。
+
+== link:winganttview-understanding-winganttview.html[WinGanttView の理解]
+
+このセクションには WinGanttView コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:winganttview-using-winganttview.html[WinGanttView の使用]
+
+このセクションには役に立つ短いトピックがあり、WinGanttView コントロールを使って特定の作業を実行する方法を示すサンプルコードが付いています。
+
+== link:winganttview-api-overview.html[API の概要]
+
+このトピックは、WinGanttView コントロールでプログラミング中に作業する名前空間とクラスをリストします。 このトピックでリストされた名前空間とクラスは、「{ProductName} ヘルプ」の「API リファレンス ガイド」セクションへリンクしていて便利です。

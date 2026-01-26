@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintimelineview-using-wintimelineview",
+    "controlName": ["WinTimelineView"],
+    "tags": [],
+    "guid": "{B9FD657D-B2E3-4EA4-B9BD-D60D11B5D9AF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTimelineView の使用
+
+このセクションでは、WinTimelineView™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintimelineview-assign-multiple-owners-for-wintimelineview.html[WinTimelineView に複数オーナーを指定]
+* link:wintimelineview-set-time-and-date-intervals-for-wintimelineview.html[WinTimelineView に時間/日の間隔を設定]
+* link:wintimelineview-appointments-databinding-for-wintimelineview.html[WinTimelineView の予定のデータ バインディング]
+* link:wintimelineview-resize-owners-and-timeslots-in-wintimelineview.html[WinTimelineView でオーナーとタイムスロットをリサイズ]
+* link:wintimelineview-styling-owner-headers.html[オーナー ヘッダーのスタイル]
+* link:wintimelineview-styling-timeslot-headers.html[タイムスロット ヘッダーのスタイル]
+* link:wintimelineview-wintimelineview-printing.html[WinTimelineView の印刷]

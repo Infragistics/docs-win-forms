@@ -1,0 +1,181 @@
+﻿////
+
+|metadata|
+{
+    "name": "undomanager-properties-and-methods-reference",
+    "controlName": [],
+    "tags": ["API","Editing","How Do I"],
+    "guid": "3cc77300-68e8-443f-b201-a38327610dfc",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3720125Z"
+}
+|metadata|
+////
+
+= UndoManager プロパティおよびメソッド参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320610987, UndoManager クラス参照 >>
+** <<_Ref320807968,はじめに>>
+** <<_Ref320807974,プロパティ参照の概要>>
+** <<_Ref320807978,メソッド参照の概要>>
+
+* <<_Ref320610997, 関連コンテンツ >>
+
+[[_Ref320610987]]
+== UndoManager クラス参照
+
+[[_Ref320807968]]
+
+=== はじめに
+
+UndoManager クラスは、元に戻す/やり直し操作を実行し、元に戻す/やり直し履歴を保持するための機能を提供します。
+
+実行された操作は、 link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undounit_members.html[UndoUnit] インスタンスを UndoManager に追加することによって履歴に保存されます。
+
+注:
+
+[NOTE]
+====
+UndoManager クラスはスレッドセーフではないので、単一スレッドで使用しなければなりません。
+====
+
+image::images/About_UndoManager_1.png[]
+
+[[_Ref320807974]]
+
+=== プロパティ参照の概要
+
+以下の表で、UndoManager クラスのキー プロパティの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~canredo.html[CanRedo]
+|やり直すことができる操作があるかどうかを示すブール値を返します。 
+
+このプロパティは、 link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~redohistory.html[RedoHistory] に UndoUnits があるかどうかを決定します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~canundo.html[CanUndo]
+|元に戻すことができる操作があるかどうかを示すブール値を返します。 
+
+このプロパティは、 link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~undohistory.html[UndoHistory] に UndoUnits があるかどうかを決定します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~current.html[Current]
+|UndoManager のスレッド静的な単一インスタンスを返します。 
+
+UndoManager クラスを使用するもう 1 つの方法は新しいインスタンスを作成することです。各インスタンスは固有の履歴を保持します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~isperformingredo.html[IsPerformingRedo]
+|マネージャーがやり直し操作を実行するかどうかを示すブール値を返します。 
+
+`IsPerformingRedo` が _True_ のとき、やり直し操作が実行されるため、`UndoUnits` が元に戻す履歴に追加されます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~isperformingundo.html[IsPerformingUndo]
+|マネージャーが元に戻す操作を実行するかどうかを示すブール値を返します。 
+
+`IsPerformingUndo` が _True_ のとき、元に戻す操作が実行されるため、`UndoUnits` がやり直し履歴に追加されます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~redohistory.html[RedoHistory]
+|やり直し履歴内の link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem_members.html[UndoHistoryItem] インスタンスの読み取り専用コレクションを返します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~undohistory.html[UndoHistory]
+|元に戻す履歴内の `UndoHistoryItem` インスタンスの読み取り専用コレクションを返します。
+
+|====
+
+[[_Ref320807978]]
+
+=== メソッド参照の概要
+
+以下の表で、UndoManager クラスのキー メソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addchange.html[AddChange]
+|`UndoUnit` を履歴に追加します。 
+
+このメソッドにはいくつかのオーバーロードがあります。 
+
+その中の 1 つは特定の `UndoUnit` を引数として取得します。 
+
+その他は、操作が元に戻す/やり直されるときに呼び出すメソッドを表す Action または Func<> インスタンスを取得します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addcollectionchange.html[AddCollectionChange]
+|元に戻す履歴への指定されたコレクション変更のために `UndoUnit` を追加します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~addpropertychange.html[AddPropertyChange]
+|元に戻す履歴への指定されたプロパティ値変更のために link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.propertychangeundounitbase_members.html[PropertyChangeUndoUnitBase] を追加します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~clearhistory.html[ClearHistory]
+|元に戻す/やり直すの履歴をクリアします。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~foreach.html[ForEach]
+|元に戻す/やり直し履歴内の `UndoUnit` インスタンスを列挙して、提供された `Action<UndoUnit>` デリゲートを起動します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~fromreference.html[FromReference]
+|いったんオブジェクトが UndoManager に関連付けられたら、これを使用して、必要なときに UndoManager インスタンスへの参照を取得することができます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~redo.html[Redo]
+|現在の履歴を使用して 1 つ以上のやり直し操作を実行します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~registerreference.html[RegisterReference]
+|オブジェクトを UndoManager インスタンスに関連付けます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~resume.html[Resume]
+|履歴内の `UndoUnit` インスタンスの中断された記録を再開します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~starttransaction.html[StartTransaction]
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undotransaction_members.html[UndoTransaction] を作成および開始します。これは、複数の操作が 1 つのエントリとして元に戻す/やり直し履歴に保存されなければならないときに役に立ちます。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~suspend.html[Suspend]
+|履歴内の `UndoUnit` インスタンスの記録を中断します。 
+
+オブジェクトまたはコレクションを初期化する、または初期データを読み込むときにこのメソッドが必要な場合があります。 
+
+記録が中断されるときに、`Undo` または `Redo` メソッドを呼び出すと例外になります。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~undo.html[Undo]
+|現在の履歴を使用して 1 つ以上の元に戻す操作を実行します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undomanager~unregisterreference.html[UnregisterReference]
+|UndoManager インスタンスで登録されたオブジェクトの `RegisterReference` メソッドで作成された登録を削除します。
+
+|====
+
+[[_Ref320610997]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:observablecollectionextendedwithundo-properties-reference.html[ObservableCollectionExtendedWithUndo プロパティ参照]
+|このトピックは、ObservableCollectionExtendedWithUndo クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undohistoryitem-properties-and-methods-reference.html[UndoHistoryItem プロパティおよびメソッド参照]
+|このトピックは、UndoHistoryItem クラスのプロパティおよびメソッドをリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounitfactory-properties-and-methods-reference.html[UndoUnitFactory プロパティおよびメソッド参照]
+|このトピックは、UndoUnitFactory クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+|====

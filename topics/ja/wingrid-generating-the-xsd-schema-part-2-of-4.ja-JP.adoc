@@ -1,0 +1,98 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-generating-the-xsd-schema-part-2-of-4",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{50DA8824-2ACD-4C56-B52B-1D15FDC88573}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= XSD スキーマの作成(パート2/4)
+
+このトピックは、 link:wingrid-setting-up-a-project-for-xsd-support-part-1-of-4.html[「XSD サポート用にプロジェクトを設定（パート 1/4）」]の続きです。
+
+== スキーマの概要
+
+チュートリアルのこのセクションでは、WinGrid が使用するデータ ソースの構造とデータ制約を提供する XSD スキーマを作成します。例として、単純な顧客-注文データ モデルを表すスキーマを定義します。データ モデルは WinGrid の 2 つの関連するバンドで表します。ルート バンドを Customers テーブルとし、Orders テーブルをその子バンドとします。2 つのバンド間のリレーションは CustID フィールドに基づきます。CustID フィールドは Customers バンドのプライマリ キーで、Orders バンドでは外部キーとなります。
+
+== "Customers" データ構造の定義
+
+[start=1]
+. 最初に XSD ファイルをプロジェクトに追加する必要があります。そのためには、ソリューション エクスプローラでプロジェクトを表すノードを右クリックして [追加] を選択し、サブメニューから [新しい項目の追加] を選択します。ダイアログが表示されたら、[テンプレート] で [XML スキーマ] を選択し、ファイル名を  _cust-orders.xsd_  にします。準備ができたら、[開く] ボタンをクリックします。
+[start=2]
+. XSD ファイルを開くと、XSD スキーマを作成するためのデザイン画面が Visual Studio に表示されます。グラフィカルなデザイン画面ではなく XML テキスト エディタが表示された場合は、ウィンドウの左下隅にある [スキーマ] タブ ボタンをクリックします。ここでツールボックスを開くと、XML スキーマ オブジェクトがツールボックス項目として表示されます。
+[start=3]
+. ツールボックスから element オブジェクトをデザイン画面にドラッグします。XSD エレメントの視覚的表現がデザイン画面に表示されます。このオブジェクトには、エンティティのカテゴリを示すドロップダウン リスト列、エンティティの名前、およびエンティティの型の 3 つの列があります。この小さいグリッドの各行は、エレメントに含まれる XSD エンティティを表します。
+
+今作成したエレメントはスキーマの Customers データ構造を表します。1 行目の 2 列目に「Customers」と入力します。これはエレメントの名前を示します。2 行目の 1 列目でドロップダウンから "group" を選択し、2 列目に「ref=NameInfo」と入力します。これで Customers エレメントは、"NameInfo" というグループ（後で作成します）を参照します。3行目の 1 列目でドロップダウンから "attribute" を選択し、2 列目に「ref=CustID」と入力します。これで Customers エレメントはグローバルに定義された属性を参照します。後で Orders エレメントを作成するときにも、この属性を参照するようにします。そうすることで、この属性がグローバルに定義されます。
+
+スキーマは下図のスクリーンショットのようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_02.png[]
+
+[start=4]
+. 次に、Customers エレメントによって参照される NameInfo グループを作成します。ツールボックスから group オブジェクトをデザイン画面にドラッグし、"NameInfo" という名前を付けます。次の行の 1 列目でドロップダウンから "element" を選択します。同じ行の 2 列目に「Title」と入力し、3 列目に「TitleType」と入力します。これで NameInfo グループに "Title" という名前の "TitleType" 型のエレメントが追加されました。TitleType データ型は後で作成します。
+
+次に string 型のエレメントをグループに追加し、"FirstName" という名前を付けます。3 番目に、"MiddleInitial" という名前で Unnamed simpleType データ型のエレメントを作成します。3 番目のエレメントを作成すると、NameInfo グループ オブジェクトの下に別の構造が生成されます（これは後で設定します）。最後にもうひとつ string 型の要素を追加し、"LastName" という名前を付けます。
+
+続いて、NameInfo グループの下にある、MiddleInitial エレメントとそのデータ型を表す構造を設定します。[simpleType] ボックス（"ST" というラベルの付いた一番下の構造）で、2 行目の 1 列目のセルのドロップダウンから "facet" を選択します。facet とは、データの制約を作成するための XSD の構文です。同じ行の 2 列目で "pattern" を選択し、3 列目に "[A-Z]?" という正規表現を入力します。この制約は、MiddleInitial 列の値が空か 1 文字の大文字であることを指定します。ここで指定した正規表現は、WinGrid がランタイムにスキーマを読み取るときに、MiddleInitial 列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~regexpattern.html[RegexPattern]"]  プロパティに自動的に割り当てられます。
+
+この時点で、デザイン画面は次のスクリーンショットのようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_03.png[]
+
+[start=5]
+. 次に、ツールボックスから simpleType オブジェクトをデザイン画面にドラッグします。1 行目の 2 列目に「TitleType」と入力し、最後の列は string 型のままにします。次の行の 1 列目でドロップダウンから "facet" を選択し、2 列目で "enumeration" を選択します。同じ操作をさらに 3 回繰り返します。4 つの同じ行を作成したら、各行の最後の列にそれぞれ「Mr.」、「Mrs.」、「Ms.」、「Dr.」と入力します（1 行にひとつの値を入力します）。これにより、WinGrid がスキーマによって提供された "Title" 列の制約を適用する際、今指定した 4 つの値を含む ValueList が "Title" 列に作成されます。エンド ユーザーは、この列のセルで、これらの値のいずれかひとつを選択できます。
+
+この simpleType オブジェクトは次のスクリーンショットのようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_04.png[]
+
+[start=6]
+. 次に、"CustID" グローバル属性を作成します。ツールボックスから attribute オブジェクトをデザイン画面にドラッグし、"CustID" という名前を付けます。最後の列で、positiveInteger データ型を選択します。属性が positiveInteger 型であるということは、CustID 列に 0 より大きい整数値を入力する必要があることを意味します。
+
+このオブジェクトは次のスクリーンショットのようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_05.png[]
+
+== "Orders" データ構造の定義
+
+[start=1]
+. Orders データ構造を定義するには、まず新しい element オブジェクトをデザイン画面にドラッグして "Orders" という名前を付けます。カテゴリが element の行を追加し、"OrderID" という名前を付けます。このエレメントのデータ型は "OrderIDType" にします。
+
+次の行に "ProductName" という名前のエレメントを追加し、Unnamed simpleType 型にします。
+
+その次の行に "Price" という名前のエレメントを追加し、これも Unnamed simpleType 型にします。
+
+4 番目のエレメントは "Quantity" という名前で、Unnamed simpleType 型にします。
+
+最後から 2 番目の行に "ref=CustID" という名前の属性を追加し、positiveInteger 型にします。
+
+最後の行に "Category" という名前の属性を追加し、string 型にします。
+
+image::Images/WinGrid_Working_with_XSD_Schema_06.png[]
+
+[start=2]
+. この時点で、Orders データ構造内のエンティティが使用する smpleType 型に制約を追加する必要があります。最初に ProductName 型を表す [simpleType] ボックスを見つけます。まず、ProductName 型を表す simpleType ボックスについて、2 行目の 1 列目でドロップダウンから "facet"、2 列目で "maxLength" を選択し、3 列目に「30」と入力します。次の行では 1 列目で "facet"、2 列目で "minLength" を選択し、3 列目に「3」と入力します。これら 2 つのファセットは、ProductName 列の値の長さが 3～30 文字でなければならないことを指定します。minLength ファセットは UltraGridColumn の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~minlength.html[MinLength]"]  に対応し、maxLength ファセットは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~maxlength.html[MaxLength]"]  プロパティに対応します。
+
+Price simpleType ボックスでは、1 行目の 3 列目にあるデータ型を "decimal" に変更します。2 行目では 1 列目を "facet"、2 列目を "maxInclusive" に設定し、最後の列に「10000.00」と入力します。3 行目では 1 列目で "facet"、2 列目で "minInclusive" を選択し、最後の列に「1.00」と入力します。WinGrid が Price 列に入力されたデータを検証する場合、その値が 1.00 から 10000.00 の数値であることが要求されます。minInclusive ファセットは UltraGridColumn のpick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~minvalue.html[MinValue]"]  プロパティに対応し、maxInclusive ファセットは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~maxvalue.html[MaxValue]"]  プロパティに対応します。
+
+最後の Quantity という名の simpleType は short 型でなければなりません。2 行目で "facet" を選択し、2 列目で minExclusive を選択、最後の列で値 0 を入力します。WinGrid 内の Quantity 列は 0 より大きい短い値を持つよう制限されます。minExclusive ファセットは UltraGridColumn の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~minvalueexclusive.html[MinValueExclusive]"]  プロパティに対応します。
+
+Orders 構造は次のようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_07.png[]
+
+[start=3]
+. Orders データ構造の最後の項目として、ツールボックスから simpleType オブジェクトをデザイン画面にドラッグします。"OrderIDType" という名前を付けて、データ型を "string" に設定します。2 行目では 1 列目で "facet"、2 列目で "pattern" を選択し、3 列目に「\d{1,3}[A-Z]」という正規表現を入力します。この正規表現は、XSD データ型が OrderIDType の列では、値が 1～3 桁の数値で始まり、その後に 1 文字の大文字が続く必要があることを指定します。
+
+この simpleType オブジェクトは次のスクリーンショットのようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_08.png[]
+
+スキーマの基本的なデータ構造の定義はこれで終わりです。次のセクションでは、Customers および Orders エレメント/テーブル間のリレーションを作成し、このスキーマを使用してデータセットの構造を作成します。データ セットを作成した後、そこにテスト データを入力します。

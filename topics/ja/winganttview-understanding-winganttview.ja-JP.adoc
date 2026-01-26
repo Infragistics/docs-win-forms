@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-understanding-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": [],
+    "guid": "{50483BF7-FE66-49A5-910A-5A71EA7AC324}",  
+    "buildFlags": [],
+    "createdOn": "2010-05-01T10:59:31Z"
+}
+|metadata|
+////
+
+= WinGanttView の理解
+
+WinGanttView™ コントロール、およびその主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinGanttView コントロールを使用することの利点を理解できます。
+
+WinGanttView コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winganttview-about-winganttview.html[WinGanttView について] -- WinGanttView コントロールの概要を説明しています。
+* link:winganttview-terms-and-concepts.html[用語と概念] -- WinGanttView コントロールで使用される用語と概念を説明します。
+* link:winganttview-winganttview-smart-tag.html[WinGanttView スマートタグ]

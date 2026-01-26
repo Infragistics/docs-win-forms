@@ -1,0 +1,109 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-setting-wincalcmanager-formulas-at-run-time",
+    "controlName": ["WinCalcManager"],
+    "tags": ["Calculations","How Do I"],
+    "guid": "{13C4B6E6-1198-4961-8C7D-4A63B98B5BEB}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalcManager の数式をランタイムに設定する
+
+フォームの計算ネットワークでエレメントと関連付けられたプロパティを取得または設定することでランタイムに WinCalcManager コンポーネントとやりとりすることができます。この詳細なガイドでは 2 つのテキスト ボックスの値の集計の設定と 3 番目のテキスト ボックスの結果値を配置する方法を示すことが目的です。
+
+[start=1]
+. Windows Forms プロジェクトで開始します。
+[start=2]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinCalcManager
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinCalcManager;
+----
+
+[start=3]
+. フォームに UltraCalcManager、3 つの TextBox、およびサーバー Button を配置し、自由にレイアウトします。
+
+image::images\WinCalcManager_Settings_a_CalcManagers_Formulas_at_RunTime_02.png[]
+
+[start=4]
+. フォームに配置したボタンの Click イベントを作成します。以下のコードを新たに作成した Click イベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnCalculate_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnCalculate.Click
+	' 指定した拡張されたエレメントの CalcSettings を取得します。
+	Dim cs1 As CalcSettings = Me.UltraCalcManager1.GetCalcSettings(Me.UltraTextEditor1)
+	' コントロールに関連する計算のソースまたはターゲットとして使用する 
+	' プロパティを取得/設定します。
+	cs1.PropertyName = "Text"
+	' これは指定されたエレメントに CalcSettings エクステンダ プロパティを設定します。
+	Me.UltraCalcManager1.SetCalcSettings(Me.UltraTextEditor1, cs1)
+	' 指定した拡張されたエレメントの CalcSettings を取得します。
+	Dim cs2 As CalcSettings = Me.UltraCalcManager1.GetCalcSettings(Me.UltraTextEditor2)
+	' コントロールに関連する計算のソースまたはターゲットとして使用する 
+	' プロパティを取得/設定します。
+	cs2.PropertyName = "Text"
+	' 指定したエレメントの CalcSettings エクステンダ プロパティを設定します。 
+	Me.UltraCalcManager1.SetCalcSettings(Me.UltraTextEditor2, cs2)
+	' 指定した拡張されたエレメントの CalcSettings を取得します。
+	Dim cs3 As CalcSettings = Me.UltraCalcManager1.GetCalcSettings(Me.UltraTextEditor3)
+	' コントロールに関連する計算のソースまたはターゲットとして使用する 
+	' プロパティを取得/設定します。
+	cs3.PropertyName = "Text"
+	' このオブジェクトの値を設定するために使用される数式。 
+	cs3.Formula = "[//UltraTextEditor1] + [//UltraTextEditor2]"
+	' This sets the CalcSettings extender property for the specified element. 
+	Me.UltraCalcManager1.SetCalcSettings(Me.UltraTextEditor3, cs3)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	// 指定した拡張されたエレメントの CalcSettings を取得します。
+	CalcSettings cs1 = this.ultraCalcManager1.GetCalcSettings( this.ultraTextEditor1);
+	// コントロールに関連する計算のソースまたはターゲットとして使用する 
+	// プロパティを取得/設定します。
+	cs1.PropertyName = "Text";
+	// これは指定されたエレメントに CalcSettings エクステンダ プロパティを設定します。
+	this.ultraCalcManager1.SetCalcSettings( this.ultraTextEditor1, cs1);
+	// 指定した拡張されたエレメントの CalcSettings を取得します。
+	CalcSettings cs2 = this.ultraCalcManager1.GetCalcSettings( this.ultraTextEditor2);
+	// コントロールに関連する計算のソースまたはターゲットとして使用する 
+	// プロパティを取得/設定します。
+	cs2.PropertyName = "Text";
+	// これは指定されたエレメントに CalcSettings エクステンダ プロパティを設定します。 
+	this.ultraCalcManager1.SetCalcSettings( this.ultraTextEditor2, cs2);
+	// 指定した拡張されたエレメントの CalcSettings を取得します。
+	CalcSettings cs3 = this.ultraCalcManager1.GetCalcSettings( this.ultraTextEditor3);
+	// コントロールに関連する計算のソースまたはターゲットとして使用する 
+	// プロパティを取得/設定します。
+	cs3.PropertyName = "Text";
+	// このオブジェクトの値を設定するために使用される数式。 
+	cs3.Formula = "[//ultraTextEditor1] + [//ultraTextEditor2]";
+	// これは指定されたエレメントに CalcSettings エクステンダ プロパティを設定します。 
+	this.ultraCalcManager1.SetCalcSettings( this.ultraTextEditor3, cs3);
+}
+----
+
+[start=5]
+. プロジェクトをビルドして実行すると、第一および第二のテキスト ボックスに値を入力し、[計算] ボタンを押します。計算結果が第三のテキスト ボックスに表示されます。
+
+image::images\WinCalcManager_Settings_a_CalcManagers_Formulas_at_RunTime_01.png[]

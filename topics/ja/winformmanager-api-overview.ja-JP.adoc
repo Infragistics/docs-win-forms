@@ -1,0 +1,29 @@
+﻿////
+|metadata|
+{
+    "name": "winformmanager-api-overview",
+    "controlName": ["WinFormManager"],
+    "tags": ["API"],
+    "guid": "760d2b81-5a28-4b15-bc96-3e3453ada88a",
+    "buildFlags": [],
+    "createdOn": "2010-06-03T22:06:05.2446871Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+
+=== WinEditors 名前空間: 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinform_namespace.html[Infragistics.Win.UltraWinForm 名前空間] 
+
+=== キー クラス： 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinform.ultraformmanager.html[UltraFormManager] 
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinform.formstylesettings.html[FormStyleSettings] 
+
+

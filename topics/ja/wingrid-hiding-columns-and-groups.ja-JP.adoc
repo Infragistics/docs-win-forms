@@ -1,0 +1,68 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-hiding-columns-and-groups",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{1AE9150E-0669-49DA-A315-F94BADCEBFEF}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 列およびグループの非表示
+
+toc::[]
+
+== デザインタイムに列またはグループを非表示にするには:
+
+
+. デザインタイムにグリッドで DataSource が設定されている場合、プロパティ ページにおいて列またはグループを非表示にできます。
++
+プロパティ ページを開くには、フォーム上でグリッドを選択し、[プロパティ] ウィンドウの下部にある [カスタム プロパティ...] リンクをクリックします。
+
+. [グループと列] タブに切り替えます。
+. ツリー リストから隠したい列またはグループを選択します。
+. [表示/非表示] ボタンをクリックします。
+. Hidden プロパティを設定します。
+
+*Visual Basic の場合：*
+[source, vb]
+Private Sub Hide_Columns_and_Groups_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Hidden = True
+End Sub
+
+*C# の場合：*
+[source, csharp]
+private void Hide_Columns_and_Groups_Load(object sender, EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Hidden = true;
+}
+
+== ColPosChanged イベント
+UI を使用して列を非表示、または表示すると、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforecolposchanged_ev.html[BeforeColPosChanged] および link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~aftercolposchanged_ev.html[AfterColPosChanged] イベントが発生します。
+同様に、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroup.html[UltraGridGroup] を表示/非表示すると、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforegroupposchanged_ev.html[BeforeGroupPosChanged] および link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~aftergroupposchanged_ev.html[AfterGroupPosChanged] イベントが発生します。
+
+この相互作用をリッスンするには、link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.beforecolposchangedeventargs~ColumnPosChangedType.html[ColumnPosChangedType] が  link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.poschangedtype.html[PosChangedType] になることをトラップします。次のコードに示すように、イベント引数に HiddenStateChanged を追加します。
+
+*C# の場合：*
+[source, csharp]
+private void UltraGrid1_AfterColPosChanged(object sender, AfterColPosChangedEventArgs e)
+{
+    bool hasHiddenChanged = (e.ColumnPosChangedType & PosChangedType.HiddenStateChanged)
+        == PosChangedType.HiddenStateChanged;
+    if(hasHiddenChanged)
+    {
+        //コードを追加
+    }
+}
+    
+*Visual Basic の場合：*
+[source, vb]
+Private Sub UltraGrid1_AfterColPosChanged(sender As Object, e As AfterColPosChangedEventArgs)
+    Dim hasHiddenChanged As Boolean = (e.ColumnPosChangedType And PosChangedType.HiddenStateChanged) = PosChangedType.HiddenStateChanged
+    If hasHiddenChanged Then
+        'コードを追加
+End Sub

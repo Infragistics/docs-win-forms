@@ -1,0 +1,162 @@
+﻿////
+|metadata|
+{
+    "name": "wintoolbarsmanager-using-the-notification-badge",
+    "controlName": [],
+    "tags": [],
+    "guid": "b1779bf6-b98c-4e11-a13c-6b41b370d35a",
+    "buildFlags": [],
+    "createdOn": "2015-09-02T18:21:24.7248341Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager 通知バッジの使用
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、link:wintoolbarsmanager.html[UltraToolbarsManager] の NotificationBadge プロパティの使用方法を紹介します。
+
+=== 前提条件
+
+本トピックの理解を深めるために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック |目的
+| link:wintoolbarsmanager-getting-started-with-wintoolbarsmanager.html[WinToolbarsManager を使用した作業の開始]
+|WinToolbarsManager™ コンポーネントを使用するための情報を提供します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+NotificationBadge プロパティの概要
+
+* <<_Ref428971851,NotificationBadge プロパティの概要>>
+
+** <<_Ref421266503,概要>>
+** <<_Ref428968981,Appearance プロパティ>>
+** <<_Ref428967246,Style プロパティ>>
+** <<_Ref428967258,Visibility プロパティ>>
+** <<_Ref428967275,NotificationBadgeText プロパティ>>
+
+* <<_Ref423531385,関連コンテンツ>>
+
+=== 概要
+
+通知バッジは重要なイベントをユーザーにお知らせします。通知バッジに関連するほとんどすべての設定は `NotificationBadgeSettings` プロパティで公開されます。通知バッジは、ToolbarsManager、ツールバー、リボン、リボンのタブおよびグループなど、さまざまなレベルで使用できます。はじめに特定のインスタンスから始め、一般的なものへ移行することで設定を解決します。例えば、リボンのツールに通知バッジを表示する場合、`ShareProps` の通知設定がリボン タブの通知設定より優先され、リボン タブの通知設定が ToolbarsManager 自体の通知設定より優先されます。`NotificationBadgeSettings` クラスに含まれていない NotificationBadges に関連する唯一のプロパティは `NotificationBadgeText` です。それはツールの `InstanceProps` および `SharedProps` にあります。
+
+NotificationBadges のサイズはそのコンテンツ サイズによって決定され、`DisplayArea` に制限されます。テキストをもつバッジの場合、通知は表示領域を超えない程度、指定のフォントのテキストを表示するためのサイズになります。画像表示の場合、通知バッジは画像のサイズを使用します (同じく、表示領域を超えない程度)。
+
+[[_Ref428968981]]
+== Appearanceプロパティ
+
+`NotificationBadgeSettings` プロパティは 3 つの `Appearance` プロパティ -  `Appearance`、`AppearanceLarge`、`AppearanceSmall` を公開します。`Appearance` プロパティはすべてのツールに表示される通知で使用されます。一方、`AppearanceSmall` および `AppearanceLarge` は、それぞれ小さいツールと大きいツールで使用されます。
+
+デフォルトで通知バッジは、赤の背景色、赤の境界線、そして白の前景色になります。
+
+*C# の場合:*
+[source,csharp]
+----
+// 大きいツールで通知バッジのフォント サイズを 8pt にします
+this.ultraToolbarsManager1.NotificationBadgeSettings.AppearanceLarge.FontData.SizeInPoints = 8;
+// 小さいツールで通知バッジのフォント サイズを小さくします
+this.ultraToolbarsManager1.NotificationBadgeSettings.AppearanceSmall.FontData.SizeInPoints = 5.5f;
+// すべてのツールで Calibri フォントを使用します
+this.ultraToolbarsManager1.NotificationBadgeSettings.Appearance.FontData.Name = "Calibri";
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' 大きいツールで通知バッジのフォント サイズを 8pt にします
+Me.ultraToolbarsManager1.NotificationBadgeSettings.AppearanceLarge.FontData.SizeInPoints = 8
+' 小さいツールで通知バッジのフォント サイズを小さくします
+Me.ultraToolbarsManager1.NotificationBadgeSettings.AppearanceSmall.FontData.SizeInPoints = 5.5F
+' すべてのツールで Calibri フォントを使用します
+Me.ultraToolbarsManager1.NotificationBadgeSettings.Appearance.FontData.Name = "Calibri"
+----
+
+[[_Ref428967246]]
+== Style プロパティ
+
+`NotificationBadgeSettings` のスタイル プロパティは `BorderStyle` および `DisplayShadow` プロパティです。`BorderStyle` は通知境界線のスタイルを決定する一方、`DisplayShadow` プロパティは通知が影付きになるかどうかを決定します。
+
+デフォルトでは、BorderStyle が Rounded3 で通知は影なしになります。デフォルトの影付き色は Gray です。通知外観の `BorderColor3DBase` プロパティで設定されます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// NotificationBadges の周りに影を表示します
+this.ultraToolbarsManager1.NotificationBadgeSettings.DisplayShadow = DefaultableBoolean.True;
+// NotificationBadges の BorderStyle を Rounded1 に設定します
+this.ultraToolbarsManager1.NotificationBadgeSettings.BorderStyle = UIElementBorderStyle.Rounded1;
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+' NotificationBadges の周りに影を表示します
+Me.ultraToolbarsManager1.NotificationBadgeSettings.DisplayShadow = DefaultableBoolean.[True]
+' NotificationBadges の BorderStyle を Rounded1 に設定します
+Me.ultraToolbarsManager1.NotificationBadgeSettings.BorderStyle = UIElementBorderStyle.Rounded1
+----
+
+[[_Ref428967258]]
+== Visibility プロパティ
+
+`Visibility` プロパティは、Toolbars Manager が NotificationBadges を表示する条件を決定します。デフォルトでは NonNullOrEmpty に設定されます。すなわち、コンテンツ (NotificationBadge に割り当てられたテキストや画像) がある場合にのみ表示されます。`Visibility` を Always に設定し、NotificationBadges がコンテンツを含まなくても表示されるように設定できます。また、Never に設定し非表示にすることもできます。`Visibility` を Never に設定することで NotificationBadges が不要な位置に表示されないようにできます。
+
+*C# の場合:*
+[source,csharp]
+----
+// NotificationBadges を非表示にします
+this.ultraToolbarsManager1.Ribbon.QuickAccessToolbar.NotificationBadgeSettings.Visibility = NotificationBadgeVisibility.Never;
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+' NotificationBadges を非表示にします
+Me.ultraToolbarsManager1.Ribbon.QuickAccessToolbar.NotificationBadgeSettings.Visibility = NotificationBadgeVisibility.Never
+----
+
+[[_Ref428967275]]
+== NotificationBadgeText プロパティ
+
+このプロパティは NotificationBadgeSettings クラスに含まれておらず、ツールの InstanceProps および SharedProps に含まれる単一のプロパティです。NotificationBadge に表示されるテキストを決定します。
+
+*C# の場合:*
+[source,csharp]
+----
+// 項目のテキストを設定します
+this.ultraToolbarsManager1.Tools[“ViewNewEmailButton”].SharedProps.NotificationBadgeText = “7”;
+this.ultraToolbarsManager1.Tools[“NewEvents”].SharedProps.NotificationBadgeText = "新規";
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+' 項目のテキストを設定します
+Me.ultraToolbarsManager1.Tools(“ViewNewEmailButton”).SharedProps.NotificationBadgeText = "7"
+Me.ultraToolbarsManager1.Tools(“NewEvents”).SharedProps.NotificationBadgeText = "新規"
+----
+
+[[_Ref423531385]]
+== 関連コンテンツ
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+* link:wintoolbarsmanager-using-the-ribbon.html[リボンの使用] 
+* link:wintree-using-the-notification-badge.html[通知バッジが使用されている WinTree]
+* link:winlistview-using-the-notification-badge.html[通知バッジが使用されている WinListView]
+* link:winstatusbar-using-the-notification-badge.html[通知バッジが使用されている WinStatusBar]
+* link:winexplorerbar-using-the-notification-badge.html[通知バッジが使用されている WinExplorerBar]
+* link:wintab-using-the-notification-badge.html[通知バッジが使用されている WinTab]

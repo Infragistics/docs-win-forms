@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-infragistics-math-library",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "9554301a-ad51-43a7-8f5b-e9e412eae577",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:09:20.4762532Z"
+}
+|metadata|
+////
+
+= Infragistics Math ライブラリ
+
+Infragistics Math Library™ は、すべてのインフラジスティックスの Infragistics 製品と使用できる数学および統計的な構造と関数のライブラリです。 link:http://msdn.microsoft.com/en-us/library/system.math.aspx[System.Math] クラスの演算をいくつかの新しい数学オブジェクトに拡張します。
+
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.complex.html[複素数]
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.constant.html[数学定数]
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.vector.html[ベクトル]
+
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexvector.html[複素ベクトル]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanvector.html[ブールベクトル]
+
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[行列]
+
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[複素行列]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[ブール行列]
+
+== 要件
+
+Infragistics Math Library を使用するには、以下が必要です。
+
+* Microsoft® {PlatformName}™ アプリケーション
+* プロジェクトへの以下の参照 (ソリューション エクスプローラーで) 。
+
+** {ApiPlatform}v{ProductVersion}.dll
+** {ApiPlatform}Math.v{ProductVersion}.dll
+
+* Infragistics Math Library を使用したソース ファイルへの以下の名前空間宣言。
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Math
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Math;
+----
+
+== 機能
+
+このセクションは、Infragistics Math Library の詳細な機能を説明するトピックへのリンクをリストします。
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-vectors.html[ベクトル]
+
+link:infragistics-math-matrices.html[行列]
+
+link:infragistics-math-mathematical-functions.html[数学関数]
+
+== API の概要
+
+このトピックは、Infragistics Math Library でプログラミング中に作業する名前空間とクラスをリストします。このトピックに示されている名前空間とクラスは、{ProductName} ヘルプの API Reference Guide にリンクしています。

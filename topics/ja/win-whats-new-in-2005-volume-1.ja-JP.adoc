@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2005-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F74AA051-3578-438E-A5A1-F8CD1E398F0B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2005 Volume 1 の新機能
+
+Infragistics 2005 Volume 1 のリリースには、Windows Formsのコントロールとコンポーネントの機能をこれまで以上に活用するための、いくつかの強力な新機能と機能性が追加されています。
+
+以下に、2005 Volume 1 リリースで追加または改良したコントロールをあげます。リンクをクリックして、各コントロールで提供される機能のリストを確認します。
+
+* link:wincalcmanager-whats-new-2005-1.html[WinCalcManager]
+* link:winchart-whats-new-2005-1.html[WinChart]
+* link:windatasource-whats-new-2005-1.html[WinDataSource]
+* link:wineditors-whats-new-2005-1.html[WinEditors]
+* link:wingrid-whats-new-2005-1.html[WinGrid]
+* link:winmisc-whats-new-2005-1.html[WinMisc]
+* link:winschedule-whats-new-2005-1.html[WinSchedule]
+* link:wintoolbars-whats-new-2005-1.html[WinToolbars]
+* link:infragistics-win-plf-whats-new-2005-1.html[Infragistics.Win (PLF)]

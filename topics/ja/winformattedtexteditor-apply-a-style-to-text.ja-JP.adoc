@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-apply-a-style-to-text",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{EC369573-0CF0-418D-B8E4-7E65B7FD7CA1}",  
+    "buildFlags": [],
+    "createdOn": "2006-12-09T13:01:56Z"
+}
+|metadata|
+////
+
+= スタイルをテキストに適用
+
+WinFormattedTextEditor コントロールでテキストにフォーマッティングを適用するには、Style 属性の理解が必要です。WinFormattedTextEditor で Style 属性を使用する方法が理解できれば、一語またはテキストのブロックにスタイルを適用することが簡単になります。
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo.html[EditInfo]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedtexteditinfo~applystyle(string,boolean).html[ApplyStyle]"]  メソッドを使用してスタイルを適用できます。このメソッドはテキストのブロックにスタイルを適用するかどうかを記述する 2 つの引数を取得します。
+
+* 適用されるスタイル -- 最初の引数は文字列を取得します。この文字列は、ひとつのスタイルにする、またはセミコロン（:）で分離されすることで複数のスタイルにすることができます。
+* ブール -- この引数はテキストのブロックにスタイルを適用するかどうかを記述します（<p> タグはテキストのブロックと見なされます）。True を渡すと選択したテキストを含むテキストのブロック全体にスタイルが適用されます。
+
+以下のコードは、ドキュメントのタイトルに見出しスタイルを適用する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraFormattedTextEditor1.EditInfo.ApplyStyle(_
+  "font-family:Arial; font-size:22pt; color:Blue;", False)
+----
+
+*C# の場合：*
+
+----
+this.ultraFormattedTextEditor1.EditInfo.ApplyStyle(
+  "font-family:Arial; font-size:22pt; color:Blue;", false);
+----

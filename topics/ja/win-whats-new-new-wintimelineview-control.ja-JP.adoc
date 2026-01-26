@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-new-wintimelineview-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D7CD7FA6-81D4-4CD2-92B3-9C72FCA8F5DE}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T11:17:19Z"
+}
+|metadata|
+////
+
+= 新しい WinTimelineView コントロール
+
+新しい WinTimelineView™ コントロールが Infragistics® Windows Forms コントロール スイートに追加されており、左から右へと水平のタイムラインに沿って pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslot.html[TimeSlots]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointments]"]  を表示します。 このコントロールを使用することで、分または時間という異なる間隔に時間をスパンしたり、日、週、月、年といった異なる日付の間隔に日付をスパンできます。
+
+WinTimelineView コントロールは既存の WinSchedule コントロールのすべての主要な機能をサポートします。 また WinDayView™ コントロールのグラフィカルな表現に似ていますが Owners と TimeSlots の配置が異なっています。 WinTimelineView は Owners を行として、TimeSlots を列として表しますが、WinDayView は Owners を列として TimeSlots を行として表します。
+
+image::Images/WinTimelineView_About_WinTimelineView.png[]
+
+== 関連トピック
+
+* link:wintimelineview-about-wintimelineview.html[WinTimelineView について]

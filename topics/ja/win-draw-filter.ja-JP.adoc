@@ -1,0 +1,104 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-draw-filter",
+    "controlName": [],
+    "tags": ["API","Application Blocks","Application Scenarios","Grids","Tips and Tricks"],
+    "guid": "{E2EDC41F-5EF8-4961-8173-BD4470204B8C}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 描画フィルタ
+
+エレメントの外観は、PLF ベースのコントロールから公開されている Appearance オブジェクトの各種プロパティを設定することで、簡単に制御できます。しかし、場合によってはコントロールがサポートしていない外観が必要になることがあります。このような場合に描画フィルターが役立ちます。
+
+PLF ベースのコントロールはすべて、非常に柔軟で精密な描画拡張メカニズムを公開しています。コントロールのひとつ以上の UIElement について、その描画をカスタマイズするためには、オブジェクトに IUIElementDrawFilter インタフェースを実装し、そのオブジェクトに対してランタイムにコントロールの DrawFilter プロパティを設定する必要があります。
+
+IUIElementDrawFilter インタフェースには次の 2 つのメソッドがあります。
+
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iuielementdrawfilter~getphasestofilter.html[GetPhasesToFilter]"]  - このメソッドは UIElementDrawParams 構造体を受け取り、DrawPhase というビット フラグ列挙体を返します。メソッドに渡される構造体は、レンダリングするエレメントを返すプロパティを提供するほか、Graphics、BackBrush、DrawBorders などの描画操作をサポートするためのプロパティやメソッドも提供します。返される DrawPhase ビット フラグは、このエレメントに対して描画操作のどのフェーズをフィルター処理すべきかを示します（返されたビットごとに、下記の DrawElement が呼び出されます）。DrawPhase 列挙体を使用すると、エレメント（テーマ、背景色、画像背景、境界線、前景、画像、子エレメントなど）の個々の描画操作の前後にフィルター処理を実行できます。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielement~drawelement.html[DrawElement]"]  - このメソッドは、同じ UIElementDrawParams 構造体と、実行中の単一描画フェーズを示すビット フラグを受け取ります。このメソッドはブール値を返します。False が返された場合、そのフェーズのデフォルトの描画が実行されます。'Before' フェーズに対して True が返された場合は、そのフェーズに対するデフォルトの描画が省略されます。注：BeforeDrawElement フェーズに対して True を返した場合は、他のフェーズがすべて省略されます（それらのフェーズに対応するビットが GetPhasesToFilter への呼び出しによって返された場合でも省略されます）。また、テーマが有効なときに、BeforeDrawTheme フェーズに対して True を返した場合は、BeforeDrawChildElements までのフェーズ（BeforeDrawChildElements 自身は除く）がすべて省略されます。BeforeDrawFocus フェーズは、コントロールがフォーカスを持っていて（または Draw メソッドの呼び出し時に forceDrawAsFocused パラメータが True に設定されていて）、エレメントの仮想プロパティ DrawsFocusRect が True を返す場合にだけ、呼び出されます。
+
+以下のサンプル コードは、UltraGrid 内にある行のセル領域境界線の描画を変更する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+' IUIElementDrawFilter インタフェースをクラスに実装します
+' （この場合はフォームです）。
+Public Class Form1
+    Inherits System.Windows.Forms.Form
+    Implements Infragistics.Win.IUIElementDrawFilter
+    Private borderPen As System.Drawing.Pen
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+' フィルターで使用するペンを作成します。
+    Me.borderPen = New Pen(Color.DarkGoldenrod)
+' グリッドの DrawFilter プロパティを、UIElementDrawFilter インタフェースを
+' 実装するオブジェクトに設定します。
+    Me.UltraGrid1.DrawFilter = Me
+End Sub
+Public Function GetPhasesToFilter(ByRef drawParams As Infragistics.Win.UIElementDrawParams) As Infragistics.Win.DrawPhase Implements Infragistics.Win.IUIElementDrawFilter.GetPhasesToFilter
+' 描画しようとしているエレメントが RowCellAreaUIElement である場合は、
+' その境界線のみを描画します。
+    If (TypeOf (drawParams.Element) Is RowCellAreaUIElement) Then
+        Return Infragistics.Win.DrawPhase.BeforeDrawBorders
+    Else
+        Return Infragistics.Win.DrawPhase.None
+    End If
+End Function
+Public Function DrawElement(ByVal drawPhase As Infragistics.Win.DrawPhase, ByRef drawParams As Infragistics.Win.UIElementDrawParams) As Boolean Implements Infragistics.Win.IUIElementDrawFilter.DrawElement
+' この関数は、GetPhasesToFilter から返されたフラグに基づいて、 
+' RowCellAreaUIElement の BeforeDrawBorders フェーズに対してのみ呼び出されます。 
+    Dim elementRect As Rectangle
+' エレメントの四角形を取得します。
+    elementRect = drawParams.Element.Rect
+' エレメントの上辺に沿って境界線を描画します。
+    drawParams.Graphics.DrawLine(Me.borderPen, elementRect.Location, New Point(elementRect.Right, elementRect.Top))
+' エレメントの境界線が通常どおり描画されないようにするため、True を返します。
+    Return True
+End Function
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+// IUIElementDrawFilter インタフェースをクラスに実装します
+// （この場合はフォームです）。
+public class Form1 : System.Windows.Forms.Form, Infragistics.Win.IUIElementDrawFilter
+{
+Pen penBorder = new Pen(Color.DarkGoldenrod);
+private void Form1_Load(object sender, System.EventArgs e)
+{
+// グリッドの DrawFilter プロパティを、UIElementDrawFilter インタフェースを
+// 実装するオブジェクトに設定します。
+this.ultraGrid1.DrawFilter = this;
+}
+public Infragistics.Win.DrawPhase GetPhasesToFilter(ref Infragistics.Win.UIElementDrawParams drawParams)
+{
+// 描画しようとしているエレメントが RowCellAreaUIElement である場合は、
+// その境界線のみを描画します。
+if (drawParams.Element is RowCellAreaUIElement)
+    return Infragistics.Win.DrawPhase.BeforeDrawBorders;
+else
+    return Infragistics.Win.DrawPhase.None;
+}
+public bool DrawElement(Infragistics.Win.DrawPhase drawPhase, ref Infragistics.Win.UIElementDrawParams drawParams)
+{
+// この関数は、GetPhasesToFilter から返されたフラグに基づいて、 
+// RowCellAreaUIElement の BeforeDrawBorders フェーズに対してのみ呼び出されます。 
+// エレメントの上辺に沿って境界線を描画します。
+    Rectangle elementRect = drawParams.Element.Rect;
+    drawParams.Graphics.DrawLine( this.borderPen, elementRect.Location, new Point(elementRect.Right, elementRect.Top));
+// エレメントの境界線が通常どおり描画されないようにするため、True を返します。
+return true;
+}
+}
+----

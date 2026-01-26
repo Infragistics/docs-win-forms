@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-infragistics-math-library",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "f91436b8-c4cd-41f9-887a-7c41728c3cdd",  
+    "buildFlags": [],
+    "createdOn": "2011-10-03T18:09:26.5699206Z"
+}
+|metadata|
+////
+
+= Infragistics Math ライブラリ
+
+{ProductName} の 2011 Volume 2 以降、Infragistics Math Library は高速、正確そしてメモリ効率のいい広範な数学演算を実行することができる中核的な関数の統一されたセットを提供します。さらに、このライブラリは以下を実行できます。
+
+* データ構造を複数形式に変換せずに数学演算を実行するアプリケーションを作成できます。
+* 数値メソッドを使用
+* コンパートメント モデルをビルド
+* モンテカルロ シミュレーションを実行
+* 回帰問題を解決
+
+詳細については、 link:infragistics-math-infragistics-math-library.html[「Infragistics Math Library」]を参照してください。
+
+== 関連トピック
+
+* link:infragistics-math-infragistics-math-library.html[Infragistics Math ライブラリ]
+* link:infragistics-math-complex-numbers.html[複素数]
+* link:infragistics-math-mathematical-functions.html[数学関数]
+* link:infragistics-math-api-overview.html[API の概要]

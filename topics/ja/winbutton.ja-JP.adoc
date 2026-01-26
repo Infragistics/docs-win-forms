@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winbutton",
+    "controlName": ["WinButton"],
+    "tags": [],
+    "guid": "{8016EE3F-667E-4586-8DE6-D5878D69A964}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinButton
+
+以下のリンクをクリックすると、WinButton コントロールに関する説明を読むことができます。
+
+* link:winbutton-about-winbutton.html[WinButton について] -- WinButton コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winbutton-smart-tag.html[WinButton スマート タグ] -- WinButton コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winbutton-api-overview.html[API の概要] -- WinButton コントロールを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

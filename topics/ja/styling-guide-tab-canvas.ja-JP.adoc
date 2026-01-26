@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-tab-canvas",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{097647D1-38D0-48CC-8D5C-6508DAB2BF2A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Tab キャンバス
+
+Tab キャンバスに WinTab コントロールを伴うすべてのスタイリング修正を表示します。 このキャンバスには、ユーザー固有のアプリケーションで遭遇する可能性がある、複数の一般的な構成で Tab コントロールが表示されます。 Tab キャンバスに以下のコントロールがあります。
+
+* WinTabStripControl
+* WinTabControl
+
+image::images/AppStyling_Tab_Canvas_01.png[]

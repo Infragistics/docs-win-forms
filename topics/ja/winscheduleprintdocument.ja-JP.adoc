@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winscheduleprintdocument",
+    "controlName": ["WinSchedulePrintDocument"],
+    "tags": ["Getting Started"],
+    "guid": "{2F5C725B-55D0-45B7-983A-417F2F834AE5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedulePrintDocument
+
+以下のリンクをクリックすると、WinSchedulePrintDocument コンポーネントに関する説明を読むことができます。
+
+* link:winscheduleprintdocument-about-winscheduleprintdocument.html[WinSchedulePrintDocumentについて] -- WinSchedulePrintDocumentコンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+link:winscheduleprintdocument-smart-tag.html[WinSchedulePrintDocument スマート タグ] -- WinSchedulePrintDocument コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。
+
+* link:winprintpreviewdialog-winscheduleprintdocument-using-winprintpreviewdialog-with-winscheduleprintdocument.html[WinSchedulePrintDocument での WinPrintPreviewDialog の使用] -- WinSchedule の印刷ドキュメントのプレビューを印刷する方法を説明しています。
+* link:winscheduleprintmanager-api-overview.html[API 概要] -- このトピックでは、WinSchedulePrintDocument コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-winlistview-lassoselection",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D3DE736C-4D44-420B-91C8-31E559D8DD7F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView LassoSelection
+
+Windows Explorer のユーザーに馴染みのあるひとつの機能は「投げ縄選択」で、これが WinListView™ コントロールに今回追加されました。「投げ縄選択」という語句は、ビューでひとつ以上の項目の周囲をドラッグし、その結果選択された状態にする選択矩形のことを指します。この機能によって、WinListView で値の範囲の選択が可能になります。
+
+image::Images/WinListView_What'sNew_LassoSelection.png[]
+
+== 関連トピック
+
+link:winlistview-lasso-selection-support.html[投げ縄選択のサポート]

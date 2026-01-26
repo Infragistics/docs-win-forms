@@ -1,0 +1,154 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-adding-rows-to-wingrid-programmatically",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{27ECEFDC-02CC-4140-A664-3F3C6924FAB4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 行を WinGrid にプログラムで追加
+
+== 始める前に
+
+UltraGridBand オブジェクトの AddRow メソッドを使用して、WinGrid に行をプログラム上で追加することができます。AddRow メソッドによって、ボタンのクリックまたは他のイベントから行を追加できます。AddRow メソッドが呼び出されると、データ入力行が表示されることに注意してください。したがって、一度に複数行を追加すると、各行を作成する時に個別に WinGrid が各行を表示するよりもパフォーマンスが大幅に低下します。複数行をプログラム上で追加する必要がある場合、行を DataSet に直接追加することを推奨します。この詳細なガイドを最後まで読んでください。
+
+== 達成すること
+
+サンプルの DataSet を作成し、それを WinGrid にバインドします。2 つの WinButton を作成します。これらのボタンのひとつは、AddRow メソッドを使用して、行を WinGrid に追加します。他のボタンは基本 DataSet に行を追加します。
+
+== 次の手順を実行します
+
+[start=1]
+. *フォームを設定します。*
+
+ツールボックスから [データ] タブを選択し、[データセット] をダブルクリックします。ダイアログ ボックスが表示し、タイプしたデータセットまたは未タイプのデータセットを作成するかどうかを尋ねます。[タイプ未設定] データセット オプションを選択し、[OK] をクリックします。ツールボックスから UltraGrid コントロールをフォームにドラッグします。UltraGrid デザイナが表示したら、[終了] をクリックします。UltraGrid が選択されると、[プロパティ] ウィンドウの DataSource プロパティを検索し、dataSet1 に設定します。フォームに 2 つのボタンをドラッグします。ボタンのひとつのテキストを "WinGrid に行を追加" に、他のボタンを "DataSet に行を追加" に変更します。コントロールを整理すると以下の画像のようになります。
+[start=2]
+. *使用/インポートのディレクティブを追加します。*
+
+コードの記述を開始する前に、コードビハインドを表示して使用/インポートのディレクティブを追加すれば、完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=3]
+. *データセットを満たします。*
+
+3 つの列でデータセットの表を作成する必要があります。フォームの Load イベントでコードにこれを実行できます。Load イベントを作成するには、デザイン ビューでフォームのヘッダをダブルクリックします。フォームの Load イベントに、以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+'3 つの列を含む表を作成します。
+Dim table As DataTable = New DataTable("Table")
+'サンプル データを保持する 3 つの列を作成します。
+Dim column1 As DataColumn = New DataColumn("Column 1", GetType(System.String))
+Dim column2 As DataColumn = New DataColumn("Column 2", GetType(System.Int32))
+Dim column3 As DataColumn = New DataColumn("Column 3", GetType(System.Drawing.Color))
+'3 つの列を表に追加します。
+table.Columns.AddRange(New DataColumn() {column1, column2, column3})
+'表をデータセットに追加します。
+Me.DataSet1.Tables.Add(table)
+----
+
+*C# の場合：*
+
+----
+//3 つの列を含む表を作成します。
+DataTable table = new DataTable("Table");
+//サンプル データを保持する 3 つの列を作成します。
+DataColumn column1 = new DataColumn("Column 1", typeof(string));
+DataColumn column2 = new DataColumn("Column 2", typeof(int));
+DataColumn column3 = new DataColumn("Column 3", typeof(System.Drawing.Color));
+//3 つの列を表に追加します。
+table.Columns.AddRange( new DataColumn[] {column1, column2, column3});
+//表をデータセットに追加します。
+this.dataSet1.Tables.Add(table);
+----
+
+[start=4]
+. *AddRow メソッドを使用してデータを追加するボタンの Click イベントを作成します。*
+
+デザイン ビューでは、作成した最初のボタンをダブルクリックします。Click イベントがコードビハインドで生成されます。このイベントでは、AddRow 機能のインスタンスを作成し、データを追加します。以下のコードを Click イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+Dim row As UltraGridRow = Me.UltraGrid1.DisplayLayout.Bands(0).AddNew()
+row.Cells(0).Value = "Red"
+row.Cells(1).Value = "1"
+row.Cells(2).Value = Color.Red
+----
+
+*C# の場合：*
+
+----
+UltraGridRow row = this.ultraGrid1.DisplayLayout.Bands[0].AddNew();
+row.Cells[0].Value = "Red";
+row.Cells[1].Value = "1";
+row.Cells[2].Value = Color.Red;
+----
+
+[start=5]
+. *データセットにデータを追加するボタンの Click イベントを作成します。*
+
+デザイン ビューでは、作成した 2 番目のボタンをダブルクリックします。Click イベントがコードビハインドで生成されます。このイベントでは、Row オブジェクトの Add メソッドを使用してデータセットに行を追加します。以下のコードを Click イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.DataSet1.Tables(0).Rows.Add(New Object() {"Red", 2, Color.Red})
+----
+
+*C# の場合：*
+
+----
+this.dataSet1.Tables[0].Rows.Add( new object[] {"Red", 2, Color.Red} );
+----
+
+[start=6]
+. *アプリケーションを実行します。*
+
+いずれのボタンをクリックしても同じ結果となります。行は即座にデータセットに追加されます。
+
+image::images/WinGrid_Add_Rows_to_WinGrid_Programmatically_01.png[]
+
+ただし、データを追加するためのこれらの 2 つのメソッドのプロセスは、非常に異なります。最初のボタンをクリックすると、WinGrid はデータ入力行を表示し、データを入力し（エンドユーザーが行う）、データをデータセットに追加します。2 番目のボタンをクリックすると、データすべてがデータセットに直接追加され、WinGrid はそれ自体を更新します。これがパフォーマンスが要因となる場所です。100 行を追加する必要があり、AddRow メソッドから実行した場合、WinGrid に追加されている間、各行およびすべての行スクロールを文字通り見ることができます。System.Data.DataRowCollection オブジェクトの Add メソッドを使用すれば、エンド ユーザーに各追加行を視覚的に表示しません。データセットが行の追加を完了した時に、WinGrid 自体が更新されるだけです。
+
+実験を続行したい場合は、以下のように FOR ループ内で Click イベントのそれぞれで、このコードを配置してください。
+
+*Visual Basic の場合：*
+
+----
+Dim i As Integer
+For i = 0 To 98
+	...
+Next i
+----
+
+*C# の場合：*
+
+----
+for (int i=0; i<99; i++)
+{
+	...
+}
+----
+
+プロジェクトを再度実行して、最初のボタンをクリックします。行を追加するためにかなりの時間がかかることに注意してください。これは、AddRow 機能がプレゼンテーションのために設計され、各行が追加されることを表示するからです。2 番目のボタンをクリックすると、少し休止があり、WinGrid は新しいデータで更新されます。

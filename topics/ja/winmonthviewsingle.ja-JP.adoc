@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmonthviewsingle",
+    "controlName": ["WinMonthViewSingle"],
+    "tags": [],
+    "guid": "{3D234F45-345C-4B92-A7E0-C422CDB9188A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMonthViewSingle
+
+以下のリンクをクリックすると、WinMonthViewSingle コントロールに関する説明を読むことができます。
+
+* link:winmonthviewsingle-about-winmonthviewsingle.html[WinMonthViewSingle について] -- WinMonthViewSingle コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+link:winmonthviewsingle-smart-tag.html[WinMonthViewSingle スマート タグ] -- WinMonthViewSingle コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+
+* link:winmonthviewsingle-display-weekends-as-full-days.html[週末の展開表示] -- 週末を、まとめてではなく、個々の日として表示する方法を説明しています。
+* link:winmonthviewsingle-api-overview.html[API 概要] -- このトピックでは、WinMonthViewSingle コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

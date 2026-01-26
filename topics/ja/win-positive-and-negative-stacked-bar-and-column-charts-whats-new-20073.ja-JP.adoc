@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-positive-and-negative-stacked-bar-and-column-charts-whats-new-20073",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D64EF23D-51E4-418A-9742-F26638813D97}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 正および負の積層型棒グラフおよび柱状グラフ
+
+以前は、すべて正のデータまたはすべて負のデータを含む積層型棒グラフ タイプおよび積層型柱状グラフ タイプを作成できるだけでした。データ セットに負の値がある場合に例外がスローされます。
+
+{ProductName} 2007 Volume 3 リリースから開始しましたが、データ セットに負のデータと正のデータの両方を持つことができます。
+
+積層型棒グラフおよび積層型柱状グラフは、ゼロを超える/未満で描画されます。
+
+以下のスクリーンショットは、正の値と負の値を含む平面積層型柱状グラフを示します。
+
+image::Images/Chart_Working_2D_Stacked_Column_Chart_Data_01.png[]
+
+== 関連トピック
+
+link:chart-stacked-bar-chart-2d.html[積層型棒グラフ]
+
+link:chart-stacked-column-chart-2d.html[積層型柱状グラフ]

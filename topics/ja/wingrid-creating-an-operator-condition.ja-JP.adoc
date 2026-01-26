@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-creating-an-operator-condition",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids"],
+    "guid": "{28FCA0E4-1322-4B6C-8D2C-78535C54C075}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 演算子条件を作成
+
+Conditional Formatting によって、WinGrid の列全体のセルをひとつ以上の値と比較して、特定の条件が満たされると外観を変更することができます。たとえば、セルが特定の数より小さいかどうかをチェックしたり、テキストの特定の文字列がセル内に含まれるかどうかをチェックできます。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition.html[OperatorCondition]"]  オブジェクトに組み込まれる演算子がいくつかあります。条件の完全なリストについては、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.conditionoperator.html[ConditionOperator]"]  列挙体を参照してください。
+
+演算子の条件の作成は非常にシンプルです。OperatorCondition をインスタンス化する場合、コンストラクタは ConditionOperator と値を取得して列のセルと比較します。以下のコードは OperatorCondition をインスタンス化して、比較した値に「Rio de Janeiro」という文字列が含まれるかどうかをチェックします。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Dim condition1 as OperatorCondition =_
+  New OperatorCondition(ConditionOperator.Contains, "Rio de Janeiro")
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+OperatorCondition condition1 = 
+  new OperatorCondition(ConditionOperator.Contains, "Rio de Janeiro");
+----

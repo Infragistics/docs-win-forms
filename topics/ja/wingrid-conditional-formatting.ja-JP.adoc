@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-conditional-formatting",
+    "controlName": ["WinGrid"],
+    "tags": [],
+    "guid": "{A2FEF6A7-283E-4122-8696-10074DA24D4F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 条件フォーマッティング
+
+Conditional Formatting に関する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、Conditional Formatting の機能、ご使用のアプリケーションで使用する理由、この機能を使用して一般的なタスクを達成するための方法の手順などの Conditional Formatting についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、Conditional Formatting についての情報にアクセスします。
+
+== link:win-understanding-conditional-formatting.html[条件フォーマッティングの理解]
+
+このセクションには Conditional Formatting の機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:wingrid-using-conditional-formatting.html[条件フォーマッティングの使用]
+
+このセクションは、Conditional Formatting コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。

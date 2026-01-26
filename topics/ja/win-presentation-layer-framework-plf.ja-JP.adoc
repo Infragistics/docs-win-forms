@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-presentation-layer-framework-plf",
+    "controlName": [],
+    "tags": ["API","Styling","Templating"],
+    "guid": "{2E55EE68-2BFB-41E4-BB3F-138E0189694B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Presentation Layer Framework (PLF)
+
+以下のリンクをクリックすると、エンド ユーザーに整合性を提供するアプリケーション構築でプレゼンテーション層フレームワーク (PLF)がいかに重要であるかを理解できるだけでなく、PLF の各コンポーネントを知ることもできます。
+
+* link:win-plf-overview.html[PLF 概要] -- PLF の概要と PLF を構成するコンポーネントについて説明します。
+* link:win-appearance-objects.html[Appearance オブジェクト] -- コントロールやコンポーネントの外観をカスタマイズするための画像関連プロパティについて概観します。
+* link:win-uielements.html[UIElements] -- UIElements 基本クラスと UIElement 派生クラスについて説明します。UIElement 抽象化は PLF の中核です。
+* link:win-implementing-custom-uielement-objects.html[カスタム UIElement オブジェクトの実装] -- 基本クラスとして使用できる UIElement クラスのいくつかと、UIElement 基本クラスから公開される仮想プロパティ/メソッドを一覧します。
+* link:win-mouse-handling.html[マウス処理] -- PLF ベースのコントロールやコンポーネントから公開される 2 つのマウス処理イベント（MouseEnterElement と MouseLeaveElement）のコードを示します。
+* link:win-keyboard-handling.html[キーボード処理] -- 入力フォーカスを受け取るサードパーティ製コントロール（グリッドやツリー)のキーボード動作をカスタマイズする難しさに PLF がどのように対処するかを説明します。
+* link:win-event-managers.html[イベント マネージャ] -- イベント マネージャが一時的にそのイベントを無効にし、他のイベントが発生しているかどうかを確認するサンプル コードを示します。
+* link:win-selection-strategies.html[選択方式] -- キーボードおよびマウスの選択をサポートする PLF インタフェースについて説明します。
+* link:win-property-change-notifications.html[プロパティ変更通知] -- 完全な変更コンテキスト情報を維持しつつ、オブジェクト階層全体にプロパティに対する変更が広がっていることを、PLF が確認する方法を説明します。
+* link:win-embeddable-editors.html[組み込みエディタ] --  複数のコントロールにいくつかの異なるタイプのエディタを組み込みます。
+* link:win-assembly-resource-strings.html[アセンブリ リソース文字列] -- 各 {ProductName} アセンブリが使用するすべてのリソース文字列を、その文字列のデフォルト テキスト値とともにリストするトピックを含んでいます。
+* link:win-filters.html[フィルター] -- PLF フィルター（すなわち link:win-draw-filter.html[描画フィルタ]、 link:win-creation-filter.html[クリエーション フィルター]、 link:win-cursor-filter.html[カーソル フィルタ]、および link:win-selection-strategy-filter.html[選択方式フィルタ]）について記述するトピックを含んでいます。これらのフィルターによって、コントロールやコンポーネントの UIElement をより柔軟にカスタマイズできるようになります。

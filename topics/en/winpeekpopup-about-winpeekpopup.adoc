@@ -1,0 +1,33 @@
+﻿= About WinPeekPopup
+
+The WinPeekPopup™ is a Windows Forms component that can display any Windows Forms Control in a stylized popup window.
+
+The peek window features the following parts:
+
+image::images/OfficeNavBar_Peek_Window_Diagram.png[Peek Window Diagram]
+
+. Content--features the control assigned to the peek window, and displays the majority of the UI that the peek window will convey. The content control is assigned to the
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapeekpopup~content.html[Content] property.
+
+* Content property
+[source, csharp]
+ultraPeekPopup1.Content = ultraButton1;
+
++
+The `Content` property is the minimum requirement for an link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapeekpopup.html[UltraPeekPopup] peek window to show, a peek window can be displayed without a caption or caption buttons, but it will not be shown if the Content property is not set.
+
+. Caption--specifies the text displayed at the top of the Peek window. This is done by setting the
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapeekpopup~caption.html[Caption]
+property.
+
+. Left/Right CaptionButtons--Peek caption buttons can be displayed at the top of the Peek window to provide additional functionality.
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapeekpopup~captionbuttonsleft.html[CaptionButtonsLeft]
+and
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapeekpopup~captionbuttonsright.html[CaptionButtonsRight]
+collections are exposed directly off the `UltraPeekPopup` object. Any
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.editorbutton.html[EditorButtons]
+added to these collections are displayed at the top of the Peek window. +
++
+The following is an example of adding a button to the left collection:
+[source, csharp]
+ultraPeekPopup1.CaptionButtonsRight.Add(captionButton);

@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-matrices",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "f61fd87b-e8f6-4894-959d-77dde491ea17",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:11:12.5924637Z"
+}
+|metadata|
+////
+
+= 行列
+
+Infragistics Math Library™ は行列での作業のために機能を提供します。
+
+== 行列について
+
+行列はオブジェクトのコレクションを保存するための多次元のデータ クラスです。概念の詳細は、 link:http://en.wikipedia.org/wiki/Matrix_(mathematics)[Matrix] Web サイトを参照してください。
+
+== ベクトルの使用
+
+Infragistics Math Library は以下の行列クラスをサポートします。
+
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] - 実数のコレクションを保存します
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[BooleanMatrix] - ブール値のコレクションを保存します
+* link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexMatrix] - 複素数のコレクションを保存します
+
+これらのクラスはすべて link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrixbase.html[MatrixBase] クラスから派生します。これらは保存するデータ タイプが異なります。
+
+以下のトピックは、Infragistics Math Library で行列を使用する方法を説明します。
+
+* link:infragistics-math-creating-matrices.html[行列の作成]
+* link:infragistics-math-working-with-matrices.html[行列での作業]
+
+== 関連トピック
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-vectors.html[ベクトル]
+
+link:infragistics-math-mathematical-functions.html[数学関数]

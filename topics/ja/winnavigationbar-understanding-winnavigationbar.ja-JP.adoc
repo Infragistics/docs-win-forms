@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-understanding-winnavigationbar",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["Getting Started","Navigation"],
+    "guid": "{469C4C1A-C37E-44FD-B24D-DF2F8CE22870}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNavigationBar の理解
+
+WinNavigationBar™ コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinNavigationBar コントロールを使用することの利点を理解できます。
+
+WinNavigationBar コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winnavigationbar-about-winnavigationbar.html[WinNavigationBar について] -- WinNavigationBar コントロールの概要を説明しています。
+* link:winnavigationbar-comparing-winnavigationbar-to-wintree-and-winlistview.html[WinNavigationBar を WinTree および WinListView と比較] -- 階層的な構造をナビゲートする時の WinTree™ および WinListView™ コントロールの利点と欠点、ならびに WinNavigationBar コントロールがどのようにそれらを置き換えたり強化することができるのかを識別します。
+* link:winnavigationbar-smart-tag.html[WinNavigationBar スマート タグ] -- WinNavigationBar コントロールのスマート タグで表示されるプロパティと設定について説明しています。

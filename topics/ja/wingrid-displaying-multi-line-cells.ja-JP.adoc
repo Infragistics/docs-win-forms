@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-multi-line-cells",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{7427BE13-3E61-435B-8E33-83F938BB96E8}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数行セルの表示
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+----
+
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[Column]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~cellmultiline.html[CellMultiLine]"]  プロパティに True を設定する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).CellMultiLine = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].CellMultiLine = DefaultableBoolean.True;
+----
+
+[start=3]
+. CellMultiLine プロパティの通常の実装は、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~vertscrollbar.html[VertScrollBar]"]  プロパティを True に設定することによっても以下のようにすることができます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).VertScrollBar = True
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].VertScrollBar = true;
+----
+
+[start=4]
+. グリッドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~defaultrowheight.html[DefaultRowHeight]"]  を広げてこのサンプルの表示を改善したいことがあります。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.DefaultRowHeight = 100
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.DefaultRowHeight = 100;
+----
+
+[start=5]
+. 上記のコードを WinGrid の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベントに挿入します。
+
+プロジェクトを実行し、列 0 のセルに入力します。
+
+改行のために Enter キーを押します。
+
+セルの内容が行の高さを越えた場合、垂直スクロールバーを使用してセルの内容を表示できます。

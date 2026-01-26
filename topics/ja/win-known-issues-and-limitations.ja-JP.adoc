@@ -1,0 +1,19 @@
+﻿////
+|metadata|
+{
+    "name": "win-known-issues-and-limitations",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "b4715e01-ca8d-4ce3-ac08-1669ac48d47c",
+    "buildFlags": [],
+    "createdOn": "2020-05-12T19:06:40.2523103Z"
+}
+|metadata|
+////
+
+= 既知の問題と制限
+
+このトピックは、{ProductName} 製品に関連する現在の既知の問題および制限に関する情報のリストを提供します。既知の問題は、今後リリースされる製品で修正予定です。
+
+
+2021.2 リリースに関しては、既知の問題や制限はありません。

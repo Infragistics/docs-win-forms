@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-setting-up-your-application-for-styling",
+    "controlName": [],
+    "tags": [],
+    "guid": "{78CD49D0-9782-4773-B2A9-A558C98A7678}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-04T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションにスタイルを設定
+
+アプリケーション スタイリングはグラフィク デザイナのためだけのものではありません。アプリケーション スタイリングはアプリケーション開発者のためのものでもあります。このセクションのトピックは、アプリケーション開発者がデザインタイムおよびランタイムにスタイル ライブラリをロードする、特定のコンポーネントのためにスタイルセットを設定する、変更されたときにスタイルセットを自動更新するなどのタスクを実行する支援を行います。これらの作業についての詳細は、以下のリンクを参照してください。
+
+* link:styling-guide-loading-a-stylelibrary.html[スタイル ライブラリのロード]
+* link:styling-guide-loading-multiple-style-libraries.html[複数のスタイル ライブラリをロード]
+* link:styling-guide-changing-stylesets-at-run-time.html[ランタイムにスタイルセットを変更]
+* link:styling-guide-create-a-user-control-to-apply-stylesets-at-runtime.html[ランタイムでスタイルセットを適用するためにユーザー コントロールを作成]

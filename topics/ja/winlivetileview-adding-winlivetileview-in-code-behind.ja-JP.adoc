@@ -1,0 +1,413 @@
+﻿////
+|metadata|
+{
+    "name": "winlivetileview-adding-winlivetileview-in-code-behind",
+    "controlName": [],
+    "tags": [],
+    "guid": "d9c21371-8d0b-4fd0-b9bc-cb39772f348e",
+    "buildFlags": [],
+    "createdOn": "2013-09-15T23:22:49.6608649Z"
+}
+|metadata|
+////
+
+= コード ビハインドでの WinLiveTileView の追加
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WinLiveTileView_™ コントロールやタイルをコード ビハインドで追加する方法を示します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref366364907, _WinLiveTileView_   コントロールの追加>>
+** <<_Ref366364917,アセンブリ参照の追加>>
+** <<_Ref366364930,コントロールの追加>>
+** <<_Ref366365492,グループの追加>>
+** <<_Ref366365504,静的タイルの追加>>
+** <<_Ref366365518,ライブ タイルの追加>>
+
+*** <<_Ref366365535,ライブ タイルの作成>>
+*** <<_Ref366365547,ミディアム フレームの作成>>
+*** <<_Ref366365557,ミディアム テンプレートの作成>>
+*** <<_Ref366365571,ワイド フレームの作成>>
+*** <<_Ref366365583,ワイド テンプレートの作成>>
+
+* <<_Ref366365597,アニメーション有りのライブ タイルの追加>>
+
+* <<_Ref366365606,関連コンテンツ>>
+
+[[_Ref366364907]]
+== _WinLiveTileView_   コントロールの追加
+
+[[_Ref366364917]]
+
+=== アセンブリ参照の追加
+
+コントロールをコード ビハインドで追加するには、最初に以下の各ステップを完了する必要があります。
+
+1.以下のアセンブリ参照をプロジェクトに追加します。
+
+* `{ApiPlatform}Shared.v{ProductVersion}`
+
+* `{ApiPlatform}Win.Misc.v{ProductVersion}`
+
+* `{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}`
+
+* `{ApiPlatform}Win.UltraWinLiveTileView.v{ProductVersion}`
+
+* `{ApiPlatform}Win.v{ProductVersion}`
+
+2.以下の名前空間を using ステートメントとしてフォームに追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+using Infragistics.Win.UltraWinLiveTileView;
+using System;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Imports Infragistics.Win.UltraWinLiveTileView
+Imports System
+----
+
+[[_Ref366364930]]
+
+=== コントロールの追加
+
+link:{ApiPlatform}win.ultrawinlivetileview{ApiVersion}~infragistics.win.ultrawinlivetileview.ultralivetileview_members.html[UltraLiveTileView] コントロールのインスタンスを作成し、フォームに追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+UltraLiveTileView ultraLiveTileView = new UltraLiveTileView();
+Controls.Add(ultraLiveTileView);
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim ultraLiveTileView As New UltraLiveTileView()
+Controls.Add(ultraLiveTileView)
+----
+
+[[_Ref366365492]]
+
+=== グループの追加
+
+タイルを追加するグループを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// タイル グループを作成し、コントロールのグループ コレクションに追加
+TileGroup tileGroup = ultraLiveTileView1.Groups.Add("Group 1");
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' タイル グループを作成し、コントロールのグループ コレクションに追加
+Dim tileGroup As TileGroup = ultraLiveTileView1.Groups.Add("Group 1")
+----
+
+[[_Ref366365504]]
+
+=== 静的タイルの追加
+
+静的タイルをグループに追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// タイル グループを作成し、コントロールのグループ コレクションに追加
+TileGroup tileGroup = ultraLiveTileView1.Groups.Add("Group 1");
+// グループ名の割り当て
+tileGroup.Text = "Group 1";
+// タイル グループを作成し、コントロールのグループ コレクションに追加
+StaticTile staticTile = tileGroup.Tiles.AddStaticTile("StaticTile1");
+// タイル名の割り当てる
+staticTile.DefaultView.Text = "Static Tile";
+// アイコンをタイルに割り当て
+staticTile.DefaultView.Image.AllResolutions.Image = // your image
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' タイル グループを作成し、コントロールのグループ コレクションに追加
+Dim tileGroup As TileGroup = ultraLiveTileView1.Groups.Add("Group 1")
+' グループ名の割り当て
+tileGroup.Text = "Group 1"
+' タイル グループを作成し、コントロールのグループ コレクションに追加
+Dim staticTile As StaticTile = tileGroup.Tiles.AddStaticTile("StaticTile1")
+' タイル名の割り当て
+staticTile.DefaultView.Text = "Static Tile"
+' アイコンをタイルに割り当て
+staticTile.DefaultView.Image.AllResolutions.Image = ' your image
+----
+
+結果のタイルのプレビューは、以下のとおりです。結果を検証するアプリケーションを実行します (オプション)。
+
+image::images/Adding_WinLiveTileView_in_Code-Behind_1.png[]
+
+[[_Ref366365518]]
+== ライブ タイルの追加
+
+[[_Ref366365535]]
+
+=== ライブ タイルの作成
+
+ミディアム ライブ タイルのインスタンスを作成します。デフォルトでは、オプションの link:{ApiPlatform}win.ultrawinlivetileview{ApiVersion}~infragistics.win.ultrawinlivetileview.tilebase~currentsize.html[CurrentSize] プロパティが`中`に設定されますが、このプロパティの明示的な設定がベスト プラクティスです。
+
+link:{ApiPlatform}win.ultrawinlivetileview{ApiVersion}~infragistics.win.ultrawinlivetileview.tilebase~currentsize.html[CurrentSize] プロパティに対して設定可能なオプションは、`小`、`中`、`ワイド`、および`大`です。
+
+.注:
+[NOTE]
+====
+小サイズのタイルをアニメーションすることはできません。タイルにはフレームがありません。イメージ プロパティのみ公開します。
+====
+
+*C# の場合:*
+
+[source,csharp]
+----
+LiveTile mediumLiveTile = tileGroup.Tiles.AddLiveTile("MediumLiveTile");
+mediumLiveTile.CurrentSize = TileSize.Medium;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim mediumLiveTile As LiveTile = tileGroup.Tiles.AddLiveTile("MediumLiveTile")
+mediumLiveTile.CurrentSize = TileSize.Medium
+----
+
+[[_Ref366365547]]
+
+=== ミディアム フレームの作成
+
+ミディアム フレームを作成してミディアム ライブ タイルに追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+LiveTileFrameMedium mediumFrame = mediumLiveTile.DefaultView.MediumFrames.Add();
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim mediumFrame As LiveTileFrameMedium = mediumLiveTile.DefaultView.MediumFrames.Add()
+----
+
+[[_Ref366365557]]
+
+=== ミディアム テンプレートの作成
+
+ミディアム フレームのコンテンツを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+TileMediumText01 mediumContent = new TileMediumText01();
+mediumContent.TextHeading.Text = "Heading";
+mediumContent.TextBody1.Text = "Body line 1";
+mediumContent.TextBody2.Text = "Body line 2";
+mediumContent.TextBody3.Text = "Body line 3";
+// コンテンツをフレームに追加
+mediumFrame.Content = mediumContent;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim mediumContent As New TileMediumText01()
+mediumContent.TextHeading.Text = "Heading"
+mediumContent.TextBody1.Text = "Body line 1"
+mediumContent.TextBody2.Text = "Body line 2"
+mediumContent.TextBody3.Text = "Body line 3"
+' コンテンツをフレームに追加
+mediumFrame.Content = mediumContent
+----
+
+ここで、ミディアム ライブ タイルは以下のスクリーンショットに示すように完了します。
+
+image::images/Adding_WinLiveTileView_in_Code-Behind_2.png[]
+
+[[_Ref366365571]]
+
+=== ワイド フレームの作成
+
+ライブ タイルは動的なランタイムのサイズ変更をサポートするため、アプリケーションの実行中に中タイルを`右クリック`して表示されるアプリケーション バーでオプションを選択し、ワイドにサイズ変更することができます。そのためにはワイド フレーム テンプレートが必要です。テンプレートがなかった場合は以下の図に示すように、ワイド サイズの空白のタイルが表示されます。
+
+ワイド フレームを作成してミディアム ライブ タイルに追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+LiveTileFrameWide wideFrame = mediumLiveTile.DefaultView.WideFrames.Add();
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim wideFrame As LiveTileFrameWide = mediumLiveTile.DefaultView.WideFrames.Add()
+----
+
+[[_Ref366365583]]
+
+=== ワイド テンプレートの作成
+
+ワイド フレームのコンテンツを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+TileWideText01 wideContent = new TileWideText01();
+wideContent.TextHeading.Text = "Heading";
+wideContent.TextBody1.Text = "Body line 1";
+wideContent.TextBody2.Text = "Body line 2";
+wideContent.TextBody3.Text = "Body line 3";
+wideContent.TextBody4.Text = "Body line 4";
+// コンテンツをフレームに追加
+wideFrame.Content = wideContent;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim wideContent As New TileWideText01()
+wideContent.TextHeading.Text = "Heading"
+wideContent.TextBody1.Text = "Body line 1"
+wideContent.TextBody2.Text = "Body line 2"
+wideContent.TextBody3.Text = "Body line 3"
+wideContent.TextBody4.Text = "Body line 4"
+' コンテンツをフレームに追加
+wideFrame.Content = wideContent
+----
+
+以下の画像は、オリジナル サイズとワイド サイズで描画したタイルを示しています。オプションでラージ フレームに同じ手順を繰り返します。
+
+image::images/Adding_WinLiveTileView_in_Code-Behind_3.png[]
+
+サイズ変更したビュー
+
+image::images/Adding_WinLiveTileView_in_Code-Behind_4.png[]
+
+[[_Ref366365597]]
+== アニメーション有りのライブ タイルの追加
+
+=== アニメーション有りのライブ タイルの追加
+
+以下のコード例は、サンプル データを使用して、各曜日ごとに温度を表示するアニメーション有りのライブ タイルを追加する方法を示します。
+
+まだグループを作成していない場合は前のステップを繰り返し、次にここから手順を続行してください。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// ライブ タイルのインスタンスを作成
+LiveTile liveTile = tileGroup.Tiles.AddLiveTile("MediumLiveTile");
+// 1 週間の温度リストのサンプル データを作成
+string[] temperatures = new[] {"65", "69", "72", "70", "75", "67", "77"};
+// 温度リストを反復し、アニメーションのためのフレームを作成
+foreach (string temp in temperatures)
+{
+    // 各反復用のフレーム オブジェクトを作成
+    LiveTileFrameMedium frame = new LiveTileFrameMedium();
+    // オプションでアニメーションの方向を割り当て (デフォルトはSlideFromBottom)
+    frame.Animation = TileFrameAnimation.Default;
+    // オプションでアニメーションの時間間隔を設定 (デフォルトは5 秒)
+    frame.Interval = TimeSpan.FromSeconds(2);
+    // タイルのコレクションにフレームを追加
+    liveTile.DefaultView.MediumFrames.Add(frame);
+    // 各フレームのコンテンツを作成
+    TileMediumBlock content = new TileMediumBlock();
+    // ブロック テキストの割り当て
+    // このタイルは温度を表示するため、摂氏/華氏記号 ( (char) 176 ) を末尾に付加
+    content.TextBlock.Text = temp + (char) 176; 
+    // 2 つ目のテキスト列 (TextSubBlock) を割り当て 
+    content.TextSubBlock.Text = DateTime.Today.DayOfWeek.ToString();
+    // 各フレームにコンテンツを追加
+    frame.Content = content;
+}
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+' ライブ タイルのインスタンスを作成
+Dim liveTile As LiveTile = tileGroup.Tiles.AddLiveTile("MediumLiveTile")
+' 1 週間の温度リストのサンプル データを作成
+Dim temperatures As String() = New () {"65", "69", "72", "70", "75", "67", _
+      "77"}
+' 温度リストを反復し、アニメーションのためのフレームを作成
+For Each temp As String In temperatures
+      ' 各反復用のフレーム オブジェクトを作成
+      Dim frame As New LiveTileFrameMedium()
+      ' オプションでアニメーションの方向を割り当て (デフォルトはSlideFromBottom)
+      frame.Animation = TileFrameAnimation.[Default]
+      ' オプションでアニメーションの時間間隔を設定 (デフォルトは5 秒)
+      frame.Interval = TimeSpan.FromSeconds(2)
+      ' タイルのコレクションにフレームを追加
+      liveTile.DefaultView.MediumFrames.Add(frame)
+      ' 各フレームのコンテンツを作成
+      Dim content As New TileMediumBlock()
+      ' ブロック テキストの割り当て
+      ' このタイルは温度を表示するため、摂氏/華氏記号 ( (char) 176 ) を末尾に付加
+      content.TextBlock.Text = temp & ChrW(176)
+      ' 2 つ目のテキスト列 (TextSubBlock) を割り当て 
+      content.TextSubBlock.Text = DateTime.Today.DayOfWeek.ToString()
+      ' 各フレームにコンテンツを追加
+      frame.Content = content
+Next
+----
+
+結果を検証するアプリケーションを実行して、平日の気温を表示するミディアム ライブ タイルのアニメーションを確認します (オプション)。
+
+image::images/Adding_WinLiveTileView_in_Code-Behind_5.png[]
+
+[[_Ref366365606]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winlivetileview-adding-winlivetileview-using-the-designer.html[デザイナーを使用した WinLiveTileView の追加]
+|このトピックでは、デザイナー インターフェイスを使用して _UltraLiveTileView_ コントロールやタイルをアプリケーションで追加する方法を示します。
+
+| link:winlivetileview.html[WinLiveTileView]
+|このグループのトピックでは、最新の _UltraLivetileView_ コントロールについて、使用および設定する手順を含めて紹介します。このコントロールは、Microsoft Windows 8 オペレーティング システムのスタート画面のタイルと類似しています。
+
+|====

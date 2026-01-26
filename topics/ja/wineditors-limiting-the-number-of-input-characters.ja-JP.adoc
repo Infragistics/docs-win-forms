@@ -1,0 +1,124 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-limiting-the-number-of-input-characters",
+    "controlName": ["WinEditors"],
+    "tags": ["Extending","How Do I","Validation"],
+    "guid": "{29FE16D6-8952-4ECE-9655-769DEB663AC9}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 入力文字数を制限する
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinDateTimeEditor
+* WinNumericEditor 
+* WinCurrencyEditor
+
+多くのアプリケーションで、ユーザーはエディタ内に特定の文字を入力するように制限されます。WinDateTimeEditor、WinNumericEditor、および WinCurrencyEditor は、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultranumericeditorbase~maskinput.html[MaskInput]"]  プロパティを提供します。これは無効なキーストロークを無視すると同時にどの文字が有効な入力であるかを判断するために使用できます。
+
+エディタに入力できる文字を制限するには、MaskInput プロパティを設定します。以下に指定したマスクは数字のみを許可し、小数点第 2 位まで入力する必要があることを規定します。マスクの作成に使用する文字は、Visual Basic の書式設定標準と一致しています。入力マスクに使用できる文字の完全なリストについては、後述の「入力マスク文字」を参照してください。
+
+マスクを設定している場合は、MaskDisplay プロパティを使用して、マスクの表示方法とプロンプト文字を表示するかどうかを指定することもできます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinMaskedEdit
+Imports Infragistics.Win.UltraWinEditors
+...
+Private Sub LimitingtheNumberofInputCharacters_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraNumericEditor1.NumericType = NumericType.Double
+	Me.UltraNumericEditor1.MaskInput = "$999,99#.##"
+	Me.UltraNumericEditor1.MaskDisplayMode = MaskMode.IncludeBoth
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinMaskedEdit;
+using Infragistics.Win.UltraWinEditors;
+...
+private void LimitingtheNumberofInputCharacters_Load(object sender, System.EventArgs e)
+{
+	this.ultraNumericEditor1.NumericType = NumericType.Double;
+	this.ultraNumericEditor1.MaskInput = "$999,99#.##";
+	this.ultraNumericEditor1.MaskDisplayMode = MaskMode.IncludeBoth;
+}
+----
+
+image::images\WinEditors_Limit_the_Number_of_Input_Characters_01.png[]
+
+== 入力マスク文字
+
+入力マスクの構成文字には次のようなものがあります。
+
+[options="header", cols="a,a"]
+|====
+|文字|説明
+
+|#
+|数字のプレースホルダ。文字は数字（0～9）である必要があり、入力は必須です。
+
+|.
+|小数のプレースホルダ。実際に使用される文字は、システムの国際設定によって小数のプレースホルダに指定されたものです。この文字はマスク用のリテラルとして扱われます。
+
+|,
+|千の位の区切り記号。実際に使用される文字は、システムの国際設定によって千の位の区切り文字に指定されたものです。この文字はマスク用のリテラルとして扱われます。
+
+|:
+|時刻の区切り文字。実際に使用される文字は、システムの国際設定によって時刻の区切り文字に指定されたものです。この文字はマスキング用のリテラルとして扱われます。
+
+|/
+|日付の区切り文字。実際に使用される文字は、システムの国際設定によって日付の区切り文字に指定されたものです。この文字はマスク用のリテラルとして扱われます。
+
+|\
+|マスク文字列内の次の文字をリテラルとして扱います。これにより、マスクに「#」、「&」、「A」、および「?」の文字を含めることができます。この文字はマスク用のリテラルとして扱われます。
+
+|&
+|文字のプレースホルダ。このプレースホルダに有効な値は、32 から 126 および 128 から 255（キーボード入力文字および外国語の記号文字）の範囲の ANSI 文字です。
+
+|>
+|以降の文字をすべて大文字に変換します。
+
+|<
+|以降の文字をすべて小文字に変換します。
+
+|A
+|英数字のプレースホルダ。例：a-z、A-Z、0 から 9 を表します。文字の入力は必須ではありません。
+
+|a
+|英数字のプレースホルダ。例：a-z、A-Z、0 から 9。文字の入力は必須ではありません。
+
+|9
+|数字のプレースホルダ。文字は数字（0 から 9）である必要がありますが、入力は必須ではありません。
+
+|-
+|負の数字を示すオプションのマイナス記号。マスク文字列の先頭に付ける必要があります。
+
+|C
+|文字またはスペースのプレースホルダ。文字の入力は必須ではありません。これは「&」プレースホルダとまったく同様に機能し、Microsoft Access との互換性を確保します。
+
+|?
+|文字のプレースホルダ。例：a-z または A-Z を表します。文字の入力は必須ではありません。
+
+|リテラル
+|上記以外の記号はすべてリテラルとして（つまり、その記号自体として）表示されます。
+
+|n
+|数字のプレースホルダ。n のグループを使用して、数字が右から左に入力される数字セクションを作成できます。文字は数字（0 から 9）である必要がありますが、入力は必須ではありません。
+
+|mm, dd, yy
+|これら 3 つの特殊文字列を組み合わせて日付マスクを定義できます。mm は月、dd は日、yy は 2 桁形式の年、yyyy は 4 桁形式の年を表します。例: mm/dd/yyyy、yyyy/mm/dd、mm/yy。
+
+|hh, mm, ss, tt
+|これら 3 つの特殊文字列を組み合わせて時刻マスクを定義できます。hh は時、mm は分、ss は秒、tt は AM/PM を表します。例: hh:mm、hh:mm tt、hh:mm:ss。
+
+|====

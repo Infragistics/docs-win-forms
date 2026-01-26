@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{63A501D4-22D1-4217-BB38-EB0B1E5CDCD9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinChart 2006.1
+
+2006 Volume 1 リリースに新たに追加された強力な WinChart™ 機能について説明しています。
+
+* link:winchart-added-box-chart-whats-new-2006-1.html[追加されたボックス グラフ]
+* link:winchart-added-probability-chart-whats-new-2006-1.html[追加された確率グラフ]
+* link:winchart-improved-logic-of-date-time-intervals-whats-new-2006-1.html[強化された日付/時刻間隔ロジック]
+* link:winchart-more-time-scale-axis-support-whats-new-2006-1.html[強化された時間のスケール軸サポート]
+* link:winchart-new-3d-chart-rendering-engine-whats-new-2006-1.html[新しい 3D グラフ描画エンジン]
+* link:winchart-new-and-improved-3d-charts-whats-new-2006-1.html[立体チャート機能の新規追加と強化]

@@ -1,0 +1,1326 @@
+﻿////
+|metadata|
+{
+    "name": "supportdialogs-resource-strings",
+    "controlName": [],
+    "tags": ["Resource Strings"],
+    "guid": "{A19C4E95-24B9-4E56-82B4-DCFC17877A27}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= SupportDialogs リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|Button_Apply
+|適用
+
+|Button_Cancel
+|キャンセル(&C)
+
+|Button_OK
+|&OK
+
+|ConditionalFormatting_AddConditionAppearanceMappings
+|状態/外観マッピングを追加
+
+|ConditionalFormatting_AddConditionGroup_Button
+|条件グループを追加
+
+|ConditionalFormatting_AddFormulaCondition_Button
+|数式条件を追加
+
+|ConditionalFormatting_AddOperatorCondition_Button
+|演算子条件を追加
+
+|ConditionalFormatting_AddTrueCondition_Button
+|True 条件を追加
+
+|ConditionalFormatting_ApplyAllMatchingConditions_Checkbox
+|すべての一致条件を適用
+
+|ConditionalFormatting_CreateConditionGroup_Form
+|条件グループを作成
+
+|ConditionalFormatting_DeleteCondition_Button
+|条件を削除
+
+|ConditionalFormatting_Edit_ConditionGroup
+|条件グループを編集
+
+|ConditionalFormatting_Edit_FormulaCondition
+|数式条件を編集
+
+|ConditionalFormatting_Grid_IsCaseSensitive
+|CaseSensitive
+
+|ConditionalFormatting_Grid_IsComplement
+|IsComplement
+
+|ConditionalFormatting_Grid_Operator
+|演算子
+
+|ConditionalFormatting_Grid_Value
+|値
+
+|ConditionalFormatting_Legend_ConditionGroup
+|$$-$$ 条件グループ
+
+|ConditionalFormatting_Legend_FormulaCondition
+|$$-$$ 数式条件
+
+|ConditionalFormatting_Legend_Header
+|凡例
+
+|ConditionalFormatting_Legend_OperatorCondition
+|$$-$$ 演算子条件
+
+|ConditionalFormatting_Legend_TrueCondition
+|$$-$$ True 条件
+
+|ConditionalFormatting_LogicalOperator_And
+|AND
+
+|ConditionalFormatting_LogicalOperator_Header
+|論理演算子
+
+|ConditionalFormatting_LogicalOperator_Or
+|OR
+
+|ConditionalFormatting_MoveDown_Button
+|下へ移動
+
+|ConditionalFormatting_MoveUp_Button
+|上へ移動
+
+|ConditionalFormatting_Operator_Contains
+|～を含む
+
+|ConditionalFormatting_Operator_DoesNotContain
+|DoesNotContain
+
+|ConditionalFormatting_Operator_DoesNotEndWith
+|DoesNotEndWith
+
+|ConditionalFormatting_Operator_DoesNotMatch
+|DoesNotMatch
+
+|ConditionalFormatting_Operator_DoesNotStartWith
+|DoesNotStartWith
+
+|ConditionalFormatting_Operator_EndsWith
+|EndsWith
+
+|ConditionalFormatting_Operator_Equals
+|等しい
+
+|ConditionalFormatting_Operator_GreaterThan
+|GreaterThan
+
+|ConditionalFormatting_Operator_GreaterThanOrEqualTo
+|GreaterThanOrEqualTo
+
+|ConditionalFormatting_Operator_IsNullOrEmpty
+|IsNullOrEmpty
+
+|ConditionalFormatting_Operator_LessThan
+|LessThan
+
+|ConditionalFormatting_Operator_LessThanOrEqualTo
+|LessThanOrEqualTo
+
+|ConditionalFormatting_Operator_Like
+|パターンと一致 (LIKE)
+
+|ConditionalFormatting_Operator_Match
+|一致
+
+|ConditionalFormatting_Operator_NotEquals
+|NotEquals
+
+|ConditionalFormatting_Operator_NotLike
+|NotLike
+
+|ConditionalFormatting_Operator_StartsWith
+|StartsWith
+
+|ConditionalFormatting_PropertyGrid_Label
+|以下のプロパティ グリッドを使用し、グリッドで選択したオブジェクトの外観を編集します。
+
+|CustomizationControlBase_ButtonExport_Text
+|エクスポート(&E)
+
+|CustomizationControlBase_ButtonImport_Text
+|インポート(&I)
+
+|CustomizationControlBase_ButtonReset_Text
+|リセット(&R)
+
+|CustomizationControlBase_Dialog_BinaryFormat
+|バイナリ形式
+
+|CustomizationControlBase_Dialog_XMLFormat
+|XML 書式
+
+|CustomizationControlBase_DialogExport_Title
+|エクスポート...
+
+|CustomizationControlBase_DialogImport_Title
+|インポート...
+
+|CustomizationControlBase_DropDown_AllCommands
+|すべてのコマンド
+
+|CustomizationControlBase_DropDown_AllTabs
+|すべてのタブ
+
+|CustomizationControlBase_DropDown_ApplicationMenu
+|アプリケーション メニュー
+
+|CustomizationControlBase_DropDown_Commands
+|{0} コマンド
+
+|CustomizationControlBase_DropDown_CustomTabsAndGroups
+|カスタム タブとグループ
+
+|CustomizationControlBase_DropDown_MainTabs
+|メイン タブ
+
+|CustomizationControlBase_DropDown_PopularCommands
+|一般的なコマンド
+
+|CustomizationControlBase_DropDown_ToolTabs
+|ツール タブ
+
+|CustomizationControlBase_Header_ChooseCommands
+|コマンドの選択
+
+|CustomizationControlBase_LabelImportExport_Text
+|カスタム リボンを共有または保存する
+
+|CustomizationControlBase_LabelReset_Text
+|リボンをデフォルトに元に戻す
+
+|CustomizationControlBase_Link_CollapseAll
+|すべて縮小
+
+|CustomizationControlBase_MessageBox_ExportFailure
+|リボン データを {0} ファイルにエクスポートできません。
+
+|CustomizationControlBase_MessageBox_ImportFailure
+|リボン データを {0} ファイルからインポートできません。
+
+|CustomizationControlBase_MessageBox_Reset_Caption
+|リセット...
+
+|CustomizationControlBase_MessageBox_Reset_Text
+|すべてのリボンおよびクイック アクセス ツールバーのカスタマイズを削除してもよろしいですか？
+
+|CustomizationControlBase_MultipleInstancesWarning_Continue
+|残りの操作を続行しますか？
+
+|CustomizationControlBase_MultipleInstancesWarning_MultipleTools_Part1
+|以下のツールの追加インスタンスは追加できません: <b>{0}</b><br/><br/>{1}
+
+|CustomizationControlBase_MultipleInstancesWarning_MultipleTools_Part2
+|<br/>    {0}
+
+|CustomizationControlBase_MultipleInstancesWarning_OneTool
+|<b>{0}</b> ツールの別のインスタンスは追加できません。{1}
+
+|CustomizationControlBase_MultipleInstancesWarning_TitleError
+|エラー
+
+|CustomizationControlBase_MultipleInstancesWarning_TitleWarning
+|警告
+
+|CustomizationControlBase_NodeText_Custom
+|(カスタム)
+
+|CustomizationControlBase_NodeText_Merged
+|[結合]
+
+|CustomizationControlBase_NodeText_StringFormat
+|{0}{1}{2}
+
+|CustomizationControlBase_P_AddButtonImage
+|[追加] ボタンの Image を取得または設定します。
+
+|CustomizationControlBase_P_HeaderImage
+|ヘッダーの Image を取得または設定します。
+
+|CustomizationControlBase_P_MoveDownButtonImage
+|[下へ移動] ボタンの Image を取得または設定します。
+
+|CustomizationControlBase_P_MoveUpButtonImage
+|[上へ移動] ボタンの Image を取得または設定します。
+
+|CustomizationControlBase_P_NewTabButtonImage
+|[タブの追加] ボタンの Image を取得または設定します。
+
+|CustomizationControlBase_Tool_Hide
+|非表示
+
+|CustomizationControlBase_Tool_Modify
+|変更
+
+|CustomizationControlBase_Tool_MoveDown
+|下へ移動
+
+|CustomizationControlBase_Tool_MoveTo
+|指定した位置へ移動
+
+|CustomizationControlBase_Tool_MoveUp
+|上へ移動
+
+|CustomizationControlBase_Tool_NewGroup
+|新しいグループの追加
+
+|CustomizationControlBase_Tool_NewTab
+|新しいタブの追加
+
+|CustomizationControlBase_Tool_Remove
+|削除
+
+|CustomizationControlBase_Tool_ResetDropDown_ResetQAT
+|クイック アクセス ツールバーのリセット(&Q)
+
+|CustomizationControlBase_Tool_ResetDropDown_ResetRibbon
+|すべてのカスタマイズのリセット(&A)
+
+|CustomizationControlBase_Tool_ResetDropDown_ResetSelectedTab
+|選択したリボン タブのみをリセット(&T)
+
+|CustomizationControlBase_Tool_ResetQAT
+|クイック アクセス ツールバーのリセット
+
+|CustomizationControlBase_Tool_ResetRibbon
+|リボンのリセット
+
+|CustomizationControlBase_Tool_ResetTab
+|タブのリセット
+
+|CustomizationControlBase_Tool_Show
+|表示
+
+|CustomizationControlBase_TreeNode_CustomGroups
+|カスタム グループ
+
+|CustomizationControlBase_TreeNode_CustomTabs
+|カスタム タブ
+
+|CustomizationControlBase_TreeNode_MainTabs
+|メイン タブ
+
+|EmbedInXMLCheckbox_ToolTip
+|これをチェックすると、画像データは xml にフォーマットされているテキストに埋め込まれます。このように、URL またはファイルがランタイム時に存在する必要はありません。
+
+|FilterUIProvider_CancelButton
+|キャンセル
+
+|FilterUIProvider_E_AfterMenuPopulate
+|メニュー項目のリストがデフォルトの FilterTools で作成された後で発生します。
+
+|FilterUIProvider_E_BeforeMenuPopulate
+|メニュー項目のリストがデフォルトの FilterTools で作成される前に発生します。
+
+|FilterUIProvider_E_ButtonToolClick
+|メニュー内のボタン ツールがクリックされたときに発生します。
+
+|FilterUIProvider_E_ColumnFilterNull
+|フィルター プロバイダーに有効な列フィルター オブジェクトがなければなりません。
+
+|FilterUIProvider_Menu_ClearFilter
+|フィルターをクリア(&C)
+
+|FilterUIProvider_Menu_CustomFilters
+|カスタム フィルター(&F)
+
+|FilterUIProvider_Menu_DateFilters
+|日付フィルター(&F)
+
+|FilterUIProvider_Menu_NumberFilters
+|数字フィルター(&F)
+
+|FilterUIProvider_Menu_TextFilters
+|テキスト フィルター(&F)
+
+|FilterUIProvider_OKButton
+|OK
+
+|FilterUIProvider_P_ButtonSettings
+|プロバイダーが表示するメニュー ボタンに関連付けられた設定のグループを提供します。
+
+|FilterUIProvider_P_MenuSettings
+|プロバイダーが表示するメニューに関連付けられた設定のグループを提供します。
+
+|FilterUIProvider_P_TreeSettings
+|プロバイダーが表示するツリーに関連付けられた設定のグループを提供します。
+
+|FilterUIProvider_P_ViewStyle
+|さまざまなフィルター ツールやメニューのスタイルを指定する値を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_CancelAppearance
+|キャンセル ボタンの外観を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_CancelHotTrackAppearance
+|キャンセル ボタンのホットトラッキングされた外観を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_CancelPressedAppearance
+|キャンセル ボタンが押された外観を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_OkAppearance
+|OK ボタンの外観を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_OkHotTrackAppearance
+|OK ボタンのホットトラッキングされた外観を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_OkPressedAppearance
+|OK ボタンの押された外観を取得または設定します。
+
+|FilterUIProviderButtonSettings_P_ShowOkCancel
+|メイン メニュー上に [OK] および [キャンセル] ボタンが表示されるかどうかを決定します。
+
+|FilterUIProviderMenuSettings_P_Appearance
+|メニューのデフォルトの外観を取得または設定します。
+
+|FilterUIProviderMenuSettings_P_CheckedAppearance
+|メニューのチェックされたツールを取得または設定します。
+
+|FilterUIProviderMenuSettings_P_HotTrackAppearance
+|メニューのホットトラッキングされたツールを取得または設定します。
+
+|FilterUIProviderMenuSettings_P_IconAreaAppearance
+|メニューのアイコン領域の外観を取得または設定します。
+
+|FilterUIProviderMenuSettings_P_ImageList
+|メニューのツールに関連つけられた画像を含む ImageList コントロールを取得または設定します。
+
+|FilterUIProviderMenuSettings_P_ImageSize
+|メニューのツールに関連付けられた画像のサイズを取得または設定します。
+
+|FilterUIProviderMenuSettings_P_RightAlignedMenus
+|メニューが左揃え/右揃えに設定されるかどうかを取得または設定します。
+
+|FilterUIProviderMenuSettings_P_ToolAppearance
+|メニュー上のツールの外観を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_Appearance
+|ツリーのデフォルトの外観を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_DateHierarchyLevel
+|ツリーをいくつ下へ移動すると DateTime オブジェクトが分解されるかどうかを取得または設定します。
+
+|FilterUIProviderTreeSettings_P_DrawsFocusRect
+|フォーカス四角形がアクティブ ノード上に描画されるかどうかを決定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorColor
+|ノードの展開インジケーターの色を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorImageCollapsed
+|ノードの縮小された展開インジケーターとして表示する画像を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorImageCollapsedHotTracked
+|ノードのホットトラッキングされて縮小された展開インジケータとして表示する画像を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorImageExpanded
+|ノードの展開された展開インジケーターとして表示する画像を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorImageExpandedHotTracked
+|ノードのホットトラッキングされて展開された展開インジケータとして表示する画像を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorPadding
+|展開インジケータの左側と右側で使用するパッディングの量を取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ExpansionIndicatorSize
+|展開インジケーターのサイズを取得または設定します。
+
+|FilterUIProviderTreeSettings_P_HideExpansionIndicators
+|コントロールがフォーカスを持たずホット トラッキングされない時に、展開インジケーターを自動的に非表示にするかどうかを取得または設定します。
+
+|FilterUIProviderTreeSettings_P_HideSelection
+|Infragistics.Win.UltraWinTree.UltraTree がフォーカスを失ったとき、選択された 1 つまたは複数のツリー ノードをハイライトしたままとするかどうかを取得または設定します。
+
+|FilterUIProviderTreeSettings_P_Indent
+|各子ツリー ノードのレベルのインデント幅をピクセル単位で設定または取得または設定します。
+
+|FilterUIProviderTreeSettings_P_NodeConnectorColor
+|コネクター線の色を設定または取得します。
+
+|FilterUIProviderTreeSettings_P_ShowLines
+|ツリー ノードの間に線が描画されるかどうかを取得または設定します。
+
+|FilterUIProviderTreeSettings_P_ShowRootLines
+|ルートノードが展開インジケーターとコネクター線を表示するかどうかを示す値を設定/取得します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Ampersand
+|現在の位置に (&) 記号を挿入します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Back_Color
+|選択したテキストの背景色を変更します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Bold
+|選択したテキストを太字にします。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Center
+|テキストを中央揃え
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Copy
+|選択領域をコピーしてクリップボードに配置します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Cut
+|ドキュメントからの選択領域を切り取りクリップボードに配置する
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Font
+|フォント ダイアログを表示する
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Font_List
+|選択したテキストのフォントを変更する
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Font_Size
+|選択したテキストのフォント サイズを変更する
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Greater_than
+|現在の位置に「大なり」 (>) 記号を挿入します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Horizontal_Line
+|現在の位置に水平線を挿入します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Hyperlink
+|Web ページにリンクします。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Image
+|ファイルから写真を挿入します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Italics
+|選択したテキストを斜体にします。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Justify
+|左右両方のマージンにテキストを揃え、必要に応じてワード間の追加スペースを追加します。これはページの左右をキレイに見せる効果があります。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Left_Align
+|テキストを左揃え
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Less_than
+|現在の位置に「小なり」 (<) 記号を挿入します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Line_Break
+|現在の位置から次の行を開始します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Paragraph
+|現在の位置に段落を挿入します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Paste
+|クリップボードの内容を貼り付けます。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Redo
+|取り消した最後のアクションをやり直します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Right_Align
+|テキストを右揃え
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Text_Color
+|選択したテキストの文字色を変更します。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Underline
+|選択したテキストに下線を付けます。
+
+|FormattedLinkLabelEditor_AccessibleDescription_Tool_Undo
+|実行した最後の処理を取り消します。
+
+|FormattedLinkLabelEditor_Dialog_AccessibleDescription
+|フォーマットされたリンク ラベルまたはテキスト エディターの内容を編集します。
+
+|FormattedLinkLabelEditor_Dialog_Title
+|フォーマットされたテキストを編集
+
+|FormattedLinkLabelEditor_FontDialog_BackColor
+|背景色(&G)
+
+|FormattedLinkLabelEditor_FontDialog_BackColor_AccessibleDescription
+|フォントの背景色を変更します。
+
+|FormattedLinkLabelEditor_FontDialog_BackColor_Reset_Button_AccessibleDescription
+|フォントの背景色をリセットします。
+
+|FormattedLinkLabelEditor_FontDialog_Bold
+|太字(&B)
+
+|FormattedLinkLabelEditor_FontDialog_Bold_AccessibleDescription
+|フォントを太字にします。
+
+|FormattedLinkLabelEditor_FontDialog_Dialog_AccessibleDescription
+|フォントを編集します。
+
+|FormattedLinkLabelEditor_FontDialog_Dialog_Title
+|フォント
+
+|FormattedLinkLabelEditor_FontDialog_FontName
+|フォント名
+
+|FormattedLinkLabelEditor_FontDialog_FontName_AccessibleDescription
+|フォント スタイルを変更します。
+
+|FormattedLinkLabelEditor_FontDialog_FontName_Reset_Button_AccessibleDescription
+|フォント スタイルをリセットします。
+
+|FormattedLinkLabelEditor_FontDialog_FontSize_Reset_Button_AccessibleDescription
+|フォント サイズをリセットします。
+
+|FormattedLinkLabelEditor_FontDialog_ForeColor
+|テキストの色(&C)
+
+|FormattedLinkLabelEditor_FontDialog_ForeColor_AccessibleDescription
+|フォントの色を変更します。
+
+|FormattedLinkLabelEditor_FontDialog_ForeColor_Reset_Button_AccessibleDescription
+|フォントの色をリセットします。
+
+|FormattedLinkLabelEditor_FontDialog_GroupHeader_Edit
+|フォント情報を編集します。
+
+|FormattedLinkLabelEditor_FontDialog_GroupHeader_Edit_AccessibleDescription
+|異なるフォント情報を編集します。
+
+|FormattedLinkLabelEditor_FontDialog_GroupHeader_Preview
+|プレビュー
+
+|FormattedLinkLabelEditor_FontDialog_GroupHeader_Preview_AccessibleDescription
+|フォントのプレビューを表示します。
+
+|FormattedLinkLabelEditor_FontDialog_Italic
+|イタリック(&I)
+
+|FormattedLinkLabelEditor_FontDialog_Italic_AccessibleDescription
+|フォントを斜体にします。
+
+|FormattedLinkLabelEditor_FontDialog_PreviewText
+|テキストをプレビュー
+
+|FormattedLinkLabelEditor_FontDialog_Reset_Button
+|クリア
+
+|FormattedLinkLabelEditor_FontDialog_Size
+|サイズ(&S)
+
+|FormattedLinkLabelEditor_FontDialog_Size_AccessibleDescription
+|フォント サイズを変更します。
+
+|FormattedLinkLabelEditor_FontDialog_Underline
+|下線(&U)
+
+|FormattedLinkLabelEditor_FontDialog_Underline_AccessibleDescription
+|フォントに下線を付けます。
+
+|FormattedLinkLabelEditor_GroupHeader_Edit
+|ここで値を編集
+
+|FormattedLinkLabelEditor_GroupHeader_Edit_AccessibleDescription
+|エディターの raw テキストを編集します。
+
+|FormattedLinkLabelEditor_GroupHeader_Preview
+|プレビュー
+
+|FormattedLinkLabelEditor_GroupHeader_Preview_AccessibleDescription
+|フォーマットされたテキストをプレビューします。
+
+|FormattedLinkLabelEditor_GroupHeader_Status_AccessibleDescription
+|raw テキストをフォーマットする時の状態を表示します。
+
+|FormattedLinkLabelEditor_GroupHeader_Status_Error
+|ステータス： エラー。XML を解析中に、エラーが発生しました。
+
+|FormattedLinkLabelEditor_GroupHeader_Status_OK
+|ステータス: OK。XML は正しい形式です。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_Dialog_AccessibleDescription
+|テキストに Web ページへのリンクを挿入します。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_Dialog_Title
+|ハイパーリンクを挿入します。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_DisplayText
+|テキストを表示(&D)
+
+|FormattedLinkLabelEditor_HyperLinkDialog_DisplayText_AccessibleDescription
+|ハイパーリンクに表示されるテキストです。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_GroupHeader_Edit
+|ここでハイパーリンクを編集できます。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_GroupHeader_Edit_AccessibleDescription
+|ここでハイパーリンクを編集できます。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_GroupHeader_Preview
+|プレビュー
+
+|FormattedLinkLabelEditor_HyperLinkDialog_GroupHeader_Preview_AccessibleDescription
+|ハイパーリンクをプレビューします。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_ToolTipText
+|ツールチップ テキスト(&T)
+
+|FormattedLinkLabelEditor_HyperLinkDialog_ToolTipText_AccessibleDescription
+|マウスをハイパーリンクに重ねた時に表示するツールチップ テキストです。
+
+|FormattedLinkLabelEditor_HyperLinkDialog_URL
+|&URL
+
+|FormattedLinkLabelEditor_HyperLinkDialog_URL_AccessibleDescription
+|ハイパーリンクの URL です。
+
+|FormattedLinkLabelEditor_ImageDialog_AdvancedSettings
+|詳細設定
+
+|FormattedLinkLabelEditor_ImageDialog_Dialog_AccessibleDescription
+|テキストに画像を挿入します。
+
+|FormattedLinkLabelEditor_ImageDialog_Dialog_Title
+|画像を挿入
+
+|FormattedLinkLabelEditor_ImageDialog_EmbedInXML
+|XML に組み込まれた画像データ
+
+|FormattedLinkLabelEditor_ImageDialog_EmbedInXML_AccessibleDescription
+|フォーマットされた XML に画像 URL ではなくエンコードされた画像データを保存します。
+
+|FormattedLinkLabelEditor_ImageDialog_FloatStyle
+|画像表示スタイル：
+
+|FormattedLinkLabelEditor_ImageDialog_GroupHeader_Edit
+|画像を選択
+
+|FormattedLinkLabelEditor_ImageDialog_GroupHeader_Edit_AccessibleDescription
+|画像とテキストに表示される方法を指定します。
+
+|FormattedLinkLabelEditor_ImageDialog_GroupHeader_Preview
+|プレビュー
+
+|FormattedLinkLabelEditor_ImageDialog_GroupHeader_Preview_AccessibleDescription
+|画像をプレビューします。
+
+|FormattedLinkLabelEditor_ImageDialog_Height
+|表示の高さ：
+
+|FormattedLinkLabelEditor_ImageDialog_Height_AccessibleDescription
+|テキスト内の画像の高さです。
+
+|FormattedLinkLabelEditor_ImageDialog_Image_Source
+|画像ソース（URL/ファイル）
+
+|FormattedLinkLabelEditor_ImageDialog_Image_Source_AccessibleDescription
+|画像が置かれる場所です。
+
+|FormattedLinkLabelEditor_ImageDialog_ImageFileDialog_Caption
+|画像を選択
+
+|FormattedLinkLabelEditor_ImageDialog_ImageFileDialog_Filter
+|画像ファイル($$*$$.BMP;$$*$$.JPG;$$*$$.JPEG;$$*$$.GIF)\|$$*$$.BMP;$$*$$.JPG;$$*$$.JPEG;$$*$$.GIF\|すべてのファイル ($$*$$.$$*$$)\|$$*$$.$$* $$
+
+|FormattedLinkLabelEditor_ImageDialog_Option_FloatLeft
+|左フロート
+
+|FormattedLinkLabelEditor_ImageDialog_Option_FloatRight
+|右フロート
+
+|FormattedLinkLabelEditor_ImageDialog_Option_InlineWithText
+|テキスト付きインライン
+
+|FormattedLinkLabelEditor_ImageDialog_ToolTipText
+|ツールチップ テキスト
+
+|FormattedLinkLabelEditor_ImageDialog_ToolTipText_AccessibleDescription
+|マウスを画像に重ねた時にツールチップに表示されるテキストです。
+
+|FormattedLinkLabelEditor_ImageDialog_Width
+|表示幅：
+
+|FormattedLinkLabelEditor_ImageDialog_Width_AccessibleDescription
+|テキスト内の画像の幅です。
+
+|FormattedLinkLabelEditor_NoURL_Caption
+|URL なし
+
+|FormattedLinkLabelEditor_NoURL_Message
+|URL は指定されていません空のハイパーリンクが作成されます。続行しますか？
+
+|FormattedLinkLabelEditor_RawTextTab
+|Raw テキストとして値を編集
+
+|FormattedLinkLabelEditor_Tool_Ampersand
+|(&) 記号を挿入
+
+|FormattedLinkLabelEditor_Tool_Back_Color
+|背景色
+
+|FormattedLinkLabelEditor_Tool_Bold
+|太字
+
+|FormattedLinkLabelEditor_Tool_Center
+|テキストの中央揃え
+
+|FormattedLinkLabelEditor_Tool_Copy
+|コピー
+
+|FormattedLinkLabelEditor_Tool_Cut
+|切り取り
+
+|FormattedLinkLabelEditor_Tool_Font
+|フォント タグを挿入
+
+|FormattedLinkLabelEditor_Tool_Font_List
+|フォントを変更
+
+|FormattedLinkLabelEditor_Tool_Font_Size
+|フォント サイズを変更
+
+|FormattedLinkLabelEditor_Tool_Greater_than
+|「大なり」 (>) 記号を挿入
+
+|FormattedLinkLabelEditor_Tool_Horizontal_Line
+|水平線を挿入
+
+|FormattedLinkLabelEditor_Tool_Hyperlink
+|ハイパーリンクを挿入
+
+|FormattedLinkLabelEditor_Tool_Image
+|画像を挿入
+
+|FormattedLinkLabelEditor_Tool_Italics
+|斜体
+
+|FormattedLinkLabelEditor_Tool_Justify
+|テキストの両端揃え
+
+|FormattedLinkLabelEditor_Tool_Left_Align
+|テキストを左揃え
+
+|FormattedLinkLabelEditor_Tool_Less_than
+|「小なり」 (<) 記号を挿入
+
+|FormattedLinkLabelEditor_Tool_Line_Break
+|強制改行を挿入
+
+|FormattedLinkLabelEditor_Tool_Paragraph
+|段落を挿入
+
+|FormattedLinkLabelEditor_Tool_Paste
+|貼り付け
+
+|FormattedLinkLabelEditor_Tool_Redo
+|やり直し
+
+|FormattedLinkLabelEditor_Tool_Right_Align
+|テキストを右揃え
+
+|FormattedLinkLabelEditor_Tool_Text_Color
+|テキストの色
+
+|FormattedLinkLabelEditor_Tool_Underline
+|下線
+
+|FormattedLinkLabelEditor_Tool_Undo
+|元に戻す
+
+|FormattedLinkLabelEditor_ValueTab
+|フォーマットされたテキストとして値を編集
+
+|GlyphDesignerDialog_Button_Back
+|< 戻る
+
+|GlyphDesignerDialog_Button_Cancel
+|キャンセル
+
+|GlyphDesignerDialog_Button_Finish
+|完了
+
+|GlyphDesignerDialog_Button_Next
+|次へ >
+
+|GlyphDesignerDialog_CheckBox_Preview
+|チェックボックス
+
+|GlyphDesignerDialog_CheckState_Checked
+|チェック
+
+|GlyphDesignerDialog_CheckState_Indeterminate
+|不確定
+
+|GlyphDesignerDialog_CheckState_Unchecked
+|チェック解除
+
+|GlyphDesignerDialog_FailedToLoadImageFromFile_Title
+|エラー
+
+|GlyphDesignerDialog_GlyphSize_Label_Height
+|高さ
+
+|GlyphDesignerDialog_GlyphSize_Label_Width
+|幅
+
+|GlyphDesignerDialog_GroupHeader_Preview
+|プレビュー
+
+|GlyphDesignerDialog_GroupHeader_Size
+|サイズ
+
+|GlyphDesignerDialog_IncorrectSizeWarning_Text
+|画像 ({0}) のサイズとグリフ サイズ ({1}) は一致しません。収まるように画像のサイズを変更します。
+
+|GlyphDesignerDialog_IncorrectSizeWarning_Title
+|警告!
+
+|GlyphDesignerDialog_Info_Step1
+|下記のリストからグリフのスタイルを選択してください。画像の選択および外観を完全にカスタマイズするには、[カスタム スタイル] を選択してください。
+
+|GlyphDesignerDialog_Info_Step2
+|グリフ画像は、値の状態および表示の状態に分けられます。値の状態とは、チェック済み、チェックしていないまたは不定のことです。表示の状態は、Normal、MouseOver および Disabled のことです。状態の各組み合わせに、それぞれの画像があります。
+
+|GlyphDesignerDialog_OpenFileDialog_FileFilter
+|すべての画像ファイル ($$*$$.bmp, $$*$$.gif, $$*$$.jpg, $$*$$.jpeg, $$*$$.png, $$*$$.ico)\|$$*$$.bmp;$$*$$.gif;$$*$$.jpg;$$*$$.jpeg;$$*$$.png;$$* $$.ico
+
+|GlyphDesignerDialog_OpenFileDialog_Title
+|開く
+
+|GlyphDesignerDialog_Option_Custom
+|カスタム スタイル
+
+|GlyphDesignerDialog_Option_Custom_Info
+|カスタム グリフの作成
+
+|GlyphDesignerDialog_Option_Custom_Office2007
+|Office 2007 スタイルのグリフを使用します。
+
+|GlyphDesignerDialog_Option_Custom_Office2010
+|Office 2010 スタイルのグリフを使用します。
+
+|GlyphDesignerDialog_Option_Custom_Standard
+|Standard スタイル グリフを使用します。
+
+|GlyphDesignerDialog_Option_Default
+|デフォルト スタイル
+
+|GlyphDesignerDialog_Option_Default_Info
+|デフォルトを選択すると、このオブジェクトにグリフ スタイルを指定しません。その代わり、オブジェクトが使用するスタイルは上位のオブジェクトまたはデフォルトに基づいて解決します。
+
+|GlyphDesignerDialog_Option_Office2007
+|Office 2007 スタイル
+
+|GlyphDesignerDialog_Option_Office2010
+|Office 2010 スタイル
+
+|GlyphDesignerDialog_Option_Standard
+|Standard スタイル
+
+|GlyphDesignerDialog_PromptToLoseCustomImages_Text
+|グリフ スタイルをカスタム グリフから他のスタイルに変更しようとしています。続行すると、現在グリフ情報に割り当てられている未保存の画像がなくなります。続行しますか？
+
+|GlyphDesignerDialog_PromptToLoseCustomImages_Title
+|警告
+
+|GlyphDesignerDialog_PromptToSaveImageChanges_Text
+|画像は変更されています。変更を保存しますか？
+
+|GlyphDesignerDialog_PromptToSaveImageChanges_Title
+|変更を保存しますか？
+
+|GlyphDesignerDialog_RadioButton_Preview_Item
+|ラジオ ボタン {0}
+
+|GlyphDesignerDialog_Title_CheckBox
+|チェックボックス デザイナー
+
+|GlyphDesignerDialog_Title_RadioButton
+|ラジオ ボタン デザイナー
+
+|GlyphDesignerDialog_VisualState_Disabled
+|無効
+
+|GlyphDesignerDialog_VisualState_MouseDown
+|マウス ダウン
+
+|GlyphDesignerDialog_VisualState_MouseDownAndOver
+|マウス ダウン アンド オーバー
+
+|GlyphDesignerDialog_VisualState_MouseOver
+|マウス オーバー
+
+|GlyphDesignerDialog_VisualState_Normal
+|通常
+
+|ListViewDesigner_Column_Properties_MultipleColumnsSelected
+|プロパティ: {0} 列
+
+|ListViewDesigner_Column_Properties_NoColumnsSelected
+|プロパティ: （何も選択されていない）
+
+|ListViewDesigner_Column_Properties_SingleColumnSelected
+|プロパティ: {0}
+
+|ListViewDesigner_Columns_ToolbarButton_AddColumn
+|列を追加(&A)
+
+|ListViewDesigner_Columns_ToolbarButton_MoveSelectedColumnsDown
+|選択列を下へ移動（&D）
+
+|ListViewDesigner_Columns_ToolbarButton_MoveSelectedColumnsUp
+|選択列を上へ移動（&U）
+
+|ListViewDesigner_Columns_ToolbarButton_RemoveSelectedColumns
+|選択列を削除（&R）
+
+|ListViewDesigner_Columns_ToolbarButton_SortColumnsAsDetailsView
+|詳細表示で列をソート
+
+|ListViewDesigner_Columns_ToolbarButton_SortColumnsAsTilesView
+|タイル表示で列をソート
+
+|ListViewDesigner_ItemsAndSubItems_Items
+|項目
+
+|ListViewDesigner_ItemsAndSubItems_MultipleItemsSelected
+|プロパティ: {0} 項目
+
+|ListViewDesigner_ItemsAndSubItems_MultipleSubItemsSelected
+|プロパティ: {0} サブ項目
+
+|ListViewDesigner_ItemsAndSubItems_NoItemsToSelectMessage
+|この時点では、UltraListView に項目は 1 つもありません。[データ入力] タブで項目を追加します。
+
+|ListViewDesigner_ItemsAndSubItems_NothingSelected
+|プロパティ: （何も選択されていない）
+
+|ListViewDesigner_ItemsAndSubItems_SelectASingleItemMessage
+|項目のリストからひとつだけの UltraListViewItem を選択して、その項目の UltraListViewSubItems を編集できます。
+
+|ListViewDesigner_ItemsAndSubItems_SingleItemSelected
+|プロパティ: {0}
+
+|ListViewDesigner_ItemsAndSubItems_SingleSubItemSelected
+|プロパティ: {0}
+
+|ListViewDesigner_ItemsAndSubItems_SubItems
+|サブ項目
+
+|ListViewDesigner_Node_ControlLevelProperties
+|コントロール レベルのプロパティ
+
+|ListViewDesigner_Node_ItemSettings
+|項目の設定
+
+|ListViewDesigner_Node_ViewSettings
+|ビュー設定
+
+|ListViewDesigner_Node_ViewSettings_Details
+|詳細
+
+|ListViewDesigner_Node_ViewSettings_Icons
+|アイコン
+
+|ListViewDesigner_Node_ViewSettings_List
+|リスト
+
+|ListViewDesigner_Node_ViewSettings_Thumbnails
+|サムネイル
+
+|ListViewDesigner_Node_ViewSettings_Tiles
+|タイル
+
+|ListViewDesigner_Tab_Caption_Columns
+|列
+
+|ListViewDesigner_Tab_Caption_ControlLevelSettings
+|コントロール レベルの設定
+
+|ListViewDesigner_Tab_Caption_DataEntry
+|データ入力
+
+|ListViewDesigner_Tab_Caption_ItemsAndSubItems
+|項目とサブ項目
+
+|ListViewDesigner_UltraListViewDesignerVerb
+|UltraListView デザイナー
+
+|ModifyDialog_Add
+|+ 追加
+
+|ModifyDialog_CustomImageText
+|(カスタム)
+
+|ModifyDialog_DefaultableBoolean_Default
+|デフォルト
+
+|ModifyDialog_DefaultableBoolean_False
+|False
+
+|ModifyDialog_DefaultableBoolean_True
+|True
+
+|ModifyDialog_DialogText
+|{0} の変更
+
+|ModifyDialog_GroupCaptionTab_Text
+|キャプションの画像 ({0}x{1})
+
+|ModifyDialog_GroupCollapsedTab_Text
+|縮小画像 ({0}x{1})
+
+|ModifyDialog_GroupLabel_PreferredSize
+|ツールの最適なサイズ
+
+|ModifyDialog_HeaderCaptionText
+|{0} のキャプション
+
+|ModifyDialog_HeaderCustomImageText
+|カスタム画像
+
+|ModifyDialog_HeaderSizingBehaviorsText
+|サイズ変更の動作
+
+|ModifyDialog_Label_CanCollapse
+|縮小可能
+
+|ModifyDialog_ListViewLarge_NoImagesAvailable
+|利用可能な画像がありません
+
+|ModifyDialog_ListViewSmall_NoImagesAvailable
+|利用可能な画像がありません
+
+|ModifyDialog_OpenImageDialog_Error
+|画像を開けませんでした
+
+|ModifyDialog_OpenImageDialog_Filter
+|{0} ($$*$$.gif;$$*$$.jpg;$$*$$.jpeg;$$*$$.bmp;$$*$$.wmf;$$*$$.png)\|$$*$$.GIF;$$*$$.JPG;$$*$$.JPEG;$$*$$.BMP;$$*$$.WMF;$$*$$.png\|{1} ($$*$$.$$*$$)\|$$*$$.$$* $$
+
+|ModifyDialog_OpenImageDialog_FilterAllFiles
+|すべてのファイル
+
+|ModifyDialog_OpenImageDialog_FilterImageFiles
+|画像ファイル
+
+|ModifyDialog_OpenImageDialog_Title
+|開く
+
+|ModifyDialog_Remove
+|削除
+
+|ModifyDialog_RibbonGroup
+|リボン グループ
+
+|ModifyDialog_RibbonTab
+|リボン タブ
+
+|ModifyDialog_RibbonToolSize_Default
+|デフォルト
+
+|ModifyDialog_RibbonToolSize_ImageOnly
+|画像のみ
+
+|ModifyDialog_RibbonToolSize_Large
+|大
+
+|ModifyDialog_RibbonToolSize_Normal
+|通常
+
+|ModifyDialog_SelectAnImage
+|以下から画像を選択するか、固有の画像を提供する
+
+|ModifyDialog_Tool
+|ツール
+
+|ModifyDialog_ToolLabel_MinimumSize
+|リボンの最小サイズ
+
+|ModifyDialog_ToolLabel_PreferredSize
+|優先サイズ
+
+|ModifyDialog_ToolLargeTab_Text
+|大画像 ({0}x{1})
+
+|ModifyDialog_ToolSmallTab_Text
+|小画像 ({0}x{1})
+
+|QATCustomizer_Header_CustomizeQuickAccessToolbar
+|クイック アクセス ツールバーをカスタマイズ
+
+|QATCustomizer_Header_CustomizeTheQuickAccessToolbar
+|クイック アクセス ツールバーをカスタマイズ
+
+|QATCustomizer_Header_QuickAccessToolbarSettings
+|クイック アクセス ツールバーの設定
+
+|QATCustomizer_Label_ShowBelowRibbon
+|リボン下部にクイック アクセス ツールバーを表示
+
+|RibbonCustomizationDialog_TabQAT_Text
+|クイック アクセス ツールバー
+
+|RibbonCustomizationDialog_TabRibbon_Text
+|リボンをカスタマイズ
+
+|RibbonCustomizationDialog_Title
+|オプション
+
+|RibbonCustomizer_ButtonNewTab_Text
+|新しいタブ(&T)
+
+|RibbonCustomizer_Header_CustomizeRibbon
+|リボンをカスタマイズ
+
+|RibbonCustomizer_Header_CustomizeRibbonSettings
+|カスタマイズされたリボンの設定
+
+|RibbonCustomizer_Header_CustomizeTheRibbon
+|リボンをカスタマイズ
+
+|RibbonCustomizer_TreeNode_CreateNewGroup
+|新しいグループの作成
+
+|RibbonCustomizer_TreeNode_NewGroup
+|新しいグループ
+
+|RibbonCustomizer_TreeNode_NewTab
+|新しいタブ
+
+|RibbonCustomizer_TreeNodeButtonHide_Text
+|このボタンをクリックすると、項目の Visible プロパティが False に設定されます。<hr/><span >ショートカット:</span> スペースバー
+
+|RibbonCustomizer_TreeNodeButtonHide_Title
+|項目を非表示
+
+|RibbonCustomizer_TreeNodeButtonModify_Text
+|このボタンをクリックすると、項目のキャプションおよび画像を変更します。<hr/><span >ショートカット:</span> Alt + M
+
+|RibbonCustomizer_TreeNodeButtonModify_Title
+|項目を変更
+
+|RibbonCustomizer_TreeNodeButtonRemove_Text
+|このボタンをクリックすると、項目を親コレクションから削除します。<hr/><span >ショートカット:</span> Delete キー
+
+|RibbonCustomizer_TreeNodeButtonRemove_Title
+|項目の削除
+
+|RibbonCustomizer_TreeNodeButtonShow_Text
+|このボタンをクリックすると、項目の Visible プロパティを True に設定します。<hr/><span >ショートカット:</span> スペースバー
+
+|RibbonCustomizer_TreeNodeButtonShow_Title
+|項目を表示
+
+|ToolTipLabel_ToolTip
+|オプション。指定した場合、画像上にマウスをホバーした時にこのテキストをツールチップに表示します。
+
+|ToolTipTextBox_ToolTip
+|オプション。指定した場合、画像上にマウスをホバーした時にこのテキストをツールチップに表示します。
+
+|UltraFormattedLinkLabelActionList_M_EditButtonsLeft_Description
+|コントロールの左側に表示するエディター ボタンのコレクションを編集します。
+
+|UltraFormattedLinkLabelActionList_M_EditButtonsLeft_DisplayName
+|左ボタン
+
+|UltraFormattedLinkLabelActionList_M_EditButtonsRight_Description
+|コントロールの右側に表示するエディター ボタンのコレクションを編集します。
+
+|UltraFormattedLinkLabelActionList_M_EditButtonsRight_DisplayName
+|右ボタン
+
+|UltraFormattedLinkLabelActionList_P_AutoSize_DisplayName
+|自動サイズ
+
+|UltraFormattedLinkLabelActionList_P_BorderStyle_DisplayName
+|ボーダー スタイル
+
+|UltraFormattedLinkLabelActionList_P_TextHAlign_DisplayName
+|テキストの配置（横）
+
+|UltraFormattedLinkLabelActionList_P_TextVAlign_DisplayName
+|テキストの配置(縦）
+
+|UltraFormattedLinkLabelActionList_P_Value_DisplayName
+|値
+
+|UltraFormattedLinkLabelActionList_P_WrapText_DisplayName
+|折り返し
+
+|UltraGridFilterUIProvider_AfterOperand
+|～の後(&A)
+
+|UltraGridFilterUIProvider_AllDatesInPeriod_Menu
+|その期間のすべての日付(&P)
+
+|UltraGridFilterUIProvider_BeforeOperand
+|～の前(&B)
+
+|UltraGridFilterUIProvider_BeginsWithOperand
+|～で始まる(&I)
+
+|UltraGridFilterUIProvider_BetweenOperand
+|～の間(&W)
+
+|UltraGridFilterUIProvider_ContainsOperand
+|～を含む(&A)
+
+|UltraGridFilterUIProvider_CustomFilter
+|カスタム フィルター(&F)
+
+|UltraGridFilterUIProvider_DoesNotContainOperand
+|～を含まない(&D)
+
+|UltraGridFilterUIProvider_DoesNotEqualOperand
+|等しくない(&N)
+
+|UltraGridFilterUIProvider_EndsWithOperand
+|～で終わる(&T)
+
+|UltraGridFilterUIProvider_EqualsOperand
+|等しい(&E)
+
+|UltraGridFilterUIProvider_GreaterThanOperand
+|より大きい(&G)
+
+|UltraGridFilterUIProvider_GreaterThanOrEqualToOperand
+|以上(&O)
+
+|UltraGridFilterUIProvider_LessThanOperand
+|より小さい(&L)
+
+|UltraGridFilterUIProvider_LessThanOrEqualToOperand
+|以下(&Q)
+
+|UltraGridFilterUIProvider_P_About
+|バージョン情報ダイアログを表示します。
+
+|UltraGridFilterUIProvider_P_UseOsThemes
+|オペレーティング システムのテーマのレンダリングを使用してコントロールの要素を描画できるかどうかを示します。
+
+|UltraListViewActionList_P_CheckBoxStyle
+|CheckBoxStyle
+
+|UltraListViewActionList_P_ItemSettings_AllowEdit
+|編集許可
+
+|UltraListViewActionList_P_ItemSettings_HotTracking
+|ホットトラック
+
+|UltraListViewActionList_P_Value_View
+|表示
+
+|UltraRibbonCustomizationProvider_P_About
+|バージョン情報ダイアログを表示します。
+
+|URLLabel_ToolTip
+|画像ソースの選択。画像ソースには、URL (http) またはファイルが利用できます。ファイルの選択は、右のボタンをクリックしてください。
+
+|URLTextBox_ToolTip
+|画像ソースの選択。画像ソースには、URL (http) またはファイルが利用できます。ファイルの選択は、右のボタンをクリックしてください。
+
+|====

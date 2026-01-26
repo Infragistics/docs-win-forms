@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-working-with-dynamically-created-taskpane-toolbars",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{0518DD14-6D12-49CB-A641-715469F5FAB5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 動的に作成されたタスクペインのツールバーの操作
+
+以下のリンクをクリックすると、2 部構成のチュートリアルが表示され、動的に生成される TaskPane ツールバーの操作方法を知ることができます。
+
+* link:wintoolbarsmanager-creating-a-taskpane-toolbar-dynamically-part-1-of-2.html[TaskPane ツールバーの動的な作成（パート 1）]
+* link:wintoolbarsmanager-adding-tools-to-the-dynamically-created-taskpane-toolbar-part-2-of-2.html[動的に作成された TaskPane ツールバーへのツールの追加（パート2）]

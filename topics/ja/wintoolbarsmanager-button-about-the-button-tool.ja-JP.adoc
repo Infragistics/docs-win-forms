@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-button-about-the-button-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{FE5E0B16-C87E-46F7-ADFE-F42841335B6A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ボタン ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+[cols="a,a"]
+|====
+|*クラス名：*
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.buttontool.html[ButtonTool]"] 
+
+|*派生元：*
+|Toolbase
+
+|*説明：*
+|Button ツールは、標準のツールバー ボタンの動作と外観を提供します。ボタン ツールにはイメージやテキストを表示できます。ボタン ツールはツールバーやメニューに配置できます。ツールバー上では、押されるとコマンド ボタンのように動作します。つまり、視覚的に押されたように表示され、元のアップ位置に戻ってクリック イベントを発生します。
+
+|*サンプル：*
+|image::Images/WinToolbarsManager_About_Tools_01.png[] 
+
+image::Images/WinToolbarsManager_About_Tools_02.png[] 
+
+|====

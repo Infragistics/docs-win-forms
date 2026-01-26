@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-binding-data-to-winpivotgrid",
+    "controlName": [],
+    "tags": [],
+    "guid": "a9461c45-e36a-4393-a59d-c70be1f7648d",  
+    "buildFlags": [],
+    "createdOn": "2014-03-13T21:34:32.6810579Z"
+}
+|metadata|
+////
+
+= WinPivotGrid へのデータのバインド
+
+== このグループのトピックについて
+
+=== 概要
+
+このセクションには、 _WinPivotGrid_™ コントロールにデータをバインドするいくつかの方法を説明するトピックが含まれています。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-using-adomd.html[ADOMD の使用]
+|このトピックでは、ADOMD データ ソースと　ADOMD データ プロバイダーを使用した _WinPivotGrid_™ データ バインディングを説明します。
+
+| link:winpivotgrid-using-flatdatasource.html[FlatDataSource の使用]
+|このトピックでは、 link:{ApiPlatform}olap.datasource.flat{ApiVersion}~infragistics.olap.flatdata.flatdatasource_members.html[FlatDataSource] クラスを使用して _WinPivotGrid_™ で _IEnumerable_ データを表示する方法を説明します。
+
+| link:winpivotgrid-using-the-flatdatasource-dataadapter-classes.html[FlatDataSource DataAdapter クラスの使用]
+|このトピックでは、FlatDataSource DataAdapter クラスを _WinPivotGrid_™ にバインドする方法を説明します。
+
+| link:winpivotgrid-using-xmla.html[XMLA の使用]
+|このトピックでは、XMLA データ ソースと XMLA データ プロバイダーへの _WinPivotGrid_™ データ バインディングを説明します。
+
+|====

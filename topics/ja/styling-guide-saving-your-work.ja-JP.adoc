@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "styling-guide-saving-your-work",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{6429EB9B-E0AB-4844-914B-11916C11A917}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 作業の保存
+
+開発者に作業を渡す前のスタイリング プロセスの最終手順は、スタイル ライブラリを Infragistics Style Library（.isl）ファイルとして保存することです。 このファイルにはウェルフォームド XML ドキュメントのすべてのスタイルセット情報が含まれています。
+
+*新しいスタイル ライブラリを保存するには、次の手順に従ってください。*
+
+[start=1]
+. [ファイル] メニューで、[スタイル ライブラリを保存...] をクリックします。
+
+image::images/AppStyling_Saving_Your_Work_01.png[]
+
+[新規保存] ダイアログ ボックスが開きます。
+
+image::images/AppStyling_Saving_Your_Work_02.png[]
+
+[start=2]
+. スタイル ライブラリに名前を指定して、保存するフォルダを選択します。
+[start=3]
+. [保存] をクリックします。
+
+*既存のスタイル ライブラリを保存するには、次の手順に従ってください。*
+
+[start=1]
+. [ファイル] メニューで、[スタイル ライブラリを保存...] をクリックします。 Infragistics AppStylist for Windows Forms がスタイル ライブラリを保存します。保存されたスタイル ライブラリでの作業を続行する、または link:styling-guide-opening-a-saved-style-library.html[保存されたスタイル ライブラリを開く]ことによって、異なるスタイル ライブラリで作業をすることができます。
+[start=2]
+. 保存していない変更を別のスタイル ライブラリとして保存したい場合は、[ファイル] メニューで、[スタイル ライブラリを新規保存...] をクリックします。
+
+image::images/AppStyling_Saving_Your_Work_03.png[]
+
+[新規保存] ダイアログ ボックスが開いて、スタイル ライブラリを別名で保存することができます。

@@ -1,0 +1,43 @@
+﻿= ズーム サポートのコントロール
+
+次のコントロールがズームをサポートして UltraZoomPanel で正しく機能します:
+
+* エディター
+** UltraCheckEditor
+** UltraComboEditor
+** UltraCurrencyEditor
+** UltraDateTimeEditor
+** UltraFontNameEditor
+** UltraMaskedEdit
+** UltraNumericEditor
+** UltraTextEditor
+** UltraTimeSpanEditor
+** UltraTimeZoneEditor
+
+* UltraGrid
+* UltraTree
+* UltraCombo
+
+* UltraSchedule
+** UltraCalendarCombo
+** UltraDayView
+** UltraGanttView
+** UltraMonthViewMulti
+** UltraMonthViewSingle
+** UltraTimelineView
+** UltraWeekView
+
+* UltraButton
+* UltraCalculator
+* UltraCalculatorDropdown
+* UltraDropDownButton
+* UltraLabel
+* UltraOptionSet
+* UltraPictureBox
+* UltraProgressBar
+* UltraStatusBar
+* UltraTrackbar
+
+その他のコントロールでズーム機能が実装されたものもありますが、現段階ではテスト基準を満たしておりません。したがって、ズーム機能はサポートされず、CTP となります。
+
+ズームサポートのコントロールのリストに、新しくコントロールが追加される予定です。新しいコントロールの追加については、link:http://ideas.infragistics.com[Ideas.Infragistics.com] へ要望を送信またはアイデアに投票できます。

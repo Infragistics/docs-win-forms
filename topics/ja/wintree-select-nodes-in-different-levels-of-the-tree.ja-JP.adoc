@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-select-nodes-in-different-levels-of-the-tree",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{5BC89CBA-4323-4F4B-92E4-EAE16ABC05EA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツリーの異なるレベルでノードを選択
+
+WinTree™ によってエンド ユーザーはツリーでノードの範囲を選択できます。ツリーのひとつのレベルの範囲だけではなく、ノードの複数のコレクションに渡って子ノードを選択に追加します。 link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~selectiontype.html[SelectionType] プロパティを Extended に設定することでエンド ユーザーは複数のノードを簡単に選択することができます。ただし、エンド ユーザーがノードの子、そして同様にそれらのノードの子からノードを選択できるようにしたい場合、 link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~selectionbehavior.html[SelectionBehavior] プロパティを ExtendedAcrossCollections に設定する必要があります。このシナリオで役立つもうひとつのプロパティは link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~includecollapseddescendantsonrangeselection.html[IncludeCollapsedDescendantsOnRangeSelection] プロパティです。このプロパティによって、エンド ユーザーは子ノードを持つノードの範囲を選択し、それらの子ノードを選択に自動的に含めることができます。したがって、ツリーのひとつのレベルでノードの範囲を選択するだけで、 link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~selectednodes.html[SelectedNodes] コレクションにすべてのノードとその子ノードを基本的に配置することができます。
+
+[NOTE]
+====
+*注：* IncludeCollapsedDescendantsOnRangeSelection を True に設定してノードの範囲を に選択すると、範囲内の最後のノードは選択に子孫を含みません。
+====
+
+以下のコードは、エンド ユーザーがすべての子ノードを含むと同時に、WinTree の異なるレベルから複数のノードを選択できる方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' エンド ユーザーは複数のノードを選択できます。
+Me.UltraTree1.Override.SelectionType = _
+    Infragistics.Win.UltraWinTree.SelectType.Extended
+' エンド ユーザーはツリーの異なるレベルで複数の
+' ノードを選択できます。
+Me.UltraTree1.SelectionBehavior = _
+    Infragistics.Win.UltraWinTree.SelectionBehavior.ExtendedAcrossCollections
+' エンド ユーザーがノードを選択すると、子ノード
+' も選択されます。
+Me.UltraTree1.IncludeCollapsedDescendantsOnRangeSelection = _
+    Infragistics.Win.DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+// エンド ユーザーは複数のノードを選択できます。
+this.ultraTree1.Override.SelectionType = 
+    Infragistics.Win.UltraWinTree.SelectType.Extended;
+// エンド ユーザーはツリーの異なるレベルで複数の
+// ノードを選択できます。
+this.ultraTree1.SelectionBehavior =
+    Infragistics.Win.UltraWinTree.SelectionBehavior.ExtendedAcrossCollections;
+// エンド ユーザーがノードを選択すると、子ノード
+// も選択されます。
+this.ultraTree1.IncludeCollapsedDescendantsOnRangeSelection =
+    Infragistics.Win.DefaultableBoolean.True;
+----

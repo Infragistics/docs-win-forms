@@ -1,0 +1,208 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{D35D73FC-264B-47AA-AE0B-223DBC28D40F}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditors リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列の名前を示しています。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleActionCalculatorButtonPush
+|押す
+
+|CalcBackspace
+|Back
+
+|CalcClear
+|C
+
+|CalcClearEntry
+|CE
+
+|CalcErrorMsgDivByZero
+|0（ゼロ）で割りました
+
+|CalcErrorMsgOverFlow
+|値は大きすぎます。
+
+|CalcFuncInverse
+|1/x
+
+|CalcFuncPercent
+|%
+
+|CalcFuncSqrt
+|sqrt
+
+|CalcMemAdd
+|M+
+
+|CalcMemClear
+|MC
+
+|CalcMemRestore
+|MR
+
+|CalcMemStore
+|MS
+
+|DropDownHostCancel
+|キャンセル
+
+|DropDownHostOK
+|OK
+
+|KeyCodeUITypeEditorCancel
+|キャンセル
+
+|KeyCodeUITypeEditorDialogText
+|キーの割り当て
+
+|KeyCodeUITypeEditorLabelAssignKey
+|割り当てるキーを押してください。
+
+|KeyCodeUITypeEditorOk
+|OK
+
+|KeyCodeUITypeEditorTabTextAssignKey
+|キーボード
+
+|KeyCodeUITypeEditorTabTextList
+|リスト
+
+|KeyCodeUITypeEditorTabToolTipAssignKey
+|キーボードの押下キーを割り当てます。
+
+|KeyCodeUITypeEditorTabToolTipList
+|リストから選択したキーを割り当てます。
+
+|LDR_CalculatorButton_PropertyDescriptorName
+|ボタン
+
+|LDR_KeyCodeUIEditor_AssignLabelText
+|割り当てるキーを押してください。
+
+|LDR_KeyCodeUIEditor_CancelButtonText
+|キャンセル
+
+|LDR_KeyCodeUIEditor_CurrentValueLabel
+|現在値: {0}
+
+|LDR_KeyCodeUIEditor_FormText
+|キーの割り当て
+
+|LDR_KeyCodeUIEditor_KeyboardTabText
+|キーボード
+
+|LDR_KeyCodeUIEditor_KeyboardTabToolTipText
+|キーボードの押下キーを割り当てます。
+
+|LDR_KeyCodeUIEditor_ListTabText
+|リスト
+
+|LDR_KeyCodeUIEditor_ListTabToolTipText
+|リストから選択したキーを割り当てます。
+
+|LDR_KeyCodeUIEditor_OkButtonText
+|OK
+
+|LDR_MRU_List_Editor_Title
+|MRU リスト エディター
+
+|LDR_MRUItemsUIEditor_CountEquals
+|項目数 = {0}
+
+|LDR_MRUItemsUIEditor_NoItems
+|（値なし）
+
+|LDR_UltraCalculator_Exception_UnableToConvertToDecimal
+|値を数値に変換できませんでした。
+
+|LDR_UltraCalculator_Exception_UnableToParse
+|分析できません。 '{0}'
+
+|LDR_UltraCalculator_P_Buttons
+|ボタンのコレクション
+
+|LDR_UltraCalculator_P_CaclulatorDropDownStyle
+|電卓をドロップダウンする際、エディターのテキストを使用するかどうかを示す値を取得または設定します。
+
+|LDR_UltraCalculator_P_DecimalSymbol
+|小数点区切りに使用する文字を取得または設定します。
+
+|LDR_UltraCalculator_P_DigitGrouping
+|数値の桁区切りを行うかどうかを示す値を取得または設定します。
+
+|LDR_UltraCalculator_P_DisplayValue
+|コントロールに表示されている値を取得します。
+
+|LDR_UltraCalculator_P_MemoryText
+|メモリ ボックスに表示するテキストを取得または設定します。
+
+|LDR_UltraCalculator_P_ShowFocus
+|コントロールがフォーカス取得状態時にフォーカス枠を表示するかどうかを示す値を取得または設定します。
+
+|LDR_UltraCalculator_P_Text
+|コントロールのテキストを取得または設定します。
+
+|LDR_UltraCalculatorDropDown_P_BorderStyle
+|コントロールのボーダー スタイルを取得または設定します。
+
+|LDR_UltraCalculatorDropDown_P_Buttons
+|ボタンのコレクション
+
+|LDR_UltraCalculatorDropDown_P_CalculatorDisplayValue
+|コントロールに表示されている値を取得します。
+
+|LDR_UltraCalculatorDropDown_P_CalculatorMemoryText
+|メモリ ボックスに表示するテキストを取得または設定します。
+
+|LDR_UltraCalculatorDropDown_P_CalculatorShowCustomButtons
+|カスタム ボタンを表示するかどうかを示す値を取得または設定します。
+
+|LDR_UltraCalculatorDropDown_P_CalculatorShowMemoryButtons
+|メモリ ボタン (MC, MR, MS, M+) を電卓に表示するかどうかを示す値を取得または設定します。
+
+|LDR_UltraCalculatorDropDown_P_CalculatorText
+|電卓のテキスト領域に表示されるテキストを取得または設定します。
+
+|MRUListItemEditor_TooManyItems_MessageBoxCaption
+|MRU (最近使った項目) が最大可能項目数を超えました。
+
+|MRUListItemEditor_TooManyItems_MessageBoxText
+|MRU リストの項目数は、MaxMRUItems プロパティに指定した値以内でなければなりません。
+
+|MRUListItemEditorCancelButton
+|キャンセル
+
+|MRUListItemEditorOKButton
+|OK
+
+|TabColorPickerCustom
+|カスタム
+
+|TabColorPickerSystem
+|システム
+
+|TabColorPickerWeb
+|Web
+
+|TimeSpanEditorValidationErrorEventArgs_MessageBoxTitle
+|検証エラー
+
+|====

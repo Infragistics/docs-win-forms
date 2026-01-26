@@ -1,0 +1,23 @@
+﻿////
+|metadata|
+{
+    "name": "winlistview-understanding-winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["Getting Started"],
+    "guid": "{750015C0-DE49-4C2D-8166-32F9B5E75678}",
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView の理解
+
+WinListView コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinListView コントロールを使用することの利点を理解できます。
+
+WinListView コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winlistview-about-winlistview.html[WinListView について] -- WinListView コントロールの概要を説明しています。
+* link:winlistview-object-model.html[WinListView オブジェクト モデル] -- WinListView コントロールの機能についての高度な概要説明です。
+* link:winlistview-view-property.html[View プロパティ] -- コントロールのルック アンド フィールを決定する、最も重要なプロパティです。
+* link:winlistview-smart-tag.html[WinListView スマート タグ] -- WinListView コントロールのスマート タグで表示されるプロパティと設定について説明しています。

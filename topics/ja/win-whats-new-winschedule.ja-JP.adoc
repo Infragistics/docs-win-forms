@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-winschedule",
+    "controlName": [],
+    "tags": [],
+    "guid": "{AC62060D-CDD5-4AAC-A0AD-55A221465337}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule
+
+===== WinSchedule Appointment Dragging および Resizing イベント
+
+今回のリリースで、拡張された予定のドラッグおよびリサイズのサポートを実装するために 4 つのイベント、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentsdragging_ev.html[AppointmentsDragging]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentsdragdrop_ev.html[AppointmentsDragDrop]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentresizing_ev.html[AppointmentResizing]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.controlwithactivitybase~appointmentresized_ev.html[AppointmentResized]"]  が UltraDayView、UltraWeekView および UltraMonthViewSingle コントロールのために追加されました。
+
+また、ひとつのオーナーから別のオーナーに予定をドラッグできなくする、予定のコピーを作成できなくする、また任意のフェーズでこれらのイベントをキャンセルすることが可能となりました。
+
+===== WinSchedule DateSettings
+
+新しい WinSchedule™ pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ownerdatesettings.html[DateSettings]"]  機能によって、各 Owner オブジェクトごとに表示される時に曜日でなく特定の日付に対してpick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.timeslotsettings~workinghours.html[就業時間/非就業時間]"]  とその pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner~workinghourtimeslotappearance.html[Appearance]"]  オブジェクトを定義することが可能となります。
+
+この新機能は、Owner あたり、日付ベースで個々の TimeSlot の色を設定する機能を提供します。また、複数の隣接しない時間範囲は、特定のオーナーの就業時間または非就業時間として指定できます。
+
+これに加えて、特定の日付に関連して上記のすべての機能が pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.dayofweeksettings.html[DayOfWeekSettings]"]  オブジェクトにも拡張されます。
+
+*関連トピック*
+
+* link:winschedule-appointment-dragging-and-resizing-enhancements.html[予定のドラッグおよびリサイズ機能の拡張]
+* link:winschedule-setting-date-specific-non-contiguous-working-hours-for-different-owners.html[異なるオーナーに対して日付固有の非連続就業時間を設定]
+* link:winschedule-order-of-precedence-for-datesettings,-recurringdatesettings,-and-dayofweeksettings.html[DateSettings、RecurringDateSettings および DayofWeekSettings の WinSchedule 優先順位]

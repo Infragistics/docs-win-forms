@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-automatically-fit-all-columns-in-details-view",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{19F4302B-8A6C-4253-80D8-E96225AC7766}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= [詳細] 表示にすべての列が自動的に収まる
+
+詳細表示では、ユーザーが自身で列の幅を設定しない場合、WinListView はすべての link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitem.html[SubItemColumns] を最適に収まるようにサイズ設定します。ただし、すべてのサブアイテム列を表示するために十分な画面領域がない場合、WinListView はエンド ユーザーがデータ全体をスクロールするためのスクロールバーを表示します。スクロールが魅力的でなかったり、すべてのデータを常に表示したい場合、列の幅に関係なく、 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewdetailssettings~autofitcolumns.html[AutoFitColumns] プロパティを使用して、割り当てられた領域に収まるようにすべての列のサイズを自動的に設定することができます。
+
+AutoFitColumns を ResizeAllColumns に設定すると、WinListView がサイズ変更される時は常に割り当てられた領域に収まるようにすべての列のサイズが変更されます。WinListView は常に指定された領域全体を使用し、すべてのサブアイテム列は常に等しい幅となり、 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewmaincolumn.html[MainColumn] は常にサブアイテム列の幅の 2 倍になります。
+
+image::images/WinListView_Automatically_Fit_All_Columns_in_Details_View_01.png[]
+
+AutoFitColumns は Default (None) に設定される
+
+image::images/WinListView_Automatically_Fit_All_Columns_in_Details_View_01.png[]
+
+AutoFitColumns は ResizeAllColumns に設定される
+
+以下のコード例を使用して、詳細表示で WinListView が自動的に列をリサイズします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraListView1.ViewSettingsDetails.AutoFitColumns =_
+	Infragistics.Win.UltraWinListView.AutoFitColumns.ResizeAllColumns
+----
+
+*C# の場合：*
+
+----
+this.ultraListView1.ViewSettingsDetails.AutoFitColumns =
+	Infragistics.Win.UltraWinListView.AutoFitColumns.ResizeAllColumns;
+----

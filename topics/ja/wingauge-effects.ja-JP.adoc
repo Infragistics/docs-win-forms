@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-effects",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{E9C821D5-8569-4D35-9EFA-C148A362E4EA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 効果
+
+このセクションは、ゲージに効果を適用する方法に関するタスクベースの手順だけでなく、WinGauge コントロール内で使用可能な効果について役に立つ情報を提供します。
+
+* link:wingauge-shadow-effects.html[シャドー効果]
+* link:wingauge-apply-shadow-effects.html[シャドー効果の適用]

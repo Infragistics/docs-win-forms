@@ -1,0 +1,40 @@
+﻿////
+|metadata|
+{
+    "name": "wingauge-apply-the-hatch-brush-element-at-design-time",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{3A464438-75C1-4A1E-ADAC-1DC30CDE9F25}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムにハッチ ブラシ エレメントを適用
+
+ゲージの外観にハッチ ブラシ エレメントを適用すると、そのエレメントは 2 色のパターン化された外観が提供されます。
+
+*デザインタイムにハッチ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[ハッチ] を選択します。これによって新しいハッチ ブラシ エレメ ントが作成されます。
+[start=5]
+. 以下のプロパティを設定します。
+
+** BackColor -- DimGray
+** ForeColor -- Silver
+** HatchStyle -- BackwardDiagonal
+
+== 関連トピック
+
+link:wingauge-solid-brush-element.html[単色ブラシ エレメント]
+
+link:wingauge-apply-the-solid-brush-element-at-run-time.html[ランタイムに単色ブラシ エレメントを適用]
+
+link:wingauge-apply-the-solid-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用して単色ブラシ エレメントを適用]

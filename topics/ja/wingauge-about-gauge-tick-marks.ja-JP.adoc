@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-about-gauge-tick-marks",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{08B024B5-51CA-4994-8213-147939532864}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージの目盛について
+
+ゲージのスケールの値を表示するために目盛をゲージに追加することができます。TickMarks プロパティには 2 つの属性があります。
+
+* 副目盛
+* 主目盛
+
+両方を構成して特定の値に「目盛」を表示することができます。主目盛は副目盛よりも通常大きいです。これらの目盛はスケールで n ごとの値を強調表示するように構成します。
+
+以下のスクリーンショットは、5 間隔ごとに主目盛を表示し、その間の全間隔に副目盛を表示したラジアル ゲージを示しています。
+
+image::images/Gauge_About_TickMarks_01.png[]
+
+== 関連トピック
+
+link:wingauge-add-tick-marks-to-a-scale-on-a-gauge.html[ゲージ上のスケールに目盛を追加]

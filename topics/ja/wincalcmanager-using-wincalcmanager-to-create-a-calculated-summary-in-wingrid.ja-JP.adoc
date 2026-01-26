@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalcmanager-using-wincalcmanager-to-create-a-calculated-summary-in-wingrid",
+    "controlName": ["WinCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{9F733E46-57F2-4A89-9BC0-11F32CB194F9}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid での WinCalcManager による計算された集計値の作成
+
+== 始める前に
+
+この詳細なガイドでは、数式を使用して WinGrid 列フッタに計算された集計値を作成します。集計は、グリッドの「Item Total」列の総合計を表示します。この詳細なガイドは、 link:wincalcmanager-creating-a-calculated-column-in-wingrid.html[「WinGrid での計算された列の作成」]と link:wincalcmanager-using-wincalcmanager-to-create-running-totals-in-wingrid.html[「WinGrid での WinCalcManager による計算された集計値の作成」]で構成されます。
+
+== 以下の手順を実行します。
+
+[start=1]
+. 集計ー情報をグリッド列フッタに追加します。
+
+WinGrid を右クリックして [UltraGrid デザイナ] を選択し、グリッド デザイナを起動します。
+
+グリッド デザイナで、[バンドおよび列の設定] > [Band[0] - 'Order Details'] の順にノードを展開します。
+
+右側のプロパティ グリッドを下にスクロールし、 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~summaries.html[Summaries]"]  コレクションを探します。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_a_Calculated_Summary_in_the_WinGrid_01.png[]
+
+[start=2]
+. 省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.summaryvalue~summarysettings.html[SummarySettings]"]  コレクション エディタを開きます。エディタを開き [追加] ボタンをクリックして新しい SummarySettings を追加します。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_a_Calculated_Summary_in_the_WinGrid_02.png[]
+
+[start=3]
+. SummarySettings のプロパティグリッドで、 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.summarysettings~summaryposition.html[SummaryPosition]"]  を Right に、そして pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~formula.html[Formula]"]  プロパティを以下の数式に設定します。
+
+----
+sum ( [ItemTotal] )
+----
+
+[start=4]
+. プロジェクトを再実行して結果を表示します。列フッタに計算結果が表示されます。
+
+image::Images/WinCalcManager_Using_WinCalcManager_to_Create_a_Calculated_Summary_in_the_WinGrid_03.png[]
+
+== まとめ
+
+この詳細なガイドは、WinCalcManager を使用して WinGrid の列フッタに集計を追加する手順を説明することを目的としました。

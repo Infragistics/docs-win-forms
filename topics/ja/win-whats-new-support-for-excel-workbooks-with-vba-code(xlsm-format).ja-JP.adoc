@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-support-for-excel-workbooks-with-vba-code(xlsm-format)",
+    "controlName": [],
+    "tags": [],
+    "guid": "{8740D0C2-103B-4055-AE91-A975C4EDBB79}",  
+    "buildFlags": [],
+    "createdOn": "2008-03-10T11:45:56Z"
+}
+|metadata|
+////
+
+= VBA コードで Excel ワークブックをサポート（XLSM フォーマット）
+
+Infragistics Excel Engine™ は、VBA コードが組み込まれた Microsoft® Excel® ワークブックのロードが可能となりました。以前は、VBA コードのあるワークブックを保存すると、すべての VBA コードが失われました。新しい機能では、再び保存する時にロードされたワークブックから VBA コードをラウンドトリップすることができます。
+
+== *関連トピック*
+
+* link:excelengine-support-for-excel-workbooks-with-vba-code.html[VBA コードで Excel ワークブックをサポート]

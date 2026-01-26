@@ -1,0 +1,283 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-embeddable-editors-overview",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{659B4F62-20CD-42F3-A567-00C52C34293E}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 埋め込みエディタの概要
+
+== はじめに
+
+埋め込みエディターは WinGrid™ コントロールで初めて導入されたもので、WinGrid と WinGrid が利用する各種エディターとの間に一貫したコミュニケーション レイヤーを作成します。 WinGrid コントロールと同じように、WinTree™ コントロールは埋め込みエディターと直接やり取りするのではなく、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorownerbase.html[EmbeddableEditorOwnerBase]"]  クラスの実装を介して情報を埋め込みエディターに渡します。 同様に、埋め込みエディター側では通信相手のコントロールを認識することはありません。エディターでは EmbeddableEditorOwnerBase クラスの該当するメソッドを呼び出し、戻り値に応じて必要な処理を実行します。
+
+[[newproperties]]
+
+== 新しいプロパティ
+
+開発者が埋め込みエディターをより簡単に利用できるようにするため、UltraWinTree コントロールに次のプロパティが追加されました。
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~editorresolved.html[EditorResolved]"]  - 対応する Override オブジェクトの Editor プロパティの解決された値を返します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~editor.html[Editor]"]  - ノードのテキストの編集に使用するエディターを設定または取得します。 このプロパティは、Infragistics.Win アセンブリからの埋め込みエディター クラスのインスタンスに評価されます。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~editorcomponent.html[EditorComponent]"]  - ノードのテキストを編集するための IProvidesEmbeddableEditor インターフェイスを実装するコントロールを設定または取得します。 通常、このプロパティには、UltraWinTree と共にすでにフォーム上に配置している UltraWinEditors コントロールを設定します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~showeditorbuttons.html[ShowEditorButtons]"]  - 埋め込みエディターを使用するときに編集ボタンをいつ表示するかを示す値を設定または取得します。
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~useeditor.html[UseEditor]"]  - 埋め込みエディターを使用するかどうかを示す値を設定または取得します。
+
+Editor および EditorComponent プロパティとの違い、および一方が他方よりも優先して使用されることの意味については、後述の<<editorversuscontrol,「Editor と EditorComponent」>>を参照してください。
+
+[[background]]
+
+== 埋め込みエディターの背景
+
+このセクションでは埋め込みエディターの動作の仕組みと、埋め込みエディターが UltraWinTree コントロールとどのように通信するかを簡単に説明します。
+
+すべての埋め込みエディター コントロールは、内部で使用するためにそのエディターを「埋め込み」たいその他のコントロール（WinGrid または WinTree など）にエディターのインスタンスを提供するためのインターフェイスを公開しています。 （UltraWinEditors コントロールは、実際にはこれらの編集インターフェイスを実装しただけのシンプルなコントロールであり、それぞれが 1 つの埋め込みエディターを公開していますが、それ以外の機能は備えていません。） pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iprovidesembeddableeditor.html[IProvidesEmbeddableEditor]"]  インターフェイスがそれです。 このインターフェイスは Editor プロパティというメンバーを 1 つだけ公開しています。このプロパティは、コントロールの表示および編集機能を実現する、同じ pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase.html[EmbeddableEditorBase]"]  派生オブジェクトのコピーを返します。
+
+EmbeddableEditorBase クラスは、すべての埋め込みエディターの派生元となる抽象クラスです。 この抽象クラスによって、そのエディターに固有の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableuielementbase.html[EmbeddableUIElementBase]"]  派生埋め込み要素のインスタンスが 1 つまたは複数提供されます。この要素が、オーナーから提供された値の表示と編集を処理します。
+
+EmbeddableUIElementBase クラスは、すべての埋め込み要素の派生元となる抽象クラスです。 これらの埋め込み要素の動作のほとんどは、埋め込み元のコントロールにより、そのコントロールの EmbeddableEditorOwnerBase 派生クラスの実装を通じて制御されます。
+
+EmbeddableEditorOwnerBase クラスは、埋め込み要素と、その埋め込み元コントロールとの間の主要な通信層を提供します。 埋め込み要素と、その所有元コントロールとの間のやりとりの例は、EmbeddableEditorOwnerBase クラスの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorownerbase~getvalue.html[GetValue]"]  メソッドで表されます。埋め込み要素が描画されるときに、このメソッドを呼び出すことで描画する値が決定され、所有元コントロールから返された値が、確実に表示できるデータ型（文字列など）に変換されます。
+
+[[usingeditors]]
+
+== UltraWinTree コントロールでの埋め込みエディターの使用
+
+デフォルトでは、UltraWinTree コントロールでは埋め込みエディターが使用されません。 pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~useeditor.html[UseEditor]"]  プロパティが明示的に DefaultableBoolean.True に設定されていても、コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"]  オブジェクトの Editor プロパティも EditorComponent プロパティも設定されていなければ、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithtext.html[EditorWithText]"]  エディターがノード テキストの表示と編集に使用されます。 EditorWithText は特にテキスト値の表示を目的としています。 EditorWithText エディターは、コントロールで表示されるすべてのノードに対して pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithtextuielement.html[EditorWithTextUIElement]"]  埋め込み要素を提供します。 ノードが「編集モード」になると、エンドユーザーがノードのテキストを編集できる TextBox 派生コントロールが表示されます。 編集モード セッションが終わると、エンドユーザーによって入力された値がノードの Text プロパティに割り当てられます（編集セッションが [Esc] キーでキャンセルされた場合を除く）。 ここまでは、内部的な処理を除き、バージョン 2 の動作とそれほど大きな違いはありません。
+
+Editor か pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~editorcomponent.html[EditorComponent]"]  のどちらかのプロパティが明示的に設定されると、Editor または EditorComponent プロパティが設定された Override によって制御されるノードで、指定されたエディターがノードのテキストの表示と編集に使用されます。 Editor プロパティと EditorComponent プロパティの解決階層は、Override オブジェクトで公開されている他のプロパティの解決階層と同じです。 たとえば、プロパティがコントロール レベルの Override で設定されている場合は、より詳細なレベル（より低いレベル）の Override で同じプロパティが設定されていないかぎり、すべてのノードでそのエディターが使用されます。 次の表は、Override オブジェクトで公開されているプロパティの優先順位を、順位の高い順に示したものです。 
+
+[options="header", cols="a,a"]
+|====
+|Override の設定|制御されるノード
+
+|UltraTreeNode.Override
+|指定された UltraTreeNode オブジェクトのみ
+
+|TreeNodesCollection.Override
+|特定の Nodes コレクションに属するすべての UltraTreeNode オブジェクト
+
+|NodeLevelOverridesCollection[ _level_ ].Override
+|Level プロパティが _level_ に等しいすべての UltraTreeNode オブジェクト
+
+|UltraTree.Override
+|指定された UltraWinTree コントロールのすべてのレベルにあるすべての UltraTreeNode オブジェクト
+
+|====
+
+Editor プロパティには Win アセンブリで提供されているすべてのエディターを設定できます。一方、EditorComponent プロパティには UltraWinEditors アセンブリ内のすべてのコントロールを設定できます。 次の表に、UltraWinEditors コントロール、各コントロールが提供するエディター、および各エディターで表示と編集に最もよく使用されるデータ型を示します。
+
+[options="header", cols="a,a,a"]
+|====
+|WinEditor コントロール|EmbeddableEditorBase 派生エディター|データ型
+
+|WinTextEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithtext.html[EditorWithText]"] 
+|System.String
+
+|WinComboEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithcombo.html[EditorWithCombo]"] 
+|System.Object
+
+|WinFontNameEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.fontnameeditor.html[FontNameEditor]"] 
+|System.String
+
+|WinDateTimeEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithmask.html[EditorWithMask]"] 
+|System.DateTime
+
+|WinNumericEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithmask.html[EditorWithMask]"] 
+|System.Int32、System.Double
+
+|WinCurrencyEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithmask.html[EditorWithMask]"] 
+|System.Decimal
+
+|WinColorPicker
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.colorpickereditor.html[ColorPickerEditor]"] 
+|System.Color
+
+|WinOptionSet
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.optionseteditor.html[OptionSetEditor]"] 
+|System.Object
+
+|WinCheckEditor
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.checkeditor.html[CheckEditor]"] 
+|System.Boolean
+
+|====
+
+上記に示したエディターはすべて、ノード テキストを編集するために UltraWinTree コントロールに割り当てることができます。 EditorComponent プロパティについては、ドロップダウン リストの形式でデザイン タイム サポートが提供されています。このドロップダウン リストには、フォーム上に存在するコントロールのうち、IProvidesEmbeddableEditor インターフェイスを実装しているものがすべて列挙されます。 ランタイムにエディターを割り当てるには、次のような 1 行のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTree1.Override.EditorComponent = Me.UltraComboEditor1
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.Override.EditorComponent = this.ultraComboEditor1;
+----
+
+== 埋め込みエディターと UltraWinTree コントロールの通信方法
+
+このセクションでは、情報を表示、編集するために埋め込みエディターが UltraWinTree コントロールとどのように通信するかについて、イベント シーケンスを使用して説明します。
+
+== カスタム エディターを割り当てる
+
+[start=1]
+. 開発者がコントロールの Override の EditorComponent プロパティを、同じフォーム上に存在する UltraComboEditor コントロールのインスタンスに設定します。
+[start=2]
+. UltraWinTree コントロールは、UltraComboEditor コントロールが IProvidesEmbeddableEditor インターフェイスを実装していることを確認し、実装していない場合は例外をスローします。例外がスローされなければ、後で使用するために UltraComboEditor コントロールへの参照がキャッシュされます。
+[start=3]
+. UltraWinTree コントロールは、前のステップで取得した UltraComboEditor コントロールへの参照を IProvidesEmbeddableEditor インプリメンターにキャストし、その Override の Editor プロパティにアクセスします。
+[start=4]
+. UltraWinTree コントロールが次にノードのテキストを表示するとき、前のステップで取得したエディターで GetEmbeddableElement メソッドが呼び出されます。 UltraWinTree コントロールは、埋め込み要素と情報をやり取りする手段として、EmbeddableEditorOwnerBase から派生した実装を指定します。 さらに、埋め込み要素が編集要素（ドロップダウン ボタンなど）を表示するかどうか（およびどのような状況で表示するか）を指定します。この決定は、関連付けられている Override の ShowEditorButtons プロパティの値に基づいて行われます。
+[start=5]
+. 前のステップで返された EmbeddableUIElementBase 派生要素が、ユーザー インターフェイス内のノードを表す、子要素のコレクションに追加されます。
+[start=6]
+. EmbeddableUIElementBase 派生要素が表示されるとき、次のものを決定するために、UltraWinTree コントロールの EmbeddableEditorOwnerBase 派生実装でいくつかのメソッドが呼び出されます。たとえば、
+
+** 表示する値（GetValue メソッド）
+** 提供される値のデータ型（GetDataType メソッド）
+** 表示する前景色、背景色、フォントなど（ResolveAppearance メソッド）
+** 値を複数行で表示するかどうか（IsMultiLine メソッド）
+** 値が null の場合に表示するテキスト（GetNullText メソッド）
+
+== ノードを編集モードにする
+
+[start=1]
+. UltraWinTree コントロールによって表示されているノードが選択され、エンドユーザーが [F2] キーを押してノードを編集モードにします。
+[start=2]
+. UltraWinTree コントロールは前のセクションで取得したエディターで EnterEditMode メソッドを呼び出し、編集対象のノードに関連付けられている EmbeddableUIElementBase 派生要素を渡します。
+[start=3]
+. エディターが BeforeEnterEditMode イベントを発生させます。その結果として、UltraTree コントロールの BeforeLabelEdit イベントが発生します。 どちらかのイベントがキャンセルされた場合は、それ以上アクションは実行されません。
+[start=4]
+. BeforeEnterEditMode イベントがキャンセルされなかった場合は、ノードに関連付けられている埋め込み要素が編集モードになります。
+[start=5]
+. UltraWinTree コントロールが次にノードを表示するとき、埋め込み要素は必要に応じて編集モード用の外観を表示します。たとえば、ドロップダウン ボタンが表示され、TextBox 派生コントロールが編集部分に表示されます（UltraComboEditor コントロールの DropDownStyle プロパティが「DropDownList」に設定されていない場合）。
+
+== ノードの編集モードを終了する
+
+[start=1]
+. （前のセクションで編集モードになった）ノードが編集モードのときに [Enter] キーが押されます。
+[start=2]
+. EditorWithCombo エディターはキーストロークを処理するかどうかを決定するために、UltraWinTree コントロールの EmbeddableEditorOwnerBase 派生実装の IsKeyMapped メソッドを呼び出します。
+[start=3]
+. UltraWinTree コントロールは自身の KeyActionMappings コレクションを検索し、[Enter] キーに対応するアクションを取得します。アクションが定義されている場合は、IsKeyMapped メソッドの EmbeddableEditorOwnerBase 派生実装から True を返します。
+[start=4]
+. EditorWithCombo エディターは [Enter] キーの KeyDown イベントを発生させます。[Enter] キーに対応するアクションが定義されているため、UltraWinTree コントロールはそのイベントを処理します。そして、キーストロークを処理していることを通知するため、渡された KeyEventArgs の Handled プロパティを True に設定します。
+[start=5]
+. UltraWinTree コントロールによって処理されたため、EditorWithCombo エディターは [Enter] キーのデフォルト処理を省略します（デフォルト処理が存在する場合）。
+[start=6]
+. UltraWinTree コントロールは [Enter] キーに対して定義されたアクションを実行します。編集モードが終了し、編集セッション中に行われた変更がすべてノードの Text プロパティに適用されます。
+[start=7]
+. 前のステップで説明したアクションを受けて、EditorWithCombo の ExitEditMode メソッドが呼び出されます。その際、「applyChanges」パラメータの値には True が指定されます。
+[start=8]
+. ExitEditMode メソッドを呼び出した結果として、EditorWithCombo エディターは BeforeExitEditMode イベントを発生させます。
+[start=9]
+. UltraWinTree コントロールは、エディターの BeforeExitEditMode イベントを処理するため、ノードの Text プロパティを EditorWithCombo エディターの Value プロパティの文字列表現に設定します。 他のリスナーによってイベントがキャンセルされる可能性があるため、この処理はイベントがどのリスナーによってもキャンセルされなかった場合のみ行われます。
+
+== エディター固有のプロパティの設定
+
+このセクションでは、エディターに固有のプロパティ（つまり、EmbeddableEditorBase クラスで定義されていないプロパティ）を設定し、それらのプロパティを UltraWinTree コントロールで使用されるエディターに適用する方法について説明します。また、簡単な例を挙げてそれらのプロパティのアクセス方法と操作方法を示します。
+
+プロパティの中にはすべてのエディターに適用されるものがあり、これらは EmbeddableEditorBase クラスで定義されています。 たとえば、IsInEditMode プロパティがその例です。すべてのエディターは、その種類にかかわらず、自身が編集モードであるかどうかを認識している必要があります。IsInEditMode プロパティはすべてのエディターにとって意味があります。
+
+一部のエディターは、その特定のエディターに固有のプロパティを公開しています。 このようなプロパティが存在するのは通常、特定の種類のエディターにとってのみ意味がある機能があり、その機能に対応するメソッドが EmbeddableEditorOwnerBase クラスに定義されていないためです。 例としては、EditorWithCombo エディターの HasMRUList プロパティが挙げられます。 MRU（Most Recently Used）リストは大部分のエディターに適用できるほど一般的ではないため、これに対応するメソッドは EmbeddableEditorOwnerBase クラスには定義されていません。 UltraWinTree コントロールにはこの機能を有効にするプロパティ設定が存在しないため、開発者がこの機能を利用する場合はエディター自体でプロパティを直接設定する必要があります。
+
+UltraWinTree コントロールの Override の EditorControl プロパティに UltraComboEditor を割り当てると、フォーム上の UltraComboEditor に適用されるプロパティ設定が、UltraWinTree コントロールに提供されるエディターによって反映されます。 これは、UltraWinTree コントロールに提供されるエディターで MRU リスト機能を使用するには UltraComboEditor コントロールで該当するプロパティを設定するだけでよい、ということを意味します。 次のコード例は、これをプログラムで行う方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Private Sub WinTreeEmbeddableEditorsOverview_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 項目をUltraComboEditor コントロールの Items コレクションに追加します。
+	Me.UltraComboEditor1.Items.Add(1, "One")
+	Me.UltraComboEditor1.Items.Add(2, "Two")
+	Me.UltraComboEditor1.Items.Add(3, "Three")
+	' MRU リスト機能を有効にするため、HasMRUList プロパティを True に設定します。
+	Me.UltraComboEditor1.HasMRUList = True
+	' MRU リストの項目数を５に制限します。
+	Me.UltraComboEditor1.MaxMRUItems = 5
+	' ノードを編集モードにすることを許可し、エディターは表示できます。
+	Me.UltraTree1.Nodes(0).Nodes(0).Override.LabelEdit = DefaultableBoolean.True
+	' EditorControl プロパティを UltraComboEditor に設定します。
+	Me.UltraTree1.Nodes(0).Nodes(0).Override.EditorComponent = Me.UltraComboEditor1
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+private void WinTreeEmbeddableEditorsOverview_Load(object sender, System.EventArgs e)
+{
+	// 項目をUltraComboEditor コントロールの Items コレクションに追加します。
+	this.ultraComboEditor1.Items.Add(1, "One");
+	this.ultraComboEditor1.Items.Add(2, "Two");
+	this.ultraComboEditor1.Items.Add(3, "Three");
+	// MRU リスト機能を有効にするため、HasMRUList プロパティを True に設定します。
+	this.ultraComboEditor1.HasMRUList = true;
+	// MRU リストの項目数を５に制限します。
+	this.ultraComboEditor1.MaxMRUItems = 5;
+	// ノードを編集モードにすることを許可し、エディターは表示できます。
+	this.ultraTree1.Nodes[0].Nodes[0].Override.LabelEdit = DefaultableBoolean.True;
+	// EditorControl プロパティを UltraComboEditor に設定します。
+	this.ultraTree1.Nodes[0].Nodes[0].Override.EditorComponent = this.ultraComboEditor1;
+}
+----
+
+デザイン タイムには、プロパティ グリッドを通じてプロパティを設定することにより、同じ結果を得ることができます。コントロールのプロパティの値が、UltraWinTree コントロールで使用されるエディターのインスタンスに引き継がれます。
+
+[[editorversuscontrol]]
+
+== Editor と EditorComponent
+
+このセクションでは、Editor プロパティと EditorComponent プロパティの違いについて説明します。
+
+Editor プロパティと EditorComponent プロパティの違いは何ですか？」という質問に簡潔に答えると、「大差ない」ということになります。 ただし、留意すべき事柄がいくつかあります。最も注意が必要なのは、Editor プロパティの方が EditorComponent プロパティよりも優先されることです。 両方のプロパティが設定されている場合は、Editor プロパティのみが参照されます。
+
+EditorComponent プロパティが存在する主な理由は、UltraWinTree コントロール内で使用するカスタム エディターをデザイン タイムに割り当てられるようにすることです。これは、デザイン タイムに EmbeddableEditorBase 派生エディターをインスタンス化する方法がないことによります。 デザイン タイムに EditorComponent プロパティを設定し、ランタイムに Editor プロパティを別のエディターに設定した場合は、後者のエディターがノードの編集に使用されます。
+
+EditorComponent プロパティではなく Editor プロパティを使用することの主な利点は、同じことを、追加のコントロールを作成するというオーバーヘッドなしで実現できる点です。 次のコード例で示すように、エディターのインスタンスをスタック上で作成し、それを UltraWinTree コントロールの Override の Editor プロパティに割り当てることができます。
+
+[NOTE]
+====
+*注：* EditorComponent プロパティではなく Editor プロパティを使用する場合、開発者が知っておかなければならない制限があります。 次のセクションでは、「デフォルト オーナー」の概念と、デフォルト オーナーを使用してこれらの制限を克服する方法について説明します。
+====
+
+[[defaultowner]]
+
+== 「デフォルト オーナー」：定義と使用方法
+
+このセクションでは、「デフォルト オーナー」の概念と、組み込みエディターにおけるその意義について説明します。
+
+スタンドアロンの UltraWinEditors コントロールは、埋め込みエディターを利用してほとんどの機能を実現します。 面白いことに、埋め込みエディターはどのコントロールが自身を使用しているか知りません。埋め込みエディターは、所有元コントロールが埋め込みエディターに関連情報を提供するために実装している EmbeddableEditorOwnerBase 派生クラスのみと通信します。
+
+読者の中には、EmbeddableEditorBase クラスのコンストラクターのオーバーロードとして「defaultOwner」という名前のパラメータをとるものがあることに気付いている方もおられるでしょう。 このパラメータの型は EmbeddableEditorOwnerBase です。 このコンストラクターのオーバーロードは、UltraWinEditors コントロールの、IProvidesEmbeddableEditor.Editor プロパティの実装で使用されます。UltraWinEditors コントロールは他のコントロールにエディターを提供する際、自身の EmbeddableEditorOwnerBase 実装を指定して、提供する埋め込みエディターをインスタンス化します。
+
+このようなことが行われるのは、プライマリ オーナー（UltraWinTree コントロール）が EmbeddableEditorBase メソッドをオーバーライドしない場合に、その情報がデフォルト オーナー（この場合は UltraWinEditors コントロール）によって提供されるようにするためです。 この説明だけでこの概念を理解するのは難しいので、実際のプロパティ名を使用した例を示します。 UltraWinTree コントロールの Override の EditorComponent プロパティが UltraComboEditor コントロールクラスのインスタンスに設定されていて、開発者は UltraComboEditor エディターが提供するオート コンプリート機能を利用したいとします。 開発者側から見ると、これは非常に簡単です。UltraComboEditor コントロールの AutoComplete プロパティを True に設定するだけで済みます。
+
+この設定だけで機能するのは、デフォルト オーナーがこのシナリオで自分の役割を果たすためです。 EditorWithCombo（これが実際にはオート コンプリート機能を処理します）は所有元コントロールに対して、EmbeddableEditorOwnerBase クラスの GetAutoEdit メソッドを通じてエディターを使用するかどうかを問い合わせます。 オーナーがこのメソッドから True を返した場合、EditorWithCombo はこの機能を ON にします。
+
+UltraWinTree コントロールには対応するプロパティがないため、GetAutoEdit メソッドは実装されていません。したがって、オート コンプリート機能を使用したくても EditorWithCombo と通信する方法がありません。 しかし、EditorWithCombo コントロールは、UltraWinTree コントロールの EmbeddableEditorOwnerBase クラス実装だけでなく、コンストラクターに渡した EmbeddableEditorOwnerBase クラスのインスタンスでも GetAutoEdit メソッドを呼び出して、答えがあるかどうかを確認します。 UltraComboEditor の実装はその AutoComplete プロパティの値を返すので、プロパティが True に設定されていれば、UltraWinTree コントロールもオート コンプリート機能を使用できます。
+
+EditorComponent プロパティではなく Editor プロパティが使用されていて、Editor プロパティに割り当てられている EmbeddableEditorBase クラスのインスタンスが、デフォルト オーナーをとるオーバーロードを使用して作成されなかった場合、埋め込みエディターはデフォルト オーナー情報を取得できず、その結果 UltraWinTree コントロールは対応するプロパティがないエディターの機能をどれも使用できません。 これは、デフォルト オーナーをとるオーバーロードを使用して埋め込みエディターを作成すれば回避できます。
+
+さらに、コンストラクターに渡される EmbeddableEditorOwnerBase 派生クラスのインスタンスを、どのコントロールとも無関係のカスタム クラスにすることもできます。 埋め込みエディターは、UltraWinTree コントロールでも実装されている場合を除き、このカスタム クラスでオーバーライドされたメソッドを呼び出すため、開発者はこの情報を提供するためにコントロールを作成するというオーバーヘッドを回避できます。また、埋め込みエディターに追加情報を提供できる柔軟性も手にすることができ、両面で最良の効率が得られます。

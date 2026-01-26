@@ -1,0 +1,28 @@
+﻿////
+|metadata|
+{
+    "name": "piechart-selection",
+    "controlName": ["{PieChartName}"],
+    "tags": ["Charting","Data Presentation","How Do I"],
+    "guid": "",
+    "buildFlags": ["SL","WPF","win-phone","WINFORMS","ANDROID","XAMARIN"],
+    "createdOn": "2014-06-05T19:53:12.0788999Z"
+}
+|metadata|
+////
+
+= {DataPieChartName}
+
+== link:data-pie-chart-animation.html[アニメーション]
+
+== link:data-pie-chart-data-binding.html[データ バインディング]
+
+== link:data-pie-chart-getting-started.html[はじめに]
+
+== link:data-pie-chart-highlighting.html[強調表示]
+
+== link:data-pie-chart-legend.html[凡例]
+
+== link:data-pie-chart-others-category.html[その他カテゴリ]
+
+== link:data-pie-chart-selection.html[選択]

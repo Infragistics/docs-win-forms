@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincheckeditor-using-wincheckeditor",
+    "controlName": ["WinCheckEditor"],
+    "tags": [],
+    "guid": "{7D21E627-CA5B-4213-9D3A-725F9F49B94F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCheckEditor の使用
+
+このセクションは、WinCheckEditor™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:wincheckeditor-apply-the-office-2007-style-to-wincheckeditor.html[Office 2007 スタイルを WinCheckEditor に適用]
+* link:wincheckeditor-creating-a-custom-style-for-wincheckeditor.html[WinCheckEditor のカスタム スタイルを作成]

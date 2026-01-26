@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-wineditors-windows-message-support-for-wineditor-controls",
+    "controlName": [],
+    "tags": [],
+    "guid": "eefd4abd-fdf8-4616-850c-3b66eeb340d9",  
+    "buildFlags": [],
+    "createdOn": "2010-09-16T20:15:15.4961264Z"
+}
+|metadata|
+////
+
+= WinEditor コントロールに対する Windows メッセージのサポート
+
+このリリースから、Infragistics® WinEditor™ コントロールは、TextBox コントロールまたは RichTextBox コントロールなど、Microsoft エディター コントロールに一般的に適用されるネイティブの Windows メッセージのサブセットのサポートを提供します。この新しい機能によって、WinEditor コントロールは、外部アプリケーションやエディター コントロールと通信および応答するためにネイティブの Windows メッセージが使用されるアプリケーションでより互換性が高まります。機能の一例としては、キーボードでアクセスできるアプリケーション、文字読み上げアプリケーション、音声認識ソフトを含み、これに限定されません。サポートされるメッセージの詳細は、 link:wineditors-windows-message-support.html[「Windows メッセージのサポート」]を参照してください。
+
+関連トピック:
+
+link:wineditors-editor-controls-classification.html[エディター コントロールの分類]

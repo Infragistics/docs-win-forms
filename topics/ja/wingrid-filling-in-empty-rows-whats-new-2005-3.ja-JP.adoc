@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-filling-in-empty-rows-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A15AA5A8-494C-458C-9A09-D76665B6A39F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 空行の充てん
+
+グリッドの残りの行を空の行で満たします。これは厳密に言うとルック アンド フィールの拡張であるので、エンド ユーザーはより優れたグリッドの外観が得られます。空行の機能によって、最後の行の後にある WinGrid 内の空の領域を空行で満たすことができます。これらの空行はアクティブ化できません。これらの行は UI インタラクティブです。
+
+image::Images/WinGrid_Walk_Through_Showing_Empty_Rows_01.png[]
+
+== 関連トピック
+
+link:wingrid-showing-empty-rows.html[空行の表示]

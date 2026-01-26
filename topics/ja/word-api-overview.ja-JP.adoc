@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-api-overview",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["API"],
+    "guid": "100fcf75-0898-4416-bee4-a00d020c239a",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T15:59:35.108061Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションでは Word ライブラリに関連する各名前空間を示します。また、この Word ライブラリでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== Documents.Word 名前空間:
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word_namespace.html[Infragistics.Documents.Word Namespace]
+
+=== キー クラス:
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.textrun.html[TextRun]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.font.html[Font]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.hyperlink.html[Hyperlink]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.paragraphproperties.html[ParagraphProperties]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.sectionproperties.html[SectionProperties]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.sectionheaderfooterwriterset.html[SectionHeaderFooterWriterSet]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.shape.html[Shape]
+
+link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.tableproperties.html[TableProperties]

@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-setting-the-automatic-resizing-behavior-of-cells",
+    "controlName": ["WinGrid"],
+    "tags": ["Extending","Grids","How Do I"],
+    "guid": "{8ECBB50F-A13D-4049-8A9E-AF8F07CBDF8C}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= セルの自動サイズ動作変更の設定
+
+ユーザーが列のヘッダの右端をクリックすると、列のサイズが自動的に変更されます（これは Windows 標準の動作の実装です）。自動サイズ変更は、Override オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~columnautosizemode.html[ColumnAutoSizeMode]"]  プロパティによって制御されます。自動サイズ変更はグリッド レベルで設定することも、バンド レベルで設定またはオーバーライドすることもできます。この新しいオプションにより、自動サイズ変更について次の動作を選択できます。
+
+* *None* - 自動サイズ変更を無効にします。
+* *VisibleRows* - 表示されている行のみに基づいて自動サイズ変更を実行します。
+* *AllRowsInBand* - バンド内のすべての行に基づいて自動サイズ変更を実行します。
+* *SiblingRowsOnly* - 兄弟行に基づいて自動サイズ変更を実行します。このオプションでは、表示されているかどうかにかかわらず、ヘッダをクリックした行の兄弟である行コレクション内のすべての行に、列サイズの変更が適用されます。
+
+デフォルトの設定では、表示されている行のみに基づいて自動サイズ変更が実行されます。このプロパティをグリッド レベルで設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Me.UltraGrid1.DisplayLayout.Override.ColumnAutoSizeMode = ColumnAutoSizeMode.VisibleRows
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+this.ultraGrid1.DisplayLayout.Override.ColumnAutoSizeMode = ColumnAutoSizeMode.VisibleRows;
+----
+
+また、Override を使用することで、特定のバンドに対してこのプロパティを設定することもできます。この場合は、そのバンドの行のみに設定が適用されます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Me.UltraGrid1.DisplayLayout.Bands(1).Override.ColumnAutoSizeMode = ColumnAutoSizeMode.AllRowsInBand
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+this.ultraGrid1.DisplayLayout.Bands[1].Override.ColumnAutoSizeMode = ColumnAutoSizeMode.AllRowsInBand;
+----

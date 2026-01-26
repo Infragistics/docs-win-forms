@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "formula-values-from-an-excel-file",
+    "controlName": [],
+    "tags": [],
+    "guid": "{7B333D78-B68D-4178-B489-9321884F2976}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Excel ファイルからの数式の値
+
+Infragistics Excel Engine™ には、Excel® ワークシートに存在する数式から実際に計算した値を取得する機能があります。以前は、Excel 数式を構成する Excel セルのセル値にプログラムでアクセスを試みると、Excel 数式を表す実際のリテラル文字列を取得します。この新しい機能で、Excel Library のオブジェクト モデルで作成された数式または Microsoft® Excel から作成された既存の数式にアクセスするかどうかにかかわらず、数式の実際の評価された値を取得します。
+
+== *関連トピック*
+
+link:excelengine-getting-the-value-of-a-formula-from-an-excel-file.html[Excel ファイルから数式の値を取得]
+
+link:wingrid-getting-excel-formula-values-into-wingrid.html[WinGrid に Excel 数式の値を取得]

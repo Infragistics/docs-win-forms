@@ -1,0 +1,58 @@
+﻿////
+|metadata|
+{
+    "name": "winschedule-display-week-numbers",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{9DA534C8-D6D8-4CCA-B589-ABFDF7DC3B84}","buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 週番号の表示
+
+このトピックは以下の WinSchedule™ コントロールに適用されます。
+
+* WinMonthViewSingle™
+* WinMonthViewMulti™
+* WinCalendarCombo™
+
+週番号は多数の WinSchedule コントロールで表示できます。このコードでは、`WinMonthViewSingle`、`WinMonthViewMulti`、および `WinCalendarCombo` で週番号を表示するために pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsingle~weeknumbersvisible.html[WeekNumbersVisible]"]  プロパティが使用されます。
+
+*Visual Basic の場合:*
+[source, vb]
+Imports Infragistics.Win.UltraWinSchedule
+...
+Private Sub Display_Week_Numbers_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraMonthViewSingle1.WeekHeaderDisplayStyle = _
+          WeekHeaderDisplayStyle.WeekNumber
+        Me.UltraMonthViewMulti1.WeekNumbersVisible = True
+        Me.UltraCalendarCombo1.WeekNumbersVisible = True
+End Sub
+
+
+
+*C# の場合:*
+[source, csharp]
+using Infragistics.Win.UltraWinSchedule;
+...
+private void Display_Week_Numbers_Load(object sender, EventArgs e)
+{
+        this.ultraMonthViewSingle1.WeekHeaderDisplayStyle = 
+          WeekHeaderDisplayStyle.WeekNumber;
+        this.ultraMonthViewMulti1.WeekNumbersVisible = true;
+        this.ultraCalendarCombo1.WeekNumbersVisible = true;
+}    
+
+以下のスクリーンショットは、週番号が表示された各コントロールを示しています。
+
+*WinMonthViewSingle* +
+image:images\WinSchedule_Display_Week_Numbers_01.png[alt=""]
+
+*WinMonthViewMulti* +
+image:images\WinSchedule_Display_Week_Numbers_02.png[alt=""]
+
+*WinCalendarCombo* +
+image:images\WinSchedule_Display_Week_Numbers_03.png[alt=""]

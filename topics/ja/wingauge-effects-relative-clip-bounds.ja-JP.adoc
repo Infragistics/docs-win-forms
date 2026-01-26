@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-effects-relative-clip-bounds",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{958F2857-8C4B-482F-9283-CB8EDE00339A}",  
+    "buildFlags": [],
+    "createdOn": "2010-06-04T13:40:11Z"
+}
+|metadata|
+////
+
+= 効果の相対クリップ バウンド
+
+[相対クリップ領域] ペインは、ゲージ上の Needle ブラシ要素のクリップ領域のサイズと位置を決定します。
+
+X -- この値は Gauge コントロールの左側からの針ブラシ要素のクリップ領域の距離を決定します。
+
+Y -- この値は Gauge コントロールの上側からの針ブラシ要素のクリップ領域の距離を決定します。
+
+Width -- この値はクリップ領域の幅を決定します。
+
+Height -- この値はクリップ領域の高さを決定します。
+
+Units -- この値はクリップ領域の測定の単位を指定します。クリップ領域は、ピクセルまたは Gauge コントロールのパーセントで測定できます。
+
+image::images/Gauge_Relative_Clip_Bounds_Pane_01.png[WinGauge の相対クリップ バウンド ペイン]
+
+== 関連トピック
+
+link:wingauge-appearance-tab.html[外観タブ]
+
+link:wingauge-digit-appearance-tab.html[数字外観タブ]
+
+link:wingauge-labels-appearance-tab.html[ラベル外観タブ]
+
+link:wingauge-effects-tab.html[効果タブ]

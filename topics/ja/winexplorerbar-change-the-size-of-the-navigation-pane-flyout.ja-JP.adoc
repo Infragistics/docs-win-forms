@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-change-the-size-of-the-navigation-pane-flyout",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{BE1FA079-81D0-4DF6-85B1-190463376A58}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲーション ペイン フライアウトのサイズを変更
+
+エンド ユーザーが縮小されたグループをクリックすると、ナビゲーション ペイン フライアウトがデフォルトのサイズと位置で開きます。ただし、このデフォルト サイズは、アプリケーションの要件に対して大きすぎたり小さすぎる場合があります。ナビゲーション ペイン フライアウト用に最小サイズおよび最大サイズがあることに注意してください。最小よりも小さく、または最大よりも大きくフライアウトを設定したい場合、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationpaneflyoutminimumsize.html[NavigationPaneFlyoutMinimumSize]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationpaneflyoutmaximumsize.html[NavigationPaneFlyoutMaximumSize]"]  プロパティを変更する必要があります。
+
+デフォルトでは、展開モードで WinExplorerBar に配置されると、最小幅は WinExplorerBar コントロールの幅で決定され、最小の高さはグループの高さで決定されます。デフォルトの最大幅および高さは、エンド ユーザーのデスクトップで使用できるサイズに制限されます。
+
+以下のコードは最初にフォームの Load イベントでナビゲーション ペイン フライアウトの最小サイズを設定します。pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.navigationpaneflyoutdisplayingeventargs~preferredsize.html[PreferredSize]"]  は、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationpaneflyoutdisplaying_ev.html[NavigationPaneFlyoutDisplaying]"]  イベントで、幅 75 ピクセル、高さ 150 ピクセルに変更されます。このイベントは、エンド ユーザーがグループ領域をクリックする結果、または pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~shownavigationpaneflyout.html[ShowNavigationPaneFlyout]"]  メソッドが起動される結果のいずれであるかにかかわらず、フライアウトが表示されようとする時には常に発生します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Form1_Load(sender As Object, e As System.EventArgs)
+   Me.ultraExplorerBar1.NavigationPaneFlyoutMinimumSize = New System.Drawing.Size(10, 10)
+End Sub
+Private Sub ultraExplorerBar1_NavigationPaneFlyoutDisplaying(sender As Object,_
+  e As Infragistics.Win.UltraWinExplorerBar.NavigationPaneFlyoutDisplayingEventArgs)
+   e.PreferredSize = New System.Drawing.Size(75, 150)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	this.ultraExplorerBar1.NavigationPaneFlyoutMinimumSize =
+  new System.Drawing.Size(10,10);
+}
+private void ultraExplorerBar1_NavigationPaneFlyoutDisplaying(object sender,
+  Infragistics.Win.UltraWinExplorerBar.NavigationPaneFlyoutDisplayingEventArgs e)
+{
+	e.PreferredSize = new System.Drawing.Size(75,150);
+}
+----

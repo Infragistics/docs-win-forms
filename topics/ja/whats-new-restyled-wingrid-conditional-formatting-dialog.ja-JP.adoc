@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-restyled-wingrid-conditional-formatting-dialog",
+    "controlName": [],
+    "tags": ["Formatting","Grids"],
+    "guid": "af9be694-1faa-44d1-8a04-0d163ac25836",  
+    "buildFlags": [],
+    "createdOn": "2011-10-18T19:09:39.1510358Z"
+}
+|metadata|
+////
+
+= スタイルが変更された WinGrid 条件付き書式ダイアログ
+
+{ProductName} の 2011 Volume 2 では、WinGrid™ コントロールの条件付き書式ダイアログは、同様の強力な機能を提供すると同時に、より直感的なユーザー インターフェイス (UI) をユーザーに提供するために、スタイルが変更されました。
+
+image::Images/Win_WhatsNew_Restyled_WinGrid_Conditional_Formatting_Dialog_01.png[]
+
+== 関連トピック
+
+* link:wingrid-using-the-conditional-formatting-dialog-box.html[条件フォーマッティング ダイアログ ボックスを使用]
+* link:wingrid-implementing-conditional-formatting-at-design-time.html[デザイン タイムで条件フォーマッティングを実装]

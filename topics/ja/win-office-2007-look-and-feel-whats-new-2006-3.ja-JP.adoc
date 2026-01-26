@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-office-2007-look-and-feel-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{F165C9BD-6D50-444F-83D6-50F69F6B1964}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:12:33Z"
+}
+|metadata|
+////
+
+= Office 2007 ルック アンド フィール 2006.3
+
+本リリースでは、Microsoft® Office 2007 のルック アンド フィールを弊社のコントロールに適用しました。DisplayStyle および ViewStyle 列挙体に追加された新しいスタイルを確認できます。この新しいルック アンド フィールは、以下のトピックで説明されているいくつかの拡張が付属します。
+
+新しい Office 2007 ルック アンド フィールについての詳細は、以下のリンクをクリックしてください。
+
+* link:win-new-look-and-feel-for-wineditors-whats-new-20063.html[WinEditors の新しいルック アンド フィール]
+* link:win-new-look-and-feel-for-winschedule-whats-new-20063.html[WinSchedule の新しいルック アンド フィール]
+* link:win-office-2007-view-style-whats-new-20063.html[Office 2007 表示スタイル]

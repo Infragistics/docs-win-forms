@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-new-wintilepanel-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{3D90670D-B124-414A-A8AE-C9BA310A7B40}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T11:11:55Z"
+}
+|metadata|
+////
+
+= 新しい WinTilePanel コントロール
+
+新しい WinTilePanel™ コントロールは要約形式で一連のコンテンツ ペインをすばやくブラウズするための豊かなパターンを提供します。WinTilePanel にはタイル レイアウトとパネル動作があり、複数のタイルまたはコンテンツ ペインをパネル全体に広げることができます。各タイルは固有のコンテンツを持つができ、最小化、最大化または通常の状態に設定することができます。
+
+コンテンツ ペインに入り、ビューを最大化できます。その間最小化され表示された状態の残りのコンテンツ ペインに継続してアクセスすることができます。状態に応じて異なるコンテンツを指定することができます。たとえば、最大化された状態の単一のタイルは、最小化された状態の時に同じタイルに指定されたコンテンツと異なるコンテンツを持つことができます。
+
+image::Images/WinTilePanel_What's_New.png[]
+
+== 関連トピック
+
+* link:wintilepanel-about-wintilepanel.html[WinTilePanel について]

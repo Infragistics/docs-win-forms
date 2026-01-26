@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincombo-automatically-fill-an-empty-date-when-leaving-an-editor-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B3A81089-C715-4989-829D-65607FB297EC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エディタの終了時に自動的に空の日付を埋める
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.editorwithmask.html[EditorWithMask]"]  基本クラス、WinMaskedEdit コントロール、および WinDateTimeEditor コントロールに新しいプロパティを追加しました。この新しいプロパティである pick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit~autofilldate.html[AutoFillDate]"]  によって、コントロールがフォーカスを失ったり、データの一部が不完全で残った場合、現在の月や月と年を自動的に入力するかどうかを指定できます。

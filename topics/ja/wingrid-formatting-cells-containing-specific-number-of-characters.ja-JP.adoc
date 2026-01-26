@@ -1,0 +1,151 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-formatting-cells-containing-specific-number-of-characters",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{A52CAA5D-4E5B-4255-8960-45F90E8B9530}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 指定された文字数の文字を格納するセルの書式
+
+== バックグラウンド
+
+各文字が特定の入力タイプ（US スタイルの電話番号 "(316) 555-1212" など）である、決まった文字数の入力を格納するセルへのユーザー入力は、WinGrid の MaskInput 機能によって書式化するのが最善です。
+
+== 質問
+
+* US スタイルの社会保険番号 "###-##-####" はどのように書式化するのですか?
+* US スタイルの電話番号 "pass:[(###)-###-####]" はどのように書式化するのですか?
+* 2 文字の先行英文字、ダッシュ、4 文字の数字、ダッシュ、2 文字の終了英文字からなる部品番号はどのように書式化するのですか?
+
+== 解決策
+
+ユーザー入力のプロンプトと書式化は、UltraWinGrid の MaskInput プロパティにリテラルおよび入力文字の位置を示すマスクを設定することで実行できます。
+
+UltraWinGrid の MaskInput 機能に関連するプロパティは、以下のとおりです。
+
+MaskClipMode - データ マスキングが有効なときに、列のセル値をどのようにクリップボードにコピーするのかを決める値を返すか設定します。
+
+MaskDataMode - データ マスキングが有効なときに、データ ソースによって列のセル値をどのように格納するのかを決める値を返すか設定します。
+
+MaskDisplayMode - セルが編集モードでなく、データ マスキングが有効なときに、セル値をどのように表示するのかを決める値を返すか設定します。
+
+MaskInput - セルの入力マスクを設定します。MaskInput の作成に使用する文字は以下のとおりです。
+
+[options="header", cols="a,a"]
+|====
+|文字|説明
+
+|*#*
+|数字のプレースホルダ。文字は数字（0～9）である必要があり、入力は必須です。
+
+|*.*
+|小数のプレースホルダ。実際に使用される文字は、システムの国際設定によって小数のプレースホルダに指定されたものです。この文字はマスク用のリテラルとして扱われます。
+
+|*,*
+|千の位の区切り記号。実際に使用される文字は、システムの国際設定によって千の位の区切り文字に指定されたものです。この文字はマスク用のリテラルとして扱われます。
+
+|*:*
+|時刻の区切り文字。実際に使用される文字は、システムの国際設定によって時刻の区切り文字に指定されたものです。この文字はマスキング用のリテラルとして扱われます。
+
+|*/*
+|日付の区切り文字。実際に使用される文字は、システムの国際設定によって日付の区切り文字に指定されたものです。この文字はマスク用のリテラルとして扱われます。
+
+|*\*
+|マスク文字列内の次の文字をリテラルとして扱います。これにより、マスクに「#」、「&」、「A」、および「?」の文字を含めることができます。この文字はマスク用のリテラルとして扱われます。
+
+|*&*
+|文字のプレースホルダ。このプレースホルダに有効な値は、32 から 126 および 128 から 255（キーボード入力文字および外国語の記号文字）の範囲の ANSI 文字です。
+
+|*>*
+|以降の文字をすべて大文字に変換します。
+
+|*<*
+|以降の文字をすべて小文字に変換します。
+
+|*A*
+|英数字のプレースホルダ。例： a-z、A-Z、または 0-9.文字の入力は必須です。
+
+|*a*
+|英数字のプレースホルダ。例：a-z、A-Z、0 から 9。文字の入力は必須ではありません。
+
+|*9*
+|数字のプレースホルダ。文字は数字（0 から 9）である必要がありますが、入力は必須ではありません。
+
+|*-*
+|負の数字を示すオプションのマイナス記号。マスク文字列の先頭に付ける必要があります。
+
+|*C*
+|文字またはスペースのプレースホルダ。文字の入力は必須ではありません。これは「&」プレースホルダとまったく同様に機能し、Microsoft Access との互換性を確保します。
+
+|*?*
+|文字のプレースホルダ。例：a-z または A-Z を表します。文字の入力は必須ではありません。
+
+| _リテラル_ 
+|上記以外の記号はすべてリテラルとして（つまり、その記号自体として）表示されます。
+
+|====
+
+MaskLiteralｓAppearance － セルで MaskInput が設定されている場合、または UltraMaskedEdit エレメントを使用している場合、編集モード時にこの外観がリテラル文字に適用されます。
+
+PadChar - マスクを使用したテキストを書式化するのに使用する埋め込み文字を決めます。
+
+PromptChar - マスク入力時に使用されるプロンプト文字を設定する値を設定します。
+
+== サンプル プロジェクト
+
+サンプル プロジェクトは 2 列を表示します。[電話番号] 列はマスク "(###) ###-####" で書式化されます。[部品番号] 列はマスク "AA-####-AA" で書式化されます。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinMaskedEdit
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinMaskedEdit;
+----
+
+image::Images/WinGrid_Formatting_Cells_Containing_Specific_Number_of_Characters_01.png[]
+
+UltraGrid1.InitializeLayout -- [電話番号] 列の MaskInput プロパティには電話番号マスクが設定されます。MaskDataMode には、グリッドが書式を数値データベース フィールドにセットしないような値が設定されます。MaskClipMode には IncludeBoth が設定されるので、ユーザーがセルに対してコピー操作を行うと、クリップボード上のデータに書式が適用されます。MaskDisplayMode には IncludeBoth が設定されるので、セルはマスクされて表示されます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	e.Layout.Bands(0).Columns("Phone").MaskInput = "(###) ###-####"
+	e.Layout.Bands(0).Columns("Phone").MaskDataMode = MaskMode.Raw
+	e.Layout.Bands(0).Columns("Phone").MaskClipMode = MaskMode.IncludeBoth
+	e.Layout.Bands(0).Columns("Phone").MaskDisplayMode = MaskMode.IncludeBoth
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	e.Layout.Bands[0].Columns["Phone"].MaskInput = "(###) ###-####";
+	e.Layout.Bands[0].Columns["Phone"].MaskDataMode = MaskMode.Raw;
+	e.Layout.Bands[0].Columns["Phone"].MaskClipMode = MaskMode.IncludeBoth;
+	e.Layout.Bands[0].Columns["Phone"].MaskDisplayMode = MaskMode.IncludeBoth;
+}
+----
+
+== まとめ
+
+このプロジェクトは Mask プロパティを使用して、表示用の列情報やクリップボード、データベース、ユーザー入力などを書式化する方法を示しています。また、データ/クリップボード/表示それぞれの各モードが有する多機能性についても説明しているので、データを書式あり、なしで表示できます。

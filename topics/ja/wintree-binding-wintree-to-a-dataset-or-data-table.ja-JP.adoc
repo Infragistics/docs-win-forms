@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-binding-wintree-to-a-dataset-or-data-table",
+    "controlName": ["WinTree"],
+    "tags": ["Data Binding","How Do I"],
+    "guid": "{E67014A3-F825-422B-AB00-8EB4A115BE89}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTree をデータセットまたはデータテーブルにバインド
+
+{ProductName} 2005 Volume 2 の WinTree には、列サポートに加えて、コントロールのバインド機能も追加されました。pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~datasource.html[DataSource]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~datamember.html[DataMember]"]  プロパティを使用してルート ノード コレクションをバインドできます。また、ノード コレクションの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection~setdatabinding.html[SetDataBindingMethod]"]  を使用して、特定のノードの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~nodes.html[Nodes]"]  コレクションの内容をバインドすることもできます。WinTree は IList または IBindingList データソースにバインド可能で、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnsettings~autogeneratecolumnsets.html[AutoGenerateColumnSets]"]  を True に設定すれば、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset.html[UltraTreeColumnSet]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn.html[UltraTreeNodeColumn]"]  オブジェクトをデータソースに基づいて自動的に生成できます。
+
+このトピックでは、WinTree を DataSet または DataTable にバインドする方法について説明します。この例では型指定のない DataSet を使用してデータソースを作成しますが、型指定された DataSet（例：Visual Studio のサーバー エクスプローラを使用して作成した DataSet）に WinTree をバインドすることも可能です。
+
+[NOTE]
+====
+*注：* デフォルトでは、WinTree をバインドすると、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~viewstyle.html[ViewStyle]"]  プロパティが Grid に解決されます。そのため、この例では ViewStyle プロパティを設定する必要はありません。
+====
+
+[start=1]
+. 新しい Windows アプリケーションを作成し、デザイン ビューでフォームを開きます。ツールボックスから WinTree をフォームに追加し、その Dock プロパティをFillに設定します。
+
+WinTree をプロジェクトに追加すると、次の 3 つの参照が追加されます。
+
+** Infragistics.Shared.v{ProductVersion}
+** Infragistics.Win.UltraWinTree.v{ProductVersion}
+** Infragistics.Win.Win.v{ProductVersion}
+
+[start=2]
+. ツールボックスから DataSet をフォームに追加します。［Add DataSet］ ダイアログが表示されたら、[型指定のないデータセット] を選択して [OK] をクリックします。これで、"dataSet1" という名前の DataSet インスタンスが生成されます。
+[start=3]
+. dataSet1 を右クリックして ［Properties］ を選択します。プロパティ グリッドで Tables プロパティを選択し、省略記号（...）ボタンをクリックします。テーブル コレクション エディタが表示されたら、[追加] をクリックし、TableName プロパティを "Customers" に変更します。
+[start=4]
+. 次に、Customers DataTable の列を定義します。Columns プロパティを選択して省略記号（...）ボタンをクリックし、列コレクション エディタを表示します。
+[start=5]
+. [追加] ボタンをクリックして新しい列を作成し、その ColumnName プロパティを "Last Name" に変更します。同様に、"First Name"、"Middle Name"、"Title"の 3 つの列をデータテーブルに作成します。[OK] をクリックして列エディタを閉じ、もう一度 [OK] をクリックしてデータテーブル エディタを閉じます。
+[start=6]
+. この DataSet スキーマを WinTree のデータソースとして設定するには、WinTree を右クリックして ［Properties］ を選択します。プロパティ グリッドで DataSource プロパティを選択し、ドロップダウン矢印をクリックします。作成した DataSet（例：dataSet1）を選択します。WinTree に "Customers" バンドを表す単一ルート ノードが表示されます。これは"バンド"ノードと呼ばれる特殊なタイプのバインド ノードで、基になるデータソースに含まれるリストの名前を表示します。このノードの展開インジケータをクリックすると、作成した列構造が表示されます。ここまでで、ツリーは次のスクリーンショットのようになります。
+
+[NOTE]
+====
+*注：* デザインタイムに、基になるデータソースに行がない場合、WinTree はノード コレクションに 2 つのサンプル ノードを格納します。
+====
+
+image::Images/WinTree_Binding_to_a_DataSet_or_DataTable_01.png[]
+
+ここで、プロパティ グリッドで DataMember プロパティを選択し、ドロップダウン矢印からデータソースで定義したバンド（例："Customers"）を選択できます。こうすると、バンドノードが削除され、グリッド構造がルート レベルに表示されます。
+
+image::Images/WinTree_Binding_to_a_DataSet_or_DataTable_02.png[]

@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-validate-a-single-control",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{DAF9CD81-C135-4ABA-A3BC-D1B618731643}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 1 つのコントロールを検証
+
+WinValidator™ はインボックス コントロールを検証できます。プロパティ変更イベントのひとつである Validating イベント中に、または Validate メソッドを呼び出すことで手動でコントロールを検証できます。これらのタイプの検証で最もシンプルなのは、Validate メソッドを呼び出すことです。
+
+link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultravalidator~validate.html[Validate] メソッドは、選択する複数のオーバーロードを持ちます。固有のコントロールを検証する必要がある場合、パラメータとしてコントロール自体を渡すことだけが必要となります。ただし、このメソッドの欠点は、コントロールを検証するたびに手動で呼び出す必要があることです。TextChanged イベント中に WinNumericEditor™ コントロールなどのコントロールを検証したい場合は、 link:winvalidator-validate-during-a-specific-event.html[「固有のイベント中に検証」]を参照してください。
+
+以下のコード例は、TextBox コントロールを手動で検証する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' TextBox が検証される方法を決定する 
+' 設定を取得します。
+Dim vs As Infragistics.Win.Misc.ValidationSettings = _
+	Me.UltraValidator1.GetValidationSettings(Me.textBox1)
+' 自動検証をオフにすると WinValidator は Validate メソッドが
+' 呼び出される時だけ検証します。
+vs.ValidationTrigger = _
+	Infragistics.Win.Misc.ValidationTrigger.Programmatic
+' TextBox のテキストが "ultra" で開始する場合に
+' 検証が失敗する条件を作成します。
+vs.Condition = _
+	New Infragistics.Win.OperatorCondition( _
+		Infragistics.Win.ConditionOperator.DoesNotStartWith, _
+		"ultra")
+' TextBox を検証します。
+Me.UltraValidator1.Validate(Me.textBox1)
+----
+
+*C# の場合：*
+
+----
+// TextBox が検証される方法を決定する 
+// 設定を取得します。
+Infragistics.Win.Misc.ValidationSettings vs =
+	this.ultraValidator1.GetValidationSettings(this.textBox1);
+// 自動検証をオフにすると WinValidator は Validate メソッドが
+// 呼び出される時だけ検証します。
+vs.ValidationTrigger = 
+	Infragistics.Win.Misc.ValidationTrigger.Programmatic;
+// TextBox のテキストが "ultra" で開始する場合に
+// 検証が失敗する条件を作成します。
+vs.Condition =
+	new Infragistics.Win.OperatorCondition(
+		Infragistics.Win.ConditionOperator.DoesNotStartWith,
+		"ultra");
+// TextBox を検証します。
+this.ultraValidator1.Validate(this.textBox1);
+----

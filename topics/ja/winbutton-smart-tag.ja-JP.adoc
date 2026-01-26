@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "winbutton-smart-tag",
+    "controlName": ["WinButton"],
+    "tags": ["API"],
+    "guid": "{271393ED-0268-4A4B-925C-540C1A5EC9E5}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-11T00:00:00Z"
+}
+|metadata|
+////
+
+= WinButton スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、{ProductName} コントロール/コンポーネントがそれぞれ固有のスマート タグを備えています。コントロールやコンポーネントを選択するだけで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WinButton スマート タグには、以下のセクションと共にコントロールの名前が含まれます。
+
+* Appearance -- コントロールの外観やルック アンド フィールに関連する一般的なタスクがあります。
+* Behavior -- フォーム上でのコントロールの動作を制御するプロパティに簡単にアクセスできます。
+
+各セクションの項目（たとえば、フィールド、ドロップダウン リスト、チェックボックス）およびプロパティ グリッドの項目の対応するプロパティの説明については以下を参照してください。
+
+image::images/WinMisc_The_WinButton_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|外観|説明|対応するプロパティ
+
+|テーマのサポート
+|このチェックボックスを選択すると、Microsoft の基本的な OS テーマ（Windows クラシック テーマまたは Windows XP テーマ）がサポートされます。
+| link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~supportthemes.html[SupportThemes]
+
+|ボタンのスタイル
+|このドロップダウン リストには、WinButton の各種外観が含まれます。ただし、[SupportThemes] チェックボックスを選択した場合、WinButton は現在の Windows テーマを使用するので、変更は分かりません。
+| link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrabuttonbase~buttonstyle.html[ButtonStyle]
+
+|テキスト
+|ボタンに表示するテキストを入力します。
+| link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controlbase~text.html[Text]
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|動作|説明|対応するプロパティ
+
+|ダイアログ結果
+|ボタンがクリックされたときに親フォームの対応する DialogResult プロパティに返す値（OK、キャンセル、中止など）をドロップダウン リストから選択します。
+| link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrabuttonbase~dialogresult.html[DialogResult]
+
+|====

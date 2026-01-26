@@ -1,0 +1,292 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-using-the-ieditordatafilter-interface-with-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Extending","Grids","How Do I"],
+    "guid": "{FC3B31A4-7C71-40E1-85DF-B63AE8CD42F9}",
+    "buildFlags": [],
+    "createdOn": "2005-09-09T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid での IEditorDataFilter インタフェースの使用
+
+== バックグラウンド
+
+WinGrid を使用しているとき、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase.html[embeddable editors]"]  という用語に遭遇することがあります。埋め込み可能エディタという概念は WInGrid で初めて導入され、今では Infragistics の編集可能な Windows コントロールの多くで利用されています。つまり、埋め込み可能エディタはセル値を描画し、オプションで編集する方法を提供してくれます。埋め込み可能エディタが優れているのは、ある Win コントロールで埋め込み可能エディタの使い方を学ぶと、それと同じロジックを他の Win コントロールにも適用できることです。これができるのは、このエディタが標準的で不透明なインタフェースを介してコントロールと通信しているからで、実際このエディタではどのコントロールを操作しているかが、はっきりしないことがあります。
+
+埋め込み可能エディタがサポートする機能のひとつに、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ieditordatafilter.html[IEditorDataFilter]"]  インタフェースのサポートがあります。このインタフェースを使用すると、埋め込み可能エディタおよびその所有者に割り当てられた値や、埋め込み可能エディタおよびその所有者から割り当てられた値をインプリメンタが「横取りし」、それらの値をアプリケーションの要求どおり変更することが可能になります。IEditorDataFilter インタフェース、およびそれを使用して
+ユーザー経験
+を改善する方法について詳細に説明します。
+
+== 例
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. データ フィルターの例で、従業員と彼らの休日を一覧する単純な DataTable を使用します。エンド ユーザーの使い勝手をよくするために、週日のドロップダウン リストを用意しました。このアプリケーションでは、エンド ユーザーは実際の日付には必ずしも関心がなく、その変換を処理するのをデータ フィルターに任せます。まず、データが必要なので、2 列（「名前」と「休日」）を持つ DataTable を作成し、何人かの従業員をそのテーブルに加えます。
+
+データのみのプロジェクトを実行し、「休日」列内のドロップダウン ボタンをクリックしたとすると、その列には標準的な DateTimeEditor が割り当てられているのがわかるでしょう。これで充分ですが、アプリケーションの特別な要件には適当ではないです。そのため、この列には EditorWithCombo を割り当て、また ValueList に週日の名前を代入する必要があります。このアプリケーションを文化を意識したものにすることを忘れずに現在の文化における週日名を使う必要があり、また週日を示す数値と週日名を相互参照することに気をつけてください。これを達成するには、ValueListItems コレクションの Add メソッドのオーバーロードを使用します。これは項目の DataValue と DisplayText の両方を受け入れますが、DataValue は数値で DisplayText は週日名です。
+
+最後に、あらゆる EmbeddableEditorBase 派生のエディタは pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase~datafilter.html[DataFilter]"]  プロパティを公開します。DataFilter プロパティは IEditorDataFilter 型で、前のステップでカスタム クラスを実装したインタフェースです。「DayOff」列でカスタム クラスのインスタンスをエディタの DataFilter プロパティに割り当てましょう。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UsingtheIEditorDataFilterinterfacewiththeWinGrid_Load( _
+  ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim dataTable As DataTable = New DataTable("WorkSchedule")
+	dataTable.Columns.Add("Employee", GetType(String))
+	dataTable.Columns.Add("DayOff", GetType(DateTime))
+	dataTable.Rows.Add(New Object() {"Alice", Nothing})
+	dataTable.Rows.Add(New Object() {"Bob", Nothing})
+	dataTable.Rows.Add(New Object() {"Cher", Nothing})
+	dataTable.Rows.Add(New Object() {"Don", Nothing})
+	dataTable.Rows.Add(New Object() {"Ellen", Nothing})
+	Me.UltraGrid1.Text = "Employee Schedule"
+	Me.UltraGrid1.DataSource = dataTable
+	Dim column As UltraGridColumn = Me.UltraGrid1.DisplayLayout.Bands(0).Columns("DayOff")
+	column.Editor = New EditorWithCombo()
+	Dim ValueList As ValueList = New ValueList()
+	Dim daysOfWeekNames As String() = CultureInfo.CurrentCulture.DateTimeFormat.DayNames
+	Dim i As Integer
+	For i = 0 To daysOfWeekNames.Length - 1
+		ValueList.ValueListItems.Add(CType(i, DayOfWeek), daysOfWeekNames(i))
+	Next
+	column.ValueList = ValueList
+	column = Me.UltraGrid1.DisplayLayout.Bands(0).Columns("DayOff")
+	column.Editor.DataFilter = New DayOfWeekToDateConverter()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void UsingtheIEditorDataFilterinterfacewiththeWinGrid_Load(object sender, System.EventArgs e)
+{
+	DataTable dataTable = new DataTable("WorkSchedule");
+	dataTable.Columns.Add( "Employee", typeof(string) );
+	dataTable.Columns.Add( "DayOff", typeof(DateTime) );
+	dataTable.Rows.Add( new object[]{"Alice", null} );
+	dataTable.Rows.Add( new object[]{"Bob", null} );
+	dataTable.Rows.Add( new object[]{"Cher", null} );
+	dataTable.Rows.Add( new object[]{"Don", null} );
+	dataTable.Rows.Add( new object[]{"Ellen", null} );
+	this.ultraGrid1.Text = "Employee Schedule";
+	this.ultraGrid1.DataSource = dataTable;
+	UltraGridColumn column = this.ultraGrid1.DisplayLayout.Bands[0].Columns["DayOff"];
+	column.Editor = new EditorWithCombo();
+	ValueList valueList = new ValueList();
+	string[] daysOfWeekNames = CultureInfo.CurrentCulture.DateTimeFormat.DayNames;
+	for ( int i = 0; i < daysOfWeekNames.Length; i ++ )
+	{
+		valueList.ValueListItems.Add((System.DayOfWeek)i, daysOfWeekNames[i] );
+	}
+	column.ValueList = valueList;
+	column = this.ultraGrid1.DisplayLayout.Bands[0].Columns["DayOff"];
+	column.Editor.DataFilter = new DayOfWeekToDateConverter();
+}
+----
+
+これで、ドロップダウン リストが「休日」列に割り当てられ、これが目的ですが、あとはエンド ユーザーに週日の名前に関心を持ってもらえば充分で、裏でアプリケーションが値を日付に変換します。これが IEditorDataFilter インタフェースの役割です。
+[start=3]
+. *IEditorDataFilter インタフェースの実装*
+
+私のお気に入りのインタフェースは、実装しなければならないメソッドがほとんどないインタフェースです。私と同じような人であれば、IEditorDataFilter インタフェースが好きなはずです。実装しなければならないメソッドは*ただひとつ* 、Convert メソッドです。このメソッドの力を過小評価してはいけません。任意の埋め込み可能エディタで任意の値をその他の任意の値に変換するために必要なすべてを、このメソッドひとつがすべて実行します。
+
+カスタム クラス上に上記の問題を解決するために特別に設計された IEditorDataFilter インタフェースを実装し、次いでこれを埋め込み可能エディタの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase~datafilter.html[DataFilter]"]  プロパティに割り当てます。そして、個々の変換指示に焦点をあて、データ変換の段階がどこか、実装がどう変換を処理するかを調べます。最初に、次のクラス実装をプロジェクトにコピーしてください。
+
+*Visual Basic の場合：*
+
+----
+Public Class DayOfWeekToDateConverter
+	Implements IEditorDataFilter
+	Public Function Convert(ByVal conversionArgs As EditorDataFilterConvertArgs) _
+	  As Object Implements IEditorDataFilter.Convert
+		Select Case conversionArgs.Direction
+			Case ConversionDirection.DisplayToEditor
+				If (Not conversionArgs.Value Is Nothing) AndAlso _
+				  conversionArgs.Value.GetType() Is GetType(String) Then
+					Dim value As String = CType(conversionArgs.Value, String)
+					If Not value Is Nothing Then
+						If (value.ToLower().Equals("today")) Then
+							conversionArgs.Handled = True
+							conversionArgs.IsValid = True
+							Return DateTime.Today
+						End If
+					End If
+				End If
+			Case ConversionDirection.EditorToDisplay
+				If (Not conversionArgs.Value Is Nothing) AndAlso _
+				  conversionArgs.Value.GetType() Is GetType(DayOfWeek) Then
+					Dim dayOfWeek As DayOfWeek = conversionArgs.Value
+					Dim theDate As DateTime = _
+					  Me.GetDateFromDayOfWeek(dayOfWeek)
+					If theDate = DateTime.Today Then
+						Dim daysOfWeekNames As String() = _
+						  CurrentCulture.DateTimeFormat.DayNames
+						conversionArgs.Handled = True
+						conversionArgs.IsValid = True
+						Return daysOfWeekNames(dayOfWeek) + " (Today)"
+					End If
+				End If
+			Case ConversionDirection.EditorToOwner
+				If (Not conversionArgs.Value Is Nothing) AndAlso _
+				  conversionArgs.Value.GetType() Is GetType(DayOfWeek) Then
+					Dim dayOfWeek As DayOfWeek = _
+					  CType(conversionArgs.Value, DayOfWeek)
+					Dim theDate As DateTime = _
+					  Me.GetDateFromDayOfWeek(dayOfWeek)
+					conversionArgs.Handled = True
+					conversionArgs.IsValid = True
+					Return theDate
+				End If
+			Case ConversionDirection.OwnerToEditor
+				If (Not conversionArgs.Value Is Nothing) AndAlso _
+				  conversionArgs.Value.GetType() Is GetType(DateTime) Then
+					Dim theDate As DateTime = _
+					  CType(conversionArgs.Value, DateTime)
+					conversionArgs.Handled = True
+					conversionArgs.IsValid = True
+					Return theDate.DayOfWeek
+				End If
+		End Select
+	End Function
+	Private Function GetDateFromDayOfWeek(ByVal dayOfWeek As DayOfWeek) As DateTime
+		Dim i As Integer
+		For i = 0 To 6
+			Dim theDate As DateTime = DateTime.Today.AddDays(i)
+			If theDate.DayOfWeek = dayOfWeek Then
+				Return theDate
+			End If
+		Next
+		Return DateTime.Today
+	End Function
+End Class
+----
+
+*C# の場合：*
+
+----
+public class DayOfWeekToDateConverter : IEditorDataFilter
+{
+	object IEditorDataFilter.Convert( EditorDataFilterConvertArgs conversionArgs )
+	{
+		switch (conversionArgs.Direction )
+		{
+			case ConversionDirection.DisplayToEditor:
+			{
+				string value = conversionArgs.Value as string;
+				if (value != null)
+				{
+					if (value.ToLower().Equals("today"))
+					{
+						conversionArgs.Handled = true;
+						conversionArgs.IsValid = true;
+						return DateTime.Today;
+					}
+				}
+				break;
+			}
+			case ConversionDirection.EditorToDisplay:
+			{
+				if (conversionArgs.Value is DayOfWeek)
+				{
+					DayOfWeek dayOfWeek = (DayOfWeek)conversionArgs.Value;
+					DateTime theDate = this.GetDateFromDayOfWeek(dayOfWeek);
+					if (theDate == DateTime.Today)
+					{
+						string[] daysOfWeekNames = 
+						  CultureInfo.CurrentCulture.
+						    DateTimeFormat.DayNames;
+						conversionArgs.Handled = true;
+						conversionArgs.IsValid = true;
+						return daysOfWeekNames[(int)dayOfWeek] + 
+						  " (Today)";
+					}
+				}
+					break;
+			}
+			case ConversionDirection.EditorToOwner:
+			{
+				if (conversionArgs.Value is DayOfWeek)
+				{
+					DayOfWeek dayOfWeek = (DayOfWeek)conversionArgs.Value;
+					DateTime theDate = this.GetDateFromDayOfWeek(dayOfWeek);
+					conversionArgs.Handled = true;
+					conversionArgs.IsValid = true;
+					return theDate;
+				}
+				break;
+			}
+			case ConversionDirection.OwnerToEditor:
+			{
+				if (conversionArgs.Value is DateTime)
+				{
+					DateTime theDate = (DateTime)conversionArgs.Value;
+					conversionArgs.Handled = true;
+					conversionArgs.IsValid = true;
+					return theDate.DayOfWeek;
+				}
+				break;
+			}				
+		}
+		return conversionArgs.Value;
+	}
+	private DateTime GetDateFromDayOfWeek(DayOfWeek dayOfWeek)
+	{
+		for (int i = 0; i < 7; i ++)
+		{
+			DateTime theDate = DateTime.Today.AddDays((double)i);
+			if (theDate.DayOfWeek == dayOfWeek)
+			return theDate;
+		}
+		return DateTime.Today;
+	}
+}
+----
+
+アプリケーションの使用を開始できるようになりました。プロジェクトをコンパイルおよび実行し、ドロップダウン リストから値を選択すると、選択した値はセルが編集モードを終了したとき、エラーにならず受け入れられます。ただし、DateTime 型の値をセルに割り当てようとしているときはそうなりません。これは、必要な変換が IEditorDataFilter 実装によって行われるからです。
+
+ここで、それぞれの変換指示およびその指示の意味を見てみましょう。
+[start=4]
+. *DisplayToEditor の変換指示*
+
+ConversionDirection 列挙体の *DisplayToEditor* 定数は、情報をディスプレイ値（エンド ユーザー見えるもの）からエディタの値へ転送することを表現します。たとえば、ディスプレイ値はセル内に表示されているテキストであり、ドロップダウン リストからある値が選択されると、選択された ValueListItem の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem~displaytext.html[DisplayText]"] （週日の名前がセットされている）の値はセル内に表示されます。エンド ユーザーがセルを抜けると、EditorWithCombo はセル内のテキストを ValueList 内の項目と比較し、一致した項目が見つかると、その項目の値をセルに代入します。DisplayToEditor 変換指示を使用すると、いくつかの定義済みトークンがリスト内対応するテキストのエイリアスして機能するようにすることができます。DisplayToEditor の実装ケースでは、"Today" というトークンは現在の日付を参照するために予約されていて、エンド ユーザーが "Today" と入力してセルを抜けると、データ フィルターが Convert メソッドの実装を呼び出し、"Today" というワードは意味のある値、このケースでは DateTime.Today に変換されます。
+[start=5]
+. *EditorToDisplay の変換指示*
+
+ConversionDirection 列挙体の *EditorToDisplay* 定数は、情報をエディタの値からディスプレイへ転送することを表現します。DisplayToEditor 変換手順と同様に、"display" ということばはセル内に表示されるテキストを指します。たとえば、エディタの値として設定されている System.DayOfWeek 定数が現在の日付の定数と同じであるとき、現在の日付の横に "Today" というワードを表示すると、エンド ユーザーは現在の日付が休日である従業員を簡単に識別できます。DisplayToEditor 変換手順と同様に、本来の値を変えることなく、エンド ユーザーに表示される値を変更できます。
+[start=6]
+. *EditorToOwner の変換指示*
+
+ConversionDirection 列挙体の *EditorToOwner* 定数は、情報をエディタの値から所有者の（つまりセルの）値へ転送することを表現します。この転送は一般にエンド ユーザーによる編集モード セッションの終了と同時です。エディタの値が System.DayOfWeek 型になると知っているので、このケースを処理して、週日から DatTime 型の値へ自由に変換します。次に、変換後の値をエディタに戻し、セルの Value プロパティに提供された実際の日付を割り当てます。DateTimeEditor がセルに割り当てられたかのようにシームレスです。
+[start=7]
+. *OwnerToEditor の変換指示*
+
+ConversionDirection 列挙体の *OwnerToEditor* 定数は、情報を所有者値からエディタの値へ転送することを表現します。このケースでは、EditorToOwner 変換フェーズで行った変換を逆転しています。セルの値（データ列内の値そのもの）は DateTime 型ですが、エディタには System.DayOfWeek 型とみなしてほしいので、単に DateTime の DayOfWeek プロパティをエディタに返すだけにします。エディタはこの値を受け取ると、リスト内の項目と比較し、一致した項目のテキスト（週日の名前に設定したデータ）が表示されます。
+[start=8]
+. *EditorDataFilterConvertArgs クラスの Handled プロパティと IsValid プロパティ*
+
+ここまで操作してきた各変換手順において、エディタが渡す、EditorDataFilterConvertArgs インスタンスの Hadled プロパティと IsValid プロパティはともに True に設定されていることに注目されているかもしれません。Handled プロパティを True に設定することは、エディタにとっては、システムが変換を処理しており、かつ変換で使用している値はシステムが提供する値であって、エンド ユーザーが選択したものではないということになります。IsValid プロパティを True に設定することは、エディタにとっては、値が無効だとはみなしていないことになります。というのは、このケースでは有効だとみなす値を再定義しています。
+[start=9]
+. *まとめ*
+
+IEditorDataFilter インタフェースは、最終開発者が、UltraGridCell のようなオーナーや埋め込み可能エディタとの間でデータを変換する手段を拡張します。この手段を使えば、既存の埋め込み可能エディタによって高度に専門化されたユーザー インターフェイスを作成できます。

@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-using-the-gauge-designer",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{CBDC7997-0694-48EC-BBE1-FCCF85EF6DC9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ デザイナを使用
+
+このセクションでは、ゲージ デザイナを使用して基本的なゲージおよび複雑なゲージの作成方法を説明するチュートリアルが提供されています。
+
+* link:wingauge-creating-a-basic-gauge-using-the-gauge-designer.html[ゲージ デザイナを使用して基本的なゲージを作成]
+* link:wingauge-creating-a-complex-gauge-using-the-gauge-designer.html[ゲージ デザイナを使用して複雑なゲージを作成]

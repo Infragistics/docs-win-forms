@@ -1,0 +1,91 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-handle-user-interaction-with-items",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Events","Styling"],
+    "guid": "{321399AE-F53B-4A76-8361-E654FF44A9F6}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Items に対するユーザ インタラクションの処理
+
+項目は WinExplorerBar におけるユーザー インタラクションの主要ポイントです。ユーザーはグループを操作しますが、それはグループに含まれる項目にアクセスするための手段にすぎません。WinExplorerBar にはいくつかの項目スタイルが用意されており、これを使用してエレメントを移植することができます。使用する項目タイプによっては、希望の機能を提供するイベント コードを記述できます。
+
+[[style]]
+
+== 項目スタイルの決定
+
+どのpick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbaritemsettings~style.html[項目]"] スタイルが最もよいかはアプリケーションの要件によって決定します。使用可能な項目スタイルは次のとおりです。
+
+* *Button* - 項目はクリック可能なボタンとして表示されます。この項目は、項目がクリック可能であることをユーザーに示す視覚的なフィードバックを提供します。ユーザーが項目をクリックすることで、アクションを起動できます。
+* *Label* - 項目は静的なラベルとして表示されます。項目がクリック可能であることを示す視覚的なフィードバックを提供しません。ただし、ユーザーが項目をクリックすることでアクションを起動することは可能です。
+* *State Button* - 項目はトグル ボタンとして働きます。ひとつの状態ボタンを選択すると、グループ内またはエレメント上にある他のすべての状態ボタンが選択解除されます。状態ボタンの処理については特別な考慮事項がありますが、これについては後述します。
+* *Separator* - 項目はセパレータ ラインとして表示されます。このモードでは、項目はテキストまたはグラフィックを表示しません。SeparatorStyle プロパティを使用して、水平と垂直のどちらのセパレータ ラインを表示するかを指定します。ユーザーが項目をクリックすることで、アクションを起動できます。
+
+項目のスタイルは、3 つのプロパティのいずれかひとつの設定によって決まります。項目スタイルはデフォルト設定可能です。つまり、コントロールの継承階層の任意のレベルでスタイルをデフォルト値に設定して、ひとつ上の階層のオブジェクトから値を継承できます。最下位レベルでは、Item オブジェクト自体の Style プロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinExplorerBar
+...
+Private Sub HandlingUserInteractionwithItems_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraExplorerBar1.Groups(0).Items(1).Settings.Style = ItemStyle.Separator
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinExplorerBar;
+...
+private void HandlingUserInteractionwithItems_Load(object sender, System.EventArgs e)
+{
+	this.ultraExplorerBar1.Groups[0].Items[1].Settings.Style = ItemStyle.Separator;
+}
+----
+
+image::images\WinExplorerBar_Handle_User_Interaction_with_Items_01.png[]
+
+Style プロパティが階層のあらゆるレベルでデフォルトに設定された場合、エレメントは組み込みのデフォルト設定である Button を使用します。
+
+[[events]]
+
+== イベントの処理
+
+実装する必要がある基本イベントは ItemClick イベントです。このイベントは、ボタン、ラベル、セパレータのいずれかのスタイルの項目がクリックされたときに常に発生します。Click（および DoubleClick）イベントはクリックされた項目を e オブジェクトを通じて受け取るため、イベントの発生元の項目を容易に判断できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraExplorerBar1_ItemClick(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinExplorerBar.ItemEventArgs) _
+  Handles UltraExplorerBar1.ItemClick
+	MessageBox.Show("You clicked on " & e.Item.Text & "!")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraExplorerBar1_ItemClick(object sender, Infragistics.Win.UltraWinExplorerBar.ItemEventArgs e)
+{
+	MessageBox.Show("You clicked on " + e.Item.Text + "!");
+}
+----
+
+状態ボタンの処理は少し異なります。状態ボタン スタイルの項目をクリックしても ItemClicked イベントは生成されません。その代わりに、ItemCheckStateChanging イベントと ItemCheckStateChanged イベントが発生します。
+
+[[statebuttons]]
+
+== 状態ボタンに関する注意
+
+もうひとつの注意すべき点は、項目を単に状態ボタン スタイルに設定しただけでは視覚的に項目はまったく変わらない点です。チェック状態と非チェック状態のボタン項目は自動的に区別されません。チェックされている項目を他の項目と視覚的に区別する場合は、項目の AppearancesLarge と AppereancesSmall プロパティを使用して、チェックされた項目の外観をどのように変更するかを指定する必要があります。 これらのプロパティを通じて CheckedAppearance プロパティにアクセスし、チェック状態の項目に適用される Appearance オブジェクトを操作できます。
+
+この状態をどのように管理するかは開発者に任されています。たとえば、項目の色（前景色や背景色）を変更したり、透明度を変えたりできます。また、項目の境界線の外観を変更したり、チェック状態に基づいて変わるグラフィック（チェックボックスなど）を表示したり、あるいは項目のテキストの位置揃えを変更したりすることも可能です。これらの機能は、CheckedAppearance プロパティを通じてアクセスする Appearance オブジェクトによって提供されます。

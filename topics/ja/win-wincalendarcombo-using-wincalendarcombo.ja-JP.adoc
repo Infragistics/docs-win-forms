@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wincalendarcombo-using-wincalendarcombo",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{A8F1CF33-56CB-4296-AF2F-96367BCE76BD}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T13:57:08Z"
+}
+|metadata|
+////
+
+= WinCalendarCombo の使用
+
+このセクションには、2 つ以上の WinCalendarCombo™ コントロールに適用する機能を使用する方法を紹介する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wincalendarcombo-change-the-increments-of-spin-button-elements.html[スピン ボタン要素の増分の変更]
+* link:wincalendarcombo-create-additional-date-buttons.html[追加の日付ボタンの作成]
+* link:wincalendarcombo-create-custom-date-buttons.html[カスタム日付ボタンの作成]
+* link:wincalendarcombo-invoke-the-drop-down-list.html[ドロップダウン リストの表示]
+* link:wincalendarcombo-set-the-text-of-wincalendarcombo-when-the-date-value-is-null.html[Date の値が null の場合の WinCalendarCombo テキストの設定]

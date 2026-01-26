@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-change-the-text-in-the-navigation-pane-group-area",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{A3307507-DF29-4F1F-AE8C-DA415ECB4160}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲーション ペイン グループ領域のテキストを変更
+
+2006 Volume 3 で追加された Microsoft® Office 2007 スタイルのナビゲーション ペインには展開と縮小の機能があります。縮小すると、ナビゲーション ペインのシルバーだけが残り、アプリケーションで多くの作業スペースが得られます。デフォルトでは、縮小されると、ナビゲーション ペインのグループ領域は、「ナビゲーション ペイン」というテキストを表示します。実際のグループが呼び出されるものにより近くなるように、このテキストをカスタマイズできます。
+
+たとえば、Outlook 2007 スタイル アプリケーションを作成したい場合があります。ナビゲーション ペインのグループには、電子メール、カレンダー、問い合わせ先、およびメモの項目を含むことができます。ナビゲーション ペインがこれらのグループに一致するように縮小される時に、グループ領域のテキストを変更することができます。そうするには、グループごとにひとつのプロパティ、pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroupsettings~navigationpanecollapsedgroupareatext.html[NavigationPaneCollapsedGroupAreaText]"]  プロパティを修正します。このプロパティをグループの Key に設定するか、意味のある文字列に設定することができます。
+
+以下のコードは、電子メール グループの縮小されたグループ領域のテキストを「Mail」に変更します。
+
+[cols="a,a,a,a"]
+|====
+|image::images/WinExplorerBar_Change_the_Text_in_the_Navigation_Pane_Group_Area_01.png[]
+|image::images/WinExplorerBar_Change_the_Text_in_the_Navigation_Pane_Group_Area_02.png[]
+|image::images/WinExplorerBar_Change_the_Text_in_the_Navigation_Pane_Group_Area_03.png[]
+|image::images/WinExplorerBar_Change_the_Text_in_the_Navigation_Pane_Group_Area_04.png[]
+
+|====
+
+*Visual Basic の場合：*
+
+----
+Me.UltraExplorerBar1.Groups(0).Settings.NavigationPaneCollapsedGroupAreaText = "Mail"
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.Groups[0].Settings.NavigationPaneCollapsedGroupAreaText = "Mail";
+----

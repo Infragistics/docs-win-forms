@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-design-time-customize-dialog-box",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Design Environment"],
+    "guid": "{2A068601-FE32-40F7-AC3E-89A22DD06A17}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbarsManager のデザインタイム カスタマイズ ダイアログボックス
+
+コンポーネント トレイで WinToolbarsManager を右クリックし、 [ユーザー設定] を選択してアクセスできる [ユーザー設定] ダイアログには、コンポーネントを変更するための 4 つのタブが含まれます。
+
+* [ツールバー] - このタブには UltraToolbar または UltraTaskPaneToolbar オブジェクトを作成および修正するためのオプションが含まれています。
+* ツールにはツールを作成および修正するためのオプションが含まれています。さらに、フォーム/ユーザー コントロール デザイナの UltraToolbarsManager のツールバーにツール リストからツールをドラッグできます。
+* PopupMenuTool デザイナによって、特別なツールバーに配置することなくメニュー ツールを作成および変更することができます。
+* オプションによって、UltraToolbarsManager の一部の一般的な設定を変更できます。
+
+== ツールバー
+
+[ツールバー] タブには、ツールバーを作成および操作するためのオプションが含まれます。右下にボタンがあり、UltraToolbarsManager ツール、ツールバー、およびプロパティをレイアウト ファイルにロードまたは保存するために使用でき、フォームに置かれた .NET MainMenu またはツールバーからツールおよびツールバーをインポートするオプションもあります。
+
+[NOTE]
+====
+*注：* ツールバーの種類についての詳細は、 link:wintoolbarsmanager-working-with-toolbar-types.html[「ツールバーの種類の操作」]を参照してください。
+====
+
+image::Images/WinToolbarsManager_Design_Time_Customize_Dialog_01.png[]
+
+== ツール
+
+[ツール] タブにはツールを作成および修正するためのオプションが含まれています。さらに、フォーム/ユーザー コントロール デザイナの UltraToolbarsManager のツールバーにツール リストからツールをドラッグできます。
+
+[NOTE]
+====
+*注：* 使用できるツールバーの種類についての詳細は、 link:wintoolbarsmanager-working-with-tool-types.html[「ツールバーの種類の操作」]を参照してください。
+====
+
+image::Images/WinToolbarsManager_Design_Time_Customize_Dialog_02.png[]
+
+以下のイメージは、[ツール] タブからフォームのメニュー ツールにドラッグされるオープン ツールのインスタンスを示します。
+
+image::Images/WinToolbarsManager_Design_Time_Customize_Dialog_03.png[]
+
+== PopupMenuTool デザイナ
+
+PopupMenuTool デザイナは、特定のツールバーまたはメニューにメニューのインスタンスを配置せずにpick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[メニュー]"]  ツールを作成および修正するために使用されます。
+
+[NOTE]
+====
+*注：* 使用できるツールバーの種類についての詳細は、 link:wintoolbarsmanager-working-with-tool-types.html[「ツールバーの種類の操作」]を参照してください。
+====
+
+image::Images/WinToolbarsManager_Design_Time_Customize_Dialog_04.png[]
+
+== オプション
+
+［オプション］ タブには、大きい画像などを使用してツールを表示するかどうかなどのメニュー アニメーションのタイプを含む UltraToolbarManager コンポーネントの一般的なプロパティを管理するためのコントロールが含まれています。
+
+image::Images/WinToolbarsManager_Design_Time_Customize_Dialog_05.png[]

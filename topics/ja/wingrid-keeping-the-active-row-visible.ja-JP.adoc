@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-keeping-the-active-row-visible",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Tips and Tricks"],
+    "guid": "{270DD4C9-6731-4FED-AE71-257AD01BDB46}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブ行の表示状態を保持
+
+== バックグラウンド
+
+WinGrid で行の追加をする場合、追加される行は自動的に階層セクションの最後に挿入されます。グリッドの行数が多い場合、現在ユーザーがレビューしている行が表示範囲外にスクロールされてしまう場合があります。新規レコードを追加する時にもアクティブ行を表示させたい場合、2 つ目の行スクロール領域を作成し、新規行をこの新しい領域に追加します。
+
+== 質問
+
+* 新規レコードの追加時にアクティブ行を表示させておくにはどうすればいいですか?
+
+== 解決策
+
+2 つ目の行スクロール領域を作成し、この領域内で新しい行を追加してください。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは、プログラムを使用して新しい行を追加するために新しい行スクロール領域の作成方法を紹介しています:
+
+image::Images/WinGrid_Keeping_the_Active_Row_Visible_01.png[]
+
+UltraGrid イベント領域には以下のイベント ハンドラがあります。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントにはグリッドに AddNewBox を表示させるコードが記述されています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' 追加の新規ボックスを表示します
+	e.Layout.AddNewBox.Hidden = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// 追加の新規ボックスを表示します
+	e.Layout.AddNewBox.Hidden = false;
+}
+----
+
+* UltraGrid1.Paint - Paint イベントのコードは、まだ存在していない場合 2 つ目の行スクロール領域を作成します。このコードを InitializeLayout イベントではなく Paint イベントに記述する理由は、InitializeLayout イベント時にグリッドの Height プロパティは設定されないからです。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_Paint(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.PaintEventArgs) _
+  Handles UltraGrid1.Paint
+	' まだない場合、2 つ目の領域を作成します
+	If Me.UltraGrid1.DisplayLayout.RowScrollRegions.Count = 1 Then
+		Me.UltraGrid1.DisplayLayout.RowScrollRegions(0).Split()
+		Me.UltraGrid1.DisplayLayout.RowScrollRegions(0).Height = _
+		  Me.UltraGrid1.Height $$*$$ 0.6
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+{
+	// まだない場合、2 つ目の領域を作成します
+	if(this.ultraGrid1.DisplayLayout.RowScrollRegions.Count == 1)
+	{
+		this.ultraGrid1.DisplayLayout.RowScrollRegions[0].Split();
+		this.ultraGrid1.DisplayLayout.RowScrollRegions[0].Height = 
+		  (int)(this.ultraGrid1.Height $$*$$ 0.6);
+	}
+}
+----
+
+* UltraGrid1.InitializeRow - InitializeRow イベントにはバンド 0 のすべての行を展開するコードが記述されています:
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' バンド 0 の行を展開します
+	If e.Row.Band.Index = 0 Then
+		e.Row.ExpandAll()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// バンド 0 の行を展開します
+	if(e.Row.Band.Index == 0)
+		e.Row.ExpandAll();
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは、ひとつのペインにグリッドのデータを表示し、 もうひとつのペインで追加を実行する方法を紹介しました。

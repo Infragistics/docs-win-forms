@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "windesktopalert-display-a-desktop-alert-window-on-a-second-monitor",
+    "controlName": ["WinDesktopAlert"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{D89E1E8F-BA11-432A-8BB8-506E3DA2D5D4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 第二のモニタにデスクトップ アラート ウィンドウを表示
+
+技術の時代そして速いペースの仕事環境において、2 つのモニタを使用するユーザーはまれではありません。2 つのモニタを使用すれば、画面領域は倍になり、マルチタスクをより効率的に行うことができます。WinDesktopAlert™ は、デスクトップ アラート ウィンドウを表示して 2 番目のディスプレイの利点を得ます。 link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo.html[UltraDesktopAlertShowWindowInfo] クラスの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultradesktopalertshowwindowinfo~screen.html[Screen] プロパティによって、表示されるアラート ウィンドウを選択することができます。
+
+System.Windows.Forms.Screen クラスは、AllScreens プロパティから表示されるシステムの配列へのアクセスをユーザーに提供します。AllScreens は、システムに現在接続しているすべての使用可能なディスプレイの配列です。AllScreens[0] は常にプライマリ ディスプレイで、AllScreens[1] はセカンダリ ディスプレイです。Screen プロパティを Screen.AllScreens[1] に設定することで、 デスクトップ アラート ウィンドウがセカンダリ ディスプレイに表示されます。
+
+以下のコードを使用して、セカンダリ ディスプレイでデスクトップ アラート ウィンドウを表示します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい UltraDesktopAlertShowWindowInfo インスタンスを作成し、
+' サンプル テキストを指定します。
+Dim windowInfo As UltraDesktopAlertShowWindowInfo = _
+  New UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.")
+' アラート ウィンドウが表示される画面を設定します。
+' AllScreens はシステムに接続するすべての画面の配列です。
+' モニタが 2 つある場合、0 はプライマリ画面で
+' 1 はセカンダリ画面 
+' というように表されます。
+windowInfo.Screen = Screen.AllScreens(1)
+' 上記の情報を使用してデスクトップ アラート ウィンドウを表示します。
+Me.UltraDesktopAlert1.Show(windowInfo)
+----
+
+*C# の場合：*
+
+----
+// 新しい UltraDesktopAlertShowWindowInfo インスタンスを作成し、
+// サンプル テキストを指定します。
+UltraDesktopAlertShowWindowInfo windowInfo =
+  new UltraDesktopAlertShowWindowInfo("Test Alert", "This is only a test.");
+// アラート ウィンドウが表示される画面を設定します。
+// AllScreens はシステムに接続するすべての画面の配列です。
+// モニタが 2 つある場合、0 はプライマリ画面で
+// 1 はセカンダリ画面 
+// というように表されます。
+windowInfo.Screen = Screen.AllScreens[1];
+// 上記の情報を使用してデスクトップ アラート ウィンドウを表示します。
+this.ultraDesktopAlert1.Show(windowInfo);
+----

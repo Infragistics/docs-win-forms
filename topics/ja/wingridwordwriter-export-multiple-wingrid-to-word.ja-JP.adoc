@@ -1,0 +1,114 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridwordwriter-export-multiple-wingrid-to-word",
+    "controlName": ["WinGridWordWriter"],
+    "tags": ["Exporting","Getting Started","How Do I"],
+    "guid": "ba76b7e8-542c-4d36-85db-4a150f33a415",  
+    "buildFlags": [],
+    "createdOn": "2011-03-15T17:04:18.4022883Z"
+}
+|metadata|
+////
+
+= 複数の WinGrids を Word にエクスポート
+
+WinGridWordWriter™ コンポーネントによって、Infragisitcs.Documents.IO アセンブリ内の link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.worddocumentwriter.html[WordDocumentWriter] オブジェクトに基づいて link:{ApiPlatform}win.ultrawingrid.wordwriter{ApiVersion}~infragistics.win.ultrawingrid.wordwriter.ultragridwordwriter~export.html[Export] メソッドを使用して、複数の WinGrid™ コントロールを新しい Word ドキュメントにエクスポートすることが可能となります。Export メソッドは、エクスポートしたい WinGrid コントロールと WordDocumentWriter オブジェクトをパラメーターとして受け付けます。
+
+以下のコードは、サポートする段落およびタイトルとともに 2 つの UltraGrid コントロールを新しい Word ドキュメントにエクスポートする例を示します。
+
+[NOTE]
+====
+*注:* Infragistics3.Documents.IO、Infragistics3.Win.UltraWinGrid.WordWriter および {ApiPlatform}Win.UltraWinGrid アセンブリへの参照が必要とされます。
+====
+
+開始するには、ツールボックスから 2 つの UltraGrid コントロールとひとつの UltraGridWordWriter コンポーネントをフォームにドラッグ アンド ドロップします。Form Load イベント ハンドラーで UltraGrid コントロールを Northwind の Products および Categories テーブルにそれぞれバインドします。
+
+[NOTE]
+====
+*注:* WinGrid コントロールのデータ バインディングの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+====
+
+*C# の場合:*
+
+----
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+// コンテンツを書いた後は、このインスタンスを閉じる必要があります
+WordDocumentWriter wordDocWriter = WordDocumentWriter.Create(@"C:\Samples_Projects\GridDataInWord.docx");
+// Word ドキュメントを開始します
+// これは EndDocument への対応する呼び出しとバランスを取らなければなりません
+wordDocWriter.StartDocument();
+// 段落を開始しますこれは、
+// EndParagraph への対応する呼び出しとバランスを取らなければなりません
+wordDocWriter.StartParagraph();
+// Font クラスの新しいインスタンスを作成します
+Infragistics.Documents.Word.Font font = wordDocWriter.CreateFont();
+font.Bold = true;
+font.Underline = Underline.Thick;
+font.ForeColor = Color.Red;
+// 事前にフォントが定義されたテキストを段落に追加します
+wordDocWriter.AddTextRun("Products", font);
+wordDocWriter.AddNewLine();
+// 段落を終わります
+wordDocWriter.EndParagraph();
+// WinGridWordWriter で Export メソッドを呼び出し、
+// Grid コントロールと WordDocumentWriter オブジェクトをパラメーターとして渡します
+this.ultraGridWordWriter1.Export(ultraGrid1, wordDocWriter);
+wordDocWriter.AddEmptyParagraph();
+wordDocWriter.StartParagraph();
+// 事前にフォントが定義されたテキストを段落に追加します
+wordDocWriter.AddTextRun("Categories", font);
+wordDocWriter.AddNewLine();
+wordDocWriter.EndParagraph();
+// 2 番目のグリッドを Word にエクスポートします
+this.ultraGridWordWriter1.Export(ultraGrid2, wordDocWriter);
+// ドキュメントを終了します
+wordDocWriter.EndDocument();
+// ライターを閉じてコンテンツをファイナライズします
+wordDocWriter.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+' 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+' コンテンツを書いた後は、このインスタンスを閉じる必要があります
+Dim wordDocWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\Samples_Projects\GridDataInWord.docx")
+' Word ドキュメントを開始します
+' これは EndDocument への対応する呼び出しとバランスを取らなければなりません
+wordDocWriter.StartDocument()
+' 段落を開始しますこれは、
+' EndParagraph への対応する呼び出しとバランスを取らなければなりません
+wordDocWriter.StartParagraph()
+Dim font As Infragistics.Documents.Word.Font = wordDocWriter.CreateFont()
+font.Bold = True
+font.Underline = Underline.Thick
+font.ForeColor = Color.Red
+' 事前にフォントが定義されたテキストを段落に追加します
+wordDocWriter.AddTextRun("Products", font)
+wordDocWriter.AddNewLine()
+' 段落を終わります
+wordDocWriter.EndParagraph()
+' WinGridWordWriter で Export メソッドを呼び出し、
+' Grid コントロールと WordDocumentWriter オブジェクトをパラメーターとして渡します
+Me.ultraGridWordWriter1.Export(ultraGrid1, wordDocWriter)
+wordDocWriter.AddEmptyParagraph()
+wordDocWriter.StartParagraph()
+' 事前にフォントが定義されたテキストを段落に追加します
+wordDocWriter.AddTextRun("Categories", font)
+wordDocWriter.AddNewLine()
+wordDocWriter.EndParagraph()
+'  2 番目のグリッドを Word にエクスポートします
+Me.ultraGridWordWriter1.Export(ultraGrid2, wordDocWriter)
+wordDocWriter.EndDocument()
+' ライターを閉じてコンテンツをファイナライズします
+wordDocWriter.Close()
+----
+
+== 関連トピック
+
+* link:wingridwordwriter-about-wingridwordwriter.html[WinGridWordWriter について]
+* link:wingridwordwriter-export-wingrid-with-paragraphs-to-word.html[段落がある WinGrid を Word にエクスポート]

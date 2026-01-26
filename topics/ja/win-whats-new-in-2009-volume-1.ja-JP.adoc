@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2009-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B6425938-75E0-4F08-B227-8809414ED123}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2009 Volume 1 の新機能
+
+{ProductName} 2009 Volume 1 のリリースには、Windows Formsのコントロールとコンポーネントをこれまで以上に活用することができるいくつかの強力な新しい特性と機能が含まれています。
+
+リンクをクリックして提供されている新機能のリストを確認してください。
+
+* link:win-whats-new-wincomboeditor-multiselection-support-using-checkbox.html[チェックボックスを使用して WinComboEditor MultiSelection のサポート]
+* link:win-whats-new-winlistview-lassoselection.html[WinListView LassoSelection]
+* link:win-whats-new-winpanel-control.html[新しい WinPanel コントロール]
+* link:win-whats-new-wingrid.html[WinGrid]
+* link:win-whats-new-printing-total-number-of-pages.html[WinGridPrintDocument 総ページ数の印刷]
+* link:win-whats-new-winschedule.html[WinSchedule]

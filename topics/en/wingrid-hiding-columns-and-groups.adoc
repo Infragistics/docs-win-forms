@@ -1,0 +1,78 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-hiding-columns-and-groups",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{1AE9150E-0669-49DA-A315-F94BADCEBFEF}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Hiding Columns and Groups
+
+toc::[]
+
+== To hide a column at design time:
+. If your grid has a DataSource set up at Design-time, you can hide columns or groups in the property pages.
++
+Open the property pages by selecting the grid on the form and clicking the Custom Properties... link at the bottom of the Properties window.
+
+. Switch to the Groups and Columns tab.
+. Select the Column or Group you want to hide from the tree list.
+. Click the Show/Hide button.
+. Set the Hidden property.
+
+== To hide a column at run time:
+*In Visual Basic:*
+[source, vb]
+Private Sub Hide_Columns_and_Groups_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).Hidden = True
+End Sub
+
+*In C#:*
+[source, csharp]
+private void Hide_Columns_and_Groups_Load(object sender, EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].Hidden = true;
+}
+
+== ColPosChanged Events
+When the user hides or unhides a column via the UI, the
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~beforecolposchanged_ev.html[BeforeColPosChanged]
+and
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~aftercolposchanged_ev.html[AfterColPosChanged]
+events fire. Likewise, if the user hides/unhides an
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridgroup.html[UltraGridGroup]
+the
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~beforegroupposchanged_ev.html[BeforeGroupPosChanged]
+and
+link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~aftergroupposchanged_ev.html[AfterGroupPosChanged]
+fire.
+
+To listen for this interaction, you can trap for when the link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.beforecolposchangedeventargs~ColumnPosChangedType.html[ColumnPosChangedType] is link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.poschangedtype.html[PosChangedType].HiddenStateChanged in the event arguments, as demonstrated in the following code:
+
+
+*In C#*
+[source, csharp]
+private void UltraGrid1_AfterColPosChanged(object sender, AfterColPosChangedEventArgs e)
+{
+    bool hasHiddenChanged = (e.ColumnPosChangedType & PosChangedType.HiddenStateChanged)
+        == PosChangedType.HiddenStateChanged;
+    if(hasHiddenChanged)
+    {
+        //YOUR CODE HERE
+    }
+}
+    
+*In VB*
+[source, vb]
+Private Sub UltraGrid1_AfterColPosChanged(sender As Object, e As AfterColPosChangedEventArgs)
+    Dim hasHiddenChanged As Boolean = (e.ColumnPosChangedType And PosChangedType.HiddenStateChanged) = PosChangedType.HiddenStateChanged
+    If hasHiddenChanged Then
+        'YOUR CODE HERE
+    End If
+End Sub

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-hatch-brush-element",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{D128923A-55DB-4060-96AA-63EF481B2337}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ハッチ ブラシ エレメント
+
+ゲージ上のプロパティの背景をグリッドのようなパターンにしたい場合には、ブラシ エレメントを [ハッチ] に設定します。ハッチ ブラシ エレメントを選択すると、背景色、前景色、ハッチ スタイルを指定できます。以下を使用してハッチ ブラシ エレメントをプロパティに適用できます。
+
+* link:wingauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:wingauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:wingauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、目盛盤の BrushElement プロパティを以下のハッチ ブラシ エレメントの設定に設定した状態のラジアル ゲージを示しています。
+
+* ハッチ スタイル -- Backward Diagonal
+* 前景色 -- Silver
+* 背景色 -- Dim Gray
+
+image::images/Gauge_Hatch_02.png[]

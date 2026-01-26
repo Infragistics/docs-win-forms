@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-mdiwindowlist-about-the-mdiwindowlist-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{EDF8E6DE-36CC-418C-BA46-954912390E4A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MDIWindowList ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== MDIWindowList
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.mdiwindowlisttool.html[MdiWindowListTool]"]
+
+派生元：Toolbase $$->$$ ListTool
+
+説明：MdiWindowList ツールは、MDI 親フォームに属するメニューで使用したときに、その親に属する MDI 子ウィンドウのうち現在開いているもののリストを表示します。オプションで、MDI 子ウィンドウに関連するウィンドウ操作コマンドを 1 つまたは複数表示することもできます。この動作はメニューに MdiWindowListTool を配置するだけで実現できます。 残りの処理は MdiWindowListTool 自体が行うため、コードは必要ありません。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_08.png[]

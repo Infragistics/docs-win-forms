@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-synchronizing-check-boxes-of-the-tree-nodes",
+    "controlName": [],
+    "tags": [],
+    "guid": "52c3088f-3df4-4f03-a478-dc07131a2043",  
+    "buildFlags": [],
+    "createdOn": "2014-03-14T00:40:06.4159799Z"
+}
+|metadata|
+////
+
+= ツリー ノードのチェックボックスの同期化
+
+ツリー ノードのチェックボックスの同期化
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WinTree_™ での親ノードおよび子ノードのチェックボックスの同期化について紹介します。
+
+=== はじめに
+
+標準ビューで、 _WinTree_   のノードにチェックボックスを表示できます。この機能を使用すると、チェックボックスを自動的に同期化できます。親ノードは、子ノードのチェック状態に基づいてチェック済み、未チェック、または不確定の状態になります。
+
+.注:
+[NOTE]
+====
+この機能は、ツリー ノードの規格ビューのみに適用します。列ビューに適用されません。
+====
+
+以下の表は、チェックボックスの状態の同期化と表示をリストします。
+
+[options="header", cols="a,a"]
+|====
+|チェックボックスの同期化|チェックボックスの状態
+
+|すべての子がチェックされている場合、親もチェックされます。
+|image::images/Synchronizing_Checkboxes_of_the_Tree_Nodes_1.png[]
+
+|すべての子のチェックが解除された場合、親もチェック解除されます。
+|image::images/Synchronizing_Checkboxes_of_the_Tree_Nodes_2.png[]
+
+|チェックされた子およびチェック解除された子の両方がある場合、親は不確定状態になります。
+|image::images/Synchronizing_Checkboxes_of_the_Tree_Nodes_3.png[]
+
+|====
+
+.注:
+[NOTE]
+====
+この機能は、以下の条件があるチェックボックスのみに適用されます。
+
+* link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override~nodestyle.html[NodeStyle] プロパティの結果でノードの前に表示されるチェックボックスに適用します。
+* グリッドまたは  _OutlookExpress_   スタイルで表示されるノードのチェックボックスには適用されません。
+* セルまたは列にあるチェックボックスには適用されません。
+====
+
+=== 例
+
+以下のコードは、`NodeStyle` プロパティを使用してチェックボックスの同期化を有効にします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraTree1.Override.NodeStyle = NodeStyle.SynchronizedCheckBox;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraTree1.Override.NodeStyle = NodeStyle.SynchronizedCheckBox
+----
+
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintree-using-wintree.html[WinTree の使用]
+|このセクションでは、WinTree コントロールに関連する特定のタスクを実行する方法を説明する、簡単なタスクベースのトピックについて記述されています。
+
+|====

@@ -1,0 +1,23 @@
+﻿////
+|metadata|
+{
+    "name": "winmaskededit",
+    "controlName": ["WinMaskedEdit"],
+    "tags": [],
+    "guid": "{63BA5A58-817E-4191-9BDE-6B271CD741D0}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMaskedEdit
+
+Click the links below to find information specific to the WinMaskedEdit™ control.
+
+* About WinMaskedEdit
+** link:winmaskededit-default-masks-for-ip-and-email.html[Default Masks for IP and Email]
+** link:winmaskededitorbase-spinning.html[Spinning Behavior]
+** link:winmaskededit-smart-tag.html[WinMaskedEdit Smart Tag]
+* Using WinMaskedEdit
+** link:winmaskededitorbase-increment-an-editor-using-custom-input.html[Increment an Editor Using Custom Input]
+* link:winmaskededit-api-overview.html[API Overview] -- Lists the namespaces and classes that you will be working with while programming with the _WinMaskedEdit_™ control.

@@ -1,0 +1,21 @@
+﻿= 2017 Volume 2 の重大な変更
+
+== UltraGeographicMap
+
+==== CloudMade サポートの終了
+
+link:geographicmap.html[UltraGeographicMap] コントロールは CloudMade 画像およびタイル ソースを使用していましたが、CloudMade による画像およびタイル ソースの提供が終了しました。そのため、`UltraGeographicMap` コントロールの CloudMade のサポートも終了となり、マップの API から CloudMadeMapImagery クラスが削除されました。
+
+== バージョン ユーティリティ
+
+==== Windows 7、Visual Studio 2017 の環境ではインストールできません。
+
+バージョン ユーティリティが VS 2017 のインストールされている Win7 で正しくインストールされない問題は解決されましたが、バージョン ユーティリティを使用するには追加の手順を実行する必要がある場合があります。
+
+バージョン ユーティリティの最新バージョンを正常にインストールした後に VS 2017 が表示されない場合は、次の操作を実行します。
+
+** Visual Studio 2017 が開いている場合は一度閉じます。
+** [VS2017 インストール フォルダ]\Common7\IDE へナビゲートして、コマンド プロンプトを管理者として実行します。
+** 次のコマンドを実行します: "devenv.exe /setup /nosetupvstemplates"
+
+バージョン ユーティリティが Visual Studio 2017 で使用できるようになります。

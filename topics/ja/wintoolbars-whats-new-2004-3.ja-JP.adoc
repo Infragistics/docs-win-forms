@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbars-whats-new-2004-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0DF564E8-5BEB-4803-B4D4-75D9D5C911FD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbars 2004.3
+
+UltraWinToolbars に追加された新機能は以下のとおりです。
+
+* UltraToolbarsManager に RuntimeCustomizationOptions プロパティを追加しました。同じ名前の新しい列挙体も追加しました。エンド ユーザーに使用可能のカスタマイズ オプションを設定するプロパティです。
+* [ランタイム カスタマイズ] ダイアログのツールに右クリックすると、コンテキスト メニューが表示され、ツールのインスタンスに関連付けられたイメージの操作のための新しいオプションが追加されました。MS Office と同様、クリップボードにイメージをコピーしたり、クリップボードにあるイメージと交換したり、編集したり、リストアすることができます。
+* SharedProps の Category プロパティには、他のツールで使用されているカテゴリーをドロップダウンで表示します。
+* VisualStudio2005 の ToolbarStyle は ComboTool と TextTool に適用されました。
+* PopupColorPickerTool の外観は新しい VisualStudio2005-Style の値に同期されます。
+* PopupColorPickerTool に ShowAutomaticColor と ShowTransparentColor の 2 つの新しいプロパティを追加しました。これはドロップダウンの Automatic Color ボタンと Transparent Color ボタンを表示/非表示するために使用されています。Automatic Color ボタンは前から存在しており、関連のプロパティは True にデフォルト設定されています。今まで、透明色にするボタン（つまり System.Drawing.Color.Transparent）はありませんでした。下位互換性を維持するため、このプロパティのデフォルトは False です。
+* 右クリックのデザイナ メニューに [ツールとツールバーのインポート...] という名前の新しいオプション（つまり verb）があります。このオプションは、指定されたレイアウト ファイルからツールおよびツールバーをインポートするためのウィザード ダイアログを表示します。
+* VisualStudio2005 の ToolbarStyle 列挙体に新しい値があります。UltraToolbarsManager の Style プロパティに使用されています。
+* ポップアップ メニュー ツールを変更するために使用する Customize Dialog に新しいタブを追加されています。これは主に、コンテクスト メニューを表示するために UltraToolbarsManager を使用するお客様のためです。このデザイナでは、PopupMenuTool を選択して、現在のツールが左側のリストに表示されます。右側のリストにはメニューに配置できるすべてのツールが表示されます。ツールを右のリストから左のリストへドラッグできます。
+* Microsoft Office の quick customize 機能が WinToolbars ランタイムに実装されました。この機能により、左マウス ボタンを押しながら Alt キーを押せば、カスタマイズ ダイアログに入力せずにツールのドラッグやコピーを開始できます。
+* デザインタイムのカスタマイズ ダイアログはインプレース カスタマイザに新しい機能を追加しました。[新しいツールバー...] ボタンは [ツールバー] タブに既にあったため除外されます。この新しい機能には、各ツールバー/メニューに Holder ツールがあります。この使用によって、[ツール] タブからツールをドラッグする必要はありません。選択したツールの前に新しいツールや既存のツールを挿入できるツールの右クリック メニュー オプションもあります。
+* 右クリックのデザイン メニュー（カスタマイズ モードでツールバー/ポップアップ メニューのツール インスタンスを右クリックしたときに表示される）に [ツールの種類の変換...] という新しいコマンドを追加しました。このコマンドは、選択されたツールのすべてのインスタンスを 1 つのタイプから別のタイプに同時に変更するために使用できます。たとえば、ButtonTool から StateButtonTool に変更できます。
+* ListTool（および MdiWindowListTool）は、SharedProps/InstanceProps の Width、MaxWidth および MinWidth プロパティの使用をサポートします。このプロパティによって、プロパティを含むメニュー内のリスト ツールの幅を制御できます。
+* ControlContainerTool と TextBoxTool (または派生クラス、例えば ComboBoxTool と FontListTool）は、ツールがツールバーに配置されたときにキャプションの表示できます。下位互換性を保証するため、DisplayStyle が TextOnlyAlways または ImageAndText に設定されていない場合、Caption は表示されません。このツールは今までと同様にイメージを表示しないし、キャプションは制御/編集領域の左に揃います。
+* 全ての PopupToolBase ツールはセグメント化された時にチェック状態を表示します。これを行うには、PopupToolBase クラスに Checked プロパティを追加しました。この状態は DropDownArrowStyle が新しい列挙体値である SegmentedStateButton に設定された場合に限って使用されます。
+* インプレース編集は、カスタマイズ ダイアログに入力せずにツール/ツールバーを作成、ドラッグなどを可能にするために UltraToolbarsManager に追加されました。

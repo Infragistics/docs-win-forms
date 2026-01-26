@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-enforcing-constraints-defined-in-an-xsd-schema-part-4-of-4",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids"],
+    "guid": "{66D7C808-A8C1-4A04-8941-02130485BF8B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= XSD スキーマで定義された制約の実施（パート4/4）
+
+WinGrid には、XSD スキーマからデータ制約を抽出し、エンド ユーザーが入力したデータにこれらの制約を実行する機能があります。これらの制約はグリッドの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow~band.html[Bands]"]  と pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.headerbase~column.html[Columns]"]  の両方に適用されます。バンド レベルの制約には、バンドに許可する行数などがあります。列レベルの制約には、列のセルに許可するデータの制限などがあります。
+
+このページは link:wingrid-defining-dataset-schema-and-generating-test-data-part-3-of-4.html[「データ セット スキーマの定義とテスト データの生成（パート3/4）」]の続きです。
+
+[start=1]
+. XSD ファイルで定義した制約を実行には、WinGrid で pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~enforcexsdconstraints.html[EnforceXSDConstraints]"]  メソッドを呼び出します。次のコードを [XSD 制約の実施] ボタンの Click イベント ハンドラに配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnEnforce_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnEnforce.Click
+	Me.UltraGrid1.EnforceXsdConstraints(Me.xsdFileName)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnEnforce_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.EnforceXsdConstraints( this.xsdFileName );
+}
+----
+
+[start=2]
+. 次のコードを [XSD 制約の解除] ボタンの Click イベント ハンドラに配置します。このコードは、EnforceXsdConstraints メソッドによって適用されたすべてのスキーマ制約をクリアします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnClear_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnClear.Click
+	Me.UltraGrid1.ClearXsdConstraints()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnClear_Click(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.ClearXsdConstraints();
+}
+----
+
+[start=3]
+. このプロジェクトを実行し、[データのロード] ボタンをクリックしてから [XSD 制約の実施] ボタンをクリックします。制約が適用されると、セルのサイズが少し変化します。これは、Title 列に ValueList が提供されたことによってセルが少し大きくなるためです。フォームは次の図のようになります。
+
+image::Images/WinGrid_Working_with_XSD_Schema_09.png[]
+
+[start=4]
+. この時点で WinGrid は、このチュートリアルで作成した XSD スキーマに含まれる制約を実行しています。セルの値を編集して、そのセルをそのままにしておくことによって、グリッドが制約をどのように実行するかを実際に試すことができます。セルの編集モードを終了しようとすると、データ検証が実行されます。
+
+たとえば、Title 列に「Mitch」（または ValueList に存在しないその他の値）と入力してから、入力フォーカスを別のセルに移動しようとすると、[データ エラー] メッセージ ボックスが表示されます。これは、XSD スキーマで Title 列を TitleType 型に設定したためです。TitleType は enumeration ファセットを使用して、使用可能な敬称を "Mr."、"Mrs."、"Ms."、"Dr." のいずれかのみに制限します。
+
+image::Images/WinGrid_Working_with_XSD_Schema_10.png[]
+
+[start=5]
+. Customers バンドのテンプレート追加行は表示されません。これは、Customers バンドが maxOccurs 属性によって 3 行までに制限されているためです。行を削除するとテンプレート追加行が再度現れて、エンド ユーザーはバンドに別の行を追加できます。
+[start=6]
+. [XSD 制約の解除] ボタンをクリックすると、EnforceXsdConstraints メソッドの呼び出しによって適用されたすべての制約が削除されます。どちらのバンドにも行をいくつでも追加/削除でき、列はデータ制約を受けません。
+
+WinGrid での XSD スキーマの使用に関するチュートリアルは、これで終わりです。

@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-using-wintilepanel",
+    "controlName": ["WinTilePanel"],
+    "tags": [],
+    "guid": "{B09D0B65-1110-47DF-902F-8C06CE390480}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTilePanel の使用
+
+このセクションでは、WinTilePanel™ コントロール関連の特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックを紹介しています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintilepanel-add-and-remove-tiles-through-code.html[コードでタイルを追加および削除]
+* link:wintilepanel-add-and-remove-tiles-at-design-time.html[デザイン タイムにタイルを追加および削除]
+* link:wintilepanel-adding-multiple-controls-to-a-tile-in-wintilepanel.html[WinTilePanel でタイルに複数のコントロールを追加]
+* link:wintilepanel-tile-states.html[タイルの状態]
+* link:wintilepanel-set-tiles-to-large-state.html[タイルを Large 状態に設定]
+* link:wintilepanel-preventing-tile-state-change.html[タイルの状態の変更を防止]
+* link:wintilepanel-styling-state-change-buttons.html[StateChangeButtons のスタイリング]
+* link:wintilepanel-working-with-tile-headers.html[タイル ヘッダーでの作業]
+* link:wintilepanel-hide-tiles-using-close-button.html[閉じるボタンを使用してタイルを非表示にする]
+* link:wintilepanel-styling-the-close-button.html[閉じるボタンのスタイリング]
+* link:wintilepanel-tile-dragging-and-drop-area-appearances.html[タイルのドラッグ アンド ドロップ領域の外観]
+* link:wintilepanel-prevent-tile-dragging.html[タイルのドラッグを防止]

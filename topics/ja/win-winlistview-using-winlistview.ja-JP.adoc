@@ -1,0 +1,31 @@
+﻿////
+|metadata|
+{
+    "name": "win-winlistview-using-winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{D1468B69-CFE0-4F7B-8F60-314E24A90E2D}",
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:40:14Z"
+}
+|metadata|
+////
+
+= WinListView の使用
+
+以下のセクションには、WinListView™ コントロールに関連した特定のタスクを実行する方法を説明する簡潔なタスクベースのトピックが含まれています。
+
+* link:winlistview-automatically-fit-all-columns-in-details-view.html[詳細表示にすべての列が自動的に収まる]
+* link:winlistview-change-the-visible-position-of-winlistview-columns-in-details-or-tiles-view.html[Details または Tiles 表示で WinListView 列の表示可能な位置を変更]
+* link:winlistview-disable-and-remove-items-and-groups.html[項目およびグループの無効化および削除]
+* link:winlistview-display-images-in-winlistview.html[WinListView で画像を表示]
+* link:winlistview-lasso-selection-support.html[投げ縄選択のサポート]
+* link:winlistview-populate-the-winlistview-control-with-items-clr2.html[WinListView コントロールへの項目の移植]
+* link:winlistview-populating-winlistview-with-directories-and-files.html[WinListView へのディレクトリとファイルの移植]
+* link:winlistview-resize-a-column-in-details-view.html[詳細表示で列をリサイズ]
+* link:winlistview-showing-groups-in-winlistview.html[WinListView でグループを表示]
+* link:winlistview-style-the-scrollbars-of-winlistview.html[WinListView のスクロールバーのスタイル]
+* link:winlistview-use-the-different-views-of-winlistview.html[WinListView のさまざまなビューの使用]
+* link:winlistview-use-checkboxes-in-winlistview.html[WinListView でのチェックボックスの使用]
+* link:winlistview-use-winlistview-as-a-listbox.html[WinListView を ListBox として使用]
+* link:winlistview-using-the-notification-badge.html[通知バッジが使用されている WinListView]

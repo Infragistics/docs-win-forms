@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-opening-a-gauge-preset",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{55074132-E621-4A4E-A0EB-FEB16D441530}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ プリセットを開く
+
+link:wingauge-designer.html[ゲージ デザイナ]から使用可能な事前に定義されたゲージ プリセットは多数あります。このトピックは、ゲージ デザイナを使用してプリセットを開く方法を説明します。プリセットは、ユーザー固有のニーズに合わせてゲージを作成または修正するために使用できます。
+
+*ゲージ プリセットを開くには、次の手順に従ってください。*
+
+[start=1]
+. ツールボックスから、UltraGauge コントロールをフォームにドラッグします。ゲージ デザイナが開きます。
+
+image::images/Gauge_Creating_a_Radial_Gauge_Using_the_Gauge_Designer_01.png[]
+
+[start=2]
+. ツールバーで、[プリセットの選択] をクリックします。[ゲージ プリセット] ダイアログ ボックスがデフォルトで [放射型] タブが選択された状態で開きます。 
+
+image::images/Gauge_Creating_a_Radial_Gauge_Using_the_Gauge_Designer_02.png[]
+
+[start=3]
+. 以下のいずれかを実行します。
+
+** 事前に定義したゲージのいずれかを選択します。[プリセットのロード] メッセージが表示したら、[OK] をクリックします。
+** [プリセットの参照] をクリックして、ユーザー固有のゲージ プリセットを参照します。[開く] ダイアログ ボックスで、使用したいプリセットを指定して、[開く] をクリックします。
+
+image::images/Gauge_Opening_a_Gauge_Preset_02.png[]
+
+== 関連トピック
+
+link:wingauge-modifying-and-saving-a-preset.html[プリセットの修正と保存]
+
+link:wingauge-creating-a-gauge-using-a-preset.html[プリセットを使用してゲージを作成]

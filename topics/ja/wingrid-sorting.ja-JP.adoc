@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-sorting",
+    "controlName": [],
+    "tags": [],
+    "guid": "eec13c58-dc31-4bb7-96ff-31f3d4d36f9a",  
+    "buildFlags": [],
+    "createdOn": "2014-01-21T18:21:17.6068374Z"
+}
+|metadata|
+////
+
+= 並べ替え
+
+=== はじめに
+
+このグループのトピックでは、並べ替え機能とその構成について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-sorting-overview.html[並べ替え概要]
+|このトピックはグリッドの列の並べ替え機能について説明します。
+
+| link:wingrid-configuring-initial-sort-order.html[並べ替え順序の初期設定を構成]
+|このトピックは _WinGrid_™ 列の並べ替え順序を初期設定する方法を紹介します。
+
+|====

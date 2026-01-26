@@ -1,0 +1,229 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-creating-matrices",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "e148e2a0-70c8-4483-bdf0-150bbd928583",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:06:37.9229995Z"
+}
+|metadata|
+////
+
+= 行列の作成
+
+== はじめに
+
+Infragistics Math Library™ は行列の作成に対して複数のアプローチを提供します。このトピックは link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] インスタンスを作成する方法のみを説明しますが、示されるアプローチはすべての行列タイプ ( link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix]、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.booleanmatrix.html[BooleanMatrix] および link:{ApiPlatform}math{ApiVersion}~infragistics.math.complexmatrix.html[ComplexMatrix]) に適用されます。これは Infragistics Math Library の行列クラスおよびベクトル クラスがすべて link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrixbase.html[MatrixBase] クラスから派生するためです。したがって、これらのインスタンスは一般的な方法で作成および使用されます。
+
+== 概要
+
+以下は行列を作成するための可能な方法のリストです。
+
+* <<Elements_and_Dimensions,要素と次元を指定することによって行列を作成する>>
+* <<Elements_Only,要素のみを指定することによって行列を作成する>>
+* <<Length,長さを指定することによって行列を作成する>>
+* <<Value_for_Its_Elements_and_Its_Length,要素と長さの値を指定することによって行列を作成する>>
+* <<Multidimensional_Array,多次元配列から行列を作成する>>
+* <<Other_Approaches,その他のアプローチ>>
+
+** <<Unitary_Matrix,ユニタリ行列を作成>>
+** <<4-dimesnional_Matrix,4 次元行列を作成>>
+** <<Identity_Matrix,ID 行列を作成>>
+** <<Same_Elements,同じ要素を持つ行列を作成>>
+
+それぞれを以下の個々のサブセクションで説明します。これらのアプローチに加えて、行列を作成するその他の方法は、このトピックの最後にある<<Other_Approaches,「その他のアプローチ」>>セクションで説明します。
+
+== 行列の作成
+
+[[Elements_and_Dimensions]]
+== 要素と次元を指定することによって行列を作成する
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] クラスの最も一般的なコンストラクターは、行列の次元を指定する整数配列とともに、行列要素を含む任意の *IList<double>* オブジェクトを取得します。次元配列の項目の積は、要素を持つ配列の長さと等しくなければなりません。そうでない場合、例外がスローされます。
+
+以下のコード例は 3 次元行列を作成します。各次元には 2 つの要素があり、合計 8 要素となります。
+
+*Visual Basic の場合:*
+
+----
+Dim dimensions As Integer() = New Integer() {2, 2, 2}
+Dim elements As Double() = New Double() {0, 1, 2, 3, 4, 5, 6, 7}
+Dim x As New Matrix(elements, dimensions)
+----
+
+*C# の場合：*
+
+----
+int[] dimensions = new int[]{ 2, 2, 2 };
+double[] elements = new double[]{ 0, 1, 2, 3, 4, 5, 6, 7 };
+Matrix x = new Matrix(elements, dimensions);
+----
+
+[[Elements_Only]]
+== 要素のみを指定することによって行列を作成する
+
+このアプローチは行行列を作成します。これを使用すれば、その要素を指定するだけで行列を作成できます。これは 1 行とある要素数と同数の列の行列を作成します。
+
+以下のコード例は行行列を作成します。
+
+*Visual Basic の場合:*
+
+----
+Dim elements As Double() = New Double(4) {}
+Dim x As New Matrix(elements)
+----
+
+*C# の場合：*
+
+----
+double[] elements = new double[5];
+Matrix x = new Matrix(elements);
+----
+
+[[Length]]
+== 長さのみを指定することによって行列を作成する
+
+このアプローチはゼロ行行列を作成します。整数の長さをコンストラクターに渡すことでゼロで埋められた行行列が生成されます。
+
+*Visual Basic の場合:*
+
+----
+Dim length As Integer = 5
+Dim x As New Matrix(length)
+----
+
+*C# の場合：*
+
+----
+int length = 5;
+Matrix x = new Matrix(length);
+----
+
+[[Value_for_Its_Elements_and_Its_Length]]
+== 要素と長さの値を指定することによって行列を作成する
+
+このアプローチは同じ要素で構成される行行列を作成します。double と整数の長さをパラメーターとして渡すことによって作成されます。
+
+*Visual Basic の場合:*
+
+----
+'すべての要素を持つ長さ 10 の行行列は 1 に等しいです
+Dim x As New Matrix(1, 10)
+----
+
+*C# の場合：*
+
+----
+//すべての要素を持つ長さ 10 の行行列は 1 に等しいです
+Matrix x = new Matrix(1, 10);
+----
+
+[[Multidimensional_Array]]
+== 多次元配列から行列を作成する
+
+多次元配列は行列型であるため、 link:{ApiPlatform}math{ApiVersion}~infragistics.math.matrix.html[Matrix] インスタンスを作成するために使用できます。
+
+*Visual Basic の場合:*
+
+----
+'2 次元行列
+Dim elements As Double(,) = New Double(,) {{1, 2}, {3, 4}}
+Dim x As New Matrix(elements)
+----
+
+*C# の場合：*
+
+----
+//2 次元行列
+double[,] elements = new double[,] { { 1, 2 }, { 3, 4 } };
+Matrix x = new Matrix(elements);
+----
+
+[[Other_Approaches]]
+== その他のアプローチ
+
+以下のコードは行列を作成するためのいくつかの他のアプローチを示します。
+
+[[Unitary_Matrix]]
+=== ユニタリ行列を作成
+
+*Visual Basic の場合:*
+
+----
+'ユニタリ行列
+Dim x As Matrix = 1
+----
+
+*C# の場合：*
+
+----
+//ユニタリ行列
+Matrix x = 1;
+----
+
+[[4-dimesnional_Matrix]]
+=== 4 次元行列を作成
+
+*Visual Basic の場合:*
+
+----
+’ゼロの 4 次元行列
+Dim x As Matrix = Compute.Zeros(3, 3, 3, 3)
+----
+
+*C# の場合：*
+
+----
+//ゼロの 4 次元行列
+Matrix x = Compute.Zeros(3, 3, 3, 3);
+----
+
+[[Identity_Matrix]]
+=== ID 行列を作成
+
+*Visual Basic の場合:*
+
+----
+'ゼロで埋められた 10 x 10 Identity 行列と対角行列
+Dim x As Matrix = Compute.IdentityMatrix(10)
+----
+
+*C# の場合：*
+
+----
+//ゼロで埋められた 10 x 10 Identity 行列と対角行列
+Matrix x = Compute.IdentityMatrix(10);
+----
+
+[[Same_Elements]]
+=== 同じ要素を持つ行列を作成
+
+*Visual Basic の場合:*
+
+----
+'すべての要素を持つ 3 次元行列は 1 に等しいです
+Dim dimensions As Integer() = New Integer() {2, 2, 2}
+Dim x As New Matrix(1, dimensions)
+----
+
+*C# の場合：*
+
+----
+//すべての要素を持つ 3 次元行列は 1 に等しいです
+int[] dimensions = new int[]{ 2, 2, 2 };
+Matrix x = new Matrix(1, dimensions);
+----
+
+== 関連トピック
+
+link:infragistics-math-working-with-matrices.html[行列での作業]
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-vectors.html[ベクトル]
+
+link:infragistics-math-mathematical-functions.html[数学関数]
+
+link:infragistics-math-api-overview.html[API の概要]

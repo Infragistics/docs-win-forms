@@ -1,0 +1,373 @@
+﻿////
+
+|metadata|
+{
+    "name": "shared-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{5A9DCF7F-E22A-42F2-8FD0-1179AC552CA1}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Shared リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|CollectionItemCategory
+|項目
+
+|CustomPropertiesPageLabelObjects
+|オブジェクト
+
+|CustomPropertiesPageMenuReset
+|リセット
+
+|CustomPropertiesPageMenuShowDescription
+|説明の表示
+
+|CustomPropertiesPageMenuShowToolBar
+|ツールバーの表示
+
+|CustomPropertiesPageToolBarModifiedOnly
+|修正のみ
+
+|CustomPropertiesPageToolBarObject
+|オブジェクト
+
+|CustomPropertiesPageToolBarRefresh
+|更新
+
+|DBNullLiteral
+|(DBNull)
+
+|Error_AnchoredReference
+|非固定参照として {0} へアクセスしてください。
+
+|Error_ExplicitThis
+|{0} - 明示的にサポートされていません。
+
+|Error_ExternalRange
+|範囲は外部参照を含んでいます。
+
+|Error_FormulaNotSupported
+|{0} - 数式をサポートしない参照中の数式にアクセスしました。
+
+|Error_InvalidOperand
+|無効なオペランド
+
+|Error_InvalidReference
+|無効または利用できない参照
+
+|Error_MethodNotSupported
+|{0} は {1} をサポートしません。
+
+|Error_NoCurrentRangeElement
+|現在の範囲要素はありません。
+
+|Error_NullOperand
+|Null オペランド
+
+|Error_RangeFromLast
+|fromT.Last が設定されていません。
+
+|Error_RangeFromNull
+|参照範囲: 開始がありません
+
+|Error_RangeFromRefBase
+|参照範囲: 開始は参照ベースではありません : {0}
+
+|Error_RangeLast
+|参照範囲 Validate: [{0}] != [{1}]
+
+|Error_RangeNormalizeScope
+|参照範囲: 不正な範囲 [{0}/{1}]
+
+|Error_RangeToNull
+|参照範囲: 終了がありません
+
+|Error_RangeToRefBase
+|参照範囲: 終了は参照ベースではありません : {0}
+
+|Error_RangeTuple
+|参照範囲 Validate: [{0}] != [{1}]
+
+|Error_RangeValidateCount
+|参照範囲 Validate: 開始 {0} の個数 != 終了 {1} の個数
+
+|Error_ReadOnlyReference
+|{0} - 読み出し専用の参照で値を設定しようとしました。
+
+|Error_ReferenceNotEumerable
+|{0} は計算可能な参照ではありません。
+
+|Error_RefMalformed
+|{0} - 参照が異常です {1}
+
+|Error_RP_ContainsBase
+|RefParser.Contains - ベースが空です。
+
+|Error_RP_ContainsTarget
+|RefParser.Contains - ターゲットが空です。
+
+|Error_RP_EmptyElement
+|不正な参照 {0}。位置 {1} で空の要素が見つかりました。
+
+|Error_RP_EmptyReference
+|不正な参照 {0}。参照は空です。
+
+|Error_RP_MalformedExtra
+|参照: [{1}] で [{0}] の重複があります。
+
+|Error_RP_MalformedUnexpected
+|参照: [{1}] で 予期しない [{0}] があります。
+
+|Error_RP_MergeRelativeBase
+|RefParser.Merge: 参照が完全修飾されていません。
+
+|Error_RP_MissingCloseParenthesis
+|不正な参照 {0}。括弧が閉じられていません。
+
+|Error_RP_MissingEndQuotes
+|不正な参照 {0}。終了引用符がありません。
+
+|Error_RT_Expected
+|RefTuple:[{1}] で [{0}] は無効です。
+
+|Error_RT_InvalidScope
+|無効な範囲: {0}。
+
+|Error_RT_InvalidScope_CharactersAfterClosingQuotes
+|位置 {1} で {0} 範囲のダブルクォーテーションを閉じた後に文字が見つかりました。
+
+|Error_RT_InvalidTuple_CharactersAfterScopeEnd
+|無効な要素 {0}。スコープの終わりよりも後に文字があります。
+
+|Error_RT_InvalidTuple_MissingCloseParenthesis
+|無効な要素 {0}。括弧が閉じられていません。
+
+|Error_RT_InvalidTuple_MissingEndQuotes
+|無効な要素 {0}。終了引用符がありません。
+
+|Error_RT_InvalidTuple_NamePortionEmpty
+|無効な要素 {0}。要素名部分が空です。
+
+|Error_RT_InvalidTuple_ScopeIndexLarge
+|無効な要素 {0}。インデックス {1} が無効です: {2}。
+
+|Error_RT_InvalidTuple_UnescapedCharacter
+|エスケープできない文字 {0} が {1} にあります。: 位置 {2}
+
+|Error_RT_NullRefName
+|RefTuple: 参照名が空です。
+
+|Error_RT_Unexpected
+|RefTuple:[{1}] で [{0}] は無効です。
+
+|Error_ScopeAllNotLast
+|{0} - Scope.All は最後の要素 {1} で指定する必要があります。
+
+|Error_UCErrorCode_Div
+|0（ゼロ）で割りました
+
+|Error_UCErrorCode_Fail
+|失敗
+
+|Error_UCErrorCode_NA
+|適用できません
+
+|Error_UCErrorCode_Name
+|無効な名前
+
+|Error_UCErrorCode_Null
+|Null 値
+
+|Error_UCErrorCode_Num
+|関数または数式中の無効な値
+
+|Error_UCErrorCode_Ok
+|成功
+
+|Error_UCErrorCode_Reference
+|無効または利用できない参照
+
+|Error_UCErrorCode_Unknown
+|無効なコード
+
+|Error_UCErrorCode_Value
+|不正な引数またはオペランド
+
+|Error_UnexpectedScope
+|{0} - 特定できない範囲 {1}
+
+|Error_UnknownRange
+|未定義範囲のタイプ
+
+|Error_UnknownRefType
+|{0} - 未定義 参照タイプ {1}
+
+|Error_UnknownScope
+|{0} - 未定義範囲 {1}
+
+|LDR_About_GraceExpired
+|ライセンス - アクティベーション猶予期間が過ぎました。
+
+|LDR_About_InGrace
+|ライセンス - アクティベーションの猶予期間中です。
+
+|LDR_UltraProdInfo_Expiration1
+|アクティベーション猶予有効期限切れ
+
+|LDR_UltraProdInfo_Expiration10
+|セキュリティ権限不足
+
+|LDR_UltraProdInfo_Expiration2
+|トライアル有効期限切れ
+
+|LDR_UltraProdInfo_Expiration3
+|ベータ有効期限切れ
+
+|LDR_UltraProdInfo_Expiration4
+|使用日数 {0} / {1} 週
+
+|LDR_UltraProdInfo_Expiration5
+|なし
+
+|LDR_UltraProdInfo_Expiration6
+|無効なライセンス情報
+
+|LDR_UltraProdInfo_Expiration7
+|ライセンス情報不足
+
+|LDR_UltraProdInfo_Expiration8
+|{エラー}
+
+|LDR_UltraProdInfo_Expiration9
+|製品のインストールが不完全
+
+|LicensedProductActivationGracePrompt
+|{2} の非アクティベート版の試用期間は {0} 日間の使用後、または {1} 週間が経過した時点で切れます。この製品は製品アクティベーション ウィザードを使ってアクティベートする必要があります。
+
+|LicensedProductPromptDialogTitle
+|Infragistics {0}
+
+|LicensedProductTrialPeriodPrompt
+|この {2} トライアル版は {0} 日間の使用後、または {1} 週間が経過した時点で期限が切れます。
+
+|PropertySetErrorCaption
+|エラー設定プロパティ
+
+|TransactionDescription_CustomPropertyPages
+|カスタム プロパティ ページ
+
+|TrialKey_AboutDialogLabel
+|{トライアル}
+
+|TypeDesc_Boolean
+|ブール値
+
+|TypeDesc_Byte
+|バイト
+
+|TypeDesc_Char
+|文字
+
+|TypeDesc_DateTime
+|DateTime
+
+|TypeDesc_DateTimeIncrement
+|DateTime インクリメント
+
+|TypeDesc_DBNull
+|DBNull
+
+|TypeDesc_Decimal
+|10 進
+
+|TypeDesc_Double
+|Double(浮動小数点)
+
+|TypeDesc_I16
+|16 ビット サイン付き整数
+
+|TypeDesc_I32
+|32 ビット サイン付き整数 (Int)
+
+|TypeDesc_I64
+|64 ビット サイン付き整数 (Long)
+
+|TypeDesc_Null
+|(Null)
+
+|TypeDesc_SByte
+|バイト (サイン付き)
+
+|TypeDesc_Single
+|Single (浮動小数点)
+
+|TypeDesc_String
+|文字列
+
+|TypeDesc_U16
+|16 ビット サインなし整数
+
+|TypeDesc_U32
+|32 ビット サインなし整数
+
+|TypeDesc_U64
+|64 ビット サインなし整数
+
+|UltraPropertyPageCustomPropertyTabCaption
+|オブジェクト プロパティ
+
+|UltraPropertyPageDialogButtonApply
+|適用(&A)
+
+|UltraPropertyPageDialogButtonCancel
+|キャンセル(&C)
+
+|UltraPropertyPageDialogButtonOk
+|&OK
+
+|UltraPropertyPageDialogTitle
+|カスタム プロパティ ページ
+
+|Value_UCErrorCode_Div
+|#DIV/0!
+
+|Value_UCErrorCode_Fail
+|#FAIL
+
+|Value_UCErrorCode_NA
+|#N/A
+
+|Value_UCErrorCode_Name
+|#NAME?
+
+|Value_UCErrorCode_Null
+|#NULL!
+
+|Value_UCErrorCode_Num
+|#NUM!
+
+|Value_UCErrorCode_Ok
+|#OK
+
+|Value_UCErrorCode_Reference
+|#REF!
+
+|Value_UCErrorCode_Unknown
+|#N/A
+
+|Value_UCErrorCode_Value
+|#VALUE!
+
+|====

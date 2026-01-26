@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-appearance-object-nine-slice-scaling-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1D37B1C7-74DC-497D-A619-85847F712455}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 9 分割スケール
+
+ユーザー インターフェイスのデザインでは、イメージの拡大がよく行われます。Position を Stretch に設定すると、背景イメージが小さすぎるときに、Windows デスクトップがイメージを拡大します。しかし、イメージに境界線（写真のフレームの役割を果たしている）がある場合は、どうなるでしょうか。境界線も拡大されます。これによって、境界線は粗い粒度で表示され、特に塗りつぶされていない、装飾用の境界線の場合はその傾向が強くなります。
+
+しかし、 link:win-plf-overview.html[Presentation Layer Framework™] の Appearance オブジェクトに新しく追加された ImageBackgroundStretchMargins プロパティを使用すると、イメージの上辺、右辺、底辺、左辺を識別し、境界線と実際のイメージの境目を識別することができます。このプロパティは、イメージを 9 つに分割します。隅の部分は不変で、拡大されません。中央の列の上と下の部分は、水平方向にのみ拡大され、中央の行の右と左の部分は垂直方向にのみ拡大されます。したがって、指定されたマージンにかかわらず、隅が拡大されて、粒度が粗く見えることはありません。
+
+image::images/Win_Appearance_Object_Nine_Slice_Scaling_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:win-change-an-images-stretch-margins-at-run-time.html[イメージの Stretch Margin のランタイムの変更]

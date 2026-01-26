@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-3d-cone-chart-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{ECACB184-3040-4CA3-B545-34891F96CDAA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 立体円錐グラフ
+
+立体円錐グラフは、2006 Volume 2 リリースの数多くの新しいチャートのひとつです。 link:chart-pyramid-chart-2d.html[ピラミッド チャート] と同じように、円錐グラフ（丸い形のピラミッド チャートとしても知られている）は、データの比較に役立ちます。立体円錐グラフを使用すれば、エンド ユーザーはその他の円錐の部分および円錐全体に関連して各円錐部分の高さを表示することによって、各データ セットの重要性を素早く判断することができます。
+
+image::Images/WinChart_3D_Cone_Chart_Whats_New_2006_2.png[]
+
+== 関連トピック
+
+link:chart-about-3d-cone-charts.html[立体円錐グラフについて]
+
+link:chart-working-with-3d-cone-chart-data.html[立体円錐グラフ データでの作業]

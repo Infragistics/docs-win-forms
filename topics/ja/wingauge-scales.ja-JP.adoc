@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-scales",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{548D35B5-6AE9-427B-89D6-0F35AB683DB7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スケール
+
+WinGauge コントロールのpick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティについての詳細は、以下のリンクをクリックしてください。以下のようなスケール作成に関するタスク ベースの手順にアクセスすることもできます。
+
+* link:wingauge-about-gauge-scales.html[ゲージ スケールについて]
+* link:wingauge-add-a-scale-to-a-gauge.html[操作方法]

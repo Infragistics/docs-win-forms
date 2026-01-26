@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-added-probability-chart-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{FAA117E3-26D3-4593-9ABD-833AC6F7080F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 追加された確率グラフ
+
+Infragistics 2006 Volume 1 リリースでは、グラフスイートに link:chart-about-probability-charts.html[確率グラフ]が追加されました。確率グラフとは link:chart-about-scatter-charts.html[散布図]の変形で、Y 軸スケールにガウス分布（正規分布）が使用されることが特徴です。
+
+確率グラフを使用すると、イベント、活動、項目などの発生頻度の可能性を予測しやすくなります。確率グラフでは、データ点の実際の分布を予想分布（ガウスベル曲線）と分かりやすい形で比較できるので便利です。
+
+image::Images/WinChart_Added_Probablility_Chart_Whats_New_2006_1_01.png[]

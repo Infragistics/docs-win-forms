@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingriddocumentexporter-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{40EC6DAE-3BB5-4A18-9CA5-97E306ED4CE4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridDocumentExporter 2007.2
+
+以下のリンクをクリックして、2007 Volume 2 リリースの Presentation Layer Framework™ に追加された新しい WinGridDocumentExporter コンポーネントを学習してください。
+
+* link:wingriddocumentexporter-new-wingriddocumentexporter-component-whats-new-20072.html[新しい WinGridDocumentExporter コンポーネント]

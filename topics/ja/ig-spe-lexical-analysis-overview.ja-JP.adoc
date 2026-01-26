@@ -1,0 +1,204 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-lexical-analysis-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "8d33b682-ffac-4d7d-ac54-b311df71ff07",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0478497Z"
+}
+|metadata|
+////
+
+= 字句解析の概要
+
+== トピックの概要
+
+=== 目的
+
+このグループのトピックでは、Syntax Parsing Engine が実施する字句解析について説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349223414, レクサー >>
+* <<_Ref350436192, 概要 >>
+* <<_Ref349223418, レクサーの状態 >>
+* <<_Ref349223423, 状態の間の切り替え >>
+* <<_Ref349223427, 複数行トークン >>
+* <<_Ref349220598, 関連コンテンツ >>
+
+[[_Ref349223414]]
+== レクサー
+
+[[_Ref350436192]]
+
+=== 概要
+
+字句解析は、文字のシーケンスを、1 つ以上の連続した文字のグループであるトークンのシーケンスに変換するプロセスです。トークンは、作成するために読み取られるテキスト、およびテキストを表現する終端記号に関連づけられます。各終端記号は、表現するテクスチャ単位の型を定義します。
+
+[[_Ref349223418]]
+
+=== レクサーの状態
+
+コンテキストによっては、特定の終端記号のトークンが作成され倍場合があります。たとえば、以下の C# コード スニペットを考察してください。
+
+*C# の場合:*
+
+[source,csharp]
+----
+class Class1 // TODO: IEnumerable を実装します
+{
+    private string x = "This is some text.";
+}
+----
+
+このコードを解析する場合、字句アナライザーは「Class1」を識別子と解釈しますが、「implement」または「IEnumerable」は識別子とは解釈されません。コメント内に記述されているためです。また「X」は識別子と解釈されますが、「this」または「text」は、文字列リテラルの一部であるため解釈されません。特定のコンテキストにおいてどの終端記号がレクサーによって一致されるかは、レクサー状態を使用して指定できます。
+
+レクサーの状態は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~lexerstates.html[Grammar.LexerStates] コレクションで定義されます。 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstatecollection~defaultlexerstate.html[Grammar.LexerStates.DefaultLexerState] プロパティを介してアクセス可能なデフォルト状態もあります。
+
+すべてのレクサー状態 (デフォルト状態を含む) には記号コレクションがあります。これは、そのレクサー状態がレクサー上でアクティブな状態であるときに一致可能な link:ig-spe-terminal-symbols.html[終端記号]の順序付けされたセットです。これらのうちどの端末記号が特定の文字位置の開始位置に一致するかは、以下のルールで決定されます。
+
+1.常に最も長いトークンを使用します。
+
+たとえば、「LessThanToken」、「EqualsToken」、「LessThanOrEqualsToken」と呼ばれる終端記号はそれぞれ「<」、「=」、および「$$<=$$」に一致すると定義されるとします。コード「if(foo $$<=$$ 10)」というトークンを作成する場合、「$$<=$$」は単一の「LessThanOrEqualsToken」となり、「LessThanToken」の後ろに「EqualsToken」が続くということにはなりません。
+
+2.最も長いものが 2 つ以上のトークンである場合、レクサー状態の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate~symbols.html[Symbols] コレクションで以前に存在した (最下位インデックス) 終端記号に関連づけられるトークンを使用します。
+
+たとえば C# の場合、「public」に一致すると定義される「PublicKeyword」と呼ばれる終端記号があります。また、「IdentifierToken」終端記号はアンダースコアまたは文字に一致し、その後ろにゼロ個以上のアンダースコア、文字または数字が続くと定義されます。この定義では、「public」というテキストは、「IdentifierToken」終端記号にも一致できます。「PublicKeyword」は予約キーワードを表すため、競合がある場合に使用できるよう、レクサー状態のSymbols コレクションにおいて「IdentifierToken」端末記号の前に存在しなければなりません。
+
+[[_Ref349223423]]
+
+=== 状態の間の切り替え
+
+レクサーがドキュメントの解析を開始する場合、常に`DefaultLexerState` で開始されます。テキストの読み取りを開始し、その状態で link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol.html[TerminalSymbol] インスタンスを使用してトークンを作成します。 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.terminalsymbol~lexerstatetoenter.html[LexerStateToEnter] セットのある`TerminalSymbol` に関連づけられるトークンを作成する場合、レクサーの状態は新しい link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate.html[LexerState] に変更され、新しい `LexerState` で `TerminalSymbol` インスタンスを使用してトークンの作成を開始します。`DefaultLexerState` からの記号は、一時的に無視されます。 _exit symbol_   に関連づけられるトークンが作成されるまで継続します。終了記号は、レクサーがその状態を離れることになる `LexerState` からの指定の終端記号のサブセットです。 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate~symbols.html[LexerState.Symbols] コレクション上のすべての link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstateterminalsymbolcollection~add.html[追加] および link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstateterminalsymbolcollection~insert.html[挿入] のオーバーロードには、オプションの  _isExitSymbol_   パラメータがあります。`true` と指定されると、追加される記号は`LexerState` の終了記号になります。`TerminalSymbol` が `LexerState` の終了記号であるかどうかを判断するために使用できる Symbols コレクション上には link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstateterminalsymbolcollection~isexitsymbol.html[IsExitSymbol(TerminalSymbol)] メソッドもあります。
+
+注:
+
+[NOTE]
+====
+記号が `DefaultLexerState` に追加され `isExitSymbol` が True に指定されると、デフォルトのレクサー状態は存在できないため例外が発生します。
+====
+
+終了記号に遭遇すると、レクサーは現在の `LexerState` が入る前にいた状態まで戻ります。この方法では、レクサーの状態がスタック形成し、スタックの最上位はレクサーのアクティブな状態になります。新しいレクサーが入った状態になるトークンが作成されると、スタックの上位に押し上げられます。その後、レクサーが終了状態になるトークンが作成されると、スタックから降ろされます。レクサーは、終了状態になる前に複数の新しい状態に入ることができ、スタックは既存の記号に関連づけられるトークンが作成されるまで大きくなり続けていきます。このため、`DefaultLexerState` は終了することができません。スタックから取り除かれると、スタックは空になりレクサーの状態はアクティブにはなりません。
+
+注:
+
+[NOTE]
+====
+`TerminalSymbol` が複数のレクサー状態に存在する場合、一部のレクサー状態では終了記号となることができますが、他の状態ではなりません。これが、終端記号が終了記号であるかどうかを示す値が `TerminalSymbol` 上のプロパティではない理由です。
+====
+
+これは、識別子が文字列内で一致しないように文字列リテラルのレクサー状態に入る/終了する例です。
+
+*C# の場合:*
+
+[source,csharp]
+----
+var grammar = new Grammar();
+var defaultLexerState = grammar.LexerStates.DefaultLexerState;
+// ...
+// デフォルトのレクサー状態に他の記号を含めます。
+// ...
+var doubleQuote = defaultLexerState.Symbols.Add("DoubleQuote", "\"");
+// 二重引用符に遭遇すると、StringLiteral レクサー状態に入ります。
+var stringLiteralLexerState = grammar.LexerStates.Add("StringLiteral");
+doubleQuote.LexerStateToEnter = stringLiteralLexerState;
+// 文字列リテラルの内容は以下のいずれかまたはそれ以上になります。 
+//            引用符、スラッシュまたは改行文字以外 
+//            または 
+//            スラッシュ、その後ろに改行文字以外のもの
+var stringLiteralContent = stringLiteralLexerState.Symbols.Add("StringLiteralContent",
+      @"([^""\\\r\n]|(\\[^\r\n]))+", TerminalSymbolComparison.RegularExpression);
+// 二重引用符に再度遭遇すると、StringLiteral レクサー状態を終了します。
+stringLiteralLexerState.Symbols.Add(doubleQuote, isExitSymbol: true);
+----
+
+注:
+
+[NOTE]
+====
+「DoubleQuote」終端記号は、「StringLiteral」レクサー状態のための  _エンター_   と  _終了_   の両方の記号として使用されます。アクティブなレクサー状態のための終了記号である終端記号のためにトークンが作成される場合、終端記号の `LexerStateToEnter` は無視されます。
+====
+
+[[_Ref349223427]]
+
+=== 複数行トークン
+
+複数行にまたがるトークンを作成する終端記号はほとんどありません。ほとんどの終端記号は、識別子、キーワードまたは句読点記号を表します。しかし一部の文章校正では、複数行にまたがる終端記号を必要とする場合があります。そのような終端記号の例は、C# の逐語的な文字列を表す記号です。これは先頭に「@」がつく文字列リテラルで複数行にまたがります。通常の文字列リテラル エスケープ シーケンスは、逐語的な文字列のために抑制され新しいシーケンスが導入されます。二重引用符 ("") は互いの隣に 2 つの二重引用符をおくことでエスケープされます。
+
+定義は以下のようになります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+var grammar = new Grammar();
+var defaultLexerState = grammar.LexerStates.DefaultLexerState;
+// ...
+// デフォルトのレクサー状態に他の記号を含めます。
+// ...
+// @" の組み合わせを定義。逐語的文字列の始まりを示します。
+var verbatimStringStart = defaultLexerState.Symbols.Add(
+      "VerbatimStringStart", "@\"");
+// 逐語的文字列を獲得するためにレクサー状態を定義します。 
+// VerbatimStringStart 記号が一致する場合にその状態に入るようにします。
+var verbatimStringLexerState = grammar.LexerStates.Add("VerbatimString");
+verbatimStringStart.LexerStateToEnter = verbatimStringLexerState;
+// 逐語的文字列の内容が以下のいずれか、またはそれ以上になるように定義します。
+//     引用符以外の文字 
+//     または
+//     連続した 2 つの引用符
+var verbatimStringContent = verbatimStringLexerState.Symbols.Add(
+      "VerbatimStringContent", 
+      "([^\"]|\"\")+", TerminalSymbolComparison.RegularExpression);
+// 逐語的文字列の最後を定義します。二重引用符 (") であり、 
+// VerbatimString レクサー状態を終了するようにします。
+var verbatimStringEnd = verbatimStringLexerState.Symbols.Add(
+      "VerbatimStringEnd", "\"", isExitSymbol: true);
+// ...
+// その他の文章校正を初期化します。
+----
+
+この例では、「VerbatimStringContent」終端記号は二重引用符以外に一致します。これは、改行文字も同様に実行することを意味します。これは、レクサー状態のトークンを調べて「VerbatimStringContent」テキスト値として解析されたものが何かを確認する場合、複数行にまたがるとコンテンツ内に改行文字を見つけようとするため必要です。しかしながら、レクサー状態のその他のコンシューマーは、このトークンが複数行にまたがるという事実を無視することを望む場合があります。たとえば、XamSyntaxEditor は、テキストの表示ロジックがコントロール内の個々の行に配列されるため行ごとにトークンを精査することのみを望む可能性があります。トークンが複数行にまたがると、このロジックに影響を及ぼし表示問題を引き起こす可能性があります。したがって、トークンにアクセスするメソッドで、複数行のトークンを行ごとに分割するか、あたかも単一のユニットの字句としてまとめてグループ化するかを選択できます。
+
+[[_Ref349220598]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-terminal-symbols.html[終端記号]
+|このトピックは、文章校正の終端記号を説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+|====

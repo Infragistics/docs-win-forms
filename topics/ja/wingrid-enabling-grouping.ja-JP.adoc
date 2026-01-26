@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-enabling-grouping",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Grouping","How Do I"],
+    "guid": "{CF8B7CE0-DACA-453E-A046-2276E53F39E0}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グループ化の有効化 (WinGrid, GroupBy)
+
+以下のコードでは、Outlook GroupBy を有効化し列でバンドのレコードをグループ化する方法を紹介します。下記の例でルート バンドのレコードは、「Country」フィールドの値でグループ化されます。
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub Enable_GroupBy_Mode_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.OutlookGroupBy
+        Me.UltraGrid1.DisplayLayout.Bands(0).SortedColumns.Add("Country", False, True)
+        Me.UltraGrid1.DisplayLayout.Bands(0).SortedColumns.Add("City", False, True)
+End Sub
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void Enable_GroupBy_Mode_Load(object sender, EventArgs e)
+{
+        this.ultraGrid1.DisplayLayout.ViewStyleBand = ViewStyleBand.OutlookGroupBy;
+        this.ultraGrid1.DisplayLayout.Bands[0].SortedColumns.Add("Country", false, true);
+        this.ultraGrid1.DisplayLayout.Bands[0].SortedColumns.Add("City", false, true);
+}
+----
+
+以下のスクリーンショットでは、WinGrid™ を GroupBy ビューで表示しています。データは Country でグループ化して、ルート バンドの City でグループ化します。
+
+image::Images/WinGrid_Enable_GroupBy_Mode_01.png[Ultragrid で GroupBy モードを有効化します。]

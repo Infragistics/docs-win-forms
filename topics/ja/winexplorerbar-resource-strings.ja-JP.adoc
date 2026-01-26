@@ -1,0 +1,454 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{4029E156-3896-4E21-B54C-711460ACEDB6}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleName_ListBarScrollButton_ScrollDown
+|下にスクロール
+
+|AccessibleName_ListBarScrollButton_ScrollUp
+|上にスクロール
+
+|ConfirmGroupRemove
+|グループ {0} を削除してよろしいですか?
+
+|ConfirmGroupRemoveTitle
+|グループ削除の確認
+
+|ConfirmItemRemove
+|項目 {0} を削除しますか?
+
+|ConfirmItemRemoveTitle
+|項目削除の確認
+
+|ContextMenu_AddGroup
+|グループの追加
+
+|ContextMenu_AddItem
+|項目の追加
+
+|ContextMenu_LargeImages
+|大きい画像
+
+|ContextMenu_LargeImagesWithText
+|大きい画像とテキスト
+
+|ContextMenu_LargeImagesWithTextBelow
+|大きい画像と画像下のテキスト
+
+|ContextMenu_RemoveGroup
+|グループの削除...
+
+|ContextMenu_RemoveItem
+|項目の削除...
+
+|ContextMenu_RenameGroup
+|グループ名の変更...
+
+|ContextMenu_RenameItem
+|項目名の変更...
+
+|ContextMenu_SmallImages
+|小さい画像
+
+|ContextMenu_SmallImagesWithText
+|小さい画像とテキスト
+
+|CustomVerb_AddGroup
+|グループの追加
+
+|CustomVerb_AddItem
+|項目の追加
+
+|CustomVerb_DisplayDesignerDialog
+|UltraExplorerBar デザイナー...
+
+|CustomVerb_LoadLayout
+|レイアウトのロード...
+
+|CustomVerb_RemoveGroup
+|グループの削除
+
+|CustomVerb_RemoveItem
+|項目の削除
+
+|CustomVerb_SaveLayout
+|レイアウトの保存...
+
+|DefaultAction_Collapse
+|縮小
+
+|DefaultAction_Expand
+|展開
+
+|DefaultAction_Press
+|押す
+
+|DefaultGroupName
+|新しいグループ
+
+|DefaultItemName
+|新しい項目
+
+|DesignerDialog_cbo_Margins_AllGroups
+|<すべてのグループ>
+
+|DesignerDialog_cbo_Margins_Groups
+|グループの周囲
+
+|DesignerDialog_cbo_Margins_ItemAreaInner
+|項目の周囲（内側）
+
+|DesignerDialog_cbo_Margins_ItemAreaOuter
+|項目の周囲（外側）
+
+|DesignerDialog_ch_SupportThemes
+|XP テーマを使用(&U)
+
+|DesignerDialog_cmd_AddGroup
+|グループの追加(&A)
+
+|DesignerDialog_cmd_AddItem
+|項目の追加(&D)
+
+|DesignerDialog_cmd_Close
+|閉じる(&C)
+
+|DesignerDialog_cmd_LoadLayout
+|レイアウトのロード(&L)
+
+|DesignerDialog_cmd_RemoveGroup
+|グループの削除(&R)
+
+|DesignerDialog_cmd_RemoveItem
+|項目の削除(&E)
+
+|DesignerDialog_cmd_ResetMargins
+|デフォルトにリセット(&E)
+
+|DesignerDialog_cmd_SaveLayout
+|レイアウトの保存(&S)
+
+|DesignerDialog_cmd_StartImport
+|開始(&S)
+
+|DesignerDialog_grp_ColumnSpanning
+|列のスパニング
+
+|DesignerDialog_grp_ExplorerBarLayout
+|列のレイアウト（ExplorerBar スタイルのみ）
+
+|DesignerDialog_grp_GroupStyle
+|グループのスタイル
+
+|DesignerDialog_grp_LoadLayout
+|以前に保存したコントロール レイアウトのロード
+
+|DesignerDialog_grp_Margins
+|マージン(&M)
+
+|DesignerDialog_grp_SaveLayout
+|現在のコントロール レイアウトを保存
+
+|DesignerDialog_lbl_AcceptsFocus
+|フォーカスを受け付け(&A)
+
+|DesignerDialog_lbl_BottomMargin
+|下(&B)
+
+|DesignerDialog_lbl_ColumnCount
+|グループの列数(&N)
+
+|DesignerDialog_lbl_ControlStyle
+|コントロール スタイル（動作）(&C)
+
+|DesignerDialog_lbl_GroupLayout
+|グループ(&G)
+
+|DesignerDialog_lbl_GroupStyle1
+|すべてのグループにデフォルトのスタイル（大きいアイコン、小さいアイコン、その他）を設定します。
+
+|DesignerDialog_lbl_GroupStyle2
+|グループの Settings.Style プロパティを使用して個々のグループをオーバーライドできます。
+
+|DesignerDialog_lbl_ImportDesc1
+|以下のリストには現在のフォーム上に配置されているすべての listbar コントロールが含まれています。
+
+|DesignerDialog_lbl_ImportDesc2
+|インポートする &Listbar コントロールを選択し、右のペインにリストした手順に従ってください。
+
+|DesignerDialog_lbl_ImportStep1
+|&1.インポートするグループと項目をそれぞれチェックします。
+
+|DesignerDialog_lbl_ImportStep2
+|2.インポートの前に現在のグループと項目をクリアすべきかどうかを指定します。
+
+|DesignerDialog_lbl_ImportStep3
+|3.インポートを開始します。
+
+|DesignerDialog_lbl_LeftMargin
+|左(&L)
+
+|DesignerDialog_lbl_LoadLayout
+|すべてのグループ、項目、外観、マージンなどを含みます。
+
+|DesignerDialog_lbl_MarginGroup
+|グループ:
+
+|DesignerDialog_lbl_RightMargin
+|右(&R)
+
+|DesignerDialog_lbl_SaveLayout
+|すべてのグループ、項目、外観、マージンなどを含みます。
+
+|DesignerDialog_lbl_TopMargin
+|上(&T)
+
+|DesignerDialog_lbl_ViewStyle
+|スタイル（外観）を表示(&V)
+
+|DesignerDialog_lblColumnSpacing
+|列間のスペース(&S)
+
+|DesignerDialog_lblColumnsSpanned
+|結合する列数(&C)
+
+|DesignerDialog_lblGroupSpacing
+|グループ間のスペース(&P)
+
+|DesignerDialog_op_ClearGroups
+|インポートの前にグループおよび項目をクリアする(&C)
+
+|DesignerDialog_op_RetainGroups
+|現在のグループおよび項目を残す(&R)
+
+|DesignerDialog_Separator_Text
+|(セパレーター)
+
+|DesignerDialog_tab_ControlStyles
+|コントロールのスタイル
+
+|DesignerDialog_tab_GroupsAndItems
+|グループと項目
+
+|DesignerDialog_tab_Import
+|グループ/項目のインポート
+
+|DesignerDialog_tab_LoadSaveLayout
+|レイアウトのロード/保存
+
+|DesignerDialog_tab_MarginsAndSpacing
+|マージン/スペース
+
+|DesignerDialog_Title
+|UltraExplorerBar デザイナー
+
+|DesignerDialog_Tooltip_CantMoveEntry
+|選択したエントリを移動できません
+
+|DesignerDialog_Tooltip_CantMoveGroupDown
+|選択したグループを下に移動できません
+
+|DesignerDialog_Tooltip_CantMoveGroupUp
+|選択したグループを上に移動できません
+
+|DesignerDialog_Tooltip_CantMoveItemDown
+|選択した項目を下に移動できません
+
+|DesignerDialog_Tooltip_CantMoveItemUp
+|選択した項目を上に移動できません
+
+|DesignerDialog_Tooltip_MoveGroupDown
+|選択したグループを下に移動
+
+|DesignerDialog_Tooltip_MoveGroupUp
+|選択したグループを上に移動
+
+|DesignerDialog_Tooltip_MoveItemDown
+|選択した項目を下に移動
+
+|DesignerDialog_Tooltip_MoveItemUp
+|選択した項目を上に移動
+
+|DesignerDialog_tv_Root
+|UltraExplorerBar コントロール
+
+|ErrorCreatingStream
+|ストリームの作成中にエラー [{0}] が発生しました。
+
+|ErrorCreatingStreamTitle
+|ストリーム作成エラー
+
+|ErrorLoadingStream
+|ストリームからレイアウトを読み込むときにエラー [{0}] が発生しました。
+
+|ErrorLoadingStreamTitle
+|レイアウトの保存エラー
+
+|ErrorSavingStream
+|ストリームにレイアウトを保存中にエラー [{0}] が発生しました。
+
+|GroupContextMenuAddItem
+|項目の追加
+
+|Import_CompletedTitle
+|インポートの完了
+
+|Import_Error
+|次のエラー [{0}] とともにインポートが完了しました。いくつかのグループや項目がイポートされなかった可能性があります。
+
+|Import_Note
+|[注意: インポートされたいくつかのグループまたはアイテムの Key が既存の Key との重複を避けるため変更されました。]
+
+|Import_Successful
+|グループおよび項目のインポートは成功しました。
+
+|LayoutFileNotFound
+|レイアウト ファイル {0} が見つかりません！
+
+|LayoutFileNotFoundTitle
+|レイアウト ファイルが見つかりません
+
+|ListbarImportCancelled
+|インポートがキャンセルされました。グループまたは項目はインポートされませんでした。
+
+|ListbarImportCancelledTitle
+|インポートがキャンセルされました
+
+|ListbarImportOrientationError
+|注意: インポートされている UltraListBar コントロールの Orientation プロパティは Horizontal に設定されています。UltraExplorerBar は Horizontal の方向をサポートしていません。継続しますか?
+
+|ListbarImportOrientationErrorTitle
+|Orientation プロパティはサポートされていません
+
+|LoadSaveDialog_cmd_Cancel
+|キャンセル
+
+|LoadSaveDialog_cmd_Load
+|ロード(&O)
+
+|LoadSaveDialog_cmd_Save
+|保存(&S)
+
+|LoadSaveDialog_FileDialogFilter_Binary
+|バイナリ ファイル ($$*$$.bin) | $$*$$.bin| すべてのファイル ($$*$$.$$*$$)| $$*$$.$$* $$
+
+|LoadSaveDialog_FileDialogFilter_Xml
+|XML ファイル ($$*$$.xml) | $$*$$.xml| すべてのファイル ($$*$$.$$*$$)| $$*$$.$$* $$
+
+|LoadSaveDialog_grp_SelectFormat
+|書式の選択
+
+|LoadSaveDialog_lbl_LayoutFilename
+|レイアウト ファイル名(&L)
+
+|LoadSaveDialog_LoadTitle
+|レイアウトのロード
+
+|LoadSaveDialog_op_Binary
+|バイナリ(&B)
+
+|LoadSaveDialog_op_XML
+|&XML
+
+|LoadSaveDialog_SaveTitle
+|レイアウトの保存
+
+|NavigationContextMenu_NavigationPaneOptions
+|ナビゲーション ウィンドウ オプション(&V)...
+
+|NavigationContextMenu_OpenInNewWindow
+|新しいウィンドウで開く(&W)
+
+|NavigationPaneCollapsedGroupArea_ToolTipText
+|クリックしてナビゲーション ペインを展開します
+
+|NavigationPaneExpansionButton_ToolTipText_Collapse
+|ナビゲーション ペインを最小化
+
+|NavigationPaneExpansionButton_ToolTipText_Expand
+|ナビゲーション ペインを展開
+
+|NavigationPaneOptionsDialog_AccessibleDescription
+|ナビゲーション ボタンの順序を設定
+
+|NavigationPaneOptionsDialog_CancelButton
+|キャンセル
+
+|NavigationPaneOptionsDialog_Caption
+|ナビゲーション ペイン オプション
+
+|NavigationPaneOptionsDialog_Label
+|ボタンを表示する順番(&B)
+
+|NavigationPaneOptionsDialog_MoveDownButton
+|下に移動(&D)
+
+|NavigationPaneOptionsDialog_MoveDownButton_AccessibleDescription
+|選択したボタンを順番に下に移動します。
+
+|NavigationPaneOptionsDialog_MoveUpButton
+|上に移動(&U)
+
+|NavigationPaneOptionsDialog_MoveUpButton_AccessibleDescription
+|選択したボタンを順番に上に移動します。
+
+|NavigationPaneOptionsDialog_OKButton
+|OK
+
+|NavigationPaneOptionsDialog_ResetButton
+|リセット(&R)
+
+|NavigationPaneOptionsDialog_ResetButton_AccessibleDescription
+|すべての順序のカスタマイズをリセットします。
+
+|NavigationQuickCustomizeButton_Tooltip
+|ボタンを構成
+
+|NavigationQuickCustomizeMenu_AddOrRemoveButtons
+|ボタンの追加と削除(&A)
+
+|NavigationQuickCustomizeMenu_NavigationPaneOptions
+|ナビゲーション ウィンドウ オプション(&V)...
+
+|NavigationQuickCustomizeMenu_ShowFewerButtons
+|表示するボタンを減らす(&F)
+
+|NavigationQuickCustomizeMenu_ShowMoreButtons
+|表示するボタンを増やす(&M)
+
+|UltraExplorerBar_Exception_NavigationPaneExpansionThreshold
+|'NavigationPaneExpansionThreshold' プロパティは負の数に設定できません。
+
+|UltraExplorerBar_Exception_ShowNavigationPaneFlyout_1
+|UltraExplorerBar を作成していないとき、または Visible プロパティを False に設定する場合には、ナビゲーション ペイン フライアウトを表示または閉じることができません。
+
+|UltraExplorerBar_Exception_ShowNavigationPaneFlyout_2
+|UltraExplorerBar の Style プロパティを 'OutlookNavigationPane' に設定しないときナビゲーション ペイン フライアウトを表示または閉じることができません。
+
+|UltraExplorerBar_Exception_ShowNavigationPaneFlyout_3
+|ナビゲーション ペインが展開されている間はナビゲーション ペイン フライアウトを表示または閉じることができません。
+
+|UltraExplorerBarGroupSettings_NavigationPaneCollapsedGroupAreaText_DefaultValue
+|ナビゲーション ペイン
+
+|====

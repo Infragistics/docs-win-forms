@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-toolbars-at-run-time",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Layouts"],
+    "guid": "{BC398B5D-2016-4844-8558-4C24B351843A}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムのツールバーの追加
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[ツールバー]"]  はデザインタイムだけでなくランタイムにも WinToolbarsManager コンポーネントに追加できます。これには、ツールバーの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~key.html[Key]"]  を pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarscollection~addtoolbar.html[AddToolbar]"]  メソッドに渡します。ツールバーが UltraToolBarsManager エレメントに追加されると、ツールバーの適切なプロパティを設定できるようになります。

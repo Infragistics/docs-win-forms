@@ -1,0 +1,1075 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmisc-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "{4155F133-D04B-40BE-BC77-622761155B09}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinMisc リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|AccessibleDesc_PreviewPage
+|プレビュー ページ #{0}
+
+|AccessibleName_PreviewPage
+|ページ #{0}
+
+|ActionButtonUIElementAccessibleObject_Description
+|クリックするとボタン アプリケーション固有のアクションを実行するボタン。
+
+|ActionButtonUIElementAccessibleObject_DisplayName
+|アクション ボタン
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAllowDrop
+|{0} の AllowDrop の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAnchor
+|{0} の Anchor は設定できません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoScroll
+|{0} の AutoScroll の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoScrollMargin
+|{0} の AutoScrollMargin の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoScrollMinSize
+|{0} の AutoScrollMinSize の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoSize
+|{0} の AutoSize の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyAutoSizeMode
+|{0} の AutoSizeMode の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyBackColor
+|{0} の BackColor の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyBorderStyle
+|{0} の BorderStyle の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyBounds
+|{0} の Bounds の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyClientSize
+|{0} の ClientSize の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyDock
+|{0} の Dock の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyImeMode
+|{0} の ImeMode の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyLocation
+|{0} の Location の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyMargin
+|{0} の Margin の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyMaximumSize
+|{0} の MaximumSize の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyMinimumSize
+|{0} の MinimumSize の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyName
+|{0} の Name の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyRightToLeft
+|{0} の RightToLeft の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifySize
+|{0} の Size の設定はできません。
+
+|AutoScrollContainerPanel_InvalidOperationException_CannotModifyTabIndex
+|{0} の TabIndex の設定はできません。
+
+|DefaultAction_Press
+|押す
+
+|DefaultAction_PreviewPage
+|アクティブ化
+
+|DeserializationError
+|ストリームのシリアル化を解除するときにエラーが発生されました。
+
+|DesktopAlertButtonsCollectionBase_Exception_CannotAddButtonToDifferentCollection
+|UltraDesktopAlertButton インスタンスは 1 つ以上のコレクションに属することはできません。
+
+|DesktopAlertButtonsCollectionBase_Exception_CannotAddButtonToSameCollection
+|UltraDesktopAlertButton インスタンス すでにコレクションに存在します
+
+|DesktopAlertCloseButtonUIElement_ToolTipText
+|閉じる
+
+|DesktopAlertDropDownButtonUIElement_ToolTipText
+|オプション
+
+|DesktopAlertLinkUIElement_Caption_ToolTipText_Office2007
+|この項目を開く
+
+|DesktopAlertLinkUIElement_Caption_ToolTipText_WindowsLiveMessenger
+|
+
+|DesktopAlertLinkUIElement_Footer_ToolTipText_Office2007
+|
+
+|DesktopAlertLinkUIElement_Footer_ToolTipText_WindowsLiveMessenger
+|
+
+|DesktopAlertLinkUIElement_Text_ToolTipText_Office2007
+|この項目を開く
+
+|DesktopAlertLinkUIElement_Text_ToolTipText_WindowsLiveMessenger
+|
+
+|DesktopAlertPinButtonUIElement_ToolTipText_Pinned
+|このデスクトップ アラートをクリックしてピン解除します。
+
+|DesktopAlertPinButtonUIElement_ToolTipText_Unpinned
+|クリックしてデスクトップ アラートにピンを設定します。
+
+|DesktopAlertVisibleButtonsCollection_Exception_ButtonDoesNotBelongToCollection
+|指定されたインスタンスは UltraDesktopAlert. に関連がないため VisibleAlertButtons コレクションに追加できません。
+
+|DesktopAlertVisibleButtonsCollection_Exception_CannotModifyCollection
+|VisibleAlertButtons コレクションはデスクトップ アラート ウィンドウが表示された後では変更できません。
+
+|LocationDropDownButtonElementAccessibleObject_DefaultAction
+|展開
+
+|LocationDropDownButtonUIElementAccessibleObject_DisplayName
+|位置のドロップダウン ボタン
+
+|LocationListItemUIElementAccessibleObject_DisplayName
+|位置のリスト項目
+
+|LocationTextButtonUIElementAccessibleObject_DisplayName
+|位置のテキスト ボタン
+
+|NavigationBarAccessibleObject_DisplayName
+|Infragistics UltraNavigationBar コントロール
+
+|NavigationBarActionButtonsCollection_Exception_CannotAddToDifferentCollection
+|UltraNavigationBarActionButton インスタンスは、1 つ以上の ActionButtons コレクションに属することはできません。
+
+|NavigationBarActionButtonsCollection_Exception_CannotAddToSameCollection
+|指定された UltraNavigationBarActionButton インスタンス は、すでにこの ActionButtons コレクションに存在します。
+
+|NavigationBarButtonElementAccessibleObject_DefaultAction
+|Click
+
+|NavigationBarLocationsCollection_Exception_CannotAddRootLocationToCollection
+|RootLocation を Locations コレクションに追加できません。
+
+|NavigationBarLocationsCollection_Exception_CannotAddToDifferentCollection
+|UltraNavigationBarLocation インスタンスは、1 つ以上の Locations コレクションに属することはできません。
+
+|NavigationBarLocationsCollection_Exception_CannotAddToSameCollection
+|指定された UltraNavigationBarLocation インスタンス は、すでにこの Locations コレクションに存在します。
+
+|NavigationBarPreviousLocationsCollection_ClassDescription
+|UltraNavigationBar コントロールの PreviousLocations コレクションをカプセル化します。
+
+|NavigationBarPreviousLocationsCollection_Exception_MustBeAssociatedWithSameControl
+|指定された UltraNavigationBarLocation インスタンスは、このコントロールに関連がないため PreviousLocations コレクションに追加できません。
+
+|NavigationPathParseErrorEventArgs_DefaultErrorMessage
+|パス {0} を正常に解析できませんでした。
+
+|NavigationPathParseErrorEventArgs_DefaultErrorMessageCaption
+|エラー
+
+|NotificationSettings_DefaultCaption
+|エラー
+
+|NotificationSettings_DefaultText
+|{0} 値は無効です。
+
+|NotificationSettings_DefaultText_ConversionFailure
+|{0} 値を {1} 型に変換することはできませんでした。
+
+|NotificationSettings_DefaultText_RequiredValueMissing
+|値を空にできません。
+
+|NotificationSettings_Exception_ReadOnly
+|この NotificationSettings インスタンスは、読み取り専用なのでプロパティ値を変更することはできません。
+
+|NotificationSettings_Exception_SoundNotValid
+|Sound プロパティは、指定するタイプの値をサポートしません。
+
+|NotificationSettings_P_Action
+|検証セッションが失敗したときにエンドユーザーに通知する処理の方法を取得または設定する。
+
+|NotificationSettings_P_Caption
+|検証セッションが失敗したときにキャプションまたはタイトルとして表示する文字列を取得または設定する。
+
+|NotificationSettings_P_Image
+|検証セッションが失敗したときに表示する画像を取得または設定します。
+
+|NotificationSettings_P_Sound
+|サウンド ファイルの完全パス、URL、System.Media.SystemSound または Infragistics.Win.SoundEvents からの列挙体から定数の値を取得または設定します。これはデスクトップ警告ウィンドウが表示する直前に再生されます。
+
+|NotificationSettings_P_Text
+|検証セッションが失敗したときにキャプションまたはタイトルとして表示する文字列を取得または設定します。
+
+|NotificationSettings_ToString_Action
+|Action = {0}
+
+|PreviousLocationsDropDownButtonUIElementAccessibleObject_Description
+|クリックすると以前に訪問した場所のリストを表示するドロップ ダウンボタン
+
+|PreviousLocationsDropDownButtonUIElementAccessibleObject_DisplayName
+|以前の位置のドロップダウン ボタン
+
+|PrintErrorCaption
+|印刷エラー
+
+|PrintErrorMessage
+|関連するドキュメント印刷中にエラーが発生しました。 {0}
+
+|PrintPreview_Document_NotSet
+|Document プロパティは設定されていません。
+
+|PrintPreview_Page_Number_ScrollTip
+|ページ: {0} / {1}
+
+|PrintPreview_PreviewControl_NotSet
+|PreviewControl プロパティは設定されていません。
+
+|PrintPreview_Snapshot_Text
+|画像をクリップボードにコピーしています。
+
+|SerializationError
+|データをストリームへシリアル化する際にエラーが発生しました。
+
+|SoundEditor_chkUseFileOrURL_Text
+|ファイルまたは URL を使用する
+
+|SoundEditor_chkUseSystemSound_Text
+|システム サウンドを使用する
+
+|SoundEditor_cmdBrowse_Text
+|...
+
+|SoundEditor_cmdCancel_Text
+|キャンセル
+
+|SoundEditor_cmdOk_Text
+|OK
+
+|SoundEditor_cmdPlay_Text
+|再生
+
+|SoundEditor_cmdRemoveSound_Text
+|サウンドの削除
+
+|SoundEditor_grpFileOrURL_Text
+|ファイルまたは URL
+
+|SoundEditor_grpSystemSounds_Text
+|システム サウンド
+
+|SoundEditor_None
+|(なし)
+
+|SoundEditor_OpenFileDialog_Filter
+|Waveform Audio ($$*$$.WAV)
+
+|SoundEditor_OpenFileDialog_Text
+|サウンド ファイルを開く
+
+|SoundEditor_Title
+|サウンド プロパティ エディター
+
+|SystemSound_DisplayName_Asterisk
+|アスタリスク
+
+|SystemSound_DisplayName_Beep
+|Beep
+
+|SystemSound_DisplayName_Exclamation
+|エクスクラメーション
+
+|SystemSound_DisplayName_Hand
+|Hand
+
+|SystemSound_DisplayName_Question
+|質問
+
+|TileCollection_ArgumentException_OnlyContainsUltraTiles
+|TileCollection は UltraTile インスタンスのみを含むことができます。
+
+|TileCollection_ArgumentOutOfRangeException_InsertOutOfRange
+|インデックス値は 0 とコレクション内の UltraTile の数の間にある必要があります。
+
+|TileCollection_InvalidOperationException_CannotSetTilesWithIndexer
+|UltraTile はインデクサーでは設定できません。
+
+|TileCollectionBase_ArgumentException_TileAlreadyExists
+|指定したタイルはコレクションにすでに存在します。
+
+|TileCollectionBase_ArgumentOutOfRangeException_InvalidIndex
+|インデックスはコレクション内で有効である必要があります。
+
+|TileCollectionBase_InvalidOperationException_TileAlreadyOwned
+|タイトルは別の UltraTilePanel に所有されます。
+
+|TileDragOverPositionEventArgs_InvalidOperationException_CannotSetAllowDrop
+|UltraTile の AllowMoving が False に設定された場合は、AllowDrop を True に設定できません。
+
+|UltraButtonActionList_Appearance_Header
+|外観
+
+|UltraButtonActionList_P_ButtonStyle_Desc
+|SupportThemes プロパティが False の場合に、ボタンの外観を変更することができます。
+
+|UltraButtonActionList_P_Name_Desc
+|ボタン名を指定します。
+
+|UltraButtonActionList_P_Name_Text
+|名前
+
+|UltraButtonActionList_P_SupportThemes_Desc
+|システム テーマを使用してコントロールを描画するかどうかを決定します。
+
+|UltraButtonActionList_P_Text_Desc
+|ボタン上に表示するキャプションを設定します。
+
+|UltraDesktopAlert_Class_Description
+|デスクトップ アラート/通知ウィンドウの表示を扱う Windows Forms Component です。
+
+|UltraDesktopAlert_E_AlertButtonClicked
+|UltraDesktopAlert.AlertButtons コレクションがクリックされたときに発生します。
+
+|UltraDesktopAlert_E_DesktopAlertClosed
+|デスクトップ アラート ウィンドウが閉じられた直後に起きます。
+
+|UltraDesktopAlert_E_DesktopAlertClosing
+|デスクトップ アラート ウィンドウが閉じるときに発生します。
+
+|UltraDesktopAlert_E_DesktopAlertLinkClicked
+|キャプション、テキスト、フッターのリンクがクリックされたときに起きます。
+
+|UltraDesktopAlert_E_DropDownButtonClicked
+|ドロップダウンボタンが押されたときに起きます。
+
+|UltraDesktopAlert_Exception_AutoCloseDelay
+|AutoCloseDelay プロパティの有効範囲は 0 からミリセカンド単位で 1 時間までです。
+
+|UltraDesktopAlert_Exception_CannotShowWindowWhenInitializing
+|UltraDesktopAlert コンポーネントの初期化中はデスクトップ アラートを表示できません。
+
+|UltraDesktopAlert_Exception_NegativeSize
+|{0} プロパティに幅または高さに負数を含む値を設定できません。
+
+|UltraDesktopAlert_Exception_Opacity
+|Opacity プロパティの有効範囲は ０ から １ です。
+
+|UltraDesktopAlert_Exception_WindowNotOpen
+|指定した UltraDesktopAlertWindowInfoインスタンスが開いていません。
+
+|UltraDesktopAlert_P_AlertButtons
+|デスクトップ アラート ウィンドウの下端にそって表示される UltraDesktopAlertButton オブジェクトのコレクションを返します。
+
+|UltraDesktopAlert_P_AllowMove
+|デスクトップ アラート ウィンドウをドラッグしべ別の位置に移動できるかどうかを取得または設定します。
+
+|UltraDesktopAlert_P_AnimationScrollDirectionAutoClose
+|デスクトップ アラート ウィンドウが自動的に閉じる際のスクロール方向の取得または設定します。AnimationStyleShow プロパティがスクロール効果の有効のときのみ適用されます。
+
+|UltraDesktopAlert_P_AnimationScrollDirectionShow
+|デスクトップ アラート ウィンドウのスクロール方向の取得または設定します。AnimationStyleShow プロパティがスクロール効果の有効のときのみ適用されます。
+
+|UltraDesktopAlert_P_AnimationSpeed
+|デスクトップ アラート ウィンドウが開くか閉じるときに使用されるアニメーション エフェクトの相対速度を取得または設定します。
+
+|UltraDesktopAlert_P_AnimationStyleAutoClose
+|自動クローズの場合のデスクトップ アラート ウィンドウ アニメーションを取得または設定します。
+
+|UltraDesktopAlert_P_AnimationStyleShow
+|デスクトップ アラート ウィンドウが表示される際のアニメーションの取得または設定します。
+
+|UltraDesktopAlert_P_Appearance
+|UltraDesktopAlert インスタンスによってデスクトップ アラート ウィンドウが表示される際の外観を取得または設定します。
+
+|UltraDesktopAlert_P_Appearances
+|Infragistics.Win.AppearanceBase オブジェクトが保存できるレポジトリを返します。
+
+|UltraDesktopAlert_P_AutoClose
+|AutoCloseDelay プロパティによって指定された時間後に自動的に閉じるかの取得または設定します。
+
+|UltraDesktopAlert_P_AutoCloseDelay
+|AutoClose の場合デスクトップ アラートウィンドウが自動的に閉じるまでの時間経過を取得または設定します。
+
+|UltraDesktopAlert_P_ButtonAppearance
+|UltraDesktopAlert インスタンスによって表示されるデスクトップ アラート ウィンドウのボタン スタイルを取得または設定します。
+
+|UltraDesktopAlert_P_ButtonHotTrackAppearance
+|カーソルがボタンの上に置かれるときこの UltraDesktopAlert によって表示されたデスクトップ警戒ウィンドウに現れるボタンのための外観を取得または設定します。
+
+|UltraDesktopAlert_P_ButtonImageSize
+|クローズ ボタン、ドロップダウン ボタン、およびピン インジケーターの画像サイズを取得または設定します。
+
+|UltraDesktopAlert_P_ButtonPressedAppearance
+|ボタンが押された状態のボタンの外観を取得または設定します。
+
+|UltraDesktopAlert_P_ButtonStyle
+|デスクトップ アラート ウィンドウに表示されるボタン スタイルを取得または設定します。
+
+|UltraDesktopAlert_P_CaptionAppearance
+|UltraDesktopAlertShowWindowInfo.Caption プロパティの値がどのように表示されるかを取得または設定します。
+
+|UltraDesktopAlert_P_CaptionAreaAppearance
+|見出しが表示される領域のための外観を取得または設定します。特性が WindowsLiveMessenger に適切に設定される場合です。
+
+|UltraDesktopAlert_P_CaptionAreaImageSize
+|キャプション エリアの画像サイズを取得または設定します。特性が WindowsLiveMessenger に適切に設定される場合です。
+
+|UltraDesktopAlert_P_CaptionHotTrackAppearance
+|カーソルが上にある場合に UltraDesktopAlertShowWindowInfo.Caption プロパティの値がどのように表示されるかを取得または設定します。
+
+|UltraDesktopAlert_P_CloseButtonVisible
+|デスクトップ アラート ウィンドウのクローズボタンの表示を取得または設定します。
+
+|UltraDesktopAlert_P_DropDownButtonVisible
+|デスクトップ アラート ウィンドウに表示されるドロップダウン ボタンを取得または設定します。
+
+|UltraDesktopAlert_P_FixedSize
+|UltraDesktopAlert インスタンスによって表示されるデスクトップ アラート ウィンドウのサイズを取得または設定します。
+
+|UltraDesktopAlert_P_FooterTextAppearance
+|ユーザー インターフェースに UltraDesktopAlertShowWindowInfo.FooterText プロパティの値がどのように表示されるかを取得または設定します。
+
+|UltraDesktopAlert_P_FooterTextHotTrackAppearance
+|カーソルは UltraDesktopAlertShowWindowInfo.FooterText 値の上にある場合の値の外観を決定する Appearance を取得または設定します。
+
+|UltraDesktopAlert_P_GripAreaAppearance
+|グリップ インジケーター表示エリアの外観を取得または設定します。Style プロパティが Office2007 のときのみ有効です。
+
+|UltraDesktopAlert_P_ImageSize
+|デスクトップ アラート ウィンドウのクライアント エリアの画像サイズを取得または設定します。
+
+|UltraDesktopAlert_P_MainImageAreaBorderColor
+|メイン画像エリアのボーダー色を取得または設定します。
+
+|UltraDesktopAlert_P_MultipleWindowDisplayStyle
+|デスクトップ アラート ウィンドウの複数のインスタンスを複数表示可能か、また重ならないように画面の位置を自動的に調整するかどうかを取得または設定します。
+
+|UltraDesktopAlert_P_Opacity
+|カーソルがデスクトップ アラート ウィンドウの上にない場合、そのアルファ レベル（不透明度）を取得または設定します。
+
+|UltraDesktopAlert_P_Style
+|UltraDesktopAlert インスタンスのよって表示されるデスクトップ アラート ウィンドウのスタイルを取得または設定します。
+
+|UltraDesktopAlert_P_TextAppearance
+|UltraDesktopAlertShowWindowInfo.Text プロパティの値がユーザー インターフェースにどのように表示されるのかを決定する外観を取得/設定します。
+
+|UltraDesktopAlert_P_TextHotTrackAppearance
+|カーソルがユーザー インタフェースの上にある場合の UltraDesktopAlertShowWindowInfo.Text プロパティの値の表示を指定する外観を取得または設定します。
+
+|UltraDesktopAlert_P_TreatCaptionAsLink
+|必要とされるフォーマット文字列がない場合のデスクトップ アラート ウィンドウのヘッダー キャプションがハイパーリンクのように動作するかの取得または設定します。
+
+|UltraDesktopAlert_P_TreatFooterTextAsLink
+|必要とされるフォーマット文字列が設定されていない場合のデスクトップ アラート ウィンドウのフッター テキストがハイパーリンクになるかを取得または設定します。
+
+|UltraDesktopAlert_P_TreatTextAsLink
+|必要なフォーマット文字がない場合にデスクトップ アラートウィンドウのテキストがハイパーリンクのようになるかを取得または設定します。
+
+|UltraDesktopAlertShowWindowInfo_Exception_SoundPropertyInvalidType
+|Sound プロパティは .WAV を含む文字列、System.Media.SystemSound、Infragistics.Win.SoundEvents、System.IO.Stream のみ設定可能です。
+
+|UltraDesktopAlertWindowInfo_Exception_DuplicateKey
+|キー {0} の UltraDesktopAlertWindowInfo インスタンスは既に開いています。Key プロパティに指定された値はすべての現在開かれているデスクトップ アラートウィンドウで一意である必要があります。
+
+|UltraDesktopAlertWindowInfo_Exception_NoDesktopAlert
+|指定された UltraDesktopAlertShowWindowInfo インスタンスは UltraDesktopAlert に関連づけられません。
+
+|UltraExpandableGroupBox_DefaultAction_Collapse
+|縮小
+
+|UltraExpandableGroupBox_DefaultAction_Expand
+|展開
+
+|UltraNavigationBar_ClassDescription
+|階層ナビゲーション機能を提供する {ProductName} Control。
+
+|UltraNavigationBar_E_ActionButtonClicked
+|エンド ユーザーが UltraNavigationBarActionButton をクリックした後に発生します。
+
+|UltraNavigationBar_E_ActionButtonToolTipDisplaying
+|ツールチップが、UltraNavigationBarLocation に表示されようとする時に発生します。
+
+|UltraNavigationBar_E_ActiveLocationChanged
+|ActiveLocation プロパティの値が変更された後に発生します。
+
+|UltraNavigationBar_E_ActiveLocationChanging
+|ActiveLocation プロパティの値が変更される前に発生します。
+
+|UltraNavigationBar_E_EnteredEditMode
+|編集モード セッションが開始される前に発生します。
+
+|UltraNavigationBar_E_EnteringEditMode
+|編集モード セッションが開始される前に発生します。
+
+|UltraNavigationBar_E_ExitedEditMode
+|編集モード セッションが終了される後で発生します。
+
+|UltraNavigationBar_E_ExitingEditMode
+|編集モード セッションが終了される前に発生します。
+
+|UltraNavigationBar_E_InitializeLocations
+|Locations コレクションがはじめてアクセスされたときに発生します。
+
+|UltraNavigationBar_E_LocationCollapsed
+|Locations コレクションの表示可能なメンバーを表示するドロップダウン リストが閉じられた後に発生します。
+
+|UltraNavigationBar_E_LocationExpanded
+|Locations コレクションの表示可能なメンバーを表示するドロップダウン リストが表示された後に発生します。
+
+|UltraNavigationBar_E_LocationExpanding
+|Locations コレクションの表示可能なメンバーを表示するドロップダウン リストが表示される前に発生します。
+
+|UltraNavigationBar_E_LocationToolTipDisplaying
+|ツールチップが、UltraNavigationBarLocation に表示されようとする時に発生します。
+
+|UltraNavigationBar_E_NavigationPathParseError
+|文字列をナビゲーション パスに正常に解析できなかった時に発生します。
+
+|UltraNavigationBar_E_PreviousLocationsDropDownButtonToolTipDisplaying
+|ツールチップが、以前の位置のドロップダウン リストへアクセスを提供するドロップダウン リストボタンに表示されようとするときに発生します。
+
+|UltraNavigationBar_E_SelectedLocationChanged
+|SelectedLocation プロパティの値が変更された後に発生します。
+
+|UltraNavigationBar_E_SelectedLocationChanging
+|SelectedLocation プロパティの値が変更される前に発生します。
+
+|UltraNavigationBar_Exception_CannotPerformOperationOnHiddenLocation
+|指定した UltraNavigationBarLocation インスタンスは、ユーザー インターフェイスに表示されないためアクティブ化、選択、または展開できません。
+
+|UltraNavigationBar_Exception_ExpandedLocation
+|指定された UltraNavigationBarLocation インスタンスは、この UltraNavigationBar インスタンスと関連していないため展開できません。
+
+|UltraNavigationBar_Exception_LocationTextCannotContainSeparator
+|UltraNavigationBarLocation は、ナビゲーション パスの解析時で識別に使用されたどのテキストにも PathSeparator を含みません。
+
+|UltraNavigationBar_Exception_MustBeAssociatedWithThisControl
+|指定された UltraNavigationBarLocation インスタンスは、このUltraNavigationBar コントロールと関連していません。
+
+|UltraNavigationBar_Exception_PathSeparator
+|コントロールに関連付けされている既存の配置の 1 つまたはそれ以上が、キー、テキスト、または DisplayText プロパティに文字列を含むのため、PathSeparator プロパティの値は {0} に変更できません。
+
+|UltraNavigationBar_Exception_PathSeparatorCannotBeEmpty
+|PathSeparator プロパティは、null または空の文字列に設定できません。
+
+|UltraNavigationBar_P_ActionButtons
+|アプリケーション固有のアクションの実行に使用できる UltraNavigationBarActionButton インスタンスのコレクションを返します。
+
+|UltraNavigationBar_P_ActionButtonSettings
+|この UltraNavigationBar に関連する UltraNavigationBarActionButton インスタンスのアプリケーション固有のプロパティを公開する UltraNavigationBarActionButtonSettings インスタンスを返します。
+
+|UltraNavigationBar_P_Appearance
+|この UltraNavigationBar の視覚的な属性を定義する Appearance オブジェクトを取得および設定します。
+
+|UltraNavigationBar_P_Appearances
+|Appearance オブジェクトを保存できるリポジトリを返します。
+
+|UltraNavigationBar_P_AutoSize
+|理想の高さに影響するプロパティの値が変更するときに、コントロールの高さを自動調整するかどうかを示す値を取得または設定します。
+
+|UltraNavigationBar_P_DrawsFocusRect
+|コントロールに入力フォーカスがあるときに ActiveLocation がフォーカスを示す四角形を表示するかどうかを取得および設定します。
+
+|UltraNavigationBar_P_EditModeAppearance
+|編集モードの時にコントロールの視覚的属性を定義する Appearance オブジェクトを取得または設定します。
+
+|UltraNavigationBar_P_HotTrackAppearance
+|カーソルが境界内に配置される時にコントロールの視覚的属性を定義する Appearance オブジェクトを取得または設定します。
+
+|UltraNavigationBar_P_ImageSize
+|すべての画像が表示されるサイズを取得または設定します。
+
+|UltraNavigationBar_P_LocationSettings
+|この UltraNavigationBar に関連する UltraNavigationBarActionButton インスタンスの外観と動作をコントロールするプロパティを公開する UltraNavigationBarLocationSettings インスタンスを返します。
+
+|UltraNavigationBar_P_PathSeparator
+|ナビゲーション パスで各 UltraNavigationBarLocation のテキストの分割に使用する文字を取得または設定します。
+
+|UltraNavigationBar_P_PreviousLocationsSettings
+|以前の位置リストの外観と動作をコントロールするプロパティを公開する UltraNavigationBarPreviousLocationsSettings インスタンスを返します。
+
+|UltraNavigationBar_P_RootLocation
+|ナビゲーション パスの原点を表す UltraNavigationBarLocation-derived インスタンスを返します。すなわち、この UltraNavigationBar に関連する配置すべての最高レベル祖先の配置です。
+
+|UltraNavigationBar_P_SelectedLocationImageVisible
+|SelectedLocation の解像画像が、コントロールによって表示されるかどうかを取得または設定します。
+
+|UltraNavigationBar_PreviousLocationsDropDownButtonToolTipText
+|前の位置
+
+|UltraNavigationBarActionButton_ClassDescription
+|UltraNavigationBar コントロールのアクションボタンをカプセル化します。
+
+|UltraNavigationBarActionButton_P_Settings
+|この UltraNavigationBarActionButton の外観に関連するプロパティを公開する UltraNavigationBarActionButtonSettings インスタンスを返します。
+
+|UltraNavigationBarActionButton_P_ToolTipText
+|ユーザー インターフェイスのこの UltraNavigationBarActionButton を表す要素上にカーソルが移動した時にツールチップに表示される文字列を取得または設定します。
+
+|UltraNavigationBarActionButton_P_Visible
+|このインスタンスがユーザー インターフェイスで表示されるかどうかを取得または設定します。
+
+|UltraNavigationBarActionButtonSettings_ClassDescription
+|UltraNavigationBarActionButton インスタンスの外観をコントロールするプロパティを公開します。
+
+|UltraNavigationBarButtonAppearances_P_Appearance
+|このインスタンスに関連付けられたオブジェクトの外観全般（つまりステートレス）を取得または設定します。
+
+|UltraNavigationBarButtonAppearances_P_HotTrackAppearance
+|カーソルが関連付けられたユーザー インターフェイス要素の境界内を通過する時に適用されるこのインスタンスに関連付けられたオブジェクトの外観を取得または設定します。
+
+|UltraNavigationBarButtonAppearances_P_PressedAppearance
+|関連付けられたユーザー インターフェイス要素が押された状態にある時に適用されるこのインスタンスに関連付けられたオブジェクトの外観を取得または設定します。
+
+|UltraNavigationBarLocation_ClassDescription
+|UltraNavigationBar コントロールのナビゲーション パスの配置をカプセル化します。
+
+|UltraNavigationBarLocation_Exception_CannotActivate
+|UltraNavigationBar コントロールに関連付けられていない場合、UltraNavigationBarLocation インスタンスをアクティブ化できません。
+
+|UltraNavigationBarLocation_Exception_CannotDeselectRootLocation
+|RootLocation は、常にナビゲーション パスに表示される必要があります。IsSelected プロパティは、RootLocation を false に設定できません。
+
+|UltraNavigationBarLocation_Exception_CannotExpand
+|UltraNavigationBar コントロールに関連付けられていないため、UltraNavigationBarLocation インスタンスを展開できません。
+
+|UltraNavigationBarLocation_P_DisplayText
+|ユーザー インターフェイスでこの UltraNavigationBarLocation を表すテキスト ボタンに表示される文字列を取得または設定します。
+
+|UltraNavigationBarLocation_P_IncludeTextInFullPath
+|子孫の位置である GetFullPath メソッドから返される値を決定するときに TextResolved プロパティから返される値がこのインスタンスに使用されるかどうかを取得または設定をします。
+
+|UltraNavigationBarLocation_P_Locations
+|このインスタンスの直接の子を表示する UltraNavigationBarLocation インスタンスのコレクションを返します。
+
+|UltraNavigationBarLocation_P_Settings
+|この UltraNavigationBarLocation のプロパティを公開する UltraNavigationBarLocationSettings インスタンスを返します。
+
+|UltraNavigationBarLocation_P_Text
+|配置のフルパスを構成するために使用される文字列を取得または設定します。配置のフルパスは、コントロールが編集モードで以前の位置のドロップダウン リストにあるときにコントロールの編集部分に表示されます。
+
+|UltraNavigationBarLocation_P_ToolTipText
+|ユーザー インターフェイスでこのインスタンスを表す要素上にカーソルが移動した時にツールチップに表示される文字列を取得または設定します。
+
+|UltraNavigationBarLocation_P_Visible
+|このインスタンスがユーザー インターフェイスで表示されるかどうかを取得または設定します。
+
+|UltraNavigationBarLocationSettings_ClassDescription
+|UltraNavigationBarLocation インスタンスの外観および動作をコントロールするプロパティを公開します。
+
+|UltraNavigationBarLocationSettings_Exception_MaximumDropDownItems
+|MaximumDropDownItems プロパティは -1 以上の値でなければなりません。
+
+|UltraNavigationBarLocationSettings_P_ActiveAppearance
+|ユーザーインターフェイスがアクティブ状態のときに使用される関連 UltraNavigationBarLocation の外観を取得または設定します。
+
+|UltraNavigationBarLocationSettings_P_DropDownButtonVisible
+|ドロップダウン ボタンが UltraNavigationBarLocation に表示されるかどうか、表示される場合はどの条件なのかを取得または設定します。
+
+|UltraNavigationBarLocationSettings_P_LocationsDropDownListAppearance
+|UltraNavigationBarLocation が展開された状態で表示するドロップダウン リストの視覚的な属性を定義する外観を取得または設定します。
+
+|UltraNavigationBarLocationSettings_P_MaximumDropDownItems
+|関連する UltraNavigationBarLocation が展開されるときに表示されるドロップダウンリストで表示する最大項目数を取得または設定します。
+
+|UltraNavigationBarLocationSettings_P_MaximumTextButtonWidth
+|ナビゲーション パスで関連した UltraNavigationBarLocation を表すユーザー インターフェイス 要素の最大幅を取得または設定します。
+
+|UltraNavigationBarLocationSettings_P_SelectedAppearance
+|ユーザー インターフェイス 要素が選択された状態のときに使用される関連 UltraNavigationBarLocation の外観を取得または設定します。
+
+|UltraNavigationBarLocationSettings_P_TextButtonDisplayStyle
+|表示されている UltraNavigationBarLocation のテキストをユーザーインターフェイスに表示するか、またボタンで画像や解決されたテキスト、もしくは両方とも表示するかどうかを取得または設定します。
+
+|UltraNavigationBarPreviousLocationsCollection_Exception_CannotParsePathIntoLocation
+|指定された 「fullPath」 が正常に解析されないために UltraNavigationBarLocation をコレクションに追加できませんでした。
+
+|UltraNavigationBarPreviousLocationsSettings_ClassDescription
+|UltraNavigationBar コントロールの以前の位置リスト機能に関連するプロパティを公開します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_DropDownButtonAppearance
+|前の位置のドロップダウン ボタンの一般的な（ステートレス）外観を取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_DropDownButtonHotTrackAppearance
+|カーソルがユーザー インターフェイス要素の境界内を通過する時に適用される前の位置のドロップダウン ボタンの外観を取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_DropDownButtonPressedAppearance
+|ボタンが押された状態の時に適用される前の位置のドロップダウン ボタンの外観を取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_DropDownButtonToolTipText
+|カーソルがドロップダウン ボタン上に移動するとツールチップに表示される文字列を取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_DropDownButtonVisible
+|前の位置のドロップダウン リストを表示するボタンがユーザー インターフェイスに表示されるかどうかを取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_DropDownListAppearance
+|以前訪問した位置を表示するドロップダウン リストの外観を取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_MaximumDropDownItems
+|前の位置のドロップダウン リストに表示される項目の最大数を取得または設定します。
+
+|UltraNavigationBarPreviousLocationsSettings_P_MaximumItems
+|PreviousLocations コレクション内に存在できる項目の最大数を取得または設定します。
+
+|UltraNavigationBarRootLocation_Exception_CannotSetDropDownButtonVisible
+|DropDownButtonVisible プロパティは、UltraNavigationBarRootLocation クラスでサポートされていません; ドロップダウン ボタンはルート位置に常に表示される必要があります。
+
+|UltraPanel_ContextMenuItem_H_LeftEdge
+|左端
+
+|UltraPanel_ContextMenuItem_H_PageLeft
+|ページ左
+
+|UltraPanel_ContextMenuItem_H_PageRight
+|ページ右
+
+|UltraPanel_ContextMenuItem_H_RightEdge
+|右端
+
+|UltraPanel_ContextMenuItem_H_ScrollHere
+|ここにスクロール
+
+|UltraPanel_ContextMenuItem_H_ScrollLeft
+|左にスクロール
+
+|UltraPanel_ContextMenuItem_H_ScrollRight
+|右にスクロール
+
+|UltraPanel_ContextMenuItem_V_Bottom
+|Bottom
+
+|UltraPanel_ContextMenuItem_V_PageDown
+|ページ ダウン
+
+|UltraPanel_ContextMenuItem_V_PageUp
+|ページ アップ
+
+|UltraPanel_ContextMenuItem_V_ScrollDown
+|下にスクロール
+
+|UltraPanel_ContextMenuItem_V_ScrollHere
+|ここにスクロール
+
+|UltraPanel_ContextMenuItem_V_ScrollUp
+|上にスクロール
+
+|UltraPanel_ContextMenuItem_V_Top
+|Top
+
+|UltraPanel_InvalidOperationException_CannotModifyControls
+|UltraPanel の Controls コレクションは読み取り専用です。その代わりに、UltraPanel.ClientArea.Controls コレクションを変更してください。
+
+|UltraSplitter_P_ButtonStyle
+|スプリッターに表示されるボタンのスタイルを取得または設定します。
+
+|UltraStatusPrintDialog_Cancel
+|キャンセル(&C)
+
+|UltraStatusPrintDialog_Label
+|ページ {0} / {1}
+
+|UltraStatusPrintDialog_PrintingTitle
+|印刷
+
+|UltraStatusPrintDialog_Title
+|プレビューの生成
+
+|UltraTile_InvalidOperationException_CannotModifyMargin
+|UltraTile の Margin プロパティを設定できません。
+
+|UltraTile_InvalidOperationException_CannotSetDock
+|UltraTile の Dock プロパティを設定できません。
+
+|UltraTile_InvalidOperationException_CannotSetMinimumSize
+|UltraTile の MinimumSize を設定できません。
+
+|UltraTile_InvalidOperationException_CannotSetPositionInNormalMode
+|所有する UltraTilePanel が Large の状態のタイルを含む場合は、UltraTile の PositionInNormalMode を設定できません。
+
+|UltraTile_InvalidOperationException_PositionInNormalModeColumnOutOfRange
+|列インデックスは 0 以上である必要があります。
+
+|UltraTile_InvalidOperationException_PositionInNormalModeRowOutOfRange
+|行インデックスは 0 以上である必要があります。
+
+|UltraTile_Large_DefaultAction
+|標準モードに切り替える
+
+|UltraTile_Normal_DefaultAction
+|拡大する
+
+|UltraTileButtonToolTipClose
+|閉じる
+
+|UltraTileButtonToolTipStateChangeLarge
+|標準モードに切り替える
+
+|UltraTileButtonToolTipStateChangeNormal
+|拡大する
+
+|UltraTilePanel_ArgumentOutOfRangeException_MaximumColumnsOutOfRange
+|MaximumColumns は 0 以上である必要があります。
+
+|UltraTilePanel_ArgumentOutOfRangeException_MaximumRowsOutOfRange
+|MaximumRows は 0 以上である必要があります。
+
+|UltraTilePanel_ArgumentOutOfRangeException_MaximumVisibleLargeTilesOutOfRange
+|MaximumVisibleLargeTiles に割り当てられる値は 0 以上である必要があります。
+
+|UltraTilePanel_ArgumentOutOfRangeException_MinimumColumnsOutOfRange
+|MinimumColumns は 0 以上である必要があります。
+
+|UltraTilePanel_ArgumentOutOfRangeException_MinimumRowsOutOfRange
+|MinimumRows は 0 以上である必要があります。
+
+|UltraTilePanel_ArgumentOutOfRangeException_MinimumTileSizeOutOfRange
+|MinimumTileSize の Width または Height は 0 以上である必要があります。
+
+|UltraTilePanel_ContextMenuItem_H_LeftEdge
+|左端
+
+|UltraTilePanel_ContextMenuItem_H_PageLeft
+|ページ左
+
+|UltraTilePanel_ContextMenuItem_H_PageRight
+|ページ右
+
+|UltraTilePanel_ContextMenuItem_H_RightEdge
+|右端
+
+|UltraTilePanel_ContextMenuItem_H_ScrollHere
+|ここにスクロール
+
+|UltraTilePanel_ContextMenuItem_H_ScrollLeft
+|左にスクロール
+
+|UltraTilePanel_ContextMenuItem_H_ScrollRight
+|右にスクロール
+
+|UltraTilePanel_ContextMenuItem_V_Bottom
+|Bottom
+
+|UltraTilePanel_ContextMenuItem_V_PageDown
+|ページ ダウン
+
+|UltraTilePanel_ContextMenuItem_V_PageUp
+|ページ アップ
+
+|UltraTilePanel_ContextMenuItem_V_ScrollDown
+|下にスクロール
+
+|UltraTilePanel_ContextMenuItem_V_ScrollHere
+|ここにスクロール
+
+|UltraTilePanel_ContextMenuItem_V_ScrollUp
+|上にスクロール
+
+|UltraTilePanel_ContextMenuItem_V_Top
+|Top
+
+|UltraTilePanel_InvalidOperationException_CannotAddTileToControlsCollection
+|UltraTile コントロールは UltraTilePanel に直接追加できません。
+
+|UltraTilePanel_InvalidOperationException_CannotSetNormalModeDimensions
+|UltraTilePanel が初期化されない限り、NormalModeDimensions を設定しないでください。
+
+|UltraTilePanel_InvalidOperationException_GetPositionWhenInLargeMode
+|UltraTilePanel が Large モードの場合は、標準モードの位置からタイルを取得できません。
+
+|UltraTilePanel_InvalidOperationException_MaximumColumnsLessThanMinimumColumns
+|MaximumColumns を MinimumColumns より小さくできません。
+
+|UltraTilePanel_InvalidOperationException_MaximumRowsLessThanMinimumColumns
+|MaximumRows を MinimumRows より小さくできません。
+
+|UltraTilePanel_InvalidOperationException_MinimumColumnsGreaterThanMaximumColumns
+|MinimumColumns を MaximumColumns より大きくできません。
+
+|UltraTilePanel_InvalidOperationException_MinimumRowsGreaterThanMaximumRows
+|MinimumRows が 0 でない場合は MaximumRows より大きくできません。
+
+|UltraTileSettings_ArgumentException_MaximumSizeOutOfRange
+|最大サイズの幅と高さは 0 以上である必要があります。
+
+|UltraTileSettings_ArgumentOutOfRangeException_HeaderExtentOutOfRange
+|ヘッダー範囲は 0 以上である必要があります。
+
+|UltraValidator_Class_Description
+|値の編集サポートをコントロールするための検証機能を拡張する Windows Forms コンポーネント。
+
+|UltraValidator_E_Validating
+|コントロールまたは埋め込みエディターが検証されるときに発生します。
+
+|UltraValidator_E_ValidationError
+|コントロールの検証時または埋め込みエディターが失敗したときに発生します。
+
+|UltraValidator_Exception_CannotChangePropertyValueWhileValidating
+|'{0}' プロパティの値は、検証の実行中に変更できません。
+
+|UltraValidator_Exception_ErrorImageBlinkRate
+|ErrorImageBlinkRate プロパティは、負の数に設定できません。
+
+|UltraValidator_Exception_ErrorImageSize
+|ErrorImageSize プロパティは、width もしくは height プロパティを含む値に設定できません。
+
+|UltraValidator_Exception_Validate_ControlNotAssociated
+|指定したコントロールは、この UltraValidator と関連付けられていません。
+
+|UltraValidator_Exception_Validate_ValidationAlreadyInProgress
+|Validate メソッドは、検証が現在実行中である場合に呼び出されます。
+
+|UltraValidator_Exception_Validate_ValidationGroupNotAssociated
+|指定した ValidationGroup は、このUltraValidator と関連付けられていません。
+
+|UltraValidator_Exception_Validate_ValidationGroupNotFound
+|指定したキー ValidationGroup が ValidationGroups コレクションで見つかりませんでした。
+
+|UltraValidator_Exception_ValidationSettingsAlreadyAssociatedWithControl1
+|指定した ValidationSettings インスタンスは、異なるコントロールとすでに関連付けされています。すなわち、ValidationSettings インスタンスは、一度に 1 つのコントロールにのみ関連付けできます。
+
+|UltraValidator_Exception_ValidationSettingsAlreadyAssociatedWithControl2
+|指定した ValidationSettings インスタンスは、'{0}' とすでに関連付けされています。すなわち、ValidationSettings インスタンスは、一度に 1 つのコントロールとのみ関連付けできます。
+
+|UltraValidator_Exception_ValidationSettingsAlreadyAssociatedWithValidator
+|指定した ValidationSettings インスタンスは、異なる UltraValidator とすでに関連付けされています。すなわち、ValidationSettings インスタンスは、一度に 1 つのUltraValidator のみ関連付けできます。
+
+|UltraValidator_Extender_CannotExtendValidationSettings
+|指定したコントロールは、UltraValidator コンポーネントを介す検証をサポートしません。
+
+|UltraValidator_Extender_CannotExtendValidationSettingsForDisposedControl
+|配置されているか配置の処理中であるコントロールは、UltraValidator コンポーネントを介す検証を拡張できません。。
+
+|UltraValidator_P_ErrorAppearance
+|現在の値が無効な場合に埋め込みエディターによって使用する外観を取得または設定します。
+
+|UltraValidator_P_ErrorImageAlignment
+|コントロールの検証に関連するエラー画像の配列を取得または設定します。通知アクションが、'Image' に解決する場合に限って適用可能です。
+
+|UltraValidator_P_ErrorImageBlinkRate
+|ミリ秒で表わされるエラー画像が点滅する速度を取得または設定します。
+
+|UltraValidator_P_ErrorImageBlinkStyle
+|関連するコントロールの値が無効なときにエラー画像が点滅するかどうかを取得または設定します。
+
+|UltraValidator_P_ErrorImagePadding
+|水平方向でコントロールからエラー画像を区別するピクセル数を取得または設定します。通知アクションが、'Image' に解決する場合に限って適用可能です。
+
+|UltraValidator_P_ErrorImageSize
+|エラー画像が表示されるサイズを取得または設定します。通知アクションが、'Image' に解決する場合に限って適用可能です。
+
+|UltraValidator_P_ErrorImageTransparentColor
+|エラー画像に透明色として保存する色を取得または設定します。通知アクションが、'Image' に解決する場合に限って適用可能です。
+
+|UltraValidator_P_MessageBoxIcon
+|検証が失敗したとき、MessageBox.Show メソッドの 'icon' パラメーターへパスする値を取得または設定します。通知アクションが、'MessageBox' に解決する場合に限って適用できます。
+
+|UltraValidator_P_NotificationSettings
+|単一エントリの検証が失敗したときに、エンドユーザーに通知された方法でプロパティを公開する NotificationSetting インスタンスを返します。
+
+|UltraValidator_P_ValidationGroups
+|ValidationGroup オブジェクトのコレクションを返して、グループにコントロールを論理的に配置することができます。
+
+|UltraValidator_P_ValidationSettingsExtender
+|拡張されるコントロールの検証動作を決定する Infragistics.Win.Misc.ValidationSettings オブジェクトを返します。
+
+|UltraValidator_P_ValidationTrigger
+|検証セッションを開始する方法を決定する値を取得または設定します。
+
+|Validate_ErrorNotificationMessageHeader
+|検証で、以下のエラーが発生しました：
+
+|ValidationGroup_Enabled
+|このインスタンスに関連付けられているコントロールまたは埋め込みエディターで、検証が実行されるかどうかを取得または設定します。
+
+|ValidationGroup_Key
+|コレクション内からアクセスできるこのオブジェクトと一緒に文字列値を返します。
+
+|ValidationGroup_KeyCannotBeEmpty
+|指定したキーを null または空にできません。ValidationGroup は、正しく機能するために有効な一意キーが必要です。
+
+|ValidationGroupsCollection_Exception_CannotAddToSameCollection
+|同じコレクションに ValidationGroup の追加は 1 回以上できません。
+
+|ValidationGroupsCollection_Exception_CannotBelongToMoreThanOneCollection
+|ValidationGroup は 1 つ以上のコレクションに属することはできません。
+
+|ValidationGroupsCollection_KeyMustBeUnique
+|このキー {0}' はすでに使用されています。ValidationGroup のキーは、コレクションすべてのメンバーで一意でなければなりません。
+
+|ValidationGroupTypeConverter_None
+|(なし)
+
+|ValidationSettings_Exception_ValidationGroup
+|ValidationGroup プロパティは、関連する UltraValidator の ValidationGroups ValidationGroup コレクションに属さない ValidationGroup に設定できません。
+
+|ValidationSettings_P_Condition
+|決められた有効性による基準を定義する ICondition インターフェイスの実行を取得または設定します。
+
+|ValidationSettings_P_DataType
+|有効性が決定される前に変換される値のタイプを決定するデータ タイプを取得または設定します。
+
+|ValidationSettings_P_EmptyValueCriteria
+|値が null または空と見なされるべきかどうかを決定する基準を決定する定数を取得または設定します。
+
+|ValidationSettings_P_Enabled
+|このインスタンスに関連付けられているコントロールまたはエディターで、検証が実行されるかどうかを取得または設定します。
+
+|ValidationSettings_P_ErrorAppearance
+|現在の値が無効な場合に埋め込み要素によって使用する外観を取得または設定します。
+
+|ValidationSettings_P_IsRequired
+|EmptyValueCriteria プロパティの値により定義されたとして、値が null または空の場合に検証が失敗するかどうかを取得または設定します。
+
+|ValidationSettings_P_MergeErrorAppearanceCriteria
+|組み込み可能な UIElement が検証に失敗したときに、ErrorAppearance は解決済みの外観にマージされるかどうかを決定する基準を設定する値を取得または設定します。
+
+|ValidationSettings_P_NotificationSettings
+|失敗した検証がエンドユーザーに通知された方法でプロパティを公開するオブジェクトを返します。
+
+|ValidationSettings_P_RetainFocusOnError
+|このインスタンスと関連付けられているコントロールまたはエディターが、検証が失敗したときに入力フォーカスを保持するかどうかを示す値を取得または設定します。
+
+|ValidationSettings_P_ValidationGroup
+|このインスタンスが属する場合は ValidationGroup を取得または設定し、そうでない場合は null を取得または設定します。
+
+|ValidationSettings_P_ValidationPropertyName
+|値が検証されるプロパティ名を取得または設定します。
+
+|ValidationSettings_P_ValidationTrigger
+|検証セッションを開始する方法を決定する値を取得または設定します。
+
+|ValidationSettings_ToString_Enabled
+|有効 = {0}
+
+|ValidationSettings_ToString_IsRequired
+|IsRequired = {0}
+
+|ValidatorGroup_Exception_Validate_NoAssociatedUltraValidator
+|Validate メソッドは、UltraValidator と関連付けされていないので、この ValidationGroup を呼び出せません。
+
+|====

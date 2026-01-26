@@ -1,0 +1,154 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-adding-new-rows-to-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","How Do I"],
+    "guid": "{A1B69FFC-C331-47FE-BF20-F8E1084BA2C6}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 新規行を WinGrid に追加
+
+== バックグラウンド
+
+WinGrid に新しい行を追加するには多数の方法があります。開発者は組み込みの [新規追加] ボックスをオンにし、ユーザーは適切なボタンをクリックすることができます。開発者はボタンなどのその他のメカニズムを実装して、バンドの .AddNew メソッドを起動することができます。開発者は基本のデータに新しい行を追加することができます。
+
+== 質問
+
+* [新規追加] ボタンをどのようにオンにしますか?
+* コードを使用してどのように行を追加しますか?
+* 新しい行のデフォルトのセル値をどのように設定しますか?
+* ベースの DataTable に新しい行を追加するとどうなりますか?
+
+== 解決策
+
+.Layout.AddNewBox.Hidden プロパティを False に設定することにより [新規追加] ボタンをオンにすることができます。
+
+コードを使用して新しい行を追加するには、新しい行を追加したいバンドの .AddNew メソッドを起動します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~afterrowinsert_ev.html[AfterRowInsert]"]  イベントで新しい行のセル値を初期化できます。
+
+通常、基本の DataTable に新しい行を追加するとほとんどの場合、グリッドの .AddNew メソッドを使用して追加されたかのように行がグリッドに表示されます。ところが場合によっては、グリッドが追加された行を認識できず、新しい行が表示されない場合もあります。グリッドがバインドされたあとに新しい行を追加するには .AddNew メソッドを使用するのが最善です。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトでは UltraWinGrid に新しい行を追加するいろいろな方法を説明します。
+
+image::Images/WinGrid_Adding_New_Rows_to_WinGrid_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラが含まれます。
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントにはグリッドに AddNewBox を表示させるコードが記述されています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' [新規追加] ボックスをオンにします
+	e.Layout.AddNewBox.Hidden = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// [新規追加] ボックスをオンにします
+	e.Layout.AddNewBox.Hidden = false;
+}
+----
+
+* UltraGrid1.AfterRowInsert - AfterRowInsert イベントのコードには新しい行のプライマリ キー値を設定し、Band 1 の「OrderDate」列のデフォルト値を設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_AfterRowInsert(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.RowEventArgs) _
+  Handles UltraGrid1.AfterRowInsert
+	' Band 1 のプライマリ キー セル値を設定します 
+	Select Case e.Row.Band.Index
+		Case 1
+			e.Row.Cells("OrderID").Value = e.Row.Index + 1
+			e.Row.Cells("OrderDate").Value = Now
+	End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_AfterRowInsert(object sender, 
+  Infragistics.Win.UltraWinGrid.RowEventArgs e)
+{
+	// Band 1 のプライマリ キー セル値を設定します
+	switch(e.Row.Band.Index)
+	{
+		case 1:
+			e.Row.Cells["OrderID"].Value = e.Row.Index +1;
+			e.Row.Cells["OrderDate"].Value = DateTime.Now;
+			break;
+	}
+}
+----
+
+Button イベント
+
+Button イベント領域には次のイベント ハンドラが存在します。
+
+* btnAddNewRowBand0.Click - AddNewRowBand0 Click イベントのコードは Band 0 に新しい列を追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnAddNewRowBand0_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnAddNewRowBand0.Click
+	' 新しい行をバンド 0 に追加します
+	Me.UltraGrid1.DisplayLayout.Bands(0).AddNew()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnAddNewRowBand0_Click(object sender, System.EventArgs e)
+{
+	// 新しい行をバンド 0 に追加します
+	this.ultraGrid1.DisplayLayout.Bands[0].AddNew();
+}
+----
+
+* btnAddNewRowBand1.Click - AddNewRowBand1 Click イベントのコードは Band 1 に新しい行を追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnAddNewRowBand1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnAddNewRowBand1.Click
+	' 新しい行をバンド 1 に追加します
+	Me.UltraGrid1.DisplayLayout.Bands(1).AddNew()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnAddNewRowBand1_Click(object sender, System.EventArgs e)
+{
+	// 新しい行をバンド 1 に追加します
+	this.ultraGrid1.DisplayLayout.Bands[1].AddNew();
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは UltraWinGrid に新しい行の追加方法をいくつか紹介しました。

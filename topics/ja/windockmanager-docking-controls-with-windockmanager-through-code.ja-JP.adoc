@@ -1,0 +1,166 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-docking-controls-with-windockmanager-through-code",
+    "controlName": ["WinDockManager"],
+    "tags": ["Layouts"],
+    "guid": "{AD505A49-8498-4392-88A9-CA921B46549B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= コードで WinDockManager にコントロールをドッキングする
+
+== 背景
+
+WinDockManager™ を使用すると、ペインやウィンドウでアプリケーションの端にコントロールをドッキングできます。これらのペインには 1 つまたは複数のコントロールを含むことができます。このトピックでは、これらのペインをコードの中に配置する方法を示します。
+
+== 質問
+
+* ウィンドウをコードの中でドッキングするにはどうすればいいですか。
+
+== 解決策
+
+ウィンドウをコードの中でドッキングする際は、4 つの主要なオブジェクトについて理解する必要があります。
+
+[start=1]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablecontrolpane.html[DockableControlPane]"]  - １個のコントロールを格納する最も簡単なペイン。
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablegrouppane.html[DockableGroupPane]"]  - 複数の DockableControlPanes を格納するペイン。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockareapane.html[DockAreaPane]"]  - アプリケーションの特定の端に対応するペイン。
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager.html[UltraDockManager]"]  - すべてのドッキング ペインのマネージャ。
+
+これら 4 つのオブジェクトを使用することで、どのようなコントロールでもフォームや他のコンテナの端にドッキングできます。
+
+== サンプル プロジェクト
+
+新しいプロジェクトを開始し、UltraDockManager の ListView、TreeView、RichTectBox の 3 つのコントロールをフォームに配置します。フォーム上でのコントロールの位置は自由です。フォームのロードに、次のコードを追加します。
+
+*Visual Basic の場合:*
+
+[source]
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub Docking_Controls_with_WinDockManager_through_Code_Load( _
+  ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	SuspendLayout()
+	Dim dcpTreeView As New DockableControlPane("tree", "Tree View", TreeView1)
+	Dim dcpListView As New DockableControlPane("list", "List View", ListView1)
+	Dim dcpRichText As New DockableControlPane("rtb", "Rich Text Box", RichTextBox1)
+	Dim dgpTreeList As New DockableGroupPane()
+	dgpTreeList.ChildPaneStyle = ChildPaneStyle.TabGroup
+	dgpTreeList.Panes.Add(dcpTreeView)
+	dgpTreeList.Panes.Add(dcpListView)
+	Dim dapLeft As New DockAreaPane(DockedLocation.DockedLeft)
+	dapLeft.Panes.Add(dgpTreeList)
+	Dim dapBottom As New DockAreaPane(DockedLocation.DockedBottom)
+	dapBottom.Panes.Add(dcpRichText)
+	dcpRichText.Unpin()
+	dcpRichText.FlyoutSize = New Size(0, 100)
+	Me.UltraDockManager1.DockAreas.Add(dapLeft)
+	Me.UltraDockManager1.DockAreas.Add(dapBottom)
+	ResumeLayout()
+End Sub
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win.UltraWinDock;
+...
+private void Docking_Controls_with_WinDockManager_through_Code_Load(object sender, 
+  EventArgs e)
+{
+	SuspendLayout();
+	DockableControlPane dcpTreeView = 
+	  new DockableControlPane("tree", "Tree View", this.treeView1);
+	DockableControlPane dcpListView = 
+	  new DockableControlPane("list", "List View", this.listView1);
+	DockableControlPane dcpRichText = 
+	  new DockableControlPane("rtb", "Rich Text Box", this.richTextBox1);
+	DockableGroupPane dgpTreeList = new DockableGroupPane();
+	dgpTreeList.ChildPaneStyle = ChildPaneStyle.TabGroup;
+	dgpTreeList.Panes.Add(dcpTreeView);
+	dgpTreeList.Panes.Add(dcpListView);
+	DockAreaPane dapLeft = new DockAreaPane(DockedLocation.DockedLeft);
+	dapLeft.Panes.Add(dgpTreeList);
+	DockAreaPane dapBottom = new DockAreaPane(DockedLocation.DockedBottom);
+	dapBottom.Panes.Add(dcpRichText);
+	dcpRichText.Unpin();
+	dcpRichText.FlyoutSize = new Size(0, 100);
+	this.ultraDockManager1.DockAreas.Add(dapLeft);
+	this.ultraDockManager1.DockAreas.Add(dapBottom);
+	ResumeLayout();
+}
+----
+
+プロジェクトをビルドして実行します。以下が表示されます。
+
+image::images/WinDockManager_Docking_Controls_with_WinDockManager_through_Code_01.png[]
+
+各行が何を実行するのかについては、上記のコードの説明します。
+
+== コードの説明
+
+SuspendLayout メソッド呼び出しは必ずしも必要ではありませんが、すべてのペインの設定中にサイズ設定のロジックが実行されなくなるため、コードの効率が上がります。
+
+----
+SuspendLayout()
+----
+
+最初に作成するオブジェクトは、ドッキング可能コントロール ペインです。ドッキングするコントロールごとに、これらのうちのひとつが必要になります。ペインのキー、タイトル、および、どのコントロールで折り返すかを設定します。
+
+----
+Dim dcpTreeView As New DockableControlPane("tree", "Tree View", TreeView1)
+Dim dcpListView As New DockableControlPane("list", "List View", ListView1)
+Dim dcpRichText As New DockableControlPane("rtb", "Rich Text Box", RichTextBox1)
+----
+
+次に、ListView と TreeView を格納するグループを設定します。グループのスタイルをタブにするため、ChildPaneStyle プロパティを設定する必要があります。後は、コントロール ペインをグループ ペインに追加するだけです。
+
+----
+Dim newNode As New Node()
+dgpTreeList.ChildPaneStyle = ChildPaneStyle.TabGroup
+dgpTreeList.Panes.Add(dcpTreeView)
+dgpTreeList.Panes.Add(dcpListView)
+----
+
+最後にインスタンス化するオブジェクトは、ドッキング領域ペインです。まず、左端用のドッキング領域ペインを作成し、ツリーとリストを格納しているグループをそのペインに追加します。同じ操作をリッチ テキスト ボックスに対しても実行しますが、これは下端にドッキングします。
+
+----
+Dim dapLeft As New DockAreaPane(DockedLocation.DockedLeft)
+dapLeft.Panes.Add(dgpTreeList)
+Dim dapBottom As New DockAreaPane(DockedLocation.DockedBottom)
+dapBottom.Panes.Add(dcpRichText)
+----
+
+下端のドッキング ウィンドウをピン解除状態にするために、次のコードを使用してピンを解除します。ただし、この動作によって問題が生じます。サイズ設定が完了する前にコードの中でウィンドウのピンを解除すると、ウィンドウがサイズ 0 ピクセルでフライアウトしてしまいます。これを避けるために、新しいフライアウト サイズを設定します。ユーザーがリッチ テキスト ボックスを左右のドッキング領域に移動する場合に備えて、各方向のサイズを 100 ピクセルに設定します。
+
+----
+dcpRichText.Unpin()
+dcpRichText.FlyoutSize = New Size(100, 100)
+----
+
+最後に、これらのペインが作成されたことを UltraDockManager に通知します。これらのペインを DockAreas コレクションに追加することで、DockAreas に登録します。
+
+----
+UltraDockManager1.DockAreas.Add(dapLeft)
+UltraDockManager1.DockAreas.Add(dapBottom)
+----
+
+そして、フォームを有効にしてそのレイアウト処理を実行します。
+
+----
+ResumeLayout()
+----
+
+== まとめ
+
+この例では、コントロールのためのドッキング可能ウィンドウを新規に作成する方法と、コントロールをグループ化する方法について学習しました。

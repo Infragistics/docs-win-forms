@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalculator",
+    "controlName": ["WinCalculator"],
+    "tags": ["Getting Started"],
+    "guid": "{985E6650-1739-4AEA-97EE-C4268C7A34CC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalculator
+
+以下のリンクをクリックすると、 WinCalculator コントロールに関する説明を読むことができます。
+
+* link:wincalculator-about-wincalculator.html[WinCalculator について] -- WinCalculator コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wincalculator-smart-tag.html[WinCalculator スマート タグ] -- WinCalculator コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:wincalculator-using-wincalculator.html[WinCalculator の使用] -- このセクションでは、WinCalculator コントロールで特定のタスクをどのように実行するかを例示するサンプル コード例を含む役立つトピックがあります。

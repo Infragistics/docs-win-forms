@@ -1,0 +1,128 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-appearance-of-wingrid-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{0D08285C-A41F-4F40-B3B5-F2E4B1CCF6E3}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 行の外観の変更
+
+== 背景
+
+WinGrid コントロールには読みやすさを強化する多くの行外観を設定するプロパティを備えています。
+
+== 質問
+
+* どうすれば 1 行おきの行の背景色を変更できますか?
+* ユーザーが 1 セル内にすべてのテキストを表示する必要があり、複数行に渡ってでも表示させたい場合どうすればいいですか?
+* 行のコンテンツに基づいて行の背景色をオーバーライドするにはどうすればよいですか?
+* Row Selectors の外観が好きではありません。独自の画像を使用することはできますか。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは UltraWinGrid が提供する行の外観設定オプションを複数紹介します。その組み合わせは数多くあります:
+
+コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Changing_the_Appearance_of_WinGrid_Rows_01.png[]
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードは、セルのテキストを複数行に渡って表示し、1 行おきの背景色を薄黄色に設定し、Band 0 の行セレクタを非表示に設定し、行セレクタにピクチャを表示するように、UltraWinGrid に指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' セルのテキストを複数行に渡って表示します
+	e.Layout.Override.RowSizing = RowSizing.AutoFree
+	e.Layout.Override.CellMultiLine = DefaultableBoolean.True
+	' 1 行おきの背景色を設定します
+	e.Layout.Bands(1).Override.RowAlternateAppearance.BackColor = Color.LightYellow
+	' Band 0 の行セレクタを非表示に設定します
+	e.Layout.Bands(0).Override.RowSelectors = DefaultableBoolean.False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// セルのテキストを複数行に渡って表示します
+	e.Layout.Override.RowSizing = RowSizing.AutoFree;
+	e.Layout.Override.CellMultiLine = DefaultableBoolean.True;
+	// 1 行おきの背景色の設定します
+	e.Layout.Bands[1].Override.RowAlternateAppearance.BackColor = Color.LightYellow;
+	// Band 0 の行セレクタを非表示に設定します
+	e.Layout.Bands[0].Override.RowSelectors = DefaultableBoolean.False;
+}
+----
+
+* UltraGrid1.InitializeRow - InitializeRow イベントのコードは、バンド 0 の行を展開し、 EmployeeID = 30 のときに行の背景色を設定するように、UltraWinGrid に指示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	' バンド 0 の行を展開します
+	If e.Row.Band.Index = 0 Then
+		e.Row.ExpandAll()
+	End If
+	' EmployeeID = 1 の場合に行の背景色を設定します
+	If e.Row.Band.Index = 1 AndAlso e.Row.Cells("EmployeeID").Value = 1 Then
+		e.Row.Appearance.BackColor = Color.Blue
+		e.Row.Appearance.BackColor2 = Color.Red
+		e.Row.Appearance.BackGradientStyle = GradientStyle.Horizontal
+		e.Row.Appearance.ForeColor = Color.White
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	// バンド 0 の行を展開します
+	if(e.Row.Band.Index == 0)
+		e.Row.ExpandAll();
+	// EmployeeID = 1 の場合に行の背景色を設定します
+	if(e.Row.Band.Index == 1 && e.Row.Cells["EmployeeID"].Value.ToString() == "1")
+	{	
+		e.Row.Appearance.BackColor = Color.Blue;
+		e.Row.Appearance.BackColor2 = Color.Red;
+		e.Row.Appearance.BackGradientStyle = GradientStyle.Horizontal;
+		e.Row.Appearance.ForeColor = Color.White;
+	}
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトでは多くの行外観の設定オプションを紹介しました。

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-smart-tickmarks-now-available-for-3d-charts-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9A51BA82-279E-495B-9A36-452C0A76877F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 立体チャートで使用できるスマート目盛り
+
+Chart コントロールによって、チャートのデータと使用可能なスペースに基づいて軸に対して可能となる最善の範囲と間隔を自動的に選択できます。この高性能の軸アルゴリズムを有効にすることで、チャートで軸ラベルの重なりやデータが隠されてしまうことを回避できます。
+
+今までは、この機能は平面チャートだけに使用できました。2006 Volume 2 リリースから開始しましたが、立体チャートのスマート目盛りを有効にできるようになりました。
+
+以下のチャート（左）では、スマート目盛りのスタイルは、立体柱状グラフに有効になっていません。データ間隔の結果として y 軸の直感的でないラベルに注意してください。以下の右のチャートは、スマート目盛りスタイルが有効になった同じ立体チャートを示しています。直感的でない y 軸ラベルの問題が解決しています。
+
+image::Images/WinChart_Smart_Tickmarks_Now_Available_for_3D_Charts_Whats_New_2006_2_01.png[]
+
+image::Images/WinChart_Smart_Tickmarks_Now_Available_for_3D_Charts_Whats_New_2006_2_02.png[]
+
+== 関連トピック
+
+link:chart-smart-tickmarks.html[スマート目盛り]
+
+link:chart-tickmarks.html[目盛り]

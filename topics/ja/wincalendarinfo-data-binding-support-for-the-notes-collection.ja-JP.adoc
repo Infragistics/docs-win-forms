@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarinfo-data-binding-support-for-the-notes-collection",
+    "controlName": ["WinCalendarInfo"],
+    "tags": ["Data Binding"],
+    "guid": "{C2F43B7A-25D0-4311-B38D-63E9C90ECAC2}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= Notes コレクションのデータバインド サポート
+
+NAS2004 Volume 3 の WinSchedule は、WinCalendarInfo コンポーネントの Notes コレクションのデータ バインディングをサポートしています。
+
+この Notes コレクションには、任意の IList インプリメンタ（DataTable など）のコンテンツから移植することができます。各 Note オブジェクトのプロパティ値を含むメンバの名前を識別するために、NotesDataBinding.DateMember プロパティと NotesDataBinding.DescriptionMember プロパティを設定する必要があります。これらのメンバに対応するフィールドの内容によって、Note オブジェクトの "Note.Date" プロパティと "Note.Description" プロパティの値がそれぞれ提供されます。リスト内の各項目（DataTable の個々の行など）は Notes コレクションのメンバを表します。Note オブジェクトのプロパティ値が変更されると、データ ソースの対応するメンバに新しい値が書き込まれます。

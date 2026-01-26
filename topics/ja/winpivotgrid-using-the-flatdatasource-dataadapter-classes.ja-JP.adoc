@@ -1,0 +1,266 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-using-the-flatdatasource-dataadapter-classes",
+    "controlName": [],
+    "tags": [],
+    "guid": "7d047761-0816-4e61-b989-b6726fd95c1b",  
+    "buildFlags": [],
+    "createdOn": "2015-09-08T18:09:27.6345603Z"
+}
+|metadata|
+////
+
+= FlatDataSource DataAdapter クラスの使用
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、link:{ApiPlatform}olap.datasource.flat{ApiVersion}~infragistics.olap.flatdata.flatdatasource_members.html[FlatDataSource]  データ アダプター クラスで SQL サーバーや OLEDB のデータベース テクノロジーを使用したデータに WinPivotGrid を 簡単にバインドする方法について説明します。
+
+=== 前提条件
+
+本トピックの理解を深めるために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-using-flatdatasource.html[FlatDataSource の使用]
+|　このトピックは、OLAP でないデータを WinPivotGrid コントロールにバインドする方法を提供する FlatDataSource クラスの概要を示します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref429483552,FlatDataSource データ アダプターの使用>>
+
+** <<_Ref429483571,背景>>
+** <<_Ref429483578,概要>>
+
+* <<_Ref429483864,コード例>>
+
+** <<_Ref429483583,メモ>>
+** <<_Ref429483593,説明>>
+** <<_Ref429483603,ターゲット フレームワーク>>
+** <<_Ref429483609,参照>>
+** <<_Ref429483618,ステートメントのインポート/使用>>
+** <<_Ref429483863,コード>>
+
+* <<_Ref429485563,関連コンテンツ>>
+
+
+[[_Ref429483552]]
+== FlatDataSource データ アダプターの使用
+
+[[_Ref429483571]]
+
+=== 背景
+
+14.2 リリースで FlatDataSource クラスでは、WinPivotGrid コントロールの OLAP でないデータ ソースへの接続が可能でした。その場合、データはオンライン分析処理、またはビジネス インテリジェンスではなく、任意オブジェクトの列挙可能なリストに関連付けられています。たとえば、Customer クラスとそのクラスの複数のインスタンスを含む ListCustomer クラスの場合、少数のプロパティを使用して WinPivotGrid コントロールを簡単にリストにバインドできます。データは OLAP データのように表示されます。
+
+この機能の一般的な使用ケースが「標準の」データベース テーブルへのアクセスであるため、データベースのデータへの接続、クエリおよび表示の導入が利便性の改善につながることが明らかになってきました。
+
+[[_Ref429483578]]
+
+=== 概要
+
+15.2 リリースでは、新規の Infragistics.Olap.FlatData.Adapters 名前空間に 2 つの付加クラスを追加しています。クラスは、SQL Server、または OLEDB テクノロジを使用したデータベースへの接続を可能にします。
+
+Infragistics.Olap.FlatData.Adapters.Sql 名前空間にあるクラスでは、SQL Server データベースから獲得したデータで FlatDataSource インスタンスを初期化できます。
+
+Infragistics.Olap.FlatData.Adapters.OleDb 名前空間にあるクラスでは、Microsoft Access データベースから獲得したデータで FlatDataSource インスタンスを初期化できます。
+
+SqlConnection、SqlDataAdapter、OleDbConnection および OleDbDataAdapter クラスなど、.NET Framework に含まれるデータ アクセス クラスを使用してきた開発者は、FlatDataSource データ アダプター クラスの構文や概念の類似していることにより、新しいクラスについての学習期間を削減し、すばやく生産性につなげることが可能となります。
+
+[[_Ref429483864]]
+== コード例
+
+[[_Ref429483583]]
+
+=== メモ
+
+以下のコード例では、FlatDataSource データ アダプターの使用を紹介します。ここでは、Microsoft Access に含まれる馴染みのある Northwind データベースを使用しています。
+
+.注:
+[Note]
+コード例で使用されるデータベースのファイル パスはローカル コンピューターのファイル パスで置き換える必要があります。
+
+
+[[_Ref429483593]]
+
+=== 説明
+
+ピボット グリッドの典型的な用途がビジネス インテリジェンス データの表示であるため、一定の期間に各顧客が購入した各製品の数を示すデータキューブを生成するクエリを作成します。
+
+そのために、Customers、Orders、Order Details および Products テーブルにアクセスする SQL クエリを作成する必要があります。クエリは、データベースへのアクセスを提供する接続文字列とともに、直接データ アダプターに割り当てられます。データ アダプターはデータベースのクエリを WinPivotGrid が利用できるものに変換します。
+
+[[_Ref429483603]]
+
+=== ターゲット フレームワーク
+
+Infragistics OLAP アセンブリが .NET 4 Framework Client Profile にないアセンブリを参照しているため、作成プロジェクトのターゲット フレームワークを .NET 4 Framework に設定する必要があります。
+
+[[_Ref429483609]]
+
+=== 参照
+
+以下のアセンブリ参照をプロジェクトに追加します。
+
+* Infragistics4.Shared
+* Infragistics4.Win
+* Infragistics4.Win.UltraWinPivotGrid
+* Infragistics4.Olap.Core
+* Infragistics4.Olap.DataProvider
+* Infragistics4.Olap.DataProvider.Flat
+* Infragistics4.Olap.DataSource
+* Infragistics4.Olap.DataSource.Flat
+
+[[_Ref429483618]]
+
+=== ステートメントのインポート/使用
+
+コード簡略化のため、以下のインポート/使用ステートメントをコード ファイルに追加します。
+
+* Infragistics.Olap.FlatData
+* Infragistics.Olap.FlatData.Adapters
+* Infragistics.Olap.FlatData.Adapters.OleDb
+
+[[_Ref429483863]]
+
+=== コード
+
+最初に、新しい Windows Forms プロジェクトを作成し、WinPivotGrid™ コントロールのインスタンスをフォームに追加します。コントロール インスタンスの名前を pivotGrid にします。
+
+.注:
+[Note]
+ターゲット フレームワークを .NET 4 Framework に変更してください。環境によっては新しい Windows Forms プロジェクトのデフォルトが .NET 4 Framework クライアント プロファイル の場合があり、WinPivotGrid™ に必要な .NET アセンブリが一部含まれていないことがあります。
+
+
+*C# の場合:* 
+
+[source,csharp]
+---- 
+private void SetDataSource()
+{
+    //  Build the connection string.
+    string connectionString =
+        @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Data\NWind.mdb";
+    //  Build the query string. Note that we use a StringBuilder here
+    //  for readability, so we can separate the different clauses
+    //  of the SQL statement.
+    //
+    //  Note that the placement of parentheses near the INNER JOIN
+    //  clauses is important; the Microsoft.Jet.OLEDB data provider
+    //  expects these, and their absence will cause a vague exception
+    //  to be thrown, making it extremely difficult to find the code
+    //  location of the error.
+    //
+    StringBuilder sb = new StringBuilder();
+    sb.AppendLine("SELECT");
+    sb.AppendLine("Customers.CompanyName,");
+    sb.AppendLine("Orders.OrderDate,");
+    sb.AppendLine("[Order Details].Quantity,");
+    sb.AppendLine("[Order Details].UnitPrice,");
+    sb.AppendLine("Products.ProductName");
+    sb.AppendLine("FROM ((Customers");
+    sb.AppendLine("INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID)");
+    sb.AppendLine("INNER JOIN [Order Details] ON [Order Details].OrderID = Orders.OrderID)");
+    sb.AppendLine("INNER JOIN Products ON Products.ProductID = [Order Details].ProductID");
+    //  Create a FlatDataSourceInitialSettings instance
+    //  to initialize the row, column, and measures axes.
+    //  This will be passed in as a parameter to the
+    //  FlatDataSource constructor.
+    FlatDataSourceInitialSettings settings = new FlatDataSourceInitialSettings();
+    settings.Rows = "[Hierarchies].[CompanyName]";
+    settings.Columns = "[Hierarchies].[ProductName], [Hierarchies].[OrderDate]";
+    settings.Measures = "[Measures].[Quantity]";
+    //  Create a FlatDataSource instance, and set the DisplayName
+    //  property to something meaningful.
+    FlatDataSource ds = new FlatDataSource(settings);
+    ds.DisplayName = "Orders by Customer";
+    //  Create an OleDbAdapter instance in a 'using' block
+    //  so that it is disposed of when we're finished with it.
+    using ( OleDbAdapter adapter = new OleDbAdapter(connectionString) )
+    {
+        //  Set the QueryString property to the SQL
+        //  statement we constructed previously.
+        adapter.QueryString = sb.ToString();
+        //  Call the adapter's Fill method to populate the
+        //  data source with the result of the database
+        //  query.
+        adapter.Fill(ds);
+    }
+    //  Assign the initialized FlatDataSource instance to
+    //  the pivot grid's DataSource property.
+    this.pivotGrid.SetDataSource(ds);
+}
+---- 
+
+*C# の場合:* 
+
+[source,vb]
+---- 
+Public Sub SetDataSource()
+        '  Build the connection string.
+        Dim connectionString As String = _
+            "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Data\NWind.mdb"
+        '  Build the query string. Note that we use a StringBuilder here
+        '  for readability, so we can separate the different clauses
+        '  of the SQL statement.
+        '
+        '  Note that the placement of parentheses near the INNER JOIN
+        '  clauses is important; the Microsoft.Jet.OLEDB data provider
+        '  expects these, and their absence will cause a vague exception
+        '  to be thrown, making it extremely difficult to find the code
+        '  location of the error.
+        '
+        Dim sb As New System.Text.StringBuilder()
+        sb.AppendLine("SELECT")
+        sb.AppendLine("Customers.CompanyName,")
+        sb.AppendLine("Orders.OrderDate,")
+        sb.AppendLine("[Order Details].Quantity,")
+        sb.AppendLine("[Order Details].UnitPrice,")
+        sb.AppendLine("Products.ProductName")
+        sb.AppendLine("FROM ((Customers")
+        sb.AppendLine("INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID)")
+        sb.AppendLine("INNER JOIN [Order Details] ON [Order Details].OrderID = Orders.OrderID)")
+        sb.AppendLine("INNER JOIN Products ON Products.ProductID = [Order Details].ProductID")
+        '  Create a FlatDataSourceInitialSettings instance
+        '  to initialize the row, column, and measures axes.
+        '  This will be passed in as a parameter to the
+        '  FlatDataSource constructor.
+        Dim settings = New FlatDataSourceInitialSettings()
+        settings.Rows = "[Hierarchies].[CompanyName]"
+        settings.Columns = "[Hierarchies].[ProductName], [Hierarchies].[OrderDate]"
+        settings.Measures = "[Measures].[Quantity]"
+        '  Create a FlatDataSource instance, and set the DisplayName
+        '  property to something meaningful.
+        Dim ds As New FlatDataSource(settings)
+        ds.DisplayName = "Orders by Customer"
+        '  Create an OleDbAdapter instance in a 'using' block
+        '  so that it is disposed of when we're finished with it.
+        Using adapter = New OleDbAdapter(connectionString)
+            '  Set the QueryString property to the SQL
+            '  statement we constructed previously.
+            adapter.QueryString = sb.ToString()
+            '  Call the adapter's Fill method to populate the
+            '  data source with the result of the database
+            '  query.
+            adapter.Fill(ds)
+        End Using
+        '  Assign the initialized FlatDataSource instance to
+        '  the pivot grid's DataSource property.
+        Me.pivotgrid.SetDataSource(ds)
+    End Sub
+
+---- 
+
+[[_Ref429485563]]
+== 関連コンテンツ
+
+* link:winpivotgrid.html[WinPivotGrid] -- FlatDataSource で提供されるデータを表示する WinPivotGrid コントロールに関係のあるトピック。

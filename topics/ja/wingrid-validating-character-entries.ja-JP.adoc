@@ -1,0 +1,114 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-validating-character-entries",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Validation"],
+    "guid": "{26D309CE-0E7A-426D-B819-1C32C0F22DCC}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 文字入力の検証
+
+== バックグラウンド
+
+WinGrid の KeyPress イベントは提供します。キー単位のユーザー入力を完全な制御と、これらのキー ストロークを変換または検証する機能を提供します。
+
+== 質問
+
+* 日付フィールドでスラッシュ（"/"）キーのようにピリオド（"."）キーをどのように扱うことができますか?
+
+== 解決策
+
+KeyPress イベントで、ActiveCell の Column オブジェクトの Key プロパティ（ActiveCell.Column.Key）を使用して、キー ストロークを受け取った列を指示し、 e オブジェクトの Handled プロパティを True に設定して、この文字で追加の操作をキャンセルして SendKeys.Send("/") メソッドを起動して代わりにスラッシュを送信します。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトは、ユーザー入力の間に OrderDate 列にピリオド（"."）文字をスラッシュ（"/"）に変換します。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+UltraGrid イベント領域には、次のイベント ハンドラが含まれます:
+
+* UltraGrid1.InitializeLayout - InitializeLayout イベントのコードは、OrderDate 列のドロップダウン カレンダーをオフにします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' ドロップダウン カレンダーをオフにします。
+	e.Layout.Bands(0).Columns("OrderDate").Style = ColumnStyle.Edit
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// ドロップダウン カレンダーをオフにします。
+	e.Layout.Bands[0].Columns["OrderDate"].Style = ColumnStyle.Edit;
+}
+----
+
+* UltraGrid1.KeyPress - KeyPress イベントのコードは、この文字が OrderDate 列にターゲットされているかどうかを確認するためにテストします。次に、文字がピリオド（"."）であるかどうかをテストして、e プロジェクトの Handled プロパティを True に設定すると、文字が処理されず、SendKeys.Send メソッドが呼び出されてスラッシュ（"/"）でピリオドが置き換えられます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_KeyPress(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.KeyPressEventArgs) _
+  Handles UltraGrid1.KeyPress
+	' OrderDate 列では、ピリオドをスラッシュに変えます。
+	Select Case Me.UltraGrid1.ActiveCell.Column.Key
+		Case "OrderDate"
+			If e.KeyChar = "." Then
+				e.Handled = True
+				SendKeys.Send("/")
+			End If
+	End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_KeyPress(object sender, 
+  System.Windows.Forms.KeyPressEventArgs e)
+{
+	// OrderDate 列では、ピリオドをスラッシュに変えます。
+	switch (this.ultraGrid1.ActiveCell.Column.Key)
+	{
+		case "OrderDate":
+			if(e.KeyChar.ToString() == ".")
+			{
+				e.Handled = true;
+				SendKeys.Send("/");
+			}
+			break;
+	}
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトは、ユーザー入力文字が入力したときにそれらの文字を変換する方法を示します。無効な文字をスローする/無効な入力を示すメッセージ ボックスを表示するの両方またはいずれか一方を実行するために同じ概念を使用できます。

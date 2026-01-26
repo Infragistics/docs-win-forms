@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "winvalidator-determine-if-a-value-is-in-a-specified-list",
+    "controlName": ["WinValidator"],
+    "tags": [],
+    "guid": "{ABDE68DD-5327-4361-9B2A-EAA01ACE5AFB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 値が指定したリストにあるかどうかを決定
+
+WinValidator™ は、ユーザーが提供するリストに固有の項目が含まれるかどうかを検証できます。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.containedinlistcondition.html[ContainedInListCondition] オブジェクトを使用して、Infragistics link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist.html[ValueList] オブジェクトまたは WinValidator 用のインボックス IList インタフェースのいずれかを提供して、エンド ユーザーの値をテストできます。したがって、それをリストに配置できれば、それに対してテストし、非常に用途の広いテスト パターンにできます。ContainedInListCondition を作成したら、残りの手順は WinValidator がサポートする他の条件のテストと非常に似ています（つまり link:{ApiPlatform}win{ApiVersion}~infragistics.win.operatorcondition.html[OperatorCondition]、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.rangecondition.html[RangeCondition]）。
+
+以下のコード例は、ContainedInListCondition オブジェクトの作成およびそれを WinTextEditor™ コントロールの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.validationsettings.html[ValidationSettings] オブジェクトに適用する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' Infragistics ValueList を作成します
+Dim theValueList As Infragistics.Win.ValueList = _
+	New Infragistics.Win.ValueList()
+' 既知の名前、システム カラーを ValueList に移植します。
+Dim color As String
+For Each color In  [Enum].GetNames(GetType(System.Drawing.KnownColor))
+   theValueList.ValueListItems.Add(color)
+Next color
+' 新しい ContainedInListCondition オブジェクトを作成し、そのリストを
+' 上記で作成した ValueList に設定します。データ値ではなく 
+' ディスプレイ テキストを使用して、一致があるかどうかを
+' 決定します。
+Dim listCondition As Infragistics.Win.ContainedInListCondition = _
+	New Infragistics.Win.ContainedInListCondition( _
+		theValueList, _
+		Infragistics.Win.ListItemMatchMode.DisplayText)
+' WinTextEditor コントロールと関連付けられた ValidationSettings
+' オブジェクトを取得します。
+Dim vs As Infragistics.Win.Misc.ValidationSettings = _
+	Me.UltraValidator1.GetValidationSettings(Me.UltraTextEditor1)
+' WinTextEditor の条件を上記で作成した 
+' ContainedInListCondition に設定します。
+vs.Condition = listCondition
+----
+
+*C# の場合：*
+
+----
+// Infragistics ValueList を作成します
+Infragistics.Win.ValueList theValueList = 
+	new Infragistics.Win.ValueList();
+// 既知の名前、システム カラーを ValueList に移植します。
+foreach (string color in Enum.GetNames(typeof(System.Drawing.KnownColor)))
+{
+	theValueList.ValueListItems.Add(color);
+}
+// 新しい ContainedInListCondition オブジェクトを作成し、そのリストを
+// 上記で作成した ValueList に設定します。データ値ではなく 
+// ディスプレイ テキストを使用して、一致があるかどうかを
+// 決定します。
+Infragistics.Win.ContainedInListCondition listCondition =
+	new Infragistics.Win.ContainedInListCondition(
+		theValueList,
+		Infragistics.Win.ListItemMatchMode.DisplayText);
+// WinTextEditor コントロールと関連付けられた ValidationSettings
+// オブジェクトを取得します。
+Infragistics.Win.Misc.ValidationSettings vs =
+	this.ultraValidator1.GetValidationSettings(this.ultraTextEditor1);
+// WinTextEditor の条件を上記で作成した 
+// ContainedInListCondition に設定します。
+vs.Condition = listCondition;
+----

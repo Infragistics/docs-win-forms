@@ -1,0 +1,36 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2021 Volume 2 の新機能
+
+=== Visual Studio 2022 のサポート
+=== $$.NET$$ Core 6.0 のサポート
+
+=== カテゴリ チャート、ファイナンシャル チャート、データ チャート、地理マップ:
+- 同じチャート内の複数のシリーズにどのマーカー タイプを割り当てるかを設定するための link:{DataChartLink}.MarkerAutomaticBehavior.html[MarkerAutomaticBehavior] を追加しました。
+- 凡例で表されるすべてのシリーズのバッジの形状を設定するための link:{DataChartLink}.LegendItemBadgeShape.html[LegendItemBadgeShape] を追加しました。
+- 凡例のすべてのシリーズにバッジの複雑さを設定するための link:{DataChartLink}.LegendItemBadgeMode.html[LegendItemBadgeMode] を追加しました。
+
+=== データ チャート シリーズと地理マップ シリーズ:
+- 凡例で表される特定のシリーズにバッジの形状を設定するための `LegendItemBadgeShape` を追加しました。
+- 凡例の特定のシリーズにバッジの複雑さを設定するための `LegendItemBadgeMode` を追加しました。
+
+=== カテゴリ チャートとファイナンシャル チャート:
+- CategoryChart に link:{CategoryChartNamespace}.shared{ApiProp}{ApiPlatform}win.description.xychartdescription{ApiProp}XAxisLabelLocation.html[XAxisLabelLocation] プロパティを追加しました。
+- 十字線をカスタマイズするための link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}CrosshairsLineThickness.html[CrosshairsLineThickness] およびその他のプロパティを追加しました。
+- 十字線の注釈をカスタマイズするための link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}CrosshairsAnnotationXAxisBackground.html[CrosshairsAnnotationXAxisBackground] およびその他のプロパティを追加しました。
+- 最終値の注釈をカスタマイズするための link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}FinalValueAnnotationsBackground.html[FinalValueAnnotationsBackground] およびその他のプロパティを追加しました。
+- シリーズの塗りつぶし (エリア チャートなど) の不透明度を変更するための link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}AreaFillOpacity.html[AreaFillOpacity] を追加しました。
+- マーカーの厚さを変更するための link:{CategoryChartNamespace}.ultradatachart{ApiProp}{CategoryChartNamespace}.ultradomainchart{ApiProp}MarkerThickness.html[MarkerThickness] を追加しました。
+
+=== 機能拡張
+チャートの凡例のシリーズの簡略化された図形で、円、線、または四角のみを表示します。これは、チャートの `LegendItemBadgeMode` プロパティを `MatchSeries` 列挙値に設定することで元に戻すことができます。
+
+=== 地理マップ
+- 凡例で地理的シリーズを表すためのサポートを追加しました。

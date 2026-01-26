@@ -1,0 +1,87 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-customize-grid-section-of-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": ["How Do I"],
+    "guid": "{B2AA5754-A8C2-49CD-9991-268B7DDEC635}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGanttView のグリッド セクションのカスタマイズ
+
+このトピックは、WinGanttView™ のグリッド セクションの外観とユーザー操作を変更するために適用可能な設定を説明します。 コントロールのグリッド セクションは、ツリーのような構造でタスクとタスク情報を表示します。 グリッド部分内のセル、列、列ヘッダー、行、および行セレクターの外観は、コントロールの link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~gridsettings.html[GridSettings] オブジェクトによってカスタマイズできます。
+
+以下の例のコードは、タスクとタスク詳細を表示するフォームに UltraGanttView コントロールをドロップしてあることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+' GanttView のグリッド領域のすべてのセルのデフォルト外観を設定します。
+Me.ultraGanttView1.GridSettings.CellAppearance.BackColor = Color.BlanchedAlmond
+' GanttView のグリッド領域のすべての列ヘッダーのデフォルト外観を設定します。
+Me.ultraGanttView1.GridSettings.ColumnHeaderAppearance.ThemedElementAlpha = Alpha.Transparent
+Me.ultraGanttView1.GridSettings.ColumnHeaderAppearance.BackColor = Color.Gray
+' GanttView のグリッド領域のリソース名列の Visible 位置を 1 に位置します。
+Me.ultraGanttView1.GridSettings.ColumnSettings(TaskField.Resources).VisiblePosition = 1
+' GanttView のグリッド領域の Duration 列のデフォルト外観を設定します。
+Me.ultraGanttView1.GridSettings.ColumnSettings(TaskField.Duration).CellAppearance.BackColor = Color.Plum
+' GanttView のグリッド領域の行セレクターの外観を設定します。
+Me.ultraGanttView1.GridSettings.RowSelectorAppearance.BackColor = Color.SkyBlue
+' GanttView のグリッド領域の Row セレクター スタイルを設定します。
+Me.ultraGanttView1.GridSettings.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButtonFixedSize
+' GanttView のグリッド領域の特定なタスクのデフォルト行外観を設定します。
+Me.ultraGanttView1.CalendarInfo.Tasks(0).GridSettings.RowAppearance.BackColor = Color.Gray
+' GanttView のグリッド領域の特定な列の特定な Task のデフォルト セル外観を設定します
+Me.ultraGanttView1.CalendarInfo.Tasks(0).Tasks(0).GridSettings.CellSettings(TaskField.Name).Appearance.BackColor = Color.Lime
+' GanttView のグリッド領域で列移動を無効にします。
+Me.ultraGanttView1.GridSettings.AllowColumnMoving = False
+' GanttView のグリッド領域の選択した行に選択オーバーレイを設定します。
+Me.ultraGanttView1.GridSettings.SelectionOverlayBorderColor = Color.Red
+Me.ultraGanttView1.GridSettings.SelectionOverlayBorderThickness = 4
+Me.ultraGanttView1.GridSettings.SelectionOverlayColor = Color.Green
+----
+
+*C# の場合：*
+
+----
+// GanttView のグリッド領域のすべてのセルのデフォルト外観を設定します。
+this.ultraGanttView1.GridSettings.CellAppearance.BackColor = Color.BlanchedAlmond;
+// GanttView のグリッド領域のすべての列ヘッダーのデフォルト外観を設定します。
+this.ultraGanttView1.GridSettings.ColumnHeaderAppearance.ThemedElementAlpha = Alpha.Transparent;
+this.ultraGanttView1.GridSettings.ColumnHeaderAppearance.BackColor = Color.Gray;
+// GanttView のグリッド領域のリソース名列の Visible 位置を 1 に位置します。
+this.ultraGanttView1.GridSettings.ColumnSettings[TaskField.Resources].VisiblePosition = 1;
+// GanttView のグリッド領域の Duration 列のデフォルト外観を設定します。
+this.ultraGanttView1.GridSettings.ColumnSettings[TaskField.Duration].CellAppearance.BackColor = Color.Plum;
+// GanttView のグリッド領域の行セレクターの外観を設定します。
+this.ultraGanttView1.GridSettings.RowSelectorAppearance.BackColor = Color.SkyBlue;
+// GanttView のグリッド領域の Row セレクター スタイルを設定します。
+this.ultraGanttView1.GridSettings.RowSelectorHeaderStyle = Infragistics.Win.UltraWinGrid.RowSelectorHeaderStyle.ColumnChooserButtonFixedSize;
+// GanttView のグリッド領域の特定なタスクのデフォルト行外観を設定します。
+this.ultraGanttView1.CalendarInfo.Tasks[0].GridSettings.RowAppearance.BackColor = Color.Gray;
+// GanttView のグリッド領域の特定な列の特定な Task のデフォルト セル外観を設定します this.ultraGanttView1.CalendarInfo.Tasks[0].Tasks[0].GridSettings.CellSettings[TaskField.Name].Appearance.BackColor = Color.Lime;
+// GanttView のグリッド領域で列移動を無効にします。
+this.ultraGanttView1.GridSettings.AllowColumnMoving = false;
+// GanttView のグリッド領域の選択した行に選択オーバーレイを設定します。
+this.ultraGanttView1.GridSettings.SelectionOverlayBorderColor = Color.Red;
+this.ultraGanttView1.GridSettings.SelectionOverlayBorderThickness = 4;
+this.ultraGanttView1.GridSettings.SelectionOverlayColor = Color.Green;
+----
+
+image::Images/WinGanttView_Customize_Grid_Section_of_WinGanttView_01.png[]
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView のチャート領域でタイムライン間隔を設定]

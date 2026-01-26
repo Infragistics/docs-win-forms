@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-presentation-layer-framework-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9600894B-883D-4EEB-B0E7-3EFCD0DB2643}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-12T15:09:08Z"
+}
+|metadata|
+////
+
+= Presentation Layer Framework 2007.1
+
+以下のリンクをクリックして、2007 Volume 1 リリースの Presentation Layer Framework™ に追加された Presentation Layer Framework の新しい拡張を学習してください。
+
+* link:win-infragistics-windows-forms-now-supports-64-bit-operating-systems-whats-new-20071.html[{ProductName} は 64 ビット オペレーティング システムをサポートする]

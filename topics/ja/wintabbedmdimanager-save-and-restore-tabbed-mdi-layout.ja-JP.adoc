@@ -1,0 +1,105 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-save-and-restore-tabbed-mdi-layout",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": ["Layouts"],
+    "guid": "{9C079CBE-8436-4B5F-AAD1-C9C70D243BBB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= タブ付き MDI レイアウトの保存と復元
+
+タブ付き MDI アプリケーションの現在のレイアウトは、タブ位置とタブ グループも含めてストレージ ストリームに保存し、後で再利用できます。この機能を使用すると、アプリケーションの状態をセッション間で保存する手段をユーザーに提供したり、アプリケーションのカスタマイズした画面を必要に応じて提供したりできます。
+
+[NOTE]
+====
+*注：* タブ付き MDI インタフェースのレイアウトを保存する際は、配置情報のみが保持され、フォームやフォームに格納されているデータは保持されません。レイアウトを保存してから再ロードするまでの間にアプリケーション内のフォームの数が変化した場合、それらの変化はレイアウトに反映されません。タブ付き MDI インタフェースを以前の状態に正確に復元するためには、アプリケーションの状態をレイアウト保存時の状態と同じにする必要があります。
+====
+
+StoreTab および RestoreTab イベントを処理する必要があります。詳細は、 link:wintabbedmdimanager-tab-serialization.html[「タブのシリアル化」]を参照してください。
+
+TabbedMDIManager のレイアウトを保存およびロードするためにツールバーの Toolclick イベントを使用するには、以下に従ってください。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraToolbarsManager1_ToolClick(ByVal sender As System.Object, _
+  ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) _
+  Handles UltraToolbarsManager1.ToolClick
+	If e.Tool.Key = "Load" Then
+		' ファイル ストリームを作成します。
+		Dim fs As FileStream
+		Try
+			' 指定したファイルを探します。
+			fs = New FileStream(System.IO.Path.Combine(Application.StartupPath, _
+			  "..\ExtraFiles\TabbedMDILayout.dat"), FileMode.Open)
+			fs.Seek(0, IO.SeekOrigin.Begin)
+			' レイアウトをファイルからロードします。
+			Me.UltraTabbedMdiManager1.LoadFromBinary(fs)
+		Catch ex As Exception
+		Finally
+			If Not fs Is Nothing Then
+				' ファイル ストリームを閉じます。
+				fs.Close()
+			End If
+		End Try
+	ElseIf e.Tool.Key = "Save" Then
+		' ファイル ストリームを作成します。
+		Dim fs As New FileStream("TabbedMDILayout.dat", FileMode.OpenOrCreate)
+		fs.Seek(0, SeekOrigin.Begin)
+		' レイアウトをファイル ストリームに保存します。
+		Me.UltraTabbedMdiManager1.SaveAsBinary(fs)
+		' ファイル ストリームを閉じます。
+		fs.Close()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraToolbarsManager1_ToolClick(object sender, 
+  Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
+{
+	if(e.Tool.Key == "Load")
+	{
+		// ファイル ストリームを作成します。
+		FileStream fs = null; 
+		// ファイルが存在する場合
+		if (!File.Exists("C:/TabbedMDILayout.dat")) 
+			return; 
+		try 
+		{ 
+			// 指定したファイルを探します。
+			fs = new FileStream(System.IO.Path.Combine(Application.StartupPath, 
+			  @"..\..\ExtraFiles\TabbedMDILayout.dat"), FileMode.Open);
+			fs.Seek(0, SeekOrigin.Begin); 
+			// ファイルからレイアウトをロードします。
+			this.ultraTabbedMdiManager1.LoadFromBinary(fs); 
+		} 
+		finally 
+		{ 
+			if (!(fs == null)) 
+			{ 
+				// ファイル ストリームを閉じます。  
+				fs.Close(); 
+			} 
+		} 
+	}
+	else if(e.Tool.Key =="Save")
+	{
+		// ファイル ストリームを作成します。
+		FileStream fs = new FileStream(@"TabbedMDILayout.dat", FileMode.OpenOrCreate); 
+		fs.Seek(0, SeekOrigin.Begin); 
+		// レイアウトをファイル ストリームに保存します。
+		this.ultraTabbedMdiManager1.SaveAsBinary(fs); 
+		// Closes the file stream
+		fs.Close();
+	}
+}
+----

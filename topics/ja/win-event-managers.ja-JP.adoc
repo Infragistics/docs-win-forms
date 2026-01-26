@@ -1,0 +1,158 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-event-managers",
+    "controlName": [],
+    "tags": ["Events","How Do I"],
+    "guid": "{93563A27-8BDE-4AAA-98E8-2DB305732A4B}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= イベント マネージャ
+
+PLF ベースのコントロールの中には、自身のイベントを一時的に無効にしたり、イベントが発生しているかどうかをチェックしたりする便利な機能を公開しているものがあります。次のサンプル コードでは、このような機能の使用方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        If Me.ultraGrid1.ActiveRow Is Nothing Then Return
+        Dim eventManager As GridEventManager
+' グリッドのイベント マネージャを取得します。
+' ここでは、イベントの発生を防ぐため、イベント マネージャを使用して
+' イベントを一時的に無効にしています。これは、
+' ひとつ以上のプロパティがコード内に設定されていて、
+' 通常どおりイベントが発生すると不要なコードや 
+' 意図とは逆の結果を招くコードが実行される場合に
+' 役立ちます。
+        '
+' 注:デフォルトでは、すべてのイベントが有効になっています。
+        eventManager = Me.ultraGrid1.EventManager
+' Before/AfterSelectChange イベントを無効にします。
+        eventManager.SetEnabled(GridEventIds.BeforeSelectChange, False)
+        eventManager.SetEnabled(GridEventIds.AfterSelectChange, False)
+' アクティブ行の選択状態を切り替えます。
+' 注:アクティブ行の選択状態を切り替えると、通常は Before/AfterSelectChange 
+' イベントが発生します。ただし、上記のコードによってイベントが無効になっているため、
+' Before/AfterSelectChange イベントは発生しません。
+        Me.ultraGrid1.ActiveRow.Selected = Not Me.ultraGrid1.ActiveRow.Selected
+' Before/AfterSelectChange イベントを再び有効にします。
+        eventManager.SetEnabled(GridEventIds.BeforeSelectChange, True)
+        eventManager.SetEnabled(GridEventIds.AfterSelectChange, True)
+' AllEventsEnabled プロパティを使用すると、１ 行のコードですべてのイベントを
+' 有効/無効に設定できます。イベントがすべて無効の場合、 
+' AllEventsEnabled プロパティは False を返します。
+        If eventManager.AllEventsEnabled = False Then
+            eventManager.AllEventsEnabled = True
+        End If
+' イベントが有効か無効かを確認する手段として、
+' 'IsEnabled' メソッドも提供されます。
+        If False = eventManager.IsEnabled(GridEventIds.BeforeSelectChange) Then
+            eventManager.SetEnabled(GridEventIds.BeforeSelectChange, True)
+        End If
+' また、グリッド イベント マネージャは、オーバーロードされた 'IsEnabled' および 'SetEnabled' メソッドも公開します。 
+' これらのメソッドはイベント グループを取得し、 
+' たとえば 'Before' イベントや 'After' イベントをすべて一度に有効/無効
+' にできます。グループ内の
+' イベントがすべて無効の場合、'IsEnabled' メソッドは false を
+' 返します。
+        If False = eventManager.IsEnabled(EventGroups.BeforeEvents) Then
+            eventManager.SetEnabled(EventGroups.BeforeEvents, True)
+        End If
+        eventManager.SetEnabled(EventGroups.AfterEvents, True)
+' 'InProgress' メソッドは、指定されたイベントが現在発生している 
+' 場合に true を返します。これは
+' アプリケーションのさまざまの箇所から呼び出せるメソッドで、
+' 呼び出し元を特定する際に
+' 役立つ場合があります。
+        If eventManager.InProgress(GridEventIds.BeforeSelectChange) Then
+            ' ... 
+        End If
+' UltraCombo および UltraDropDown コントロールは、 
+' カスタム イベント用のイベント マネージャも提供します。ただし、
+' カスタム イベント マネージャにはイベントが少ないため、
+' イベントのグループを制御する、オーバーロードされた 
+' 'IsEnabled' および 'SetEnabled' メソッドは提供されません。
+        Dim comboManager As ComboEventManager
+        comboManager = Me.ultraCombo1.EventManager
+        comboManager.SetEnabled(ComboEventIds.BeforeDropDown, True)
+        Dim dropDownManager As DropDownEventManager
+        dropDownManager = Me.UltraDropDown1.EventManager
+        dropDownManager.SetEnabled(DropDownEventIds.AfterCloseUp, True)
+    End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+private void button2_Click(object sender, System.EventArgs e)
+{
+	if ( this.ultraGrid1.ActiveRow == null )
+		return;
+	// グリッドのイベント マネージャを取得します。
+	// ここでは、イベントの発生を防ぐため、イベント マネージャを使用して
+	// イベントを一時的に無効にしています。これは、
+	// ひとつ以上のプロパティがコード内に設定されていて、
+	// 通常どおりイベントが発生すると不要なコードや 
+	// 意図とは逆の結果を招くコードが実行される場合に
+	// 役立ちます。
+	//
+	// 注:デフォルトでは、すべてのイベントが有効になっています。
+	GridEventManager eventManager = this.ultraGrid1.EventManager;
+	// Before/AfterSelectChange イベントを無効にします。
+	eventManager.SetEnabled( GridEventIds.BeforeSelectChange, false );
+	eventManager.SetEnabled( GridEventIds.AfterSelectChange, false );
+	// アクティブ行の選択状態を切り替えます。
+	// 注:アクティブ行の選択状態を切り替えると、通常は Before/AfterSelectChange 
+	// イベントが発生します。ただし、上記のコードによってイベントが無効になっているため、
+	// Before/AfterSelectChange イベントは発生しません。
+	this.ultraGrid1.ActiveRow.Selected = !this.ultraGrid1.ActiveRow.Selected;
+	// Before/AfterSelectChange イベントを再び有効にします。
+	eventManager.SetEnabled( GridEventIds.BeforeSelectChange, true );
+	eventManager.SetEnabled( GridEventIds.AfterSelectChange, true );
+	// AllEventsEnabled プロパティを使用すると、１ 行のコードですべてのイベントを
+	// 有効/無効に設定できます。イベントがすべて無効の場合、 
+	// 'AllEventsEnabled' プロパティは false を返します。
+	if ( !eventManager.AllEventsEnabled )
+		eventManager.AllEventsEnabled = true;
+	// イベントが有効か無効かを確認する手段として、
+	// 'IsEnabled' メソッドも提供されます。
+	if ( !eventManager.IsEnabled(GridEventIds.BeforeSelectChange ) )
+		eventManager.SetEnabled(GridEventIds.BeforeSelectChange, true );
+	// また、グリッド イベント マネージャは、オーバーロードされた 'IsEnabled' および 'SetEnabled' メソッドも公開します。 
+	// これらのメソッドはイベント グループを取得し、  
+	// たとえば 'Before' イベントや 'After' イベントをすべて一度に有効/無効
+	// にできます。グループ内の
+	// イベントがすべて無効の場合、'IsEnabled' メソッドは false を
+	// 返します。
+	if ( !eventManager.IsEnabled(EventGroups.BeforeEvents ) )
+		eventManager.SetEnabled(EventGroups.BeforeEvents, true );
+	eventManager.SetEnabled(EventGroups.AfterEvents, true );
+	// 'InProgress' メソッドは、指定されたイベントが現在発生している 
+	// 場合に true を返します。これは
+	// アプリケーションのさまざまの箇所から呼び出せるメソッドで、
+	// 呼び出し元を特定する際に
+	// 役立つ場合があります。
+	if ( eventManager.InProgress( GridEventIds.BeforeSelectChange ) )
+	{
+		// ... 
+	}
+	// UltraCombo および UltraDropDown コントロールは、 
+	// カスタム イベント用のイベント マネージャも提供します。ただし、
+	// カスタム イベント マネージャにはイベントが少ないため、
+	// イベントのグループを制御する、オーバーロードされた 
+	// 'IsEnabled' および 'SetEnabled' メソッドは提供されません。
+	ComboEventManager comboManager = this.ultraCombo1.EventManager;
+	comboManager.SetEnabled( ComboEventIds.BeforeDropDown, true );
+	DropDownEventManager dropDownManager = this.ultraDropDown1.EventManager;
+	dropDownManager.SetEnabled( DropDownEventIds.AfterCloseUp, true );
+}
+----

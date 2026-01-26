@@ -1,0 +1,75 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= NET 9 のバイナリ フォーマッタ
+
+{ProductName} バージョン 2024.2 のリリースに伴い、.NET 9 フレームワークのサポートを開始しました。この .NET リリースの一環として、Microsoft は多くの Infragistics Windows Forms コントロールで使用されていた BinaryFormatter を廃止しました。これにより、さまざまな Save メソッドや Load メソッドで大きな破壊的変更が発生し、{ProductName} ツールセットに影響を及ぼします。このクラスの削除については link:https://devblogs.microsoft.com/dotnet/binaryformatter-removed-from-dotnet-9/[Microsoft サイト (英語)] に記載されています。
+
+BinaryFormatter を利用した Infragistics コントロールでさまざまな Save メソッドと Load メソッドを引き続き使用するには、アプリケーションで次の操作を実行する必要があります。
+
+1. `System.Runtime.Serialization.Formatters` NuGet パッケージを参照としてプロジェクトに含めます。
+2. .csproj または .vbproj ファイル内の `EnableUnsafeBinaryFormatterSerialization` フラグを `true` に設定します。
+
+NuGet 互換性パッケージの組み込みと `EnableUnsafeBinaryFormatterSerialization` フラグの設定に関する詳細情報は、link:https://learn.microsoft.com/ja-jp/dotnet/standard/serialization/binaryformatter-migration-guide/compatibility-package[Microsoft のサイトのこのトピック]に記載されています。
+
+上記の要件の両方が満たされていない状態で、BinaryFormatter を使用するさまざまな Save メソッドまたは Load メソッドのいずれかを使用しようとすると、Serialize メソッドまたは Deserialize メソッドが BinaryFormatter クラスから呼び出されるため、.NET 9 フレームワークは例外をスローします。ここで例外を処理し、動作が失敗したことを示す次の `MessageBox` が表示されます。
+
+image:images/binary-formatter-error.png[]
+
+この `MessageBox` を表示したくない場合は、`Infragistics.Win.Utilities` クラスから設定してこのデフォルトの動作を変更できるプロパティがいくつかあります。これらのプロパティは以下にリストされます。
+
+- `BinaryFormatterDisplaysUnsupportedMessage`: これを `false` に設定すると、`MessageBox` は表示されなくなります。
+- `BinaryFormatterUnsupportedExceptionEnabled`: これを `true` に設定すると、BinaryFormatter 機能が強制的に続行され、BinaryFormatter の例外がスローされます。
+
+== 影響を受ける機能
+
+BinaryFormatter の削除によって影響を受ける機能の一覧は次のとおりです。
+
+* 次のクラスの `SaveAsBinary()` メソッドと `LoadFromBinary()` メソッド:
+** `CarouselPath`
+** `NavigationBarPreviousLocationsCollection` (`UltraNavigationBar.PreviousLocations` によって公開)
+** `UltraCarousel` 
+** `UltraDataSource`
+** `UltraDockManager`
+** `UltraExplorerBar`
+** `UltraListView`
+** `UltraLiveTileView`
+** `UltraPrintDocument`
+** `UltraRadialMenu`
+** `UltraTabbedMdiManager`
+** `UltraTilePanel`
+** `UltraToolbarsManager`
+** `UltraTree`
+** `VisitedLinksCollection` (`FormattedLinkEditor.VisitedLinks` によって公開)
+
+* 次のクラスの `Save()` メソッドと `Load()` メソッド:
+** `UltraGridLayout` (`UltraGrid.Layout` によって公開)
+** `UltraOfficeNavBar`
+** `UltraPaletteInfo` `UltraPaletteInfo` (`UltraColorPalette.PaletteInfo` によって公開)
+
+* `SaveSettings`、`SaveComponentSettings`、および `LoadComponentSettings` を介して自動的に保存または読み込むコントロールとコンポーネント:
+** `UltraToolbarsManager`
+** `UltraTree`
+
+* 次のクラスの `SaveTabOrderAsBinary()` メソッドと `LoadTabOrderFromBinary()` メソッド:
+** `UltraTabControl`
+** `UltraTabStripControl`
+
+* `UltraWinSchedule` ファミリのコントロールに関連する次のクラスの `FromBinary()`、`FromBytes()`、`Save()`、および `Load()` メソッド:
+** `Appointment`
+** `AppointmentRecurrence`
+** `Note`
+** `Owner (`SaveDateSettings()` と `LoadDateSettings()` も含む)
+** `Project`
+** `Task`
+** `UltraCalendarInfo`
+** `UltraCalendarLook`
+
+* `AppStylistRuntime` での画像やカーソルなどのオブジェクトの保存と読み込み
+* `ConditionValueAppearanceForm` 要素の内部 `StyleAppearanceManager` は、以前に使用したスタイルを保存および取得するために BinaryFormatter を使用しました。

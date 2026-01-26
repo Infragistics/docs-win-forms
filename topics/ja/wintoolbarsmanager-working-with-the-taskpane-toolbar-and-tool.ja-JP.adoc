@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-working-with-the-taskpane-toolbar-and-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{5EAA8038-2B8A-4ED0-BE63-8CA28CD3570C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タスクペインのツールバーおよびツールの操作
+
+以下のリンクをクリックすると、3 部構成のチュートリアルが表示され、TaskPane ツールバーとツールの操作方法を知ることができます。
+
+* link:wintoolbarsmanager-creating-a-taskpane-toolbar-part-1-of-3.html[TaskPane ツールバーの作成（パート 1）]
+* link:wintoolbarsmanager-adding-the-taskpane-tool-to-the-taskpane-toolbar-part-2-of-3.html[動的に作成された TaskPane ツールバーへの TaskPane ツールの追加（パート 2）]
+* link:wintoolbarsmanager-adding-controls-to-the-taskpane-tool-part-3-of-3.html[TaskPane ツールへのコントロールの追加（パート 3）]

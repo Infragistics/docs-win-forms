@@ -1,0 +1,95 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-apply-the-wizard-style",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{317B78B0-BC84-45DA-9F32-9CAF0538A547}",  
+    "buildFlags": [],
+    "createdOn": "2005-01-11T00:00:00Z"
+}
+|metadata|
+////
+
+= ウィザード スタイルを適用
+
+ウィザード タブのスタイルは、エレメントに対して特定の UI スタイルを適用されないので一意です。その代わり、エレメントの全体領域はタブページで使用されるので、タブ ページに配置するコントロールを使用してタブ間を移動する機能を供給する必要があります。通常、オンスクリーン インタフェースの一部として [次へ]、[戻る]、[完了] ボタンが表示される製品のインストール プログラムで共通のウィザード スタイルのインタフェースを構成するためにこれを使用します。
+
+ユーザーがインタフェースをナビゲートできるようにするコントロール用のコードも供給する必要があります。簡単なウィザード スタイル インタフェースを実現するコードの例を次に示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnFirst_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnFirst.Click
+	' 最初のタブを選択します。
+	Me.UltraTabControl1.SelectedTab = Me.UltraTabControl1.Tabs(0)
+End Sub
+Private Sub btnLast_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnLast.Click
+	' 最後のタブを選択します。
+	Me.UltraTabControl1.SelectedTab = _
+	  Me.UltraTabControl1.Tabs(UltraTabControl1.Tabs.Count - 1)
+End Sub
+Private Sub btnPrevious_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnPrevious.Click
+	' 前のタブを選択します。
+	' 最初のタブが選択されていない場合
+	If Me.UltraTabControl1.SelectedTab.Index > 0 Then
+		' 前のタブのインデックスを探して選択します。
+		Me.UltraTabControl1.SelectedTab = _
+		  Me.UltraTabControl1.Tabs(Me.UltraTabControl1.SelectedTab.Index - 1)
+	End If
+End Sub
+Private Sub btnNext_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnNext.Click
+	' 次のタブを選択します。
+	' 最後のタブが選択されていない場合
+	If Me.UltraTabControl1.SelectedTab.Index < (Me.UltraTabControl1.Tabs.Count - 1) Then
+		' 次のタブのインデックスを探して選択します。
+		Me.UltraTabControl1.SelectedTab = _
+		  Me.UltraTabControl1.Tabs(Me.UltraTabControl1.SelectedTab.Index + 1)
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnFirst_Click(object sender, System.EventArgs e)
+{
+	// 最初のタブを選択します。
+	this.ultraTabControl1.SelectedTab = this.ultraTabControl1.Tabs[0];
+}
+private void btnLast_Click(object sender, System.EventArgs e)
+{
+	// 最後のタブを選択します。
+	this.ultraTabControl1.SelectedTab = 
+	  this.ultraTabControl1.Tabs[this.ultraTabControl1.Tabs.Count - 1];
+}
+private void btnPrevious_Click(object sender, System.EventArgs e)
+{
+	// 前のタブを選択します。
+	// 最初のタブが選択されていない場合
+	if (this.ultraTabControl1.SelectedTab.Index > 0) 
+	{
+		// 前のタブのインデックスを探して選択します。
+		this.ultraTabControl1.SelectedTab = 
+		  this.ultraTabControl1.Tabs[this.ultraTabControl1.SelectedTab.Index - 1];
+	}
+}
+private void btnNext_Click(object sender, System.EventArgs e)
+{
+	// 次のタブを選択します。
+	// 最後のタブが選択されていない場合
+	if (this.ultraTabControl1.SelectedTab.Index < (this.ultraTabControl1.Tabs.Count - 1)) 
+	{
+		// 次のタブのインデックスを探して選択します。
+		this.ultraTabControl1.SelectedTab =
+		  this.ultraTabControl1.Tabs[ultraTabControl1.SelectedTab.Index + 1];
+	}
+}
+----
+
+image::images\WinTab_Apply_the_Wizard_Style_01.png[]

@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-hottracking-grouped-rows",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Selection","Styling"],
+    "guid": "3a2032c2-eb9d-4589-8cce-80f4d5e5197a",  
+    "buildFlags": [],
+    "createdOn": "2012-12-21T19:31:47.6135745Z"
+}
+|metadata|
+////
+
+= グループ化された行のホット トラッキング
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、`HotTracking` 機能、および `GroupBy` モードの行で `HotTracking` の外観を有効にするコード例を提供します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-groupby-view.html[GroupBy ビュー]
+|このトピックは、 _WinGrid™_ コントロールの `GroupBy` ビュー機能を使用して、直観的でパワフルにデータを管理する方法を説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref343696074,Grouped Rows でホット トラッキングを有効化>>
+
+** <<_Ref341518673,概要とプレビュー>>
+** <<_Ref341518679,プロパティ設定>>
+
+* <<_Ref341518687,関連コンテンツ>>
+
+[[_Ref341518665]]
+[[_Ref343696074]]
+== Grouped Rows でホット トラッキングを有効化
+
+[[_Ref341518673]]
+
+=== 概要とプレビュー
+
+`HotTracking` は、マウス ポイントが要素の上をパスする場合に UI 要素の外観を向上します。この場合、UI 要素が行、および link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowhottrackappearance.html[GroupByRowHotTrackAppearance] プロパティの設定に基づいてグループ化 され、結果を強調表示して表示します。 _WinGrid™_   は、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride_members.html[UltraGridOverride] オブジェクトの link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~groupbyrowhottrackappearance.html[GroupByRowHotTrackAppearance] プロパティについて紹介します。このプロパティは、グループ化された行で `HotTracked` 項目の外観を定義できます。
+
+image::images/WinGrid_HotTracking_Grouped_Rows_1.png[]
+
+[[_Ref341518679]]
+
+=== プロパティ設定
+
+`HotTracking` の外観をコードで設定します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.GroupByRowHotTrackAppearance.BackColor = Color.LightSkyBlue;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.GroupByRowHotTrackAppearance.BackColor = Color.LightSkyBlue
+----
+
+[[_Ref341518687]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-styling-wingrid.html[WinGrid のスタイル設定]
+|このトピックは、 _WinGrid_ コントロールのスタイルを設定するさまざまな方法について説明します。
+
+|====

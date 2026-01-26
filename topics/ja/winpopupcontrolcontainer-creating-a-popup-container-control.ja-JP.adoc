@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpopupcontrolcontainer-creating-a-popup-container-control",
+    "controlName": ["WinPopupControlContainer"],
+    "tags": ["How Do I"],
+    "guid": "{37457135-7DCC-43B6-BF90-BB3423408BF1}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ポップアップ コンテナ コントロールの作成
+
+WinPopupControlContainer のポップアップ コントロール コンテナは、画面領域を節約しながらユーザーに機能を提供する効果的な手段を提供します。このコントロールを使用すると、アプリケーションのインタフェースの一部をひとつのコントロール（コマンド ボタンなど）内で表すことができます。ユーザーがボタンをクリックすると、コンテナが開き、そのインタフェースを構成するコントロールが表示されます。ポップアップ コンテナ コントロールの一般的な使用方法には、カスタムのリスト ビュー、テーブルベースのインタフェース、グラフィカルなオプション選択などがあります。
+
+ポップアップ コンテナ コントロールは、デザインタイムにはユーザー インターフェイスを表示しません。PopupControl プロパティを使用して、ポップアップ コントロールとして表示したいコントロールを割り当てます。
+
+[NOTE]
+====
+*注:* このコントロールは、他のコントロールを含むパネルなどのフォームまたはコンテナ コントロールになることができます。
+====
+
+ランタイムに、エレメントの Show メソッドを起動し、現在のマウスの位置または指定されたポイントにコンテンツを表示します。
+
+ポップアップ コンテナ エレメントを使用するには、次の手順に従ってください。
+
+[start=1]
+. Visual Studio ツールボックスにある pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapopupcontrolcontainer.html[UltraPopupControlContainer]"]  エレメントをダブルクリックします。エレメントが現在のフォームのコンポーネント トレイ領域に追加されます。
+[start=2]
+. ポップアップとして表示するコントロールを追加するか、またはそのコントロールがすでにフォーム上に存在することを確認します。これは、他のコントロールを含むコンテナ コントロール（Panel など）でもかまいません。また、そのフォーム自身にすることもできます。
+[start=3]
+. UltraPopupControlContainer エレメントを選択し、プロパティ グリッドで pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultrapopupcontrolcontainer~popupcontrol.html[PopupControl]"]  プロパティを指定します。コントロールのドロップダウン リストから、ポップアップ コンテナとして機能するコントロールを選択します。
+[start=4]
+. ポップアップ コンテナを表示するために使用するコントロールをフォームに追加します。通常、これはボタン コントロールになります。
+
+[NOTE]
+====
+*注:* ポップアップ コンテナとしてフォーム自身を選択した場合は、ポップアップを表示するための UI を別のフォームに配置し、フォームを相互参照するために必要に応じてコードを変更する必要があります。
+====
+
+[start=5]
+. 次のコードを、ポップアップを表示するボタン（またはその他のコントロール）の Click イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnShowTree_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnShowTree.Click
+	Me.UltraPopupControlContainer1.Show()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnShowTree_Click(object sender, System.EventArgs e)
+{
+	this.ultraPopupControlContainer1.Show();
+}
+----
+
+[start=6]
+. プロジェクトを実行します。フォームが表示されたとき、ポップアップとして指定したコントロールは非表示になっています。ボタンをクリックすると、現在のマウスの位置にポップアップ コントロールが表示されます。ポップアップにコンテナ コントロールを使用した場合は、コンテナ コントロールに含まれる任意のコントロール、またはコンテナ内の任意の場所をクリックでき、ポップアップは画面上に残ります。ポップアップ コントロールの外をクリックすると、ポップアップ コントロールが閉じます。
+
+image::images\WinPopupControlContainer_Creating_a_Popup_Container_Control_01.png[]

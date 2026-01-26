@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "winspellchecker-display-the-spell-checker-dialog-box",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Validation"],
+    "guid": "{5E9B1ED7-53D8-43EB-9A1F-A3B69B3A68DA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スペル チェッカー ダイアログ ボックスを表示
+
+スペルチェック ダイアログ ボックスを表示するには 3 つの方法があります。ダイアログ ボックスを表示するためのひとつの方法は、WinSpellChecker コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~mode.html[Mode]"]  プロパティを DialogOnValidating または DialogOnValidatingAndAsYouType に設定することです。このプロパティをこれらの 2 つの列挙体のひとつに追加することで、RichTextBox の Validating イベントが発生すると、スペルチェックされたテキストに不明なワードが存在すれば、スペルチェッカー ダイアログ ボックスが表示します。
+
+スペル チェッカー ダイアログ ボックスを表示するための他の 2 つの方法は、2 つのメソッドを使用することです。最初のメソッド pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~showspellcheck.html[ShowSpellCheck]"]  は、スペル チェッカー ダイアログ ボックスを非モーダルで表示します。2 番目のメソッド pick:[win-forms="link:{ApiPlatform}win.ultrawinspellchecker{ApiVersion}~infragistics.win.ultrawinspellchecker.ultraspellchecker~showspellcheckdialog.html[ShowSpellCheckDialog]"]  は、スペル チェッカー ダイアログ ボックスをモーダルで表示します。これらのメソッドはオーバーロードされ、ダイアログ ボックスのオーナーおよびスペルチェックしたいオブジェクトのひとつまたは 2 つのパラメータを取ることができます。このトピックでは、spellCheckTarget オブジェクトだけを取る 2 番目のオーバーロードについて説明します。
+
+ボタン クリック イベント内で、非モーダル ダイアログ ボックスを表示するために以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+'フォームの richTextBox に spellchecker ダイアログを非モーダルで表示します。
+'このオーバーロードは、spellCheckTarget オブジェクトまたはスペルチェックしたい
+'フォームのオブジェクトのひとつのパラメータを取ります。
+'モーダル ダイアログを表示したい場合は、 
+' ShowSpellCheckDialog メソッドを使用します。
+Me.UltraSpellChecker1.ShowSpellCheck(Me.RichTextBox1)
+----
+
+*C# の場合：*
+
+----
+//フォームの richTextBox に spellchecker ダイアログを非モーダルで表示します。
+//このオーバーロードは、spellCheckTarget オブジェクトまたはスペルチェックしたい
+//フォームのオブジェクトのひとつのパラメータを取ります。
+//モーダル ダイアログを表示したい場合は、 
+//ShowSpellCheckDialog メソッドを使用します。
+this.ultraSpellChecker1.ShowSpellCheck(this.richTextBox1);
+----

@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-adding-multiple-controls-to-a-tile-in-wintilepanel",
+    "controlName": ["WinTimelineView"],
+    "tags": ["How Do I"],
+    "guid": "{D9A04106-8EF8-4F48-9832-5A3DF31379EB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTilePanel でタイルに複数のコントロールを追加
+
+複数のコントロールで構成されるタイルを持ちたいケースがしばしばあります。そのような場合、Panel、UltraPanel、User コントロールまたは一部の他のコンテナを pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile.html[Tile]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~control.html[Control]"]  プロパティに指定し、次に複数のコントロールをそのコンテナに追加します。
+
+このトピックは、WinPanel™ コンテナ コントロールを使用して WinTilePanel™ で複数のコントロールをタイルに追加できる方法を示します。これは UltraTilePanel、UltraPanel、UltraDayView、および UltraWeekView コントロールがフォームにドロップされていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+'新しいタイルを作成して UltraTilePanel.Tiles コレクションに追加します 
+Dim tile1 As New Infragistics.Win.Misc.UltraTile()
+tile1.BackColor = Color.PaleTurquoise 
+tile1.Name = "Tile1" 
+Me.ultraTilePanel1.Tiles.Add(tile1) 
+' タイルに UltraPanel コンテナ コントロールを配置します
+tile1.Control = Me.ultraPanel1 
+Me.ultraPanel1.AutoScroll = True 
+' コントロールを ultraPanel コンテナ コントロールに追加します 
+Me.ultraPanel1.ClientArea.Controls.Add(Me.ultraDayView1) 
+Me.ultraPanel1.ClientArea.Controls.Add(Me.ultraWeekView1)
+----
+
+*C# の場合：*
+
+----
+//新しいタイルを作成して UltraTilePanel.Tiles コレクションに追加します
+Infragistics.Win.Misc.UltraTile tile1 = new Infragistics.Win.Misc.UltraTile();
+tile1.BackColor = Color.PaleTurquoise;
+tile1.Name = "Tile1";
+this.ultraTilePanel1.Tiles.Add(tile1);
+// タイルに UltraPanel コンテナ コントロールを配置します
+tile1.Control = this.ultraPanel1;
+this.ultraPanel1.AutoScroll = true;
+----
+
+----
+// コントロールを ultraPanel コンテナ コントロールに追加します
+this.ultraPanel1.ClientArea.Controls.Add(this.ultraDayView1);
+this.ultraPanel1.ClientArea.Controls.Add(this.ultraWeekView1);
+----
+
+image::Images/WinTilePanel_Adding_Multiple_Controls_to_a_Tile_in_WinTilePanel_01.png[]
+
+== 関連トピック
+
+* link:wintilepanel-add-and-remove-tiles-through-code.html[コードでタイルを追加および削除]

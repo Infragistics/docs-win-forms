@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlayoutmanager-using-the-winlayoutmanager components",
+    "controlName": ["WinLayoutManagers"],
+    "tags": ["How Do I","Layouts"],
+    "guid": "{F6686794-5A84-43C1-B063-76D22230D8DE}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinLayoutManager コンポーネントを使用
+
+WinGridBagLayoutManager および WinFlowLayoutManager コンポーネントは、Infragistics.Win アセンブリで公開されます。以下のセクションでは、これらのクラスの機能と実装について説明します。
+
+行レイアウト機能を達成するために、レイアウト エンジンが Win アセンブリに存在します。このクラスは pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.layoutmanagerbase.html[LayoutManagerBase]"]  という名前の基本レイアウト マネージャ クラスから派生しています。これは、項目のコレクションおよびそれぞれについて基本レイアウト情報（たとえば、各項目の最小サイズや推奨サイズ）を含むレイアウト エンジンに必要なインフラストラクチャを公開します。
+
+フロー レイアウト マネージャ クラスは、希望のサイズに基づいて左から右に（向きによっては上から下に）項目を整列するシンプルな配置を提供します。GridBagLayoutManager は、追加の制限セットを使用して項目の最適サイズと配置方法を決定します。GridBagLayoutManager は、非表示の列と行のセットを使用して、それらのセルに基づいて項目を配置する方法として見なすことができます。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint.html[GridBagConstraint]"]  の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.igridbagconstraint~originx.html[Origin X]"]  と pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~originy.html[Origin Y]"]  に基づいて、項目はこれらのセル内に配置されます。各項目は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~spanx.html[Span X]"]  と pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~spany.html[Span Y]"]  を使用してひとつ以上の列または行をスパンできます。レイアウト マネージャは、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.ilayoutitem~minimumsize.html[Minimum Size]"] 、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.ilayoutitem~preferredsize.html[Preferred Size]"]  だけでなく Insets、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~weightx.html[Weight X]"]  および pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~weighty.html[Weight Y]"]  を含む、使用可能な領域に基づいた各列および行の範囲とすべての表示項目の制約を決定します。　　GridBagConstraint の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~anchor.html[Anchor]"]  プロパティは項目が _「セル」_ の中でどこに位置するかを決定します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.gridbagconstraint~fill.html[Fill]"]  プロパティは項目を _「セル」_ の限界まで広げるかを決定します。
+
+== レイアウトの実装
+
+pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutmanagerbase.html[ControlLayoutManagerBase]"]  は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.layoutmanagerbase.html[LayoutManagerBase]"]  のインスタンスを利用してコントロールを配置するコンポーネントに対して、基本的なフレームワークを提供します。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutmanagerbase~containercontrol.html[ContainerControl]"]  プロパティは、要素によってその子コントロールを配置する親コントロールを示します。このクラスは、.Net エクステンダ プロバイダ アーキテクチャを使用して、ContainerControl に含まれる各コントロールに 3 つのプロパティ（MinimumSize、PreferredSize、IncludeInLayout）を追加します。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutitem~includeinlayout.html[IncludeInLayout]"]  は、コントロールが要素によって操作されるかどうか（サイズと位置を変更されるかどうか）を示します。デフォルト値は True で、関連する ContainerControl に含まれるすべてのコントロールが要素によって操作されます。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutitem~preferredsize.html[PreferredSize]"]  は、コントロールの最適な表示サイズを示します（デフォルトでは、このサイズはコントロールの現在のサイズになります）。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutitem~minimumsize.html[MinimumSize]"]  は、コントロールの最小の表示サイズを示します。
+
+[NOTE]
+====
+*注:* コントロールの位置のみに影響する特定のレイアウト マネージャは、この情報は利用できません。
+====
+
+image::Images/Understanding_the_Layout_Managers_02.png[]
+
+上記の組み込みの .Net 固有のレイアウト関連プロパティと同様に、子コントロールが配置される ContainerControl の領域は、コントロールの DisplayRectangle プロパティによって指定されます。この領域は、コンポーネントの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutmanagerbase~margins.html[Margins]"]  プロパティを使用してさらに調整できます。子コントロールは、ContainerControl の LayoutEvent イベントが呼び出されたとき、また項目のさまざまな制約が変更されたときに自動的に配置されます。要素には、自動配置を一時的に中止するためのメソッド（ pick:[win-forms="Suspend Layout"]  と pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.controllayoutmanagerbase~resumelayout.html[Resume Layout]"] ）があります。これは、子コントロールの制約に多くの変更を加える場合に役立ちます（たとえば、最適サイズをすべて変更する場合や、GridBagConstraint の Origin や Span を変更する場合など）。
+
+UltraFlowLayoutManager と UltraGridBagLayoutManager という 2 つのレイアウト エレメントが Misc アセンブリに存在します。
+
+UltraFlowLayoutManager は、FlowLayoutManager を利用してコントロールを配置します。このコンポーネントには、4 つの追加プロパティ（Orientation、Alignment、Horizontal Gap、Vertical Gap）があります。pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultraflowlayoutmanager~orientation.html[Orientation]"]  は、コントロールを水平（左から右）と垂直（上から下）のどちらの方向に配置するかを示します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.flowlayoutmanager~alignment.html[Alignment]"]  プロパティは、たとえば、Orientation が水平に、そして配置がデフォルト値である Center に設定されていて、ひとつの列のすべてのコントロールがコントロールの表示エリアの中でセンタリングされているとき、項目がそれらの論理的な列でどのように配置されるかを決定します。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.flowlayoutmanager~verticalgap.html[Vertical Gap]"]  と pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.layout.flowlayoutmanager~horizontalgap.html[Horizontal Gap]"]  は、項目間の垂直および水平方向の間隔と、表示領域の端とその内部項目との間隔を決定します。
+
+UltraGridBagLayoutManager は、グリッドの行レイアウト機能のために記述されたものと同じ GridBagLayoutManager エンジンを利用します。このエレメントは、.Net エクステンダ プロバイダ アーキテクチャを使用して、ContainerControl に含まれる各コントロールに GridBagConstraint プロパティを追加します。これは Infragistics.Win.Layout.GridBagConstraint クラスのインスタンスで、項目のサイズと位置を管理するために GridBagLayoutManager によって使用される追加情報を提供します。

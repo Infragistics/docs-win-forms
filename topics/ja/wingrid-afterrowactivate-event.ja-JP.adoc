@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-afterrowactivate-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{A12A8272-7E9B-4268-9653-595903CEF0B5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= AfterRowActivate イベント
+
+多くの場合、Application Views は Parent 情報とともにグリッドを表示するように設計されており、その下に Child 情報を表示するもうひとつのグリッドがある場合が多々あります。これは Parent / Child 表示として知られています。Parent Grid で AfterRowActivate イベントを使用することにより、簡単な方法で関連するレコードで Child Grid をロードできます。以下のコード例は、Parent Grid の AfterRowActivate を処理したり、移動するために現在のアクティブ行で Customer オブジェクトを使用したり、現在の Customer に属する Account レコードを取得することができる方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_AfterRowActivate( _
+   ByVal sender As System.Object, _
+   ByVal e As System.EventArgs) _
+   Handles UltraGrid1.AfterRowActivate
+   If Me.UltraGrid1.ActiveRow Is Nothing Then Return
+   Dim theEmployee As Employee = _
+      DirectCast(Me.UltraGrid1.ActiveRow.ListObject, Employee)
+   Me.UltraChildGrid.DataSource = Nothing
+   Me.UltraChildGrid.DataSource = _
+      DataManager.GetAccountsByEmployee(theEmployee)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_AfterRowActivate(
+   object sender, EventArgs e)
+{
+   if (this.ultraGrid1.ActiveRow == null) return;
+   Employee theEmployee = 
+      this.ultraGrid1.ActiveRow.ListObject as Employee;
+   this.ultraChildGrid.DataSource = null;
+   this.ultraChildGrid.DataSource = 
+      DataManager.GetAccountsByEmployee(theEmployee);
+}
+----
+
+AfterRowActivate イベント引数は現在アクティブな行を提供しないので、Grid.ActiveRow プロパティを通して WinGrid 自体で直接現在アクティブな行にアクセスする必要があります。このイベントで null になる可能性が非常に低い場合であっても、Grid.ActiveRow が null または Nothing であるかどうかを確認することは常に賢明です。現在の Entity からのデータで他の Form フィールド（Labels、TextBoxes など）を移植するなど、このイベントには多くの用途があります。

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winmaskededit-api-overview",
+    "controlName": ["WinMaskedEdit"],
+    "tags": ["API"],
+    "guid": "{83B3F25A-F3A8-4AB9-92C4-4092C5B7D03D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、Infragistics の API ドキュメントに直接リンクされています。
+
+=== WinMaskedEdit 名前空間：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit_namespace.html[Infragistics.Win.UltraWinMaskedEdit]"]
+
+=== キー クラス：
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinmaskededit{ApiVersion}~infragistics.win.ultrawinmaskededit.ultramaskededit.html[UltraMaskedEdit]"]

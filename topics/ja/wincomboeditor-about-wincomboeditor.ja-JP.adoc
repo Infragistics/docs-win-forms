@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincomboeditor-about-wincomboeditor",
+    "controlName": ["WinComboEditor"],
+    "tags": ["Getting Started"],
+    "guid": "{2A941920-9C19-4745-94F2-065E1CDDB7FA}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinComboEditor について
+
+WinComboEditor コントロールは、.NET Framework で提供される組み込みのコンボ ボックスとよく似た機能を提供しますが、以下のような追加機能があります。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* Item Appearance のサポート - コントロールの Items コレクションの各項目およびその編集部分はそれぞれ独自の Appearance オブジェクトを持ちます。これは、各項目に異なるフォント、前景色、背景色、画像などを設定できることを意味します。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* インク対応 -  ユーザーは、FreeForm のインク入力と仮想キーボード入力を切り替て使用できます。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+* MRU（Most Recently Used）機能 - 最近入力された情報のリストを表示します。
+* 単語の自動補完 - 新しい文字を入力したときに、項目リストの項目に合わせて編集部分が自動的に更新されます。
+* リストの並べ替え - 複数の並べ替えオプションがあり、ドロップダウン リストに値リスト項目を表示するときの項目の並べ替え方法を指定できます。
+* リストへの制限の検証 - 入力値がコントロールの ValueList の値ではない場合、検証時にコントロールにフォーカスを保持するかどうかを指定します。
+
+image::Images/WinEditors_Control_Overview_05.png[]

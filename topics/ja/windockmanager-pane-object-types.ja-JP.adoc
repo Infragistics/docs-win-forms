@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-pane-object-types",
+    "controlName": ["WinDockManager"],
+    "tags": ["API"],
+    "guid": "{4AA519BC-21AD-4A21-876B-AAEA79AD3815}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ペイン オブジェクトのタイプ
+
+WinDockManager コントロールには、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablecontrolpane.html[DockableControlPane]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablegrouppane.html[DockableGroupPane]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockareapane.html[DockAreaPane]"]  という 3 種類のペイン オブジェクトがあります。これらのオブジェクトはそれぞれ pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase.html[DockablePaneBase]"]  オブジェクトから派生しています。各ペイン タイプの用途を次にまとめて示します。
+
+DockableControlPane は、3 つのオブジェクトの中で最も単純なオブジェクトです。ひとつのコントロールを保持します。
+
+DockableGroupPane にはひとつまたは複数のペインのコレクションが含まれます。それぞれは DockableControlPane か、または別の DockableGroupPane のいずれかにすることができます。このようにして、ネストされたペインのレベル数を無限に設定できます。
+
+DockAreaPane は、ペインのファミリーの中で最も上位のエレメントであり、DockableGroupPane と DockableControlPane の両方を追加できます。WinDockManager に追加できるのは DockAreaPane だけです。DockAreaPane は、アプリケーションのどの側にペインがドッキングされるのかを指定するコントロールです。コントロールをそれぞれ別の側にドッキングする場合は、それらを別々の DockAreaPane に追加する必要があります。

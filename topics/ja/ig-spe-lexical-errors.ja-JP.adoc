@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-lexical-errors",
+    "controlName": [],
+    "tags": [],
+    "guid": "166f6165-6054-466e-8d87-12f9b8033439",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.060851Z"
+}
+|metadata|
+////
+
+= 字句エラー
+
+== トピックの概要
+
+=== 目的
+
+このグループのトピックでは、Syntax Parsing Engine で検出された字句エラーについて説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349568126, 字句エラー >>
+* <<_Ref349568130, 概要 >>
+* <<_Ref349568133, 例 >>
+* <<_Ref349568137, 関連コンテンツ >>
+
+[[_Ref349568126]]
+== 字句エラー
+
+[[_Ref349568130]]
+
+=== 概要
+
+字句エラーは、比較的簡単に検出され、字句アナライザーは同様に簡単に回復します。字句エラーのタイプは実際には 1 つのみです。現在のレクサー状態における終端記号には現在の位置でテキストを表すことができるものはありません。
+
+[[_Ref349568133]]
+
+=== 例
+
+以下の終端記号を持つと定義されるデフォルト レクサー状態の文章校正を考えてみましょう。
+
+* NewLineSymbol – 新しい行の 1 行に一致します。 「\r」、「\n」または「\r\n」。
+* WhitespaceSymbol – 1 つ以上のスペースまたはタブ文字に一致します。
+* Identifier – ゼロ個以上のアンダースコア、文字または数字が続くアンダースコアまたは文字に一致します。
+
+解析対象のドキュメント コンテンツ: “x += y;”
+
+レクサーがこのドキュメント コンテンツを解析している間、まず <Identifier, “x”> と <WhitespaceToken, “ ”> のトークンを作成します。次に、「+」文字が来ます。それを認識できる終端記号はありません。レクサーは、いずれかの終端記号で一致されるテキストに来るまで非認識文字を読み続けます。この場合、「=」の後ろのスペースです。レクサーは、次にすべての連続した文字を集め、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~unrecognizedsymbol.html[Grammar.UnrecognizedSymbol] により公開される特殊な記号と一致させます。そのためこのドキュメント コンテンツのフル トークン ストリームは以下のようになります。
+
+<Identifier, “x”> <WhitespaceToken, “ ”> <*UnrecognizedToken*, “+=”> <WhitespaceToken, “ ”> <Identifier, “y”> <*UnrecognizedToken* , “;”> <EndOfStreamToken>
+
+[[_Ref349568137]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-errors.html[構文エラー]
+|このグループのトピックでは、Syntax Parsing Engine が検出した構文エラーについて説明します。
+
+| link:ig-spe-error-handling-strategies.html[エラー処理方法]
+|このグループのトピックでは、構文エラーを識別するためにドキュメントの構文解析中に使用する方法について説明します。
+
+| link:ig-spe-semantic-errors.html[セマンティック エラー]
+|このトピックは、Syntax Parsing Engine によって処理されないセマンティック エラーについて説明します。
+
+|====

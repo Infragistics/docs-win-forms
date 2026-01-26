@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-composite-ui-application-block-cab-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{3E6C23B6-F003-440B-A034-15B9F164DEBC}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Composite UI Application Block (CAB) 2006.1
+
+Composite UI Application Block（CAB）フレームワークは、Microsoft Visual Studio® 2005（.NET Framework 2.0）をベースとしたソース コードベースのコンポーネントです。
+
+次のリンクをクリックすると、Infragistics CAB Extensibility Kit™ の新しいアドオンについて説明したトピックを読むことができます。このアドオンは、CABフレームワークとのシームレスな統合を提供し、これにより豊富な機能を持つ {ProductName} ツールセットを使用して高度なスマート クライアント アプリケーションを開発することができます。
+
+link:win-infragistics-cab-extensibility-kit-add-on-whats-new-2006-1.html[Infragistics CAB Extensibility Kit アドオン]

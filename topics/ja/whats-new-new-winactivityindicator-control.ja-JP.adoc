@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-new-winactivityindicator-control",
+    "controlName": [],
+    "tags": [],
+    "guid": "{B1525F3D-12F4-4612-8697-5F38FD6FADAB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinActivityIndicator コントロール
+
+新しい WinActivityIndicator™ コントロールは、時間がかかる場合があるバックグラウンド プロセスをエンドユーザーに通知する方法を提供します。 ダウンロードやデータベース トランザクションのような時間のかかる操作が原因となって、これらの操作が実行中にユーザー インターフェイス（UI）が応答を中止したかのようになる場合があります。 WinActivityIndicator は、シーンの背後でプロセスが実行中であることを示すインタラクティブなユーザー インターフェイスとして機能することができます。
+
+WinActivityIndicator は、その他すべての Infragistics コントロールと同じように簡単にカスタマイズ可能でスタイル オプション（AppStyling および Appearance オブジェクト）を持つことに加えて、アクティビティ インジケーター機能を提供する軽量なコントロールです。
+
+image::images/WinActivityIndicator_What's_New_01.png[]
+
+== 関連トピック
+
+* link:winactivityindicator-understanding-winactivityindicator.html[WinActivityIndicator の理解]
+* link:winactivityindicator-using-winactivityindicator.html[WinActivityIndicator の使用]

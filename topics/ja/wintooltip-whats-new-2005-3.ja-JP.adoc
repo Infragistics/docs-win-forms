@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltip-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{E4C36D60-895B-481A-B604-F3A33DF583BF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolTip 2005.3
+
+Win アセンブリに新規の WinToolTip コンポーネントが追加されました。Microsoft ツールチップとまったく同様にこれらのコンポーネントをフォーム上に配置できますが、いくつか次のような機能が追加されています。
+
+* バルーンチップのサポート
+* 説明文が表示される前の時間とそれが見えている時間を制御
+* コンポーネント上または個々のコントロール レベルで指定できるデフォルト可能な設定
+* 外観設定
+* ツールチップの位置の制御
+
+image::images/WinToolTips_Walk_Through_Setting_Up_ToolTips_At_Design-Time_04.png[]
+
+== 関連トピック
+
+link:wintooltipmanager-control-the-timing-of-a-tooltips-appearance.html[ツールチップの外観のタイミングを制御]
+
+link:wintooltipmanager-set-up-wintooltipmanager-at-design-time.html[WinToolTipManager をデザインタイムに設定]
+
+link:wintooltipmanager-set-up-wintooltipmanager-at-run-time.html[WinToolTipManager をランタイムに設定]
+
+link:wintooltipmanager-tooltip-styles.html[ツールチップのスタイル]

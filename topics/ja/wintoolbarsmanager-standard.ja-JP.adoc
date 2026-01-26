@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-standard",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{2D7241EC-E507-4B24-9311-1F1383CAD3FC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 標準
+
+標準ツールバーについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-standard-about-the-standard-toolbar.html[標準ツールバーについて] -- 標準ツールバーを紹介します。

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-windesktopalert-using-windesktopalert",
+    "controlName": ["WinDesktopAlert"],
+    "tags": [],
+    "guid": "{9442626A-1215-4A47-AAD5-2B7B9190A9BB}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:07:24Z"
+}
+|metadata|
+////
+
+= WinDesktopAlert の使用
+
+このセクションには、WinDesktopAlert™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:windesktopalert-add-sound-to-the-desktop-alert-window.html[サウンドをデスクトップ アラート ウィンドウに追加]
+* link:windesktopalert-change-the-default-animation-of-the-desktop-alert-window.html[デスクトップ アラート ウィンドウのデフォルトのアニメーションを変更]
+* link:windesktopalert-creating-a-desktop-alert-reminder-for-winschedule.html[WinSchedule のデスクトップ アラート リマインダを作成]
+* link:windesktopalert-display-a-desktop-alert-window.html[デスクトップ アラート ウィンドウを表示]
+* link:windesktopalert-display-a-desktop-alert-window-anywhere-on-the-screen.html[画面の任意の場所にデスクトップ アラート ウィンドウを表示]
+* link:windesktopalert-display-a-desktop-alert-window-on-a-second-monitor.html[第二のモニタにデスクトップ アラート ウィンドウを表示]
+* link:windesktopalert-exposing-openalert-windows.html[OpenAlert ウィンドウの公開]
+* link:windesktopalert-pin-a-desktop-alert-window-to-the-screen.html[デスクトップ アラーム ウィンドウを画面に固定]
+* link:windesktopalert-resize-the-desktop-alert-window.html[デスクトップ アラート ウィンドウのサイズを変更]

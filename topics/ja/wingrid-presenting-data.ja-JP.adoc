@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-presenting-data",
+    "controlName": ["WinGrid"],
+    "tags": ["Data Presentation","Grids"],
+    "guid": "{5F0EA55B-DE73-42C6-BBE0-6C76D463D896}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:29:05Z"
+}
+|metadata|
+////
+
+= データの提示
+
+このセクションでは、WinGrid™ コントロールでデータを提示する方法に関するトピックへのリンクを提供します。
+
+* link:wingrid-about-data-filters.html[データ フィルターについて]
+* link:wingrid-adding-row-description-using-row-preview.html[行プレビューを使用して行説明を追加]
+* link:wingrid-adding-unbound-columns-to-wingrid.html[アンバインド列を WinGrid に追加]
+* link:wingrid-assign-specific-widths-to-columns.html[列に特定の幅を指定]
+* link:wingrid-auto-fit-columns-using-the-autofitstyle-property.html[AutoFitStyle プロパティを使用して列を自動調整]
+* link:wingrid-conditional-formatting.html[条件付きフォーマット]
+* link:wingrid-collapsible-child-bands.html[縮小可能な子バンド]
+
+* link:wingrid-displaying-a-picture-in-a-cell.html[セルでピクチャを表示]
+* link:wingrid-displaying-tooltips.html[ツールチップを表示]
+* link:wingrid-displaying-an-ellipsis-for-truncated-cell-text.html[切り捨てられたセル テキストを示す省略記号を表示]
+* link:wingrid-displaying-an-image-in-a-cell-button.html[セル ボタンで画像を表示]
+* link:wingrid-displaying-multi-line-cells.html[複数行セルを表示]
+* link:wingrid-displaying-multi-line-rows.html[複数行の表示]
+* link:wingrid-display-store-values-using-valuelists.html[ValueLists を使用して値を表示および保存]
+* link:wingrid-formatting-cells-containing-dates.html[日付を含むセルのフォーマット]
+* link:wingrid-formatting-cells-containing-specific-number-of-characters.html[特定の文字数を含むセルのフォーマット]
+* link:wingrid-hiding-columns-and-groups.html[列およびグループを非表示]
+* link:wingrid-hyperlinks-in-wingrid-cells.html[WinGrid セルのハイパーリンク]
+* link:wingrid-localizing-cell-display-format.html[セルの表示書式をローカライズ]
+* link:wingrid-merging-cells-with-the-same-values.html[同じ値を持つセルのマージ]
+* link:wingrid-populating-a-valuelist.html[ValueList の移植]
+* link:wingrid-resizing-columns.html[列のサイズ変更]
+* link:wingrid-rotating-text-in-wingrids-column-headers.html[WinGrid の列ヘッダーでテキストを回転]
+* link:wingrid-setting-the-order-for-sibling-child-bands.html[兄弟子バンドの順序の設定]
+* link:wingrid-showing-wingrids-caption.html[WinGrid のキャプションを表示]
+* link:wingrid-using-custom-merge-cell-logic.html[カスタムのセル ロジックを使用]
+* link:wingrid-using-the-ieditordatafilter-interface-with-wingrid.html[WinGrid で IEditorDataFilter インタフェースを使用]
+* link:wingrid-wrapping-text-in-a-header.html[ヘッダのテキストの折り返し]
+* link:wingrid-working-with-column-positions.html[列位置の操作]

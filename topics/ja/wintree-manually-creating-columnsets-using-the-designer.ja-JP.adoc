@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-manually-creating-columnsets-using-the-designer",
+    "controlName": ["WinTree"],
+    "tags": ["Design Environment","How Do I"],
+    "guid": "{0CBB0E7E-1FB5-42D7-B030-B5C1003E5D47}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイナーを使用して手動で ColumnSets を作成
+
+*始める前に*
+
+WinTree™ はデータ ソースにバインドする、または列を手動で追加するのいずれかによって可能となるデータの列の表示をサポートします。いずれの方法も ColumnSets が作成されます。ColumnSets についてさらに知るために、 link:wintree-wintree-columnsets-overview.html[「WinTree ColumnSets の概要」]トピックを参照してください。WinTree コントロールは異種データを表示することを可能にする各親ノードに異なる ColumnSets を持つことができます。たとえば、最初の Tree Node は Customer スキーマを表し、2 番目の Tree Node は Employee スキーマ表すというようにすることができます。
+
+*達成すること*
+
+このトピックでは、WinTree デザイナーを使用して列とノードの作成方法を学習します。
+
+*次の手順を実行します。** Microsoft® Visual Studio® Toolbox から、UltraTree をフォームにドラッグ アンド ドロップします。
+* WinTree スマートタグをクリックして ［ColumnSets の編集］を選択します。[UltraTreeColumnSet コレクション エディタ] ダイアログが表示します。
+* [追加] ボタンをクリックして、新しい UltraTreeColumnSet を追加します。[新しい UltraTreeColumnSet] ダイアログ ウィンドウが表示します。
+* Key プロパティに対して意味のある名前を入力します。この場合は Customers_ColumnSet です。これは ColumnSet に指定された名前です。
+
+image::Images/WinTree_Manually creating ColumnSets Using the Designer_01.png[]
+
+* [OK] をクリックします。
+* ColumnSet のプロパティ セクションで、Behavior ノードの下の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreecolumnset~columns.html[Columns]"]  プロパティを選択します。省略記号（...）ボタンをクリックします。
+
+image::Images/WinTree_Manually creating ColumnSets Using the Designer_02.png[]
+
+* [UltraTreeNodeColumn コレクション エディタ] ダイアログ ウィンドウが表示します。ColumnSet に追加する必要がある列はここで構成されます。[追加] ボタンをクリックします。Key "Column 1" のデフォルト列が作成されます。
+* 列の pick:[win-forms="link:{ApiPlatform}shared{ApiVersion}~infragistics.shared.keyedsubobjectbase~key.html[Key]"]  および Text プロパティを "FirstName" に設定します。また、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenodecolumn~datatype.html[DataType]"]  を System.String に変更します。
+* 上記の手順 7 と 8 を繰り返して、Customer_ColumnSet に列をさらに 3 列（LastName、ContactTitle および Address）追加して、Key プロパティと Text プロパティをそれぞれ指定します。
+
+image::Images/WinTree_Manually creating ColumnSets Using the Designer_03.png[]
+
+* [UltraTreeNodeColumn コレクション エディタ] ダイアログ ウィンドウと [UltraTreeColumnSet コレクション エディタ] ダイアログ ウィンドウで [OK] をクリックします。
+* WinTree コントロールのスマートタグで、[ノードの編集] を選択します。[UltraWinTree ノード エディタ] ダイアログが表示します。
+* ［ルートを追加］ボタンをクリックしてノードをひとつ追加し、Key プロパティと Text プロパティを "Customers" に設定します。
+
+image::Images/WinTree_Manually creating ColumnSets Using the Designer_04.png[]
+
+* pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.override.html[Override]"]  プロパティを指定して展開し、次に ColumnSet プロパティを指定してドロップダウンにリストされる "Customers_ColumnSet" を選択します。
+
+image::Images/WinTree_Manually creating ColumnSets using the Designer_05.png[]
+
+* [OK] をクリックします。
+* WinTree でスマートタグをクリックし、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~viewstyle.html[ViewStyle]"]  を FreeForm に設定します。これで WinTree は ColumnSet を配列して以下のスクリーンショットのようになるはずです。
+
+image::Images/WinTree_Manually creating ColumnSets Using the Designer_06.png[]
+
+* ColumnSet に追加されたすべての列にセル値を追加します。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraTree1.Nodes["Customers"].Cells["FirstName"].Value = "Bill"
+Me.ultraTree1.Nodes["Customers"].Cells["LastName"].Value = "Smith"
+Me.ultraTree1.Nodes["Customers"].Cells["ContactTitle"].Value = "Mr"
+Me.ultraTree1.Nodes["Customers"].Cells["Address"].Value = "59, Lackland Ave, Camden, New jersey"
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.Nodes["Customers"].Cells["FirstName"].Value = "Bill";
+this.ultraTree1.Nodes["Customers"].Cells["LastName"].Value = "Smith";
+this.ultraTree1.Nodes["Customers"].Cells["ContactTitle"].Value = "Mr";
+this.ultraTree1.Nodes["Customers"].Cells["Address"].Value = "59, Lackland Ave, Camden, New jersey";
+----
+
+* アプリケーションを実行します。フォームは以下のスクリーンショットのようになるはずです。
+
+image::Images/WinTree_Manually creating ColumnSets Using the Designer_07.png[]

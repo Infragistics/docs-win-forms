@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-expandingcollapsing-groups-in-different-modes",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{0213A7FD-1234-4BFA-A492-444B1B0702A1}",  
+    "buildFlags": [],
+    "createdOn": "2009-02-02T10:42:57Z"
+}
+|metadata|
+////
+
+= 異なるモードでグループを展開/縮小
+
+link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup.html[Group] オブジェクトで link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup~selected.html[Selected] プロパティを使用して Toolbox または Listbar モードのグループを開くまたは展開します。これらのモードで一度に展開できるグループはひとつだけです。
+
+Group オブジェクトで link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbargroup~expanded.html[Expanded] プロパティは複数のグループを一度に展開可能な ExplorerBar モードのみに適用できます。
+
+*Visual Basic の場合：*
+
+----
+' Listbar/Toolbox グループを開きます 
+  ultraExplorerBar1.Groups(0).Selected = True
+' ExplorerBar グループを縮小します 
+  ultraExplorerBar2.Groups(0).Expanded = False
+----
+
+*C# の場合：*
+
+----
+// Listbar/Toolbox グループを開きます 
+   ultraExplorerBar1.Groups[0].Selected = true;
+// ExplorerBar グループを縮小します
+   ultraExplorerBar2.Groups[0].Expanded = false;
+----

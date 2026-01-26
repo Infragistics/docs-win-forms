@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarlook-about-wincalendarlook",
+    "controlName": ["WinCalendarLook"],
+    "tags": ["Scheduling","Styling"],
+    "guid": "{DF83BC2D-6034-4176-98A9-E6E927900A79}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalendarLook について
+
+WinCalendarLook は、ひとつのコンポーネントを使用してすべてのビューにルック アンド フィールを提供することによって、WinSchedule コントロールとコンポーネントのさまざまなビューの使用を可能にする Windows Formsのコンポーネントです。したがって、個々のビューにスタイルを設定する必要がありません。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* 組み込みテーマ - 標準、Office 2003、および Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* 休日の外観 -- ビューに表示されるすべての休日に適用されるスタイルの設定を可能にします。
+
+image::images/WinCalendarLook_About_WinCalendarLook_01.png[]

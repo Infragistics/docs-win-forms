@@ -1,0 +1,76 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-using-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{1D1DFC8F-A843-4C81-940E-E5F1FCD9EE72}",
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:29:19Z"
+}
+|metadata|
+////
+
+= WinGrid の使用
+
+以下は簡単なタスク ベースのトピックからなるセクションの一覧です。これらのトピックでは WinGrid™ コントロールに関連する特定のタスクを実行する方法について説明しています。
+
+== link:wingrid-accessing-data.html[データ アクセス]™ 
+
+コントロールの主要な機能は、データの入力と表示です。WinGrid コントロールがデータへアクセスする方法を説明します。
+
+== link:wingrid-application-scenarios.html[アプリケーション シナリオ]
+
+リアルタイムのシナリオに関連するトピックをご覧いただけます。
+
+== link:wingrid-defining-layouts.html[レイアウトの定義]
+
+WinGrid を定義するさまざまなレイアウトに関するトピックが含まれます。
+
+== link:wingrid-dataerrorinfo-support.html[DataErrorInfo サポート]
+
+このトピックでは、DataErrorInfo 機能を紹介します。IDataSource インターフェイスに依存しないデータ検証を処理できます。
+
+== link:wingrid-editing-data.html[データの編集]
+
+WinGrid でデータを編集および構成する方法に関するトピックが含まれています。行や埋め込みエディターなどを追加する方法を説明するトピックが含まれます。
+
+== link:wingrid-filtering.html[フィルタリング]
+
+WinGrid™ は、データをフィルタリングして見やすいサイズで表示できます。WinGrid フィルタリングの詳細は、以上のリンクを参照してください。
+
+== link:wingrid-grouping.html[グループ化 (WinGrid)]
+
+WinGrid 内のデータをグループ化できます。詳細はこのセクションに従ってください。
+
+== link:wingrid-hottracking.html[ホット トラッキング (WinGrid)]
+
+WinGrid™ は、行、行セレクター、セル、列ヘッダー、およびグループ化行のホット トラッキング外観をサポートします。
+
+== link:wingrid-navigation-and-selection.html[ナビゲーションと選択]
+
+ナビゲーションや選択に WinGrid コントロールを設定する方法に関するトピックが含まれています。
+
+== link:wingrid-performance-guide.html[パフォーマンス ガイド]
+
+WinGrid で作業中のパフォーマンスの向上についての役立つ情報をご提供します。
+
+== link:wingrid-presenting-data.html[データの表示]
+
+データの表示方法と書式化について説明します。
+
+== link:wingrid-printing.html[印刷]
+
+WinGrid でのデータの印刷に関連したタスクが含まれます。
+
+== link:wingrid-sorting-overview.html[並べ替え (WinGrid)]
+
+WinGrid 内のデータを並べ替えることができます。詳細はこのセクションに従ってください。
+
+== link:wingrid-styling-wingrid.html[WinGrid のスタイル設定]
+
+WinGrid コントロールのスタイリングに関連する多数のトピックが含まれます。
+
+== link:wingrid-summaries.html[集計]
+
+このトピックは、列の計算を実行中に表示する集計を配置する方法について説明します。

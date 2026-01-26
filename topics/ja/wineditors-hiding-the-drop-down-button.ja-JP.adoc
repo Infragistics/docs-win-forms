@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-hiding-the-drop-down-button",
+    "controlName": ["WinEditors"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{9EFBEDCD-3E2E-4707-9BB6-C36D6E518FE6}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウン ボタンの使用
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinCalculatorDropDown
+* WinColorPicker
+* WinComboEditor
+* WinDateTimeEditor
+* WinFontNameEditor
+* WinTimeZoneEditor
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.editorwithtextdropdowncontrolbase~dropdownbuttondisplaystyle.html[DropDownButtonDisplayStyle]"]  プロパティを使用すると、エレメントにドロップダウン ボタンが表示されないようにすることができます。

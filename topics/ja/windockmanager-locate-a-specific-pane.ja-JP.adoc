@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-locate-a-specific-pane",
+    "controlName": ["WinDockManager"],
+    "tags": [],
+    "guid": "{22B69C69-6DFD-4AFC-9967-6D9E30FC53EB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ペインを特定する
+
+ピンの固定/解除、最大化、最小化などの変更をペインに加えるときは、最初に変更対象のペインを指定する必要があります。WinDockManager は、キー、x 座標と y 座標、およびコントロールでペインの場所を取得するために使用できるいくつかのメソッドを備えています。
+
+ペインを指定するための最も一般的な方法は、コントロールの指定です。以下のコードは、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~panefromcontrol.html[PaneFromControl]"]  メソッドを使用して、コントロールの DockLocation を見つけます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	MessageBox.Show(Me.UltraDockManager1.PaneFromControl(Me.UltraWeekView1).DockAreaPane. _
+	  DockedLocation.ToString())
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, System.EventArgs e)
+{
+	MessageBox.Show(this.ultraDockManager1.PaneFromControl(this.ultraWeekView1).DockAreaPane
+	  .DockedLocation.ToString());
+}
+----
+
+特定のペインを指定するために pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~panefromkey.html[PaneFromKey]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.ultradockmanager~panefromposition.html[PaneFromPosition]"]  メソッドを同様に使用することもできます。

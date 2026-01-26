@@ -1,0 +1,23 @@
+﻿////
+|metadata|
+{
+    "name": "win-deploying-your-application",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C9C35F8F-5E25-467F-914E-FCD35E07A849}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションの配備
+
+{ProductName} のコントロール/コンポーネントを含む .NET アプリケーションをコンパイルしたら、そのアプリケーションを配備する必要があります。Windows Forms アプリケーションは、一般的にこのアプリケーションを使用する個々のクライアント ワークステーションに配備します。
+
+以下のリンクをクリックして、さまざまな配備方法を学習します。
+
+* link:win-deployment-overview.html[配置の概要] -- Windows Forms アプリケーションに特定の {ProductName} コントロール/コンポーネントが組み込まれるときに配備する必要がある固有のリソースを概説するトピックへのリンクのリストが含まれます。
+* link:win-using-xcopy-deployment.html[XCOPY 配備を使用] -- XCOPY について紹介します。これは単純なコマンドライン ユーティリティで、ツリー構造全体をディスク上のある領域から別の領域にコピーします。XCOPY を使用してアプリケーションの {ProductName} コントロール/コンポーネントを配備する方法を確認してください。
+* link:win-using-global-assembly-cache-gac-deployment.html[グローバル アセンブリ キャッシュ（GAC）配備の使用] -- マシン上で動作するアプリケーションのアセンブリを格納するための中央の予約された場所、GAC について説明します。GAC を使用することで、複数のアプリケーション間でアセンブリを共有したり、同一マシン上で複数バージョンのアセンブリをインストールすることが可能になります。アプリケーションの {ProductName} コントロール/コンポーネントを GAC に配備する方法を学習してください。
+* link:win-using-no-touch-deployment.html[ノータッチ配備の使用] -- .NET Framework とともに導入された新技術、ノータッチ配備について説明します。ノータッチ配備はネットワーク上でのアプリケーションの配備を単純化し、集中化します。

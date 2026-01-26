@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-adding-controls-to-the-taskpane-tool-part-3-of-3",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{A97D89D6-F8D4-4CCB-8271-C3452CE72BD4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane ツールへのコントロールの追加（パート 3）
+
+このトピックでは、TaskPaneTool にコントロールを追加する方法について説明します。このトピックは、 link:wintoolbarsmanager-adding-the-taskpane-tool-to-the-taskpane-toolbar-part-2-of-3.html[「TaskPane ツールバーへの TaskPane ツールの追加（パート2）」]の続きです。
+
+[start=1]
+. コントロールを TaskPaneTool に追加するためには、そのコントロールがフォーム上に存在する必要があります。そのため、コントロールをフォームに追加します。pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar.html[UltraExplorerBar]"]  コントロールを TaskPaneTool に追加します。
+[start=2]
+. UltraExplorerBar コントロールをフォームに配置したら、それにグループと項目を追加します。これには link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar.html[UltraExplorerBar] のデザイナを使用できます。デザイナでグループと項目を追加するには、UltraExplorerBar を右クリックして [UltraExplorerBar デザイナ] を選択します。[UltraExplorerBar デザイナ] ダイアログで [グループと項目] タブを選択し、[グループの追加] をクリックしてから [項目の追加] をクリックし、希望の回数だけこのプロセスを繰り返します。
+
+[NOTE]
+====
+*注:* UltraExplorerBar コントロールの詳細は、 link:winexplorerbar-understanding-winexplorerbar.html[「WinExplorerBar の理解」]を参照してください。
+====
+
+image::Images/WinToolbars_Adding_Controls_to_TaskPaneTool_01.png[]
+
+[start=3]
+. UltraExplorerBar にグループと項目を追加したら、TaskPaneToolbar のヘッダで、使用可能な TaskPaneTool のリストを表示するドロップダウン矢印を選択します。マウスを下に移動して [TaskPaneTool1] を右クリックし、[コントロール] にマウスを移動します。[コントロール] をハイライト表示するとサイド メニューが現れて、TaskPaneTool に追加可能なコントロールのリストが表示されます。新しく作成した UltraExplorerBar を選択します。
+
+image::Images/WinToolbars_Adding_Controls_to_TaskPaneTool_02.png[]
+
+[start=4]
+. 上記で、UltraExplorerBar を選択しても、UltraExplorerBar はフォームから TaskPaneTool に移動しません。その代わりに、TaskPaneTool 上に "[コントロール ('UltraExplorerBar1 [UltraExplorerBar1]') はランタイムに表示されます。 ]" と表示されます。これは、デザインタイムにはコントロールの親は変更されない（つまり、内容領域には表示されない）ものの、フォームの実行時にはコントロールが内容領域に表示されることを意味します。ただし、他のコントロールをフォームに配置する際の邪魔になる場合は、コントロールを UltraTaskPaneToolbar の上に移動してもかまいません。
+[start=5]
+. プロジェクトをビルドして実行すると、TaskPaneTool の中に UltraExplorerBar コントロールが表示されます。
+
+image::Images/WinToolbars_Adding_Controls_to_TaskPaneTool_03.png[]
+
+[start=6]
+. コントロールを TaskPaneTool に追加する手順はこれですべてです。
+
+[NOTE]
+====
+*注:* TaskPaneTool に追加できるコントロールはひとつだけなので、複数のコントロールを追加したい場合は、それらをパネルまたはグループ ボックスに配置してから、それを TaskPaneTool に追加するコントロールとして選択します。たとえば、複数のボタンとテキスト ボックスが必要な場合は、それらすべてのコントロールを中に配置したパネルまたはグループ ボックスを作成してから、そのパネルまたはグループ ボックスを TaskPaneTool のコントロールとして選択します。
+====

@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "windockmanager-float-a-dockable-pane",
+    "controlName": ["WinDockManager"],
+    "tags": ["Layouts"],
+    "guid": "{8B35DCB2-02B8-49A0-B9B0-6B54DFE63573}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドック可能ペインをフロート
+
+WinDockManager では、pick:[win-forms="link:{ApiPlatform}win.ultrawindock{ApiVersion}~infragistics.win.ultrawindock.dockablepanebase.html[ペイン]"] にドッキングされているコントロールを、アプリケーションの端から離して画面上でフローティングさせることができます。ペインのフローティングはランタイムにコードの中から、またはペインのタイトル バーをドッキング領域からドラッグして取り除くことで、実行できます。
+
+ランタイムにペインをフローティングするには、ペインのタイトル バー上でマウスをクリックし、プレビュー輪郭線がどのドッキング可能領域にもスナップしない位置にドラッグします。マウス ボタンを離すと、ペインが固有のウィンドウにフローティング表示されます。
+
+ウィンドウをフローティングするには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub FloatingaWinDockManagerPane_Load(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraDockManager1.PaneFromControl(Me.UltraTree1).Float(True)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void FloatingaWinDockManagerPane_Load(object sender, System.EventArgs e)
+{
+	this.ultraDockManager1.PaneFromControl(this.ultraTree1).Float(true);
+}
+----

@@ -1,0 +1,67 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-deprecated-properties-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5BA8C945-F6A6-4071-A0CA-32982F43F311}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 放棄されたプロパティ
+
+大幅な改善や小さな変更を行う必要があるので、製品のライフ サイクルには時期というものが常にあります。これらの変更はアプリケーションに影響を及ぼす場合があります。{ProductName} 2006 Volume 2 では、いくつかのプロパティを廃止する必要がありました。これは新しい Application Styling Framework™ の結果です。これらのプロパティにはデフォルト値を持つ必要がありました。したがって、Boolean のタイプのプロパティは、DefaultableBoolean のタイプでなければなりませんでした。以下の表は廃止されたプロパティと置き換えられる新しいプロパティのリストです。
+
+== Infragistics.Win.UltraControlBase
+
+[options="header", cols="a,a"]
+|====
+|古いプロパティ [プロパティ タイプ]|新しいプロパティ [プロパティ タイプ]
+
+|FlatMode [bool]
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~useflatmode.html[UseFlatMode]"] [DefaultableBoolean]
+
+|SupportThemes [bool]
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracontrolbase~useosthemes.html[UseOsThemes]"] [DefaultableBoolean]
+
+|====
+
+== Infragistics.Win.UltraComponentControlManagerBase
+
+[options="header", cols="a,a"]
+|====
+|古いプロパティ [プロパティ タイプ]|新しいプロパティ [プロパティ タイプ]
+
+|FlatMode [bool]
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracomponentcontrolmanagerbase~useflatmode.html[UseFlatMode]"] [DefaultableBoolean]
+
+|SupportThemes [bool]
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultracomponentcontrolmanagerbase~useosthemes.html[UseOsThemes]"] [DefaultableBoolean]
+
+|====
+
+== Infragistics.Win.UltraWinScrollBar.ScrollBarLook
+
+[options="header", cols="a,a"]
+|====
+|古いプロパティ [プロパティ タイプ]|新しいプロパティ [プロパティ タイプ]
+
+|MinMaxButtonsVisible [bool]
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawinscrollbar.scrollbarlook~showminmaxbuttons.html[ShowMinMaxButtons]"] [DefaultableBoolean]
+
+|====
+
+== Infragistics.Win.UltraWinToolbarsManager.UltraToolbarsManager
+
+[options="header", cols="a,a"]
+|====
+|古いプロパティ [プロパティ タイプ]|新しいプロパティ [プロパティ タイプ]
+
+|AlwaysShowFullMenus [bool]
+|pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~alwaysshowmenusexpanded.html[AlwaysShowMenusExpanded]"] [DefaultableBoolean]
+
+|====

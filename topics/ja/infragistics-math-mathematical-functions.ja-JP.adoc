@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "infragistics-math-mathematical-functions",
+    "controlName": ["Infragistics Math Library"],
+    "tags": ["Application Blocks","Calculations"],
+    "guid": "75a173b8-c77e-4634-ba66-d40d8c7b4a66",  
+    "buildFlags": [],
+    "createdOn": "2011-08-01T14:10:16.9438994Z"
+}
+|metadata|
+////
+
+= 数学関数
+
+Infragistics Math Library™ は、さまざまな数学的オブジェクトに使用できる数学的関数の汎用クラスを提供します。
+
+== クラスとメソッド
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] は静的クラスで、 link:http://msdn.microsoft.com/en-us/library/system.math.aspx[System.Math] クラスの関数の拡張として機能するメソッドを含みます。
+
+link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] クラスのメソッドには、Infragistics Math Library の異なるデータ タイプ (複素数、ベクトル、行列) に対するオーバーロードがあります。
+
+== 数学関数
+
+以下は link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute.html[Compute] クラスの主な数学関数です。
+
+*ベクトルおよび行例構成*
+
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~append.html[Append]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~identitymatrix.html[IdentityMatrix]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~line.html[Line]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~repeat.html[Repeat]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~reverse.html[Reverse]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~sort.html[Sort]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~squeeze.html[Squeeze]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~switch.html[Switch]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~transpose.html[Transpose]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~zeros.html[Zeros]
+
+*ベクトルおよび行例関数*
+
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~convolve.html[Convolve]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~cumproduct.html[CumProduct]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~cumsum.html[CumSum]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~determinant.html[Determinant]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~diagonal.html[Diagonal]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~difference.html[Difference]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~matrixproduct.html[MatrixProduct]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~minormatrix.html[MinorMatrix]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~product.html[Product]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~setdifference.html[SetDifference]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~setintersection.html[SetIntersection]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~setunion.html[SetUnion]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~vectorproduct.html[VectorProduct]
+
+*インデックス付け*
+
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~find.html[Find]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~index.html[Index]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~indextosubscript.html[IndexToSubscript]
+** link:{ApiPlatform}math{ApiVersion}~infragistics.math.compute~subscripttoindex.html[SubscriptToIndex]
+
+== 関連トピック
+
+link:infragistics-math-complex-numbers.html[複素数]
+
+link:infragistics-math-vectors.html[ベクトル]
+
+link:infragistics-math-matrices.html[行列]
+
+link:infragistics-math-api-overview.html[API の概要]

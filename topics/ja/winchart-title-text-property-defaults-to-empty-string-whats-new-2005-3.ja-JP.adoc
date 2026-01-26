@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-title-text-property-defaults-to-empty-string-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{1B8C9DCD-9D15-4559-9EA8-E8604FE76F66}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Title Text プロパティのデフォルトは空の文字列
+
+これまで、ユーザーからチャートのタイトルに関して混乱しているとの報告がありました（"Copyright Infragistics" や "Infragistics UltraChart" など）。これらのタイトルはチャートがライセンスされていないものであることを意味し、プロジェクト登録後これらのタイトルは消えるものだと憶測されることもありました。混乱を防ぐために、現在ではタイトルのテキスト プロパティはデフォルトで空白の文字列となっています。
+
+image::images\WinChart_What_s_New_2005_3_Title_Text_Starts_Empty_01.png[]

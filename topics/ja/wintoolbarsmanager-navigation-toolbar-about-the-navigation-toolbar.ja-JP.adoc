@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-navigation-toolbar-about-the-navigation-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Navigation"],
+    "guid": "{79BDD53A-5092-44D6-B0B4-694EFEFC8459}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-09T12:06:46Z"
+}
+|metadata|
+////
+
+= ナビゲーション ツールバーについて
+
+ナビゲーション ツールバーで、エンド ユーザーは、ユーザー インターフェイスによってアクションに基づいて作成する項目の履歴を前後にナビゲートすることができます。エンド ユーザーがアクション（つまり、インターネット サイトにナビゲート、システム フォルダを参照、データベースを詳しく調べる）を実行すると、ナビゲーション ツールバーのナビゲーション履歴にアクションからの結果の位置を追加できます。項目が履歴に追加されると、ナビゲーション ツールバーがナビゲーションを処理します。
+
+他のツールバーと同じように、ナビゲーション ツールバーにはツールのコレクションが含まれ、WinToolbarsManager™ ツールをツールバーのツール領域に追加することができます。これによって、Microsoft® Internet Explorer® 7 や Windows® Vista™ Windows Explorer のような任意のタイプのナビゲーション インタフェースを作成することができます。
+
+image::images/WinToolbarsManager_Navigation_Toolbar_About_the_Navigation_Toolbar_01.png[]

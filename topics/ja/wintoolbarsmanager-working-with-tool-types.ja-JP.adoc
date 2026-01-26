@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-working-with-tool-types",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{97F081A0-8FFD-46A9-8D30-BD35624829BF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツール タイプ操作
+
+以下のリンクをクリックすると、ツールキャプションのカスタマイズ方法、WinToolbarsManager コンポーネントで使用可能なさまざまなツールタイプについての説明を読むことができます。
+
+* link:wintoolbarsmanager-custom-tool-types.html[カスタム ツール タイプ]
+* link:wintoolbarsmanager-common-tool-tasks.html[共通のツール タスク]
+* link:wintoolbarsmanager-button.html[Button]
+* link:wintoolbarsmanager-combobox.html[ComboBox]
+* link:wintoolbarsmanager-controlcontainer.html[ControlContainer]
+* link:wintoolbarsmanager-fontlist.html[FontList]
+* link:wintoolbarsmanager-label.html[Label]
+* link:wintoolbarsmanager-list.html[List]
+* link:wintoolbarsmanager-maskededit.html[MaskedEdit]
+* link:wintoolbarsmanager-mdiwindowlist.html[MDIWindowList]
+* link:wintoolbarsmanager-popupcolorpicker.html[PopupColorPicker]
+* link:wintoolbarsmanager-popupcontrolcontainer.html[PopupControlContainer]
+* link:wintoolbarsmanager-popupgallerytool.html[PopupGalleryTool]
+* link:wintoolbarsmanager-popupmenu.html[PopupMenu]
+* link:wintoolbarsmanager-progressbar.html[ProgressBar]
+* link:wintoolbarsmanager-statebutton.html[StateButton]
+* link:wintoolbarsmanager-textbox.html[TextBox]
+* link:wintoolbarsmanager-taskpane.html[TaskPane]

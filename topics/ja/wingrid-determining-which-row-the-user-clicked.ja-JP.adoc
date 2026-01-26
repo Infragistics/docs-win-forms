@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-determining-which-row-the-user-clicked",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Tips and Tricks"],
+    "guid": "{503BE87B-2827-4564-93C2-4F2FCEED61BB}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ユーザがクリックした行の決定
+
+== バックグラウンド
+
+WinGrid は多種多様なユーザー インターフェイス エレメント（UIElement）をユーザーに提供します。マウスでの作業時に、開発者はユーザーがクリックした行や、現在のマウスの位置にある行を特定したい場合があります。UIElement のプロパティおよびメソッドはマウスの位置の下の UIElement に関連づけられた行へのオブジェクト参照を提供します。
+
+== 質問
+
+* ユーザーはどの行をクリックしましたか?
+* 現在、マウス位置の下にある行はどれですか?
+
+== 解決策
+
+上記両方の質問に対する答えは、マウスの X、Y 座標を取得し、ElementFromPoint メソッドを起動して UIElement を取得し、さらに UIElement の GetContext メソッドを起動することにより、 Row オブジェクトの参照を取得することによって得られます。
+
+== サンプル プロジェクト
+
+このサンプル プロジェクトではマルチバンド UltraWinGrid を提示しており、ユーザーがグリッドのさまざまな部分をクリックすると、行のバンド インデックスと行インデックスはテキストボックスに表示します。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Determining_Which_Row_the_User_Clicked_01.png[]
+
+UltraWinGrid イベント領域には次のイベント ハンドラが含まれます。
+
+* UltraGrid1.MouseUp - MouseUp インストールのコードは、マウスの下の UIElement を検索し、このエレメントと関連付けられた UltraGridRow へのオブジェクト参照を取得し、その Band および Row インデックスをテキスト ボックスに表示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_MouseUp(ByVal sender As Object, _
+  ByVal e As System.Windows.Forms.MouseEventArgs) _
+  Handles UltraGrid1.MouseUp
+	' UIElement への参照を宣言して取得します。
+	Dim aUIElement As UIElement = _
+	  Me.UltraGrid1.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+	' 行への参照を宣言して取得します。
+	Dim aRow As UltraGridRow = aUIElement.GetContext(GetType(UltraGridRow))
+	’ 行が見つかったらバンド インデックスと行インデックスを表示します。
+	If Not aRow Is Nothing Then
+		Me.UltraTextEditor1.Text += "Band(" _
+		  + aRow.Band.Index.ToString() + ") Row.Index=" + aRow.Index.ToString + vbCrLf
+	Else
+		Me.UltraTextEditor1.Text += "$$*$$ no row associated with this location $$* $$" _
+		  + vbCrLf
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+{
+	// UIElement への参照を宣言して取得します。
+	UIElement aUIElement = 
+	  this.ultraGrid1.DisplayLayout.UIElement.ElementFromPoint(new Point(e.X,e.Y));
+	// 行への参照を宣言して取得します。
+	UltraGridRow aRow = (UltraGridRow)aUIElement.GetContext(typeof(UltraGridRow));
+	// 行が見つかったらバンド インデックスと行インデックスを表示します。
+	if(aRow != null)
+		this.ultraTextEditor1.Text += "Band(" 
+		  + aRow.Band.Index.ToString() + ") Row.Index=" + aRow.Index.ToString() + "\n";
+	else
+		this.ultraTextEditor1.Text += "$$*$$ no row associated with this location $$* $$\n";	
+}
+----
+
+== まとめ
+
+このプロジェクトでは、マウスの X、Y 座標から行へのオブジェクト参照を取得するメソッドの呼び出し方を紹介しました。

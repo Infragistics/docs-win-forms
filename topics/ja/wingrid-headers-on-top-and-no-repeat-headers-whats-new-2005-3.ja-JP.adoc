@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-headers-on-top-and-no-repeat-headers-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{825F80F4-D38D-49F9-B2CD-23705B1FDC5F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 上部のヘッダと非繰り返しヘッダ
+
+HeaderPlacement プロパティが UltraGridOverride に追加されました。これはヘッダが表示されるかどうか、またその方法を指定します。このプロパティは、HeaderPlacement 列挙体型です。
+
+列挙体には以下のメンバがあります。
+
+* Default -- Default は RepeatOnBreak に解決されます。
+* RepeatOnBreak -- バンドの区切りごとにヘッダが繰り返されます。前の行が異なる行コレクションに属する場合、現在の行はヘッダを表示します。これがデフォルトの動作です。
+* FixedOnTop -- すべてのバンドのヘッダは上部に表示されます。これらのヘッダは、そのバンドの行が現在表示されていなくても、常に表示されます。バンドの既存の ColHeadersVisible プロパティを設定することで、特定のバンドのヘッダを非表示にすることができます。
+* OncePerRowIsland -- 行アイランドごとにひとつだけヘッダが表示されます。表示される子を持つ行を展開したとき、次の兄弟のヘッダは表示されません。
+* OncePerGroupedRowIsland - OncePerRowIsland と同じですが、列がひとつまたは複数の列でグループ化されている場合、ヘッダはグループ行の上に表示されます。ここで、行アイランドは IList に関連付けられた行のコレクションを意味します。
+
+image::Images/WinGrid_How_to_Control_Header_Placement_01.png[]
+
+_RepeatOnBreak -- バンドの区切りごとにヘッダが繰り返されます。_ 
+
+== 関連トピック
+
+link:wingrid-control-the-placement-of-headers.html[ヘッダの配置を制御]

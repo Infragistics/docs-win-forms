@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-getting-started",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{49AA7B68-C9C7-47AA-A56A-6FB34D139C83}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= はじめに
+
+{ProductName} の製品の使用をすぐに開始するために、この「はじめに」のセクションが提供されています。 {ProductName} の使用を開始する前に、このセクションのトピックを最後まで読むと、製品の概要を理解することができます。
+
+== link:introduction-installing-infragistics-windows-forms.html[.NET Framework {ProductName} のインストール]
+
+== link:nuget-feeds.html[NuGet フィードのセットアップ (.NET Core 向け)]
+
+このセクションは、インストールの手順を順を追って説明するとともに、{ProductName} のインストールに関するヒントも提供します。
+
+== link:introduction-getting-support.html[サポートについて]
+
+このトピックは、テクニカル サポートの取得、インフラジスティックス メンバー プロファイルの作成、製品キーの登録の方法など役に立つ情報を提供します。

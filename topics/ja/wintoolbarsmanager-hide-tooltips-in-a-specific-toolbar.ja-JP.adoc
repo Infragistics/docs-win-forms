@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-hide-tooltips-in-a-specific-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{4252A2BE-E54A-4D6C-9052-194FC79CCF88}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 特定のツールバーでツールチップを非表示にする
+
+WinToolbarsManager は、デフォルトでツールバーにツールチップを表示するように設定されています。このツールチップは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.toolbarsettings.html[ToolbarSettings]"]  の ShowToolTips プロパティを False に設定すると表示されなくなります。しかし、特定のツールバーでツールチップを非表示にし、他のツールバーでは表示したい場合があります。pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.settingsbase.html[SettingsBase]"]  クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.settingsbase~showtooltips.html[ShowToolTips]"]  プロパティ、および ToolbarSettings を使用してこの設定を実現できます。[プロパティ] ウィンドウで [ツールバー] を展開し、UltraToolbar1（ツールバー名を変更した場合は、その名前）を選択し、[設定] をクリックします。[設定] の下に、ShowToolTips プロパティがあります。False を選択すると、その特定のツールバーのツールチップを無効にできます。同様の操作をラインタイムに行いたい場合は、次のコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+...
+Me.UltraToolbarsManager1.Toolbars("UltraToolbar1").Settings.ShowToolTips = DefaultableBoolean.False
+Me.UltraToolbarsManager1.Toolbars("UltraToolbar2").Settings.ShowToolTips = DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+...
+this.ultraToolbarsManager1.Toolbars["UltraToolbar1"].Settings.ShowToolTips = DefaultableBoolean.False;
+this.ultraToolbarsManager1.Toolbars["UltraToolbar2"].Settings.ShowToolTips = DefaultableBoolean.True;
+----

@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-enabling-selection-overlay-for-selected-cells",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Selection"],
+    "guid": "{20AA442B-18B7-4F60-94DB-CA0406BD011F}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-06T14:47:18Z"
+}
+|metadata|
+////
+
+= 選択セルの選択オーバーレイを有効にする
+
+Microsoft® Excel® で、矩形の選択領域が選択されたセル上にオーバーレイされますが、このオーバーレイは元となるセルのカラーウォッシュした外観を提供します。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[UltraGridLayout]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~selectionoverlaycolor.html[SelectionOverlayColor]"]  プロパティと pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~selectionoverlaybordercolor.html[SelectionOverlayBorderColor]"]  プロパティを使用することによって、WinGrid™ で同じ効果を達成することができます。
+
+[NOTE]
+====
+*注：* 選択オーバーレイの境界線が描画されるのは、単一の連続した選択の矩形領域を実行する時だけです。たとえば、それぞれ隣接しない 2 つの列セットを選択する場合、境界線は描画されません。同様に、さまざまなセル選択範囲や行選択範囲は、Excel® の動作方法と同じように境界線がなくなります。
+====
+
+*Visual Basic の場合：*
+
+----
+Me.ultraGrid1.DisplayLayout.SelectionOverlayColor = Color.DarkBlue
+Me.ultraGrid1.DisplayLayout.SelectionOverlayBorderColor = Color.Magenta
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.SelectionOverlayColor = Color.DarkBlue;
+this.ultraGrid1.DisplayLayout.SelectionOverlayBorderColor = Color.Magenta;
+----
+
+*青のカラーウォッシュされた外観とマゼンダの境界線の矩形の選択領域を示す WinGrid*
+
+image::Images/WinGrid_Enable_Selection_Overlay_for_Selected_Cells_01.png[]

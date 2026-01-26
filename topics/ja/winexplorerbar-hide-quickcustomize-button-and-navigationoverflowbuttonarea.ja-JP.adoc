@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-hide-quickcustomize-button-and-navigationoverflowbuttonarea",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{146D310F-5447-4307-BD45-57A27C2175AB}",  
+    "buildFlags": [],
+    "createdOn": "2009-08-07T10:09:28Z"
+}
+|metadata|
+////
+
+= QuickCustomize ボタンおよび NavigationOverflowButtonArea を非表示
+
+NavigationOverflowButtonArea は [クイック カスタマイズ] ボタンまたは [構成] ボタンによって、NavigationGroupHeaderArea に収まらないボタンを表示します。 NavigationOverflowButtonArea は領域内にボタンがなくても常に表示されます。
+
+このトピックはスタイルが OutlookNavigationPane に設定された ExplorerBar の NavigationOverflowButtonArea とクイック カスタマイズ ボタンを非表示にする方法を示します。これは pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~navigationoverflowbuttonareavisible.html[NavigationOverflowButtonAreaVisible]"]  プロパティを使用して実行できます。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraExplorerBar1.NavigationOverflowButtonAreaVisible = false
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.NavigationOverflowButtonAreaVisible = false;
+----

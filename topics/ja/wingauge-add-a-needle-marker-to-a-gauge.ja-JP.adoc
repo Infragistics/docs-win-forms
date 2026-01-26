@@ -1,0 +1,269 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-add-a-needle-marker-to-a-gauge",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{717E5226-25F6-4EA0-8AB0-A1FE236FC2C5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 針マーカーをゲージに追加
+
+針マーカーはスケール上の特定の値を指し示すポインタとして表示されます。
+
+[NOTE]
+====
+*注:* このトピックは、スケール、ラベル、目盛が付いたリニア ゲージをすでに作成していることを前提としています。作成方法についての詳細は、 link:wingauge-add-labels-to-a-gauge.html[「ラベルをゲージに追加」]を参照してください。
+====
+
+針マーカーをゲージに追加した後の次の手順は、 link:wingauge-add-a-range-to-a-gauge.html[「レンジをゲージに追加」]です。
+
+以下で針マーカーをゲージに追加できます。
+
+* <<gaugeDesigner,ゲージ デザイナを使用して>>
+* <<designTime,デザインタイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、ゲージは以下のゲージのようになります。
+
+image::images/Gauge_Add_Needle_Marker_02.png[]
+
+[[gaugeDesigner]]
+*ゲージ デザイナを使用して針マーカーを既存のラジアル ゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラで、[マーカー] を展開します。
+[start=2]
+. [マーカーの追加...] をクリックして、[新しい針] を選択します。
+[start=3]
+. link:wingauge-properties-panel.html[[プロパティ] パネル]で、 link:wingauge-needle-marker-layout-tab.html[[針マーカー レイアウト] タブ]をクリックします。 link:wingauge-widths-and-extents-pane.html[[幅と範囲] ペイン]で、以下のプロパティを設定します。
+
+** 幅
+
+*** 開始 -- 3
+*** 中間 -- 3
+*** 終了 -- 1
+
+** 範囲
+
+*** 開始 -- -20
+*** 中間 -- 0
+*** 終了 -- 65
+
+[start=4]
+. [針マーカー レイアウト] タブの link:wingauge-value-and-units.html[[値と単位] ペイン]で、以下のプロパティを設定します。
+
+** 値 -- 95.00
+** 精度 -- 1.00
+** 単位 -- パーセント
+
+[start=5]
+. link:wingauge-appearance-tab.html[[外観] タブ]をクリックします。 link:wingauge-brush-pane.html[[ブラシ] ペイン]で、以下のプロパティを設定します。
+
+** タイプ -- 単色
+** 色 -- 255, 61, 22
+
+[start=6]
+. ゲージ エクスプローラで、[アンカー] を展開します。
+[start=7]
+. [プロパティ] パネルの [外観] タブの [ブラシ] ペインで、以下のプロパティを設定します。
+
+** タイプ -- SimpleGradient
+** 開始色 -- Gainsboro
+** 終了色 -- 64, 64, 64
+** グラデーション スタイル -- BackwardDiagonal
+
+[start=8]
+. [外観] タブの link:wingauge-stroke-pane.html[[ストローク] ペイン]で、以下のプロパティを設定します。
+
+** タイプ -- RadialGradient
+** 周囲の色 -- グレー
+** 中央の色 -- WhiteSmoke
+** フォーカス スケール -- 0,0
+** 中心点 -- 75, 25
+
+[[designTime]]
+*デザインタイムに針マーカーを既存のラジアル ゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ コレクション エディタ内で、[ラジアル ゲージ] をクリックします。
+[start=2]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティを指定して、省略記号（…）をクリックして、スケール コレクション エディタを起動します。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~markers.html[Markers]"]  プロパティを指定して、省略記号（…）をクリックして、マーカー コレクション エディタを起動します。
+[start=4]
+. [追加] ボタンをクリックして、[針の追加] を選択します。
+[start=5]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.brushelement.html[BrushElement]"]  プロパティを指定します。BrushElement ドロップダウン リストから、[単色塗りつぶし] を選択します。これによって、新しい単色塗りつぶしブラシ エレメントが作成されます。
+[start=6]
+. 新しく作成された BrushElement プロパティを展開して、pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを指定します。色を赤に設定します。
+[start=7]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor.html[Anchor]"]  プロパティを指定して展開し、BrushElement プロパティをクリックします。
+[start=8]
+. BrushElement ドロップダウン リストから、SimpleGradient を選択し以下のプロパティを設定します。
+
+** タイプ -- SimpleGradient
+** 開始色 -- Gainsboro
+** 終了色 -- 64, 64, 64
+** グラデーション スタイル -- BackwardDiagonal
+
+[start=9]
+. [値] プロパティを 95 に設定します。
+
+[[runTime]]
+*ランタイムに針マーカーを既存のラジアル ゲージに追加するには、次の手順に従ってください。*
+
+[start=1]
+. 以下の手順を Load イベントに追加します。
+[start=2]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim myNeedle As New RadialGaugeNeedle()
+Dim mySolidFillBrushElement2 As New SolidFillBrushElement()
+Dim mySimpleGradientBrushElement As New SimpleGradientBrushElement()
+----
+
+*C# の場合：*
+
+----
+RadialGaugeNeedle myNeedle = new RadialGaugeNeedle();
+SolidFillBrushElement mySolidFillBrushElement2 = new SolidFillBrushElement();
+SimpleGradientBrushElement mySimpleGradientBrushElement = new SimpleGradientBrushElement();
+----
+
+[start=3]
+. 針の以下の色プロパティを設定します。
+
+** Type -- Solid
+** Color -- Red
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement2.Color = System.Drawing.Color.Red
+myNeedle.BrushElement = mySolidFillBrushElement2
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement2.Color = System.Drawing.Color.Red;
+myNeedle.BrushElement = mySolidFillBrushElement2;
+----
+
+[start=4]
+. アンカーの以下のプロパティを設定します。
+
+** Radius -- 10
+** Measure -- Percent
+
+*Visual Basic の場合：*
+
+----
+myNeedle.Anchor.RadiusMeasure = Infragistics.UltraGauge.Resources.Measure.Percent
+myNeedle.Anchor.Radius = 10
+----
+
+*C# の場合：*
+
+----
+myNeedle.Anchor.RadiusMeasure = Infragistics.UltraGauge.Resources.Measure.Percent;
+myNeedle.Anchor.Radius = 10;
+----
+
+[start=5]
+. アンカーの以下の色プロパティを設定します。
+
+** Type -- SimpleGradient
+** EndColor -- WhiteSmoke
+** StartColor -- Gray
+** GradientStyle -- BackwardDiagonal
+
+*Visual Basic の場合：*
+
+----
+myNeedle.Anchor.BrushElement = mySimpleGradientBrushElement
+mySimpleGradientBrushElement.EndColor = System.Drawing.Color.WhiteSmoke
+mySimpleGradientBrushElement.GradientStyle = Infragistics.UltraGauge.Resources.Gradient.BackwardDiagonal
+mySimpleGradientBrushElement.StartColor = System.Drawing.Color.Gray
+----
+
+*C# の場合：*
+
+----
+myNeedle.Anchor.BrushElement = mySimpleGradientBrushElement;
+mySimpleGradientBrushElement.EndColor = System.Drawing.Color.WhiteSmoke;
+mySimpleGradientBrushElement.GradientStyle = Infragistics.UltraGauge.Resources.Gradient.BackwardDiagonal;
+mySimpleGradientBrushElement.StartColor = System.Drawing.Color.Gray;
+----
+
+[start=6]
+. 以下のプロパティを設定します。
+
+** AllowDrag -- true
+** EndExtent -- 65
+** EndWidth -- 1
+** MidExtent -- 0
+** MidWidth -- 3
+** Precision -- 1
+** StartExtent -- -20
+** StartWidth -- 3
+** Value -- 95
+** WidthMeasure -- Percent
+
+*Visual Basic の場合：*
+
+----
+myNeedle.AllowDrag = True
+myNeedle.EndExtent = 65
+myNeedle.EndWidth = 1
+myNeedle.MidExtent = 0
+myNeedle.MidWidth = 3
+myNeedle.Precision = 1
+myNeedle.StartExtent = -20
+myNeedle.StartWidth = 3
+myNeedle.Value = 95
+myNeedle.WidthMeasure = Measure.Percent
+----
+
+*C# の場合：*
+
+----
+myNeedle.AllowDrag = true;
+myNeedle.EndExtent = 65;
+myNeedle.EndWidth = 1;
+myNeedle.MidExtent = 0;
+myNeedle.MidWidth = 3;
+myNeedle.Precision = 1;
+myNeedle.StartExtent = -20;
+myNeedle.StartWidth = 3;
+myNeedle.Value = 95;
+myNeedle.WidthMeasure = Measure.Percent;
+----
+
+[start=7]
+. 針マーカーを Markers コレクションを追加します。
+
+*Visual Basic の場合：*
+
+----
+myScale.Markers.Add(myNeedle)
+----
+
+*C# の場合：*
+
+----
+myScale.Markers.Add(myNeedle)
+----
+
+== 関連トピック
+
+link:wingauge-add-a-range-to-a-gauge.html[レンジをゲージに追加]

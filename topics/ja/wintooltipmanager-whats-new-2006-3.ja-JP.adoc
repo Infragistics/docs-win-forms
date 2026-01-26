@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-whats-new-2006-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D6BB64A6-468A-4087-ABD8-F4A219C67A15}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:20:58Z"
+}
+|metadata|
+////
+
+= WinTooltipManager 2006.3
+
+2006 Volume 3 リリースで追加された強力で新しい WinTooltipManager™ 機能を学習してください。
+
+* link:wintooltipmanager-formatted-tooltips-whats-new-20063.html[フォーマットされたツールチップ]

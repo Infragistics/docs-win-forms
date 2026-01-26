@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-word-document-generation-references-and-dependencies",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting"],
+    "guid": "34716174-b696-47a5-b73d-5570a4e453fb",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T14:42:37.436061Z"
+}
+|metadata|
+////
+
+= Word ドキュメント生成び参照と依存関係
+
+$$.NET$$ CLR 4.0 以上のバージョンの使用
+
+Microsoft® Word® ドキュメントを生成するために Infragistics® Word ライブラリおよびエクスポーターを使用する場合、.NET Framework CLR バージョン 4.0 以上が必要です。このシナリオでは、Infragistics.WebUI.Documents.IO アセンブリを参照します。Word ドキュメント作成ロジックに組み込まれる圧縮およびパッケージ機能は、.NET Framework CLR4.0 に依存します。
+
+[[RelatedTopics]]
+== 関連トピック
+
+* link:word-using-the-infragistics-word-library.html[Infragistics Word ライブラリの使用]
+* link:word-about-infragistics-word-library.html[Infragistics Word ライブラリについて]

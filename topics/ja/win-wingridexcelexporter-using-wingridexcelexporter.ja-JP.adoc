@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wingridexcelexporter-using-wingridexcelexporter",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": [],
+    "guid": "{0816EA9A-9E8C-4717-BACB-BCDDD18164B6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridExcelExporter を使用
+
+このセクションには、WinGridExcelExporter™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wingridexcelexporter-export-grid-data-to-excel.html[グリッドデータを Excel にエクスポートする]
+* link:wingridexcelexporter-exporting-formulas-to-excel.html[Excel へ数式をエクスポートする]
+* link:wingridexcelexporter-exporting-to-xlsx-format-(using-clr-3-5).html[xlsx フォーマットにエクスポート（CLR 3.5 を使用）]
+* link:wingridexcelexporter-transposing-rows-and-columns-using-wingrid-excel-exporter.html[WinGrid Excel エクスポーターを使用して行および列を転置]

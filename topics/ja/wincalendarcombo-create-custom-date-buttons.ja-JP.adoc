@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarcombo-create-custom-date-buttons",
+    "controlName": ["WinCalendarCombo"],
+    "tags": ["How Do I"],
+    "guid": "{D04AF41A-A6F6-4D1E-AD05-6479C2FE8E04}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム日付ボタンの作成
+
+WinCalendarCombo の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.datebuttonscollection.html[DateButtons]"]  コレクションと pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.calendarcombo.datebutton.html[DateButton]"]  オブジェクトを使用して、カスタムの DateButton を表示します。

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-combobox-about-the-combobox-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{43C13682-CBC0-4975-AA23-1CA8045B64F4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ComboBox ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== ComboBox
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.comboboxtool.html[ComboBoxTool]"]
+
+派生元：Toolbase $$->$$ TextBoxTool
+
+説明：ComboBox ツールは、Windows の持つ標準のコンボボックスの機能を提供するもので、ツールバーやメニューにツールとして配置できます。リストをドロップダウンしたとき、リストを閉じたとき、および項目を選択したときに、イベントが発生します。Dropdown と DropdownList の 2 種類のスタイルを使用できます。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_03.png[]

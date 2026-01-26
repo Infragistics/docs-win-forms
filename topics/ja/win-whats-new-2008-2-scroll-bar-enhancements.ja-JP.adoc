@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-2008-2-scroll-bar-enhancements",
+    "controlName": [],
+    "tags": [],
+    "guid": "{887A82F5-4F7E-4821-87A7-4D4FCB007D5A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スクロールバーの拡張
+スクロール バーをドラッグしてグラフ全体を移動することが可能になりました。
+
+image::images\Chart_Scroll_Bar_Enhancement_01.png[]
+
+== 関連トピック
+
+link:chart-scrolling-and-scaling-charts.html[グラフのスクロールとスケール]

@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintrackbar-about-wintrackbar",
+    "controlName": ["WinTrackBar"],
+    "tags": ["Getting Started","Navigation"],
+    "guid": "{5DC34DA5-D841-4148-B586-6467EA3D3D6D}",  
+    "buildFlags": [],
+    "createdOn": "2008-11-01T16:06:15Z"
+}
+|metadata|
+////
+
+= WinTrackBar について
+
+WinTrackBar™ は、エンド ユーザーが値の範囲からひとつの値を選択する支援をするエディタ コントロールです。WinTrackBar は WinProgressBar コントロールとデザインが似ていますが、WinTrackBar によってエンド ユーザーは値を編集できるのに対して、WinProgressBar は編集できません。WinTrackBar はつまみで進行状況を示すこともできます。標準の組み込みエディタおよび Presentation Layer Framework™ のサポートと共に、WinTrackBar には複数の追加機能が付属しています。
+
+* *つまみ* -- エンド ユーザーは、WinTrackBar の値を直接設定するためにつまみを使用できます。つまみをクリック アンド ドラッグすると、WinTrackBar の値がエンド ユーザーがマウスを放す値に設定されます。 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar~trackclickaction.html[TrackClickAction] プロパティに基づいて、エンド ユーザーは TrackBar で直接クリックすることもでき、つまみはその位置に向かって増分するか、直接その位置に移動します。
+* *目盛り* -- 大きな目盛りと小さい目盛りの 2 つのコレクションがあります。それぞれの名前が意味するように、大きな目盛りは値の大きな変化を視覚化し、小さい目盛りは値の小さい変化を視覚化します。 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar~tickmarksettingsmajor.html[TickMarkSettingsMajor] オブジェクトと link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultratrackbar~tickmarksettingsminor.html[TickMarkSettingsMinor] オブジェクトを使用して太さ、長さ、トラックからの距離、頻度、位置を設定できます。
+* *左右ボタンのコレクション* -- 精度を高めるために増分ボタンまたは最小/最大ボタンを追加できます。
+* *スタイル* -- WinTrackBar には、標準の .NET TrackBar スタイル、Office 2007、および Windows Vista の 3 つの個別スタイルが含まれます。
+
+image::images/WinTrackBar_About_WinTrackBar_01.png[]

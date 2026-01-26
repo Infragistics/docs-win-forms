@@ -1,0 +1,142 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-creating-a-wintabbedmdimanager-interface",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": ["Layouts"],
+    "guid": "{B0BE533C-E30C-44C8-89CC-55661FAFEA8B}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTabbedMdiManager インタフェースを作成
+
+TabbedMDI インタフェースの作成は、ご使用のアプリケーション用の標準 MDI インタフェースの作成と同じように難しいわけではありません。TabbedMDI コントロールを追加するだけで、標準の MDI 親フォームを、Visual Studio .NETで見られるような、タブを使用して MDI 子フォームを管理する MDI 親フォームに変換できます。
+
+TabbedMDI で使用するために、MDI 子フォームに対してそれ以上変更を加える必要はありませんが、Tabbed MDI 環境の制約を考慮してフォームのデザインまたは再デザインを検討したい場合があります。TabbedMDI 子ウィンドウは親の中で常に最大化されますが、リサイズ、タイル、またはカスケードできません（タブ グループを使用して複数のウィンドウを同時に表示できますが、これは次の演習で取り扱います）。
+
+== 質問
+
+* Tabbed MDI インタフェースでアプリケーションを作成するにはどうすればいいですか?
+
+== 解決策
+
+標準の MDI アプリケーションを作成し、それから TabbedMDI 要素を MDI 親フォームに追加します。
+
+== サンプル プロジェクト
+
+[start=1]
+. Visual Studio で新しい Windows Application プロジェクトを開きます。
+[start=2]
+. プロジェクトが表示されて Form1 が選択されたら、Visual Studio のプロパティ ウィンドウを開きます（ショートカット：F4 キーを押します）。IsMdiContainer プロパティを探し、True に変更します。フォームの外観が変わり、MDI 親フォームになったことを示します。
+[start=3]
+. Visual Studio のツールボックスを開き、UltraTabbedMdiManager コントロールを選択します。ツールボックスで UltraTabbedMdiManager コントロールをダブルクリックしてフォームに追加します。UltraTabbedMdiManager コントロールがフォームのコンポーネント トレイに表示されます。
+[start=4]
+. ツールボックスで UltraButton コントロールをダブルクリックして Button をフォームに追加します。
+[start=5]
+. フォーム上で、Button コントロールをクリックして、Text プロパティを「フォームの追加」に変えます。
+[start=6]
+. "ChildForm" と呼ばれるプロジェクトにフォームを追加します。
+[start=7]
+. ツールボックスを開き、ひとつの Windows Forms ボタンをフォームに追加します（C# を使用している場合には、ボタンを選択して、Modifiers プロパティを Internal に設定します）。作業が終わったら、フォーム デザイナ ウィンドウを閉じます。
+[start=8]
+. MDI 親フォームに戻り、コード ビューを開いて次のコードをフォームに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Function AddNewForm() As ChildForm
+	Dim newForm As New ChildForm()
+	Dim prevForm As ChildForm
+	Dim numForms As Integer
+	Dim newFormNum As Integer
+	Dim prevFormIndex As Integer
+	' MDI 子フォームの数
+	numForms = Me.MdiChildren.GetLength(0)
+	newFormNum = numForms + 1
+	' 新しいフォームを定義します。
+	newForm.Name = "frmButtons" & CStr(newFormNum)
+	newForm.Text = "Buttons " & CStr(newFormNum)
+	' フォームごとに異なる位置になるように
+	' ボタンを配置します。
+	If newFormNum > 1 Then
+		prevFormIndex = newFormNum - 2
+		prevForm = Me.MdiChildren.GetValue(prevFormIndex)
+		' ボタンの位置を前のフォームの
+		' ボタン位置を基準にして設定します。
+		newForm.UltraButton1.Top = _
+		prevForm.UltraButton1.Top + prevForm.UltraButton1.Height
+	End If
+	' 新しいフォームを MDI 親フォームに追加します。
+	newForm.MdiParent = Me
+	newForm.Show()
+	Return newForm
+End Function
+----
+
+*C# の場合：*
+
+----
+private ChildForm addNewForm()
+{
+	ChildForm newForm = new ChildForm();
+	ChildForm prevForm = null;
+	int numForms;
+	int newFormNum;
+	int prevFormIndex;
+	// MDI 子フォームの数
+	numForms = this.MdiChildren.GetLength(0);
+	newFormNum = numForms + 1;
+	// 新しいフォームを定義します。
+	newForm.Name = "frmButtons" + newFormNum.ToString();
+	newForm.Text = "Buttons " + newFormNum.ToString();
+	// フォームごとに異なる位置になるように
+	// ボタンを配置します。
+	if (newFormNum > 1) 
+	{
+		prevFormIndex = newFormNum - 2;
+		prevForm = (ChildForm)this.MdiChildren.GetValue(prevFormIndex);
+		// ボタンの位置を前のフォームの
+		// ボタン位置を基準にして設定します。
+		newForm.ultraButton1.Top = 
+		  prevForm.ultraButton1.Top + prevForm.ultraButton1.Height;
+	}
+	// 新しいフォームを MDI 親フォームに追加します。
+	newForm.MdiParent = this;
+	newForm.Show();
+	return newForm;
+}
+----
+
+[start=9]
+. デザイナ ビューに戻り、作成した [フォームの追加] ボタンをダブルクリックします。以下のコードを Click イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.AddNewForm()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, EventArgs e)
+{
+	this.addNewForm();
+}
+----
+
+[start=10]
+. プロジェクトを実行します。MDI フォームが表示されたら、[フォームの追加] メニュー項目をクリックします。クリックするたびに、タブ付きインタフェースを使用する新しい子ウィンドウが、MDI 親フォームのクライアント領域に表示します。タブをクリックすると、別のフォームが前面に表示されます。十分な数の子ウィンドウを追加すると、ナビゲーション インタフェースがタブの右側に現れ、表示されていないタブを画面上にスクロールできます。作業が終わったら、プロジェクトを終了します。
+
+== まとめ
+
+この演習では、TabbedMdiManager を使用してアプリケーションに簡単な MDI インタフェースを設定する方法を示しました。作業のほとんどは親フォームと子フォームの設定でした。タブ付きインタフェースの実装作業は、コントロールを親フォームに追加するだけで済みました。
+
+次の演習では、このアプリケーションを拡張します。

@@ -1,0 +1,89 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-appearance-of-wingrid-cells",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Styling"],
+    "guid": "{4F70AE22-3112-46DE-B7DD-6B1F70FA70DB}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid セルの外観変更
+
+== バックグラウンド
+
+セルを色、画像またはユニークなプロパティで飾る必要がある場合、開発者は WinGrid により Appearance プロパティを各セルに設定できます。
+
+== 質問
+
+* すべてのセルの背景色を特定の内容で設定するにはどうすればいいですか?
+
+== サンプル プロジェクト
+
+サンプル プロジェクトでは最初の列ではさまざまな CellAppearance プロパティを持つ小さなテーブルを表示し、次の列では記述情報を表示します。
+
+コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+image::Images/WinGrid_Changing_the_Appearance_of_WinGrid_Cells_01.png[]
+
+UltraGrid1.InitializeLayout
+
+UltraWinGrid の InitializeLayout イベントで、次を実行します。グリッド内のすべてのセルの外観プロパティを設定し、特定のバンドの外観をオーバーライドし、グリッドにあるバンドの特定列に対してオーバーライドし、最後に列の比例幅を設定して AutoFitStyle を要求します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	' グリッド内のすべてのセルについて Appearance プロパティを設定します
+	e.Layout.Override.CellAppearance.BackColor = Color.LightYellow
+	' グリッドのバンドにあるすべてのセルの Appearance プロパティを設定します
+	e.Layout.Bands(0).Override.CellAppearance.BackColor = Color.LightGoldenrodYellow
+	' グリッドのバンドのセルに対して Appearance プロパティを設定します
+	e.Layout.Bands(0).Columns(1).CellAppearance.BackColor = Color.LightYellow
+	' 比例幅と AutoFitColumns を設定します
+	e.Layout.Bands(0).Columns(0).Width = 30
+	e.Layout.Bands(0).Columns(1).Width = 100
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	// グリッド内のすべてのセルについて Appearance プロパティを設定します
+	e.Layout.Override.CellAppearance.BackColor = Color.LightYellow;
+	// グリッドのバンドにあるすべてのセルの Appearance プロパティを設定します
+	e.Layout.Bands[0].Override.CellAppearance.BackColor = Color.LightGoldenrodYellow;
+	// グリッドのバンドのセルに対して Appearance プロパティを設定します
+	e.Layout.Bands[0].Columns[1].CellAppearance.BackColor = Color.LightYellow;
+	// 比例幅と AutoFitColumns を設定します
+	e.Layout.Bands[0].Columns[0].Width = 30;
+	e.Layout.Bands[0].Columns[1].Width = 100;
+	e.Layout.AutoFitStyle = AutoFitStyle.ResizeAllColumns;
+}
+----
+
+== まとめ
+
+このサンプル プロジェクトはオーバーライドの階層とグリッド セルのデフォルト外観プロパティを設定するために使われる CellAppearance オブジェクトについて説明しています。またセル外観プロパティのいくつかの使い方も説明しています。

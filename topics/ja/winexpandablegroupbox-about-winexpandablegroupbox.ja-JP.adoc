@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexpandablegroupbox-about-winexpandablegroupbox",
+    "controlName": [],
+    "tags": [],
+    "guid": "{0F94C896-AC52-42B9-921C-D7FA60DCDB50}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExpandableGroupBox について
+
+WinExpandableGroupBox コントロールは、WinGroupBox に機能を追加したものです。追加された主な機能は、縮小/展開機能です。このコントロールを縮小すると、その内容領域が非表示化され、コントロールのサイズが縮小します。「コンテンツ領域」とは、子コントロールが含まれているコントロールの部分です。この展開/縮小機能が追加されたことにより、アプリケーションが画面で占める面積を小さくできます。以下に、WinExpandableGroupBox コントロールの主な機能を示します。
+
+* 縮小/展開の外観 - コントロールの展開された状態に基づいて適用されるビジュアル スタイルを指定します。
+* ExpansionIndicator - ヘッダ内の展開インジケータの位置を決定します。このプロパティを None に設定すると、展開インジケータは削除されます。
+* ExpansionIndicatorCollapsed と ExpansionIndicatorExpanded - コントロールの展開された状態からに基づいて展開インジケータに表示されるカスタムの画像を指定します。
+* HeaderClickAction - ユーザーがヘッダ内の任意の箇所をクリックすることで、コントロールの展開された状態を切り替えられます。
+* HotTracking - ヘッダがホットトラッキング（マウス オーバー）効果をサポートするかどうかを示します。
+* ShowFocus - 展開インジケータにフォーカスを示す四角形を表示するかどうかを指定します。
+
+image::Images/WinMisc_Overview_04.png[]

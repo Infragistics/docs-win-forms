@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "touch-enabled-wintimelineview",
+    "controlName": [],
+    "tags": [],
+    "guid": "b15dc33f-69a4-449b-95bc-f2972b808845",  
+    "buildFlags": [],
+    "createdOn": "2013-09-15T23:59:06.3955542Z"
+}
+|metadata|
+////
+
+= タッチ対応の WinTimelineView
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _Infragistics_   のタッチ対応  _WinTimelineView_™ コントロール要素を紹介します。
+
+== _WinTimelineView_   タッチ対応要素とジェスチャ
+
+=== タッチ対応要素
+
+以下のスクリーンショットは、 _WinTimelineView_   コントロールのタッチ対応要素を示します。タッチ要素は、タッチ対応モードで若干大きく表示されます。
+
+image::images/Touch_WinTimelineView_1.png[]
+
+=== ジェスチャ サポート
+
+_WinTimelineView_   コントロールのジェスチャ サポートには、垂直および水平パン、フリック、タイムスロット記述子のドラッグ選択、予定のドラッグ操作が含まれます ( link:touch-gestures.html[タッチ ジェスチャ]を参照)。
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wintouchprovider.html[タッチ サポート]
+|このセクションには、Infragistics のコントロールとコンポーネントを使用して、タッチ対応アプリケーションを開発するための機能について説明する特定のトピックへのリンクが含まれています。
+
+| link:touch-gestures.html[タッチ ジェスチャ]
+|このグループのトピックは、 _Infragistics_ タッチ対応コントロールのタッチ ジェスチャを紹介します。
+
+|====

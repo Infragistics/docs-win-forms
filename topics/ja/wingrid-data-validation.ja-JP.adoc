@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-data-validation",
+    "controlName": ["WinGrid"],
+    "tags": [],
+    "guid": "80ecfe88-04e8-479f-bc54-9a47b6b7a801",  
+    "buildFlags": [],
+    "createdOn": "2013-02-05T02:10:19.4358886Z"
+}
+|metadata|
+////
+
+= データ検証
+
+以下のリンクは  _WinGrid_   コントロールで複数のデータ検証構成を提供します。
+
+* link:wingrid-dataerrorinfo-support.html[DataErrorInfo サポート]
+* link:wingrid-displaying-row-cell-errors-using-idataerrorinfo.html[IDataErrorInfo を使用して行/セル エラーを表示]
+* link:wingrid-validating-character-entries.html[文字入力の検証]

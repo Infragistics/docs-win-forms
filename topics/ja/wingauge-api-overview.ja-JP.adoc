@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-api-overview",
+    "controlName": ["WinGauge"],
+    "tags": ["API","Charting"],
+    "guid": "{C19C6765-5CBA-4CCE-9302-F20346A4B2BE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションは、WinGauge™ コントロールに関連する各名前空間をリストします。このコントロールでプログラムする間に使用するいくつかのキークラスも提供します。このページの名前空間とクラスは、ヘルプの「API 参照ガイド」に直接リンクしています。
+
+[cols="a,a"]
+|====
+|*WinGauge 名前空間：* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.win.ultrawingauge_namespace.html[Infragistics.Win.UltraWinGauge]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.win.ultrawingauge.ultragauge.html[UltraGauge]"]
+
+|*リソース名前空間:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources_namespace.html[Infragistics.UltraGauge.Resources]"]
+|*キー クラスとインタフェース:* 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.igaugecomponent.html[IGaugeComponent]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge.html[DigitalGauge]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.lineargauge.html[LinearGauge]"] 
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge.html[RadialGauge]"]
+
+|====

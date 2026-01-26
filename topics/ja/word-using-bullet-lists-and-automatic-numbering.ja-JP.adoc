@@ -1,0 +1,426 @@
+﻿////
+|metadata|
+{
+    "name": "word-using-bullet-lists-and-automatic-numbering",
+    "controlName": [],
+    "tags": [],
+    "guid": "5df8d550-a895-4325-b567-61d783997365",
+    "buildFlags": [],
+    "createdOn": "2015-02-26T18:43:24.2524919Z"
+}
+|metadata|
+////
+
+= 行頭文字と段落番号の自動設定の使用
+
+== 行頭文字と段落番号の自動設定の使用
+
+=== 目的
+
+このトピックでは、Infragistics WordDocumentWriter クラスを使用して、wordprocessingML に適合するドキュメントで行頭文字と段落番号の自動設定をする方法を説明します。
+
+=== 前提条件
+
+このトピックを理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:word-create-a-word-document.html[Word ドキュメントの作成]
+|このトピックは、forward-only の WordDocumentWriter ストリーマー オブジェクトを使用して、Word 文書を作成する方法を示します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<UsingBulletListsandAutomaticNumbering,行頭文字と段落番号の自動設定の概要>>
+
+** <<Overview,概要>>
+** <<Preview,プレビュー>>
+** <<Paragraphs,段落>>
+** <<APIAdditions,API の追加>>
+** <<BulletLevelPropertyClass,BulletLevelProperty クラス>>
+** <<ConfiguringaDocumentforBulletPoints,ドキュメントの行頭文字設定の構成>>
+** <<ConfiguringaDocumentforAutomaticNumbering,ドキュメントの段落番号の自動設定の構成>>
+
+* <<RelatedContent,関連コンテンツ>>
+
+[[UsingBulletListsandAutomaticNumbering]]
+== 行頭文字と段落番号の自動設定の概要
+
+[[Overview]]
+
+=== 概要
+
+行頭文字は、読者の注意を引き寄せ、重要な概念と事実の迅速な特定を促進します。通常、リストの各項目の前にドット、矢印、丸などの記号が付きます。リストの項目は関連しますがその順番は大事ではありません。行頭文字は、HTML の *<ul>* 要素に似ています。段落番号の自動設定は、行頭文字と同様なものですが項目が順序づけられることが異なります。段落番号の自動設定は、タスク実行のステップを列挙する場合など、項目の順番が重要な場合に使用します。段落番号の自動設定は、HTML の *<ol>* 要素に似ています。 
+
+[[Preview]]
+
+=== プレビュー
+
+行頭文字は以下の例で示します:
+
+* 月曜日
+* 火曜日
+* 水曜日
+
+段落番号の自動設定は以下の例で示します:
+
+[start=1]
+. 項目 1
+[start=2]
+. 項目 2
+[start=3]
+. 項目 3
+
+[[Paragraphs]]
+
+=== 段落
+
+段落という概念は、WordDocumentWriter クラスで重要になります。段落は通常、関連する数文からなる、ドキュメントのコンテンツのブロックのことです。
+
+WordDocumentWriter では、行頭文字、または段落番号は段落として扱われます。曜日の例では、行頭文字としてリストされた各曜日は別の段落になります。その点は要注意です。通常、リスト全体が単一の段落で各項目が段落の一部であると考えられがちですが、項目自体が段落です。
+
+WordDocumentWriter クラスでは、ParagraphProperties クラスを使用して段落を書式設定します。このクラスのプロパティを変更し、配置、インデント、行間、その他の属性を設定します。行頭文字、または段落番号の自動設定は特別な書式属性を持つ段落と考えてもよいです。この属性は、ParagraphProperties クラスの新規のプロパティ BulletLevel で簡単にアクセスします。
+
+[[APIAdditions]]
+
+=== API の追加
+
+このセクションでは、行頭文字、または段落番号を含むドキュメント生成のために、既存のオブジェクト モデルに追加された新しい API メンバーの高度な概要を提供します。
+
+*CreateBulletProperties* *メソッド (WordDocumentWriter クラス)*
+
+** BulletProperties クラスのインスタンスを作成し登録します。
+** 行頭文字が作成するドキュメントの別の部分にシリアル化されるため必要になります。
+
+* *BulletProperties* クラス
+
+** 各レベルでゼロから始まる *Levels* コレクションを公開します。
+** 各レベルは前のレベルを基にインデントされます。
+** Levels コレクションのすべてのメンバーはlink:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties.html[BulletLevelProperties] タイプのオブジェクトです。
+
+* BulletLevelProperty クラス
+
+** レベルが書式設定される方法をコントロールするプロパティを公開します。
+
+*** 頭文字の記号およびフォント
+*** インデント
+*** 段落番号の自動設定の番号スタイル、たとえば、[1、2、3、…]、[a、b、c、…]、[One、Two、Three、…]
+
+** 既存の ParagraphProperties クラスの *BulletLevel* プロパティに BulletLevelProperties インスタンスを割り当てます。
+
+*BulletLevel プロパティ (ParagraphProperties クラス)*
+
+** 既存のクラスに新しいプロパティ
+** BulletLevelProperties タイプのインスタンスを取得します。
+** 単一の BulletLevelProperties インスタンスは複数の ParagraphProperties インスタンスに割り当てられ、関連付けられた段落で同じ行文字/段落番号のプロパティが設定されます。
+
+[[BulletLevelPropertyClass]]
+== BulletLevelProperties クラス
+
+=== BulletLevel プロパティの概要
+
+BulletLevelProperties クラスは、行頭文字と段落番号の自動設定の主要機能を含みます。このクラスは、行頭文字の記号やフォント、インデント、行頭文字に数字を表示するかどうかなど、さまざまな書式設定が可能にするプロパティを公開します。
+
+以下の表で、BulletLevelProperties クラスプロパティを概観します:
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ名|プロパティ タイプ|説明
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~bullettext.html[BulletText]
+|`String`
+| 
+
+行頭文字を描画する文字を返すか、設定します。プロパティが None に設定されている場合のみ利用できます。このプロパティは、NumberingStyle プロパティを None に設定した場合、行頭文字を表示するために明示的に設定する必要があります。 
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~font.html[Font]
+|`Font`
+| 
+
+関連付けられた箇条書き項目、または段落番号の自動設定で使用されるフォントを返します。 
+
+BulletText プロパティでこれを使用して行頭文字をカスタマイズします。たとえば、Wingdings フォントをこのプロパティに割り当て、L の小文字をを BulletText プロパティに割り当てると、行頭文字として中黒記号が表示されます。段落番号の自動設定、文字や数字フォントの書式設定をする場合。 
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~indent.html[Indent]
+|`null 許容型 <float>`
+| 
+
+行頭文字または自動段落番号項目のために、ページの右端または左端インデントを決定する値を返すか、設定します。 
+
+測定単位は WordDocumentWriter の Unit プロパティに依存します。Unit を ‘Inch’ に設定すると、プロパティは .25 の値を割り当てられ、インデントは端から 4 分の 1 のインチになります。 
+
+値がどちらの端に関連するかは ParagraphProperties の RightToLeft プロパティの値によります。RightToLeft が false の場合、行頭文字は左端に整列されます。RightToLeft が true に設定されると右端に整列されます。 
+
+また、 ParagraphProperties の Alignment プロパティがこれをオーバーライドすることに注意してください。つまり、Alignment は明示的に設定されると、この値は利用できません。この値が設定されていない場合、インデントは前のレベルに相対してデフォルトで 4 分の 1 になり、レベル 0 はページの端から 4 分の 1 インデントされます。 
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~numberingstyle.html[NumberingStyle]
+|`AutomaticNumberingStyle`
+| 
+
+番号付けスタイルを識別する列挙値がある場合、段落番号の自動設定に適用されます。デフォルト値 None に設定すると、BulletText プロパティが明示的に設定されていると見なされ、行頭文字が表示されます。 
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~start.html[Start]
+|`int`
+| 
+
+番号シーケンスが始まる番号を返すか、設定します。NumberingStyle プロパティが None 以外の値に設定される時に限り適用可能です。デフォルトでは、段落番号の自動設定は １ で始まります。このプロパティを使用して、デフォルトをオーバーライドし任意の番号で開始します。 
+
+|====
+
+[[Configuringadocumentforbulletpoints]]
+== ドキュメントの行頭文字設定の構成
+
+=== 例
+
+以下の例では、次のプロパティ設定によるドキュメントの外観を示します (BulletLevelProperties のインスタンス):
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|値
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~numberingstyle.html[NumberingStyle]
+|None
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~bullettext.html[BulletText]
+|"l" (小文字の L)
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~font.html[Font].Name
+|"Wingdings"
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~indent.html[Indent]
+|0.25
+
+|====
+
+以下のドキュメントを作成します:
+
+* 項目 #1
+* 項目 #2
+* 項目 #3
+
+
+
+*C# の場合:* 
+[source, csharp]
+---- 
+using Infragistics.Documents.Word; 
+using ( WordDocumentWriter writer = WordDocumentWriter.Create("Bullet.docx") ) 
+{ 
+ // 単位としてインチを使用します 
+ writer.Unit = UnitOfMeasurement.Inch; 
+ // BulletProperties オブジェクトを作成します 
+ BulletProperties bulletProps = writer.CreateBulletProperties(); 
+ // レベル 0 のプロパティ値を設定します 
+ bulletProps.Levels[0].NumberingStyle = AutomaticNumberingStyle.None; 
+ bulletProps.Levels[0].Font.Name = "Wingdings"; 
+ bulletProps.Levels[0].Indent = .25f; 
+ bulletProps.Levels[0].BulletText = "l"; 
+ // ParagraphProperties オブジェクトを作成し // 上で作成した BulletLevelProperties インスタンスを // その BulletLevel プロパティに割り当てます ParagraphProperties paragraphProps = writer.CreateParagraphProperties(); 
+ paragraphProps.BulletLevel = bulletProps.Levels[0]; 
+ // ドキュメントを開始します 
+ writer.StartDocument(); 
+ // 同一の ParagraphProperties インスタンスを使用する 3 つの段落を追加して // 各段落に同一のブレットを割り当てます for ( int i = 1; i $$<=$$ 3; i ++ ) 
+ { 
+ writer.StartParagraph(paragraphProps); 
+ writer.AddTextRun(string.Format("Item #{0}", i)); 
+ writer.EndParagraph(); 
+ } 
+ // ドキュメントを終了します 
+ writer.EndDocument(); 
+ // Writer を閉じて、コンテンツを作成します 
+ writer.Close(); 
+}
+---- 
+
+*Visual Basic の場合:* 
+[source, vb]
+---- 
+Imports Infragistics.Documents.Word 
+Using writer As WordDocumentWriter = WordDocumentWriter.Create("Bullet.docx") 
+ ' 単位としてインチを使用します 
+ writer.Unit = UnitOfMeasurement.Inch 
+ ' BulletProperties オブジェクトを作成します 
+ Dim bulletProps As BulletProperties = writer.CreateBulletProperties() 
+ ' レベル 0 のプロパティ値を設定します 
+ bulletProps.Levels(0).NumberingStyle = AutomaticNumberingStyle.None 
+ bulletProps.Levels(0).Font.Name = "Wingdings" 
+ bulletProps.Levels(0).Indent = .25F 
+ bulletProps.Levels(0).BulletText = "l" 
+ ' ParagraphProperties オブジェクトを作成し ' 上で作成した BulletLevelProperties インスタンスを ' その BulletLevel プロパティに割り当てます Dim paragraphProps As ParagraphProperties = writer.CreateParagraphProperties() 
+ paragraphProps.BulletLevel = bulletProps.Levels(0) 
+ ' ドキュメントを開始します 
+ writer.StartDocument() 
+ ' 同一の ParagraphProperties インスタンスを使用する 3 つの段落を追加して ' 各段落に同一のブレットを割り当てます For i As Integer = 1 To 3 
+ writer.StartParagraph(paragraphProps) 
+ writer.AddTextRun(String.Format("Item #{0}", i)) 
+ writer.EndParagraph() 
+ Next i 
+ ' ドキュメントを終了します 
+ writer.EndDocument() 
+ ' Writer を閉じて、コンテンツを作成します 
+ writer.Close() 
+End Using
+---- 
+
+
+[[Configuringadocumentforautomaticnumbering]]
+== ドキュメントの段落番号の自動設定の構成
+
+以下の例では、次のプロパティ設定によるドキュメントの外観を示します (BulletLevelProperties のインスタンス):例では、BulletLevelProperties インスタンスが 2 つ使用されています。一方のインスタンスはレベル 0 の設定を、他方はレベル 1 の設定を指定します。
+
+BulletProperties.Levels[0]
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|値
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~numberingstyle.html[NumberingStyle]
+|Decimal
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~indent.html[Indent]
+|0.25
+
+|====
+
+BulletProperties.Levels[1]
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|値
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~numberingstyle.html[NumberingStyle]
+|LowerLetter
+
+| link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.bulletlevelproperties~indent.html[Indent]
+|0.5
+
+|====
+
+以下のドキュメントを作成します:
+
+1.レベル 0 項目 #1
+
+レベル 1 項目 #1
+
+レベル 1 項目 #2
+
+レベル 1 項目 #3
+
+2.レベル 0 項目 #2
+
+レベル 1 項目 #1
+
+レベル 1 項目 #2
+
+レベル 1 項目 #3
+
+3.レベル 0 項目 #3
+
+レベル 1 項目 #1
+
+レベル 1 項目 #2
+
+レベル 1 項目 #3
+
+
+*C# の場合:* 
+[source, csharp]
+---- 
+using Infragistics.Documents.Word; 
+using ( WordDocumentWriter writer = WordDocumentWriter.Create("Bullet.docx") ) 
+{ 
+ // 単位としてインチを使用します 
+ writer.Unit = UnitOfMeasurement.Inch; 
+ // BulletProperties オブジェクトを作成します 
+ BulletProperties bulletProps = writer.CreateBulletProperties(); 
+ // レベル 0 のプロパティ値を設定します 
+ bulletProps.Levels[0].NumberingStyle = AutomaticNumberingStyle.Decimal; 
+ bulletProps.Levels[0].Indent = .25f; 
+ // レベル 1 のプロパティ値を設定します 
+ bulletProps.Levels[1].NumberingStyle = AutomaticNumberingStyle.LowerLetter; 
+ bulletProps.Levels[1].Indent = .5f; 
+ // ParagraphProperties オブジェクトを作成し // 上で作成した BulletLevelProperties インスタンスを // その BulletLevel プロパティに割り当てます 
+ ParagraphProperties pp0 = writer.CreateParagraphProperties(); 
+ pp0.BulletLevel = bulletProps.Levels[0]; 
+ // ParagraphProperties オブジェクトを作成し // 上で作成したレベル 0 の BulletLevelProperties インスタンスを // その BulletLevel プロパティに割り当てます 
+ ParagraphProperties pp1 = writer.CreateParagraphProperties(); 
+ pp1.BulletLevel = bulletProps.Levels[1]; 
+ // ドキュメントを開始します。 
+ writer.StartDocument(); 
+ // レベル 0 の ParagraphProperties インスタンスを使用する 3 つの段落を追加して for ( int i = 1; i $$<=$$ 3; i ++ ) 
+ { 
+ writer.StartParagraph(pp0); 
+ writer.AddTextRun(string.Format("Level 0 Item #{0}", i)); 
+ writer.EndParagraph(); 
+ // レベル 1 の ParagraphProperties インスタンスを使用する 3 つの段落を追加して for ( int j = 1; j $$<=$$ 3; j ++ ) 
+ { 
+ writer.StartParagraph(pp1); 
+ writer.AddTextRun(string.Format("Level 1 Item #{0}", j)); 
+ writer.EndParagraph(); 
+ } 
+ } 
+ // ドキュメントを終了します 
+ writer.EndDocument(); 
+ // Writer を閉じて、コンテンツを作成します 
+ writer.Close(); 
+}
+---- 
+
+*Visual Basic の場合:* 
+[source, vb]
+---- 
+Imports Infragistics.Documents.Word 
+Using writer As WordDocumentWriter = WordDocumentWriter.Create("Bullet.docx") 
+ ' 単位としてインチを使用します 
+ writer.Unit = UnitOfMeasurement.Inch 
+ ' BulletProperties オブジェクトを作成します Dim bulletProps As BulletProperties = writer.CreateBulletProperties() 
+ ' レベル 0 のプロパティ値を設定します 
+ bulletProps.Levels(0).NumberingStyle = AutomaticNumberingStyle.Decimal 
+ bulletProps.Levels(0).Indent = 0.25F 
+ ' レベル 1 のプロパティ値を設定します 
+ bulletProps.Levels(1).NumberingStyle = AutomaticNumberingStyle.LowerLetter 
+ bulletProps.Levels(1).Indent = 0.5F 
+ ' ParagraphProperties オブジェクトを作成し ' 上で作成したレベル 0 の BulletLevelProperties インスタンスを ' その BulletLevel プロパティに割り当てます Dim pp0 As ParagraphProperties = writer.CreateParagraphProperties() 
+ pp0.BulletLevel = bulletProps.Levels(0) 
+ ' ParagraphProperties オブジェクトを作成し ' 上で作成したレベル 0 の BulletLevelProperties インスタンスを ' その BulletLevel プロパティに割り当てます Dim pp1 As ParagraphProperties = writer.CreateParagraphProperties() 
+ pp1.BulletLevel = bulletProps.Levels(1) 
+ ' ドキュメントを開始します 
+ writer.StartDocument() 
+ ' レベル 0 の ParagraphProperties インスタンスを使用する 3 つの段落を追加して For i As Integer = 1 To 3 
+ writer.StartParagraph(pp0) 
+ writer.AddTextRun(String.Format("Level 0 Item #{0}", i)) 
+ writer.EndParagraph() 
+ ' レベル 1 の ParagraphProperties インスタンスを使用する 3 つの段落を追加して For j As Integer = 1 To 3 
+ writer.StartParagraph(pp1) 
+ writer.AddTextRun(String.Format("Level 1 Item #{0}", j)) 
+ writer.EndParagraph() 
+ Next j 
+ Next i 
+ ' ドキュメントを終了します 
+ writer.EndDocument() 
+ ' Writer を閉じて、コンテンツを作成します 
+ writer.Close() 
+End Using
+---- 
+
+
+[[RelatedContent]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:word-using-the-infragistics-word-library.html[Infragistics Word ライブラリの使用]
+|このセクションでは、Word ライブラリの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+|====

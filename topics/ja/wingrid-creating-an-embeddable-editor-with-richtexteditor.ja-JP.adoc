@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-creating-an-embeddable-editor-with-richtexteditor",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Data Presentation","Grids"],
+    "guid": "{E03D3D86-F606-469A-A5FF-F6679B5BA794}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= RichTextEditor による埋め込みエディタの作成
+
+EmbeddableEditorBase クラスを使用して RichTextEditor を作成する方法を次に示します。RichTextEditor は、WinGrid などの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorownerbase.html[EmbeddableEditorOwnerBase]"]  インプリメンタ内から RTF（リッチ テキスト形式）コンテンツを描画および編集することができる pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase.html[EmbeddableEditorBase]"]  派生のエディタです。RichTextEditor サンプルは Infragistics SDK インストールの一部として使用できます。デフォルトで、サンプルは、オペレーティング システムによって、以下のインストール フォルダに配置されています。
+
+* XP -- {InstallPathXP}{ProductNameVersion}\Samples\WinForms\WinGrid\CS\RICHTEXTEMBEDDABLEEDITOR
+* Vista -- {InstallPathVista}{ProductNameVersion}\Samples\WinForms\WinGrid\CS\RICHTEXTEMBEDDABLEEDITOR
+
+== 機能
+
+* RTF（リッチ テキスト形式）のコンテンツを表示し、編集します。
+* ファイルを開き保存する機能が組み込まれています。
+* 必要なすべての EmbeddableEditorBase プロパティとメソッドを実装し、EmbeddableEditorOwnerBase 実装を提供するコンシューマに埋め込み可能です。
+* WinGrid コントロールに簡単に埋め込むことができます。
+* Infragisticsの柔軟な 'Key-Action Mappings' キーボードモデルを使用しているので、Infragistics コントロールで拡張キーボード機能を簡単に使用できます。

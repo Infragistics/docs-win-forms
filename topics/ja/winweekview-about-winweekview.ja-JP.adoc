@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winweekview-about-winweekview",
+    "controlName": ["WinWeekView"],
+    "tags": [],
+    "guid": "{034278AF-99FE-461D-90DB-440308987551}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinWeekView について
+
+WinWeekView は、1 週間のデータを表示するための Windows Forms コントロールです。以下に WinWeekView で使用できる機能の一部について説明します。
+
+* 表示 -- 1 ヶ月間の予約、メモ、オーナー、その他の項目を表示できます。
+* 追加/更新/削除 -- WinCalendarInfo コンポーネントを使用して予約、メモ、オーナー、その他の項目の追加、更新、削除を可能にします。
+* 外観のサポート -- アルファブレンディング、グラデーション、イメージなどを含め、すべての外観がサポートされます。外観には、コントロール レベルで設定できるものと、WinCalendarLook コンポーネントを使用して設定するものとがあります。
+* 組み込みテーマ -- WinCalendarLook コンポーネントにより、標準、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+
+image::images/WinWeekView_About_WinWeekView_01.png[]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtexteditor-understanding-winformattedtexteditor",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{13CF663C-36E4-427A-897D-A8A23350049D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedTextEditor の理解
+
+WinFormattedTextEditor コントロール、その主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinFormattedTextEditor コントロールを使用することの利点を理解できます。
+
+WinFormattedTextEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winformattedtexteditor-about-winformattedtexteditor.html[WinFormattedTextEditor について]
+* link:winformattedlinklabel-formatting-text-and-hyperlinks.html[テキストとハイパーリンクのフォーマッティング]
+* link:winformattedtexteditor-default-keyactionmappings-for-winformattedtexteditor.html[WinFormattedTextEditor のデフォルト KeyActionMappings]
+* link:winformattedtexteditor-support-dialogs.html[WinFormattedTextEditor サポート ダイアログ]
+* link:winformattedtexteditor-the-winformattedtexteditor-smart-tag.html[WinFormattedTextEditor スマート タグ]

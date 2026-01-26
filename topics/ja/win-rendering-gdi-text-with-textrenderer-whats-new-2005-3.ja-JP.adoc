@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-rendering-gdi-text-with-textrenderer-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{AA09451C-A289-440E-88FC-08032791C83B}",  
+    "buildFlags": ["win-forms"],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= TextRenderer による GDI テキストの描画
+
+$$.NET$$ Framework 2.0 には、GDI テキストを描画する新しい TextRenderer クラスが実装されています。Microsoft の組み込みコントロールはこのクラスを使用して、それぞれの固有のコントロールにテキストを描画します。.NET Framework 2.0 で動作している Infragistics コントロールおよびコンポーネントは、デフォルトではテキストの描画に従来どおり GDI+ を使用します。Infragistics コントロール（特に WinGrid）におけるテキストの描画は GDI+ を使用する方が高速であることがわかっています。
+
+それでも TextRenderer クラスを使用して GDI テキストを描画することは可能です。Infragistics.Win.DrawUtility クラスの UseGDIPlusTextRendering プロパティを False に設定すると、GDI+ による描画が無効になります。ただし、テキストを縦に回転する場合または印刷する場合は、GDI+ で描画する必要があります。

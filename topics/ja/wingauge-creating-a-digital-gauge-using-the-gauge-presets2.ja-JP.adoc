@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-digital-gauge-using-the-gauge-presets2",
+    "controlName": ["WinGauge"],
+    "tags": [],
+    "guid": "{47CD3A8E-4174-4D7C-96ED-8161D4EE898E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ プリセットを使用してデジタル ゲージを作成
+
+== 始める前に
+
+ゲージ デザイナを使用してデジタル ゲージを作成することによって、事前に定義したプリセットを使用することが可能となります。これによってデジタル ゲージを作成するために必要な作業を最小限に抑えることができます。
+
+== 達成すること
+
+デジタル ゲージを作成するためにゲージ デザイナを使用することは、走行距離計のような視覚的に魅力的でプロフェッショナルが作成した見栄えのゲージを作成する際に役に立ちます。
+
+== 次の手順を実行します
+
+[start=1]
+. ツールボックスから、UltraGauge コントロールをフォームにドラッグします。ゲージ デザイナが開きます。
+
+image::images/Gauge_Creating_a_Digital_Gauge_Using_the_Gauge_Designer_01.png[]
+
+[start=2]
+. ツールバーで、[プリセットを開く] をクリックします。
+[start=3]
+. [デジタル] タブをクリックします。
+
+image::images/Gauge_Creating_a_Digital_Gauge_Using_the_Gauge_Designer_02.png[]
+
+[start=4]
+. 事前に定義されたデジタル ゲージを選択します。ゲージを選択すると、インタラクティブなプレビュー領域にそのゲージが表示します。
+
+image::images/Gauge_Creating_a_Digital_Gauge_Using_the_Gauge_Designer_03.png[]
+
+[start=5]
+. ゲージ デザイナを閉じることなく選択したプリセットを使用してデジタル ゲージを作成するには、[適用] をクリックします。選択したプリセットを使用してデジタル ゲージを作成しデザイナを自動的に閉じるには、[適用して閉じる] をクリックします。
+[start=6]
+. アプリケーションを実行します。以下のフォームのように表示されるはずです。
+
+image::images/Gauge_Creating_a_Digital_Gauge_Using_the_Gauge_Designer_06.png[]

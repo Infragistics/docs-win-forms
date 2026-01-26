@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-auto-fit-columns-using-the-autofitstyle-property",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{9938F592-27EA-48D2-BCD6-9D6AAFBAFE0B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= AutoFitStyle プロパティを使用した列の自動調整
+
+使用可能なすべての水平領域を占めるために、WinGrid が各バンドの最後の列のサイズを自動的に変更するように設定できます。この操作は、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~autofitstyle.html[AutoFitStyle]"]  プロパティを ExtendLastColumn に設定することで実行できます。
+
+列の自動フィットに関する詳細は、 link:wingrid-auto-sizing-columns-and-rows.html[「列と行の自動サイズ変更」]を参照してください。
+
+== AutoFitStyle プロパティを設定するには:
+
+[start=1]
+. WinGrid を右クリックして [UltraGrid デザイナ] を選択します。
+[start=2]
+. デザイナの左側で、[コントロール設定] オプションを選択します。下にスクロールして pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridbase~displaylayout.html[DisplayLayout]"]  プロパティを展開し、さらに AutoFitStyle までスクロールします。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.autofitstyle.html[AutoFitStyle]"]  列挙体には次の 3 つのオプションがあります。
+
+* *None* - 自動サイズ変更を無効にします。これがプロパティのデフォルト値です。
+* *ResizeAllColumns* - すべての列のサイズを変更することによって、すべての表示領域を占めます。
+* *ExtendLastColumn* - バンド内の最後の列のサイズを変更することによって、他の列に占有されていないすべての表示領域を占めます。
+
+ExtendLastColumn 設定は、次の条件が少なくともひとつ成り立つ場合は効果がありません。
+
+* カードビュー機能が有効である。
+* Horizontal ViewStyle が使用されている。
+* 複数の列スクロール領域が存在する。
+
+次のスクリーンショットは、WinGrid の AutoFitStyle プロパティが "None" に設定されている場合です。
+
+image::Images/WinGrid_AutoFitStyle_Extend_Last_Column_01.png[]
+
+AutoFitStyle プロパティを "ExtendLastColumn" に設定すると、次のようになります。
+
+image::Images/WinGrid_AutoFitStyle_Extend_Last_Column_02.png[]

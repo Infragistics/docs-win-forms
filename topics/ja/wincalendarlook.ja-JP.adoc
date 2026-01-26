@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wincalendarlook",
+    "controlName": ["WinCalendarLook"],
+    "tags": [],
+    "guid": "{12858D1C-D05F-4B87-82A8-74EEBB1AA763}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinCalendarLook
+
+以下のリンクをクリックすると、WinCalendarLook コンポーネントに関する説明を読むことができます。
+
+* link:wincalendarlook-about-wincalendarlook.html[WinCalendarLook について] -- WinCalendarLook コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:wincalendarlook-smart-tag.html[WinCalendarLook スマート タグ] -- WinCalendarLook コンポーネントのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:win-wincalendarlook-using-wincalendarlook.html[WinCalendarLook の使用] -- このセクションは、WinCalendarLook コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。

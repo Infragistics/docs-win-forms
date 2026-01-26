@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar-add-an-action-button-to-winnavigationbar",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["Navigation"],
+    "guid": "{FA057EDF-FB13-4867-80E9-54939C55D4AF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクション ボタンを WinNavigationBar に追加
+
+プロジェクトを整理整頓するためにはコントロール内にカプセル化されたボタンの専用コレクションを持つことは常に好ましい機能で、WinNavigationBar™ の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbaractionbuttonscollection.html[ActionButtons] コレクションはそれを支援します。コントロールの右側に常に配置されるアクション ボタンによって、ユーザーは WinNavigationBar の link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultranavigationbar~actionbuttonclicked_ev.html[ActionButtonClicked] イベントから任意のタスクを実行できます。WinNavigationBar を使用してナビゲートするファイル システムをリフレッシュするボタンを追加できます。ナビゲーション履歴でお気に入りの項目として機能するボタンを追加できます。これらのボタンの性質のため、アプリケーションが求めるどのようなことでも行うことができます。
+
+以下のコードは、2 つの異なる方法で 2 つのアクション ボタンを追加します。以下に示す最初のメソッドは、ActionButtons コレクションの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbaractionbuttonscollection~add.html[Add] メソッドの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbaractionbuttonscollection~add(string).html[第二のオーバーロード]です。このオーバーロードを使用すれば、ボタンを最初にインスタンス化し、プロパティを変更し、それをコレクションに追加できます。Add メソッドの link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.navigationbaractionbuttonscollection~add(ultranavigationbaractionbutton).html[第一のオーバーロード]を使用する第二のメソッドによって、新しいアクション ボタンを単に追加して、それをインスタンス化することについては WinNavigationBar が行います。ただし、このボタンに後でアクセスする必要がある場合（すなわち、別のメソッドまたはイベントで）、以下にも示すように参照を取得する必要があります。
+
+image::images/WinNavigationBar_Add_an_Action_Button_to_WinNavigationBar_01.png[追加されたアクション ボタンのある WinNavigationBar の画像]
+
+ 
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.Misc
+' コードでアクション ボタンを作成します。
+Dim refreshButton As UltraNavigationBarActionButton = _
+    New UltraNavigationBarActionButton("Refresh")
+' ActionButtons コレクションにアクション ボタンを追加します。
+Me.UltraNavigationBar1.ActionButtons.Add(refreshButton)
+' 新しいアクション ボタンを追加し、WinNavigationBar
+' がユーザーのためにインスタンス化します。
+Me.UltraNavigationBar1.ActionButtons.Add("MyFavorites")
+' MyFavorites ボタンに後でアクセスする必要がある場合、
+Dim myFavorites As UltraNavigationBarActionButton = _
+    Me.UltraNavigationBar1.ActionButtons("MyFavorites")
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.Misc;
+// コードでアクション ボタンを作成します。
+UltraNavigationBarActionButton refreshButton = 
+	new UltraNavigationBarActionButton("Refresh");
+// ActionButtons コレクションにアクション ボタンを追加します。
+this.ultraNavigationBar1.ActionButtons.Add(refreshButton);
+// 新しいアクション ボタンを追加し、WinNavigationBar
+// がユーザーのためにインスタンス化します。
+this.ultraNavigationBar1.ActionButtons.Add("MyFavorites");
+// MyFavorites ボタンに後でアクセスする必要がある場合、
+UltraNavigationBarActionButton myFavorites =
+	this.ultraNavigationBar1.ActionButtons["MyFavorites"]
+	as UltraNavigationBarActionButton;
+----

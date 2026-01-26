@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2008-volume-2",
+    "controlName": [],
+    "tags": ["Breaking Changes","Known Issues"],
+    "guid": "{B06C2FC3-0A74-4150-8C5E-FCC5B6BD2039}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2008 Volume 2 の重大な変更
+
+== Win アセンブリ
+
+=== IFilterableValueList インタフェースに追加されたメンバ
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ifilterablevaluelist.html[IFilterableValueList] インタフェースに link:{ApiPlatform}win{ApiVersion}~infragistics.win.ifilterablevaluelist~applyfilter.html[ApplyFilter] および link:{ApiPlatform}win{ApiVersion}~infragistics.win.ifilterablevaluelist~removefilter.html[RemoveFilter] の 2 つのメンバを追加しました。このインタフェースは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelist.html[ValueList] クラスで実装される link:{ApiPlatform}win{ApiVersion}~infragistics.win.ivaluelist.html[IValueList] インタフェースから派生します。アプリケーションでこのインタフェースを実装すると、2 つの新しいメソッドを宣言しない限り、アプリケーションはコンパイルに失敗します。
+
+このインタフェースに追加されたメソッドは、意味のある実装を必要としません。ApplyFilter 実装は、フィルターが適用されないことを通知するために -1 を単純に返すことができ、RemoveFilter は void を返し、それを宣言することだけが求められます。
+
+== WinCheckEditor
+
+=== GlyphStyle プロパティは廃止
+
+GlyphStyle プロパティは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams.html[UIElementDrawParams]、 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracheckeditor.html[UltraCheckEditor]、および link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraoptionset.html[UltraOptionSet] オブジェクトで公開されます。このプロパティによって、標準スタイルと Microsoft® Office® 2007 スタイルを切り替えることで、WinCheckEditor および WinOptionSet™ コントロールに使用するためのグリフを選択できます。
+
+このプロパティは、既存の GlyphInfo オブジェクト内の新しいプロパティで置き換えられました。GlyphStyle を設定している場合、関連付けられた GlyphInfo プロパティは、互換性を維持するために適切なオブジェクトに設定されます。
+
+GlyphInfo オブジェクトについての詳細は、 link:win-new-designer-for-wincheckeditor-and-winoptionset.html[「WinCheckEditor および WinOptionSet の新しいデザイナ」]を参照してください。
+
+=== CheckBoxGlyphInfo および RadioButtonGlyphInfo は不変
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.checkboximageglyphinfo.html[CheckBoxImageGlyphInfo] および link:{ApiPlatform}win{ApiVersion}~infragistics.win.radiobuttonimageglyphinfo.html[RadioButtonImageGlyphInfo] クラスは、両方とも WinCheckEditor および WinOptionSet の画像プロパティをそれぞれ含みます。これらの画像プロパティは、すべて gettable および settable でしたが、これらのプロパティを読み取り専用に変更し、コンストラクタに追加して、グリフのさまざまな状態の画像を渡すことができます。
+
+GlyphInfo オブジェクトについての詳細は、 link:win-new-designer-for-wincheckeditor-and-winoptionset.html[「WinCheckEditor および WinOptionSet の新しいデザイナ」]を参照してください。
+
+== WinComboEditor
+
+=== AutoEdit プロパティは廃止
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor.html[UltraComboEditor]、 link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultracombo.html[UltraCombo]、および link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn] オブジェクトによって公開された AutoEdit プロパティは、新しい AutoCompleteMode プロパティを支持して廃止されています。
+
+AutoEdit プロパティを True に設定すると、AutoCompleteMode プロパティは Append に設定され、AutoEdit を False に設定すると AutoCompleteMode を None に設定することと機能的に等しくなります。
+
+新しい AutoCompleteMode プロパティの詳細は、 link:win-suggest-mode-for-wincomboeditor.html[「WinComboEditor の Google 提案」]を参照してください。
+
+== WinOptionSet
+
+=== GlyphStyle プロパティは廃止
+
+GlyphStyle プロパティは、 link:{ApiPlatform}win{ApiVersion}~infragistics.win.uielementdrawparams.html[UIElementDrawParams]、 link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracheckeditor.html[UltraCheckEditor]、および link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraoptionset.html[UltraOptionSet] オブジェクトで公開されます。このプロパティによって、標準スタイルと Microsoft® Office® 2007 スタイルを切り替えることで、WinCheckEditor™ および WinOptionSet コントロールに使用するためのグリフを選択できます。
+
+このプロパティは、既存の GlyphInfo オブジェクト内の新しいプロパティで置き換えられました。GlyphStyle を設定している場合、関連付けられた GlyphInfo プロパティは、互換性を維持するために適切なオブジェクトに設定されます。
+
+GlyphInfo オブジェクトについての詳細は、 link:win-new-designer-for-wincheckeditor-and-winoptionset.html[「WinCheckEditor および WinOptionSet の新しいデザイナ」]を参照してください。
+
+=== CheckBoxGlyphInfo および RadioButtonGlyphInfo は不変
+
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.checkboximageglyphinfo.html[CheckBoxImageGlyphInfo] および link:{ApiPlatform}win{ApiVersion}~infragistics.win.radiobuttonimageglyphinfo.html[RadioButtonImageGlyphInfo] クラスは、両方とも WinCheckEditor および WinOptionSet の画像プロパティをそれぞれ含みます。これらの画像プロパティは、すべて gettable および settable でしたが、これらのプロパティを読み取り専用に変更し、コンストラクタに追加して、グリフのさまざまな状態の画像を渡すことができます。
+
+GlyphInfo オブジェクトについての詳細は、 link:win-new-designer-for-wincheckeditor-and-winoptionset.html[「WinCheckEditor および WinOptionSet の新しいデザイナ」]を参照してください。

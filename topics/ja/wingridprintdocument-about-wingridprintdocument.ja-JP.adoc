@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridprintdocument-about-wingridprintdocument",
+    "controlName": ["WinGridPrintDocument"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{C52B267B-8716-4C89-BC4D-1091ADEED6DF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridPrintDocument について
+
+WinGridPrintDocument は WinGrid の印刷を可能にする Windows Form コンポーネントです。以下は WinGridPrintDocument で利用可能な機能の一部です。
+
+* 印刷プレビュー -- WinGridPrintDocument コンポーネントは、WinGrid ドキュメントを印刷前にプレビューするために、WinPrintPreviewDialog コンポーネントとともに使用できます。詳細は、 link:winprintpreviewdialog-wingridprintdocument-using-winprintpreviewdialog-with-wingridprintdocument.html[「WinGridPrintDocument と WinPrintPreviewDialog を使用」]を参照してください。
+* ヘッダ/フッタ -- WinGrid コントロールとともにカスタムのヘッダとフッタを印刷するように指定できます。
+
+image::images/WinGridPrintDocument_About_WinGridPrintDocument_01.png[]

@@ -1,0 +1,24 @@
+﻿////
+|metadata|
+{
+    "name": "whats-new",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A90AFAEF-7254-4715-BE08-A9F11C0F125E}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新機能
+
+{ProductName} のリリースでは、Windows Form コントロールに新しい革新的な機能が追加されます。このセクションでは、以前のボリューム リリースの完全な改訂履歴を含め、{ProductName} 製品の各ボリューム リリースの新機能を確認できます。
+
+== link:changelog.html[変更ログ]
+
+{ProductName} 製品の最新リリースに追加された新機能。
+
+== link:win-revision-history.html[改訂履歴]
+
+このセクションを使用すると、2004 Volume 3 リリース以降に追加された新機能の履歴を参照できます。

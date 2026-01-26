@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-a-statebutton-tool-to-a-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{6256F9E6-729F-40EC-A681-1C4A33E6A342}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーへの StateButton ツールの追加
+
+WinToolbarsManager コンポーネントには、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[ToolBar]"]  に追加できる 15 種類のツールが含まれています。ここでは、 pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.statebuttontool.html[StateButtonTool]"]  をデザインタイムおよびランタイムに追加する方法を示し、このツールの主な機能の 1 つについて説明します。StateButton には、状態ボタンが押されたとき、および放されたときにイメージを表示できます。
+
+== デザインタイムの場合
+
+[start=1]
+. UltraWinToolbar エレメントを設定するため、UltraToolbarsManager エレメント上で右クリックし、[ユーザー設定] を選択して、デザインタイム カスタマイザを開きます。
+[start=2]
+. 新しいツールを作成するため、ユーザー設定の [ツール] タブをクリックしてから [新規] ボタンをクリックします。
+[start=3]
+. ツールの種類として StateButton ツールを選択し、[追加] ボタンをクリックします。
+[start=4]
+. ユーザー設定の [ツールバー] タブをクリックしてから [新規作成] ボタンをクリックします。
+[start=5]
+. [ツール] タブをクリックし、StateButton ツールをフォーム上の ToolBar にドラッグします。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+...
+Private Sub UseaStateButtonTool_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim statebutton As New StateButtonTool("statebutton")
+	' ツールをツールバー マネージャの Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(statebutton)
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(statebutton)
+	statebutton.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways
+	statebutton.SharedProps.Caption = "Underline"
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+...
+private void UseaStateButtonTool_Load(object sender, System.EventArgs e)
+{
+	StateButtonTool statebutton = new StateButtonTool("statebutton");
+	// ツールをツールバー マネージャのツール コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(statebutton);
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(statebutton);
+	statebutton.SharedProps.DisplayStyle = ToolDisplayStyle.TextOnlyAlways;
+	statebutton.SharedProps.Caption = "Underline";
+}
+----

@@ -1,0 +1,151 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-library-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "d06e27a8-8cda-45b7-8c7b-b20561ddb5d3",  
+    "buildFlags": [],
+    "createdOn": "2011-05-19T18:43:52.0097723Z"
+}
+|metadata|
+////
+
+= Word Library リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|Exception_AddHyperlink_BadUri
+|値 '{0}' を有効な URI として指定できませんでした。
+
+|Exception_AssociatedWithDifferentWriter
+|割り当てられているインスタンスが別のライターで作成されているため、このオブジェクトに割り当てられません。
+
+|Exception_CellNotClosed
+|開いているテーブル セルを閉じる必要があります。各 StartTableCell メソッドの呼び出しは EndTableCell メソッドの呼び出しと一致する必要があります。
+
+|Exception_CellNotClosedTableClosed
+|テーブルを閉じることができません。開いているテーブル セルを閉じてください。テーブル セルを閉じるために、EndTableCell メソッドを使用します。
+
+|Exception_CellNotOpen
+|開いているテーブル セルがないため、操作を実行できません。テーブル セルを開くために StartTableCell メソッドを使用します。
+
+|Exception_CellOpenSectionStarted
+|テーブル セルが開いているため、セクションは定義されませんでした。セクションは、ルート レベルのコンテンツ ブロックのみに定義できます。
+
+|Exception_DocumentClosureError
+|ドキュメントを閉じるときに例外が発生しました。詳細については InnerException を参照してください。
+
+|Exception_DocumentNotOpen
+|ドキュメントは開かれていません。StartDocument メソッドを使用すると、文書を開始します。
+
+|Exception_FooterWriterError
+|セクションのフッターにコンテンツを書き込むときに、例外が発生されました。詳細については InnerException を参照してください。
+
+|Exception_HeaderFooterWriterClosureError
+|ヘッダーまたはフッターを閉じるときに例外が発生しました。詳細については InnerException を参照してください。
+
+|Exception_HeaderFooterWriterNotClosed
+|ドキュメント ライターは閉じられましたが、ヘッダー/フッター ライターの終了は保留中です。ドキュメント ライターを閉じる前に、ヘッダーまたはフッター ライターを適切に閉じる必要があります。
+
+|Exception_HeaderFooterWriterNotOpened
+|ドキュメント ライターは閉じられましたが、作成したヘッダーまたはフッター ライターが開かれていません。作成したヘッダーまたはフッター ライターを開いてから適切に閉じる必要があります。
+
+|Exception_HeaderWriterError
+|セクション ヘッダーにコンテンツを書き込むときに例外が発生しました。詳細については InnerException を参照してください。
+
+|Exception_InvalidCulture
+|値 '{0}' はローカル コンピューターに有効なカルチャー名ではありません。
+
+|Exception_MissingHyperlinkAddress
+|ハイパーリンクに有効なアドレスを設定する必要があります。
+
+|Exception_NestedCell
+|閉じられていないテーブル セルがあり、入れ子になったテーブル セルはサポートされないため、テーブル セルを追加できませんでした。開いているテーブル セルを閉じるために、EndTableCell メソッドを使用します。
+
+|Exception_NestedParagraph
+|段落を開けません。開いている段落を閉じる必要があります。入れ子になった段落はサポートされません。
+
+|Exception_NestedRow
+|テーブル行を追加できませんでした。閉じられていないテーブル行があり、入れ子になったテーブル行はサポートされません。開いているテーブル行を閉じるために EndTableRow メソッドを使用します。
+
+|Exception_NestedTable
+|テーブルを開けません。開いているテーブルを閉じる必要があります。入れ子になったテーブルはサポートされますが、親テーブルのテーブル セルの中に挿入する必要があります。
+
+|Exception_NoImageEncoder
+|Infragistics.Imaging.IImageEncoder 実装が ImageEncoder プロパティに割り当てられていないため、画像を文書に追加することができません。Silverlight ランタイムは画像情報のエンコード サポートを提供しないため、画像情報をシリアル化するために、WordDocumentWriter は IImageEncoder 実装への参照が必要です。
+
+|Exception_PackageFactoryNullOnCLR2
+|$$.NET$$ Framework 2.0 で実行するときに、データのパッケージを処理するために IPackageFactory 実装を提供する必要があります。.NET Framework 3.0 以上のフレームワークを使用する場合は、Infragistics3.Documents.IO アセンブリを使用してください。パッケージ化は WindowsBase クラスで処理されます。
+
+|Exception_PaddingTextParseFailedFormat
+|指定した文字列 '{0}' を Padding オブジェクトに変換することはできません。パディングを「left, top, right, bottom」書式に指定する必要があります。
+
+|Exception_ParagraphNotClosed
+|開いている段落を閉じる必要があります。各 StartParagraph メソッドの呼び出しは EndParagraph メソッドの呼び出しと均等に保つ必要があります。
+
+|Exception_ParagraphNotClosedSectionStarted
+|セクションは定義されませんでした。開いている段落を閉じる必要があります。ドキュメントが開かれていますが、開かれている段落がない場合のみにセクションを定義することができます。
+
+|Exception_ParagraphNotClosedTableCellStarted
+|テーブル セルを開始できませんでした。開いている段落を閉じる必要があります。段落を閉じるために、EndParagraph メソッドを使用します。
+
+|Exception_ParagraphNotClosedTableRowStarted
+|テーブル行を開始できませんでした。開いている段落を閉じる必要があります。段落を閉じるために、EndParagraph メソッドを使用します。
+
+|Exception_ParagraphNotClosedTableStarted
+|テーブルを開始できませんでした。開いている段落を閉じる必要があります。テーブルは他のテーブルのセルの入れ子にすることはできますが、段落を入り子にすることができません。
+
+|Exception_ParagraphNotOpen
+|開いている段落がないため、操作を実行できません。Use the StartParagraph method to begin a paragraph.
+
+|Exception_PropertyValueOutOfRange
+|値 {0} は範囲外です。'{1}' プロパティに設定可能な値は、{2} から {3} ({4}) までです。
+
+|Exception_RotatableShape_Rotation
+|値は -180 から 180 までの範囲に設定する必要があります。
+
+|Exception_RowClosedNoCell
+|テーブル セルを含まないため、テーブル行は開かれませんでした。テーブル行は 1 つ以上のテーブル セルを含む必要があります。
+
+|Exception_RowNotClosed
+|開いているテーブル行を閉じる必要があります。各 StartTableRow メソッドの呼び出しは EndTableRow メソッドの呼び出しと一致する必要があります。
+
+|Exception_RowNotClosedTableClosed
+|テーブルを閉じることができません。開いているテーブル行を閉じる必要があります。テーブル行を閉じるために、EndTableRow メソッドを使用します。
+
+|Exception_RowNotOpen
+|開いているテーブル行がないため、操作を実行できません。テーブル行を開くために、StartTableRow メソッドを使用します。
+
+|Exception_RowOpenSectionStarted
+|テーブル行が開いているため、セクションは定義されませんでした。セクションは、ルート レベルのコンテンツ ブロックのみに定義できます。
+
+|Exception_SectionProperties_MaxPageSize
+|指定した値 {0} は範囲外です。文書セクションの最大ページ サイズは (22" x 22") です。
+
+|Exception_TableNotClosed
+|開いているテーブルを閉じる必要があります。各 StartTable メソッドの呼び出しは EndTable メソッドの呼び出しと均等を保つ必要があります。
+
+|Exception_TableNotOpen
+|開いているテーブルがないため、操作を実行できません。テーブルを開くために、StartTable メソッドを使用します。
+
+|Exception_TableOpenSectionStarted
+|テーブルが開いているため、セクションを定義できませんでした。セクションは、ルート レベルのコンテンツ ブロックのみに定義できます。
+
+|Exception_ValueMustBePositive
+|値 '{0}' は {1} プロパティの有効な範囲外です。割り当てられる値は正の数である必要があります。
+
+|Exception_WriterError
+|XmlWriter で例外が発生しました。
+
+|WordDocumentWriter_TooManyColumns
+|テーブルは {0} 列を含むことはできません。テーブルに 1 ~ {1} 列を含む必要があります。
+
+|====

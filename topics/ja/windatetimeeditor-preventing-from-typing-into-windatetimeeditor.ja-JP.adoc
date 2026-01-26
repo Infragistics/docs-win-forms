@@ -1,0 +1,103 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatetimeeditor-preventing-from-typing-into-windatetimeeditor",
+    "controlName": ["WinDateTimeEditor"],
+    "tags": ["Editing","How Do I"],
+    "guid": "b1f14e2d-bbcc-4127-93b2-b3316d5f0bfe",  
+    "buildFlags": [],
+    "createdOn": "2013-01-29T14:41:34.4612559Z"
+}
+|metadata|
+////
+
+= WinDateTimeEditor 入力の無効化
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、 _WinDateTimeEditor_™ コントロールのコントロールでの入力を無効にする新機能を紹介します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref346724465,DropDownStyle プロパティの構成>>
+
+** <<_Ref341518673,はじめに>>
+** <<_Ref341518679,プロパティ設定>>
+
+* <<_Ref341518687,関連コンテンツ>>
+
+[[_Ref346724465]]
+== DropDownStyle プロパティの構成
+
+[[_Ref341518673]]
+
+=== はじめに
+
+13.1 以前のバージョンでは、 _WinDateTimeEditor_   コントロールは、 _UltraComboEditor™_   および  _UltraCombo™_   など、他のエディターにある link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultradatetimeeditor~dropdownstyle.html[DropDownStyle] プロパティがありませんでした。`DropDownStyle` プロパティがない場合、ユーザーがコントロールのリストをドロップダウンして項目を選択でき、選択を編集するためにコントロールで直接入力できます。
+
+`DropDownStyle` プロパティを構成すると、ドロップダウン リストの項目の選択を変更せずに、コントロールの直接入力を無効に設定できます。
+
+[[_Ref341518679]]
+
+=== プロパティ設定
+
+.注:
+[NOTE]
+====
+デフォルトでは、コントロールに直接入力できます。コントロールのエディターへの直接入力を無効にする場合は、以下の手順で構成してください。
+====
+
+1.  _WinDateTimeEditor_   コントロールがスタンドアロン コントロールの場合、コントロールの `DropDownStyle` プロパティを使用してください。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraDateTimeEditor1.DropDownStyle = DropDownStyle.DropDownList;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraDateTimeEditor1.DropDownStyle = DropDownStyle.DropDownList
+----
+
+2.  _WinDateTimeEditor_   コントロールにグリッドを埋め込んだ場合、列の `Style` プロパティを使用して埋め込んだエディターを含む列を構成してください。
+
+*C# の場合:*
+
+[source,csharp]
+----
+UltraGridColumn column = ultraGrid1.DisplayLayout.Bands[0].Columns["Date"];
+column.Style = ColumnStyle.DropDownList;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Dim column As UltraGridColumn = ultraGrid1.DisplayLayout.Bands(0).Columns("Date")
+column.Style = ColumnStyle.DropDownList
+----
+
+[[_Ref341518687]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:windatetimeeditor-using-windatetimeeditor.html[WinDateTimeEditor の使用]
+|このセクションでは、 _WinDateTimeEditor_ コンポーネントに関連する特定のタスクを実行する方法を簡潔に説明するタスク ベースのトピックを紹介します。
+
+|====

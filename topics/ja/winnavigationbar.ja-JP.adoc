@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winnavigationbar",
+    "controlName": ["WinNavigationBar"],
+    "tags": ["Getting Started","Navigation"],
+    "guid": "{33E83186-9D78-41F8-A7C3-458BE3299B68}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinNavigationBar
+
+WinNavigationBar™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WinNavigationBar についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WinNavigationBar コントロールについての情報にアクセスします。
+
+== link:winnavigationbar-understanding-winnavigationbar.html[WinNavigationBar の理解]
+
+このセクションでは、WinNavigationBar コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:win-winnavigationbar-using-winnavigationbar.html[WinNavigationBar の使用]
+
+このセクションには役に立つ短いトピックがあり、WinNavigationBar コントロールを使って特定の作業を実行する方法を示すサンプルコードが付いています。
+
+== link:winnavigationbar-api-overview.html[API の概要]
+
+このトピックは、WinNavigationBar コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

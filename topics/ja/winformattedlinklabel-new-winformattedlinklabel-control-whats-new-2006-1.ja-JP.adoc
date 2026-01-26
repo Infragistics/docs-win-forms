@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-new-winformattedlinklabel-control-whats-new-2006-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{FDAD210D-4EBE-4D03-9EE2-C6A2ACFB3585}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新しい WinFormattedLinkLabel コントロール
+
+これまでは、WinGrid またはその他のコントロールで HTML 機能を適切に設定するには大掛かりな作業が必要でした。この作業を容易にするために新しいコントロール、WinFormattedLinkLabel が追加されました。このコントロールは、FormattedLinkEditor クラスを使用し、WinGrid、WinTree、およびその他の埋め込みエディタをサポートしているコントロールでのフォーマットされたテキストの表示を可能にします。
+
+FormattedLinkEditor によるフォーマットされたテキストの表示を完全に制御できます。太字（<b>、<strong>）、斜体（<i>、<em>）、下線（<u>）、フォント（<font face>、<font color>、<font size>）など、テキストフォーマット用にいくつかの標準タグを使用できます（HTML タグと似ていますが、エディタでは妥当な XML タグとして表示されます）。また、リンクをクリックして LinkClicked イベントが発生すると、カスタム動作が実行されます。
+
+image::images/WinFormattedLinkLabel_New_WinFormattedLinkLable_Control_Whats_New_2006_1_01.png[]
+
+== 関連トピック
+
+link:winformattedlinklabel-about-winformattedlinklabel.html[WinFormattedLinkLabel について]
+
+link:winformattedlinklabel-formatting-text-and-hyperlinks.html[フォーマット テキストとハイパーリンク]
+
+link:winformattedlinklabel-create-a-link-using-winformattedlinklabel.html[WinFormattedLinkLabel によるリンクの作成]
+
+link:winformattedlinklabel-handle-an-error-while-parsing-formatted-text.html[フォーマットされたテキストの解析中のエラーの処理]
+
+link:winformattedlinklabel-adding-a-hyperlink-to-a-cell-in-wingrid.html[WinGrid 内のセルへのハイパーリンクの追加]
+
+link:winformattedlinklabel-adding-a-hyperlink-as-an-item-in-winexplorerbar.html[WinExplorerBar での項目としてのハイパーリンクの追加]

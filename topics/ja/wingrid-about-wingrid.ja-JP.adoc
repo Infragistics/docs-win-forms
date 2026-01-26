@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-about-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{160F97A2-2C7A-40E0-A25E-ED57417718BF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid について
+
+WinGrid は階層的なデータがバインドされたグリッド コントロールです。IList または ITypedList を実装するデータ ソースによって提供される階層的なデータの表示を完全にサポートします。
+
+WinGrid には、WinGrid コントロール上の作業を生産的かつ便利なものにする組込み拡張機能があります。WinGridExcelExporter コントロールを使ってデータを直接 Microsoft® Excel® にエクスポートできます。グリッドに似た WinDropDown コントロールを使えば、エンド ユーザーのデータ入力が楽になります。WinGridPrintDocument コントロールを使って WinGrid 全体の印刷が簡単にできます。
+
+グリッドは編集や次のような多くの他の機能をサポートします。
+
+* ソート - ユーザーは列ヘッダをクリックするだけで、列にあるデータをソートすることができます。単一の列または複数の列をソートします。
+* フィルタリング - エンド ユーザーがデータを自由にフィルタリングできるようにします。
+* Outlook GroupBy – Microsoft® Outlook と同じように類似した値を持つ行をグループ化します。
+* サイズ変更可能な列と行 – ユーザーは行または列の端をクリックしてドラックすることができます。ダブルクリックすると行と列が自動サイズ調整されます。
+* 固定ヘッダ – グリッドに固定列を追加すると、Microsoft® Excel® と同じようにスクロールしても常にその列が表示されます。
+* 行レイアウト – GridBagLayouts を使って行のセルとヘッダを配置します。
+* カードビュー – 行をカードとして表示します。
+* 言うまでもなく、すべての標準的な Infragistics Presentation Layer Framework は Appearances、 DrawFilters および CreationFilters のような機能を装備しています。
+
+image::images/WinGrid_About_WinGrid_01.png[]

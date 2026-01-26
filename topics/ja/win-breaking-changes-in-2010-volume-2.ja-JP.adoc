@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2010-volume-2",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "b5a80cd6-9a0e-4b91-a257-d056a3f90fb8",  
+    "buildFlags": [],
+    "createdOn": "2010-06-04T16:54:46.3043368Z"
+}
+|metadata|
+////
+
+= 2010 Volume 2 の重大な変更
+
+== WinControlContainerEditor™
+
+ControlContainerEditor コンポーネント内で使用される EditingControl が INotifyPropertyChanged インターフェイスを実装している場合、WinControlContainerEditor は  _PropertyName_ Changed イベント（たとえば、TextChanged、ValueChanged）をリッスンする代わりに、このインターフェイスからの通知をリッスンします。
+
+== WinGrid™、WinToolbarsManager™ および PrintPreviewDialogs のランタイム ダイアログ
+
+ランタイム ダイアログのスタイルが変更されました。ランタイム ダイアログのスタイル機能を強化するために、他の {ProductName} コントロールが使用されてきました。そのような機能として、追加のアセンブリ参照が既存のコントロール アセンブリに追加されました。たとえば、WinGrid のスタイルが変更されたランタイム ダイアログは、{ApiPlatform}Win.Misc アセンブリ内にあるコントロールを使用するようになりました。したがって、新しい UltraGrid コントロールがデザイナーの Form/UserControl にドロップされると、必要とされるアセンブリ参照が自動的にプロジェクトに追加されます。ただし、以前のバージョンからアップグレードされるプロジェクトには必要とされる参照が含まれない場合があるので、インボックス コントロールを使用してダイアログを表示します。
+
+スタイルが変更されたランタイム ダイアログの詳細については、 link:whats-new-restyled-run-time-dialogs.html[「スタイルが変更されたランタイム ダイアログ」]トピックを参照してください。

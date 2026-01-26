@@ -1,0 +1,47 @@
+﻿////
+|metadata|
+{
+    "name": "styling-guide-loading-a-stylelibrary",
+    "controlName": [],
+    "tags": ["Styling","Theming"],
+    "guid": "{FA8CD200-E3C5-42A2-BB38-1758344F1A6E}",
+    "buildFlags": [],
+    "createdOn": "2006-11-04T00:00:00Z"
+}
+|metadata|
+////
+
+= スタイル ライブラリのロード
+
+アプリケーションで Application Styling を利用する場合、アプリケーションに使用するスタイルを指示する方法が必要になります。その方法は、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling_namespace.html[Infragistics.Win.AppStyling]"] 名前空間の pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.stylemanager.html[StyleManager]"] クラスが提供します。スタイル ライブラリの読み込みはコード 1 行で行うことができます。
+
+AppStylist® は XML 形式のスタイル ライブラリを作成します。このスタイル ライブラリは、StyleManager クラスの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appstyling.stylemanager~load.html[Load]"]  メソッドでアプリケーションに読み込む必要があります。StyleManager.Load メソッドでスタイル ライブラリはいつでも読み込めますが、フォームが表示される前に読み込むことを推奨します。そのため、スタイル ライブラリをアプリケーションのエントリ ポイントで読み込むことを推奨します。Load メソッドを Main メソッドで呼び出す場合、Application.Run メソッドを呼び出す前に Load メソッドを呼び出します。そうでない場合は、アプリケーションが終了するまで Load メソッドはスタイル ライブラリを読み込みません。
+
+*Visual Basic の場合:*
+
+----
+Public Sub New()
+	MyBase.New()
+	InitializeComponent()
+	Infragistics.Win.AppStyling.StyleManager.Load("StyleLibrary.isl")
+End Sub
+----
+
+*C# の場合:*
+
+----
+Windows Form Designer Generated Code
+/// <summary>
+/// The main entry point for the application.
+/// </summary>
+[STAThread]
+static void Main() 
+{
+	Infragistics.Win.AppStyling.StyleManager.Load("StyleLibrary.isl");
+	Application.Run(new Form1());
+}
+----
+
+== 関連トピック
+
+link:styling-guide-changing-stylesets-at-run-time.html[ラン タイムに StyleSets を変更]

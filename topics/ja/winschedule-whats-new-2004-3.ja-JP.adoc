@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "winschedule-whats-new-2004-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{CF83F468-2D5C-4189-B6C0-EC25C4A42245}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSchedule 2004.3
+
+* UltraDayView に AppointmentsDragComplete を追加しました。
+* UltraWeekView と UltraMonthViewSingle に ActivitiesDragComplete を追加しました。
+* データバインディング機能は UltraCalendarInfo のノート コレクションに追加されました。DataBindingsForNotes プロパティは同様の種類の DataBindingForOwners 内で使用することができる UltraCalendarInfo コンポーネントに追加され、DataBindingForAppointments は NA 2004 Vol 2 リリースに追加されました。
+* 日、週、月のためのセカンド（代替）選択コレクションを整備するための機能が追加されました。この機能をサポートするために、いくつかの新しいプロパティが UltraCalendarInfo（AlternateSelectedDateRanges、AlternateSelectTypeDay、MaxAlternateSelectedDays）に追加され、ひとつのプロパティが WinSchedle コントロール（UseAlternateSelectedDataRanges）のためのベースクラスに追加されました。この代替セクションリストは顧客（Infragistics だけでなく）が正確に Microsoft Outlook の UI を複製するユーザー インターフェイスを作成することを可能とします。その変更はカスタマーが自ら容易に提供することができない機能性を整備することを二重日付選択リストに許可します。この変更は UltraDayView、選択済み日の数字上の UltraWeekView か UltraMonthViewSingle コントロール ベースを自動的に表示するためのサポートを含みません。 －　この機能はいくつかの仕事と共に顧客によって達成することができ、Infragistics はこの結果を達成する方法の基を概略とするサンプルを提供します。

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-controlcontainer-about-the-controlcontainer-tool",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{3E9D101D-E112-42E4-BA5B-8B1D52294CC2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ControlContainer ツールについて
+
+WinToolbarsManager では、ツールはすべてのツールバーやメニューの基本となるビルディング ブロックです。ツールは、.NET の標準のメニューにおける MenuItems や、Microsoft Office のメニューやツールバーにおける Commands に似ています。UltraToolbarsManager では 15 種類のネイティブ ツールが使用できます。各ツール タイプは「ルート ツール」か「インスタンス ツール」のどちらかになります（この重要なトピックの詳細については、 link:wintoolbarsmanager-terms-and-concepts.html[「ルート ツールとインスタンス ツール」]を参照してください）。ここでは 15 種類のツールについて説明します。
+
+== ControlContainer
+
+クラス名：pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.controlcontainertool.html[ControlContainerTool]"]
+
+派生元：Toolbase
+
+説明：ControlContainer ツールは、ツールに任意の .NET コントロールを埋め込むためのものです。これを使用すると、事実上すべての種類のユーザー インターフェイス エレメントをツールバーやメニューに配置できます。コントロールを ControlContainer に割り当てるには、デザイン タイム カスタマイザ ダイアログを使用するか、またはランタイムにプログラムから割り当てます。
+
+サンプル：
+
+image::Images/WinToolbarsManager_About_Tools_04.png[]

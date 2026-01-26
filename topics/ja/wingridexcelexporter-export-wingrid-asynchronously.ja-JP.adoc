@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridexcelexporter-export-wingrid-asynchronously",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": ["Exporting","Grids","Reporting"],
+    "guid": "9cce0d13-eb32-4a83-aa58-999a684ec5f0",  
+    "buildFlags": [],
+    "createdOn": "2011-08-04T14:25:06.1878662Z"
+}
+|metadata|
+////
+
+= WinGrid を非同期でエクスポート
+
+WinGridExcelExporter™ コンポーネントによって、WinGrid™ 全体を直接 Microsoft Excel ファイルに非同期にエクスポートできます。 link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter.html[UltraGridExcelExporter] オブジェクトの link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~exportasync.html[ExportAsync] メソッドを呼び出すことによって、これを実行します。
+
+== はじめに
+
+非同期エクスポートでは、エクスポート中にアプリケーションのユーザー インターフェイスを操作できます。非同期エクスポートが実行中に、アプリケーションは WinGrid にもデータ ソースにもアクセスできないことを保証しなければなりません。WinGrid の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~isexportasyncinprogress.html[IsExportAsyncInProgress] プロパティを使用して、アクセス競合を回避するために非同期エクスポートがまだ処理中かどうかを判断します。
+
+== 要件
+
+* .NET Framework 3.0 以降を使用した Microsoft Visual Studio ソリューション
+* WinGrid とデータへのバインドを使用した Windows Forms アプリケーション ソリューション
+* フォームでの WinGridExcelExporter コントロール
+
+== 概要
+
+[start=1]
+. <<One,WinGrid を非同期でエクスポート>>
+[start=2]
+. <<Two,(オプション) 結果を検証します。>>
+
+== 手順
+
+[[One]]
+[start=1]
+. WinGrid を非同期でエクスポートします。
+
+*C# の場合：*
+
+----
+this.ultraGridExcelExporter1.ExportAsync(this.ultraGrid1, "C:\\Reports\\ExcelExport.xls");
+----
+
+*Visual Basic の場合:*
+
+----
+Me.UltraGridExcelExporter1.ExportAsync(Me.UltraGrid1, "C:\Reports\ExcelExport.xls")
+----
+
+[[Two]]
+[start=2]
+. (オプション) 結果を検証します。
+
+結果を検証するには、アプリケーションを実行してエクスポートを実行します (図 1) 。
+
+image::images/WinGridExcelExporter_Export_WinGrid_Asynchronously_01.png[]
+
+図 1: Microsoft Excel ファイルに非同期でエクスポートする WinGrid
+
+== 関連トピック
+
+* link:wingridexcelexporter-export-grid-data-to-excel.html[グリッド データを Excel にエクスポート]
+* link:wingridexcelexporter-exporting-formulas-to-excel.html[Excelへ数式をエクスポート中]
+* link:wingridexcelexporter-exporting-to-xlsx-format-(using-clr-3-5).html[xlsx フォーマットにエクスポート (CLR 3.5 を使用)]

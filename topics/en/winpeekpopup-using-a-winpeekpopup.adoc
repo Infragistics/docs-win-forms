@@ -1,0 +1,54 @@
+﻿= Using a WinPeekPopup
+
+The WinPeekPopup™ gives you an effective way to conserve screen real estate while providing functionality to your users. You can use this component to represent a portion of your application’s interface in a single control, such as a command button. When the user clicks the button, a container opens presenting the controls that make up the interface.
+
+WinPeekPopup displays no user interface at design-time. You assign the control you want to appear as the pop-up control, using the Content property.
+
+.Note
+[NOTE]
+====
+This control can be a form or a container control such as a Panel that contains other controls.
+====
+
+At run time, invoke the `Show()` method to display the WinPeekPopup's contents at the current mouse position or at a specified point.
+
+== Getting Started with the WinPeekPopup
+Use the following steps to quickly get a `WinPeekPopup` working on the form
+[start=1]
+. Double-click the WinPeekPopup component in the Visual Studio toolbox. The component will be added to the component tray area of the current form.
+[start=2]
+. Add the control that you want to appear as a pop-up, or verify that it already exists on the form. This can be a container control, such as a Panel, that contains other controls. It can even be the form itself.
+[start=3]
+. Select the WinPeekPopup component and in the properties grid locate the Content property. Select from the drop-down list the control that will serve as the pop-up container.
+[start=4]
+. Add the control to the form that will be used to display the pop-up container. Typically, this will be a button control.
+
+.Note
+[NOTE]
+====
+If you have selected the form itself as the pop-up container, you must place the UI for displaying the pop-up on a different form, and alter your code as needed to account for cross-form references.
+====
+
+[start=5]
+. Add the following code to the Click event of the button (or other control) that will display the pop-up:
+
+*In Visual Basic:*
+
+----
+Private Sub btnShowTree_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles btnShowTree.Click
+	Me.UltraPeekPopup1.Show()
+End Sub
+----
+
+*In C#:*
+
+----
+private void btnShowTree_Click(object sender, EventArgs e)
+{
+	this.ultraPeekPopup1.Show();
+}
+----
+
+[start=6]
+. Build and run the project. You will see that the control you have specified as the pop-up is hidden when the form is displayed. Clicking the button displays the pop-up control at the current position of the mouse. If you used a container control for the pop-up, you can click on any of the controls it contains, or anywhere inside the container, and the pop-up remains on screen. Click outside of the pop-up control, and it is dismissed.

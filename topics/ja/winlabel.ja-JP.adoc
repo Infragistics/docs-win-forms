@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlabel",
+    "controlName": ["WinLabel"],
+    "tags": [],
+    "guid": "{2F60F4FE-9D05-42A0-96D7-7C91B90A290B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinLabel
+
+以下のリンクをクリックすると、WinLabel コントロールに関する説明を読むことができます。
+
+* link:winlabel-about-winlabel.html[WinLabel について] -- WinLabel コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winlabel-smart-tag.html[WinLabel スマート タグ] -- WinLabel コントロールのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winlabel-api-overview.html[API の概要] -- WinLabel コントロールを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。

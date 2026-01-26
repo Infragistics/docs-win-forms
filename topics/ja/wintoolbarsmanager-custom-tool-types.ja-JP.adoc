@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-custom-tool-types",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{89581D42-26BC-47BA-BF5B-B6906A1C3644}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム ツール タイプ
+
+WinToolbarsManager のオブジェクト モデルは、.NET の共通言語ランタイムのオブジェクト指向機能を利用するように設計されています。15 個の組み込みツールタイプはすべて ToolBase と呼ばれる共通の基本クラスから派生しています。ToolBase はすべてのツールに必要となる基本的な機能を実装しています。15 個の組み込みツールタイプは次のとおりです。
+
+* Button ツール
+* Combo Box ツール
+* Control Container ツール
+* Font List ツール
+* Label ツール
+* List ツール
+* Masked Edit ツール
+* MDI Window List ツール
+* Popup Color Picker ツール
+* Popup Control Container ツール
+* Popup Menu ツール
+* Progress Bar ツール
+* State Button ツール
+* Text Box ツール
+* TaskPane ツール
+
+== 基盤となる組み込みツール クラスの階層
+
+カスタム ツール タイプは、15 個の任意の組み込みツールから派生するか、または要件に対応した組み込みツール タイプがなければ ToolBase から直接派生できます。また、派生元として使用できる抽象基本クラス（pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.tearawaytoolbase.html[TearawayToolBase]"]  など）もあります。次の図は、組み込みツール クラスの継承階層を示しています。抽象基本クラスは赤で示されています。
+
+image::Images/WinToolbars_Custom_Tool_Types_01.png[]
+
+== カスタム ツール タイプの実装
+
+抽象基本クラスと組み込みツール クラスはどちらも仮想メソッドと仮想プロパティを公開しており、それらのメソッドやプロパティを派生クラスでオーバーライドすることによってツールの動作や外観をカスタマイズできます。
+
+[NOTE]
+====
+*注:* 組み込みツール クラスで公開されているすべての仮想プロパティおよびメソッドでは、各クラスに適したデフォルトの実装が基本クラスに含まれています。
+====
+
+カスタム ツール タイプを作成するときは、いくつかのプロパティやメソッドを、自分のツールに適した動作を提供するようにオーバーライドします。たとえば、ツールのカスタム プロパティの _シリアル化_ をサポートするには、次のようにします。
+
+[start=1]
+. クラスを Serializable 属性でマークします。
+[start=2]
+. カスタム プロパティを逆シリアル化できるように、逆シリアル化コンストラクタを実装します。
+[start=3]
+. ToolBase の GetObjectData メソッドをオーバーライドして、カスタム プロパティをシリアル化します。
+
+これにより、ツールバー マネージャの Load メソッドと Save メソッドが呼び出されたときに、ツールのカスタム プロパティが基本クラスのプロパティと共に永続化または非永続化されます。
+
+カスタムツールで、ToolBase の SharedProps オブジェクトのようにツールのすべてのインスタンスで共有されるプロパティを定義するには、共有のカスタム プロパティを定義する ExtraSharedProps ヘルパ クラスを実装し、ExtraSharedPropsCount プロパティと ExtraSharedProps プロパティをオーバーライドする必要があります。
+
+ToolProviderComponent のサンプルでは、組み込みの Button ツールと ComboBox ツールから派生したカスタム ツール タイプを作成する方法を示しています。このサンプルでは、永続化が可能で、なおかつすべてのツール インスタンスで共有されるツール プロパティを作成する方法を、参考となるコメントを交えながら示しています。サンプルは、Infragistics SDK をインストールした場所にある Samples フォルダにあります。インストールのデフォルトを受け入れた場合、これはオペレーティング システムに基づいて以下のいずれかのパスになります。
+
+== サンプルの C# バージョン:
+
+* XP -- {InstallPathXP}{ProductNameVersion}\Samples\WinForms\WinToolbars\CS\ToolProvider Component CS
+* Vista -- {InstallPathVista}{ProductNameVersion}\Samples\WinForms\WinToolbars\CS\ToolProvider Component CS
+
+== サンプルの Visual Basic バージョン:
+
+* XP -- {InstallPathXP}{ProductNameVersion}\Samples\WinForms\WinToolbars\VB\ToolProvider Component VB
+* Vista -- {InstallPathVista}{ProductNameVersion}\Samples\WinForms\WinToolbars\VB\ToolProvider Component VB
+
+== デザインタイム カスタマイザでのカスタム ツール タイプの表示
+
+UltraToolbarsManager は、カスタム ツールをデザインタイム カスタマイザの [New Tool] ダイアログに表示するメカニズムを備えています。これにより、デザインタイムに UltraToolbarManager の標準のデザインタイム カスタマイザを使用してカスタム ツールを選択、操作することが可能になり、自分やチームの他の開発者のためにデザインタイムの操作を強化できます。
+
+ToolProviderComponent のサンプルでは、カスタム ツール タイプを UltraToolbarsManager に登録する方法を示しています。カスタム ツール タイプを登録することで、組み込みツールに加えてカスタム ツールをカスタマイザの [New Tool] ダイアログのツールリストに表示できるようになります。カスタム ツールをリストから選択すると、[New Tool] ダイアログはツール プロバイダに対してカスタム ツールのインスタンスを作成するように要求します。
+
+カスタム ツール タイプをデザインタイム カスタマイザに追加するためには、デザインタイムに UltraToolbarsManager の静的メソッド RegisterCustomToolType を使用して、ツール タイプを UltraToolbarsManager に登録する必要があります。登録の際には、IToolProvider の実装への参照を提供する必要があります。この実装によって、UltraToolbarManager のデザインタイム カスタマイザでカスタム ツール タイプのインスタンスが必要になったときに、そのインスタンスを作成できます。
+
+これは、デザインタイムにアセンブリをロードしてこれらの関数を実行しなければならないことを意味します。これを行うには、次のようないくつかの方法があります。
+
+[start=1]
+. IToolProvider を実装するコンポーネントを作成する。開発者はこのコンポーネントを UltraToolbarsManager 要素と共にフォーム上に配置できます。ToolProviderComponent のサンプルで紹介している ToolProviderComponent クラスは、この方法の一例です。
+[start=2]
+. UltraToolbarsManager から派生したクラスを作成する。この方法でも、IToolProvider インタフェースを実装し、RegisterCustomToolType メソッドを使用してカスタム ツール タイプを登録する必要がありますが、ユーザーがフォーム上に別のコンポーネントを配置する必要がなくなります。ToolProviderComponent のサンプルで紹介している ToolProviderAsManager クラスは、この方法の一例です。この方法には、UltraToolbarsManager が組み込みツールを登録しないように ShowBuiltInToolTypesInCustomizer 仮想メソッドをオーバーライドできるという利点があります。このようにすると、カスタマイザの [新しいツール] ダイアログに、登録したカスタム ツール タイプのみが一覧表示されるようになります。
+[start=3]
+. Visual Studio アドインを作成する。

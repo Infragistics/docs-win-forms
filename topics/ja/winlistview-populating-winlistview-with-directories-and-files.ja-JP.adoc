@@ -1,0 +1,244 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-populating-winlistview-with-directories-and-files",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I"],
+    "guid": "{5CB348C1-365E-42B7-991C-20CF4FFFDF8B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView へのディレクトリとファイルの移植
+
+== 始める前に
+
+WinListView コントロールは Microsoft® Windows® Explorer のルック アンド フィールをエミュレートしているので、その使用方法を知る最良の方法は、実際のファイルとディレクトリを移植してみることです。このトピックでは、WinListView を構成してこの操作を行う方法を手順を追って示します。
+
+$$.NET$$ Framework では、System.IO 名前空間を通じて、ディレクトリ名とファイル名を、そのサイズや作成日などの関連情報とともに取得する手段が用意されています。この作業には、DirectoryInfo と FileInfo の 2 つのクラスを使用します。この 2 つのクラスは、ローカル マシン上のファイル システムへのアクセスを提供する Windows API 関数をラップしています。ここでは、この 2 つのクラスを使用して、ディレクトリの情報を取得し、この情報を WinListView コントロールに格納します。
+
+== 次の手順を実行します。
+
+[start=1]
+. 次の命令をプロジェクトに追加すると、頻繁に使用する参照の完全修飾名を入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinListView
+Imports System.IO
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinListView;
+using System.IO;
+----
+
+[start=2]
+. デザイン ビューで UltraListView と ImageList をツールボックスからフォームにドラッグします。画像のフォルダを ImageList に追加します。トピックのの残りはすべてコード ビハインド ファイルで実行されます。
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitemcolumnscollection.html[SubItemColumns]"]  コレクションに、ファイル サイズ、ファイルの種類、および作成日を表すメンバを追加します。
+
+SubItemColumns コレクションは、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティを「Details」に設定したときにコントロールが表示する列を定義します。また、View を「Tiles」に設定したときに項目のテキストの下に表示される追加データも定義します。さらに、ItemSettings の TipStyle プロパティを Automatic に設定したときには、サブアイテムの値、およびそれらが関連付けられる列の名前が項目のツールチップに表示されます。まず、Windows Explorer にデフォルトで表示される、ファイルサイズ、ファイルの種類、および更新日を表す SubItemColumns を追加してみましょう。
+
+*Visual Basic の場合：*
+
+----
+' ファイル サイズ、ファイルの種類、および更新日を表す UltraListViewSubItemColumns を
+' コントロールの SubItemColumns コレクションに追加します。
+Dim colFileSize As UltraListViewSubItemColumn = _
+  Me.ultraListView1.SubItemColumns.Add("FileSize")
+Dim colFileType As UltraListViewSubItemColumn = _
+  Me.ultraListView1.SubItemColumns.Add("FileType")
+Dim colDateModified As UltraListViewSubItemColumn = _
+  Me.ultraListView1.SubItemColumns.Add("DateModified")
+----
+
+*C# の場合：*
+
+----
+// ファイル サイズ、ファイルの種類、および更新日を表す UltraListViewSubItemColumns を
+// コントロールの SubItemColumns コレクションに追加します。
+UltraListViewSubItemColumn colFileSize = this.ultraListView1.SubItemColumns.Add( "FileSize" );
+UltraListViewSubItemColumn colFileType = this.ultraListView1.SubItemColumns.Add( "FileType" );
+UltraListViewSubItemColumn colDateModified = this.ultraListView1.SubItemColumns.Add( "DateModified" );
+----
+
+[start=4]
+. 手順 2 で追加した UltraListViewSubItemColumn インスタンスのいくつかのプロパティを設定します。
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitemcolumn.html[UltraListViewSubItemColumn]"]  クラスは、列とそのサブアイテムをユーザー インターフェイスに表示する方法を制御するためのいくつかのプロパティを提供します。これらのプロパティを使用して、Windows Explorer に似たルックを作成して見ましょう。
+
+*Visual Basic の場合：*
+
+----
+' FileSize...
+' ファイル サイズはキロバイトで表すので、
+' DataType プロパティを整数に設定します。
+colFileSize.DataType = GetType(Integer)
+' Format プロパティを、値が 1000 の桁の区切り点と少数以下の
+' ゼロが付いた値として表示されるように設定
+' します。また、各値はキロバイト値を示すので、各値の後には
+' "KB" を付けます。
+colFileSize.Format = "#,###,##0 KB"
+' サブアイテムの値は、右詰めとなるように "Right-align" に設定します。
+colFileSize.SubItemAppearance.TextHAlign = HAlign.Right
+' Textプロパティを "Size" に設定します。
+colFileSize.Text = "Size"
+' FileType...
+' DataType プロパティを文字列に設定します。
+colFileType.DataType = GetType(String)
+' Text プロパティを "Type" に設定します。
+colFileType.Text = "Type"
+' DateModified...
+' DataType プロパティを DateTime に設定します。
+colDateModified.DataType = GetType(DateTime)
+' Text プロパティを "Date Modified" に設定します。
+colDateModified.Text = "Date Modified"
+' Format プロパティを、現在の一般的な習慣に合わせて
+' 日付と時刻を短い表示方式で表示するように
+' 設定します。
+Dim shortDateFormat As String = _
+  System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
+Dim shortTimeFormat As String = _
+  System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern
+colDateModified.Format = String.Format("{0} {1}", shortDateFormat, shortTimeFormat)
+----
+
+*C# の場合：*
+
+----
+// FileSize...
+// ファイル サイズはキロバイトで表すので、
+// DataType プロパティを整数に設定します。
+colFileSize.DataType = typeof(int);
+// Format プロパティを、値が 1000 の桁の区切り点と少数以下の
+// ゼロが付いた値として表示されるように設定
+// します。また、各値はキロバイト値を示すので、各値の後には
+// "KB" を付けます。
+colFileSize.Format = "#,###,##0 KB";
+// サブアイテムの値は、右詰めとなるように "Right-align" に設定します。
+colFileSize.SubItemAppearance.TextHAlign = HAlign.Right;
+// FileType...
+// DataType プロパティを文字列に設定します。
+colFileType.DataType = typeof(string);
+// DateModified...
+// DataType プロパティを DateTime に設定します。
+colDateModified.DataType = typeof(DateTime);
+// Text プロパティを "Type" に設定します。
+colFileType.Text = "Type";
+// Text プロパティを "Date Modified" に設定します。
+colDateModified.Text = "Date Modified";
+// Format プロパティを、現在の一般的な習慣に合わせて
+// 日付と時刻を短い表示方式で表示するように
+// 設定します。
+string shortDateFormat = 
+  System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
+string shortTimeFormat = 
+  System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern;
+colDateModified.Format = string.Format( "{0} {1}", shortDateFormat, shortTimeFormat );
+----
+
+[start=5]
+. コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~maincolumn.html[MainColumn]"]  のいくつかのプロパティを設定します。
+
+コントロールの MainColumn プロパティは、参照を pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewmaincolumn.html[UltraListViewMainColumn]"]  タイプのオブジェクトに変換します。この列は、SubItemColumns コレクションのメンバの列とは異なります。この列は、項目の値を表示するための列で、SubItemColumnsコレクションの列のように非表示にすることはできません。ただし、この列は UltraListViewSubItemColumn クラスと同じクラスから派生しており、UltraListViewSubItemColumn クラスと同じ多くのプロパティを提供します。MainColumn のいくつかのプロパティを設定して、ファイルとディレクトリの名前を表示してみましょう。
+
+*Visual Basic の場合：*
+
+----
+' MainColumn...
+' DataType プロパティを文字列に設定します。
+Me.ultraListView1.MainColumn.DataType = GetType(String)
+' Text プロパティを “Name” に設定します。
+Me.ultraListView1.MainColumn.Text = "Name"
+----
+
+*C# の場合：*
+
+----
+// MainColumn...
+// DataType プロパティを文字列に設定します。
+this.ultraListView1.MainColumn.DataType = typeof(string);
+// Text プロパティを “Name” に設定します。
+this.ultraListView1.MainColumn.Text = "Name";
+----
+
+[start=6]
+. 列の構造を定義したので、次にデータを追加します。
+
+*Visual Basic の場合：*
+
+----
+' フォルダ イメージの外観を追加し、これを
+' フォルダ項目の Appearance に割り当てます。
+Dim appearance As Infragistics.Win.Appearance = Me.ultraListView1.Appearances.Add("folder")
+appearance.Image = Me.ImageList1.Images(0)
+' ローカルマシンの C ドライブを示す
+' DirectoryInfo オブジェクトを取得します。
+Dim cDriveInfo As DirectoryInfo = New DirectoryInfo("C:\\")
+' ディレクトリとファイルを取得します。
+Dim directories() As DirectoryInfo = cDriveInfo.GetDirectories()
+Dim files() As FileInfo = cDriveInfo.GetFiles()
+' ディレクトリを反復取得し、それぞれに項目を追加します。
+Dim i As Integer
+For i = 0 To directories.Length - 1
+	Dim directoryInfo As DirectoryInfo = directories(i)
+	Dim item As UltraListViewItem = Me.ultraListView1.Items.Add(directoryInfo.FullName, directoryInfo.Name)
+	item.SubItems("FileType").Value = "File Folder"
+	item.SubItems("DateModified").Value = directoryInfo.LastWriteTime
+	item.Appearance = Me.ultraListView1.Appearances("folder")
+Next
+' ファイルを反復取得し、それぞれに項目を追加します。
+For i = 0 To files.Length - 1
+	Dim fileInfo As FileInfo = files(i)
+	Dim item As UltraListViewItem = Me.ultraListView1.Items.Add(fileInfo.FullName, fileInfo.Name)
+	item.SubItems("FileSize").Value = fileInfo.Length / 1024
+	item.SubItems("FileType").Value = "File"
+	item.SubItems("DateModified").Value = fileInfo.LastWriteTime
+Next
+' View を「Details」に設定します。
+Me.ultraListView1.View = UltraListViewStyle.Details
+----
+
+*C# の場合：*
+
+----
+// フォルダ イメージの外観を追加し、これを
+// フォルダ項目の Appearance に割り当てます。
+Infragistics.Win.Appearance appearance = this.ultraListView1.Appearances.Add( "folder" );
+appearance.Image = this.imageList1.Images[0];
+// ローカルマシンの C ドライブを示す
+// DirectoryInfo オブジェクトを取得します。
+DirectoryInfo cDriveInfo = new DirectoryInfo( "C:\\" );
+// ディレクトリとファイルを取得します。
+DirectoryInfo[] directories = cDriveInfo.GetDirectories();
+FileInfo[] files = cDriveInfo.GetFiles();
+// ディレクトリを反復取得し、それぞれに項目を追加します。
+for ( int i = 0; i < directories.Length; i ++ )
+{
+	DirectoryInfo directoryInfo = directories[i];
+	UltraListViewItem item = this.ultraListView1.Items.Add( directoryInfo.FullName, directoryInfo.Name );
+	item.SubItems["FileType"].Value = "File Folder";
+	item.SubItems["DateModified"].Value = directoryInfo.LastWriteTime;
+	item.Appearance = this.ultraListView1.Appearances["folder"];
+}
+// ファイルを反復取得し、それぞれに項目を追加します。
+for ( int i = 0; i < files.Length; i ++ )
+{
+	FileInfo fileInfo = files[i];
+	UltraListViewItem item = this.ultraListView1.Items.Add( fileInfo.FullName, fileInfo.Name );
+	item.SubItems["FileSize"].Value = fileInfo.Length / 1024;
+	item.SubItems["FileType"].Value = "File";
+	item.SubItems["DateModified"].Value = fileInfo.LastWriteTime;
+}
+// View を「Details」に設定します。
+this.ultraListView1.View = UltraListViewStyle.Details;
+----

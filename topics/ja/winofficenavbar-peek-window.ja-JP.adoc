@@ -1,0 +1,59 @@
+﻿== プレビュー ウィンドウ
+
+プレビュー
+ウィンドウは、link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar.html[WinOfficeNavBar]
+内の任意の項目をホバーするとコントロールを表示します。プレビュー
+ウィンドウは次のように構成されています:
+
+image::images/OfficeNavBar_Peek_Window_Diagram.png[プレビュー ウィンドウ ダイアグラム]
+
+. PeekContent -- プレビュー ウィンドウに割り当てられたコントロール。プレビュー ウィンドウが表示する
+UI の一部を表示します。コンテンツ コントロールは link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.navbaritem.html[NavBarItem] の link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.navbaritem~peekcontent.html[PeekContent] プロパティに、または link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar~peekopening_ev.html[PeekOpening] イベントの eventArgs 割り当てられれます。
+
+* PeekContent プロパティ
+[source, csharp]
+ultraOfficeNavBar1.Items[0].PeekContent = ultraGrid1;
+
+* PeekOpening イベント
+[source, csharp]
+private void ultraOfficeNavBar1_PeekOpening(object sender, PeekOpeningEventArgs e)
+{
+    e.PeekContent = ultraGrid1;
+}
+
++
+PeekContent は NavBarItem のプレビュー ウィンドウが表示される最小要件です。プレビュー ウィンドウはキャプション、または右/左ボタンがない場合も表示されますが、PeekContent を設定しない限り表示されません。
+
+. PeekCaption -- プレビュー ウィンドウの上部に表示されるテキストを指定します。NavBarItem の
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.navbaritem~peekcaption.html[PeekCaption] プロパティを使用して設定します。
+
+. 左/右 PeekCaptionButtons -- プレビュー ウィンドウの上部にプレビュー キャプション ボタンを表示し機能性を拡張します。link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings~peekcaptionbuttonsleft.html[PeekCaptionButtonsLeft]
+および
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings~peekcaptionbuttonsright.html[PeekCaptionButtonsRight]
+コレクションが
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings.html[ItemSettings]
+クラスから公開されています。このコレクションに追加されたすべての
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.editorbutton.html[EditorButtons]
+がプレビュー
+ウィンドウの上部に表示されます。さらに、コレクションの任意の
+link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.editorbutton.html[EditorButton]
+をクリックすると WinOfficeNavBar コントロールで
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.ultraofficenavbar~peekbuttonclicked_ev.html[PeekCaptionButtonClicked]
+イベントが発生されます。 +
++
+注: PeekCaptionEditorButton コレクションがマージされません。たとえば、NavBarItem と WinOfficeNavBar 両方の ItemSettings の PeekCaptionButtonsLeft コレクションにボタンを追加した場合、NavBarItem の ItemSettings
+コレクションのボタンのみが表示されます。 +
+ +
+ 以下では左のコレクションにボタンを追加するコード例を挙げています。
+
+* WinOfficeNavBar に:
+[source, csharp]
+var leftButton = new PeekCaptionEditorButton() { Key = "left" };
+ultraOfficeNavBar1.ItemSettings.PeekCaptionButtonsLeft.Add(leftButton);
+
+* NavBarItem に:
+[source, csharp]
+var leftButton = new PeekCaptionEditorButton() { Key = "left" };
+ultraOfficeNavBar1.Items[0].Settings.PeekCaptionButtonsLeft.Add(leftButton);
+
+link:{ApiPlatform}win.ultrawinofficenavbar{ApiVersion}~infragistics.win.ultrawinofficenavbar.itemsettings~displaypeekonhover.html[DisplayPeekOnHover] を false に設定した場合、プレビュー ウィンドウは表示されません。

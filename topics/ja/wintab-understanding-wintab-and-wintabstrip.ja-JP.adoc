@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-understanding-wintab-and-wintabstrip",
+    "controlName": ["WinTab"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{0EDD2EF7-EAB9-472E-BF7D-D0A856D3BBCE}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab と WinTabStrip の理解
+
+WinTab コントロールおよび WinTabStrip コントロール、およびその主要な機能と機能性について解説しています。このセクションのトピックを読むと、アプリケーションでWinTabコントロールとWinTabStripコントロールを使用することの利点を理解できます。
+
+WinTab コントロールと WinTabStrip コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:wintab-about-wintab-and-wintabstrip.html[WinTab と WinTabStrip について] -- WinTab コントロールと WinTabStrip コントロールの概要を説明しています。
+* link:wintab-wintab-and-wintabstrip-terms-and-concepts.html[WinTab および WinTabStrip に関する用語と概念] -- WinTab コントロールと WinTabStrip コントロールの概念について説明しています。
+* link:wintab-layout-and-appearance-of-wintab-and-wintabstrip.html[WinTab および WinTabStrip のレイアウトと外観] -- WinTab コントロールと WinTabStrip コントロールのレイアウトと外観を定義するためのすべてのプロパティについて説明しています。
+* link:wintab-working-with-tabs.html[タブの操作] -- タブの追加、削除、順番付け、および再配置について簡単に概要を説明しています。
+* link:wintab-sharing-controls-among-wintabs.html[Win タブ間でのコントロールの共有] -- WinTab コントロール間でコントロールを共有する方法について説明しています。
+* link:wintab-differences-wintab-and-wintabstrip.html[WinTab と WinTabStip の違い] -- WinTab コントロールと WinTabStrip コントロールの主な違いについて説明しています。
+* link:wintab-smart-tag.html[WinTab スマート タグ] -- WinTab コントロールのスマート タグで表示されるプロパティと設定値について説明しています。
+* link:wintabstrip-smart-tag.html[WinTabStrip スマート タグ] -- WinTabStrip コントロールのスマート タグで表示されるプロパティと設定値について説明しています。

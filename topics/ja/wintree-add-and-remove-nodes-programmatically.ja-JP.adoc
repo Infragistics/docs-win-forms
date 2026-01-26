@@ -1,0 +1,67 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-add-and-remove-nodes-programmatically",
+    "controlName": ["WinTree"],
+    "tags": [],
+    "guid": "{CD4A5DF1-9937-414E-B8C4-147BBF876F12}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードをプログラムによって追加および削除
+
+このトピックはランタイムにノードを追加および削除する方法を示します。この目的のために pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[TreeNodesCollection]"]  オブジェクトの Add および Remove メソッドが使用されます。子ノードを追加するには、親ノードで Add メソッドを使用する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+...
+' ノードを宣言します。 
+Dim nodeA As UltraTreeNode
+Dim nodeB As UltraTreeNode
+' 2 つのノードを WinTree に追加します。
+nodeA = Me.ultraTree1.Nodes.Add("nodeA", "NodeA") 
+nodeB = Me.ultraTree1.Nodes.Add("nodeB", "NodeB") 
+' 新しく追加されたノードを展開します。 
+nodeA.Expanded = True 
+’ 子ノードを  Node A に追加します。 
+nodeA.Nodes.Add("childNodeofA", "ChildNodeA1") 
+' Node C を WinTree に追加します。 
+Me.ultraTree1.Nodes.Add("nodeC", "NodeC") 
+' キーを使用して Node C への参照を取得します。 
+Dim nodeC As UltraTreeNode = Me.ultraTree1.GetNodeByKey("nodeC")
+’ 子ノードを NodeC に追加します。 
+nodeC.Nodes.Add("childNodeofC", "ChildNodeC1") 
+' NodeB を削除します。 
+Me.ultraTree1.Nodes.Remove(nodeB)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+...
+ // ノードを宣言します。
+ UltraTreeNode nodeA;
+ UltraTreeNode nodeB;
+ // 2 つのノードを WinTree に追加します。
+ nodeA = this.ultraTree1.Nodes.Add("nodeA","NodeA");
+ nodeB = this.ultraTree1.Nodes.Add("nodeB", "NodeB");
+ // 新しく追加されたノードを展開します。
+ nodeA.Expanded = true;
+ // 子ノードを Node A に追加します。
+ nodeA.Nodes.Add("childNodeofA", "ChildNodeA1");
+ // Node C を WinTree に追加します。
+ this.ultraTree1.Nodes.Add("nodeC", "NodeC");
+ // キーを使用して Node C への参照を取得します。
+ UltraTreeNode nodeC = this.ultraTree1.GetNodeByKey("nodeC");
+ // 子ノードを NodeC に追加します。
+ nodeC.Nodes.Add("childNodeofC", "ChildNodeC1");
+ // NodeB を削除します。
+ this.ultraTree1.Nodes.Remove(nodeB);
+----

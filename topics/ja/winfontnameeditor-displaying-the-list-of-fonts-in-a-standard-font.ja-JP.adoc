@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "winfontnameeditor-displaying-the-list-of-fonts-in-a-standard-font",
+    "controlName": ["WinFontNameEditor"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{A38164A1-F7AA-4561-A2C1-1D83B10746DC}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 標準フォントでフォントのリストを表示
+
+WinFontNameEditor がフォントのリストを表示するときに、そのフォント自体を使用して書式設定された各フォント名を表示するようにデフォルトで設定されています。ただし、該当するフォントではなく標準フォントでフォント名を表示することもできます。この機能はpick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultrafontnameeditor~showfontnamesinfont.html[ShowFontNamesInFont]"]  プロパティによって制御されます。
+
+次のサンプル コードは、書式設定されたフォント名をオフに設定する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnDont_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnDont.Click
+	Me.UltraFontNameEditor1.ShowFontNamesInFont = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnDont_Click(object sender, System.EventArgs e)
+{
+	this.ultraFontNameEditor1.ShowFontNamesInFont = false;
+}
+----
+
+image::images\WinFontNameEditor_Displaying_the_List_of_Fonts_in_a_Standard_Font_01.png[]
+
+次のサンプル コードは、書式設定されたフォント名を元に戻す方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub btnShow_Click(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles btnShow.Click
+	Me.UltraFontNameEditor1.ShowFontNamesInFont = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void btnShow_Click(object sender, System.EventArgs e)
+{
+	this.ultraFontNameEditor1.ShowFontNamesInFont = true;
+}
+----
+
+image::images\WinFontNameEditor_Displaying_the_List_of_Fonts_in_a_Standard_Font_02.png[]

@@ -1,0 +1,20 @@
+﻿////
+|metadata|
+{
+    "name": "wingridcellproxy",
+    "controlName": [],
+    "tags": ["Grids"],
+    "guid": "{38670BBB-E3FF-4B59-AA56-08D77B765A6B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGridCellProxy
+
+以下のリンクをクリックすると、WinGridCellProxy™ コントロールに関する説明を読むことができます。
+
+* link:wingridcellproxy-about-wingridcellproxy.html[WinGridCellProxy について] -- WinGridCellProxy コントロールの概要を説明しています。
+* link:wingridcellproxy-add-a-wingridcellproxy-to-a-wingridrowedittemplate.html[WinGridCellProxy を WinGridRowEditTemplate に追加] -- このトピックは、編集テンプレートを作成するために WinGridCellProxy および WinGridRowEditTemplate™ コントロールがどのように共に動作するかを示します。
+* link:wingridcellproxy-api-overview.html[API の概要] -- このトピックでは、WinGridCellProxy コントロールを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

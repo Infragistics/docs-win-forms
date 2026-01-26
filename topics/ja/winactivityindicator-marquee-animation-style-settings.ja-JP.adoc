@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "winactivityindicator-marquee-animation-style-settings",
+    "controlName": ["WinActivityIndicator"],
+    "tags": ["How Do I","Performance","Styling"],
+    "guid": "{A9B6272A-35DC-4832-B639-CD6209B2E644}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マーキー アニメーション スタイルの設定
+
+WinActivityIndicator™ コントロールはシーンの背後に実行中のプロセスがあることをエンドユーザーに通知するためのアニメーションの Marquee スタイルを提供します。 Marquee スタイルを使用すると、アニメーションの最後に達する度にアニメーションを最初から再開するか、それとも反対の方向にバウンスバックするかを選択できます。 link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.marqueeanimationstyle.html[MarqueeAnimationStyle] というプロパティがあり、Continuous または BounceBack のいずれかに設定できます。 デフォルトでは、Continuous に設定されます。 Marquee マーカーの幅は link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~marqueemarkerwidth.html[MarqueeMarkerWidth] プロパティを使用して変更できます。
+
+また、Marquee スタイルのために Appearance オブジェクトを設定するために使用できる link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~marqueefillappearance.html[MarqueeFillAppearance] プロパティがあります。
+
+このトピックはコントロールのアニメーションが link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultraactivityindicator.ultraactivityindicator~animationenabled.html[AnimationEnabled] プロパティを使用して有効になっていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+Me.ultraActivityIndicator1.MarqueeAnimationStyle = Infragistics.Win.UltraActivityIndicator.MarqueeAnimationStyle.BounceBack 
+Me.ultraActivityIndicator1.MarqueeFillAppearance.BackColor = Color.Red
+' Marque の幅を設定します。
+Me.ultraActivityIndicator1.MarqueeMarkerWidth = 60
+----
+
+*C# の場合：*
+
+----
+this.ultraActivityIndicator1.MarqueeAnimationStyle = Infragistics.Win.UltraActivityIndicator.MarqueeAnimationStyle.BounceBack;
+this.ultraActivityIndicator1.MarqueeFillAppearance.BackColor = Color.Red;
+// Marque の幅を設定します。
+this.ultraActivityIndicator1.MarqueeMarkerWidth = 60;
+----
+
+== 関連トピック
+
+* link:winactivityindicator-winactivityindicator-animation.html[WinActivityIndicator アニメーション]
+* link:winactivityindicator-styling-winactivityindicator.html[WinActivityIndicator のスタイリング]

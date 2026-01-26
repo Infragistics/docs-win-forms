@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpicturebox-about-winpicturebox",
+    "controlName": ["WinPictureBox"],
+    "tags": ["Getting Started"],
+    "guid": "{A9593EBF-35E7-4DE9-8F92-AD542589CA98}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPictureBox について
+
+WinPictureBox コントロールは、.NET Framework で提供される組み込みの PictureBox と同様にひとつのイメージを表示するよう設計されていますが、以下のような追加機能があります。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* バインド可能な画像 - Image プロパティをバインドできます。Image プロパティが設定されると、ImageChanged イベントが起動されます。
+* 画像の拡大/縮小 - 画像の拡大/縮小をサポートします。
+* ドロップシャドー - 画像の下にドロップシャドーを表示できます。
+
+image::Images/WinEditors_Control_Overview_12.png[]

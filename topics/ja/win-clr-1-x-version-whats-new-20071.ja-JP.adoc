@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-clr-1-x-version-whats-new-20071",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D56512DF-B2DC-4B3B-BEBB-292D36ECEFB0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CLR 1.x バージョン 2007.1
+
+以下のリンクをクリックし、2007 Volume 2 リリースに伴う NetAvantage for .NET の CLR 1.x バージョンのサポート終了についての情報を確認してください。
+
+* link:win-final-release-of-clr-1-x-version-of-infragistics-whats-new-20071.html[Infragistics の CLR 1.x バージョンの最終リリース]

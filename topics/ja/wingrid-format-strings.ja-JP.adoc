@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-format-strings",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids"],
+    "guid": "{C3BDEC6A-5F9E-4A28-980C-7FA6CD31A5A4}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-09T00:00:00Z"
+}
+|metadata|
+////
+
+= 書式文字列
+
+WinGrid は、データの書式設定を処理するために、.NET Framework によって提供されている標準的な書式のタイプ（数字、日付/時刻および列挙体）を使用します。書式設定には、対象となるオブジェクトの ToString メソッドが呼び出されます。 このメソッドは、パラメータとして書式文字列と pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~formatinfo.html[FormatInfo]"]  を取得します。指定された書式で文字列を返します。
+
+サポートされる書式のタイプの詳細は、MSDN ライブラリの「書式のタイプ」セクションを参照してください。

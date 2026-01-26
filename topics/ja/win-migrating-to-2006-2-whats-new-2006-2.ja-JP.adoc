@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-migrating-to-2006-2-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{4952C535-33C4-4178-A2DE-2F419BB1DDC3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2006.2 への移行
+
+ひとつのボリュームから次にアップグレードすることは大変な作業である場合があります。ただし、{ProductName} 2006 Volume 2 に移行するために必要となる価値ある情報を開発者に提供することで、大変な作業を簡単にする支援を弊社は行います。この情報は、放棄したプロパティまたは新しい従属関係などを含む場合があります。作業を進めるために開発者の準備を支援する情報を確認するには、以下のリンクをクリックしてください。
+
+* link:win-deprecated-properties-whats-new-2006-2.html[放棄されたプロパティ]
+* link:win-modified-method-signatures-whats-new-2006-2.html[変更されたメソッド シグネチャ]
+* link:win-new-assembly-dependencies-whats-new-2006-2.html[新しいアセンブリ従属性]

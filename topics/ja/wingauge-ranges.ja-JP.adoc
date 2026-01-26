@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-ranges",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{4595C8AC-ACB1-438C-ACDB-E035D494D533}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= レンジ
+
+このセクションは、レンジをゲージのスケールに追加する方法に関するタスクベースの手順だけでなく、WinGauge コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange.html[Ranges]"]  プロパティについて役に立つ情報を提供します。
+
+* link:wingauge-about-gauge-ranges.html[ゲージ レンジについて]
+* link:wingauge-add-a-range-to-a-gauge.html[レンジをゲージに追加]

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-2d-and-3d-pyramid-charts-whats-new-2006-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C5D1FCDD-B112-4510-8C30-176B83D1C86F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 平面および立体ピラミッド チャート
+
+2006 Volume 2 リリースで追加されている新しいチャートの中に平面および立体ピラミッド チャートがあります。ピラミッド チャートは、全体に対する数量として部分を表示する劇的な方法を提供します。アプリケーションでピラミッド チャートを使用すれば、ピラミッド全体とセグメントの高さを比較することによって、エンド ユーザーは素早く各セグメントの重要性を判断できます。
+
+image::Images/WinChart_2D_and_3D_Pyramid_Charts_Whats_New_2006_2_01.png[]
+
+image::Images/WinChart_2D_and_3D_Pyramid_Charts_Whats_New_2006_2_02.png[]
+
+== 関連トピック
+
+link:chart-about-2d-pyramid-charts.html[平面ピラミッド チャートについて]
+
+link:chart-about-3d-pyramid-charts.html[立体ピラミッド チャートについて]

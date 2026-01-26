@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-lasso-selection-support",
+    "controlName": ["WinListView"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{C54E6970-A61E-4A70-A779-02CB4F2D36E5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 投げ縄選択のサポート
+
+「投げ縄選択」という語句は、ビューでひとつ以上の項目の周囲をドラッグし、その結果選択された状態にする選択矩形のことを指します。この機能は Windows Explorer のスタイル選択に似ています。これによって、複数の項目のドラッグ選択が可能で、今回 WinListView™ コントロールで使用可能となります。項目を含まないコントロールの領域の上にカーソルが置かれている間に左または右マウス ボタンをユーザーが押すと、ドラッグ操作が開始されます。カーソルが移動されると、元々のドラッグ点と現在のカーソル位置の間の領域を含むために選択矩形が更新されます。この矩形と交差する境界を持つ項目が選択されます。
+
+投げ縄選択効果は、LeftMouseButton、RightMouseButton または LeftAndRightMouseButtons のようないずれかのマウス ボタンに pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemsettings.html[UltraListViewItemSettings]"]  クラスの pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemsettings~lassoselectmode.html[LassoSelectMode]"]  プロパティを設定するだけで有効にすることができます。また、この効果を得るためには、 pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewitemsettings~selectiontype.html[UltraListView.ItemSettings.SelectionType]"]  プロパティを Extended に設定する必要があります。
+
+[NOTE]
+====
+*注：* ultraListView の pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~view.html[View]"]  プロパティが Details に設定され、ViewSettingsDetails.FullRowSelect が true に設定されている場合、投げ縄選択はサポートされますが、その使用は困難です。選択をより簡単に行うために、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewdetailssettings~fullrowselect.html[FullRowSelect]"]  プロパティを false に設定できます。
+====
+
+*Visual Basic の場合：*
+
+----
+'northwindDataSet.Customers' のテーブルにデータをロードします。 
+Me.customersTableAdapter.Fill(Me.northwindDataSet.Customers) 
+For i As Integer = 0 To Me.northwindDataSet.Tables("Customers").Rows.Count- 1 
+     Dim row As DataRow = Me.northwindDataSet.Tables("Customers").Rows(i)
+' この行のフィールド値を個別に処理します。 
+     Dim customerID As String = TryCast(row("CustomerID"), String)
+     Dim companyName As String = TryCast(row("CompanyName"), String)
+' 項目を ultraListView に追加します 
+     Me.ultraListView1.Items.Add(customerID, companyName) 
+' 項目の拡張選択を許可します 
+     Me.ultraListView1.ItemSettings.SelectionType = SelectionType.Extended 
+'投げ縄選択を実行するために LeftMouseButton を設定します 
+      ultraListView1.ItemSettings.LassoSelectMode= LassoSelectMode.LeftMouseButton 
+Next
+----
+
+*C# の場合：*
+
+----
+//'northwindDataSet.Customers' のテーブルにデータをロードします。
+this.customersTableAdapter.Fill(this.northwindDataSet.Customers);
+for (int i = 0; i < this.northwindDataSet.Tables["Customers"].Rows.Count; i++)
+ {
+     DataRow row = this.northwindDataSet.Tables["Customers"].Rows[i];
+// この行のフィールド値を個別に処理します。
+     string customerID = row["CustomerID"] as string;
+     string companyName = row["CompanyName"] as string;
+//項目を ultraListView に追加します
+     this.ultraListView1.Items.Add(customerID, companyName);
+//項目の拡張選択を許可します
+     this.ultraListView1.ItemSettings.SelectionType = SelectionType.Extended;
+//投げ縄選択を実行するために LeftMouseButton を設定します
+     ultraListView1.ItemSettings.LassoSelectMode = LassoSelectMode.LeftMouseButton;
+  }
+----

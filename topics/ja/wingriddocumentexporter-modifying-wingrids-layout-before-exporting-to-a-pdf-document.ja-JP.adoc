@@ -1,0 +1,194 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingriddocumentexporter-modifying-wingrids-layout-before-exporting-to-a-pdf-document",
+    "controlName": ["WinGridDocumentExporter"],
+    "tags": ["Exporting","Layouts","Styling"],
+    "guid": "{E6CD73A9-EC4C-479D-810B-EA40CAFC3118}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PDF ドキュメントにエクスポートする前に WinGrid のレイアウトを修正
+
+== 始める前に
+
+PDF ファイルなどの印刷可能なドキュメントでグリッドが完全なフォームになることは非常にあり得ないことです。このため、WinGridDocumentExporter™ には拡張可能な Event モデルがあります。このモデルは、グリッドの PDF ドキュメントへの変換に対して可能な限りの制御を提供します。この詳細なガイドで扱ういくつかの重要なイベントを以下に列挙します。
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~beginexport_ev.html[BeginExport] – エクスポート プロセス全体が初めて開始する時に発生します。これは Section 固有のプロパティを設定して、いくつかの列を非表示にすることで ExportLayout を修正する場所です。ExportLayout はエクスポートされたグリッドのレイアウトで、DisplayLayout が画面上のグリッドのレイアウトであるのと全く同じです。ExportLayout オブジェクトで何を修正しても、WinGrid の画面上のレイアウトに影響しません。
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~initializerow_ev.html[InitializeRow] – エクスポートされたグリッド（画面上のグリッドではない）の個々の行が初期化されると発生します。このイベントは、行とそのすべてのセルへのアクセスを提供し、外観を修正することができます。
+
+link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~cellexporting_ev.html[CellExporting] – 個々のセルがレポートにエクスポートされようとする時に発生します。セルの Value を変更する必要がある場合に、このイベントは重要です。
+
+== 達成すること
+
+完全に格納された WinGrid™ を取得して PDF ドキュメントにエクスポートする方法を学習します。以下によってグリッドのレイアウトを修正します。
+
+* いくつかの列を非表示にする
+* 個々のセルの値と外観を変更する
+* その他すべてをキャンセルすることによって特定の行のみを表示する
+
+[NOTE]
+====
+*注:* このトピックは、グリッドに Northwind データベースからの Customers テーブルが格納されていることを前提としています。必要なデータをグリッドに格納する方法については、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+====
+
+== 次の手順を実行します
+
+[start=1]
+. *フォームを設定します。*
+
+.. 新しい Visual Basic または C# プロジェクトで、UltraGrid コントロールと UltraButton コントロールをフォームに配置します。
+.. ツールボックスの UltraGridDocumentExporter コンポーネントをダブルクリックします。コンポーネントがコンポーネント トレイに追加されます。
+.. ボタンを選択した状態で、[プロパティ] ウィンドウで Text プロパティを見つけて、「PDF にエクスポート」に変更します。
+
+[start=2]
+. *BeginExport イベントを作成します。*
+
+C# を使用する場合には [プロパティ] ウィンドウによって、または Visual Basic を使用する場合には、コード ビハインド上のドロップダウン ボックスによって、ultraGridDocumentExporter1 コンポーネントのための BeginExport イベントを作成します。このイベントで、ドキュメントのマージンを設定する、またいくつかの列を非表示にするという 2 つのアクションを実行します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGridDocumentExporter1_BeginExport(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.DocumentExport.BeginExportEventArgs) _
+  Handles UltraGridDocumentExporter1.BeginExport
+	' この行はページに 25 ピクセルのマージンを効果的に提供します。
+	e.Section.PageMargins.All = 25
+	' 列 1、3、4、7、および 11を非表示にします（これらはエクスポートされません）。
+	e.Layout.Bands(0).Columns(0).Hidden = True
+	e.Layout.Bands(0).Columns(2).Hidden = True
+	e.Layout.Bands(0).Columns(3).Hidden = True
+	e.Layout.Bands(0).Columns(6).Hidden = True
+	e.Layout.Bands(0).Columns(10).Hidden = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGridDocumentExporter1_BeginExport(object sender,
+	Infragistics.Win.UltraWinGrid.DocumentExport.BeginExportEventArgs e)
+{
+	// この行はページに 25 ピクセルのマージンを効果的に提供します。
+	e.Section.PageMargins.All = 25;
+	// 列 1、3、4、7、および 11を非表示にします（これらはエクスポートされません）。
+	e.Layout.Bands[0].Columns[0].Hidden = true;
+	e.Layout.Bands[0].Columns[2].Hidden = true;
+	e.Layout.Bands[0].Columns[3].Hidden = true;
+	e.Layout.Bands[0].Columns[6].Hidden = true;
+	e.Layout.Bands[0].Columns[10].Hidden = true;
+}
+----
+
+[start=3]
+. *InitializeRow イベントを作成します。*
+
+C# を使用する場合には [プロパティ] ウィンドウによって、または Visual Basic を使用する場合には、コード ビハインド上のドロップダウン ボックスによって、ultraGridDocumentExporter1 コンポーネントのための InitializeRow イベントを作成します。このイベントのコードは、10 番目のセルの前景色を赤に変更するだけでなく、会社名が「F」で始まる行のみをエクスポートします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGridDocumentExporter1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.DocumentExport.DocumentExportInitializeRowEventArgs) _
+  Handles UltraGridDocumentExporter1.InitializeRow
+	' セルのテキストが「F」で始まらない場合には、現在の行をスキップします。
+	If (Not e.Row.Cells(1).Text.StartsWith("F")) Then
+		e.SkipRow = True
+	End If
+	' 10 番目のセルのテキストの色を赤に変更します。
+	e.Row.Cells(9).Appearance.ForeColor = Color.Red
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGridDocumentExporter1_InitializeRow(object sender,
+	Infragistics.Win.UltraWinGrid.DocumentExport.DocumentExportInitializeRowEventArgs e)
+{
+	// セルのテキストが「F」で始まらない場合には、現在の行をスキップします。
+	if (!e.Row.Cells[1].Text.StartsWith("F")) e.SkipRow = true;
+	e.Row.Cells[9].Appearance.ForeColor = Color.Red;
+}
+----
+
+[start=4]
+. *CellExporting イベントを作成します。*
+
+C# を使用する場合には [プロパティ] ウィンドウによって、または Visual Basic を使用する場合には、コード ビハインド上のドロップダウン ボックスによって、ultraGridDocumentExporter1 コンポーネントのための CellExporting イベントを作成します。CellExporting イベントのコードは各行の 10 番目のセルの Value を "$$*$$$$*$$$$*$$Confidential$$*$$$$*$$$$* $$" に変更します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGridDocumentExporter1_CellExporting(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.DocumentExport.CellExportingEventArgs) _
+  Handles UltraGridDocumentExporter1.CellExporting
+	' 各行の 10 番目のセルの値を変更します。
+	If (e.GridColumn.Index = 9) Then
+		e.ExportValue = "$$*$$$$*$$$$*$$Confidential$$*$$$$*$$$$* $$"
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGridDocumentExporter1_CellExporting(object sender, 
+  Infragistics.Win.UltraWinGrid.DocumentExport.CellExportingEventArgs e)
+{
+	// 10 番目のセルの値を変更します。
+	if (e.GridColumn.Index == 9) e.ExportValue = "$$*$$$$*$$$$*$$Confidential$$*$$$$*$$$$* $$";
+}
+----
+
+[start=5]
+. *ボタンの Click イベントによってグリッドをエクスポートします。*
+
+デザインビューで、ボタンをダブルクリックして Click イベントを作成します。このイベントで、UltraGridDocumentExporter の link:{ApiPlatform}win.ultrawingrid.documentexport{ApiVersion}~infragistics.win.ultrawingrid.documentexport.ultragriddocumentexporter~export.html[Export] メソッドを呼び出します。4 番目のオーバーロードは、3 つのパラメータを受け付けます。
+
+** エクスポートしたい WinGrid（UltraGrid）
+** ファイルの名前とパス（System.String）
+** グリッドをエクスポートしたいファイル フォーマット（GridExportFileFormat）
+
+WinGrid を PDF ファイルとして C: のルートにエクスポートし、GridPDF.pdf という名前を指定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraButton1_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles UltraButton1.Click
+	Me.UltraGridDocumentExporter1.Export( _
+		Me.UltraGrid1, _
+		"C:\GridPDF.pdf", _
+		Infragistics.Win.UltraWinGrid.DocumentExport.GridExportFileFormat.PDF)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraButton1_Click(object sender, EventArgs e)
+{
+this.ultraGridDocumentExporter1.Export(
+	this.ultraGrid1,
+	@"C:\GridPDF.pdf",
+	Infragistics.Win.UltraWinGrid.DocumentExport.GridExportFileFormat.PDF);
+}
+----
+
+[start=6]
+. *アプリケーションを実行します。*
+
+アプリケーションを実行すると、WinGrid に Northwind データベースからの Customers テーブルが完全に格納されていることを確認できます。ボタンをクリックすると、PDF ファイルが作成され、C: のルートに配置されます。PDF ファイルを表示すると、以下のスクリーンショットのように表示されます。
+
+[NOTE]
+====
+*注:* 新しい PDF ファイルにより素早くアクセスしたい場合には、ボタンの Click イベントで System.Diagnostic.Process.Start() メソッドを呼び出して、完全なファイル名とパスをパラメータとして渡すことができます。
+====
+
+image::images/WinGridDocumentExporter_Modifying_WinGrids_Layout_Before_Exporting_to_a_PDF_Document_01.png[]

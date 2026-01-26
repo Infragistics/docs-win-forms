@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2006-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A92C5FA2-5127-45E9-A3A5-7C986D6D086D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2006 Volume 1 の新機能
+
+Infragistics 2006 Volume 1 のリリースには、Windows Formsのコントロールとコンポーネントの機能をこれまで以上に活用するための、いくつかの強力な新機能と機能性が追加されています。
+
+以下に、2006 Volume 1 リリースで追加または強化されたコントロール/コンポーネントをリストアップします。以下のリンクをクリックすると、各コントロール/コンポーネントの機能の説明を読むことができます。
+
+* link:win-appearance-object-whats-new-2006-1.html[Appearance オブジェクト]
+* link:win-composite-ui-application-block-cab-whats-new-2006-1.html[Composite UI Application Block (CAB)]
+* link:winchart-whats-new-2006-1.html[WinChart]
+* link:windockmanager-whats-new-2006-1.html[WinDockManager]
+* link:winformattedlinklabel-whats-new-2006-1.html[WinFormattedLinkLabel]
+* link:wingrid-whats-new-2006-1.html[WinGrid]
+* link:winlistview-whats-new-2006-1.html[WinListView]
+* link:wintoolbarsmanager-whats-new-2006-1.html[WinToolbarsManager]

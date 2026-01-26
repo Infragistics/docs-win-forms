@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-limiting-the-number-of-items-added-to-the-mru-list",
+    "controlName": ["WinEditors"],
+    "tags": ["How Do I"],
+    "guid": "{C97AD963-0CC4-4F41-9463-61EF9C8EADFF}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= MRU リストに追加する項目数の制限
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinComboEditor
+* WinFontNameEditor
+
+MRU リストとは「Most Recently Used リスト」の略です。これは、最近選択した項目がドロップダウンの最上位に移動することを意味します。たとえば、Microsoft Word のフォントのドロップダウンにこの機能があります。フォント ドロップダウンの上部には最近使用したフォントの値を保持するリストがあり、バーによってフォント リストの残りの項目と区別されています。
+
+この機能は UltraComboEditor と UltraFontEditor にも組み込まれています。これらのエレメントが MRU リストを使用できるようにするには、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~hasmrulist.html[HasMRUList]"]  プロパティをTrueに設定し、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~maxmruitems.html[MaxMRUItems]"]  を、リストの MRU 部分でエレメントを保持したい項目数に等しく設定します。これらのコントロールで MRU リストを有効にするには次のコードを使用します（設計時にカスタム プロパティ ページを使用してこれらのプロパティ値を設定することもできます。）

@@ -1,0 +1,217 @@
+﻿////
+
+|metadata|
+{
+    "name": "ig-spe-create-custom-language",
+    "controlName": [],
+    "tags": [],
+    "guid": "ed3be8c9-7734-4c7e-8429-465506a343b6",  
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0978547Z"
+}
+|metadata|
+////
+
+= カスタム言語の作成
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、カスタム言語を作成するプロセスを説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-ebnf-file-format-overview.html[EBNF ファイル形式の概要]
+|このトピックは、文章校正を定義するために使用する EBNF ファイル形式の概要を説明します。
+
+| link:ig-spe-generate-grammar-from-an-ebnf-file.html[EBNF ファイルからの文章校正の生成]
+|このトピックでは、EBNF コンテンツから文章校正を作成するプロセスを説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref350245523, カスタム言語の作成 >>
+* <<_Ref350245527, 概要 >>
+* <<_Ref350245532, CustomLanguage クラスの使用 >>
+* <<_Ref350245535, 言語クラスの生成 >>
+* <<_Ref350245540, 関連コンテンツ >>
+
+[[_Ref350245523]]
+== カスタム言語の作成
+
+[[_Ref350245527]]
+
+=== 概要
+
+文章校正定義が完了すると、その文章校正構造に準拠するドキュメントを解析するために使用できます。その手順を以下に示します。
+
+* EBNF 文章校正定義から link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar] インスタンスを作成するか、コードで文章校正インスタンスを構築します。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase.html[LanguageBase] から派生し文章校正インスタンスを所有するカスタム言語クラスを作成します。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument.html[TextDocument] を作成し、その link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.textdocument~language.html[Language] プロパティをカスタム言語クラスのインスタンスに設定します。
+
+注:
+
+[NOTE]
+====
+言語の作成に `Grammar` を使用すると、二度と編集できなくなります。`Grammar` または `Grammar` に直接または間接的に所有されるいずれかのオブジェクトを変更しようとすると、例外がスローされます。言語の作成に使用した文章校正は、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~ismutable.html[IsMutable] 読み取り専用プロパティを False に設定します。
+====
+
+文章校正からカスタム言語を作成する方法は 2 通りあります。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.customlanguage.html[CustomLanguage] クラスの使用
+* 言語クラスの生成
+
+[[_Ref350245532]]
+
+=== CustomLanguage クラスの使用
+
+`Grammar` インスタンスを `LanguageBase` から派生する `CustomLanguage` クラスのコンストラクターに渡すことにより文章校正用カスタム言語を作成できます。これは、提供された `Grammar` インスタンスに基づいてドキュメントを解析するために特別にビルドされた `CustomLanguage` インスタンスを作成します。
+
+以下の表には、`CustomLanguage` クラスで公開されたメンバーが含まれます。
+
+[options="header", cols="a,a"]
+|====
+|*プロパティ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~grammar.html[Grammar]
+|インスタンスを作成するために使用する `Grammar` インスタンス
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~servicesmanager.html[ServicesManager]
+|この言語でドキュメントが編集される場合にエディターで利用可能なサービスを管理するためのインスタンス
+
+|====
+
+[options="header", cols="a,a"]
+|====
+|*イベント*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.customlanguage~globalambiguitydetected_ev.html[GlobalAmbiguityDetected]
+|グローバルな曖昧がドキュメントを解析するときに検出した場合に発生します。詳細は、 link:ig-spe-ambiguities.html[「あいまいさ」]のトピックを参照してください。
+
+|====
+
+[[_Ref350245535]]
+
+=== 言語クラスの生成
+
+特殊な文章校正定義でドキュメントを解析するために特にビルドされた `LanguageBase` 派生クラスを生成することにより文章校正からカスタム言語を作成できます。`CustomLanguage` の作成は言語の動的生成とみなされる一方で、言語クラスは言語を事前にコンパイルするものとして認識されます。字句および構文アナライザーの構築は複雑な文章校正に対してスローになります。`CustomLanguage` アプローチが使用されると、その構築フェーズは、アプリケーションのそれぞれの実行に対してドキュメントが最初に解析されたときに発生する必要があります。これは、簡易言語の場合または開発者のマシンで文章校正の定義をデバッグする際は許容可能ですが、ユーザーのマシンで複雑な言語が使用される複雑な言語の場合は許容されません。言語生成アプローチを使用することにより、字句および構文アナライザーは開発者のマシン上で一度構築されます。次にアナライザーと `文章校正` の再構築方法に関する情報が生成されたクラス ファイルに書き込まれます。`LanguageBase` から派生された各生成クラス ファイルには、自身がシングルトン インスタンスを返す静的プロパティの名前付きインスタンスがあります。また、その `ServicesManager` で異なるサービスで言語の 2 つのコピーが作成される必要のある場合は公開用コンストラクターがあります。また、生成されたクラスには、言語を生成するために使用される `Grammar` と同一のコピーを返す `Grammar` プロパティがあります。
+
+注:
+
+[NOTE]
+====
+`Grammar` プロパティは元の `Grammar` のコピーを返しますが、同一の生成された言語型の異なるインスタンス上で `Grammar` プロパティにアクセスすると、常に同じ `Grammar` インスタンスが返されます。
+====
+
+言語クラスを生成するためのオプションの 1 つに「部分」修飾子を渡すことがあります。これにより、`LanguageBase` 上で特定のメンバーをオーバーライドまたは独自に追加できるように、派生言語に別のファイルを作成できます。`LanguageBase` でオーバーライド可能なメンバーは以下の通りです。
+
+[options="header", cols="a,a"]
+|====
+|*保護された仮想メソッド*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~geterroralias.html[GetErrorAlias]
+|エラー メッセージで使用される場合の記号の表示名を含む文字列を返します。詳細については、 link:ig-spe-customize-error-messages.html[「エラー メッセージのカスタマイズ」]を参照してください。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~initializedefaultservices.html[InitializeDefaultServices]
+|言語に対する `ServicesManager` 内のデフォルト サービスを初期化します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~onerror.html[OnError]
+|構文アナライザーがエラーを発見する場合に呼び出されます。詳細については、 link:ig-spe-customize-error-messages.html[「エラー メッセージのカスタマイズ」]を参照してください。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagebase~onglobalambiguitydetected.html[OnGlobalAmbiguityDetected]
+|グローバルなあいまいさがテキスト解析時に検出されると発生します。詳細は、 link:ig-spe-ambiguities.html[「あいまいさ」]のトピックを参照してください。
+
+|====
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing_namespace.html[Infragistics.Documents.Parsing] 名前空間で link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerator.html[LanguageGenerator] クラスを使用することにより言語を生成できます。このクラスには以下の静的メソッドがあります。
+
+[options="header", cols="a,a"]
+|====
+|*静的メソッド*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerator~generateclass(languagegenerationparams).html[GenerateClass]
+|指定したオプションを使用して言語ファイルを生成し、ファイルのコンテンツを含む文字列を返します。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerator~generateclass(languagegenerationparams,stream,encoding).html[GenerateClass]
+|指定されたオプションを使用して言語ファイルを生成し、指定されたストリームに書き込みます。
+
+|====
+
+`GenerateClass` メソッドで引数として使用される link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams.html[LanguageGenerationParams] クラスは、言語生成プロセスをカスタマイズするためにいくつかのオプションがあります。これらは以下の通りです:
+
+[options="header", cols="a,a"]
+|====
+|*プロパティ*|*説明*
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~classname.html[クラス名]
+|生成された言語クラスを与えるための名前。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~format.html[Format]
+|どのコード記述言語でクラス ファイルを生成するかを示します。使用可能な値は以下のとおりです。 
+
+* `CSharp` 
+
+* `VisualBasic` 
+
+この値のデフォルトは `CSharp` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~generatesymbolnameconstants.html[GenerateSymbolNameConstants]
+|構文ツリーにてノード表現を持つすべての記号の名前に対して定数を含む生成言語におけるネスト化された `SymbolNames` クラスを生成するかどうかを示します (構文ツリーから常にプルーニングされる記号には生成される記号名定数は含まれません)。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~grammar.html[Grammar]
+|クラスを生成するために使用される `Grammar` インスタンス
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~ispartial.html[IsPartial]
+|「部分」修飾子をクラスに追加するべきかどうかを示します。この値のデフォルトは `false` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~ispublic.html[IsPublic]
+|修飾子をクラスに追加するべきかどうかを示します。`false` の場合、「内部」修飾子が代わりに追加されます。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~issealed.html[IsSealed]
+|「シールド」修飾子をクラスに追加するべきかどうかを示します。この値のデフォルトは `true` です。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~namespacename.html[NamespaceName]
+|生成された言語クラスを配置する名前空間`null` の場合、`Infragistics.Documents.Parsing` 名前空間に配置されます。
+
+| link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.languagegenerationparams~summary.html[概要]
+|クラスに追加するドキュメント概要コメント
+
+|====
+
+[[_Ref350245540]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-customize-error-messages.html[エラー メッセージのカスタマイズ]
+|このトピックでは、Syntax Parsing Engine により生成されたエラー メッセージのカスタマイズ方法を説明します。
+
+| link:ig-spe-create-a-textdocument.html[TextDocument の作成]
+|このトピックでは TextDocument を紹介し、TextDocument 上で言語を設定する方法について説明します。
+
+| link:ig-spe-working-with-the-syntax-tree.html[構文ツリーでの作業]
+|このグループ内のトピックは、構文ツリーでの作業方法を詳細に説明します。
+
+|====

@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-initializerow-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{63DA5C78-D802-4ABE-968D-7339DCF488BA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= InitializeRow イベント
+
+WinGrid で描画される行あたり一回 InitializeRow イベントが発生します。たとえば、基本のデータ ソースに 45 行ある場合、InitializeRow イベントは個別に 45 回発生します。発生するたびに、イベント引数によってユーザーに渡されている現在の行にアクセスする機会を得ます。現在の行を参照するイベント引数は e.Row です。このイベントは 1 行単位で項目をカスタマイズするために非常に役に立ちます。このイベント内に一般的に配置されるロジックとしては、バインドされないセルのコンテンツを移植する、ボタンとして追加された列のテキストを設定する、その他の兄弟セルの値に基づいてセルの色を変更するなどが挙げられます。このイベントがないと、WinGrid に行が存在することを確認し（データ ソースを指定した後に）、次にループ構造を使用して WinGrid の各行で手動で反復して同じロジックを実行しなければなりません。
+
+このイベントについて気を付けなければならない重要点は階層データ モデルの場合です。階層データ モデルで作業する場合、特定のバンドに属している行への正しいアクセスを保証するロジックを含むように注意します。つまり、2 つのエンティティ Customers と Orders を持っているデータ モデルにバインドされている WinGrid で作業をしており、Customers は親の WinGrid Band を占めており、Orders は子バンドを占めている場合、InitializeRow イベントでアクセスされている行が確かにカスタマイズされる必要があるバンドに属している行であることを確認する必要があります。追加のバインドされていない列を親の Band Customers に追加して Column Style を Button に設定する場合、これらの Button Cells それぞれの値を "Edit" に設定したいです。正しい Band にアクセスするには注意が必要です。そうでないと例外がスローされます。Child Band にはこの Button 列がないからです。以下のコードはこれにアクセスするための正しい方法を示します:
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow( _
+   ByVal sender As System.Object, _
+   ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+   Handles UltraGrid1.InitializeRow
+   Select Case e.Row.Band.Key
+      Case "Customers"
+         e.Row.Cells("BUTTON_COLUMN").Value = "Edit"
+      End Select
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(
+   object sender, 
+   InitializeRowEventArgs e)
+{
+   switch (e.Row.Band.Key)
+   {
+      case "Customers":
+         e.Row.Cells["BUTTON_COLUMN"].Value = "Edit";
+         break;
+   }
+};
+----
+
+フラットなデータ モデルを使用している場合、以下のコードは確かに機能します。ただし、特定のバンド内で行を指定するためのロジックを常に含むのが賢明です。アプリケーションが変更され追加のバンドを追加してもいいときはわかりません。この条件が追加されない場合、コードは壊れます。以下のコードは階層データ モデルの場合に失敗します。コードは 1 行ごとに実行しているからです。Child Band Orders に属する行が提示されるたびに、“BUTTON_COLUMNEはそのバンドに存在しないので例外をスローします。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow( _
+   ByVal sender As System.Object, _
+   ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+   Handles UltraGrid1.InitializeRow
+   e.Row.Cells("BUTTON_COLUMN").Value = "Edit"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(
+   object sender, 
+   InitializeRowEventArgs e)
+{
+   e.Row.Cells["BUTTON_COLUMN"].Value = "Edit";
+}
+----
+
+このコードは正しくありません。階層データモデルで作業をする時、それぞれのすべての行はどのバンドに属しているかにかかわらず、このイベントで使用可能となるからです。ロジックがこのイベントに含まれない場合、その他のバンド内の行にアクセスします。これによってロジック エラー/例外が発生します。

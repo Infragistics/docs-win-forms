@@ -1,0 +1,130 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-use-windatasource-at-run-time",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{8E17A853-2153-4ED2-B0E2-9926E90650D3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムで WinDataSource を使用
+
+データ スキーマの定義とスキーマへのデータ行の追加は、デザイン時に link:windatasource-using-the-windatasource-designer.html[UltraDataSource デザイナ]を使用して行うか、またはランタイムにプログラムから行います。
+
+次のコードは、プログラムによってpick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradataband.html[バンド]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatacolumn.html[列]"] 、およびpick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatarow.html[行]"] を既存の WinDataSource エレメントに追加し、WinDataSource を既存の WinGrid エレメントにバインドします。
+
+[start=1]
+. 新しい Windows Forms アプリケーションを作成します。
+[start=2]
+. UltraDataSource および UltraGrid コントロールを Form にドラッグします。
+[start=3]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinDataSource
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinDataSource;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=4]
+. 次のコードをフォームの Load イベントに追加します。
+
+*Visual Basic の場合：*
+
+----
+   Private Sub Use_WinDataSource_at_Run_Time_Load( _
+  ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DataSource = Me.UltraDataSource1
+	' 2 つの列をルート バンドに追加します。
+	Me.UltraDataSource1.Band.Columns.Add("Col0", GetType(String))
+	Me.UltraDataSource1.Band.Columns.Add("Col1", GetType(String))
+	' 「ChildBand」のキーを使用して子バンドをルート バンドに追加します。
+	Dim childBand As UltraDataBand = _
+	  Me.UltraDataSource1.Band.ChildBands.Add("ChildBand")
+	' 2 つの列を子バンドに追加します。
+	childBand.Columns.Add("ChildCol0", GetType(String))
+	childBand.Columns.Add("ChildCol1", GetType(String))
+	' ルート行コレクションのカウントを 2 に設定します。
+	Me.UltraDataSource1.Rows.SetCount(2)
+	Dim row As UltraDataRow
+	' 行をデータで初期化します。
+	' 最初の行を取得します。
+	row = Me.UltraDataSource1.Rows(0)
+	row("Col0") = "Row 0, Col 0"
+	row("Col1") = "Row 0, Col 1"
+	' 行の子行を初期化します。
+	Dim childRows As UltraDataRowsCollection = row.GetChildRows("ChildBand")
+	childRows.SetCount(2)
+	childRows(0)("ChildCol0") = "Child Row 0, ChildCol 0"
+	childRows(0)("ChildCol1") = "Child Row 0, ChildCol 1"
+	childRows(1)("ChildCol0") = "Child Row 1, ChildCol 0"
+	childRows(1)("ChildCol1") = "Child Row 1, ChildCol 1"
+	' 2 行目を取得します。
+	row = Me.UltraDataSource1.Rows(1)
+	row("Col0") = "Row 1, Col 0"
+	row("Col1") = "Row 1, Col 1"
+	' 行の子行を初期化します。
+	childRows = row.GetChildRows("ChildBand")
+	childRows.SetCount(1)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Use_WinDataSource_at_Run_Time_Load(
+  object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DataSource = this.ultraDataSource1;
+	// 2 つの列をルート バンドに追加します。
+	this.ultraDataSource1.Band.Columns.Add( "Col0", typeof( string ) ); 
+	this.ultraDataSource1.Band.Columns.Add( "Col1", typeof( string ) ); 
+	// 「ChildBand」のキーを使用して子バンドをルート バンドに追加します。 
+	UltraDataBand childBand = 
+	  this.ultraDataSource1.Band.ChildBands.Add( "ChildBand" );
+	// 2 つの列を子バンドに追加します。 
+	childBand.Columns.Add( "ChildCol0", typeof( string ) ); 
+	childBand.Columns.Add( "ChildCol1", typeof( string ) ); 
+	// ルート行コレクションのカウントを 2 に設定します。 
+	this.ultraDataSource1.Rows.SetCount( 2 ); 
+	UltraDataRow row; 
+	// 行をデータで初期化します。 
+	// 最初の行を取得します。 
+	row = this.ultraDataSource1.Rows[0]; 
+	row[ "Col0" ] = "Row 0, Col 0"; 
+	row[ "Col1" ] = "Row 0, Col 1"; 
+	// 行の子行を初期化します。 
+	UltraDataRowsCollection childRows = row.GetChildRows( "ChildBand" ); 
+	childRows.SetCount( 2 ); 
+	childRows[0][ "ChildCol0" ] = "Child Row 0, ChildCol 0"; 
+	childRows[0][ "ChildCol1" ] = "Child Row 0, ChildCol 1"; 
+	childRows[1][ "ChildCol0" ] = "Child Row 1, ChildCol 0"; 
+	childRows[1][ "ChildCol1" ] = "Child Row 1, ChildCol 1"; 
+	// 2 行目を取得します。 
+	row = this.ultraDataSource1.Rows[1]; 
+	row[ "Col0" ] = "Row 1, Col 0"; 
+	row[ "Col1" ] = "Row 1, Col 1"; 
+	// 行の子行を初期化します。 
+	childRows = row.GetChildRows( "ChildBand" ); 
+	childRows.SetCount( 1 );
+}
+----
+
+[start=5]
+. アプリケーションをビルドして実行します。バンドを展開すると、以下のように表示されます。
+
+image::images/WinDataSource_Use_WinDataSource_at_Run_Time_01.png[]

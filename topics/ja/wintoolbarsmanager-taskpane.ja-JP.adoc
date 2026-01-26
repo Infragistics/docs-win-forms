@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-taskpane",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{3D88A45A-5DA5-4787-A574-0631B671DFCB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane
+
+TaskPane ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-taskpane-tool-about-the-taskpane-tool.html[TaskPane ツールについて]

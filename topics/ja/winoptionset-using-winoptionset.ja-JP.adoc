@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "winoptionset-using-winoptionset",
+    "controlName": ["WinOptionSet"],
+    "tags": [],
+    "guid": "{149F0953-A750-4ADF-A6DF-0CFC3D40CF20}",  
+    "buildFlags": [],
+    "createdOn": "2007-12-11T15:06:11Z"
+}
+|metadata|
+////
+
+= WinOptionSet の使用
+
+このセクションには、WinOptionSet™ コントロールに関連する特定のタスクを実行する方法を紹介するトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winoptionset-apply-the-office-2007-style-to-winoptionset.html[Office 2007 スタイルを WinOptionSet に適用]
+* link:winoptionset-assigning-a-valuelist-to-winoptionset.html[ValueList を WinOptionSet に指定]
+* link:winoptionset-printing-data-when-user-selects-an-item-in-winoptionset.html[ユーザーが WinOptionSet で選択した項目のデータの印刷]

@@ -1,0 +1,38 @@
+﻿////
+|metadata|
+{
+    "name": "wingridexcelexporter-exporting-to-xlsx-format-(using-clr-3.5)",
+    "controlName": ["WinGridExcelExporter"],
+    "tags": ["Exporting"],
+    "guid": "{EC70A0CF-8531-4DDD-A363-79E44D94088B}",
+    "buildFlags": [],
+    "createdOn": "2008-10-09T17:09:38Z"
+}
+|metadata|
+////
+
+= xlsx フォーマットにエクスポート（CLR 3.5 を使用）
+
+WinGridExcelExporter™ コンポーネントの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~export.html[Export]"]  メソッドは、Excel2007 または Excel97To2003 としてフォーマット タイプを定義する pick:[win-forms="link:{ApiPlatform}win.ultrawingrid.excelexport{ApiVersion}~infragistics.win.ultrawingrid.excelexport.ultragridexcelexporter~export(ultragrid,string,workbookformat).html[WorkBookFormat]"]  パラメータを受け付けます。
+
+xlsx フォーマットにエクスポートする時のプロジェクトの依存および参照についての詳細は、トピック link:excelengine-office-2007-xlsx-file-generation-references-and-dependencies.html[「Office® 2007 xlsx ファイル生成の参照と依存」]を参照してください。
+
+以下のコード例は、WinGridExcelExporter を使用して WinGrid を xlsx ファイル フォーマットにエクスポートする方法を示します。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Private Sub btnExport_Click (ByVal sender As System. Object, _
+  ByVal e As System.EventArgs) Handles btnExport.Click
+    Me.UltraGridExcelExporter1.Export (Me.ultraGrid1, "C:\GridData.xlsx", Infragistics.Documents.Excel.WorkbookFormat.Excel2007)
+End Sub
+----
+
+*C# の場合：*
+[source,csharp]
+----
+private void btnExport_Click (object sender, EventArgs e)
+{
+this.ultraGridExcelExporter1.Export (this.ultraGrid1, @"C:\GridData.xlsx", Infragistics.Documents.Excel.WorkbookFormat.Excel2007);
+}
+----

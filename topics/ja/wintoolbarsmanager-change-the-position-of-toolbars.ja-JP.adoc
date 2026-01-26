@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-change-the-position-of-toolbars",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Layouts"],
+    "guid": "{B4002F81-D308-437D-AC41-7E965700E3C1}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールバーの位置の変更
+
+個々の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[Toolbar]"]  の位置は、ドック領域内に変更でいます。各ツールバーが配置される行と列は、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~dockedrow.html[DockedRow]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar~dockedcolumn.html[DockedColumn]"]  プロパティを設定して変更することができます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub ChangethePositionofToolbars_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' 3 つのツールバーが追加され、デフォルトでフォームのトップにドックされます。
+	Me.UltraToolbarsManager1.Toolbars.AddToolbar("toolbar1")
+	Me.UltraToolbarsManager1.Toolbars.AddToolbar("toolbar2")
+	Me.UltraToolbarsManager1.Toolbars.AddToolbar("toolbar3")
+	' Toolbar1 は追加された最初のツールバーであったので、そのデフォルトの DockedRow 値は 0 です。
+	' toolbar1 の DockedRow を 1 に設定すると、ツールバーが行に移動するので、 
+	' (toolbar2 および toolbar3)の間に表示されます。
+	Me.UltraToolbarsManager1.Toolbars("toolbar1").DockedRow = 1
+	' ひとつのツールバーだけが行にあるので、各ツールバーの DockedColumn 
+	' デフォルト値は 0 です。DockedColumn プロパティが toolbar1 で 1 に
+	' 設定されている場合、toolbar1 は最初の行の 2 番目の列にシフトし、 
+	' toolbar2 は最初の行の最初の列に移動します。
+	Me.UltraToolbarsManager1.Toolbars("toolbar1").DockedColumn = 1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ChangethePositionofToolbars_Load(object sender, System.EventArgs e)
+{
+	// 3 つのツールバーが追加され、デフォルトでフォームのトップにドックされます。
+	this.ultraToolbarsManager1.Toolbars.AddToolbar("toolbar1");
+	this.ultraToolbarsManager1.Toolbars.AddToolbar("toolbar2");
+	this.ultraToolbarsManager1.Toolbars.AddToolbar("toolbar3");
+	/* Toolbar1 は追加された最初のツールバーであったので、そのデフォルトの DockedRow 値は 0 です。
+	   toolbar1 の DockedRow を 1 に設定すると、ツールバーが行に移動するので、 
+	   (toolbar2 および toolbar3)の間に表示されます。*/
+	this.ultraToolbarsManager1.Toolbars["toolbar1"].DockedRow = 1;
+	/* ひとつのツールバーだけが行にあるので、各ツールバーの DockedColumn 
+	   ' デフォルト値は 0 です。DockedColumn プロパティが toolbar1 で 1 に
+	   設定されている場合、toolbar1 は最初の行の 2 番目の列にシフトし、 
+	   toolbar2 は最初の行の最初の列に移動します。*/
+	this.ultraToolbarsManager1.Toolbars["toolbar1"].DockedColumn=1;
+}
+----

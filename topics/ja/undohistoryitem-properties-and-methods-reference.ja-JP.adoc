@@ -1,0 +1,110 @@
+﻿////
+
+|metadata|
+{
+    "name": "undohistoryitem-properties-and-methods-reference",
+    "controlName": [],
+    "tags": ["API","Editing","Getting Started"],
+    "guid": "0de2607c-c88c-4b1a-b928-968702ba17b6",  
+    "buildFlags": [],
+    "createdOn": "2012-09-06T12:08:35.3540125Z"
+}
+|metadata|
+////
+
+= UndoHistoryItem プロパティおよびメソッド参照
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、UndoHistoryItem クラスのプロパティおよびメソッドをリストします。
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref320639296, UndoHistoryItem クラス参照 >>
+** <<_Ref320803258,はじめに>>
+** <<_Ref320803264,プロパティ参照の概要>>
+** <<_Ref320803269,メソッド参照の概要>>
+
+* <<_Ref320639300, 関連コンテンツ >>
+
+[[_Ref320639296]]
+== UndoHistoryItem クラス参照
+
+[[_Ref320803258]]
+
+=== はじめに
+
+UndoHistoryItem は元に戻す/やり直し履歴の単一の操作を表します。
+
+image::images/About_UndoHistoryItem_1.png[]
+
+[[_Ref320803264]]
+
+=== プロパティ参照の概要
+
+以下の表で、UndoHistoryItem クラスのキー プロパティの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem~itemtype.html[ItemType]
+|実行される操作のタイプ （元に戻すまたはやり直し操作） を示す列挙型を返します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem~longdescription.html[LongDescription]
+|実行される操作の詳細な説明を返します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem~shortdescription.html[ShortDescription]
+|実行される操作の簡単な説明を返します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem~undomanager.html[UndoManager]
+|関連付けられた UndoManager インスタンスを返します。
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem~unit.html[Unit]
+|起動されるアクションを返します。
+
+|====
+
+[[_Ref320803269]]
+
+=== メソッド参照の概要
+
+以下の表で、UndoHistoryItem クラスのキー メソッドの目的と機能を簡単に説明します。
+
+[options="header", cols="a,a"]
+|====
+|メソッド|解説
+
+| link:{ApiPlatform}undo{ApiVersion}~infragistics.undo.undohistoryitem~execute.html[Execute]
+|このインスタンスを含みそれまでの関連付けられた履歴内のすべての項目を実行します。
+
+|====
+
+[[_Ref320639300]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:observablecollectionextendedwithundo-properties-reference.html[ObservableCollectionExtendedWithUndo プロパティ参照]
+|このトピックは、ObservableCollectionExtendedWithUndo クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undomanager-properties-and-methods-reference.html[UndoManager プロパティおよびメソッド参照]
+|このトピックは、UndoManager クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounit-derived-classes-properties-and-methods-reference.html[UndoUnit 派生クラス、プロパティおよびメソッド参照]
+|このトピックは、UndoUnit クラスの派生クラスと重要なプロパティおよびメソッドをいくつかリストします。
+
+| link:undounitfactory-properties-and-methods-reference.html[UndoUnitFactory プロパティおよびメソッド参照]
+|このトピックは、UndoUnitFactory クラスの重要なプロパティおよびメソッドをいくつかリストします。
+
+|====

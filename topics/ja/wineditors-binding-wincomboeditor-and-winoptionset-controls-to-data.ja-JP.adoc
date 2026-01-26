@@ -1,0 +1,322 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-binding-wincomboeditor-and-winoptionset-controls-to-data",
+    "controlName": ["WinEditors"],
+    "tags": [],
+    "guid": "{559A7F1B-F607-4290-A21A-9994758820CE}",  
+    "buildFlags": [],
+    "createdOn": "2005-12-09T00:00:00Z"
+}
+|metadata|
+////
+
+= WinComboEditor および WinOptionSet コントロールをデータにバインド
+
+== 概要
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinComboEditor
+* WinOptionSet
+
+WinComboEditor コントロールと WinOptionSet コントロールにデータ バインディング機能が追加されました。これにより、各コントロールにデータ ソースを指定し、そこから取得したデータ値のリストをコントロールの項目として表示することが可能となります。このデータ バインディングは一方通行です。 つまり、バインドされたコントロールによってデータ ソースが変更されることはありません。.NET バインディングに関連付けられた標準メンバに加えて、どちらのコントロールも pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~initializedataitem_ev.html[InitializeDataItem]"]  イベントを公開します。このイベントは、データ ソースで見つかったエンティティを表す ValueListItem が作成されるたびに 1 度発生します。このイベントのハンドラでは、バインドされた pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.valuelistitem.html[ValueListItem]"] (つまり「データ項目」) に値固有の書式を適用できます。たとえば、負の金額を持つ項目の ForeColor を赤に設定できます。
+
+このトピックでは、これら 2 つのコントロールのデータ バインディング機能の使用方法を説明します。このサンプル アプリケーションにより、ユーザーは特定の顧客の注文および各注文の詳細を表示することができます。このトピックで作成するサンプル アプリケーションのスクリーンショットを次に示します。
+
+image::images/WinEditors_Databinding_the_WinComboEditor_and_WinOptionSet_Controls_01.png[]
+
+== フォームの設定
+
+最初に、Visual Studio で新しい WinForms プロジェクトを作成します。上記の画像に含まれるコントロールをデザインタイムにフォームに追加します。左上のコントロールはその上に UltraLabel がある UltraComboEditor です。UltraComboEditorに 'cmbCustomers' という名前を付けます。
+
+次に、UltraComboEditor の下にある UltraOptionSet と UltraLabel を追加します。UltraOptionSet に 'optOrders' という名前を指定します。
+
+ここで、Form の右半分にあるコントロールのグループを追加します。最初に UltraGroupBox を追加して、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultragroupbox~text.html[Text]"]  プロパティを "Order Info" に設定します。次に 3 つの UltraLabels と 3 つの UltraTextEditors を上記のように追加します。UltraLabels の Text を上記の画像に見られる文字列に設定します。一番上から一番下に、WinTextEditors の名前を 'txtOrderID'、'txtProductName'、および 'txtQuantity' に設定します。最後に、UltraTextEditor コントロールの ReadOnly プロパティを True に設定して、エンド ユーザーがエディタの値を変更できないようにします。
+
+== データの作成
+
+これでフォームへのコントロールの配置は完了しました。続いて、WinComboEditor と WinOptionSet のデータ バインディングを確立するコードを記述します。まず、バインド先のダミー データを作成するメソッドを作成します。サンプル アプリケーションのデータは、2 つの関連する DataTables（Customers と Orders）を含むデータ セットに保存します。次のメソッドを Form のコード ファイルに入力するか、貼り付けます。
+
+*Visual Basic の場合：*
+
+----
+Private Function CreateCustomerOrdersData() As DataSet
+	Dim ds As New DataSet("CustomerOrders")
+	' Customers テーブルを作成します。
+	Dim tbl As New DataTable("Customers")
+	tbl.Columns.Add("ID", GetType(Integer)).Unique = True
+	tbl.Columns.Add("FirstName", GetType(String))
+	tbl.Columns.Add("LastName", GetType(String))
+	tbl.Columns.Add("DisplayName", GetType(String)).Expression = "LastName + ',' + FirstName"
+	tbl.Rows.Add(New Object() {1, "Alice", "Brighton"})
+	tbl.Rows.Add(New Object() {2, "Frank", "Ashport"})
+	tbl.Rows.Add(New Object() {3, "David", "Kraft"})
+	ds.Tables.Add(tbl)
+	' Orders テーブルを作成します。
+	tbl = New DataTable("Orders")
+	tbl.Columns.Add("OrderID", GetType(Integer)).Unique = True
+	tbl.Columns.Add("CustID", GetType(Integer))
+	tbl.Columns.Add("ProductName", GetType(String))
+	tbl.Columns.Add("Quantity", GetType(Integer))
+	tbl.Columns.Add("OrderDate", GetType(DateTime))
+	tbl.Rows.Add(New Object() {1, 3, "Lord Wellingtons Deluxe Polo Helmet", 1, _
+	  New DateTime(2004, 12, 17, 9, 55, 0)})
+	tbl.Rows.Add(New Object() {2, 2, "Death Valley Ballerina Slippers", 13, _
+	  New DateTime(2005, 3, 1, 14, 21, 0)})
+	tbl.Rows.Add(New Object() {3, 3, "Elektron Disco Grease", 6, _
+	  New DateTime(2005, 8, 23, 16, 40, 0)})
+	tbl.Rows.Add(New Object() {4, 1, "Foxtrot Your Way to Fame (Disc 1 of 7)", 1, _
+	  New DateTime(2004, 12, 3, 2, 49, 0)})
+	tbl.Rows.Add(New Object() {5, 1, "Jacque's Xtreme Chin Strap", 4, _
+	  New DateTime(2004, 7, 9, 12, 23, 0)})
+	tbl.Rows.Add(New Object() {6, 2, "PostureMaster 9000", 2, _
+	  New DateTime(2004, 12, 16, 10, 26, 0)})
+	tbl.Rows.Add(New Object() {7, 3, "Who's Who in 15th Century Regicide (paperback)", 1, _
+	  New DateTime(2004, 8, 4, 9, 56, 0)})
+	ds.Tables.Add(tbl)
+	' 顧客 ID に基づいて 2 つのテーブル間のリレーションを作成します。
+	ds.Relations.Add("cust2orders", _
+	  ds.Tables("Customers").Columns("ID"), ds.Tables("Orders").Columns("CustID"))
+	Return ds
+End Function
+----
+
+*C# の場合：*
+
+----
+private DataSet CreateCustomerOrdersData()
+{
+	DataSet ds = new DataSet( "CustomerOrders" );
+	// Customers テーブルを作成します。
+	DataTable tbl = new DataTable( "Customers" );
+	tbl.Columns.Add( "ID",  typeof(int) ).Unique = true;
+	tbl.Columns.Add( "FirstName", typeof(string) );
+	tbl.Columns.Add( "LastName", typeof(string) );
+	tbl.Columns.Add( "DisplayName", typeof(string) ).Expression = "LastName + ', ' + FirstName";
+	tbl.Rows.Add( new Object[] { 1, "Alice", "Brighton" } );
+	tbl.Rows.Add( new Object[] { 2, "Frank", "Ashport" } );
+	tbl.Rows.Add( new Object[] { 3, "David", "Kraft" } );
+	ds.Tables.Add( tbl );
+	// Orders テーブルを作成します。
+	tbl = new DataTable( "Orders" );
+	tbl.Columns.Add( "OrderID", typeof(int) ).Unique = true;
+	tbl.Columns.Add( "CustID", typeof(int) );            
+	tbl.Columns.Add( "ProductName", typeof(string) );
+	tbl.Columns.Add( "Quantity", typeof(int) );
+	tbl.Columns.Add( "OrderDate", typeof(DateTime) );
+	tbl.Rows.Add( new Object[] { 1, 3, "Lord Wellingtons Deluxe Polo Helmet", 1, 
+	  new DateTime( 2004, 12, 17, 9, 55, 0 ) } );
+	tbl.Rows.Add( new Object[] { 2, 2, "Death Valley Ballerina Slippers", 13, 
+	  new DateTime( 2005, 3, 1, 14, 21, 0 ) } );
+	tbl.Rows.Add( new Object[] { 3, 3, "Elektron Disco Grease", 6, 
+	  new DateTime( 2005, 8, 23, 16, 40, 0 ) } );
+	tbl.Rows.Add( new Object[] { 4, 1, "Foxtrot Your Way to Fame (Disc 1 of 7)", 1, 
+	  new DateTime( 2004, 12, 3, 2, 49, 0 ) } );
+	tbl.Rows.Add( new Object[] { 5, 1, "Jacque's Xtreme Chin Strap", 4, 
+	  new DateTime( 2004, 7, 9, 12, 23, 0 ) } );
+	tbl.Rows.Add( new Object[] { 6, 2, "PostureMaster 9000", 2, 
+	  new DateTime( 2004, 12, 16, 10, 26, 0 ) } );
+	tbl.Rows.Add( new Object[] { 7, 3, "Who's Who in 15th Century Regicide (paperback)", 1, 
+	  new DateTime( 2004, 8, 4, 9, 56, 0 ) } );
+	ds.Tables.Add( tbl );
+	// 顧客 ID に基づいて 2 つのテーブル間のリレーションを作成します。
+	ds.Relations.Add( "cust2orders", 
+	  ds.Tables["Customers"].Columns["ID"], ds.Tables["Orders"].Columns["CustID"] );
+	return ds;
+}
+----
+
+== WinComboEditor のバインド
+
+次に、WinComboEditorを "Customers" DataTable にバインドするコードを追加します。このコンボは "DisplayName" 列からの値を表示します。この列はデータ テーブル内の計算列で、顧客の名前を , フォーマットで返します。
+
+まず、Form のロード後にデータ ソースを簡単に利用できるようにするため、"dsCustOrders" という名前のプライベートの DataSet メンバ変数をフォーム派生クラスに追加します。次に、フォームの Load イベントのハンドラを追加し、次のコードを入力するか貼り付けます。
+
+*Visual Basic の場合：*
+
+----
+Private dsCustOrders As DataSet
+Private Sub Databinding_the_WinComboEditor_and_WinOptionSet_Controls_Load( _
+  ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+	' 2 つの関連テーブル（Customers と Orders）を含むデータ セットを取得します。
+	Me.dsCustOrders = Me.CreateCustomerOrdersData()
+	' UltraComboEditor を Customers テーブルにバインドします。表示値を
+	' DisplayName 列から取得し、コントロールの値を
+	' ID 列から取得します。
+	Me.cmbCustomers.SetDataBinding(Me.dsCustOrders, "Customers")
+	Me.cmbCustomers.DisplayMember = "DisplayName"
+	Me.cmbCustomers.ValueMember = "ID"
+	' エンド ユーザーが項目を編集できないようにします。
+	Me.cmbCustomers.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+	' ドロップダウン内の顧客名を並べ替えます。
+	Me.cmbCustomers.SortStyle = Infragistics.Win.ValueListSortStyle.Ascending
+End Sub
+----
+
+*C# の場合：*
+
+----
+private DataSet dsCustOrders;
+private void Databinding_the_WinComboEditor_and_WinOptionSet_Controls_Load(object sender, 
+  EventArgs e)
+{
+	// 2 つの関連テーブル（Customers と Orders）を含むデータ セットを取得します。
+	this.dsCustOrders = this.CreateCustomerOrdersData();
+	// UltraComboEditor を Customers テーブルにバインドします。表示値を
+	// DisplayName 列から取得し、コントロールの値を
+	// ID 列から取得します。
+	this.cmbCustomers.SetDataBinding( this.dsCustOrders, "Customers" );
+	this.cmbCustomers.DisplayMember = "DisplayName";
+	this.cmbCustomers.ValueMember = "ID";
+	// エンド ユーザーが項目を編集できないようにします。
+	this.cmbCustomers.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList;
+	// ドロップダウン内の顧客名を並べ替えます。
+	this.cmbCustomers.SortStyle = Infragistics.Win.ValueListSortStyle.Ascending;
+}
+----
+
+== 値固有の顧客のための Appearance 設定
+
+これで WinComboEditor は Customers データ テーブルにバインドされ、顧客の書式設定された名前を表示するよう指定されました。ただし、ドロップダウン リストで、2 つを超える発注を持つ顧客はその他の顧客と視覚的に区別する必要があるというもうひとつの要件があります。これらの「優先」顧客の背景色を金色に設定して、簡単に見分けられるようにします。背景色を選択的に割り当てるコードは、WinComboEditor の link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~initializedataitem_ev.html[ pick:[win-forms="InitializeDataItem"] ] イベントのハンドラで実行します。このイベントは、データ ソースで見つかった値を表す ValueListItem が作成されるたびに発生します。値固有の設定を適用するコードは次のとおりです。
+
+*Visual Basic の場合：*
+
+----
+Private Sub cmbCustomers_InitializeDataItem(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.InitializeDataItemEventArgs) _
+  Handles cmbCustomers.InitializeDataItem
+	Dim view As DataRowView = CType(e.ValueListItem.ListObject, DataRowView)
+	' 顧客が 2 件以上の注文を持つ場合、その顧客を優良顧客と見なし
+	' ドロップダウン内の対応する項目を金色に表示します。
+	Dim row As DataRow = view.Row
+	If row.GetChildRows("cust2orders").Length > 2 Then
+		e.ValueListItem.Appearance.BackColor = Color.Gold
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void cmbCustomers_InitializeDataItem(object sender, 
+  Infragistics.Win.InitializeDataItemEventArgs e)
+{
+	DataRowView view = e.ValueListItem.ListObject as DataRowView;
+	if( view != null )
+	{
+		// 顧客が 2 件以上の注文を持つ場合、その顧客を優良顧客と見なし
+		// ドロップダウン内の対応する項目を金色に表示します。
+		DataRow row = view.Row;
+		if( row.GetChildRows( "cust2orders" ).Length > 2 )
+			e.ValueListItem.Appearance.BackColor = Color.Gold;
+	}
+}
+----
+
+== WinOptionSet のバインド
+
+これで WinComboEditor はデータ ソースにバインドされ、各データ項目の作成時に値固有の設定が適用されます。エンドユーザーの観点から見ると、WinComboEditor には顧客名が表示され、その中の「優良」顧客は背景が金色で強調されています。ユーザーがリストから顧客を選択したとき、WinOptionSet に顧客の注文を表示する必要があります。顧客の注文を表示するロジックは、選択された顧客に対して WinComboEditor で変更されたときに実行されます。
+
+WinComboEditor の ValueChanged イベントのハンドラを追加し、次のコードを配置します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub cmbCustomers_ValueChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles cmbCustomers.ValueChanged
+	' 選択された顧客の注文を表示する DataView を作成します。
+	Dim rowView As DataRowView
+	If Not Me.cmbCustomers.SelectedItem Is Nothing Then
+		rowView = CType(Me.cmbCustomers.SelectedItem.ListObject, DataRowView)
+	Dim ordersTbl As DataTable = Me.dsCustOrders.Tables("Orders")
+	Dim rowFilter As String = String.Format("CustID = {0}", rowView.Row("ID").ToString())
+	Dim dataView As New DataView(ordersTbl, rowFilter, "OrderDate ASC", _
+	  DataViewRowState.CurrentRows)
+	' UltraOptionSet をその DataView にバインドします。
+	Me.optOrders.DataSource = dataView
+	Me.optOrders.DisplayMember = "OrderDate"
+	Me.optOrders.ValueMember = "OrderID"
+	' リストの最初の注文を選択します。
+	Me.optOrders.CheckedIndex = 0
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void cmbCustomers_ValueChanged(object sender, System.EventArgs e)
+{
+	// 選択された顧客の注文を表示する DataView を作成します。
+	DataRowView rowView = this.cmbCustomers.SelectedItem.ListObject as DataRowView;
+	DataTable ordersTbl = this.dsCustOrders.Tables["Orders"];
+	string rowFilter = String.Format("CustID = {0}", rowView.Row["ID"].ToString());
+	DataView dataView = new DataView( ordersTbl, rowFilter, "OrderDate ASC", 
+	  DataViewRowState.CurrentRows );
+	// UltraOptionSet をその DataView にバインドします。
+	this.optOrders.DataSource = dataView;
+	this.optOrders.DisplayMember = "OrderDate";
+	this.optOrders.ValueMember = "OrderID";
+	// リストの最初の注文を選択します。
+	this.optOrders.CheckedIndex = 0;
+}
+----
+
+== 注文詳細の表示
+
+ユーザーが WinOptionSet から顧客の注文を選択したとき、その注文の詳細を WinGroupBox 内のコントロールに表示する必要があります。これは単に、選択された注文の詳細を含むデータ行を取得し、そのデータを WinTextEditors に移植するだけです。次のコードはこの処理を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub optOrders_ValueChanged(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles optOrders.ValueChanged
+	If Me.optOrders.Value Is Nothing Then
+		' 選択されている注文がない場合は、テキスト エディタのテキストをリセットします。
+		Me.txtOrderID.ResetText()
+		Me.txtProductName.ResetText()
+		Me.txtQuantity.ResetText()
+	Else
+		' Orders テーブルで、選択された注文を表す行を検索します。
+		Dim orderID As Integer = Convert.ToInt32(Me.optOrders.Value)
+		Dim query As String = String.Format("OrderID = {0}", orderID)
+		Dim orderRow As DataRow = Me.dsCustOrders.Tables("Orders").Select(query)(0)
+		' その注文に関する情報をテキスト エディタに表示します。
+		Me.txtOrderID.Text = orderID.ToString()
+		Me.txtProductName.Text = orderRow("ProductName").ToString()
+		Me.txtQuantity.Text = orderRow("Quantity").ToString()
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void optOrders_ValueChanged(object sender, System.EventArgs e)
+{
+	if( this.optOrders.Value == null )
+	{
+		// 選択されている注文がない場合は、テキスト エディタのテキストをリセットします。
+		this.txtOrderID.ResetText();
+		this.txtProductName.ResetText();
+		this.txtQuantity.ResetText();                                
+	}
+	else
+	{
+		// Orders テーブルで、選択された注文を表す行を検索します。
+		int orderID = Convert.ToInt32( this.optOrders.Value );
+		string query = String.Format( "OrderID = {0}", orderID );
+		DataRow orderRow = this.dsCustOrders.Tables["Orders"].Select( query )[0];
+		// その注文に関する情報をテキスト エディタに表示します。
+		this.txtOrderID.Text = orderID.ToString();
+		this.txtProductName.Text = orderRow["ProductName"].ToString();
+		this.txtQuantity.Text = orderRow["Quantity"].ToString();
+	}
+}
+----
+
+== まとめ
+
+WinComboEditor と WinOptionSet がデータ バインディングをサポートしたことで、コントロールへのデータの取り込みが非常に簡単になりました。バインディングの確立には、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~datasource.html[DataSource]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~datamember.html[DataMember]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~displaymember.html[DisplayMember]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultracomboeditor~valuemember.html[ValueMember]"]  の各標準プロパティを使用します。InitializeDataItemイベントは、コントロールに含まれる ValueListItems に値固有の設定を適用する場合に役立ちます。

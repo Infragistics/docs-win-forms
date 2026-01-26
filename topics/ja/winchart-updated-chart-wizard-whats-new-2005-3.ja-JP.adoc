@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "winchart-updated-chart-wizard-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{7620CB2D-E8FE-45DE-BFCF-4AD8A01EB3A6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 更新されたグラフ ウィザード
+
+合成チャートや標準的なチャートを作成するための新しいチャート機能を反映させるためにチャート ウィザードは更新されました。チャート ウィザードには標準的なチャートまたは新しい合成チャートすべてを完全に設定する支援を行う機能があり、一個所からすべてを使用できます。
+
+image::images/WinChart_What_s_New_2005_3_Updated_Chart_Wizard_01.png[]
+
+== 関連トピック：
+
+link:chart-creating-a-composite-chart-using-the-chart-wizard-part-1-of-2.html[チャート ウィザードを使用して合成チャートを作成（1/2）]
+
+link:chart-creating-a-composite-chart-using-the-chart-wizard-part-2-of-2.html[チャート ウィザードを使用して合成チャートを作成（1/2）]

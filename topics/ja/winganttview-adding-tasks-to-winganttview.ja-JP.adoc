@@ -1,0 +1,100 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-adding-tasks-to-winganttview",
+    "controlName": ["WinGanttView"],
+    "tags": ["How Do I"],
+    "guid": "{D45237B9-50C3-4BE1-B8B1-FE9F8242DDE5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タスクを WinGanttView に追加
+
+タスクは開始と終了があるアクティビティです。 プロジェクト プランはタスクで構成されます。 タスクはコントロールのグリッド セクションまたはチャート セクションを右クリックすることによって使用可能なコンテキスト メニューから WinGanttView™ コントロールに簡単に追加できます。 [タスク情報] ダイアログを使用してタスクとタスク情報を追加することもできます。 [タスク情報] ダイアログについての詳細は、 link:winganttview-task-information-dialog.html[「タスク情報ダイアログ」]を参照してください。 コードによってタスクとタスク情報を作成することも可能です。
+
+以下のサンプル コードは親タスクと子タスクを作成し、期限、マイルストーン、完了率、タスクの依存関係、制約のようなさまざまなタスク関連の設定を適用します。
+
+*Visual Basic の場合：*
+
+----
+' Unassigned Project 以外の新しい Project を作成します。 
+Dim quarterlyProject As Project = Me.ultraCalendarInfo1.Projects.Add("QuartlerlyProject", DateTime.Today) 
+quarterlyProject.Key = "projkey1" 
+' サマリーまたは親タスクを作成します。 
+Dim requirementsTask As Task = Me.ultraCalendarInfo1.Tasks.Add(DateTime.Today, TimeSpan.FromDays(5), "Requirements", "projkey1") 
+' 子タスクを作成します 
+Dim budgetTask As Task = requirementsTask.Tasks.Add(DateTime.Today, TimeSpan.FromDays(2), "Budget Analysis") 
+' 期限を設定します。 
+budgetTask.Deadline = DateTime.Today.AddDays(3) 
+'このタスクにリソースを割り当てします。 
+Dim budgetOwner As Owner = Me.ultraCalendarInfo1.Owners.Add("BudgetOwner", "Bill Isacky") 
+budgetTask.Resources.Add(budgetOwner) 
+' 別の子タスクを作成します。 
+Dim teamTask As Task = requirementsTask.Tasks.Add(DateTime.Today.AddDays(3), TimeSpan.FromDays(2), "Team Allocation") 
+' この Task に Constraint (制約)を設定します。 
+teamTask.ConstraintDateTime = DateTime.Today.AddDays(4) 
+teamTask.Constraint = TaskConstraint.FinishNoLaterThan 
+' サマリーまたは親タスクを作成します。 
+Dim implemetationTask As Task = Me.ultraCalendarInfo1.Tasks.Add(DateTime.Now.AddDays(7), TimeSpan.FromDays(3), "Implementation", "projkey1") 
+' 子タスクを作成します
+Dim frontendTask As Task = implemetationTask.Tasks.Add(DateTime.Now.AddDays(7), TimeSpan.FromDays(3), "GUI Design") 
+' この Task を Milestone (マイルストーン) に設定します。
+frontendTask.Milestone = True 
+' この Task の達成率を設定します。 
+frontendTask.PercentComplete = 40 
+frontendTask.Dependencies.Add(budgetTask, TaskDependencyType.StartToStart) 
+frontendTask.Dependencies.Add(teamTask, TaskDependencyType.FinishToStart) 
+Me.ultraGanttView1.CalendarInfo = Me.ultraCalendarInfo1 
+' Unassigned Project の代わりにこの Project を GanttView に表示するのに、この新しい Project を GanttView に指定します。
+Me.ultraGanttView1.Project = Me.ultraGanttView1.CalendarInfo.Projects(1)
+----
+
+*C# の場合：*
+
+----
+// Unassigned Project 以外の新しい Project を作成します。
+Project quarterlyProject = this.ultraCalendarInfo1.Projects.Add("QuartlerlyProject", DateTime.Today);
+quarterlyProject.Key = "projkey1";
+// サマリーまたは親タスクを作成します。
+Task requirementsTask = this.ultraCalendarInfo1.Tasks.Add(DateTime.Today, TimeSpan.FromDays(5), "Requirements", "projkey1");
+// 子タスクを作成します
+Task budgetTask = requirementsTask.Tasks.Add(DateTime.Today, TimeSpan.FromDays(2), "Budget Analysis");
+// 期限を設定します。
+budgetTask.Deadline = DateTime.Today.AddDays(3); 
+//このタスクにリソースを割り当てします。
+Owner budgetOwner = this.ultraCalendarInfo1.Owners.Add("BudgetOwner", "Bill Isacky");
+budgetTask.Resources.Add(budgetOwner);
+// 別の子タスクを作成します。
+Task teamTask = requirementsTask.Tasks.Add(DateTime.Today.AddDays(3), TimeSpan.FromDays(2), "Team Allocation");
+// この Task に Constraint (制約)を設定します。
+teamTask.ConstraintDateTime = DateTime.Today.AddDays(4);
+teamTask.Constraint = TaskConstraint.FinishNoLaterThan;
+// サマリーまたは親タスクを作成します。
+Task implemetationTask = this.ultraCalendarInfo1.Tasks.Add(DateTime.Now.AddDays(7), TimeSpan.FromDays(3), "Implementation", "projkey1");
+// 子タスクを作成します
+Task frontendTask = implemetationTask.Tasks.Add(DateTime.Now.AddDays(7), TimeSpan.FromDays(3), "GUI Design");
+// この Task を Milestone (マイルストーン) に設定します。
+frontendTask.Milestone = true;
+// この Task の達成率を設定します。
+frontendTask.PercentComplete = 40;
+frontendTask.Dependencies.Add(budgetTask, TaskDependencyType.StartToStart);
+frontendTask.Dependencies.Add(teamTask, TaskDependencyType.FinishToStart);
+this.ultraGanttView1.CalendarInfo = this.ultraCalendarInfo1;
+// Unassigned Project の代わりにこの Project を GanttView に表示するのに、この新しい Project を GanttView に指定します。
+this.ultraGanttView1.Project = this.ultraGanttView1.CalendarInfo.Projects[1];
+----
+
+== 関連トピック
+
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView でのデータ バインドのサポート]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-tooltip-settings-for-tasks.html[タスクのツールチップ設定]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView のチャート領域でタイムライン間隔を設定]

@@ -1,0 +1,247 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-headers-footers-and-page-numbers",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Exporting","Getting Started","How Do I"],
+    "guid": "4179bd83-1b9f-49c3-aff1-fb0423512fec",  
+    "buildFlags": [],
+    "createdOn": "2011-03-18T14:35:12.505061Z"
+}
+|metadata|
+////
+
+= ヘッダー、フッター、ページ番号
+
+Infragistics® Word ライブラリを使用すると、ドキュメント タイトルのように簡単なヘッダーとフッター、および画像、複数段落、表、ハイパーリンクへのページ番号を作成できます。
+
+以下のスクリーンショットは、ヘッダーにテキストと画像を付けて作成された Word ドキュメントを表示します。
+
+image::images/Word_Headers_Footers_and_Page_Numbers_01.png[]
+
+以下のスクリーンショットは、フッターにテキストとページ番号を付けて作成された Word ドキュメントを表示します。
+
+image::images/Word_Headers_Footers_and_Page_Numbers_02.png[]
+
+[NOTE]
+====
+*注:* Infragistics3.Documents.IO アセンブリへの参照が以下のコードに必要とされます。
+====
+
+== ヘッダーとフッター
+
+ドキュメント セクションのヘッダーとフッターにコンテンツを書き出すには、ひとつ以上の link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.wordheaderfooterwriter.html[WordHeaderFooterWriter] インスタンスを保持する link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.sectionheaderfooterwriterset.html[SectionHeaderFooterWriterSet] クラスを使用する必要があります。ヘッダーとフッターは、全ページまたは最初のページのみのいずれかに設定できます。テキスト、画像、複数段落、ハイパーリンクはすべてヘッダーおよびフッター セクションに追加できます。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+//  ヘッダーとフッターのデフォルト部分を定義します
+SectionHeaderFooterParts parts = SectionHeaderFooterParts.HeaderAllPages | SectionHeaderFooterParts.FooterAllPages;
+SectionHeaderFooterWriterSet writerSet = docWriter.AddSectionHeaderFooter(parts);
+// ヘッダーのテキストを設定します
+writerSet.HeaderWriterAllPages.Open();
+writerSet.HeaderWriterAllPages.StartParagraph();
+writerSet.HeaderWriterAllPages.AddTextRun("This text appears in the Header.");
+writerSet.HeaderWriterAllPages.EndParagraph();
+writerSet.HeaderWriterAllPages.Close();
+// フッターのテキストを設定します
+writerSet.FooterWriterAllPages.Open();
+writerSet.FooterWriterAllPages.StartParagraph();
+writerSet.FooterWriterAllPages.AddTextRun("This text appears in the footer.");
+writerSet.FooterWriterAllPages.EndParagraph();
+writerSet.FooterWriterAllPages.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+'   ヘッダーとフッターのデフォルト部分を定義します
+Dim parts As SectionHeaderFooterParts = SectionHeaderFooterParts.HeaderAllPages Or SectionHeaderFooterParts.FooterAllPages
+Dim writerSet As SectionHeaderFooterWriterSet = docWriter.AddSectionHeaderFooter(parts)
+'  ヘッダーのテキストを設定します
+writerSet.HeaderWriterAllPages.Open()
+writerSet.HeaderWriterAllPages.StartParagraph()
+writerSet.HeaderWriterAllPages.AddTextRun("This text appears in the Header.")
+writerSet.HeaderWriterAllPages.EndParagraph()
+writerSet.HeaderWriterAllPages.Close()
+'  フッターのテキストを設定します
+writerSet.FooterWriterAllPages.Open()
+writerSet.FooterWriterAllPages.StartParagraph()
+writerSet.FooterWriterAllPages.AddTextRun("This text appears in the footer. ")
+writerSet.FooterWriterAllPages.EndParagraph()
+writerSet.FooterWriterAllPages.Close()
+----
+
+== ページ番号
+
+ページ番号は、 link:{ApiPlatform}documents.io{ApiVersion}~infragistics.documents.word.wordheaderfooterwriter~addpagenumberfield.html[AddPageNumberField] メソッドを使用して、Word ドキュメントのヘッダーまたはフッターのいずれかに正しい設定を追加することによって可能となります。このメソッドは、オプションの引数として PageNumberFieldType 列挙値とフォント オブジェクトを受け付けます。PageNumberFieldType 列挙体は、ページ番号に、Decimal、RomanLowercase、TextCardinal、Ordinal などのいくつかの書式を提供します。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// ページ番号をフッターに追加します
+writerSet.FooterWriterAllPages.AddPageNumberField(PageNumberFieldFormat.Ordinal, font);
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' ページ番号をフッターに追加します
+writerSet.FooterWriterAllPages.AddPageNumberField(PageNumberFieldFormat.Ordinal, font)
+----
+
+以下の完全なコードはヘッダー、フッター、ページ番号を Word ドキュメントに追加します。
+
+*C# の場合:*
+
+----
+using Infragistics.Documents.Word;
+// 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+// 新しいインスタンスを作成します
+// コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+WordDocumentWriter docWriter = WordDocumentWriter.Create(@"C:\TestWordDoc.docx");
+//  単位としてインチを使用します
+docWriter.Unit = UnitOfMeasurement.Inch;
+//  フォントを作成します。これはコンテンツ作成で再使用できます
+Infragistics.Documents.Word.Font font = docWriter.CreateFont();
+font.Bold = true;
+// 段落プロパティ
+ParagraphProperties paraformat = docWriter.CreateParagraphProperties();
+//ドキュメントを開始します。StartDocument への各呼び出しは
+//EndDocument への対応する呼び出しとバランスを取らなければならないことに留意します
+docWriter.StartDocument();
+//段落を開始します
+docWriter.StartParagraph();
+docWriter.AddNewLine();
+docWriter.AddTextRun("This document demonstrates headers, footers and page numbers.", font);
+// 段落を終わります
+docWriter.EndParagraph();
+// 改ページを作成します
+paraformat.PageBreakBefore = true;
+docWriter.StartParagraph(paraformat);
+docWriter.EndParagraph();
+// ヘッダーとフッター
+// ヘッダーとフッターのデフォルト部分を定義します
+SectionHeaderFooterParts parts = SectionHeaderFooterParts.HeaderAllPages | SectionHeaderFooterParts.FooterAllPages;
+SectionHeaderFooterWriterSet writerSet = docWriter.AddSectionHeaderFooter(parts);
+// ヘッダーに表示する画像を取得します
+Image img = Image.FromFile(@"..\..\Ballon_New_Year.jpg");
+// アンカー固定した画像を作成します
+AnchoredPicture anchPic = docWriter.CreateAnchoredPicture(img);
+anchPic.Size = new SizeF(0.75f, 0.75f);
+// 段落プロパティをリセットします
+paraformat.Reset();
+paraformat.Alignment = ParagraphAlignment.Right;
+// ヘッダー
+writerSet.HeaderWriterAllPages.Open();
+// ヘッダー テキスト配置は、右に設定されます
+// を渡すことによって、右に設定されます
+writerSet.HeaderWriterAllPages.StartParagraph(paraformat);
+//  画像をヘッダーに追加します
+writerSet.HeaderWriterAllPages.AddAnchoredPicture(anchPic);
+// テキストをヘッダーに追加します
+writerSet.HeaderWriterAllPages.AddTextRun("This text appears in the Header.");
+writerSet.HeaderWriterAllPages.EndParagraph();
+writerSet.HeaderWriterAllPages.StartParagraph(paraformat);
+// テキストをヘッダーに追加します
+writerSet.HeaderWriterAllPages.AddTextRun("Multiple paragraphs can be added to the Header.");
+writerSet.HeaderWriterAllPages.EndParagraph();
+writerSet.HeaderWriterAllPages.Close();
+//フッター
+writerSet.FooterWriterAllPages.Open();
+// フッター テキスト配置は、右に設定されます
+// を渡すことによって、右に設定されます
+writerSet.FooterWriterAllPages.StartParagraph(paraformat);
+writerSet.FooterWriterAllPages.AddTextRun("This text appears in the footer. ");
+// ページ番号をフッターに追加します
+writerSet.FooterWriterAllPages.AddPageNumberField(PageNumberFieldFormat.Ordinal, font);
+writerSet.FooterWriterAllPages.EndParagraph();
+writerSet.FooterWriterAllPages.Close();
+// ドキュメントを終了します
+docWriter.EndDocument();
+// ライターを閉じます
+docWriter.Close();
+----
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Documents.Word
+' 静的な 'Create' メソッドを使用して、WordDocumentWriter クラスの
+' 新しいインスタンスを作成します
+'  コンテンツが Word に書き出されたら、このインスタンスを閉じる必要があります
+Dim docWriter As WordDocumentWriter = WordDocumentWriter.Create("C:\TestWordDoc.docx")
+'  単位としてインチを使用します
+docWriter.Unit = UnitOfMeasurement.Inch
+'  フォントを作成します。これはコンテンツ作成で再使用できます
+Dim font As Infragistics.Documents.Word.Font = docWriter.CreateFont()
+font.Bold = True
+' 段落プロパティ
+Dim paraformat As ParagraphProperties = docWriter.CreateParagraphProperties()
+'ドキュメントを開始します。StartDocument への各呼び出しは
+'  EndDocument への対応する呼び出しとバランスを取らなければならないことに留意します
+docWriter.StartDocument()
+'段落を開始します
+docWriter.StartParagraph()
+docWriter.AddNewLine()
+docWriter.AddTextRun("This document demonstrates headers, footers and page numbers.", font)
+' 段落を終わります
+docWriter.EndParagraph()
+'  改ページを作成します
+paraformat.PageBreakBefore = True
+docWriter.StartParagraph(paraformat)
+docWriter.EndParagraph()
+'  ヘッダーとフッター
+' ヘッダーとフッターのデフォルト部分を定義します
+Dim parts As SectionHeaderFooterParts = SectionHeaderFooterParts.HeaderAllPages Or SectionHeaderFooterParts.FooterAllPages
+Dim writerSet As SectionHeaderFooterWriterSet = docWriter.AddSectionHeaderFooter(parts)
+'  ヘッダーに表示する画像を取得します
+Dim img As Image = Image.FromFile("..\..\Ballon_New_Year.jpg")
+' アンカー固定した画像を作成します
+Dim anchPic As AnchoredPicture = docWriter.CreateAnchoredPicture(img)
+anchPic.Size = New SizeF(0.75F, 0.75F)
+' 段落プロパティをリセットします
+paraformat.Reset()
+paraformat.Alignment = ParagraphAlignment.Right
+' ヘッダー
+writerSet.HeaderWriterAllPages.Open()
+' ヘッダー テキスト配置は、右に設定されます
+' を渡すことによって、右に設定されます
+writerSet.HeaderWriterAllPages.StartParagraph(paraformat)
+' 画像をヘッダーに追加します
+writerSet.HeaderWriterAllPages.AddAnchoredPicture(anchPic)
+' テキストをヘッダーに追加します
+writerSet.HeaderWriterAllPages.AddTextRun("This text appears in the Header.")
+writerSet.HeaderWriterAllPages.EndParagraph()
+writerSet.HeaderWriterAllPages.StartParagraph(paraformat)
+' テキストをヘッダーに追加します
+writerSet.HeaderWriterAllPages.AddTextRun("Multiple paragraphs can be added to the Header.")
+writerSet.HeaderWriterAllPages.EndParagraph()
+writerSet.HeaderWriterAllPages.Close()
+' フッター
+writerSet.FooterWriterAllPages.Open()
+' フッター テキスト配置は、右に設定されます
+' を渡すことによって、右に設定されます
+writerSet.FooterWriterAllPages.StartParagraph(paraformat)
+writerSet.FooterWriterAllPages.AddTextRun("This text appears in the footer. ")
+writerSet.FooterWriterAllPages.AddPageNumberField(PageNumberFieldFormat.Ordinal, font)
+writerSet.FooterWriterAllPages.EndParagraph()
+writerSet.FooterWriterAllPages.Close()
+' ドキュメントを終了します
+docWriter.EndDocument()
+' ライターを閉じます
+docWriter.Close()
+----
+
+== 関連トピック
+
+* link:word-create-a-word-document.html[Word ドキュメントの作成]
+* link:word-apply-formatting-to-word-document.html[書式設定を Word ドキュメントに適用]
+* link:word-add-table-to-word-document.html[テーブルを Word ドキュメントに適用]
+* link:word-add-images-to-word-document.html[画像を Word ドキュメントに追加]
+* link:word-understanding-infragistics-word-library.html[Infragistics Word ライブラリの理解]

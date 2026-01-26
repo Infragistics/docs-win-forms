@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-creating-a-gauge-in-design-view",
+    "controlName": ["WinGauge"],
+    "tags": ["How Do I"],
+    "guid": "{E8039864-7084-4F1F-A69C-C156788CB542}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン ビューでゲージを作成
+
+デザイン ビューを使用して異なるタイプの gauges を作成する方法を確認するには、以下のリンクをクリックしてください。
+
+* link:wingauge-creating-a-digital-gauge-in-design-view.html[デザイン ビューでデジタル ゲージを作成]
+* link:wingauge-creating-a-linear-gauge-in-design-view.html[デザイン ビューでリニア ゲージを作成]
+* link:wingauge-creating-a-radial-gauge-in-design-view.html[デザイン ビューでラジアル ゲージを作成]

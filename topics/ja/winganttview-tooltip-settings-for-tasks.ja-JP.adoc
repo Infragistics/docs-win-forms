@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "winganttview-tooltip-settings-for-tasks",
+    "controlName": ["WinGanttView"],
+    "tags": ["How Do I"],
+    "guid": "{472B3D69-5A77-46A6-96B9-E778BBBE0C0D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タスクのツールチップ設定
+
+このトピックは、WinGanttView™ コントロールに表示されるタスクに使用可能なさまざまなツールチップ カスタマイズ オプションを示します。ツールチップはコントロールのチャート領域に表示されるタスクに表示されます。ツールチップ設定は、コントロールの link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.ultraganttview~timelinesettings.html[TimelineSettings] オブジェクト内にあります。GanttView へのタスクの追加の詳細は、 link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]を参照してください。
+
+以下のコードは、親タスクと子タスクを表示するフォームに UltraGanttView コントロールをドロップしてあることを前提とします。
+
+*Visual Basic の場合:*
+
+----
+' 子タスクのツールチップ設定 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettings.Appearance.BackColor = Color.BlanchedAlmond 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettings.DisplayCompleteThrough = DefaultableBoolean.[True] 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettings.DisplayStartDateTime = DefaultableBoolean.[False] 
+' マイルストーンのツールチップ設定 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettingsMilestone.Appearance.BackColor = Color.LightBlue 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettingsMilestone.DisplayEndDateTime = DefaultableBoolean.[True] 
+' 達成率のツールチップ設定 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettingsPercentComplete.DisplayDuration = DefaultableBoolean.[True] 
+' 期限のツールチップ設定 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettingsDeadline.DisplayCompleteThrough = DefaultableBoolean.[True] 
+' サマリー タスクのツールチップ設定 
+Me.ultraGanttView1.TimelineSettings.ToolTipSettingsSummary.DisplayDuration = DefaultableBoolean.[False]
+----
+
+*C# の場合:*
+
+----
+// 子タスクのツールチップ設定
+this.ultraGanttView1.TimelineSettings.ToolTipSettings.Appearance.BackColor = Color.BlanchedAlmond;
+this.ultraGanttView1.TimelineSettings.ToolTipSettings.DisplayCompleteThrough = DefaultableBoolean.True;
+this.ultraGanttView1.TimelineSettings.ToolTipSettings.DisplayStartDateTime = DefaultableBoolean.False;
+// マイルストーンのツールチップ設定
+this.ultraGanttView1.TimelineSettings.ToolTipSettingsMilestone.Appearance.BackColor = Color.LightBlue;
+this.ultraGanttView1.TimelineSettings.ToolTipSettingsMilestone.DisplayEndDateTime = DefaultableBoolean.True;
+// 達成率のツールチップ設定
+this.ultraGanttView1.TimelineSettings.ToolTipSettingsPercentComplete.DisplayDuration = DefaultableBoolean.True;
+// 期限のツールチップ設定
+this.ultraGanttView1.TimelineSettings.ToolTipSettingsDeadline.DisplayCompleteThrough = DefaultableBoolean.True;
+// サマリー タスクのツールチップ設定
+this.ultraGanttView1.TimelineSettings.ToolTipSettingsSummary.DisplayDuration = DefaultableBoolean.False;
+----
+
+link:{ApiPlatform}win.ultrawinganttview{ApiVersion}~infragistics.win.ultrawinganttview.tasktooltipdisplayingeventargs.html[TaskToolTipDisplaying] イベントを発生させてツールチップをタスクに追加できます。
+
+*Visual Basic の場合:*
+
+----
+this.ultraGanttView1.TaskToolTipDisplaying += new TaskToolTipDisplayingHandler(ultraGanttView1_TaskToolTipDisplaying);
+Private Sub ultraGanttView1_TaskToolTipDisplaying(ByVal sender As Object,   ByVal e As Infragistics.Win.UltraWinGanttView.TaskToolTipDisplayingEventArgs) Handles ultraGanttView1.TaskToolTipDisplaying
+        Dim info As ToolTipInfo = e.ToolTipInfo
+        info.DisplayStyle = ToolTipDisplayStyle.BalloonTip
+        info.ToolTipText = e.Task.Resources.ToString()
+        e.ToolTipInfo = info
+    End Sub
+----
+
+*C# の場合:*
+
+----
+this.ultraGanttView1.TaskToolTipDisplaying += new TaskToolTipDisplayingHandler(ultraGanttView1_TaskToolTipDisplaying);
+void ultraGanttView1_TaskToolTipDisplaying(object sender, Infragistics.Win.UltraWinGanttView.TaskToolTipDisplayingEventArgs e)
+        {
+            ToolTipInfo info = e.ToolTipInfo;
+            info.DisplayStyle = ToolTipDisplayStyle.BalloonTip;
+            info.ToolTipText = e.Task.Resources.ToString();
+            e.ToolTipInfo = info;
+        }    
+----
+
+== 関連トピック
+
+* link:winganttview-adding-tasks-to-winganttview.html[タスクを WinGanttView に追加]
+* link:winganttview-databinding-support-for-winganttview.html[WinGanttView のデータバインディング サポート]
+* link:winganttview-task-information-dialog.html[タスク情報ダイアログ]
+* link:winganttview-customize-chart-section-of-winganttview.html[WinGanttView のチャート セクションのカスタマイズ]
+* link:winganttview-task-settings-for-winganttview.html[WinGanttView のタスク設定]
+* link:winganttview-customize-grid-section-of-winganttview.html[WinGanttView のグリッド セクションのカスタマイズ]
+* link:winganttview-winganttview-sorting.html[WinGanttView の並べ替え]
+* link:winganttview-set-timeline-intervals-in-chart-area-of-winganttview.html[WinGanttView のチャート領域でタイムライン間隔を設定]

@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-using-winpivotgrid",
+    "controlName": [],
+    "tags": [],
+    "guid": "6b1eee77-bccd-4ea2-bfdf-6aa3a1aa8780",  
+    "buildFlags": [],
+    "createdOn": "2014-03-13T21:18:52.1460138Z"
+}
+|metadata|
+////
+
+= WinPivotGrid の使用
+
+== このグループのトピックについて
+
+=== はじめに
+
+このセクションのトピックは、 _WinPivotGrid_™ コントロールの使用方法を説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-binding-data-to-winpivotgrid.html[WinPivotGrid をデータにバインド]
+|このトピックは、 _WinPivotGrid_ を各サポートされるデータ ソースとプロバイダーへのデータ バインディングを紹介します。
+
+| link:winpivotgrid-styling-winpivotgrid.html[WinPivotGrid のスタイル設定]
+|このトピックは、 _WinPivotGrid_ コントロールの外観のカスタマイズ化で利用可能なオプションと構成を紹介します。
+
+| link:winpivotgrid-glossary.html[用語集]
+|このセクションは、ピボット グリッドのトピックでよく使用される用語を説明します。
+
+| link:winpivotgrid-api-overview.html[API の概要]
+|このセクションは、 _WinPivotGrid_™ コントロールの名前空間とキー クラスをリストします。
+
+|====

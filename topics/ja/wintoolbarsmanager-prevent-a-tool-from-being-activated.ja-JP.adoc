@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-prevent-a-tool-from-being-activated",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{BA1EEA99-0538-4212-8BB7-25F8DB125C92}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールのアクティブ化の禁止
+
+マウスがツールの上にあるときにツールがアクティブにならないようにしたい場合があります。これは、マウスがツールの上に移動してきたときに、ツールにフォーカスが与えられたり、ツールのイメージが変わるなどの外観の変更が起こらないようにすることを意味します。この場合、ツールは見かけ上有効ですが、クリックしても pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbarsmanager~toolclick_ev.html[ToolClick]"]  イベントは発生しません。
+
+次のコードをプロジェクトに追加します。このコードはマウスがツールの上にあるときに発生します。必要であれば、ツールをチェックしてイベントをキャンセルできます。これで、ツールがアクティブになるのを防ぐことができます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraToolbarsManager1_BeforeToolActivate(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinToolbars.CancelableToolEventArgs) _
+  Handles UltraToolbarsManager1.BeforeToolActivate
+	If e.Tool.Index = 4 Then
+		e.Cancel = True
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraToolbarsManager1_BeforeToolActivate(object sender, 
+  Infragistics.Win.UltraWinToolbars.CancelableToolEventArgs e)
+{
+	if(e.Tool.Index == 4)
+		e.Cancel = true;
+}
+----

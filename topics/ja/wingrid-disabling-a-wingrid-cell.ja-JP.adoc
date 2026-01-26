@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-disabling-a-wingrid-cell",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{F7C38E0B-0CC2-464A-B765-4513CFF86E27}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid セルを無効にする
+
+WinGrid™ コントロールで単一の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[Cell] を無効にしなければならない場合があります。またはグリッド全体に散らばっているセルのグループさえ無効にしなければならない場合もあります。各セルは link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~activation.html[Activation] プロパティを公開しており、これを link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.activation.html[Activation] 列挙体に設定することができます。このプロパティを通して、WinGrid コントロールで任意のセルに対してアクティブ化の動作を実装することができます。セルのアクティブ化のみを行う、編集を可能にする、完全に無効にする、または編集のみを不可にすることを選択できます。
+
+以下のコードは Activation プロパティを Disable に設定することによって、WinGrid の最初の行の最初のセルを無効にします。無効にされると、右に示されたスクリーンショットと同様に、セルのテキストはグレーに表示されます。このトピックは、少なくともひとつのバンドとともにフォーム上に WinGrid コントロールがあることが前提となります。WinGrid コントロールのデータ バインディングの詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+
+image::images/WinGrid_Disable_a_WinGrid_Cell_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.Rows(0).Cells(0).Activation = _
+  Infragistics.Win.UltraWinGrid.Activation.Disabled
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.Rows[0].Cells[0].Activation = 
+  Infragistics.Win.UltraWinGrid.Activation.Disabled;
+----
+
+== 関連トピック
+
+link:wingrid-disabling-a-band-or-the-entire-wingrid.html[バンドまたは WinGrid 全体を無効にする]
+
+link:wingrid-disabling-a-wingrid-column.html[WinGrid 列を無効にする]
+
+link:wingrid-disabling-a-wingrid-row.html[WinGrid 行を無効にする]

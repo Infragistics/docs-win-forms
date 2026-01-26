@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors",
+    "controlName": ["WinEditors"],
+    "tags": [],
+    "guid": "{739A7471-B710-4945-B2DF-6BB3668123CE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinEditors
+
+WinEditor コントロール（WinCalculator、WinCalculatorDropDown、WinCheckEditor など）は WinEditors アセンブリの一部であり、同様の機能を活用するため、複数の WinEditor コントロールに適用されるトピックをこのセクションにまとめました。
+
+以下は、WinEditor コントロールの機能やアプリケーションでこれを使いたくなる理由から、複数の WinEditor に共通するタスクを実行する際のステップごとの手順に至るまで、WinEditor コントロールに関する貴重な情報へのリンクです。
+
+* link:wineditors-understanding-wineditor-controls.html[WinEditor コントロールの理解] -- このセクションでは、WinEditor コントロールの機能をより良く理解するための支援となるあらゆる情報や、アプリケーションを開発するためにこのコントロールの機能を使いたくなる理由が説明されています。
+* link:wineditors-using-wineditors.html[WinEditors の使用] -- このセクションは、WinEditor コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:wineditors-api-overview.html[API 概要] -- このトピックでは、WinEditor コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

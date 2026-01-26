@@ -1,0 +1,52 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-display-a-menu-as-a-context-menu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{B0ED5EC2-1B56-40F8-A9A8-B080CE8C1113}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= メニューをコンテキスト メニューとして表示
+
+ユーザーがフォームやそのフォームに格納されているコントロールを右クリックしたときに、コンテキスト メニューを表示しなければならない場合があります。WinToolbarsManager エレメントをフォームに追加した後、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.popupmenutool.html[PopUpMenu]"]  ツールを使用することで、この動作を実現できます。
+
+デザインタイムにメニューをコンテキスト メニューとして表示するには：
+
+[start=1]
+. UltraToolBarsManager をフォームに追加し、右クリックして ［ユーザー設定］ を選択します。
+[start=2]
+. エディタで、ツールバーと PopupMenu ツール、およびいくつかの Button ツールを作成します。
+[start=3]
+. Menu ツールをツールバーにドラッグしてから、Button ツールをメニューのドロップダウンにドラッグします。
+[start=4]
+. PopupMenu をツールバーからドラッグして取り除くか、またはその pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.instanceprops~visible.html[Visible]"]  プロパティを False に設定します。
+[start=5]
+. フォームまたはその子コントロールを選択し、プロパティ ページで ContextMenuUltra プロパティを探して選択します。ドロップダウンには、Manager で定義されているすべての PopupMenu ツールが、キーと共に一覧表示されます。作成した PopupMenu ツールを選択します。
+[start=6]
+. プロジェクトを実行し、フォームを右クリックすると、PopupMenu ツールが表示されます。
+
+ランタイムにメニューをコンテキスト メニューとして表示するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DisplayaMenuasaContextMenu_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraToolbarsManager1.SetContextMenuUltra(Me, "PopUpMenuTool1")
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DisplayaMenuasaContextMenu_Load(object sender, System.EventArgs e)
+{
+	this.ultraToolbarsManager1.SetContextMenuUltra(this,"PopUpMenuTool1");
+}
+----

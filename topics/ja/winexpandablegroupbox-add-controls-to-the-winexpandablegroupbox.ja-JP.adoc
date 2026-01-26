@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexpandablegroupbox-add-controls-to-the-winexpandablegroupbox",
+    "controlName": [],
+    "tags": [],
+    "guid": "{DCAD044F-1348-4CF2-B2B8-3E83465790BD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールを WinExpandableGroupBox に追加する
+
+WinExpandableGroupBox™ コントロールは、指定したレイアウトでコントロールを保持するように設計されています。この機能により、グループボックスを移動しても、その中のコントロールのレイアウトは保持されます。また、必要に応じてコンテンツを表示または非表示にすることもできます。たとえば、UltraTree で特定のノードを選択した場合のみ UltraExpandableGroupBox を展開することができます。
+
+コントロールを WinExpandableGroupBox に追加するには、ツールボックスからコントロールを WinExpandableGroupBox コントロールにドラッグします。
+
+image::Images/WinMisc_Introduction_to_the_WinExpandableGroupBox_06.png[]
+
+さらに、WinExpandableGroupBox コントロールは、WinExpandableGroupBox コントロールのインスタンスを保持することもできます。たとえば、以下のスクリーンショットは、WinExpandableGroupBox コントロールの中に WinExpandableGroupBox コントロールを入れて、その中に WinExpandableGroupBox コントロールを入れ、さらに WinExpandableGroupBox コントロールにすべて含まれている状態を示しています。
+
+image::Images/WinMisc_Introduction_to_the_WinExpandableGroupBox_07.png[]
+
+== 使用例
+
+ExpandableGroupBox の利点のひとつは、Outlook ナビゲーション エレメントに似た外観を作成できることです。たとえば、パネルの中に 3 つの UltraExpandableGroupBox を配置し、そのひとつに WinTree コントロールを配置します。ヘッダ領域をそれぞれの下部に配置すると、次のスクリーンショットのようになります。
+
+image::Images/WinMisc_Introduction_to_the_WinExpandableGroupBox_08.png[]

@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-prevent-tile-dragging",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I"],
+    "guid": "{133BEE42-FFE2-445A-AA79-40F5BA5D9175}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タイルのドラッグを禁止する
+
+このトピックはタイルをドラッグできないようにする方法を示します。エンドユーザーがタイルをドラッグできないようにするために、以下のいずれかのオプションを採用できます。
+
+* pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~headerposition.html[UltraTile.Settings.HeaderPosition]"]  または UltraTilePanel.TileSettings.HeaderPosition を非表示の列挙値に設定することでタイルのヘッダーを非表示にします。
+* ヘッダーを表示するがドラッグできないようにしたい場合、UltraTile の pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~allowmoving.html[AllowMoving]"]  プロパティを False に設定できます。
+* ドラッグ操作をキャンセルできるように UltraTile pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~dragging_ev.html[Dragging]"]  イベントを処理できます。ドラッグ イベントを効果的にキャンセルするには、イベント引数の プロパティを True に設定します。
+
+*Visual Basic の場合：*
+
+----
+' UltraTilePanel のすべてのタイルのヘッダーを非表示にします 
+'this.ultraTilePanel1.TileSettings.HeaderPosition = TileHeaderPosition.Hidden
+' 特定のタイルのヘッダーを非表示にします 
+tile1.Settings.HeaderPosition = TileHeaderPosition.Hidden 
+' タイルの移動を認めません 
+tile2.AllowMoving = False
+' タイルのドラッグ イベントをキャンセルします 
+AddHandler tile2.Dragging, AddressOf tile2_Dragging
+Private Sub tile2_Dragging(ByVal sender As Object, ByVal e As TileDraggingEventArgs) Handles tile2.Dragging
+    e.Cancel = True
+End Sub
+----
+
+*C# の場合：*
+
+----
+// UltraTilePanel のすべてのタイルのヘッダーを非表示にします
+//this.ultraTilePanel1.TileSettings.HeaderPosition = TileHeaderPosition.Hidden;
+// 特定のタイルのヘッダーを非表示にします
+tile1.Settings.HeaderPosition = TileHeaderPosition.Hidden;
+// タイルの移動を認めません
+ tile2.AllowMoving = false;
+// タイルのドラッグ イベントをキャンセルします
+tile2.Dragging += new TileDraggingEventHandler(tile2_Dragging);
+----
+
+----
+void tile2_Dragging(object sender, TileDraggingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+----

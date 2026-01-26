@@ -1,0 +1,59 @@
+﻿////
+|metadata|
+{
+    "name": "winschedule-create-and-display-an-appointment",
+    "controlName": ["WinSchedule"],
+    "tags": ["Appointments"],
+    "guid": "{28F2F47E-9C42-4C66-A3F6-B69C12A473EB}",
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 予定の作成と表示
+
+予定の作成や新規予定の [予定] ダイアログを開く機能は、ユーザー エクスペリエンスを向上します。これらの機能により、エンドユーザーがより簡単に予定を作成できるようになります。以下では、ボタンをクリックして予定を作成し、[予定] ダイアログが開くというシナリオの作成手順を説明します。この方法は、すべての WinSchedule™ ビュー コントロールに適用できます。
+
+次のコードは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[予定]"] を作成して予定ダイアログに表示する方法を示しています。
+
+[start=1]
+. ツールボックスからフォームに UltraDayView および UltraCalendarInfo を追加します。
+[start=2]
+. UltraDayView の *CalendarInfo* プロパティを UltraCalendarInfo のフォームのインスタンスに設定します。
+[start=3]
+. フォームに UltraButton を追加します。ボタンのクリック イベントを設定します。
+[start=4]
+. 以下のコードは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointment]"]を作成し、[予定] ダイアログを表示する方法を示します。
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+...
+Private Sub btnShow_Click(ByVal sender As System.Object, _
+ByVal e As System.EventArgs) Handles btnShow.Click
+	Dim appointment As Appointment
+	appointment = Me.UltraCalendarInfo1.Appointments.Add( _
+	  DateTime.Today, "Appointment Subject")
+	Me.UltraCalendarInfo1.DisplayAppointmentDialog(appointment)
+End Sub
+----
+
+*C# の場合:*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+...
+private void btnShow_Click(object sender, System.EventArgs e)
+{
+	Appointment appointment;
+	appointment = this.ultraCalendarInfo1.Appointments.Add( 
+	  DateTime.Today, "Appointment Subject");
+	this.ultraCalendarInfo1.DisplayAppointmentDialog(appointment);
+}
+----
+
+[start=5]
+. フォームを開始してボタンをクリックすると予定が作成され、日付が今日の日時で初期化されます。
+[予定] ポップアップ ダイアログで予定を更にカスタマイズできます。

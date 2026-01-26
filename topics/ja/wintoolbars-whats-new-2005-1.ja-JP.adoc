@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbars-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{3D672196-4F09-48C2-A836-AC9452E42305}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolbars 2005.1
+
+== BeforeToolDragBegin/AfterToolDragEnd イベント
+
+UltraToolbarsManager には 2 つのイベント（BeforeToolDragBegin と AfterToolDragEnd）があります。BeforeToolDragBegin はキャンセル可能なイベントで、ツールのドラッグ操作が始まる前に呼び出されます。AfterToolDragEnd はドラッグ操作が終了した後に呼び出され、ツールが再配置/コピー/削除されたかどうかを示します。AfterToolDragEnd はドラッグ操作がキャンセルされた（ドラッグ中に ESC が押された）場合には呼び出されません。
+
+== TaskPane
+
+UltraToolbarsManager では、Microsoft Office スタイルのタスクペインを作成できるようになりました。このタスクペインは派生 UltraToolbar（UltraTaskPaneToolbar）として実装されているので、ドラッグしてフローティング ウィンドウに表示できる点で標準のツールバーによく似ています。UltraTaskPaneToolbar のツール コレクションによって、エンド ユーザーが選択可能な項目リストが決まります。ツールの選択は、ドロップダウン メニューまたはナビゲーション ボタンで行えます。UltraTaskPaneToolbar の内容領域は、選択した TaskPaneTool に関連付けられたコントロールが占めます。
+
+image::images/Whats_New_UltraWinToolbars_2005_1_01.png[]
+
+UltraTabControl と UltraTabStripControl には 2 つのプロパティ（SpaceBeforeTabs と SpaceAfterTabs）があり、タブとタブヘッダ領域の端との間にある空間の大きさを決定できます。さらに、UltraTabbedMdiManager には TabGroupSettings に関するこれらのプロパティがあります。
+
+== 関連トピック
+
+link:wintoolbarsmanager-working-with-the-taskpane-toolbar-and-tool.html[タスクペインのツールバーおよびツールの操作]
+
+link:wintoolbarsmanager-working-with-dynamically-created-taskpane-toolbars.html[動的に作成されたタスクペインのツールバーの操作]

@@ -1,0 +1,152 @@
+﻿////
+
+|metadata|
+{
+    "name": "dpi-scaling-support",
+    "controlName": [],
+    "tags": [],
+    "guid": "",  
+    "buildFlags": [],
+    "createdOn": ""
+}
+|metadata|
+////
+
+= DPI スケーリング (CTP)
+
+[[_Ref000000001]]
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、DPI スケーリングをサポートするようになった {ProductName} コントロールをカタログ化します。
+
+=== このトピックの内容
+
+このトピックは、以下のセクションから構成されています。
+
+* <<_Ref378713572,DPI 対応>>
+** <<_Ref377393133,はじめに>>
+** <<_Requirements,要件>>
+** <<_Example,デモ>>
+** <<_SupportedControls_,サポートされるコントロール>>
+** <<_Ref377393142,DPI スケーリング をオプトインまたはオプトアウトする方法>>
+
+[[_Ref378713572]]
+== DPI 対応
+
+[[_Ref377393133]]
+
+=== はじめに
+
+Infragistics for {ProductName} 19.1以降、システム全体およびモニターごとの dpi 認識は、最も人気のあるコントロールにシームレスに統合され、アプリケーションのニーズに合わせて調整されます。そのため、{ProductName} アプリケーションの構築に関連したモニター関連の制限はなくなりました。 
+
+これまで、さまざまな dpi や解像度のマルチ モニター設定を含む、大画面または小画面でのぼやけなどの症状は、エンドユーザー エクスペリエンスに影響を与え、望ましくない結果を招くことがありました。
+
+[[_Requirements]]
+=== 要件
+
+==== 環境
+
+.NET Framework 4.6 および Windows 10 以降では、高 dpi サポートを利用できます。Windows 10 の高 dpi サポートは、作成者のアップデート 1703 以降で正しく実装されています。注: 古いバージョンの.NETコントロールは適切に拡大縮小されない可能性があります。
+
+==== 設定
+
+app.config ファイルでモニターごとの DPI 対応を有効にします。以下のセクションを追加します。
+
+*XML:*
+[source,xml]
+----
+<System.Windows.Forms.ApplicationConfigurationSection>
+  <add key="DpiAwareness" value="PerMonitorV2" />
+</System.Windows.Forms.ApplicationConfigurationSection>
+----
+
+詳細については、MSDN オンラインを参照してください。
+
+link:https://docs.microsoft.com/ja-jp/dotnet/framework/winforms/high-dpi-support-in-windows-forms[Windows フォームで高 DPI のサポート]
+
+以下は、コントロールが dpi 対応で拡大/縮小されている場合と比較した場合の、dpi に対応していないコントロールの例です。
+
+[options="header", cols="a,a"]
+|====
+|スケールなし (デフォルト ビュー)|DPI スケールあり
+
+|image::images/DPIUnscaled.png[]
+|image::images/DPIScaled.png[]
+
+|====
+
+[[_SupportedControls_]]
+=== サポートされるコントロール:
+
+** link:winactivityindicator.html[WinActivityIndicator]
+** link:winbutton.html[WinButton]
+** link:wincalculator.html[WinCalculator]
+** link:wincheckeditor.html[WinCheckEditor]
+** link:wincombo.html[WinCombo]
+** link:wincomboeditor.html[WinComboEditor]
+** link:wincurrencyeditor.html[WinCurrencyEditor]
+** link:windatetimeeditor.html[WinDateTimeEditor]
+** link:windesktopalert.html[WinDesktopAlert]
+** link:windropdown.html[WinDropDown]
+** link:windropdownbutton.html[WinDropDownButton]
+** link:winexplorerbar.html[WinExplorerBar]
+** link:winfontnameeditor.html[WinFontNameEditor]
+** link:winformattedlinklabel.html[WinFormattedLinkLabel]
+** link:winformattedtexteditor.html[WinFormattedTextEditor]
+** link:wingrid.html[WinGrid] 
+** link:wingroupbox.html[WinGroupBox]
+** link:winlabel.html[WinLabel]
+** link:winmaskededit.html[WinMaskedEdit]
+** link:winnumericeditor.html[WinNumericEditor]
+** link:winoptionset.html[WinOptionSet]
+** link:winprogressbar.html[WinProgressBar]
+** link:winradiobutton.html[WinRadioButton]
+** link:winscrollbar.html[WinScrollBar]
+** link:wintab.html[WinTab and WinTabStrip]
+** link:wintexteditor.html[WinTextEditor]
+** link:wintimespaneditor.html[WinTimeSpanEditor]
+** link:wintimezoneeditor.html[WinTimeZoneEditor]
+** link:wintrackbar.html[WinTrackBar]
+** link:wintree.html[WinTree]
+
+[[_Ref377393142]]
+
+DPI スケーリング をオプトインまたはオプトアウトする方法
+
+`DpiUtilities` クラスは ` MaxInfragisticsDpiAwareness` と呼ばれる Infragistics.Win アセンブリにオプションのプロパティとして追加されました。デフォルトは DpiUnaware です。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|説明
+
+|DpiUnaware
+|アプリケーション全体にわたるすべての Infragistics コントロールは、dpi スケーリングから除外されます。
+
+|PerMonitorDpiAware
+|すべての Infragistics コントロールは、検出された各モニターの dpi 設定に基づいて拡大縮小されます。
+
+|SystemDpiAware
+|すべての Infragistics コントロール dpi、検出された画面の dpi 設定に基づいて拡大縮小されます。 
+
+|====
+
+コードビハインドで `MaxInfragisticsDpiAwareness` を設定します。
+
+*C#:*
+
+[source,csharp]
+<!--
+Infragistics.Win.DpiUtilities.MaxInfragisticsDpiAwareness = Infragistics.Win.InfragisticsDpiAwareness.SystemDpiAware;
+----
+
+*Visual Basic:*
+
+[source,vb]
+----
+Infragistics.Win.DpiUtilities.MaxInfragisticsDpiAwareness = Infragistics.Win.InfragisticsDpiAwareness.SystemDpiAware
+----
+
+<<_Ref000000001,トップへ戻る>>

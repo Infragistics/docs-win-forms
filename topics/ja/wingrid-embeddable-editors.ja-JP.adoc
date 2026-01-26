@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-embeddable-editors",
+    "controlName": ["WinGrid"],
+    "tags": ["Extending","Grids"],
+    "guid": "{649A480B-8839-4AB3-87E3-F96EA49855B6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 埋め込みエディタ
+
+埋め込みエディタは、WinGrid™ およびその他の Infragistics Window Forms コントロールに対する大幅な構造的拡張となります。簡単に言うと、埋め込みエディタは、コードを記述することなく確かなデータ エントリ ポイントを提供できる特徴および機能すべてを具体化します。これらのエディタをスタンドアローン フォーム コントロールとして使用するか、WinGrid にシームレスに統合できます。
+
+WinGrid のコンテキスト内で埋め込みエディタは UltraGridColumn オブジェクトに関連付けられます。埋め込みエディタを WinGrid Column に指定すると、データが編集されるときに必ずそのエディタのインスタンスが使用されます。
+
+WinGrid で埋め込みエディタを使用することについての詳細は、以下のリンクをクリックしてください。
+
+* link:wingrid-embeddable-column-editors.html[組み込み可能な列エディタ]
+* link:wingrid-using-different-editors-in-individual-cells.html[個別セルで異なるエディタを使用]
+* link:wingrid-using-windropdown-inside-wingrid.html[WinGrid 内で WinDropDown を使用]
+* link:wingrid-using-wincomboeditor-inside-wingrid.html[WinGrid 内で WinComboEditor を使用]
+* link:wingrid-using-winprogressbar-inside-wingrid.html[WinGrid 内で WinProgressBar を使用します]
+* link:wingrid-using-any-windows-forms-control-as-a-drop-down-inside-wingrid.html[WinGrid 内でドロップダウンとして Windows Forms コントロールを使用します]

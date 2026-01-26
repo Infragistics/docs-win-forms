@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-tile-states",
+    "controlName": ["WinTilePanel"],
+    "tags": ["Patterns and Practices"],
+    "guid": "{6394DD16-D406-4332-B82C-E253738CAFD4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タイルの状態
+
+WinTilePanel™ コントロールによって、各タイルを Normal および Large の状態のいずれかにすることができます。デフォルトでは、コントロールに追加されるすべてのタイルは Normal の状態になります。Normal の状態では、TilePanel はすべてのタイルの統一された高さと幅を維持します。
+
+常に少なくともひとつのタイルを Normal の状態にする必要があります。デフォルトでは、Large のタイルとして最大化できるのはひとつのタイルのみです。もっとも UltraTilePanel コントロールの pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~maximumvisiblelargetiles.html[MaximumVisibleLargeTiles]"]  プロパティを整数値に設定することで任意の数のタイルを最大化できます。State プロパティによって任意のタイルの状態を決定および設定できます。
+
+このトピックは、UltraTilePanel コントロールがフォームにドロップされていることを前提とします。UltraTilePanel コントロールへのタイルの追加については、 link:wintilepanel-add-and-remove-tiles-through-code.html[「コードでタイルを追加および削除」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+' 状態を Large に設定できるタイルの最大数を設定します
+Me.ultraTilePanel1.MaximumVisibleLargeTiles = 3
+' タイルの状態を決定します 
+Dim stateofTile As Infragistics.Win.Misc.TileState = tile1.State
+MessageBox.Show(stateofTile.ToString())
+----
+
+*C# の場合：*
+
+----
+// 状態を Large に設定できるタイルの最大数を設定します
+this.ultraTilePanel1.MaximumVisibleLargeTiles = 3;
+// タイルの状態を決定します
+Infragistics.Win.Misc.TileState stateofTile = tile1.State;
+MessageBox.Show(stateofTile.ToString());
+----
+
+=== すべてのタイルが Normal の状態にされた WinTilePanel
+
+image::Images/WinTilePanel_Tile_States_01.png[]
+
+=== ひとつの Large の状態のタイルと 3 つの Normal の状態のタイルの WinTilePanel
+
+image::Images/WinTilePanel_Tile_States_02.png[]

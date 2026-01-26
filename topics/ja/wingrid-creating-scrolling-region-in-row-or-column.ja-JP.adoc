@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-creating-scrolling-region-in-row-or-column",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Navigation"],
+    "guid": "{82563B91-C59B-4C01-97D7-23DC138CD3FA}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 行または列におけるスクロール領域の作成
+
+デフォルトで、WinGrid は ひとつの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.colscrollregion.html[ColScrollRegion]"]  とひとつの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscrollregion.html[RowScrollRegion]"]  から始まります。
+
+== 新しい ColScrollRegion または RowScrollRegion の作成
+
+新しい RowScrollRegion または ColScrollRegion を作成するには、既存の領域で pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowscrollregion~split.html[Split]"]  メソッドを使用する必要があります。状況に応じ、新しい領域の開始位置を指定できます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.ColScrollRegions(0).Split(0)
+Me.UltraGrid1.DisplayLayout.RowScrollRegions(0).Split(200)
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.ColScrollRegions[0].Split(0);
+this.ultraGrid1.DisplayLayout.RowScrollRegions[0].Split(200);
+----
+
+値を指定すると領域内の指定された位置に新しい領域が作成されます（指定された値はその領域の現在の幅または高さ以下でなければなりません）。新しい領域の範囲に 0（または Null）に指定すると、現在の領域は半分に分割されます。
+
+次のスナップショットは分割されたスクロール領域を持つ WinGrid を示します。
+
+image::Images/WinGrid_Create_a_Scrolling_Region_in_a_Row_or_Column_01.png[]

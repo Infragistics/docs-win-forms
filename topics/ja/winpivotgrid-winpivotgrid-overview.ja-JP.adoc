@@ -1,0 +1,176 @@
+﻿////
+
+|metadata|
+{
+    "name": "winpivotgrid-winpivotgrid-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "ba514e15-6723-40c2-99ae-0ad407485026",  
+    "buildFlags": [],
+    "createdOn": "2014-03-13T21:16:05.1423151Z"
+}
+|metadata|
+////
+
+= WinPivotGrid の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WinPivotGrid_™ コントロールとその主な機能の概要を提供します。
+
+=== 前提条件
+
+以下の表は、このトピックを理解するための前提条件となる概念を示します。
+
+[options="header", cols="a,a"]
+|====
+|タイプ|コンテンツ
+
+|概念
+|オンライン解析処理 ( link:http://ja.wikipedia.org/wiki/OLAP[OLAP]) は、多次元データ キューブから複雑な解析クエリの応答を取得するメソッドです。 
+
+XML for Analysis ( link:http://msdn.microsoft.com/ja-jp/library/bb522619(v=sql.120).aspx[XMLA]) は、複数のデータ ソースからの多次元データへのアクセスを提供します。任意のクライアント プラットフォームから任意のサーバー プラットフォームに接続できます。複数のベンダーによってサポートされる web サービスを使用します。 
+
+ActiveX Data Objects, multidimensional ( link:http://msdn.microsoft.com/ja-jp/library/ms123483(v=sql.120).aspx[ADOMD]) は、Microsoft .NET フレームワークのデータ プロバイダーです。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref381024372,WinPivotGrid コントロール>>
+
+** <<_Ref381024381,はじめに>>
+** <<_Ref381024389,コントロール要素>>
+
+* <<_Ref381024396,主要機能>>
+
+** <<_Ref381024407,展開可能な行/列ヘッダー>>
+** <<_Ref381024417,行、列、およびメジャーの割り当て>>
+** <<_Ref381264884,フィルタリング>>
+** <<_Ref381024427,並べ替え>>
+** <<_Ref381277473,データ選択ウィザード>>
+
+* <<_Ref381024436,関連コンテンツ>>
+
+[[_Ref381024372]]
+== WinPivotGrid コントロール
+
+[[_Ref381024381]]
+
+=== はじめに
+
+link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}~infragistics.win.ultrawinpivotgrid.ultrapivotgrid_members.html[UltraWinPivotGrid] コントロールは、データを集計するツールです。ピボット グリッドを使用すると、複雑なビジネス解析アプリケーションを作成できます。OLAP を使用すると、多次元データの結果を表示し、スライスされたディメンションでデータを視覚化します。
+
+[[_Ref381024389]]
+
+=== コントロール要素
+
+_WinPivotGrid_   コントロールの 4 つの主な要素は以下のドロップ領域です。
+
+* 行 – 行のドロップ領域
+* 列 – 列のドロップ領域
+* メジャー – 指定した行および列のクエリされた数値のドロップ領域
+* フィルター – (オプション) クエリで表示するデータをフィルターする条件のドロップ領域
+
+image::images/WinPivotGrid_Overview_1.png[]
+
+データ領域はメジャーの行/列、ヘッダー、およびセル値を表します。
+
+image::images/WinPivotGrid_Overview_2.png[]
+
+[[_Ref381024396]]
+== 主要機能
+
+[[_Ref381024407]]
+
+=== 展開可能な行/列ヘッダー
+
+デフォルトで、行/列がドロップ領域に追加されたとき、ディメンションを縮小します。行/列ヘッダーの「+」記号をクリックすると、展開または縮小します。
+
+image::images/WinPivotGrid_Overview_3.png[]
+
+[[_Ref381024417]]
+
+=== 行、列、およびメジャーの割り当て
+
+行/列の割り当ては、フォームにドロップすると自動的に実行されるか、コードで行/列のディメンションを追加するときに手動的に実行されます。たとえば:
+
+`Rows = "[Date].[Calendar]"`
+
+`Columns = "[Product].[Category]"`
+
+`Measures = "[Measures].[Reseller Sales Amount]"`
+
+==== 関連トピック:
+
+* link:winpivotgrid-binding-data-to-winpivotgrid.html[WinPivotGrid をデータにバインド]
+
+[[_Ref381264884]]
+
+=== フィルタリング
+
+フィルタリングは、集計データからの指定したフィールドのみを表示します。以下の画像は例です。
+
+`Filters="[Sales Territory].[Sales Territory Country]"`
+
+image::images/WinPivotGrid_Overview_4.png[]
+
+フィルター アイコンをクリックして、列のチェックボックスを選択するか、選択を解除すると、ドロップダウン メニューで列をランタイムにフィルターできます。
+
+image::images/WinPivotGrid_Overview_5.png[]
+
+[[_Ref381024427]]
+
+=== 並べ替え
+
+列ヘッダーは並べ替えを許可します。以下の画面では、「 *Bikes*  」列ヘッダーの上にマウスをホバーすると、並べ替えインジケーターが表示されます。
+
+image::images/WinPivotGrid_Overview_6.png[]
+
+複数列の並べ替えを実行するには、キーボードの `shift` キーを押し、列ヘッダーの並べ替えインジケーターをクリックします。
+
+以下の画像は、複数列を含む「Model Name」列ディメンションで複数列の並べ替えを表示します。2 つの強調表示された列は降順/昇順順序で並べ替えられています。
+
+image::images/WinPivotGrid_Overview_7.png[]
+
+[[_Ref381277473]]
+
+=== データ セレクター
+
+_WinPivotGrid_   をデータ ソースに直接バインドできます。または、 link:{ApiPlatform}win.ultrawinpivotgrid{ApiVersion}~infragistics.win.ultrawinpivotgrid.dataselector.mdxdataselector.html[MdxDataSelector] を使用できます。「Multidimensional Expression」 (MDX) データ セレクターは、OLAP データ サービスからの多次元データのプロバイダーとして操作します。
+
+`MdxDataSelector` は、データ カタログおよび OLAP キューブの 2 つのドロップダウン、メジャーおよびディメンションを表示するためのツリー構造です。
+
+image::images/WinPivotGrid_Overview_8.png[]
+
+以下の画像は、ディメンションをデータ セレクターから選択し、ピボット列のドロップ領域にドロップする操作を表示します。
+
+image::images/WinPivotGrid_Overview_9.png[]
+
+image::images/WinPivotGrid_Overview_10.png[]
+
+[[_Ref381024436]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:winpivotgrid-binding-data-to-winpivotgrid.html[WinPivotGrid をデータにバインド]
+|このトピックは、 _WinPivotGrid_™ を各サポートされるデータ ソースとプロバイダーへのデータ バインディングを紹介します。
+
+| link:winpivotgrid-styling-winpivotgrid.html[WinPivotGrid のスタイル設定]
+|このトピックは、 _WinPivotGrid_™ コントロールの外観のカスタマイズ化で利用可能なオプションと構成を紹介します。
+
+| link:winpivotgrid-glossary.html[用語集]
+|このセクションは、ピボット グリッドのトピックでよく使用される用語を説明します。
+
+|====

@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintab-adding-image-to-a-tab",
+    "controlName": ["WinTab"],
+    "tags": ["How Do I"],
+    "guid": "{87EE5AA2-E391-493E-BA60-C5C290FA28D3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTab でタブに画像を追加
+
+このトピックは、WinTab™ で画像をタブに追加する方法を示します。
+
+サンプル画像が含まれるフォームに ImageList コントロールがドロップされていることを前提として、ImageList コントロールを WinTab コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintabcontrol{ApiVersion}~infragistics.win.ultrawintabcontrol.ultratabcontrolbase~imagelist.html[ImageList]"]  プロパティに指定します。
+
+*Visual Basic の場合：*
+
+----
+' ImageList コントロールを WinTab に指定します 
+Me.ultraTabControl1.ImageList = Me.imageList1 
+' ImageList コントロールで画像のインデックスを設定することにより、画像を WinTab のタブに追加します 
+Me.ultraTabControl1.Tabs(0).Appearance.Image = 2
+----
+
+*C# の場合：*
+
+----
+//ImageList コントロールを WinTab に指定します
+this.ultraTabControl1.ImageList = this.imageList1;
+// ImageList コントロールで画像のインデックスを設定することにより、画像を WinTab のタブに追加します
+this.ultraTabControl1.Tabs[0].Appearance.Image = 2;
+----
+
+最初のタブのテキストの前に画像を表示する WinTab。
+
+image::Images/WinTab_Add_Image_to_a_Tab_in_WinTab.png[]

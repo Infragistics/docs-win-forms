@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "using-the-winchart-inside-wingrid-drawfilter",
+    "controlName": [],
+    "tags": ["Application Scenarios","Charting","Grids"],
+    "guid": "{FF792BE4-4A07-42E4-9BD8-43F2D7C4CED3}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-10T13:58:18Z"
+}
+|metadata|
+////
+
+= WinGrid Draw フィルタ内の WinChart を使用
+
+このトピックは、WinGrid™ と共に Windows Forms Application 内で ChartInsideGridCellDrawFilter クラスを使用する方法を説明します。このトピックは、WinGrid の各行を表す個々のグラフを移植するために処理するイベントを示します。
+
+ChartInsideGridCellDrawFilter クラスのインスタンスは、フォームのコンストラクタでインスタンス化され、ChartInfoRequested イベント ハンドラに接続されます。このイベントは、初期化される WinGrid 行毎に一度だけ発生します。これは初期化される行を識別するためにイベント引数を使用する機会を与え、移動するその行の情報を使用し、グラフを移植するためにデータを取得します。Draw Filter はグリッドの DrawFilter プロパティに指定されるので、この WinGrid の描画にカスタム ロジックを適用します。
+
+*Visual Basic の場合：*
+
+----
+Public Sub New()
+	InitializeComponent()
+	Dim _filter As New ChartInsideGridCellDrawFilter(Me.UltraGrid1)
+	AddHandler _filter.ChartInfoRequested, AddressOf _filter_ChartInfoRequested
+	Me.UltraGrid1.DrawFilter = _filter
+End Sub
+----
+
+*C# の場合：*
+
+----
+public Form1()
+{
+	InitializeComponent();
+	ChartInsideGridCellDrawFilter _filter = new ChartInsideGridCellDrawFilter(this.ultraGrid1);
+	_filter.ChartInfoRequested += new ChartInsideGridCellDrawFilter.ChartInfoRequestedDelegate(_filter_ChartInfoRequested);
+	this.ultraGrid1.DrawFilter = _filter;
+}
+----
+
+ChartInfoRequested イベントが処理されるので、開発者は各 WinGrid 行に添付されるグラフを移植できます。イベント引数は、現在の WinGrid セルの値をナビゲートし、グラフのデータ ソースとして使用できる関連データを取得するための情報を使用できるように、 WinGrid Row だけでなくグラフを公開します。たとえば、行のセルのひとつに配置される CustomerID 値を使用したい場合があるので、グラフに配置したい順序や他のメトリックを取得できます。
+
+このイベントの処理は、ChartType、TitleTop および DataSource などのさまざまな Chart プロパティの設定がすべてです。
+
+[NOTE]
+====
+*注：* この例をシンプルかつ要領を得たものとするために、グラフの DataSource は UltraChart.Data.DemoTable.AllPositive() メソッドで取得されるサンプル データで構成されます。より複雑な実世界のアプリケーションは、実際のデータを明確に取得するだけでなく、ChartType、ColorModel などのプロパティや DataBase または XML ファイルに保存された値を通してその他のプロパティなどを設定します。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub _filter_ChartInfoRequested(ByVal Sender As Object, ByVal e As ChartInfoEventArgs)
+	e.WinChart.ChartType = ChartType.BarChart3D
+	e.WinChart.Transform3D.YRotation = 20
+	e.WinChart.ColorModel.ModelStyle = ColorModels.CustomLinear
+	e.WinChart.ColorModel.CustomPalette = New Color() {Color.LightGreen, Color.Yellow, Color.Red}
+	e.WinChart.TitleTop.Text = "Orders For: " + e.Row.Cells("CustomerID").Value.ToString()
+	e.WinChart.Data.DataSource = Infragistics.UltraChart.Data.DemoTable.AllPositive()
+End Sub
+----
+
+*C# の場合：*
+
+----
+void _filter_ChartInfoRequested(object Sender, ChartInfoEventArgs e)
+{
+	e.WinChart.ChartType = ChartType.BarChart3D;
+	e.WinChart.Transform3D.YRotation = 20;
+	e.WinChart.ColorModel.ModelStyle = ColorModels.CustomLinear;
+	e.WinChart.ColorModel.CustomPalette = new Color[] { Color.LightGreen, Color.Yellow, Color.Red };
+	e.WinChart.TitleTop.Text = 
+		"Orders For: " + e.Row.Cells["CustomerID"].Value.ToString();
+	e.WinChart.Data.DataSource = 
+		Infragistics.UltraChart.Data.DemoTable.AllPositive();
+}
+----
+
+=== まとめ
+
+これらのトピックを最後まで読んだことで、特定の WinGrid 列のセル内に WinChart を表示することができるカスタム Draw Filter および関連するクラスのデザインおよび実装のコード レビューを学びました。このデザインおよび実装を理解することは、創造性や思考力を刺激することになるので、固有の興味深い Draw Filter 実装を実装できます。

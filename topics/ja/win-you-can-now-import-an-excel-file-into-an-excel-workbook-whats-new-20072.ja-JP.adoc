@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-import-an-excel-file-into-an-excel-workbook-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{CA797036-8F23-4098-9D73-D98E98A4A2F5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Excel ワークブックに Excel ファイルをインポートできるようになった
+
+かなり以前に Microsoft® Excel® エクスポート機能を提供しましたが、Excel ファイルをロードしたり、Excel ファイルからワークブックを作成することはできませんでした。2007 Volume 2 リリースではすべてが変わります。
+
+新しい pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.workbook~load.html[Load]"] メソッドを使用して、Excel ファイルを直接 pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.workbook.html[Workbook]"]  オブジェクトにロードできます。必要な場合にはいつでもそのワークブックを操作して、pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.workbook~save.html[Save]"]  メソッドを使用し Excel ファイルを再度保存することができます。簡単で素早い修正を Excel ファイルに行う必要がある場合、これは非常に役に立ちます。ワークブックからデータセットを作成し、任意の数の Infragistics コントロールまたはコンポーネントでそのデータを使用することも可能です。
+
+== 関連トピック
+
+link:excelengine-read-an-excel-file-into-a-workbook.html[Excel ファイルをワークブックに読み取る]

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winprintdocument",
+    "controlName": ["WinPrintDocument"],
+    "tags": [],
+    "guid": "{621F7263-3461-418F-A936-6E5C1AA54CEA}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinPrintDocument
+
+以下のリンクをクリックすると、WinPrintDocument コンポーネントに関する説明を読むことができます。
+
+* link:winprintdocument-about-winprintdocument.html[WinPrintDocument について] -- WinPrintDocument コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:winprintdocument-smart-tag.html[WinPrintDocument スマート タグ] -- WinPrintDocument コンポーネントのスマート タグで表示されるプロパティと設定について説明しています。
+* link:winprintdocument-using-winprintdocument.html[WinPrintDocument の使用] -- WinPrintDocument コンポーネントを使用して画像を印刷する方法を説明しています。
+* link:winprintdocument-api-overview.html[API の概要] -- WinPrintDocument コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。

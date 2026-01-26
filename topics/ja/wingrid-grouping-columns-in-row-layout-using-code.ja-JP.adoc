@@ -1,0 +1,88 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-grouping-columns-in-row-layout-using-code",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Grouping","How Do I"],
+    "guid": "{B11870C3-9070-43B8-899B-C183154F2A1D}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードを使用して行レイアウトで列をグループ化
+
+列のグループ化は、WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband~rowlayoutstyle.html[RowLayoutStyle]"]  プロパティを GroupLayout に設定することによって、Row Layout モードで可能になります。これによって、グループの数を無制限にできます。
+
+列とグループで公開される pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowlayoutcolumninfo.html[RowLayoutColumnInfo]"]  オブジェクトには、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.rowlayoutcolumninfo~parentgroup.html[ParentGroup]"]  プロパティが含まれます。これは列またはグループいずれかの親グループを示します。言い換えれば、列またはグループは他のグループの子になることができます。
+
+以下のコードは、Row Layout モードで列をグループ化する方法を示します。このトピックでは、WinGrid コントロールは以下のスキーマでデータ ソースにバインドされます。WinGrid をデータにバインドする方法の詳細は、 link:wingrid-binding-wingrid-to-a-flat-data-source-clr2.html[「WinGrid をフラット データ ソースにバインドする」]を参照してください。
+
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_01.png[]
+
+コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+[source,csharp]
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+
+*Visual Basic の場合：*
+[source,vb]
+----
+Dim band As UltraGridBand = Me.ultraGrid1.DisplayLayout.Bands(0)
+'グループ レイアウト スタイルでバンドの列を配置します 
+Me.ultraGrid1.DisplayLayout.Bands(0).RowLayoutStyle = RowLayoutStyle.GroupLayout 
+'列/グループの移動を有効にします 
+Me.ultraGrid1.DisplayLayout.Override.AllowRowLayoutColMoving = Infragistics.Win.Layout.GridBagLayoutAllowMoving.AllowAll 
+'1stQuarter および 2ndQuarter 列の親グループを作成します 
+Dim firstGroup As UltraGridGroup = band.Groups.Add("FirstGroup", "2008 (Jan-June)")
+'3rdQuarter および 4thQuarter 列の親グループを作成します 
+Dim secondGroup As UltraGridGroup = band.Groups.Add("SecondGroup", "2008 (July-Dec)")
+'2008（Jan-June）および 2008（July-Dec）グループの親グループを作成します 
+Dim expensesGroup As UltraGridGroup = band.Groups.Add("ExpensesGroup", "Expenses")
+band.Columns("1stQuarter").RowLayoutColumnInfo.ParentGroup = firstGroup 
+band.Columns("2ndQuarter").RowLayoutColumnInfo.ParentGroup = firstGroup 
+band.Columns("3rdQuarter").RowLayoutColumnInfo.ParentGroup = secondGroup 
+band.Columns("4thQuarter").RowLayoutColumnInfo.ParentGroup = secondGroup 
+band.Groups("firstGroup").RowLayoutGroupInfo.ParentGroup = expensesGroup 
+band.Groups("secondGroup").RowLayoutGroupInfo.ParentGroup = expensesGroup
+----
+
+*C# の場合：*
+[source,csharp]
+----
+UltraGridBand band = this.ultraGrid1.DisplayLayout.Bands[0];
+//グループ レイアウト スタイルでバンドの列を配置します
+this.ultraGrid1.DisplayLayout.Bands[0].RowLayoutStyle = RowLayoutStyle.GroupLayout;
+//列/グループの移動を有効にします
+this.ultraGrid1.DisplayLayout.Override.AllowRowLayoutColMoving = Infragistics.Win.Layout.GridBagLayoutAllowMoving.AllowAll;
+//1stQuarter および 2ndQuarter 列の親グループを作成します 
+UltraGridGroup firstGroup = band.Groups.Add("FirstGroup", "2008 (Jan-June)");
+//3rdQuarter および 4thQuarter 列の親グループを作成します 
+UltraGridGroup secondGroup = band.Groups.Add("SecondGroup", "2008 (July-Dec)");
+//2008（Jan-June）および 2008（July-Dec）グループの親グループを作成します 
+UltraGridGroup expensesGroup = band.Groups.Add("ExpensesGroup", "Expenses");
+band.Columns["1stQuarter"].RowLayoutColumnInfo.ParentGroup = firstGroup;
+band.Columns["2ndQuarter"].RowLayoutColumnInfo.ParentGroup = firstGroup;
+band.Columns["3rdQuarter"].RowLayoutColumnInfo.ParentGroup = secondGroup;
+band.Columns["4thQuarter"].RowLayoutColumnInfo.ParentGroup = secondGroup;
+band.Groups["firstGroup"].RowLayoutGroupInfo.ParentGroup = expensesGroup;
+band.Groups["secondGroup"].RowLayoutGroupInfo.ParentGroup = expensesGroup;
+----
+
+image::Images/WinGrid_Grouping_Columns_in_Row_Layout_UltraWinGrid_Designer_07.png[]
+
+*関連トピック*
+
+* link:wingrid-grouping-columns-in-row-layout-mode-using-the-designer.html[デザイナを使用して行レイアウト モードで列をグループ化]
+* link:wingrid-collapsing-column-groups.html[列グループの縮小]

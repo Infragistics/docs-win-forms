@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-row-auto-sizing-in-rowlayout-whats-new-2005-3",
+    "controlName": [],
+    "tags": [],
+    "guid": "{9881ACE0-1FD6-47F2-9F80-B33A3DE2BA8E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= RowLayout における行の自動サイズ変更
+
+UltraGrid がデフォルト行の高さを計算する方法を指定し、ユーザーが行のサイズを変更可能かどうかも指定します。各 RowSizing モードに関する詳細は、既存のヘルプを参照してください。
+
+これは既存のプロパティです。{ProductName} 2005 Volume 2 およびそれ以前のバージョンは AutoFixed と AutoFree の RowSizing モードと Row-Layout モードで Free をサポートしません。この機能要求は、行レイアウト機能が使用されている時に、これらのモードのサポートのためのものです。{ProductName} 2005 Volume 3 は行レイアウト モードでこの機能を実装します。
+
+image::Images/WinGrid_HowTo_Auto_Sizing_05.png[]
+
+_行の自動サイズ設定機能を無効にした場合_ 
+
+image::Images/WinGrid_HowTo_Auto_Sizing_06.png[]
+
+_行の自動サイズ設定機能を有効にした場合_ 
+
+== 関連トピック:
+
+link:wingrid-auto-sizing-columns-and-rows.html[列および行の自動サイズ設定]

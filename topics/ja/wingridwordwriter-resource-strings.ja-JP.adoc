@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingridwordwriter-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "5b96f930-6a10-432a-ba9b-c0c7e4b9308a",  
+    "buildFlags": [],
+    "createdOn": "2011-05-19T18:47:35.2520943Z"
+}
+|metadata|
+////
+
+= WinGridWordWriter リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|LDR_UltraGridWordWriter_E_CellExported
+|グリッドのセルがレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridWordWriter_E_CellExporting
+|グリッドのセルがレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridWordWriter_E_ExportEnded
+|エクスポート処理が終了した後に発生します。
+
+|LDR_UltraGridWordWriter_E_ExportEnding
+|エクスポート処理の終了後、Word 文書の作成を完了する前に発生します。
+
+|LDR_UltraGridWordWriter_E_ExportStarted
+|エクスポートが始まる前に発生します。
+
+|LDR_UltraGridWordWriter_E_HeaderCellExported
+|ヘッダーのセルがレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridWordWriter_E_HeaderCellExporting
+|ヘッダーのセルがレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridWordWriter_E_HeaderRowExported
+|ヘッダーの行がレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridWordWriter_E_HeaderRowExporting
+|ヘッダーの行がレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridWordWriter_E_InitializeRow
+|行が初期化されるときに発生します。
+
+|LDR_UltraGridWordWriter_E_RowExported
+|グリッドの行がレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridWordWriter_E_RowExporting
+|グリッドの行がレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridWordWriter_E_SummaryCellExported
+|集計セルがレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridWordWriter_E_SummaryCellExporting
+|集計セルがレポートにエクスポートされる前に発生します。
+
+|LDR_UltraGridWordWriter_E_SummaryRowExported
+|集計行がレポートにエクスポートされた後に発生します。
+
+|LDR_UltraGridWordWriter_E_SummaryRowExporting
+|集計行がレポートにエクスポートされる前に発生します。
+
+|====

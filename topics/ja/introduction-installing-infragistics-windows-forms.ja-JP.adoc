@@ -1,0 +1,22 @@
+﻿////
+|metadata|
+{
+    "name": "introduction-installing-infragistics-windows-forms",
+    "controlName": [],
+    "tags": ["Getting Started","Tips and Tricks"],
+    "guid": "{F40250E2-BE3F-4DBA-8B08-051279E6F72A}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= {ProductName} のインストール
+
+以下のトピックは、Infragistics のインストールに関する重要なヒントと注意事項を説明します:
+
+* link:introduction-tips-for-installing-infragistics-windows-forms.html[{ProductName} のインストールのヒント]
+* link:getting-started-where-files-are-placed-on-your-file-system-during-installation.html[インストール時のシステム上のファイルの配置場所]
+* link:introduction-adding-controls-to-the-toolbox.html[ツールボックスへのコントロールの追加]
+* link:introduction-version-free-assemblies.html[バージョンフリー アセンブリについて]
+* link:introduction-about-infragistics-trial-version.html[Infragistics トライアル版について]

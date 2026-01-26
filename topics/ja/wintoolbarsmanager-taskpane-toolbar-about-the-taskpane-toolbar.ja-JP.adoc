@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-taskpane-toolbar-about-the-taskpane-toolbar",
+    "controlName": ["WinToolbarsManager"],
+    "tags": ["Getting Started"],
+    "guid": "{AE9487A6-C766-4E84-8C50-8AFA52C9AF0F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane ツールバーについて
+
+ツールバーは、0 個以上のツールを格納できる「ツール コンテナ」です。これらのデフォルトの視覚表現と動作は、Microsoft Office のツールバーと同じです。ツールがツールバーにあるとき、それらのツールはボタンとして描画され、ツールバーの方向によって水平または垂直に配置されます。ツールの DisplayStyle プロパティは、ツールが画像、テキストの両方のいずれか一方で表示されるかを決定します。
+
+WinToolbarsManager の内部では、ツールバーは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultratoolbar.html[UltraToolbar]"]  クラスによって描画されます。
+
+== タスクペイン ツールバー
+
+ツールバーには pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  と呼ばれる特別な種類があります。TaskPaneToolbars は、Microsoft Office スタイルのタスク ペイン ルック アンド フィールを提供する特別な UltraToolbar オブジェクトです。TaskPaneToolbar は、通常の UltraToolbar オブジェクトと異なる特定の機能を持ちます。
+
+* ツールバーが表示されるドッキング領域の行全体を占めます。他のツールバーは同じ行には表示されません。
+* この Tools コレクションは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  インスタンスだけを含むことができます。
+* 標準ツールバーのように見えるキャプション領域が含まれます。
+* キャプション領域に表示されるポップアップ メニュー内にツールが表示されます。
+* 分割領域は、ツールバーの最も内側にドックされた端に表示され、ドックされたときにツールバーのサイズを変更するために使用できます。
+* タスク ペインのコンテンツ領域は、選択した TaskPaneTool の pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool~control.html[Control]"]  であるひとつのコントロールを表示します。
+
+UltraToolbarsManager の内部では、ツールバーは pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  クラスによって表現されます。
+
+これは TaskPaneToolbar のさまざまな部分を示すスクリーンショットです。
+
+image::Images/UltraToolbarsManager_About_Toolbars_03.png[]
+
+これは Visual Studio 2005 ツールバー スタイルを使用する TaskPaneToolbar を表示するスクリーンショットです。
+
+image::Images/UltraToolbarsManager_About_Toolbars_04.png[]

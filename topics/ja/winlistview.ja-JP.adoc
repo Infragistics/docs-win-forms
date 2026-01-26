@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview",
+    "controlName": ["WinListView"],
+    "tags": ["Getting Started"],
+    "guid": "{D92B5486-61B4-4CC3-9F2A-6D3C75E5E230}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView
+
+WinListView コントロールに関連する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。その内容は、WinListView の機能、このコンポーネントをアプリケーションに使用することの利点、このコンポーネントを使用する一般的なタスクの手順を追った作成方法などです。
+
+以下のリンクをクリックすると、WinListView コントロールに関する重要な説明を読むことができます。
+
+== link:winlistview-understanding-winlistview.html[WinListView の理解]
+
+このセクションの説明を読むと、WinListView コントロールの機能性と、それをアプリケーションに使用することの利点についてよく理解できます。
+
+== link:win-winlistview-using-winlistview.html[WinListView の使用]
+
+このセクションは、WinListView コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:winlistview-api-overview.html[API 概要]
+
+このトピックでは、WinListView コントロールを使用してプログラミングするときに取り扱う名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

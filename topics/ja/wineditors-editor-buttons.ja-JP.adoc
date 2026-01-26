@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-editor-buttons",
+    "controlName": ["WinEditors"],
+    "tags": ["Editing","Extending"],
+    "guid": "{436D268B-0AD4-4023-962A-C34F825C0D70}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= エディタ ボタン
+
+EditorWithMask と EditorWithText はすべてのマスク ベース エディタおよびテキスト ベース エディタの基本クラスであり、2 つのボタン コレクション プロパティ（ButtonsLeft と ButtonsRight）を公開しています。これらのコレクションを使用して、これらのエディタの編集領域の左または右に 1 つまたは複数のカスタム ボタンを追加できます。これらのボタンにより、既存のエディタにカスタム機能を追加できます。
+
+image::Images/WinEditor_Editor_Buttons_Overview_01.png[]
+
+== ボタン タイプ
+
+すべてのエディタ ボタンは共通の基本クラス（EditorButtonBase）から派生します。したがって、すべてのボタンにはいくつかの共通の機能があります。各ボタンは、Visible プロパティまたは Enabled プロパティを使用して、非表示にしたり無効にしたりできます。各ボタンの幅はボタンの内容（画像、テキスト、チェック インジケータなど）に基づいて自動的に計算されますが、Width プロパティを設定することで明示的にオーバーライドすることもできます。最も重要なのは、各ボタンが Editor プロパティを公開していることです。このプロパティを使用して、関連付けられた所有元の Editor にアクセスできます。
+
+現在の実装には、次の 5 つの一般的なボタン タイプが含まれます。
+
+image::Images/WinEditor_Editor_Buttons_Overview_02.gif[]
+
+ EditorButton - EditorButtonは、画像とテキストの両方またはいずれか一方を表示するために使用できる標準のボタン エレメントです。
+image::Images/WinEditor_Editor_Buttons_Overview_03.gif[]
+
+ AutoRepeatEditorButton - EditorButton と同様に、AutoRepeatEditorButton も画像とテキストの両方またはいずれか一方を表示できます。さらにオートリピート機能があり、ボタンが押されている間、click イベントが複数回呼び出されます。
+image::Images/WinEditor_Editor_Buttons_Overview_04.gif[]
+
+ StateEditorButton - このボタンは状態ボタン、チェックボックス、またはオプション スタイル ボタンとして表示できます。また、画像とテキストの両方またはいずれか一方も表示できます。
+image::Images/WinEditor_Editor_Buttons_Overview_05.gif[]
+
+ DropDownEditorButton - EditorButton と同様に、DropDownEditorButton は任意のエレメントをドロップダウンする機能も提供します。
+image::Images/WinEditor_Editor_Buttons_Overview_06.gif[]
+
+ SpinEditorButton - 水平または垂直方向のスピン エレメントを提供します。
+
+== Button イベント
+
+各ボタン オブジェクトは自身の一連のイベントを公開しています。格納されているエディタ ボタン クラスのイベントは、格納元の Editor、およびスタンドアロンのエディタ コントロールからも発生します。後者は特に重要です。なぜならこれは、スタンドアロンのエディタ エレメントが別のオブジェクト（たとえば UltraGrid の列）の EditorControl として指定されている場合、この UltraGrid 列に提供されたエディタ内のボタンがクリックされたときにも、スタンドアロン エレメントのエディタ ボタン イベントが発生することを意味するからです。pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.editorbuttoneventargs.html[EditorButton]"]  イベントのイベント引数には、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.editorbuttoneventargs~context.html[Context]"]  プロパティがあります。このプロパティは、アクションのソースの識別に使用できるオブジェクトを提供します。UltraGrid 列の場合、Context は UltraGridCell オブジェクトです。
+
+エディタ ボタンに関連するエディタ クラスとスタンドアロン エディタ エレメントから公開される、イベントの一覧を次に示します。
+
+* EditorButtonClick - このイベントは、EditorButton クラスの Click イベントに関連付けられ、EditorButton または派生ボタンがクリックされるたびに呼び出されます。
+* EditorSpinButtonClick - このイベントは、SpinEditorButton クラスの SpinButtonClick イベントに関連付けられ、スピン エレメントの一方がクリックされるたびに呼び出されます。イベント引数の ButtonType プロパティは、どのスピン ボタン エレメントがクリックされたかを示します。
+* BeforeEditorButtonDropDown - このイベントは、DropDownEditorButtonBase クラスの BeforeDropDown イベントに関連付けられ、ドロップダウンが表示される前に呼び出されます。
+* AfterEditorButtonDropDown - このイベントは、DropDownEditorButtonBase クラスの AfterCloseUp イベントに関連付けられ、ドロップダウンが閉じた後に呼び出されます。
+* BeforeEditorButtonCheckStateChanged - このイベントは、StateEditorButton クラスの BeforeCheckStateChanged イベントに関連付けられ、コントロールのチェック状態が変化する直前に呼び出されます。
+* AfterEditorButtonCheckStateChanged - このイベントは、StateEditorButton クラスの AfterCheckStateChanged イベントに関連付けられ、コントロールのチェック状態が変化したときに呼び出されます。
+* InitializeEditorButtonCheckState - このイベントは、StateEditorButton クラスの InitializeCheckState イベントに関連付けられます。このイベントは主として、異なるセルの CheckState を指定するために、エディタを別のコントロール（たとえば UltraGrid）に提供するときに使用されます。
+
+== エディタ コントロール
+
+基本エディタ クラスはエディタ ボタン機能を提供します。したがってこれらのエディタを使用するすべてのスタンドアロン エレメントもこれらのコレクションを持ちます。 基本エディタ クラスには、EditorWithMask（UltraMaskedEdit、UltraNumericEditor、UltraDateTimeEditor、および UltraCurrencyEditor）エディタ コントロールと EditorWithText（UltraTextEditor、UltraComboEditor、UltraCalculatorDropDown、UltraColorPicker、および UltraFontName）エディタ エレメントがあります。

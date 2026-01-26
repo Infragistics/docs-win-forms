@@ -1,0 +1,181 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-creation-filter",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D2BD911B-EDB7-4844-B433-B4556542FE5B}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= クリエーション フィルター
+
+Infragistics コントロールのユーザーは、通常は UIElement がどのように実装されているのかを理解する必要はなく、UIElement 作成フィルターを使用する必要もほとんどありません。この高度な拡張メカニズムを、コントロールの UIElement を変更、追加、または置換したいと考えている開発者が使用できます。
+
+PLF をベースとするコントロールはすべて、UIElement を作成または配置するための拡張メカニズムを公開しています。コントロールの UIElement のサイズ変更や位置をカスタマイズしたり、コントロールの UIElement をひとつ以上追加または置換したりするには、オブジェクトに IUIElementCreationFilter インターフェイスを実装し、そのオブジェクトに対してランタイムにコントロールの CreationFilter プロパティを設定する必要があります。
+
+IUIElementCreationFilter インターフェイスには次の 2 つのメソッドがあります（それぞれ親要素をパラメーターとして受け取ります）。
+
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iuielementcreationfilter~beforecreatechildelements.html[BeforeCreateChildElements]"]  - 子要素がダーティとマークされた場合に、VerifyChildElements メソッドの内部から呼び出されます。このメソッドは PositionChildElements よりも前に呼び出されます。このメソッドが True を返した場合、デフォルトの作成ロジックは省略され、PositionChildElements は呼び出されません。
+* pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.iuielementcreationfilter~aftercreatechildelements.html[AfterCreateChildElements]"]  - PositionChildElementsが呼び出された後に呼び出されます。
+
+ChildElements コレクション プロパティは、要素の追加、削除、または置換に使用します。
+
+[NOTE]
+====
+*注:* カスタム要素で既存の要素を置換するときは、コントロールのロジックで要素の型が必要となることを想定し、あらかじめ置換対象の要素のクラスから派生クラスを作成することを推奨します。
+====
+
+以下のサンプル コードは、ボタン 要素を UltraGrid セルに追加する方法を示します。
+
+*Visual Basic の場合:*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+' クラスで IUIElementCreationFilter インターフェイスを実装
+'  (この事例ではフォーム)
+Public Class Form1
+  Inherits System.Windows.Forms.Form
+  Implements Infragistics.Win.IUIElementCreationFilter
+Private Sub Form1_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	'  IUIElementCreationFilter インターフェイスを実装するオブジェクトに
+	' グリッドのCreationFilter プロパティを設定
+	Me.UltraGrid1.CreationFilter = Me
+End Sub
+Public Function BeforeCreateChildElements( _
+  ByVal parent As Infragistics.Win.UIElement) _
+  As Boolean Implements _
+  Infragistics.Win.IUIElementCreationFilter.BeforeCreateChildElements
+	' false を返します。これによりデフォルトの子要素作成を行うために 
+	' PositionChildElements が呼び出されます
+	Return False
+End Function
+Public Sub AfterCreateChildElements( _
+  ByVal parent As Infragistics.Win.UIElement) _
+  Implements Infragistics.Win.IUIElementCreationFilter.AfterCreateChildElements
+    Dim column As UltraGridColumn
+    Dim child As UIElement
+    Dim rc As Rectangle
+    Dim childRect As Rectangle
+    Dim elementToAdd As ButtonUIElement
+	' 親要素がセル 要素でない場合は戻ります。
+	If (Not (TypeOf (parent) Is CellUIElement)) Then Return
+	' 関連付けられた列を取得します
+	column = parent.GetContext(GetType(UltraGridColumn))
+	' 列がボタンを追加しようとしている列でない場合は戻ります。
+	If column Is Nothing Then Return
+	If Not column.Key = "City" Then Return
+	' 新しいボタン 要素を作成します。
+	elementToAdd = New ButtonUIElement(parent)
+	' ボタン 要素のクリック イベントをフックします。
+	AddHandler elementToAdd.ElementClick, AddressOf Me.OnCustomButtonClick
+	' ボタン 要素の境界線内部にある親要素の四角形を取得します。
+	rc = parent.RectInsideBorders
+	' ボタンの四角形の幅を設定します。
+	rc.Width = 12
+	' ボタン 要素の四角形を設定します。
+	elementToAdd.Rect = rc
+	' 子要素をループし、矩形を調整します。
+	' これによってボタンを重複しません
+	For Each child In parent.ChildElements
+		childRect = child.Rect
+		If (childRect.Left < rc.Right) Then
+			childRect.Width -= rc.Right - childRect.Left
+			childRect.X += rc.Right - childRect.Left
+			child.Rect = childRect
+		End If
+	Next
+	' ボタン要素を子要素コレクション 
+	' に加えます
+	parent.ChildElements.Add(elementToAdd)
+End Sub
+Private Sub OnCustomButtonClick(ByVal sender As System.Object, _
+  ByVal e As UIElementEventArgs)
+	Dim cell As UltraGridCell
+	' 関連付けられたセルを取得します。
+    cell = e.Element.GetContext(GetType(UltraGridCell))
+	' セルのテキストを表示するなどの操作を実行します。
+	If (Not cell Is Nothing) Then
+		MessageBox.Show( _
+		  "Custom cell button clicked. Cell.Text = " + cell.Text)
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+// クラスで IUIElementCreationFilter インターフェイスを実装
+//  (この事例ではフォーム)
+public class Form1 : System.Windows.Forms.Form,
+  Infragistics.Win.IUIElementCreationFilter
+{
+private void Form1_Load(object sender, System.EventArgs e)
+{
+	//  IUIElementCreationFilter インターフェイスを実装するオブジェクトに
+	// グリッドのCreationFilter プロパティを設定
+	this.ultraGrid1.CreationFilter = this;
+}
+public bool BeforeCreateChildElements(Infragistics.Win.UIElement parent)
+{
+	// false を返します。これによりデフォルトの子要素作成を行うために 
+	// PositionChildElements が呼び出されます
+	return false;
+}
+public void AfterCreateChildElements(Infragistics.Win.UIElement parent)
+{
+	// 親要素がセル 要素でない場合は戻ります。
+	if ( !(parent is CellUIElement ) )
+		return;
+	// 関連付けられた列を取得します
+	UltraGridColumn column = 
+	  parent.GetContext( typeof( UltraGridColumn ) ) as UltraGridColumn;
+	// 列がボタンを追加しようとしている列でない場合は戻ります。
+	if ( column == null || column.Key != "City" )
+		return;
+	// 新しいボタン 要素を作成します。
+	ButtonUIElement elementToAdd = new ButtonUIElement( parent );
+	// ボタン 要素のクリック イベントをフックします。
+	elementToAdd.ElementClick += 
+	  new UIElementEventHandler(this.OnCustomButtonClick);
+	// ボタン 要素の境界線内部にある親要素の四角形を取得します。
+	Rectangle rect = parent.RectInsideBorders;
+	// ボタンの四角形の幅を設定します。
+	rect.Width = 12;
+	// ボタン 要素の四角形を設定します。
+	elementToAdd.Rect = rect;
+	// 子要素をループし、矩形を調整します。
+	// これによってボタンを重複しません
+	foreach ( UIElement child in parent.ChildElements )
+	{
+		Rectangle childRect = child.Rect;
+		if ( childRect.Left < rect.Right )
+		{
+			childRect.Width -= rect.Right - childRect.Left;
+			childRect.X     += rect.Right - childRect.Left;
+			child.Rect = childRect;
+		}
+	}
+	// ボタン要素を子要素コレクション 
+	// に加えます
+	parent.ChildElements.Add( elementToAdd );
+}
+private void OnCustomButtonClick( object sender, UIElementEventArgs e )
+{
+	// 関連付けられたセルを取得します。
+	UltraGridCell cell = 
+	  e.Element.GetContext( typeof( UltraGridCell ) ) as UltraGridCell;
+	// セルのテキストを表示するなどの操作を実行します。
+	if ( cell != null )
+		MessageBox.Show( 
+		 "Custom cell button clicked. Cell.Text = " + cell.Text);
+}
+----

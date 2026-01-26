@@ -1,0 +1,22 @@
+﻿////
+|metadata|
+{
+    "name": "introduction-installing-infragistics-windows-forms",
+    "controlName": [],
+    "tags": ["Getting Started","Tips and Tricks"],
+    "guid": "{F40250E2-BE3F-4DBA-8B08-051279E6F72A}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Installing {ProductName}
+
+These topics contain important tips and notes on installing {ProductName}:
+
+* link:introduction-tips-for-installing-infragistics-windows-forms.html[Tips for Installing {ProductName}]
+* link:getting-started-where-files-are-placed-on-your-file-system-during-installation.html[Where Files are Placed on your File System During Installation]
+* link:introduction-adding-controls-to-the-toolbox.html[Adding Controls to the Toolbox]
+* link:introduction-version-free-assemblies.html[Version Free Assemblies]
+* link:introduction-about-infragistics-trial-version.html[About Infragistics Trial Version]

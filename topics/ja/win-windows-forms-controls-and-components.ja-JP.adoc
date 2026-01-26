@@ -1,0 +1,587 @@
+﻿////
+|metadata|
+{
+    "name": "win-windows-forms-controls-and-components",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{3E675DA5-A2D2-4D1C-886D-12A58933C012}",
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= Windows Forms コントロールとコンポーネント
+
+以下の表に、{ProductName} に含まれる Windows Forms コントロールおよびコンポーネントのすべてをリストします。これらのコントロールおよびコンポーネントは、{ProductName} のインストール中に Visual Studio® .NET ツールボックスに追加されます。また、個々のコントロール/コンポーネントに対応する名前空間とアセンブリも示してあります。
+
+[options="header", cols="a,a,a", role="document-table-container"]
+|====
+|コントロール/コンポーネント|名前空間|アセンブリ
+
+|image:Images/StyleStudioRuntime.png[toolbox icon for appstylistruntime] 
+link:appstylistruntime.html[AppStylistRuntime]
+|Infragistics.Win.AppStyling.Runtime
+|{ApiPlatform}Win.AppStylistSupport.v{ProductVersion}
+
+|image:Images/InboxControlStyler.png[toolbox icon for inboxcontrolstyler] 
+link:win-inboxcontrolstyler.html[InboxControlStyler]
+|Infragistics.Win.AppStyling.Runtime
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/AnimationControl.png[toolbox icon for animationcontrol] 
+link:winanimation.html[AnimationControl]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/UltraActivityIndicator.png[toolbox icon for winactivityindicator] 
+link:winactivityindicator.html[WinActivityIndicator]
+|Infragistics.Win.UltraActivityIndicator
+|{ApiPlatform}Win.UltraActivityIndicator.v{ProductVersion}
+
+|image:Images/UltraBulletGraph.png[toolbox icon for winbulletgraph] 
+link:bulletgraph.html[WinBulletGaph]
+|Infragistics.Win.DataVisualization.UltraBulletGraph
+|{ApiPlatform}Win.DataVisualization.UltraGauges.v{ProductVersion}
+
+|image:Images/UltraButton.png[toolbox icon for winbutton] 
+link:winbutton.html[WinButton]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraCalcManager.png[toolbox icon for wincalcmanager] 
+link:wincalcmanager.html[WinCalcManager]
+|Infragistics.Win.UltraWinCalcManager
+|{ApiPlatform}Win.UltraWinCalcManager.v{ProductVersion}
+
+|image:Images/UltraCalculator.png[toolbox icon for wincalculator] 
+link:wincalculator.html[WinCalculator]
+|Infragistics.Win.UltraWinEditors.UltraWinCalc
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraCalculatorDropDown.png[toolbox icon for wincalculatordropDown] link:wincalculatordropdown.html[WinCalculatorDropDown]
+|Infragistics.Win.UltraWinEditors.UltraWinCalc
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraCalendarCombo.png[toolbox icon for wincalendarcombo] 
+link:wincalendarcombo.html[WinCalendarCombo]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraCalendarInfo.png[toolbox icon for wincalendarinfo] 
+link:wincalendarinfo.html[WinCalendarInfo]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraCalendarLook.png[toolbox icon for wincalendarlook] 
+link:wincalendarlook.html[WinCalendarLook]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraCarousel.png[toolbox icon for wincarousel] 
+link:wincarousel.html[WinCarousel]
+|Infragistics.Win.UltraWinCarousel
+|{ApiPlatform}Win.UltraWinCarousel.v{ProductVersion}
+
+|image:Images/UltraCategoryChart.png[toolbox icon for wincategorychart] 
+link:categorychart-overview.html[WinCategoryChart]
+|Infragistics.Win.DataVisualization.UltraCategoryChart
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion}
+
+|image:Images/UltraChart.png[toolbox icon for winchart] 
+link:waw-chart.html[WinChart]
+|Infragistics.Win.UltraWinChart
+|{ApiPlatform}Win.UltraWinChart.v{ProductVersion}
+
+|image:Images/UltraCheckEditor.png[toolbox icon for wincheckeditor] 
+link:wincheckeditor.html[WinCheckEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for wincode128barcode] 
+link:xambarcode-configuring-code128.html[WinCode128Barcode]
+|Infragistics.Win.DataVisualization
+|{ApiPlatform}Win.DataVisualization.Barcodes.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for wincode39barcode] 
+link:xambarcode-xamcode39barcode.html[WinCode39BarCode]
+|Infragistics.Win.DataVisualization.UltraCode39BarCode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraColorPicker.png[toolbox icon for wincolorpicker] 
+link:wincolorpicker.html[WinColorPicker]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraCombo.png[toolbox icon for wincombo] 
+link:wincombo.html[WinCombo]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraComboEditor.png[toolbox icon for wincomboeditor] 
+link:wincomboeditor.html[WinComboEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraControlContainerEditor.png[toolbox icon for wincontrolConatinerEditor] 
+link:wincontrolcontainereditor.html[WinControlContainerEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraCurrencyEditor.png[toolbox icon for wincurrencyeditor] 
+link:wincurrencyeditor.html[WinCurrencyEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraDataChart.png[toolbox icon for windatachart] 
+link:datachart-datachart.html[WinDataChart]
+|Infragistics.Win.DataVisualization.UltraDataChart
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion}
+
+|image:Images/UltraDataSource.png[toolbox icon for windatasource] 
+link:windatasource.html[WinDataSource]
+|Infragistics.Win.UltraWinDataSource
+|{ApiPlatform}Win.UltraWinDataSource.v{ProductVersion}
+
+|image:Images/UltraDateTimeEditor.png[toolbox icon for windatetimeeditor] 
+link:windatetimeeditor.html[WinDateTimeEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraDayView.png[toolbox icon for windayview] 
+link:windayview.html[WinDayView]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/DesktopAlert.png[toolbox icon for windesktopalert] 
+link:windesktopalert.html[WinDesktopAlert]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraDockManager.png[toolbox icon for windockmanager] 
+link:windockmanager.html[WinDockManager]
+|Infragistics.Win.UltraWinDock
+|{ApiPlatform}Win.UltraWinDock.v{ProductVersion}
+
+|image:Images/UltraDoughnutChart.png[toolbox icon for windoughnutchart] 
+link:xamdoughnutchart-overview.html[WinDoughnutChart]
+|Infragistics.Win.DataVisualization
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion}
+
+|image:Images/UltraDropDown.png[toolbox icon for windropdown] 
+link:windropdown.html[WinDropDown]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraDropDownButton.png[toolbox icon for windropdownbutton] 
+link:windropdownbutton.html[WinDropDownButton]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for wineanupcbarcode] 
+link:xambarcode-xameanupcbarcode.html[WinEanUpcBarcode]
+|Infragistics.Win.DataVisualization.UltraEanUpcBarcode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraExpandableGroupBox.png[toolbox icon for winexpandablegroupbox] 
+link:winexpandablegroupbox.html[WinExpandableGroupBox]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraExplorerBar.png[toolbox icon for winexplorerbar] 
+link:winexplorerbar.html[WinExplorerBar]
+|Infragistics.Win.UltraWinExplorerBar
+|{ApiPlatform}Win.UltraWinExplorerBar.v{ProductVersion}
+
+|image:Images/UltraFlowLayoutManager.png[toolbox icon for winflowlayoutmanager] 
+link:winflowlayoutmanager.html[WinFlowLayoutManager]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraFontNameEditor.png[toolbox icon for winfontnameeditor] 
+link:winfontnameeditor.html[WinFontNameEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraFormattedLinkLabel.png[toolbox icon for winformattedlinklabel] 
+link:winformattedlinklabel.html[WinFormattedLinkLabel]
+|Infragistics.Win.UltraWinMisc
+|{ApiPlatform}Win.UltraWinMisc.v{ProductVersion}
+
+|image:Images/UltraFormattedTextEditor.png[toolbox icon for winformattedtexteditor] 
+link:winformattedtexteditor.html[WinFormattedTextEditor]
+|Infragistics.Win.UltraWinMisc
+|{ApiPlatform}Win.UltraWinMisc.v{ProductVersion}
+
+|image:Images/UltraFormattedTextWordWriterComponent.png[toolbox icon for winformattedTextWordWriter] 
+link:winformattedtextwordwriter.html[WinFormattedTextWordWriter]
+|Infragistics.Win.UltraWinFormattedText.WordWriter
+|{ApiPlatform}Win.UltraWinFormattedText.WordWriter.v{ProductVersion}
+
+|image:Images/UltraFormManager.png[toolbox icon for winFormManager] 
+link:winformmanager.html[WinFormManager]
+|Infragistics.Win.UltraWinForm
+|{ApiPlatform}Win.UltraWinForm.v{ProductVersion}
+
+|image:Images/UltraFunnelChart.png[toolbox icon for winfunnelchart] 
+link:funnelchart.html[WinFunnelChart]
+|Infragistics.Win.DataVisualization.UltraFunnelChart
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion}
+
+|image:Images/UltraGanttView.png[toolbox icon for winGanttView] 
+link:winganttview.html[WinGanttView]
+|Infragistics.Win.UltraWinGanttView
+|{ApiPlatform}Win.UltraWinGanttView.v{ProductVersion}
+
+|image:Images/UltraGanttViewPrintDocument.png[toolbox icon for winGanttView] 
+link:winganttviewprintdocument.html[WinGanttViewPrintDocument]
+|Infragistics.Win.UltraWinGanttView
+|{ApiPlatform}Win.UltraWinGanttView.v{ProductVersion}
+
+|image:images/WinGauge.png[toolbox icon for wingauge] 
+link:wingauge.html[WinGauge]
+|Infragistics.Win.UltraWinGauge
+|{ApiPlatform}Win.UltraWinGauge.v{ProductVersion}
+
+|image:images/WinGeographicMap.png[toolbox icon for wingeographicmap] 
+link:geographicmap.html[WinGeographicMap]
+|Infragistics.Win.UltraWinGeographicMap
+|{ApiPlatform}Win.UltraWinGeographicMap.v{ProductVersion}
+
+
+|image:Images/UltraGrid.png[toolbox icon for wingrid] 
+link:wingrid.html[WinGrid]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraGridBagLayoutPanel.png[toolbox icon for wingridbaglayoutmanager] 
+link:wingridbaglayoutmanager.html[WinGridBagLayoutManager]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraGridBagLayoutManager.png[toolbox icon for wingridbaglayoutpanel] 
+link:wingridbaglayoutmanager.html[WinGridBagLayoutPanel]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraGridCellProxy.png[toolbox icon for wingridcellproxy] 
+link:wingridcellproxy.html[WinGridCellProxy]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraGridColumnChooser.png[toolbox icon for wingridcolumnchooser] 
+link:wingridcolumnchooser.html[WinGridColumnChooser]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraGridDocumentExport.png[toolbox icon for wingriddocumentexporter] 
+link:wingriddocumentexporter.html[WinGridDocumentExporter]
+|Infragistics.Win.UltraWinGrid.DocumentExport
+|{ApiPlatform}Win.UltraWinGrid.DocumentExport.v{ProductVersion}
+
+|image:Images/UltraGridExcelExporter.png[toolbox icon for wingridexcelexporter] 
+link:wingridexcelexporter.html[WinGridExcelExporter]
+|Infragistics.Win.UltraWinGrid.ExcelExport
+|{ApiPlatform}Win.UltraWinGrid.ExcelExport.v{ProductVersion}
+
+|image:Images/UltraGridFilterUIProvider.png[toolbox icon for winGridFilterUIProvider] 
+link:wingridfilteruiprovider.html[WinGridFilterUIProvider]
+|Infragistics.Win.SupportDialogs
+|{ApiPlatform}Win.SupportDialogs.v{ProductVersion}
+
+|image:Images/UltraGridPrintDocument.png[toolbox icon for wingridprintdocument] 
+link:wingridprintdocument.html[WinGridPrintDocument]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraGridRowEditTemplate.png[toolbox icon for wingridrowedittemplate] 
+link:wingridrowedittemplate.html[WinGridRowEditTemplate]
+|Infragistics.Win.UltraWinGrid
+|{ApiPlatform}Win.UltraWinGrid.v{ProductVersion}
+
+|image:Images/UltraGridWordWriter.png[toolbox icon for wingridWordWriter] 
+link:wingridwordwriter.html[WinGridWordWriter]
+|Infragistics.Win.UltraWinGrid.WordWriter
+|{ApiPlatform}Win.UltraWinGrid.WordWriter.v{ProductVersion}
+
+|image:Images/UltraGroupBox.png[toolbox icon for wingroupbox] 
+link:wingroupbox.html[WinGroupBox]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for wings1databarbarcode] 
+link:xambarcode-xamgs1databarbarcode.html[WinGs1DataBarBarcode]
+|Infragistics.Win.DataVisualization.UltraGs1DataBarBarcode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for winintelligentmailbarcode] 
+link:xambarcode-xamintelligentmailbarcode.html[WinIntelligentMailBarCode]
+|Infragistics.Win.DataVisualization.UltraIntelligentMailBarCode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for winlnterleaved2of5barcode] 
+link:xambarcode-xaminterleaved2of5barcode.html[WinInterleaved2Of5Barcode]
+|Infragistics.Win.DataVisualization.UltraInterleaved2Of5Barcode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraLabel.png[toolbox icon for winlabel] 
+link:winlabel.html[WinLabel]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraLinearGauge.png[toolbox icon for winlineargauge] 
+link:lineargauge.html[WinLinearGauge]
+|Infragistics.Win.DataVisualization.UltraLinearGauge
+|{ApiPlatform}Win.DataVisualization.UltraGauges.v{ProductVersion}
+
+|image:Images/UltraListView.png[toolbox icon for winlistview] 
+link:winlistview.html[WinListView]
+|Infragistics.Win.UltraWinListView
+|{ApiPlatform}Win.UltraWinListView.v{ProductVersion}
+
+|image:Images/UltraLiveTileView.png[toolbox icon for winlivetileview] 
+link:winlivetileview.html[WinLiveTileView]
+|Infragistics.Win.UltraWinLiveTileView
+|{ApiPlatform}Win.UltraWinLiveTileView.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for winmaxicodebarcode] 
+link:xambarcode-xammaxicodebarcode.html[WinMaxiCodeBarCode]
+|Infragistics.Win.DataVisualization.UltraMaxiCodeBarCode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraMessageBoxManager.png[toolbox icon for winmessagebox] 
+link:winmessageboxmanager.html[WinMessageBoxManager]
+|Infragistics.Win.UltraMessageBox
+|{ApiPlatform}Win.UltraMessageBox.v{ProductVersion}
+
+|image:Images/UltraMonthViewMulti.png[toolbox icon for winmonthviewmulti] 
+link:winmonthviewmulti.html[WinMonthViewMulti]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraMonthViewSingle.png[toolbox icon for winmonthviewsingle] 
+link:winmonthviewsingle.html[WinMonthViewSingle]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraNavigationToolbar.png[toolbox icon for winnavigatorbar] 
+link:winnavigationbar.html[WinNavigationBar]
+|Infragistics.Win.Misc.UltraWinNavigationBar
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraNumericEditor.png[toolbox icon for winnumericeditor] 
+link:winnumericeditor.html[WinNumericEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraOptionSet.png[toolbox icon for winoptionset] 
+link:winoptionset.html[WinOptionSet]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraPanel.png[toolbox icon for winpanel] 
+link:winpanel.html[WinPanel]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraPeekPopupIcon.png[toolbox icon for winpeekpopup] 
+link:winpeekpopup.html[WinPeekPopup]
+|Infragistics.Win.Misc.UltraPeekPopup
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for winpdf417barcode] 
+link:xambarcode-xampdf417barcode.html[WinPdf417BarCode]
+|Infragistics.Win.DataVisualization.UltraPdf417BarCode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraPictureBox.png[toolbox icon for winpicturebox] 
+link:winpicturebox.html[WinPictureBox]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraPieChart.png[toolbox icon for winpiechart] 
+link:piechart-getting-started-with-piechart.html[WinPieChart]
+|Infragistics.Win.DataVisualization
+|{ApiPlatform}Win.DataVisualization.UltraDataChart.v{ProductVersion}
+
+|image:Images/UltraPopupControlContainer.png[toolbox icon for winpopupcontrolcontainer] 
+link:winpopupcontrolcontainer.html[WinPopupControlContainer]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraPrintDocument.png[toolbox icon for winprintdocument] 
+link:winprintdocument.html[WinPrintDocument]
+|Infragistics.Win.Printing
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/UltraPrintPreviewControl.png[toolbox icon for winprintpreviewcontrol] 
+link:winprintpreview.html[WinPrintPreviewControl]
+|Infragistics.Win.Printing
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraPrintPreviewDialog.png[toolbox icon for winprintpreviewdialog] 
+link:winprintpreviewdialog.html[WinPrintPreviewDialog]
+|Infragistics.Win.Printing
+|{ApiPlatform}Win.UltraWinPrintPreviewDialog.v{ProductVersion}
+
+|image:Images/UltraPrintPreviewThumbnail.png[toolbox icon for winprintpreviewthumbnail] 
+link:winprintpreviewthumbnail.html[WinPrintPreviewThumbnail]
+|Infragistics.Win.Printing
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraProgressBar.png[toolbox icon for winprogressbar] 
+link:winprogressbar.html[WinProgressBar]
+|Infragistics.Win.UltraWinProgressBar
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/UltraQRCodeBarcode.png[toolbox icon for winqrcodebarcode] 
+link:xambarcode-configuring-qr-code.html[WinQRCodeBarcode]
+|Infragistics.Win.DataVisualization
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraRadialGauge.png[toolbox icon for winradialgauge] 
+link:radialgauge-getting-started-with-radialgauge.html[WinRadialGauge]
+|Infragistics.Win.DataVisualization
+|{ApiPlatform}Win.DataVisualization.UltraGauges.v{ProductVersion}
+
+|image:Images/UltraRadialMenu.png[toolbox icon for winradialmenu] 
+link:winradialmenu.html[WinRadialMenu]
+|Infragistics.Win.UltraWinRadialMenu
+|{ApiPlatform}Win.UltraWinRadialMenu.v{ProductVersion}
+
+|image:Images/UltraRadioButton.png[toolbox icon for winradiobutton] 
+link:winradiobutton.html[WinRadioButton]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+|image:Images/UltraRadioButtonGroupManager.png[toolbox icon for winradiobuttongroupmanager] 
+WinRadioButtonGroupManager
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+
+|image:Images/UltraRibbonCustomizationProvider.png[toolbox icon for winRibbonCustomizationProvider] link:winribboncustomizationprovider.html[WinRibbonCustomizationProvider]
+|Infragistics.Win.SupportDialogs.RibbonCustomizationProvider
+|{ApiPlatform}Win.SupportDialogs.RibbonCustomizationProvider.v{ProductVersion}
+
+|image:Images/UltraCode128Barcode.png[toolbox icon for winroyalmailbarcode] 
+link:xambarcode-xamroyalmailbarcode.html[WinRoyalMailBarcode]
+|Infragistics.Win.DataVisualization.UltraRoyalMailBarcode
+|{ApiPlatform}Win.DataVisualization.Barcode.v{ProductVersion}
+
+|image:Images/UltraSchedulePrintDocument.png[toolbox icon for winscheduleprintdocument] 
+link:winscheduleprintdocument.html[WinSchedulePrintDocument]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraScrollBar.png[toolbox icon for winscrollbar] 
+link:winscrollbar.html[WinScrollBar]
+|Infragistics.Win.UltraWinScrollBar
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/UltraSparkline.png[toolbox icon for winsparkline] 
+link:sparkline.html[WinSparkline]
+|Infragistics.Win.DataVisualization.UltraSparkline
+|{ApiPlatform}Win.DataVisualization.UltraSparkline.v{ProductVersion}
+
+|image:Images/Win_The_Elements_WinSpellChecker_CLR2.png[toolbox icon for winspellchecker] 
+link:winspellchecker.html[WinSpellChecker]
+|Infragistics.Win.UltraWinSpellChecker
+|{ApiPlatform}Win.UltraWinSpellChecker.v{ProductVersion}
+
+|image:Images/UltraSplitter.png[toolbox icon for winSplitter] 
+link:winsplitter.html[WinSplitter]
+|Infragistics.Win.UltraSplitter
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraSpreadsheet.png[toolbox icon for winSpreadsheet] 
+link:spreadsheet-overview.html[WinSpreadsheet]
+|Infragistics.Win.UltraSpreadsheet
+|{ApiPlatform}Win.UltraSpreadsheet.v{ProductVersion}
+
+|image:Images/UltraStatusBar.png[toolbox icon for winstatusbar] 
+link:winstatusbar.html[WinStatusBar]
+|Infragistics.Win.UltraWinStatusBar
+|{ApiPlatform}Win.UltraWinStatusBar.v{ProductVersion}
+
+|image:Images/UltraTabbedMdiManager.png[toolbox icon for wintabbedmdimanager] 
+link:wintabbedmdimanager.html[WinTabbedMdiManager]
+|Infragistics.Win.UltraWinTabbedMdi
+|{ApiPlatform}Win.UltraWinTabbedMdi.v{ProductVersion}
+
+|image:Images/UltraTabControl.png[toolbox icon for wintabcontrol] 
+link:wintab.html[WinTabControl]
+|Infragistics.Win.UltraWinTabControl
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}
+
+|image:Images/UltraTabStripControl.png[toolbox icon for wintabstripcontrol] 
+link:wintab.html[WinTabStripControl]
+|Infragistics.Win.UltraWinTabControl
+|{ApiPlatform}Win.UltraWinTabControl.v{ProductVersion}
+
+|image:Images/UltraTextEditor.png[toolbox icon for wintexteditor] 
+link:wintexteditor.html[WinTextEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraTilePanel.png[toolbox icon for wintilepanel] 
+link:wintilepanel.html[WinTilePanel]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image::Images/UltraTimeLineView.png[toolbox icon for wintimelineview] 
+link:wintimelineview.html[WinTimeLineView]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraTimeSpanEditor.png[toolbox icon for winTimeSpanEditor] 
+link:wintimespaneditor.html[WinTimeSpanEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraTimeZoneEditor.png[toolbox icon for wintimezoneeditor] 
+link:wintimezoneeditor.html[WinTimeZoneEditor]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraToolbarsManager.png[toolbox icon for wintoolbarsmanager] 
+link:wintoolbarsmanager.html[WinToolbarsManager]
+|Infragistics.Win.UltraWinToolbars
+|{ApiPlatform}Win.UltraWinToolbars.v{ProductVersion}
+
+|image:Images/UltraToolTipManager.png[toolbox icon for wintooltipmanager] 
+link:wintooltipmanager.html[WinToolTipManager]
+|Infragistics.Win.UltraWinToolTip
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/UltraTouchProvider.png[toolbox icon for wintouchprovider] 
+link:wintouchprovider.html[WinTouchProvider]
+|Infragistics.Win.UltraTouchProvider
+|{ApiPlatform}Win.v{ProductVersion}
+
+|image:Images/UltraTrackBar.png[toolbox icon for wintrackbar] 
+link:wintrackbar.html[WinTrackBar]
+|Infragistics.Win.UltraWinEditors
+|{ApiPlatform}Win.UltraWinEditors.v{ProductVersion}
+
+|image:Images/UltraTree.png[toolbox icon for wintree] 
+link:wintree.html[WinTree]
+|Infragistics.Win.UltraWinTree
+|{ApiPlatform}Win.UltraWinTree.v{ProductVersion}
+
+|image:Images/UltraValidator.png[toolbox icon for winvalidator] 
+link:winvalidator.html[WinValidator]
+|Infragistics.Win.Misc
+|{ApiPlatform}Win.Misc.v{ProductVersion}
+
+|image:Images/UltraWeekView.png[toolbox icon for winweekview] 
+link:winweekview.html[WinWeekView]
+|Infragistics.Win.UltraWinSchedule
+|{ApiPlatform}Win.UltraWinSchedule.v{ProductVersion}
+
+|image:Images/UltraWinPivotGrid.png[toolbox icon for winwinpivotgrid] 
+link:winpivotgrid.html[WinWinPivotGrid]
+|Infragistics.Win.UltraWinPivotGrid
+|{ApiPlatform}Win.UltraWinPivotGrid.v{ProductVersion}
+
+|====

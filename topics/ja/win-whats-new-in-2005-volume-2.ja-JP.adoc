@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-whats-new-in-2005-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "{434EB64E-91AF-41B7-87E6-B25DD1897C99}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2005 Volume 2 の新機能
+
+Infragistics 2005 Volume 2 のリリースには、Windows Formsのコントロールとコンポーネントの機能をこれまで以上に活用するための、いくつかの強力な新機能と機能性が追加されています。
+
+以下に、2005 Volume 2 リリースで追加または改良したコントロールをあげます。リンクをクリックして、各コントロールで提供される機能のリストを確認します。
+
+* link:wingrid-whats-new-2005-2.html[WinGrid]
+* link:wintabbedmdi-whats-new-2005-2.html[WinTabbedMDI]
+* link:wintree-whats-new-2005-2.html[WinTree]
+* link:winchart-whats-new-2005-2.html[WinChart]

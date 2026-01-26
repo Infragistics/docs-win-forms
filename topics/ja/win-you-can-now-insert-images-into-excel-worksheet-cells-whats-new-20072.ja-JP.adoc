@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-insert-images-into-excel-worksheet-cells-whats-new-20072",
+    "controlName": [],
+    "tags": [],
+    "guid": "{7D1C1DAF-00E0-49C9-8CE9-15F0EB4C3B0E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Excel ワークシート セルに画像を挿入できるようになった
+
+単調な資料と見事なプレゼンテーションでは画像とグラフィックスに差があるであろうことは理解しています。Microsoft® Excel® オブジェクト モデルに画像を追加することが重要だったのはそのためです。pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheetimage.html[WorksheetImage]"]  オブジェクトを作成してこのオブジェクトを画像に設定する（ImageList、埋め込みリソース、またはその他の方法で）によって、任意のセルに画像を配置する支援をする多数のプロパティにアクセスすることができます。その WorksheetImage オブジェクトを pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheet.html[Worksheet]"]  の pick:[win-forms="link:{ApiPlatform}documents.excel{ApiVersion}~infragistics.documents.excel.worksheet~shapes.html[Shapes]"]  コレクションに追加するだけです。これで会社のロゴ、社員の写真、製品のショット、または役に立つ画像のその他の配列を Excel のスプレッドシートに追加できます。制限するものがあるとすればそれはユーザー自身の創造力だけです。
+
+image::images/Win_You_Can_Now_Insert_Images_into_Excel_Worksheet_Cells_Whats_New_20072_01.png[セル内に画像を含んだ Excel ワークシートのスクリーンショット。]
+
+== 関連トピック
+
+link:excelengine-add-an-image-to-a-worksheet.html[画像をワークシートに追加]

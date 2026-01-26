@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-navigation-and-selection",
+    "controlName": ["WinTree"],
+    "tags": ["Navigation","Selection"],
+    "guid": "{8E82ED79-01C1-436C-B51B-9C2EFE4A7188}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲーションと選択
+
+このセクションは、™ でのノードのナビゲーションと選択について説明するトピックを紹介します。
+
+* link:wintree-change-the-vertical-scrolling-behavior-of-a-scrollbar.html[スクロールバーの垂直のスクロール動作を変更]
+* link:wintree-determining-what-node-was-clicked.html[クリックされたノードを決定]
+* link:wintree-move-columns-in-wintree.html[WinTree 内で列を移動]
+
+* link:wintree-move-a-node-to-another-parent.html[ノードを新しい親に移動する]
+* link:wintree-scroll-a-node-into-view.html[ノードを表示可能領域にスクロールする]
+* link:wintree-select-nodes-in-different-levels-of-the-tree.html[ツリーの異なるレベルでノードを選択]

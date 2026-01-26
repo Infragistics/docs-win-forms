@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-popupmenu",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{206BBCA8-BEA9-4370-BB91-8A3E3CB755E0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= PopupMenu
+
+PopupMenu ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-popupmenu-about-the-popupmenu-tool.html[PopupMenu ツールについて]
+* link:wintoolbarsmanager-using-the-popupmenu-tool.html[PopupMenu ツールの使用]

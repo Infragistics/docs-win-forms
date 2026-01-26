@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-editing-data",
+    "controlName": ["WinTree"],
+    "tags": ["Editing"],
+    "guid": "{07A7E510-E72E-4911-83CE-55944C0288FE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= データの編集
+
+このセクションでは、WinTree™ でのデータの編集および操作に関するトピックを紹介します。
+
+* link:wintree-allow-cell-editing-in-wintree.html[WinTree でセルの編集を許可]
+* link:wintree-display-multiple-lines-of-text-in-nodes.html[ノードでの複数行テキストの表示]
+* link:wintree-set-an-embeddable-editor.html[埋め込みエディタの設定]
+* link:wintree-embeddable-editor-events.html[埋め込みエディタ イベント]

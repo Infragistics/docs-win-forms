@@ -1,0 +1,42 @@
+﻿////
+|metadata|
+{
+    "name": "win-winexplorerbar-using-winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Getting Started"],
+    "guid": "{10D87559-0359-4916-BFA6-B0095A5E1601}",
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:19:07Z"
+}
+|metadata|
+////
+
+= WinExplorerBar の使用
+
+このセクションでは、WinExplorerBar™ コントロールに関連する特定のタスクを実行する方法を説明する、簡単なタスクベースのトピックについて記述されています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:winexplorerbar-add-groups-and-items-at-design-time.html[デザインタイムの Groups と Items の追加]
+* link:winexplorerbar-add-groups-using-code.html[コードによる Groups の追加]
+* link:winexplorerbar-add-items-using-code.html[コードによる Items の追加]
+* link:winexplorerbar-addingremoving-menu-items-from-context-menu.html[メニュー項目をコンテキスト メニューに追加/削除]
+* link:winexplorerbar-create-a-control-container-group.html[コントロールコンテナ Group の作成]
+* link:winexplorerbar-change-the-size-of-the-navigation-pane-flyout.html[ナビゲーション ペイン フライアウトのサイズを変更]
+* link:winexplorerbar-change-the-text-in-the-navigation-pane-group-area.html[ナビゲーション ペイン グループ領域のテキストを変更]
+* link:winexplorerbar-change-the-order-of-groups-in-winexplorerbar.html[WinExplorerBar でグループの順序を変更]
+* link:winexplorerbar-collapse-the-outlook-navigation-pane.html[Outlook ナビゲーション ペインを縮小]
+* link:winexplorerbar-control-dragging-and-dropping-items.html[Items のドラッグ アンド ドロップのコントロール]
+* link:winexplorerbar-control-the-appearance-of-groups-and-items.html[Groups と Items の外観のコントロール]
+* link:winexplorerbar-disabling-groups-and-items-in-winexplorerbar.html[WinExplorerBar でグループと項目を無効にする]
+* link:winexplorerbar-expandingcollapsing-groups-in-different-modes.html[異なるモードでグループを展開/縮小]
+* link:winexplorerbar-handle-user-interaction-with-items.html[Items に対するユーザ インタラクションの処理]
+* link:winexplorerbar-hide-the-navigation-pane-context-menu-for-a-particular-group.html[特別なグループのナビゲーション ペイン コンテキスト メニューを非表示にする]
+* link:winexplorerbar-hide-quickcustomize-button-and-navigationoverflowbuttonarea.html[QuickCustomize ボタンおよび NavigationOverflowButtonArea を非表示]
+* link:winexplorerbar-host-net-winforms-controls-in-winexplorerbar.html[WinExplorerBar で.NET WinFormsコントロールをホストする]
+* link:winexplorerbar-save-and-restore-a-layout.html[レイアウトの保存とリストア]
+* link:winexplorerbar-select-an-appearance-style.html[外観スタイルの選択]
+* link:winexplorerbar-setting-the-image-for-an-item-at-run-time.html[ランタイムで項目の画像を設定]
+* link:winexplorerbar-show-the-navigation-pane-flyout-at-the-mouse-coordinates-on-a-right-click.html[右クリックでマウス座標でナビゲーション ペイン フライアウトを表示]
+* link:winexplorerbar-style-the-scrollbars-of-winexplorerbar.html[WinExplorerBar のスクロールバーのスタイル]
+* link:winexplorerbar-using-the-notification-badge.html[通知バッジの使用]

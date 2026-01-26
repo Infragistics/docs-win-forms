@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingauge-needle-marker",
+    "controlName": ["WinGauge"],
+    "tags": ["Charting"],
+    "guid": "{3A179A39-62F1-409B-B625-0D6833282973}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 針マーカー
+
+針マーカーはスケール上の特定の値を指し示すポインタとして表示されます。
+
+たとえば、時計を表すラジアル ゲージを作成している場合には、時計の針を表示するために針マーカーを使用します。
+
+image::images/Gauge_Add_Needle_Marker_01.png[]
+
+== 関連トピック
+
+link:wingauge-add-a-needle-marker-to-a-gauge.html[針マーカーをゲージに追加]

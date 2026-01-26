@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingroupbox-using-wingroupbox",
+    "controlName": ["WinGroupBox"],
+    "tags": [],
+    "guid": "{3C1A3058-BF50-4072-B001-5E183861D8F3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGroupBox の使用
+
+このセクションには、WinGroupBox™ コントロールに関連する特定のタスクを実行する方法を紹介するトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wingroupbox-add-a-control-to-the-wingroupbox.html[コントロールを WinGroupBox に追加]
+* link:wngroupbox-changing-the-style-and-appearance-of-wingroupbox.html[WinGroupBox のスタイルと外観を変更する]
+* link:wingroupbox-place-an-image-next-to-a-caption.html[キャプションの横に画像を配置する]

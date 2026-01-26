@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintabbedmdimanager-convert-an-exisiting-mdi-app-to-tabbed-mdi",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{DDEB0E33-92FE-423F-BD3C-2329814E75CB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 既存の MDI アプリケーションをタブ付き MDI に変換する
+
+WinTabbedMdiManager コンポーネントを使用すると、既存の MDI アプリケーションを Visual Studio.NET のようなタブ付きウィンドウ インタフェース アプリケーションに簡単に変換できます。このエレメントを MDI 親フォームに配置すると、そのすべての MDI 子ウィンドウが自動的に管理されます。
+
+MDI アプリケーションをタブ付き MDI アプリケーションに変換するには、以下の手順に従ってください。
+
+[start=1]
+. 既存のアプリケーションのメインの MDI 親フォームを開きます。
+[start=2]
+. Visual Studio のツールボックスで pick:[win-forms="link:{ApiPlatform}win.ultrawintabbedmdi{ApiVersion}~infragistics.win.ultrawintabbedmdi.ultratabbedmdimanager.html[UltraTabbedMdiManager]"]  エレメントを選択し、ダブルクリックして MDI 親フォームに追加します。
+
+これで、次回アプリケーションを実行したときに、タブ付き MDI インタフェースとそのすべての機能が使用できるようになります。MDI 子ウィンドウのタブをクリックして選択したり、ヘッダ領域内でタブをドラッグして並べ替えたりできます。また、タブをドラッグするか右クリックすることで、垂直または水平のタブ グループを作成できます。
+
+[NOTE]
+====
+*注：* タブ付き MDI インタフェースが使用されているときは、MDI 子ウィンドウは MDI 親フォームのクライアント領域内で常に最大化されます。
+====

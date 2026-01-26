@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-displaying-a-picture-in-a-cell",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{C2412EA3-C4C7-4F6F-A0CF-040DC167B08B}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= セルでのピクチャの表示
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. CellAppearance オブジェクトの pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.appearance~imagebackground.html[ImageBackground]"]  プロパティをピクチャ オブジェクトに設定する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) _
+  Handles UltraGrid1.InitializeLayout
+	Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).CellAppearance.ImageBackground = _
+	  Image.FromFile(System.IO.Path.Combine( _
+	    Application.StartupPath, "..\ExtraFiles\Find in Field.bmp"))
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeLayout(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].CellAppearance.ImageBackground = 
+	  Image.FromFile(System.IO.Path.Combine(
+	    Application.StartupPath, @"..\..\ExtraFiles\Find in Field.bmp"));
+}
+----
+
+[start=3]
+. 必要に応じて、FromFile メソッド内のファイル名のパスを有効なビットマップを指し示すように変更します。
+[start=4]
+. 上記のコードを WinGrid の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragrid~initializelayout_ev.html[InitializeLayout]"]  イベントに挿入します。
+[start=5]
+. プロジェクトを実行します。バンド 0 の第 1 列の背景としてロードしたピクチャが表示されるはずです。

@@ -1,0 +1,119 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-whats-new-2005-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "{2B9F36F7-76CF-4EE1-851B-F7DE9E0DA9B1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid 2005.1
+
+== セルのマージ機能
+
+UltraWinGrid では、似た値を持つセルのマージをサポートするようになりました。以下のような新しいプロパティが追加され、数式の計算機能がサポートされます。
+
+* UltraGridOverride オブジェクト:MergedCellStyle、MergedCellContentArea および MergedCellAppearance
+* UltraGridColumn オブジェクト: MergedCellStyle、MergedCellContentArea、MergedCellAppearance、MergedCellEvaluator、および MergedCellEvaluationType
+
+セルのマージ機能の詳細については、 link:wingrid-merging-cells-with-the-same-values.html[「同じ値を持つセルのマージ」]を参照してください。
+
+次のスナップショットはセルのマージ機能を示しています。
+
+image::images/Whats_New_UltraWinGrid_2005_1_01.png[]
+
+== *IDataErrorInfo* のサポート
+
+UltraWinGrid は新しく、IDataErrorInfo インタフェースを介したエラーの表示をサポートします。以下のような新しいプロパティが追加され、数式の計算機能がサポートされます。
+
+* UltraGridOverride オブジェクト: SupportDataErrorInfo、DataErrorCellAppearance、DataErrorRowAppearance、および DataErrorRowSelectorAppearance
+* UltraGridColumn オブジェクト: SupportDataErrorInfo
+
+SupportDataErrorInfo プロパティを設定しないと、この表示機能は有効になりません。次のスナップショットは IDataErrorInfo エラーの表示を示しています。
+
+IDataErrorInfo のサポートに関する詳細については、 link:wingrid-displaying-row-cell-errors-using-idataerrorinfo.html[「DataErrorInfo による行エラー/セル エラーの表示」]を参照してください。
+
+image::images/Whats_New_UltraWinGrid_2005_1_02.png[]
+
+== 数式のサポート
+
+UltraWinGrid が新しく、数式の列や集計をサポートします。数式の計算は UltraCalcManager コンポーネントを使って行います。以下のような新しいプロパティが追加され、数式の計算機能がサポートされます。
+
+* UltraGridColumn オブジェクト: Formula、FormulaErrorAppearance、FormulaValueConverter、FormulaAbsoluteName、および ShowCalculatingText
+* SummarySettings オブジェクト: Formula、FormulaValueConverter、FormulaAbsoluteName、および ShowCalculatingText
+* UltraGridOverride オブジェクト: FormulaErrorAppearance、FormulaRowIndexSource、および ShowCalculatingText
+
+== カード ビューのスクロール
+
+UltraWinGrid が新しくカード ビュー領域の垂直スクロールをサポートします。これまで、カードを表示する垂直領域の高さがカードの高さよりも低いとき、カードの高さが減らされ、カードの底部が見えませんでした。今回、カード領域（CardAreaUIElement）の右手に垂直スクロールバーが表示されるようになりました。これで、カードをスクロール アップ、スクロール ダウンしてカードの任意の部分をビュー内に表示することが可能になりました。次のスクリーンショットは、中に含まれているカードよりも高さの低いカード ビュー領域を持った複数バンド グリッドを示しています（必要に応じて自動的に現れる垂直スクロールバー（内側）があることに注意）。表示しなければならないどのカードの高さよりもカードビュー領域（CardAreaUIElement）の高さが低い場合、垂直スクロールバーを表示することでカードのあらゆる部分をビュー内に持ち込むことができます。垂直スクロールバーは必要に応じて表示されたり非表示にされたりします。垂直スクロールバーの SmallChange 値には、ほぼ 10 クリックで全体をスクロールできるような値がセットされます。LargeChange 値にはこの値の 5 倍がセットされ、ほぼ 2 クリックだけで全体をスクロールできます。CardAreaUIElement は、水平および垂直スクロールでマウスのホイールやパニングをサポートするようになりました。カード領域でマウスの中ボタンをクリックすると、水平または垂直スクロールが可能かどうかに応じて、適当なパニング画像が表示されます。カーソルが水平スクロールバー上にあるときにマウス ホイールを動かすと、カード領域は水平にスクロールします。カーソルがその他の場所にあるときは、カード領域は垂直にスクロールします（スクロールが可能な場合）。
+
+image::images/Whats_New_UltraWinGrid_2005_1_03.png[]
+
+== UltraCombo および UltraDropDown の UI を介したソート、フィルター、および列サイズ変更のサポート
+
+UltraCombo と UltraDropDown は、UI を介してソート、フィルター、列サイズ変更をサポートします。このために新規に追加されたプロパティはありません。Override オブジェクトの既存の HeaderClickAction プロパティ、AllowRowFiltering プロパティ、および AllowColSizing プロパティを使用して、これらの機能を有効、無効にできます。次のスナップショットは UltraCombo におけるフィルター ドロップダウンを示しています。
+
+image::images/Whats_New_UltraWinGrid_2005_1_04.png[]
+
+== 行セレクタ ヘッダのスタイル
+
+RowSelectorHeaderStyle プロパティと RowSelectorHeaderAppearance プロパティが Override オブジェクトに追加されました。RowSelectorHeaderStyle によって、行セレクタが見えている場合、行セレクタ上の領域の外観と位置が決まります。RowSelectorHeaderStyle が「なし」に設定されている場合、この領域に割り当てられた可視要素はなく、最初のヘッダは列の左端に寄せられます。RowSelectorHeaderStyle が ExtendFirstColumn に設定されている場合、最初のヘッダは行セレクタ上の領域の左側に伸ばされます。RowSelectorHeaderStyle が SeparateElement に設定されている場合、 _RowSelectorHeaderUIElement_  が行セレクタ上に置かれ、最初のヘッダは列の左端に寄せられます。デフォルト値は ExtendFirstColumnです。RowSelectorHeaderStyle が SeparateElement に設定されている場合、RowSelectorHeaderAppearance オブジェクトを使って RowSelectorHeader の外観を設定できます。次のスナップショットは青色でハイライトされた RowSelectorHeaderUIElement です。
+
+image::images/Whats_New_UltraWinGrid_2005_1_05.png[]
+
+== UltraCombo における LimitToList のサポート
+
+UltraCombo が LimitToList プロパティと ItemNotInList イベントを公開しました。LimitToList を True に設定しておくと、ユーザーが存在しない値を入力してコントロールを抜けようとしたときに UltraCombo はデフォルトでフォーカスを保持するようにします。また、ユーザーが無効な値を入力してコントロールを抜けようとしたときには必ず ItemNotInList イベントが発生します。
+
+== UltraCombo の ButtonsLeft プロパティと ButtonsRight プロパティ
+
+ButtonsLeft プロパティと ButtonsRight プロパティが UltraCombo に追加されました。この 2 つのプロパティで、それぞれテキスト領域の左側、右側にエディタ ボタンを追加できます。次のスナップショットは UltraCombo で、編集部分の左右に各種のカスタム ボタンが付いています。
+
+image::images/Whats_New_UltraWinGrid_2005_1_06.png[]
+
+== セルを使用した列のサイズ変更
+
+UltraWinGrid は、セルの右端を使った列のサイズ変更をサポートするようになりました。この機能はこれまで行レイアウト モードにありました。今は行でないレイアウト モードでもサポートされます。ColumnSizingArea プロパティが Override オブジェクトに追加され、この機能がサポートされます。
+
+== 行レイアウト モードにおける列のヘッダまたはセルの非表示
+
+UltraWinGrid が行レイアウト モードでの列のヘッダまたはセルの非表示をサポートするようになりました。これまで、列のヘッダまたはセルを非表示にする機能はセル付きヘッダ モードだけで利用できました。このモードでは各行内に列ヘッダが含まれています。これからは非セル付きヘッダ モードでも非表示にできます。この機能は、行レイアウトの作成できわめて大きな柔軟性をもたらします。次のスナップショットでは、ヘッダは 4 つのアンバウンド列でまったくセルが見えません。しかし、他の列ではヘッダが非表示でセルだけが表示されます。LabelOnly メンバが LabelPosition 列挙体（RowLayoutColumnInfo の LabelPositionプロパティに関連）に追加され、また None 列挙体メンバが非セル付きヘッダ モードでサポートされます。
+
+image::images/Whats_New_UltraWinGrid_2005_1_07.png[]
+
+== 圧縮カード ビューの展開前後のイベントおよび折りたたみ前後のイベント
+
+BeforeCardCompressedStateChanged イベントと AfterCardCompressedStateChanged イベントが、UltraWinGrid に追加されました。この 2 つのイベントは CardCompressedView でカード行が展開または折りたたまれる前後に発生します。イベント引数はカード行の新規に折りたたまれた状態を指定し、カード行自体への参照も行います。BeforeCardCompressedStateChanged はキャンセルできます。
+
+== 同期ソート/フィルター
+
+BeforeSortChange イベントと BeforeRowFilterChanged イベントに渡される BeforeSortChangeEventArgs オブジェクトおよび BeforeRowFilterChangedEventArgs オブジェクトに、イベント引数プロパティの ProcessMode が追加されました。ProcessMode プロパティは、すべての行またはすべての展開された行の同期ソートを指定します。EnsureSortedAndFiltered のオーバーロードメソッドが追加され、同期ソートを精密に制御します。同期ソートまたはフィルターの典型的な使い方は、ソート操作やフィルター操作の間、待ちカーソルを表示することです。
+
+== スピンボタンの SpinWrap 機能
+
+SpinWrap プロパティが、UltraNumericEditor、UltraCurrencyEditor、UltraDateTimeEditor、UltraMaskedEdit、UltraCalendarCombo の各コントロールに追加されました。SpinWrap プロパティは、コントロールのスピン ボタンの値を循環させるかどうかを示す値を取得または設定します。True の場合、スピン ボタンを使用すると値が最小値／最大値の範囲で循環します。
+
+== テキスト エディタのビジュアル オーバーフロー インジケータ（省略記号）
+
+ShowOverflowIndicator プロパティと OverflowIndicatorImage プロパティが、テキストエディタコントロール（UltraTextEditor、UltraColorPicker、UltraDropDownCalculator、UltraComboEditor、および EditorWithText クラスを使用するすべてのコントロール）に追加されました。ShowOverflowIndicator が True に設定されている場合、かつ編集モードに _ない_ ときにエディタのテキストがまったく見えない場合、機能的に省略記号と同様のオーバーフロー インジケータ画像がテキスト領域の右端に表示されます。マウス カーソルを画像の上に置くと、テキスト全体を示すツールチップが表示されます。OverflowIndicatorImage プロパティによって、デフォルト画像の代わりにカスタマイズ画像を表示できます。以下のスナップショットで、UltraGrid 内でオーバーフロー インジケータを表示する列を示しています。次のコードは、UltraGrid 列上でオーバーフロー インジケータを有効にする方法を示しています。
+
+----
+UltraGridColumn gridColumn = this.ultraGrid1.DisplayLayout.Bands[0].Columns["State"];
+// オーバーフロー インジケータの表示をサポートするエディタ コントロールを作成します。上記の 
+// エディタのみがオーバーフロー インジケータをサポートします。
+Infragistics.Win.UltraWinEditors.UltraTextEditor textEditorControl = 
+        new Infragistics.Win.UltraWinEditors.UltraTextEditor( );
+textEditorControl.ShowOverflowIndicator = true;                                 
+gridColumn.EditorControl = textEditorControl;
+----
+
+image::images/Whats_New_UltraWinGrid_2005_1_08.png[]
+
+== UltraGridPrintDocument コンポーネント
+
+新規のコンポーネント、UltraGridPrintDocument が UltraWinGrid アセンブリに追加されました。UltraGridPrintDocument はカスタム .Net PrintDocument で、これによって UltraGrid コントロールの内容を印刷できます。また新規の UltraPrintPreviewDialog コンポーネントや組み込みのコンポーネント（PrintDialog、PageSetupDialog、PrintPreviewDialog など）からなる PrintDocument オブジェクトを操作する任意の .net コントロールまたは .net コンポーネントとともに使用できます。

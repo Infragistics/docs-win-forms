@@ -1,0 +1,38 @@
+﻿= WinZoomPanel の既知の問題と制限
+
+コントロールの一部にはズームの制限があります。制限及びその回避策は下記を参照してください。
+
+== 制限の一覧
+
+=== OS 描画のグリフ
+
+==== 制限:
+デフォルトでは、一部の UIElements の描画をオペレーティング システムに委任します。このような UIElements にはチェック ボックス グリフ、ドロップダウン ボタン、オプション ボタン グリフなどがあります。本フレームワークでは、OS テーマとして扱います。この要素の多くは OS によってハードコードされたサイズで描画されるため、拡大は不可能です。たとえば、チェック ボックス グリフはコントロール サイズに関係せずに常に 13x13 になります。したがって、コントロールの UIElements の一部はズームされません。
+
+==== 回避策:
+アプリケーションでズーム機能を使用する場合、OS テーマを使用しないことをお勧めします。これを実現する方法については、link:styling-removing-os-themes.html[OS テーマをアプリケーション全体から削除] を参照してください。
+
+
+=== 画像の拡大
+
+==== 制限:
+コントロールの UIElements の一部は画像を表示します。アセンブリ サイズを抑えるためにこの画像をできるだけ小さくしています。その反面、UIElement をズームすると画像がぼやけるというデメリットがあります。
+
+==== 回避策:
+唯一の回避策は UIElement に高解像度を設定することです。AppStylist で、または Appearance クラスの Image および ImageBackground プロパティで設定できます。UIElement の画像が appearance オブジェクトで変更できない場合、IUIElementDrawFilter インターフェイスを使用する選択肢もあります。
+
+=== 月カレンダー
+
+==== 制限:
+UltraDateTimeEditor がドロップダウンとして Microsoft MonthCalendar コントロールを使用します。この MonthCalendar の UIElements のサイズが既定されており変更できません。UltraDateTimeEditor は正しくテキストボックスを拡大しますが、ドロップダウンの部分は拡大できません。
+
+==== 回避策:
+UltraDateTimeEditor の代わりに UltraCalendarCombo を使用します。UltraCalendarCombo のカレンダーは Infragistics 作成のもので UIElements の描画を完全にコントロールします。すなわち、コントロールがズームされると正しく拡大されます。UltraCalendarCombo が埋め込みエディターであるため、他のコントロールに埋め込みされた場合でも UltraDateTimeEditor の代わりに使用できます。
+
+=== さまざまなコンテナー コントロールの子コントロール
+
+==== 制限:
+UltraZoomPanel 内のすべての Infragistics コンテナー コントロールが UIElements を拡大します。ただし、その子コントロールは拡大されません。
+
+==== 回避策:
+UltraZoomPanel をコンテナー コントロールの子コントロールとして追加し、拡大する子コントロールを UltraZoomPanel 内に追加することができます。たとえば、UltraTabControl を使用して特定のタブのコントロールをズームする場合、タブに UltraZoomPanel を追加して子コントロールを UltraZoomPanel に追加します。UltraPanel を使用してコントロールをズームする場合、UltraPanel を UltraZoomPanel に変更する必要があります。UltraZoomPanel が UltraPanel を継承するためズームの有効化のほかにアプリケーションは影響を受けません。コンテナー コントロールのため複数の UltraZoomPanel をアプリケーションで使用する場合、ZoomFactorChanged イベントで ZoomFactor を同期できます。

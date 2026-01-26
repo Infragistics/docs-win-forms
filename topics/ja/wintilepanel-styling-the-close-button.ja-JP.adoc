@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-styling-the-close-button",
+    "controlName": ["WinTilePanel"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{FFF0A1CF-55E7-4EAD-BEBF-09890DC31193}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 閉じるボタンのスタイリング
+
+閉じるボタンは、pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratile~settings.html[Tile.Settings]"]  および pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~tilesettings.html[UltraTilePanel.UltraTileSettings]"]  オブジェクトの両方で利用できる pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~closebuttonappearance.html[CloseButtonAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilesettings~closebuttonhottrackappearance.html[CloseButtonHotTrackAppearance]"]  プロパティを使用してスタイルすることができます。
+
+*Visual Basic の場合：*
+
+----
+  ' 特定のタイルの閉じるボタンを表示します
+    tile3.Settings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.[True]
+    tile4.Settings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.[True]
+  '特定のタイルで閉じるボタンの前景色を設定します
+    tile3.Settings.CloseButtonAppearance.ForeColor = Color.Red
+  ' すべてのタイルで閉じるボタンのホット トラックの外観を設定します
+    Me.ultraTilePanel1.TileSettings.CloseButtonHotTrackAppearance.BackColor =   Color. GreenYellow
+----
+
+*C# の場合：*
+
+----
+// 特定のタイルの閉じるボタンを表示します
+   tile3.Settings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.True;
+   tile4.Settings.ShowCloseButton = Infragistics.Win.DefaultableBoolean.True;
+//特定のタイルで閉じるボタンの前景色を設定します
+   tile3.Settings.CloseButtonAppearance.ForeColor = Color.Red;
+// すべてのタイルで閉じるボタンのホット トラックの外観を設定します
+  this.ultraTilePanel1.TileSettings.CloseButtonHotTrackAppearance.BackColor = Color. GreenYellow;
+----
+
+image::Images/WinTilePanel_Styling_the_Close_Button.png[]

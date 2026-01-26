@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-grouping-criteria",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Grids","How Do I"],
+    "guid": "{EE806A02-705D-4E4F-9D36-29171DBF6BC9}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= グループ化条件の構成
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[UltraGridColumn]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~groupbymode.html[GroupByMode]"]  プロパティを使用すると、列で見つかったデータの特定の面に基づいて WinGrid がグループ行を作成する方法を指定できます。たとえば、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~groupbymode.html[GroupByMode]"]  プロパティを 'FirstCharacter' に設定すれば、列内のすべての名前を、名前の先頭文字に基づいてグループ化できます。必要であれば、Columnまたは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~sortcomparisontype.html[SortComparisonType]"]  プロパティを 'CaseInsensitive' に設定することで、大文字小文字を区別せずにグループを作成できます。
+
+== GroupByMode プロパティにアクセスするには:
+
+[start=1]
+. WinGrid を右クリックして [UltraGrid デザイナ] を選択します。
+[start=2]
+. UltraWinGrid デザイナで [バンドおよび列の設定] ノードを展開し、バンドを展開して列を選択します。
+[start=3]
+. 列を選択したら、右側のペインで、GroupByMode プロパティが表示されるまで下にスクロールします。
+
+このプロパティは次の値のいずれかに設定できます。
+
+** *Default* - デフォルト モード。
+** *Date* - 列のセルで見つかった DateTime 値の日付部分に基づいてグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+** *FirstCharacter* - セル テキストの先頭文字に基づいてグループを作成します。このオプションは、列のデータ型が String の場合に使用します。
+** *First2Character* - セル テキストの先頭の 2 文字に基づいてグループを作成します。このオプションは、列のデータ型が String の場合に使用します。
+** *First3Character* - セル テキストの先頭の 3 文字に基づいてグループを作成します。このオプションは、列のデータ型が String の場合に使用します。
+** *First4Character* - セル テキストの先頭の 4 文字に基づいてグループを作成します。このオプションは、列のデータ型が String の場合に使用します。
+** *Hour* - 列のセルで見つかった DateTime 値の日付および時部分に基づいてグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+** *Minute* - 列のセルで見つかった DateTime 値の日付、時、および分部分に基づいてグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+** *Month* - 列のセルで見つかった DateTime 値の年および月部分に基づいてグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+** *OutlookDate* - Outlook 2003 での日付グループの作成方法と同じ方法でグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+** *Quarter* - セル値が属する年および四半期に基づいてグループを作成します。 このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  がSystem.DateTimeであることが必要です。
+** *Second* - 列のセルで見つかった DateTime 値の日付、時、分、および秒部分に基づいてグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+** *Text* - セルの値ではなくテキストに基づいてグループを作成します。
+** *Value* - セルのテキストではなく値に基づいてグループを作成します。デフォルトでは、各グループ行の説明にはセルのテキストが使用される点に注意してください。
+** *Year* - 列のセルで見つかった DateTime 値の年部分に基づいてグループを作成します。このモードが正しく機能するためには、列の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn~datatype.html[DataType]"]  が System.DateTime であることが必要です。
+
+以下にグループ化の例を示します。次のスクリーンショットはグループ化する前です。
+
+image::Images/WinGrid_GroupBy_Break_Behavior_01.png[]
+
+"First2Characters" GroupByMode を使用して "First Name" 列でグループ化すると、次のようになります。
+
+image::Images/WinGrid_GroupBy_Break_Behavior_02.png[]
+
+"OutlookDate" GroupByMode を使用して "Date Signed Up" 列でグループ化すると、次のようになります。
+
+image::Images/WinGrid_GroupBy_Break_Behavior_03.png[]

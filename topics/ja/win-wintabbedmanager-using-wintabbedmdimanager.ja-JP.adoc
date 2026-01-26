@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-wintabbedmanager-using-wintabbedmdimanager",
+    "controlName": ["WinTabbedMdiManager"],
+    "tags": [],
+    "guid": "{E6F15637-04E7-4DCE-9F8B-08ABE020037D}",  
+    "buildFlags": [],
+    "createdOn": "2007-07-11T15:41:00Z"
+}
+|metadata|
+////
+
+= WinTabbedMdiManager の使用
+
+このセクションには、WinTabbedMdiManager™ コンポーネントに関連する特定のタスクを実行する方法を紹介するタスク中心のトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wintabbedmdimanager-convert-an-exisiting-mdi-app-to-tabbed-mdi.html[既存の MDI アプリケーションをタブ付き MDI に変換する]
+* link:wintabbedmdimanager-create-a-custom-context-menu.html[カスタム コンテキスト メニューの作成]
+* link:wintabbedmdimanager-create-nested-tab-groups.html[ネストされたタブ グループの作成]
+* link:wintabbedmdimanager-creating-a-wintabbedmdimanager-interface.html[WinTabbedMdiManager インタフェースの作成]
+* link:wintabbedmdimanager-defining-the-orientaton-and-appearance-of-mdi-tabs.html[MDI タブの方向と外観の定義]
+* link:wintab-display-a-close-button-on-a-tab.html[タブに [閉じる] ボタンを表示]
+* link:wintabbedmdimanager-reposition-a-tab-within-tab-groups.html[タブ グループ内でのタブの位置変更]
+* link:wintabbedmdimanager-save-and-restore-tabbed-mdi-layout.html[タブ付き MDI レイアウトの保存と復元]

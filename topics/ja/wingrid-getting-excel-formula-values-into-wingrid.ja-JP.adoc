@@ -1,0 +1,245 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-getting-excel-formula-values-into-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Application Scenarios","Data Presentation","Grids"],
+    "guid": "{612831F4-D0D1-439E-957A-D0567CBCBDF7}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid に Excel 数式の値を入れる
+
+*始める前に*
+
+WinGrid™ に Excel ファイルをインポートしたい場合があります。データだけでなく Excel 数式で計算される列を含む Excel ワークシートを検討します。このトピックは、Excel 数式の計算値を WinGrid に取得する方法を示します。Excel 数式の逆シリアル化機能のおかげで、結果の数式値を取得できます。
+
+*達成すること*
+
+この詳細なガイドで、Excel ワークシートからデータを動的に作成した DataTable にインポートし、それを WinGrid にバインドします。
+
+*以下の手順を実行します。*
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/Imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前をタイプする必要がなくなります。このコード例には、Infragistics.Documents.Excel および Infragistics.Win.UltraWinGrid dlls が必要です。
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Imports Infragistics.Documents.Excel
+Imports Infragistics.Win.UltraWinGrid
+Imports System.IO
+----
+
+*C# の場合:*
+[source,csharp]
+----
+using Infragistics.Documents.Excel;
+using Infragistics.Win.UltraWinGrid;
+using System.IO;
+----
+
+[start=2]
+. Visual Studio® ツールボックスから UltraGrid コントロールをフォームに追加します。
+[start=3]
+. EMPLOYEE_METRICS.xls という名前の Excel ファイルをプロジェクトに追加します。GRAND_TOTAL 列には、SALES 列と FREQUENCY 列を掛ける数式が含まれます。これは Excel ファイル スキーマで、データは以下のように見えます：
+
+[cols="a,a,a,a"]
+|====
+|NAME
+|SALES
+|FREQUENCY
+|GRAND_TOTAL
+
+|Tom
+|456
+|2
+|912
+
+|Joe
+|443
+|1
+|443
+
+|Maria
+|323
+|2
+|646
+
+|Ken
+|456
+|3
+|1368
+
+|John
+|227
+|2
+|454
+
+|Reese
+|998
+|4
+|3992
+
+|====
+
+[start=4]
+. Button コントロールをフォームに追加します。これはインポート アクションを開始するために使用されます。Button コントロールをダブルクリックし、そのクリック イベント ハンドラ内に以下のコードを配置します：
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Dim theFile As String = Application.StartupPath + "\EMPLOYEE_METRICS.xls"
+        If File.Exists(theFile) Then
+            'Excel ファイルをワークブック オブジェクトにロードします 
+            Dim theWorkbook As Workbook = Workbook.Load(theFile)
+            'ワークブックの最初のワークシートだけで作業します 
+            Dim theWorksheet As Worksheet = theWorkbook.Worksheets(0)
+            'Excel データをこの DataTable に配置します 
+            Dim theEmployeeData As New DataTable("Employee_Data")
+            Dim theRowCounter As Integer = 0
+            Dim theCellCounter As Integer = 0
+            'すべてのワークシート行で反復します 
+            For Each theWorksheetRow As WorksheetRow In theWorksheet.Rows
+                If theRowCounter = 0 Then
+                    'これはヘッダー行ですExcel ワークシートの最初の行がデータ モデルとなる 
+                    'スキーマを含むと想定します 
+                    'DataTable のスキーマを作成するためにこの情報を使用します 
+                    For Each theWorksheetCell As WorksheetCell In theWorksheetRow.Cells
+                        Dim theCellValue As String = theWorksheetCell.Value.ToString().Trim()
+                        If theCellValue <> String.Empty Then
+                            'これはヘッダー行です 
+                            '最初のワークシート行から取得した各列に DataColumn を作成します 
+                            Dim theDataColumn As DataColumn = theEmployeeData.Columns.Add()
+                            'これはヘッダー行であるので、列名として 
+                            'セル値を使用します 
+                            theDataColumn.ColumnName = theCellValue
+                            '実際のデータ行（ヘッダー行の下の行）をスキップし 
+                            'データ列のデータ タイプをワークシートの実際のデータ行の対応するセルに存在する 
+                            'タイプに設定します 
+                            theDataColumn.DataType = theWorksheet.Rows(theRowCounter + 1).Cells(theCellCounter).Value.[GetType]()
+                        Else
+                            'すべての空のワークシート セルをトラバースしないように 
+                            'ループを終了します 
+                            Exit For
+                        End If
+                        theCellCounter += 1
+                    Next
+                Else
+                    'これはデータ モデルを移植する実際のデータです 
+                    theCellCounter = 0
+                    '新しい空のデータ行をデータ モデルに追加します 
+                    Dim theDataRow As DataRow = theEmployeeData.NewRow()
+                    'それぞれの現在のワークシート セルで反復し、新しいデータ行を移植します 
+                    For Each theWorksheetCell As WorksheetCell In theWorksheetRow.Cells
+                        Dim theValue As Object = theWorksheet.Rows(theRowCounter).Cells(theCellCounter).Value
+                        If theValue IsNot Nothing Then
+                            theDataRow(theCellCounter) = theValue
+                        Else
+                            'すべての空のワークシート セルをトラバースしないように 
+                            'ループを終了します 
+                            Exit For
+                        End If
+                        theCellCounter += 1
+                    Next
+                    'データ行を DataTable に追加します 
+                    theEmployeeData.Rows.Add(theDataRow)
+                End If
+                theRowCounter += 1
+            Next
+            'これらが新しい行として表示されないように変更を受け付けます 
+            theEmployeeData.AcceptChanges()
+            '最後に、WinGrid を DataTable にバインドします 
+            Me.UltraGrid1.DataSource = theEmployeeData
+        End If
+----
+
+*C# の場合:*
+[source,csharp]
+----
+string theFile = Application.StartupPath + @"\EMPLOYEE_METRICS.xls";
+            if (File.Exists(theFile))
+            {
+                //Excel ファイルをワークブック オブジェクトにロードします
+                Workbook theWorkbook = Workbook.Load(theFile);
+                //ワークブックの最初のワークシートだけで作業します
+                Worksheet theWorksheet = theWorkbook.Worksheets[0];
+                //Excel データをこの DataTable に配置します
+                DataTable theEmployeeData = new DataTable("Employee_Data");
+                int theRowCounter = 0; 
+                int theCellCounter = 0;
+                //すべてのワークシート行で反復します
+                foreach (WorksheetRow theWorksheetRow in theWorksheet.Rows)
+                {                    
+                    if (theRowCounter == 0) 
+                    {
+                        //これはヘッダー行ですExcel ワークシートの最初の行がデータ モデルとなる 
+                        //スキーマを含むと想定します 
+                        //DataTable のスキーマを作成するためにこの情報を使用します
+                        foreach (WorksheetCell theWorksheetCell in theWorksheetRow.Cells)
+                        {
+                            string theCellValue = theWorksheetCell.Value.ToString().Trim();
+                            if (theCellValue != string.Empty)
+                            {
+                                //これはヘッダー行です
+                                //最初のワークシート行から取得した各列に DataColumn を作成します
+                                DataColumn theDataColumn = theEmployeeData.Columns.Add();
+                                //これはヘッダー行であるので、列名として
+                                //セル値を使用します
+                                theDataColumn.ColumnName = theCellValue;
+                                //実際のデータ行（ヘッダー行の下の行）をスキップし
+                                //データ列のデータ タイプをワークシートの実際のデータ行の対応するセルに存在する
+                                //タイプに設定します
+                                theDataColumn.DataType = 
+                                    theWorksheet.Rows[theRowCounter + 1].Cells[theCellCounter].Value.GetType();
+                            }
+                            else
+                            {
+                                break; 
+                                //すべての空のワークシート セルをトラバースしないように
+                                //ループを終了します
+                            }
+                            theCellCounter++;
+                        }
+                    }
+                    else
+                        //これはデータ モデルを移植する実際のデータです
+                    {
+                        theCellCounter = 0;
+                        //新しい空のデータ行をデータ モデルに追加します        
+                        DataRow theDataRow = theEmployeeData.NewRow();
+                        //それぞれの現在のワークシートで反復し、新しいデータ行を移植します
+                        foreach (WorksheetCell theWorksheetCell in theWorksheetRow.Cells)
+                        {
+                            object theValue = theWorksheet.Rows[theRowCounter].Cells[theCellCounter].Value;
+                            if (theValue != null)
+                            {
+                                theDataRow[theCellCounter] = theValue;                                
+                            }
+                            else
+                            {
+                                break;
+                                //すべての空のワークシート セルをトラバースしないように
+                                //ループを終了します
+                            }
+                            theCellCounter++;                        
+                        }
+                        //データ行を DataTable に追加します
+                        theEmployeeData.Rows.Add(theDataRow);                            
+                    }
+                    theRowCounter++;
+                }
+                //これらが新しい行として表示されないように変更を受け付けます
+                theEmployeeData.AcceptChanges();
+                //最後に、WinGrid を DataTable にバインドします
+                this.ultraGrid1.DataSource = theEmployeeData;
+            }
+----
+
+[start=5]
+. アプリケーションを実行します。インポート アクションを開始するボタンをクリックします。以下は Excel ワークシートからロードされたデータにバインドされた WinGrid コントロールの画像です。色が付いた列は、実際の値が抽出されたワークシートの計算列を表します。
+
+image::Images/Getting_Excel_Formula_Values_into_WinGrid.png[UltraGrid に Excel 数式の値を入れる]

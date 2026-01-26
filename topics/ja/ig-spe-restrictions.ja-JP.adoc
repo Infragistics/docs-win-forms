@@ -1,0 +1,174 @@
+﻿////
+|metadata|
+{
+    "name": "ig-spe-restrictions",
+    "controlName": [],
+    "tags": [],
+    "guid": "b8631e05-a07b-47dd-9e22-234765d4f7cd",
+    "buildFlags": [],
+    "createdOn": "2013-06-13T18:57:35.0328482Z"
+}
+|metadata|
+////
+
+= 制約
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、文章校正の定義に関する制限を説明します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-syntax-parsing-engine-overview.html[Syntax Parsing Engine の概要]
+|このトピックは、Syntax Parsing Engine の概要を示します。
+
+| link:ig-spe-grammar-overview.html[文書校正の概要]
+|このトピックは、Syntax Parsing Engine の文章校正の概要を示します。
+
+| link:ig-spe-grammar-analysis.html[文章校正の解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う文章校正解析について説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref349293395, 概要 >>
+* <<_Ref349293354, 開始記号が設定されていない >>
+* <<_Ref349293359, レクサー状態に定義されている記号がない >>
+* <<_Ref349293363, 非終端記号として定義されているルールがない >>
+* <<_Ref349293371, 非終端記号のルールが無効 >>
+* <<_Ref349293375, 文章校正の開始記号が導出できない >>
+* <<_Ref349293380, 関連コンテンツ >>
+
+[[_Ref349293395]]
+== 概要
+
+=== 概要のサマリー
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar.html[Grammar] インスタンスが完了し字句構文アナライザーを生成するために使用される場合、有効な状態である必要があります。特定のものは許可されません。これは、論理矛盾であるか、アナライザーを作成するために必要な十分な情報が欠如しているためです。`文章校正`を不正にする条件を示します。
+
+[[_Ref349293354]]
+== 開始記号が設定されていない
+
+[[_Ref349221033]]
+
+=== 制限のサマリー
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~startsymbol.html[StartSymbol] が設定されていません。開始記号が指定されていないと、Syntax Parsing Engine にはどの非終端記号が構文ツリーのルートとなるべきなのかが分かりません。
+
+注:
+
+[NOTE]
+====
+これは link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~supportsparsing.html[Grammar.SupportsParsing] が True の時に限って適用されます。
+====
+
+[[_Ref349293359]]
+== レクサー状態に定義されている記号がない
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.lexerstate~symbols.html[LexerState.Symbols] コレクションが空であるとさほど有用ではありません。レクサー状態にある端末記号がないと、 link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~unrecognizedsymbol.html[Grammar.UnrecognizedSymbol] に関連づけられるトークンしか作成できず終了できません。したがって、各レクサー状態には 1 つ以上の終端記号を含める必要があります。
+
+[[_Ref349293363]]
+== 非終端記号として定義されているルールがない
+
+link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.nonterminalsymbol~rule.html[NonTerminalSymbol.Rule] が `null`。すべての非終端記号は、1 つ以上の生産を持つ必要があります。このためルール ツリー内に 1 つ以上のルールが必要です。非終端記号に一致するものがない場合 (Visual Basic で引数が省略される、等)、`Rule` は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.emptysyntaxrule.html[EmptySyntaxRule] のインスタンスに設定しなければなりません。
+
+[[_Ref349293371]]
+== 非終端記号のルールが無効
+
+=== 制限の概要
+
+非終端記号のルール ツリーにおけるルールは、以下のいずれかの条件に基づいて無効です。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.alternationsyntaxrule.html[AlternationSyntaxRule] または link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.concatenationsyntaxrule.html[ConcatenationSyntaxRule] は 2 つの子ルールより少なくなります。これらのルールは複数のルールを含むことを意味します。オルタナティブ ルールおよび複数のルールに使用しなければならない多くのオプションのうちの 1 つは、連結ルールのために連結しなければなりません。これらのルールにゼロまたは 1 つの子ルールを含めるという意味ではありません。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.exceptionsyntaxrule.html[ExceptionSyntaxRule] は、`null` の link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.exceptionsyntaxrule~exception.html[Exception] プロパティまたは link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.syntaxruleownerbase~rule.html[Rule] プロパティがあります。
+* `ExceptionSyntaxRule.Exception` プロパティは、1 つ以上の再帰定義記号を含めるルール ツリーです。再帰は構文例外では許可されません。これには、繰り返し記号 (再帰的に定義された生産が内部に必要) が含まれます。このため、以下の生産は文章校正上は無効です。
+
+RestrictedBlock → Block-{Statement}
+
+この偽生産はマイナス記号「－」を使用して構文例外を示し、大括弧は繰り返しを示します。
+
+* `ExceptionSyntaxRule` には、`Rule` から何も許可しない `Exception` があります。たとえばこの生産では、
+
+Nothing → Statement-Statement
+
+基本的に述べているのは「ステートメント」が「ステートメント」でない限り「ステートメント」になることができるものはない、ということです。これは論理的に矛盾しています。何もないものをドキュメント内に見つけることはできないためです。この種の直接的な矛盾は、おそらく偶発的や故意なものではなく無意識に矛盾が作成された可能性があります。より複雑な矛盾の例があります。
+
+Letter → a|b|c|…|z
+
+AThruM → a|b|c|…|m
+
+NThruZ → n|o|p|…|z
+
+RestrictedLetter → Letter-(AThruM|NThruZ)
+
+「RestrictedLetter」には矛盾があり文章校正が無効になります。
+
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.factorsyntaxrule.html[FactorSyntaxRule] には `null` `Rule` プロパティがあります。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.optionalsyntaxrule.html[OptionalSyntaxRule] には `null` `Rule` プロパティがあります。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.repetitionsyntaxrule.html[RepetitionSyntaxRule] には `null` `Rule` プロパティがあります。
+* link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.symbolreferencesyntaxrule.html[SymbolReferenceSyntaxRule] には、文章校正に属さない記号があります。
+* `SymbolReferenceSyntaxRule` は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~endofstreamsymbol.html[Grammar.EndOfStreamSymbol] を参照し、所有する非終端記号は link:{ApiPlatform}documents.textdocument{ApiVersion}~infragistics.documents.parsing.grammar~startsymbol.html[Grammar.StartSymbol] ではありません。開始記号のみがドキュメントの終わりを示す記号を期待します。別の記号がその生産のいずれかで使用するのは意味をなしません。定義ではドキュメントの内側のどこかであるためです。開始記号の使用方法に対する制限さえあります。開始記号は、以下のフォームの 1 つの生産のみである場合にストリーム記号の終わりを参照するのみです。
+
+StartSymbol → SomeOtherNonTerminalSymbol EndOfStreamSymbol
+
+複数の生産がある、本文内に 2 つ以上の記号がある、その生産本文に自身を参照している、または本文内で `EndOfStreamSymbol` が最初になる必要がある場合、ルールも文章校正も無効になります。文章校正ライターがその開始記号を 2 つ以上の記号を参照する、再帰を使用する、または複数の生産を持つ場合、EndOfStreamSymbol を参照しなければ簡単に行うことができます。
+
+StartSymbol →
+
+StartSymbol → Symbol1 StartSymbol Symbol2
+
+そして内部的に文章校正はこのように「解決された」開始記号を作成します。
+
+ResolvedStartSymbol → StartSymbol EndOfStreamSymbol
+
+* `SymbolReferenceSyntaxRule` は文章校正のための解決済み開始記号を参照します。文章校正ライターが開始記号を整えて成形するよう指定する場合、つまり `EndOfStreamSymbol` が後に続く別の非終端記号への参照を求める単一の `ConcatenationSyntaxRule` を所有する場合、Syntax Parsing Engine は文章校正用に解決済み開始記号を作成しません。これらの開始記号は解決済み開始記号として使用されます。その場合、その生産本文に開始記号を参照できる非終端記号は他にありません。解決済み開始記号は、直接的または間接的に再帰定義の一部となることはありません。
+
+[[_Ref349293375]]
+== 文章校正の開始記号が導出できない
+
+=== 制限のサマリー
+
+ドキュメントの構文を解析するための 1 つの方法は、開始記号を字句アナライザーからトークンのシーケンスに対応する終端記号のシーケンスに導出することです。導出は開始記号で始まり、各非終端記号がその生産本文のいずれかによって置換されるステップのセットです。新しいシーケンスでは、ヘッドのあった場所に生産本文を置き、非終端記号がまだ存在する場合は、残っているのが終端記号のみになるまで生産本文で置換します。完全に導出できない開始記号を定義する可能性があり、導出手順シーケンスはそのため無限です。以下のクラスを検討します。
+
+StartSymbol → GroupedContent
+
+GroupedContent → (Parens | Brackets)
+
+Parens → OpenParenToken GroupedContent CloseParenToken
+
+Brackets → OpenBracketToken GroupedContent CloseBracketToken
+
+開始記号が終端記号のみのシーケンスに導出するようにする方法はありません。「Parens」または「Brackets」非終端記号を代用するたびに別の「GroupedContent」の非終端記号が記号シーケンスに残ります。
+
+[[_Ref349293380]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:ig-spe-lexical-analysis.html[字句解析]
+|このグループのトピックでは、Syntax Parsing Engine が行う字句解析について説明します。
+
+| link:ig-spe-syntax-analysis-overview.html[構文解析の概要]
+|このグループのトピックでは、Syntax Parsing Engine が行う構文解析について説明します。
+
+| link:ig-spe-ambiguities.html[あいまいさ]
+|このトピックでは、ドキュメントの解析中に発生しうる曖昧さおよびその取扱方法について説明します。
+
+|====

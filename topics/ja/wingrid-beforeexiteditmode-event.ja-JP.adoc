@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-beforeexiteditmode-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{5600E931-AAD9-479F-934A-5E6C65D2F28C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= BeforeExitEditMode イベント
+
+ユーザーが WinGrid™ Cell でデータを編集している時やその他の Form 要素で Tabbing または Clicking の動作によってセルがフォーカスを失う時は必ず、Cell は編集モードを終了します。BeforeExitEditMode イベントはこれが生じる直前に発生するので、特定の条件をテストすることが可能となり、普通に終了したり、特定の条件を満たさない場合はキャンセルすることができます。このイベント内のグリッドの ActiveCell について注意すべき重要な点は、このセルないに現在どのような変更された値があろうとも、それは Cell.Value プロパティに伝えられていないということです。これは Cell.Text プロパティでのみ使用できます。つまり、空のセルをクリックして “HelloEと入力しても、Cell.Value は null または Nothing になります。Cell.Text プロパティは "Hello" に設定されたものです。セルから離れることにより編集モードを終了し、Cell.Value を生成します。これは、どの値がアクティブ Cell にあるかを確認するテストをする場合、このイベントを使用する際に理解すべき重要な事柄です。ブール値、整数および日付時刻などのその他のデータ タイプをテストする場合、Cell.Text プロパティを正しいデータ タイプに解析してテストを実行できます。つまり、現在編集およびテストされているセルがブール値で、Column.Style が CheckBox に設定されている場合、Cell.Text を Boolean に解析してテストを実行できます。以下のコード例は、兄弟セル "BaseValue" に入力された値が現在のセル "Bonus" よりも大きい場合に現在のセルに残すようにエンド ユーザーに強制する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_BeforeExitEditMode( _
+   ByVal sender As System.Object, _
+   ByVal e As BeforeExitEditModeEventArgs) _
+   Handles UltraGrid1.BeforeExitEditMode
+   If Me.UltraGrid1.ActiveCell Is Nothing Then Return
+   'Perform this action only on the "Bonus" column:
+   If Me.UltraGrid1.ActiveCell.Column.Key <> "Bonus" Then Return
+   'Make sure that a value exists
+   If Me.UltraGrid1.ActiveCell.Text Is Nothing OrElse _
+      Me.UltraGrid1.ActiveCell.Text = String.Empty Then Return
+   Dim currentValue As Integer = _
+      Integer.Parse(Me.UltraGrid1.ActiveCell.Text)
+   Dim baseValue As Integer = _
+      CType(Me.UltraGrid1.ActiveCell.Row.Cells("BaseValue").Value, Integer)
+   If currentValue < baseValue Then
+      Me.lblError.Text = "Current Value cannot be less than Base Value"
+      e.Cancel = True
+   End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_BeforeExitEditMode(
+   object sender, BeforeExitEditModeEventArgs e)
+{
+   if (this.ultraGrid1.ActiveCell == null) return;
+   //Perform this action only on the "Bonus" column:
+   if (this.ultraGrid1.ActiveCell.Column.Key != "Bonus") return;
+   //Make sure that a value exists
+   if (this.ultraGrid1.ActiveCell.Text == null 
+      || (this.ultraGrid1.ActiveCell.Text == string.Empty))return;
+   int currentValue = 
+      int.Parse(this.ultraGrid1.ActiveCell.Text);
+   int baseValue = 
+      (int)this.ultraGrid1.ActiveCell.Row.Cells["BaseValue"].Value;
+   if (currentValue < baseValue)
+   {
+      this.lblError.Text = 
+         "Current Value cannot be less than Base Value";
+      e.Cancel = true;
+   }            
+}
+----
+
+このように、これらのイベントを理解すれば、読み取りと維持が非常に簡単なコード ベースで任意の種類のプログラミング ロジックを素早くまたタイムリーに再作成する必要があるツールをユーザーに提供できます。

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": [],
+    "guid": "{700317AC-5AEB-48A2-9F58-E966861815CE}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFormattedLinkLabel
+
+WinFormattedLinkLabel コントロールに関連する概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションには、このコンポーネントの機能やアプリケーションでこれを使いたくなる理由から、このコントロールを使って共通タスクを実行する際のステップごとの手順に至るまで、WinFormattedLinkLabel に関する貴重な情報が含まれています。
+
+以下のリンクをクリックすると、WinFormattedLinkLabel コントロールに関する重要な説明を読むことができます。
+
+== link:winformattedlinklabel-understanding-winformattedlinklabel.html[WinFormattedLinkLabel の理解]
+
+このセクションの説明を読むと、WinFormattedLinkLabel コントロールの機能性と、それをアプリケーションに使用することの利点についてよく理解できます。
+
+== link:win-winformattedlinklabel-using-winformattedlinklabel.html[WinFormattedLinkLabel の使用]
+
+このセクションは、WinFormattedLinkLabel コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:winformattedlinklabel-api-overview.html[API 概要]
+
+このトピックは、WinFormattedLinkLabel コントロールでプログラミング中に作業する名前空間とクラスをリストします。本トピックでリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」にリンクしています。

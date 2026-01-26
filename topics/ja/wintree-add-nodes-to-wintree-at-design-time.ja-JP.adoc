@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-add-nodes-to-wintree-at-design-time",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{61F5AB48-D1A8-4AC1-A562-C163ED72FB44}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムにノードを WinTree に追加する
+
+このトピックは、デザインタイムで作成したノードを使用して WinForm 上の WinTree コントロールで起動および実行することを意図しています。
+
+[start=1]
+. Visual Basic または C# Windows Application を新しく作成します。 
+[start=2]
+. Windows アプリケーション プロジェクトがひとつの Windows Formsが表示可能な状態で表示されます。ツールボックスで UltraTree コントロールを選択し、フォームにコントロールを描画します。
+[start=3]
+. この時点で、ソリューション エクスプローラ ウィンドウの「参照設定」セクションに Infragistics.Shared、 Infragistics.Win、および Infragistics.Win.UltraWinTree への参照が追加されていることを確認してください。
+[start=4]
+. フォーム上の UltraTree を選択します。プロパティ グリッドで、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~nodes.html[Nodes]"]  プロパティをクリックします。
+
+表示される省略ボタンをクリックします。
+
+[UltraWinTree ノード エディタ] ダイアログが表示されます。
+[start=5]
+. [ルートを追加] ボタンをクリックします。
+[start=6]
+. 選択されたノードのラベル テキストボックスをクリックします。
+[start=7]
+. 新しいルート ノードのテキストを入力します。
+[start=8]
+. ノード プロパティ グリッドで、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~key.html[Key]"]  を含むノードの多くのプロパティを設定できます。
+[start=9]
+. ［ルートを追加］ をクリックしてルート ノードをもうひとつ追加します。
+[start=10]
+. 各ノードに希望する数のノードを追加してプロパティを設定できます。
+[start=11]
+. ミスをしてノードを削除したい場合には、ノードをクリックして ［削除］ をクリックします。
+[start=12]
+. [OK] をクリックして変更を保存し、ノード エディタを終了します。

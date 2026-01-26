@@ -1,0 +1,96 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-select-an-appearance-style",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Styling"],
+    "guid": "{199151CE-695B-4EF1-85C2-A751F7D4AB09}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 外観スタイルの選択
+
+WinExplorerBar はさまざまな外観を装うことができるため、どのようなスタイルのアプリケーションにも容易に適合し、さらにどのような環境にも配置できます。コントロールの外観の実装方法には、デザインタイムに設定する方法とランタイムに変更する方法があります。前者の場合は、どのような状況でもアプリケーションに標準の外観が適用されます。後者の場合は、アプリケーションが実行されるオペレーティング システムなど、外部の要因に合わせてコントロールの外観を変更できます。
+
+このトピックでは、コントロールの外観をランタイムに変更する方法について説明します。ただし、ここで説明するプロパティは、デザインタイムにあらかじめ設定する場合にも使用できます。UltraExplorerBar デザイナでは、整理されたインタラクティブなインタフェースによってさまざまな書式や動作の設定を適用できます。UltraExplorerBar デザイナを起動するには、開発環境でコントロールのコンテキスト メニューを使用するか、またはコントロールのプロパティ シートの下部にあるリンクをクリックします。詳細については、 link:winexplorerbar-add-groups-and-items-at-design-time.html[「デザインタイムにグループと項目を追加」]を参照してください。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+[start=2]
+. *Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinExplorerBar
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinExplorerBar;
+----
+
+[start=3]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~style.html[Style]"]  プロパティ - UltraWinExplorerBar コントロールの Style プロパティは、エレメントの全体的な動作モードを決定します。使用可能な選択肢は次のとおりです。
+
+** *ExplorerBar* - このスタイルは Windows XP の ExplorerBar と同じ機能を提供します。グループは単独で展開または縮小され、一度に複数のグループを展開できます。また、すべてのグループを一度に縮小することも可能です。各グループはそのすべての項目を表示するのに必要なスペースを使用します。エレメントのクライアント領域に、展開された全グループのすべての項目を表示できるだけのスペースがない場合は、エレメントのコンテンツ全体をスクロールするスクロールバーが表示されます。
+** *ListBar* - このスタイルを適用すると、エレメントは Microsoft Outlook の Outlook バーと同じように、または前バージョンの Infragistics ListBar エレメントと同じおうに動作します。常にひとつのグループが表示され、他のグループはアクティブなグループの上下に縮小されます。展開されたグループの項目は固定領域に表示され、この領域に収まらないほど多くの項目がある場合は、展開されたグループの内容のみをスクロールするスクロールボタンが表示されます。
+** *Toolbox* - このスタイルを使用すると、Visual Studio.NET のツールボックスの機能が再現されます。このスタイルは ListBar スタイルに似ていますが、スクロールボタンがクライアント領域ではなくグループのヘッダ領域に表示される点が異なります。また、Toolbox スタイルを使用すると、各 Item オブジェクトのデフォルトの Style プロパティが Button から State Button に変わります。その他の点では、常にひとつのグループが表示されるなど、ListBar スタイルとまったく同じように動作します。
+** *OutlookNavigationPane* - このスタイルを使用すると、Outlook 2003 の NavigationPane の機能が再現されます。このスタイルは Listbar と似たコントロールと、Group ヘッダばかりではなくサイズ変更のできる Current Group、また他の Groups の選択を可能にするボタンのオーバーフロー領域を組み合わせたものです。ユーザーは [ナビゲーション ペイン オプション] ダイアログをランタイムに（また開発者はデザインタイムに）表示して、Groups の順序と表示を変更することができます。
+** *VisualStudio2005Toolbox* - このスタイルを使用することにより、Visual Studio 2005 の Toolbox に似たルック アンド フィールをコントロールに与えます。このスタイルを使用すると、コントロールは特定のグループの項目をスクロールするの代わりにすべてのグループをスクロールします。グループは展開インジケータを使用するか、単にグループ ヘッダをクリックすることにより展開/縮小することができます。このスタイルを使用すると、同時に複数のグループを展開できます。
+
+エレメントの Style プロパティには Toolbox 設定がありますが、これを設定するだけではグループの項目の外観はまったく変わらず、ツールボックス スタイルのインタフェースにはなりません。これを実行するためには、エレメント レベルだけでなく、グループ レベルでもプロパティを設定する必要があります。詳細については、 link:winexplorerbar-control-the-appearance-of-groups-and-items.html[「グループと項目の外観を制御」]を参照してください。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraExplorerBar1.Style = UltraExplorerBarStyle.OutlookNavigationPane
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.Style = UltraExplorerBarStyle.OutlookNavigationPane;
+----
+
+image::images/WinExplorerBar_Select_an_Appearance_Style_01.png[]
+
+[start=4]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~viewstyle.html[ViewStyle]"]  プロパティ - エレメントの ViewStyle プロパティは、表示されるインタフェースの外観を指定します。使用可能な選択肢は、XP、XP Explorer Bar、および Office 2000 です。
+
+** *XP* - この表示スタイルは、色のグラデーションと、幅のある陰影付きの境界線を使用してエレメントを書式設定することにより、Windows XP の外観をシミュレートします。また、システム上の他の UI エレメントの外観に合わせるため、システム カラーが使用されます。
+** *XP Explorer Bar* - この表示スタイルは、Windows XP の外観をエレメントに適用するという点で、XP 表示スタイルに似ています。ただし、このスタイルは Windows XP のテーマ機能を使用してエレメントを適切に書式設定します（この機能を使用するためにはテーマ サポートが使用できる必要があります）。
+** *Office 2000* - この表示スタイルは、Office または Windows 2000 に合わせたインタフェース スタイルを提供します。これは実質的には、見慣れた Windows "9X" インタフェースの拡張バージョンです。この表示スタイルもシステム カラーを使用します。
+** *Office 2003* - この表示スタイルは、Office 2003 スイートのアプリケーションのコントロールの外観をシュミレートします。
+** *Visual Studio 2005* - この表示スタイルは Visual Studio 2005 の Toolbox に合わせたインタフェース スタイルを提供します。
+** *Office 2007* - この表示スタイルは、Office 2007 スイートのアプリケーションのコントロールの外観をシュミレートします。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraExplorerBar1.ViewStyle = UltraExplorerBarViewStyle.Office2007
+----
+
+*C# の場合：*
+
+----
+this.ultraExplorerBar1.ViewStyle = UltraExplorerBarViewStyle.Office2007;
+----
+
+image::images/WinExplorerBar_Select_an_Appearance_Style_02.png[]
+
+[start=5]
+. *AcceptFocus* - このプロパティは、UltraWinExplorerBar が入力フォーカスを受け取るかどうかを指定します。一般に、ツールバーや Outlook Bar などのマウス専用のインタフェース エレメントは入力フォーカスを受け取りません。これらのエレメントをクリックしてもフォーカスを示す四角形は表示されず、現在の入力フォーカスも変わりません。これらはアプリケーションのコントロールのタブ オーダーに含まれておらず、キーボードによってアクセスできません。
+
+UltraWinExplorerBar の pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~acceptsfocus.html[AcceptsFocus]"]  プロパティは、エレメントがこの規則に従う、または入力フォーカスを受け取りフォーム上の他のコントロールを使用してタブ オーダーに加えるかのどちらかを指定します。AcceptFocus を True に設定した場合は、UltraWinExplorerBar の項目に対してキーボード ニーモニック（アクセラレータ キー）を使用することもできます。フォーカスを受け取るかどうかについては、エレメントの TabStop プロパティも関係します。このプロパティを False に設定すると、エレメントにタブ移動できなくなります。True に設定した場合、またはエレメントをクリックした場合は、AcceptFocus プロパティによって、エレメントがフォーカスを受け取るかどうかが決定されます。また、AcceptFocus を False に設定した場合、ニーモニック キーは機能しません。
+[start=6]
+.pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~groupspacing.html[GroupSpacing]"] *、*  pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~columncount.html[ColumnCount]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~columnspacing.html[ColumnSpacing]"]  - グループのコンテンツの外観を決定するプロパティのほとんどはグループ レベルで設定しますが、これら 3 つのコントロール レベルのプロパティも、グループとその項目の外観に大きな影響を与えます。これらの設定は、エレメントの Style が「Explorer Bar」の場合のみ適用されます。ListBar スタイルおよび Toolbox スタイルでは、グループの間に間隔はなく、グループは常に 1 列で表示されます。
+[start=7]
+. ** Group Spacing - グループ間の垂直方向の間隔を指定します。
+** ColumnCount - エレメントの幅の中で水平方向に表示するグループの数を指定します。
+** ColumnSpacing - 隣のグループとの間の水平方向の間隔を指定します。ColumnCount が 1 より大きい値に設定されている場合のみ適用されます。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~scrollbars.html[Scrollbars]"]  - デフォルトでは、必要に応じてエレメントにスクロールバーが表示されます。このプロパティを使用すると、必要でなくてもスクロールバーを表示したり（常に表示）、あるいは必要であっても表示しなかったり（常に非表示）できます。エレメントによって表示されるスクロール インタフェースのタイプは、エレメントの Style によって異なります。ExplorerBar スタイル コントロールでは、エレメント自体のクライアント領域に完全なスクロールバーが表示されます。ListBar スタイル エレメントでは、グループのクライアント領域内にスクロールボタンのみが表示されます。Toolbox スタイル エレメントでは、グループのヘッダ領域内にスクロールボタンのみが表示されます。
+** pick:[win-forms="link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~animationenabled.html[AnimationEnabled]"]  と link:{ApiPlatform}win.ultrawinexplorerbar{ApiVersion}~infragistics.win.ultrawinexplorerbar.ultraexplorerbar~animationspeed.html[ pick:[win-forms="AnimationSpeed"] ] - アニメーションは、グループのアクティブ状態が切り替わるときと、グループが展開するまたは縮小するときに使用されます。これら 2 つのプロパティはそれぞれ、アニメーションを使用するかどうかと、アニメーションの表示速度を決定します。アニメーション速度は「速い」、「中程度」、または「遅い」の中から選択できます。

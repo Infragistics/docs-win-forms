@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-styling-active-cell-row-selector-and-column-header-appearances",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","Styling"],
+    "guid": "{77658D6D-7778-4A82-AE0E-51FC295B68E8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブ セルの行セレクターと列ヘッダーの外観をスタイリング
+
+pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[UltraGridRow]"]  オブジェクトのアクティブな pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell.html[UltraGridcell]"]  の行セレクターおよび ColumnHeader の外観をスタイルできます。外観オブジェクトは、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activecellrowselectorappearance.html[ActiveCellRowSelectorAppearance]"]  および pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~activecellcolumnheaderappearance.html[ActiveCellColumnHeaderAppearance]"]  プロパティによって変更できます。これらのプロパティは、WinGrid コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragriddisplaylayout.html[DisplayLayout]"]  プロパティ、および各 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridband.html[UltraGridBand]"]  に存在する pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトで使用できます。
+
+*Visual Basic の場合：*
+
+----
+' アクティブ セルの行セレクターの外観スタイリングをグリッドの DisplayLayout から設定します 
+Me.ultraGrid1.DisplayLayout.Override.ActiveCellRowSelectorAppearance.BackColor = Color.Red 
+' アクティブ セルの行セレクターの外観スタイリングを各バンドの DisplayLayout から設定します 
+'this.ultraGrid1.DisplayLayout.Bands[0].Override.ActiveCellRowSelectorAppearance.BackColor = Color.Purple;
+----
+
+*C# の場合：*
+
+----
+// アクティブ セルの行セレクターの外観スタイリングをグリッドの DisplayLayout から設定します
+this.ultraGrid1.DisplayLayout.Override.ActiveCellRowSelectorAppearance.BackColor = Color.Red;
+// アクティブ セルの行セレクターの外観スタイリングを各バンドの DisplayLayout から設定します
+//this.ultraGrid1.DisplayLayout.Bands[0].Override.ActiveCellRowSelectorAppearance.BackColor = Color.Purple;
+----
+
+*アクティブ セルの行セレクター外観が赤に設定された WinGrid*
+
+image::Images/wingrid_styling_active_cell_row_selector_and_column_header_appearances_01.png[]
+
+*Visual Basic の場合：*
+
+----
+' アクティブ セルの列ヘッダーの外観スタイリングをグリッドの DisplayLayout から設定します 
+ Me.ultraGrid1.DisplayLayout.Override.ActiveCellColumnHeaderAppearance. ForeColor = Color.Blue
+' アクティブ セルの列ヘッダーの外観スタイリングを各バンドの DisplayLayout から設定します 
+'this.ultraGrid1.DisplayLayout.Bands[0].Override.ActiveCellColumnHeaderAppearance. ForeColor= Color.Blue;
+----
+
+*C# の場合：*
+
+----
+// アクティブ セルの列ヘッダーの外観スタイリングをグリッドの DisplayLayout から設定します
+this.ultraGrid1.DisplayLayout.Override.ActiveCellColumnHeaderAppearance. ForeColor = Color.Blue;
+// アクティブ セルの列ヘッダーの外観スタイリングを各バンドの DisplayLayout から設定します
+//this.ultraGrid1.DisplayLayout.Bands[0].Override.ActiveCellColumnHeaderAppearance. ForeColor= Color.Blue;
+----
+
+*アクティブ セルの列ヘッダーの外観が青に設定された WinGrid*
+
+image::Images/wingrid_styling_active_cell_row_selector_and_column_header_appearances_02.png[]

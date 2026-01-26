@@ -1,0 +1,79 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-searching-for-text-or-a-phrase-in-wingrid",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{3885A56D-6217-48FC-BD19-39707F209C17}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid でテキストまたはフレーズを検索
+
+このトピックは、WinGrid セルでテキストまたは語句を見つける方法を示します。WinGrid で特定のテキストを見つけるには、文字列が存在するかどうかを確認するために、各セルを反復しセル オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcell~text.html[Text]"]  プロパティをチェックすることが必要です。このトピックは文字列を使用します。チェックを実行するためのメソッドを含みます。より複雑な実装では、正規表現などのより高度なパターン マッチを使用することができます。アプリケーションにこのメソッドをコピー アンド ペーストして WinGrid でテキスト検索を追加することができます。
+
+*Visual Basic の場合：*
+
+----
+''' <summary> 
+    ''' 語句を検索します。 
+    ''' </summary> 
+    ''' <param name="grid">WinGrid 参照。</param> 
+    ''' <param name="s">検索したい文字列。</</param> 
+    Public Shared Sub FindPhrase(ByVal grid As UltraGrid, ByVal s As String)
+        For Each row As UltraGridRow In grid.Rows
+            For Each cell As UltraGridCell In row.Cells
+                If cell.Text.Contains(s) Then
+                    'セルを最初にアクティブ化する必要があります 
+                    cell.Activate()
+                    'セルは選択を実行するために編集モードでなければなりません 
+                    grid.PerformAction(UltraGridAction.EnterEditMode)
+                    '選択を開始します 
+                    cell.SelStart = cell.Text.IndexOf(s)
+                    'この長さでは 
+                    cell.SelLength = s.Length
+                    '見栄えのために、これを最初の表示可能な行にします 
+                    grid.DisplayLayout.RowScrollRegions(0).FirstRow = row
+                    Exit Sub
+                End If
+            Next
+        Next
+    End Sub
+----
+
+*C# の場合：*
+
+----
+/// <summary>
+        /// 語句を検索します。
+        /// </summary>
+        /// <param name="grid">WinGrid 参照。</param>
+        /// <param name="s">検索したい文字列。</</param>
+        public static void FindPhrase(UltraGrid grid, String s)
+        {
+                       foreach (UltraGridRow row in grid.Rows)
+            {
+                foreach (UltraGridCell cell in row.Cells)
+                {
+                    if (cell.Text.Contains(s))
+                    {
+                        //セルを最初にアクティブ化する必要があります
+                        cell.Activate();
+                        //セルは選択を実行するために編集モードでなければなりません
+                        grid.PerformAction(UltraGridAction.EnterEditMode);
+                        //選択を開始します
+                        cell.SelStart = cell.Text.IndexOf(s);
+                        //この長さでは
+                        cell.SelLength = s.Length;
+                        //見栄えのために、これを最初の表示可能な行にします
+                        grid.DisplayLayout.RowScrollRegions[0].FirstRow = row;
+                        return;
+                    }
+                }
+            }
+        }
+----

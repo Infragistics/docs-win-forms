@@ -1,0 +1,171 @@
+﻿////
+|metadata|
+{
+    "name": "coded-ui-test-extension-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "6982f6d8-2a9e-4818-8b26-fff4668e2804",
+    "buildFlags": [],
+    "createdOn": "2012-09-14T17:16:08.0976082Z"
+}
+|metadata|
+////
+
+= コード化された UI テストの拡張機能の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、コード化された UI テストの拡張子でサポートされるコントロールの一覧、システムの提供、および許可要件について説明します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:https://msdn.microsoft.com/ja-jp/library/dd286726.aspx[コード化された UI テストによるユーザーインターフェイスのテスト]
+|コード化された UI テストの MSDN トピック
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Introduction,はじめに>>
+* <<_Supported_Controls,サポートされるコントロール>>
+* <<_System_Requirements,システム要件>>
+* <<_Licensing_Requirements,ライセンス要件>>
+* <<_Related_Content,関連コンテンツ>>
+
+[[_Introduction]]
+== はじめに
+
+=== コード化された UI テストの拡張機能の概要
+
+Infragistics 2012.2 では、{ProductName} コントロールで Microsoft® コード化された UI テスト フレームワークでのオートメーション テストの記録および再生が可能です。コード化された UI テストの拡張子は、コード化された UI テストでデフォルトである Microsoft Active Accessibility (MSAA) ではなく、Infragistics コントロールの UI オートメーションを使用するよう指示するテクノロジー マネージャーです。
+
+サポートされるコントロール数は、以降のリリースとともに増加していきます。
+
+[[_Supported_Controls]]
+== サポートされるコントロール
+
+=== コード化された UI テストの記録/再生操作をサポートするコントロール
+
+コード化された UI テストの記録および再生操作は以下のコントロールをサポートします。
+
+* *WinButton*
+* *WinCheckEditor*
+* *WinCombo*
+* *WinComboEditor* $$* $$
+* *WinDateTimeEditor*
+* *WinDropDown*
+* *WinExplorerBar*
+* *WinFormattedLinkLabel*
+* *WinFormattedTextEditor*
+* *WinGrid* $$* $$
+* *WinMaskedEdit*
+* *WinOptionSet*
+* *WinPictureBox*
+* *WinProgressBar*
+* *WinScrollBar*
+* *WinStatusBar*
+* *WinTextEditor*
+* *WinTrackBar*
+* *WinTree*
+* *WinToolBarsManager*
+
+$$*$$ 以下のコントロールの機能はサポートされません。
+
+*WinGrid:* RowEditTemplates、UltraControlContainerEditor、コンボ/ドロップダウンの複数選択、および CustomFilterDialog.
+
+*WinComboEditor:* 複数選択
+
+[[_System_Requirements]]
+== システム要件
+
+=== 要件の概要表
+
+以下のテーブルは、コード化された UI テストの拡張子のシステム要件の要約です。
+
+[options="header", cols="a,a"]
+|====
+|要件|説明
+
+|$$.NET$$ Framework
+|バージョン 4
+
+|オペレーティング システム
+|
+* 最新 SP をインストールした Windows XP 
+
+* 最新 SP をインストールした Windows 7 
+
+* Windows 8.1 
+* Windows 10 
+
+|Visual Studio バージョン
+|以下の Premium および Ultimate エディション: 
+
+* Visual Studio 2010 SP1 
+
+* Visual Studio 2012 
+
+* Visual Studio 2013
+
+以下の Enterprise エディション:
+
+* Visual Studio 2015
+* Visual Studio 2017
+
+|Visual Studio ホット フィックス
+| link:http://hotfixv4.microsoft.com/Visual%20Studio%202010/sp1/DevDiv969820/40219.396/free/447923_intl_i386_zip.exe[コード化された UI テストのホットフィックス]
+
+|コード化された UI テストの拡張機能
+|
+* コード化された UI テストの拡張子アセンブリを以下の Coded UI に必要なフォルダーにあるコピーと一緒にグローバル アセンブリ キャッシュ (GAC) にインストールされています。 
+
+`C:\Program Files (x86)\Infragistics\2017.2\Windows Forms\Coded UI Test`  
+
+* 必要なアセンブリ: 
+
+`{ApiPlatform}Win.CodedUITest.UIA.<VS version>.v{ProductVersion}.dll`    
+
+* コード化された UI テストの拡張子のインストール バージョンがテストされている Infragistics コントロールのバージョンと一致する必要があります ( v{ProductVersion} など)。   
+
+* テストするアプリケーションが特定の Infragistics サービス リリースを使用している場合、予期される結果を得るためにはコード化された UI テストの拡張子の同じサービス リリース ビルドがテスト マシンに適用されている必要があります。開発マシンと同様テスト マシンでも同じサービス リリース パッチ インストーラを実行してください。  
+
+* コード化された UI テストの拡張子の複数バージョンを同じマシンで使用することができます。 
+
+|====
+
+[[_Installation_Requirements]]
+== インストール要件
+
+テスト オートメーション エンジニアは、Infragistics コントロールでアクションを記録して再生できるために、コード化された UI テスト拡張子をインストールする必要があります。
+
+
+.注: 
+[NOTE]
+テスト マシンに Infragistics コントロールをインストールする必要はありません。Infragistics インストーラには、 Infragistics ツール スイートをインストールせずに、コード化された UI テストの拡張子をインストールするオプションがあります。
+
+
+[[_Related_Content]]
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:using-the-coded-ui-test-extension.html[コード化された UI テストの拡張子の使用]
+|このトピックは、簡単な例を使用して Infragistics でコード化された UI テストの記録を説明します。
+
+|====

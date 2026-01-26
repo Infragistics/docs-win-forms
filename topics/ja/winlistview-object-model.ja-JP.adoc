@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "winlistview-object-model",
+    "controlName": ["WinListView"],
+    "tags": ["Patterns and Practices"],
+    "guid": "{62FD6FC8-B342-46C1-B8C6-DF57DE91F735}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinListView オブジェクト モデル
+
+Infragistics は、常に、一貫性のある、理解しやすいオブジェクト モデルを通じて機能性と柔軟性の向上に努力しています。WinListView は、これのみによって提供される非常に多数のプロパティが特定のひとつのビューと関連性を有するので、プロパティの構成について本来の ListView コントロールとは異なるアプローチを試みました。このコントロールは、さまざまなビューごとにひとつのオブジェクト プロパティを提供し、その個々のオブジェクト プロパティがそのビューのみに関する複数のプロパティを提供します。この構成方法により、オブジェクト モデルが明瞭となり、また、開発者が特定のビューで機能を切り替える方法を知りたいと考えるときに、そのビュー固有のプロパティに容易にアクセスできるので、構造を容易に把握できます。このビュー固有のオブジェクト プロパティには、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~viewsettingsicons.html[ViewSettingsIcons]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~viewsettingstiles.html[ViewSettingsTiles]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~viewsettingsthumbnails.html[ViewSettingsThumbnails]"] 、pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~viewsettingslist.html[ViewSettingsList]"] 、および pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~viewsettingsdetails.html[ViewSettingsDetails]"]  があり、これらのオブジェクト プロパティは、それぞれ View プロパティの「アイコン」、「タイル」、「サムネイル」、「リスト」、および「詳細」設定に対応しています。
+
+また、 WinListView での画像の表示方法についても、本来の ListView コントロールよりも使いやすさが向上しています。本来の ListView コントロールでは、画像の表示は ImageList を使用する方式でのみ実現されますが、WinListView では、このコントロールが提供するさまざまな pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistview~appearances.html[Appearances]"]  を通じて、ImageList にまったく依存せずに画像を表示する方法もサポートされています。さらに、本来の ListView コントロールでは SmallImageList プロパティと LargeImageList プロパティに基づいて画像を表示します（それぞれがコントロールでサポートされているビューごとの独自の方法に対応しています）が、WinListView ではビュー固有の設定オブジェクトごとに pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsettingsbase~imagelist.html[ImageList]"]  プロパティが提供されています。また、WinListView では pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsettingsbase~imagesize.html[ImageSize]"]  プロパティが提供されているので、個々のビューに表示される画像を容易に管理できます。
+
+WinListView は、本来の ListView コントロールから派生したコントロールだという点も重要な特長です。本来の ListView コントロールでは項目に自由なフォーマットのサブアイテムを追加できます（ListViewSubItemCollection の Add メソッドを使用して）が、WinListView では別の方式が採用されています。WinListView では SubItemColumns コレクションが提供されており（本来の ListViewのColumns コレクションに対応する）、このコレクションに pick:[win-forms="link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewsubitemcolumnscollection~add.html[Add]"]  メソッドを使用してメンバを追加できます。このコレクションにメンバを追加すると、項目のSubItemsコレクションに自動的にその列の項目が追加され、この項目には UltraGridRow の pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.cellscollection.html[Cells]"]  コレクションか UltraTreeNode の pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.treenodescollection.html[Nodes]"]  コレクションと同じインデックス作成メソッドを通じてアクセスすることができます。開発者は、関連するサブアイテムを参照するためにその列に提供されているキーと同じキーを使用できます。この方式は、一般的に受容されている .Net のプログラミング プラクティスとの整合性が高く、サブアイテムの管理も一貫性があって分かりやすくなります。

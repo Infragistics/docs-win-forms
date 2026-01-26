@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-filters",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A0F40C56-2A70-40BB-9D73-2D00103C77F8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フィルター
+
+プレゼンテーション層フレームワーク™（PLF）では、Windows Formsコントロールの link:win-uielements.html[UIElement]を高度な柔軟性をもってカスタマイズするためのフィルターが提供されています。次のリンクをクリックすると、さまざまな PLF フィルターについての説明を読み、簡単なコード スニペットの例を見ることができます。
+
+* link:win-draw-filter.html[描画フィルター] -- コントロールの 1 つ以上の UIElement の描画をカスタマイズするための IUIElementDrawFilter インタフェースについて説明しています。
+* link:win-creation-filter.html[作成フィルター] -- UIElement のサイズと位置、またはそのいずれかのカスタマイズや、コントロールの 1 つまたは複数の UIElement を追加、削除に使用する IUIElementCreationFilter インタフェースについて説明しています。
+* link:win-cursor-filter.html[カーソル フィルター] -- UIElement のカーソルをカスタマイズするための IUIElementCursorFilter インタフェースについて説明しています。
+* link:win-selection-strategy-filter.html[選択方式フィルター] -- UIElement（セル）の選択方式をカスタマイズするための ISelectionStrategyFilter インタフェースについて説明しています。

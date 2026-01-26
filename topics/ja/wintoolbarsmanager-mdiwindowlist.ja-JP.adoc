@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-mdiwindowlist",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{7F7F05AF-F7E6-4127-B336-3B36E6F6B7C2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= MDIWindowList
+
+MDIWindowList ツールについての詳細は、以下のリンクをクリックしてください。
+
+* link:wintoolbarsmanager-mdiwindowlist-about-the-mdiwindowlist-tool.html[MDIWindowList ツールについて]
+* link:wintoolbarsmanager-using-the-mdiwindowlist-tool.html[MDIWindowList ツールの使用]

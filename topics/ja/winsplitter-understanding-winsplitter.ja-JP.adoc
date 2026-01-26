@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "winsplitter-understanding-winsplitter",
+    "controlName": ["WinSplitter"],
+    "tags": [],
+    "guid": "{0DFEFA01-2A5C-4A44-8042-A8949562A8EF}",  
+    "buildFlags": [],
+    "createdOn": "2009-10-12T16:18:54Z"
+}
+|metadata|
+////
+
+= WinSplitter の理解
+
+WinSplitter™ コントロール、およびその主要な特性と機能について解説しています。 このセクションのトピックを読むと、アプリケーションで WinSplitter を使用することの利点を理解できます。
+
+WinSplitter コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winsplitter-about-winsplitter.html[WinSplitter について]
+* link:winsplitter-winsplitter-smart-tag.html[WinSplitter スマートタグ]

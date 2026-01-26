@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-disabling-the-splitting-of-wingrid-into-regions",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Layouts"],
+    "guid": "{FE771681-693C-4499-9F9C-A37213D0EBD4}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= WinGrid の領域への分割の無効化
+
+デフォルトで、WinGrid はpick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridrow.html[行]"] またはpick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn.html[列]"] で複数のスクロール領域に分割できます。
+
+ユーザーがグリッドを領域に分割しないように、pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~maxcolscrollregions.html[MaxColScrollRegions]"]  プロパティまたは pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~maxrowscrollregions.html[MaxRowScrollRegions]"]  プロパティを 1 に設定できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub DisablingtheSplittingofWinGridintoRegions_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.MaxColScrollRegions = 1
+	Me.UltraGrid1.DisplayLayout.MaxRowScrollRegions = 1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void DisablingtheSplittingofWinGridintoRegions_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.MaxColScrollRegions = 1;
+	this.ultraGrid1.DisplayLayout.MaxRowScrollRegions = 1;
+}
+----

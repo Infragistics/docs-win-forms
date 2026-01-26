@@ -1,0 +1,18 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": ["WinPeekPopup"]
+}
+|metadata|
+////
+
+= WinPeekPopup
+
+Click the links below to find information specific to the WinPeekPopup™ component.
+
+*  link:winpeekpopup-about-winpeekpopup.html[About WinPeekPopup] — Provides information on what the WinPeekPopup component does, and why you would want to use it in your application.
+
+*  link:winpeekpopup-using-a-winpeekpopup.html[Using WinPeekPopup] — Explains how you can use WinPeekPopup to show additional options when the user presses a button.
+
+*  link:winpeekpopup-api-overview.html[API Overview] — Lists the namespaces and classes that you will be working with while programming with the WinPeekPopup component.

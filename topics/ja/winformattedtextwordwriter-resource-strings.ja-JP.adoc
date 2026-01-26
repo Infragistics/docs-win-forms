@@ -1,0 +1,52 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedtextwordwriter-resource-strings",
+    "controlName": [],
+    "tags": ["Localization","Resource Strings"],
+    "guid": "1207742b-980f-45a4-bef5-5f011a3655c8",  
+    "buildFlags": [],
+    "createdOn": "2011-05-19T18:48:30.0405726Z"
+}
+|metadata|
+////
+
+= WinFormattedTextWordWriter リソース文字列
+
+コントロール/コンポーネントによりユーザーに表示されるリソース文字列値を迅速にそして簡単に変更することができます。リソース文字列には、ダイアログ ボックスのキャプション、警告メッセージ、アラートなどがあります。
+
+次の表は、文字列のデフォルト テキスト値と共に、このアセンブリによって使用されるリソース文字列名をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|LDR_UltraFormattedTextWordWriter_E_ExportEnded
+|FormattedText のエクスポートが終了した後に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_ExportEnding
+|FormattedText のエクスポートが終了するときに発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_ExportStarted
+|エクスポートが始まる前に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_HyperlinkExported
+|Hyperlink がエクスポートされた後に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_HyperlinkExporting
+|Hyperlink のエクスポートが始まる前に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_ImageExported
+|Picture がエクスポートされた後に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_ImageExporting
+|Picture をエクスポートする前に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_TextExported
+|TextNode がエクスポートされた後に発生します。
+
+|LDR_UltraFormattedTextWordWriter_E_TextExporting
+|TextNode のエクスポートが始まる前に発生します。
+
+|====

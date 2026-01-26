@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintree-scroll-a-node-into-view",
+    "controlName": ["WinTree"],
+    "tags": ["How Do I"],
+    "guid": "{34515F6A-97D2-4F28-9659-A38A9CB1CDD8}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードを表示可能領域にスクロールする
+
+ここでは、特定のノードをツリーの表示可能領域に表示する方法を説明します。さまざまな理由により、ノードが表示されていないことがあります。これには、ノードの親が折りたたまれている場合や、ノードが縦または横方向の表示領域外にある場合などがあります。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinTree
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinTree;
+----
+
+[start=2]
+. 目的のノードへの参照が必要です。そのノードのキーがわかっていれば、ツリーの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~getnodebykey.html[GetNodeByKey]"]  メソッドを使用してノードへの参照を取得できます。
+
+*Visual Basic の場合：*
+
+----
+Dim aNode As UltraTreeNode
+aNode = Me.UltraTree1.GetNodeByKey("Bind WinGrid to a Flat Data Source")
+----
+
+*C# の場合：*
+
+----
+UltraTreeNode aNode;
+aNode = this.ultraTree1.GetNodeByKey("Bind WinGrid to a Flat Data Source");
+----
+
+[start=3]
+. ノードへの参照を取得した後、pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratreenode~bringintoview.html[BringIntoView]"]  メソッドを呼び出します。
+
+*Visual Basic の場合：*
+
+----
+aNode.BringIntoView()
+----
+
+*C# の場合：*
+
+----
+aNode.BringIntoView();
+----
+
+[start=4]
+. 前のステップのコードを実行すると、目的のノードがツリーの表示可能領域に表示されます。このコードでは、必要に応じてツリーをスクロールし、親ノードを展開してノードをビューに表示します。ただし、表示可能領域の中で、そのノードが表示される位置は必ずしも一定ではありません。
+
+この表示位置を制御するには、コントロールの pick:[win-forms="link:{ApiPlatform}win.ultrawintree{ApiVersion}~infragistics.win.ultrawintree.ultratree~topnode.html[TopNode]"]  プロパティを設定します。これによって、表示可能領域の最上部にノードが表示されるようになります。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraTree1.TopNode = aNode
+----
+
+*C# の場合：*
+
+----
+this.ultraTree1.TopNode = aNode;
+----

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-you-can-now-fit-all-winlistview-columns-in-the-available-space",
+    "controlName": [],
+    "tags": [],
+    "guid": "{5B37A71D-4C20-472F-B326-F29CACA7876B}",  
+    "buildFlags": [],
+    "createdOn": "2008-08-01T16:28:30Z"
+}
+|metadata|
+////
+
+= 使用可能な領域にすべての WinListView 列を収めることができる
+
+WinListView™ は、[詳細] 表示に複数のデータの列を表示でき、メインの列に各項目についての詳細を追加することができます。このリリースでは、エンド ユーザーが各列を自動的にリサイズすることができる機能が追加されているので、列は使用可能な水平方向の領域に収まります。エンド ユーザーは、列ヘッダの右側をダブルクリックして自動的に列をリサイズします。あるいは、追加した新しい API によってリサイズを制御できます。
+
+新しい link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewdetailssettings~autofitcolumns.html[AutoFitColumns] プロパティはこの新しい機能をオンにし、 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewdetailssettings~columnautosizemode.html[ColumnAutoSizeMode] プロパティはエンド ユーザーが列ヘッダをダブルクリックした時に、列をリサイズしたい方法を正確に判断します。ただし、列を自動的にサイズ設定するためにエンド ユーザーの操作を待つ必要はありません。 link:{ApiPlatform}win.ultrawinlistview{ApiVersion}~infragistics.win.ultrawinlistview.ultralistviewcolumnbase~performautoresize.html[PerformAutoSize] メソッドを使用し、必要に応じて列を自動的に設定できます。オプションのパラメータでリサイズのタイプを指定することもできます。
+
+以下のスクリーンショットは、WinListView が列をリサイズする方法を示します。最初のスクリーンショットは、デフォルト動作を示します。2 番目のスクリーンショットは、表示されているすべての列を収めることを示します。
+
+image::images/Win_You_Can_Now_Fit_All_WinListView_Columns_in_the_Available_Space_01.png[]
+
+image::images/Win_You_Can_Now_Fit_All_WinListView_Columns_in_the_Available_Space_02.png[]
+
+== 関連トピック
+
+link:winlistview-resize-a-column-in-details-view.html[[詳細] 表示で列をリサイズ]
+
+link:winlistview-automatically-fit-all-columns-in-details-view.html[[詳細] 表示ですべての列が自動的に収まる]

@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "winfontnameeditor-about-winfontnameeditor",
+    "controlName": ["WinFontNameEditor"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "{0CB5808A-48BF-43C6-A13B-03356E0F9F31}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinFontNameEditor について
+
+WinFontNameEditor コントロールは、システムに搭載されているフォントのうち、.NET ランタイムでサポートされているすべてのフォント名が事前に移植されているリストを持った ComboBox のようなコントロールを提供します。UltraFontNameEditor コントロールは、それが派生した元の UltraComboEditor クラスと同様に以下のような追加機能があります。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、外観が完全にサポートされます。
+* 項目の Appearance のサポート - コントロールの Items コレクションの各項目およびその編集部分がそれぞれ独自の Appearance オブジェクトを持ちます。これは、各項目に異なるフォント、前景色、背景色、画像などを設定できることを意味します。
+* 組み込みテーマ - 標準、Office 2000、Office XP、Office 2003、Visual Studio 2005、および Office 2007 のテーマをサポートします。
+* インク対応 -  ユーザーは、FreeForm のインク入力と仮想キーボード入力を切り替て使用できます。
+* null テキスト - コントロールの現在の値が null のときにカスタム文字列を表示します。
+* MRU（Most Recently Used）機能 - 最近入力された情報のリストを表示します。
+* 単語の自動補完 - 新しい文字を入力したときに、項目リストの項目に合わせて編集部分が自動的に更新されます。
+* リストの並べ替え - 複数の並べ替えオプションがあり、ドロップダウン リストに値リスト項目を表示するときの項目の並べ替え方法を指定できます。
+
+image::Images/WinEditors_Control_Overview_07.png[]

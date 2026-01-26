@@ -1,0 +1,28 @@
+﻿////
+|metadata|
+{
+    "name": "wincontrolcontainereditor-api-overview",
+    "controlName": ["WinControlContainerEditor"],
+    "tags": [],
+    "guid": "{8687E65B-2D7F-4E3C-A620-27779C4AAA8B}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコンポーネントに関連する各名前空間を示します。また、このコンポーネントでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+[cols="a,a"]
+|====
+|*WinControlContainerEditor 名前空間:* +
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors_namespace.html[Infragistics.Win.UltraWinEditors]"]
+|*キー クラス:* 
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.ultrawineditors.ultracontrolcontainereditor.html[UltraControlContainerEditor]"]
+
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win_namespace.html[Infragistics.Win]"] 
+|pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.controlcontainereditor.html[ControlContainerEditor]"] 
+
+|====

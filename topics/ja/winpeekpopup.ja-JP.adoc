@@ -1,0 +1,15 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": ["WinPeekPopup"]
+}
+|metadata|
+////
+
+= WinPeekPopup
+WinPeekPopup™ コンポーネント固有の情報について以下の各リンクを参照してください。
+
+*  link:winpeekpopup-about-winpeekpopup.html[WinPeekPopup について] -- WinPeekPopup コンポーネントの機能、アプリケーションでの使用方法について紹介します。
+*  link:winpeekpopup-using-a-winpeekpopup.html[WinPeekPopup の使用] -- WinPeekPopup で、ボタンを押すと追加のオプションを表示する方法を説明します。
+*  link:winpeekpopup-api-overview.html[API 概要] -- このトピックは、WinPeekPopup コンポーネントで開発する際に使用する名前空間とクラスについて説明します。

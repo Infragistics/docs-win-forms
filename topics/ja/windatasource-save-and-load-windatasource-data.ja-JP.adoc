@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-save-and-load-windatasource-data",
+    "controlName": ["WinDataSource"],
+    "tags": ["Persistence"],
+    "guid": "{4B272780-1827-4102-AB15-59CE912F2890}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinDataSource データの保存とロード
+
+WinDataSource に入力されたスキーマとデータは、ランタイムにプログラムから、またはデザインタイムに link:windatasource-using-the-windatasource-designer.html[WinDataSource デザイナ]を使用して、pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~saveasbinary.html[バイナリ]"] または pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~saveasxml.html[XML]"]  形式で保存、ロードできます。
+
+オーバーロードされた pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~saveasxml.html[SaveAsXml]"]  またはオーバーロードされた pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~saveasbinary.html[SaveAsBinary]"]  を使用すると、各メソッドに文字列のファイル名または System.IO.Stream オブジェクトを渡して、データまたはスキーマをディスクまたはストリーム オブジェクトに保持できます。以前に保持した XML またはバイナリ形式のオブジェクト データを既存の UltraDataSource にロードするには、オーバーロードされた pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~loadfromxml.html[LoadFromXml]"]  または pick:[win-forms="link:{ApiPlatform}win.ultrawindatasource{ApiVersion}~infragistics.win.ultrawindatasource.ultradatasource~loadfrombinary.html[LoadFromBinary]"]  メソッドを使用します。これらのメソッドは文字列のファイル名か、I/O ストリームを引数として受け取ります。
+
+== データの保持
+
+ブール値として True を渡すと、WinDataSource オブジェクトのデータおよびスキーマをファイル システム上のファイルに保存します。ブール値として false を渡すと、UltraDataSource オブジェクトのスキーマのみをファイル システム上のファイルに保存します（SaveAsXml と SaveAsBinary の両方のメソッドの例を示しています）。文字列パラメータはデータへのパスです。
+
+SaveAsXml（文字列, ブール値）
+
+SaveAsBinary（文字列, ブール値）
+
+== データのロード
+
+ブール値として True を渡すと、WinDataSource オブジェクトにデータおよびスキーマをファイル システム上のファイルからロードします。ブール値として false を渡すと、UltraDataSource オブジェクトのスキーマをロードします（LoadFromXml と LoadFromBinary の両方のメソッドの例を示しています）。文字列パラメータはロードしたいデータへのパスです。
+
+LoadFromXml（文字列, ブール値）
+
+LoadFromBinary（文字列, ブール値）

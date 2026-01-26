@@ -1,0 +1,18 @@
+﻿////
+|metadata|
+{
+    "name": "winspellchecker-getting-started-with-winspellchecker",
+    "controlName": ["WinSpellChecker"],
+    "tags": ["Getting Started"],
+    "guid": "{2ED86453-AC8D-4819-A6EA-EC366897F24D}",
+    "buildFlags": [],
+    "createdOn": "2006-02-05T00:00:00Z"
+}
+|metadata|
+////
+
+= WinSpellChecker を使用した作業の開始
+
+以下のトピックで、WinSpellChecker™ コンポーネントをすばやく起動して実行する方法について説明します。
+
+* link:winspellchecker-adding-winspellchecker-to-a-form.html[WinSpellChecker をフォームに追加] -- WinSpellChecker コンポーネントを Windows フォームに追加する方法を紹介します。

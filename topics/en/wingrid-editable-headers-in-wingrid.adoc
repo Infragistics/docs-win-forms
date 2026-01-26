@@ -1,0 +1,38 @@
+﻿= Editable Headers in the WinGrid
+
+=== Overview
+Enabling the Editable Headers feature allows users to modify column, group, and band headers on the `UltraGrid`.
+
+
+*In C#:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Bands[0].Columns[0].Header.AllowEditing = AllowHeaderEditing.OnDoubleClick;
+----
+
+*In Visual Basic:*
+
+[source,vb]
+----
+UltraGrid1.DisplayLayout.Bands(0).Columns(0).Header.AllowEditing = AllowHeaderEditing.OnDoubleClick
+----
+
+=== AllowHeaderEditing
+The `AllowHeaderEditing` enumeration can have the following values:
+
+[options="header", cols="a,a"]
+|====
+|Value |Description
+
+|Default
+|Headers are not editable by default.
+
+|None
+|Header editing is not allowed.
+
+|OnDoubleClick
+|The user can double-click the header to enter edit mode. Note that this setting will cause a delay when single-clicking on a header so that the header can distinguish between a single and a double click.
+
+|Manual
+|Header editing is allowed, but no default user interface will initiate an edit. Call the Infragistics.Win.UltraWinGrid.UltraGrid.EditHeader(Infragistics.Win.UltraWinGrid.HeaderBase) method to place a header into edit mode.

@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-breaking-changes-in-2011-volume-2",
+    "controlName": [],
+    "tags": ["Breaking Changes"],
+    "guid": "b884d87b-5e6a-4d28-b940-45be3ba8cb68",  
+    "buildFlags": [],
+    "createdOn": "2011-10-20T13:18:15.6528478Z"
+}
+|metadata|
+////
+
+= 2011 Volume 2 の重大な変更
+
+== WinGanttView
+
+[start=1]
+. link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinganttview.taskcellsettingscollection.html[TaskCellSettingsCollection] の基本クラスが変更されました。これは以前は SubObjectsDictionaryBase<TaskField, TaskCellSettings> から派生しました。SubObjectsDictionaryBase<string, TaskCellSettings> から派生するようになりました。最初のジェネリック パラメーターは TaskField から文字列に変更されたことに注意してください。このクラスは TaskField を取得するインデクサーをこれまで同様にサポートします。このため、これは旧型を直接参照していた既存のコードを中断するだけです。
+[start=2]
+. link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinganttview.taskcolumnsettingscollection.html[TaskColumnSettingsCollection] の基本クラスが変更されました。これは以前は SubObjectsDictionaryBase<TaskField, TaskColumnSettings> から派生しました。SubObjectsDictionaryBase<string, TaskColumnSettings> から派生するようになりました。最初のジェネリック パラメーターは TaskField から文字列に変更されたことに注意してください。このクラスは TaskField を取得するインデクサーをこれまで同様にサポートします。このため、これは旧型を直接参照していた既存のコードを中断するだけです。
+
+== WinGridRowEditTemplate & WinGridCellProxy
+
+* UltraGridRowEditTemplate は関連付けられたグリッド セルのアクティブ化に基づいて UltraGridCellProxies を有効または無効にします。これは、UltraGridCellProxy コントロールを無効にすると、グリッド内の関連付けられたセルが編集可能な場合、コントロールはランタイムに RowEditTemplate によって有効になることを意味します。UltraGridCellProxy を無効にするには、関連付けられたグリッド セルまたは列で編集を無効にする必要があります。
+
+== WinCalcManager
+
+* RATE 関数ではパラメーターの中の 2 つが交換されたため、Microsoft Excel の対応する RATE 関数の特徴を真似ています。
+
+以前の定義:
+
+RATE(nper, pmt, pv, [type], [fv], [guess])
+
+Excel の RATE 関数に一致するための新しい定義:
+
+RATE(nper, pmt, pv, [fv], [type], [guess])

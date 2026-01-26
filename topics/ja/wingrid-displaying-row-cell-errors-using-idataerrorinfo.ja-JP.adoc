@@ -1,0 +1,136 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-displaying-row-cell-errors-using-idataerrorinfo",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I"],
+    "guid": "{45A2A015-EF69-423E-9C90-B954EBFC0A22}",
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= IDataErrorInfo による行エラー/セルエラーの表示
+
+== IDataErrorInfo インタフェースを使用して行/セルのエラーを表示するには:
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win
+Imports Infragistics.Win.UltraWinGrid
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win;
+using Infragistics.Win.UltraWinGrid;
+----
+
+[start=2]
+. IDataErrorInfo は行およびセルのエラーをデータバインドされたコントロールに表示する .NET インタフェースです。このインタフェースは一般に行オブジェクト上で実装されます。IDataErrorInfo は行の個別セルおよび行自身にエラー メッセージを提供します。IDataErrorInfo は DataRowView .NET クラスによって実装されています。つまり、DataSet と DataTable は IDataErrorInfo をサポートするデータ ソースの中にあるということを意味します。WinGrid 内に IDataErrorInfo エラーを表示する機能を有効にするには、 pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride.html[Override]"]  オブジェクトで pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~supportdataerrorinfo.html[SupportDataErrorInfo]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.SupportDataErrorInfo = SupportDataErrorInfo.RowsAndCells
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.SupportDataErrorInfo = SupportDataErrorInfo.RowsAndCells;
+----
+
+[start=3]
+. 特定の列の SupportDataErrorInfo プロパティを設定すると、その列での IDataErrorInfo エラー表示を明示的に有効または無効にすることもできます。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Bands(0).Columns(0).SupportDataErrorInfo = DefaultableBoolean.False
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Bands[0].Columns[0].SupportDataErrorInfo = DefaultableBoolean.False;
+----
+
+[start=4]
+. UltraGrid が使用するデフォルトのエラー アイコンは、Overide オブジェクトの DataErrorCellAppearance および DataErrorRowSelectorAppearance に "Image" を設定すれば変更できます。また、Overirde オブジェクトの DataErrorCellAppearance、DataErrorRowAppearance、および DataErrorRowSelectorAppearance を使用して、データ エラーを含むセル、行、および行セレクタに外観を適用することも可能です。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraGrid1.DisplayLayout.Override.DataErrorCellAppearance.BackColor = Color.Red
+Me.UltraGrid1.DisplayLayout.Override.DataErrorRowSelectorAppearance.BackColor = Color.Red
+Me.UltraGrid1.DisplayLayout.Override.DataErrorRowAppearance.BackColor = Color.LightYellow
+----
+
+*C# の場合：*
+
+----
+this.ultraGrid1.DisplayLayout.Override.DataErrorCellAppearance.BackColor = Color.Red;
+this.ultraGrid1.DisplayLayout.Override.DataErrorRowSelectorAppearance.BackColor = Color.Red;
+this.ultraGrid1.DisplayLayout.Override.DataErrorRowAppearance.BackColor = Color.LightYellow;
+----
+
+[start=5]
+. データ エラーはデータ ソースの行オブジェクト上で直接設定されます。DataSet および DataTable のデータ ソースでは、これらの行オブジェクトは DataRow インスタンスです。DataRow オブジェクトは、UltraGridRow の ListObject プロパティを使用することによって、UltraGridRow から取得できます。次のコードでは、UltraGridのInitializeRow イベントを使ってデータ エラーを設定しています。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_InitializeRow(ByVal sender As Object, _
+  ByVal e As Infragistics.Win.UltraWinGrid.InitializeRowEventArgs) _
+  Handles UltraGrid1.InitializeRow
+	Dim rowError As String = ""
+	Dim cellError As String = ""
+	Dim value As Object = e.Row.Cells("Fax").Value
+	' Fax 列の値が空の場合、データ エラーを設定します。
+	If DBNull.Value Is value Then
+		rowError = "Row contains errors."
+		cellError = "Fax can not be empty."
+	End If
+	Dim drv As DataRowView = DirectCast(e.Row.ListObject, DataRowView)
+	drv.Row.RowError = rowError
+	drv.Row.SetColumnError("Fax", cellError)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_InitializeRow(object sender, 
+  Infragistics.Win.UltraWinGrid.InitializeRowEventArgs e)
+{
+	string rowError = "";
+	string cellError = "";
+	Object value = e.Row.Cells["Fax"].Value;
+	// Fax 列の値が空の場合、データ エラーを設定します。
+	if(DBNull.Value == value)
+	{
+		rowError = "Row contains errors.";
+		cellError = "Fax can not be empty";
+	}
+	DataRowView drv = (DataRowView)e.Row.ListObject;
+	drv.Row.RowError = rowError;
+	drv.Row.SetColumnError("Fax", cellError);
+}
+----
+
+[start=6]
+. 次の図は、セルおよび行セレクタ内で IDataErrorInfo データ エラーを表示している UltraGrid のスナップショットです。
+
+image::Images/WinGrid_Display_Row_Cell_Errors_Using_IDataErrorInfo_01.png[]
+
+[NOTE]
+====
+*注:* IDataErrorInfo サポートで行エラーの表示が有効になっていると、UltraGrid はデフォルトで、行セレクタの領域を広くとり、行エラー アイコンだけでなく、UltraGrid が通常表示するさまざまなアイコン（アクティブな行アイコンや追加行アイコン、行変更アイコンなど）を表示するようにします。Override オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~rowselectorwidth.html[RowSelectorWidth]"]  プロパティを設定することによって、行セレクタの幅を変更できます。
+====

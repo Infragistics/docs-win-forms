@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "wineditors-preventing-drop-down-menu-from-displaying",
+    "controlName": ["WinEditors"],
+    "tags": ["How Do I"],
+    "guid": "{96C50B50-ACED-41A5-9212-32FD8BA3D921}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウンエディタが表示しないようにする
+
+このトピックは以下の WinEditor コントロールに適用されます。
+
+* WinComboEditor
+* WinDateTimeEditor
+* WinFontNameEditor
+* WinCheckEditor
+
+場合によっては、矢印キーを使用してドロップダウンの値を変更する操作のみをユーザーに許可し、コンボのドロップダウン部分を表示できないようにしたいことがあります。エレメントのコンボ部分がドロップダウンしないようにするには、pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.embeddableeditorbase~beforedropdown_ev.html[BeforeDropDown]"]  イベントをキャンセルするだけです。
+
+サンプル プロジェクトのドロップダウンにはそれぞれひとつのチェックボックスが関連付けられています。チェックボックスをチェックすると 
+
+[source]
+----
+e.cancel = True
+----
+
+ が設定され、ドロップダウンが表示されなくなります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraComboEditor1_BeforeDropDown(ByVal sender As Object, _
+  ByVal e As System.ComponentModel.CancelEventArgs) Handles UltraComboEditor1.BeforeDropDown
+	If Me.UltraCheckEditor1.Checked Then
+		e.Cancel = True
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraComboEditor1_BeforeDropDown(object sender, System.ComponentModel.CancelEventArgs e)
+{
+	if(this.ultraCheckEditor1.Checked)
+		e.Cancel = true;
+}
+----

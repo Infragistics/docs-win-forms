@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintilepanel-wintilepanel-smart-tag",
+    "controlName": ["WinTilePanel"],
+    "tags": ["Getting Started"],
+    "guid": "{9800C97E-F777-4B47-BB93-A784BCF86BD5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinTilePanel スマートタグ
+
+Visual Studio 2005/2008（.NET Framework 2.0/3.5）では、{ProductName} の個々のコントロール/コンポーネントにはスマートタグがあります。コントロールやコンポーネントを選択するだけで、スマートタグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WinTilePanel™ スマートタグには、コンポーネントの名前と次の項目があります。
+
+*タイルを追加：* UltraTilePanel コントロールにタイルを追加する機能を提供します。
+
+*レイアウト：* UltraTilePanel 内のどこに、どのように、そしてどれくらいの数の Large のタイルが配置されるかを決定するプロパティを提供します。
+
+前述の項目の説明と、プロパティ グリッドの項目が対応するプロパティについては、以下の表を参照してください。
+
+image::Images/WinTilePanel_Smart_Tag.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|レイアウト|説明|対応するプロパティ
+
+|Large のタイルの方向
+|Large のタイルの方向を定義します。
+|pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~largetileorientation.html[LargeTileOrientation]"] 
+
+|Large のタイルの位置
+|Large のタイルの位置を定義します。
+|pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~largetileposition.html[LargeTilePosition]"] 
+
+|Large のタイルの最大数
+|Large に設定できるタイルの最大数を定義します。
+|pick:[win-forms="link:{ApiPlatform}win.misc{ApiVersion}~infragistics.win.misc.ultratilepanel~maximumvisiblelargetiles.html[MaximumVisibleLargeTiles]"] 
+
+|====

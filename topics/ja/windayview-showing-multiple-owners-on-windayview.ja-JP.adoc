@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "windayview-showing-multiple-owners-on-windayview",
+    "controlName": ["WinDayView"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{550DE06E-159C-446A-B3F4-453B31842698}",  
+    "buildFlags": [],
+    "createdOn": "2007-02-05T12:12:17Z"
+}
+|metadata|
+////
+
+= WinDayView で複数のオーナーを表示
+
+WinScheduleでの pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.appointment.html[Appointment]"]  グループ化機能のサポートは、主に pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.owner.html[Owner]"]  オブジェクトを通じて実現されています。Owner オブジェクトは通常、予定をグループ化する単位となる個人、部門、またはその他のエンティティを表します。Owner オブジェクトのリポジトリは CalendarInfo の pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultracalendarinfo~owners.html[Owners]"]  コレクションを通じて公開されています。
+
+以下のコードは、Owners コレクションでいくつかのメンバを追加し、これらのオーナーを個別に表示するように WinDayView コントロールを設定します。さらに、未指定オーナーを非表示にし、WinDayView の TimeSlotInterval も ThirtyMinutes に設定します。これで、画面上により多くの TimeSlots を確認できます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinSchedule
+Private Sub Showing_Multiple_Owners_on_WinDayView_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraCalendarInfo1.Owners.UnassignedOwner.Visible = False
+        Me.UltraCalendarInfo1.Owners.Add("Welby", "Dr. Marcus Welby")
+        Me.UltraCalendarInfo1.Owners.Add("Kimble", "Dr. Richard Kimble")
+        Me.UltraCalendarInfo1.Owners.Add("Quincy", "Dr. Quincy")
+        Me.UltraCalendarInfo1.Owners.Add("Spencer", "Dr. Luke Spencer")
+        Me.UltraDayView1.GroupingStyle = DayViewGroupingStyle.OwnerWithinDate
+        Me.UltraDayView1.TimeSlotInterval = TimeSlotInterval.ThirtyMinutes
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinSchedule;
+private void Showing_Multiple_Owners_on_WinDayView_Load(object sender, EventArgs e)
+{
+        this.ultraCalendarInfo1.Owners.UnassignedOwner.Visible = false;
+        this.ultraCalendarInfo1.Owners.Add("Welby", "Dr. Marcus Welby");
+        this.ultraCalendarInfo1.Owners.Add("Kimble", "Dr. Richard Kimble");
+        this.ultraCalendarInfo1.Owners.Add("Quincy", "Dr. Quincy");
+        this.ultraCalendarInfo1.Owners.Add("Spencer", "Dr. Luke Spencer");
+        this.ultraDayView1.GroupingStyle = DayViewGroupingStyle.OwnerWithinDate;
+        this.ultraDayView1.TimeSlotInterval = TimeSlotInterval.ThirtyMinutes;
+}
+----
+
+ここでプロジェクトを実行すると、次のようなフォームが表示されます。
+
+image::Images/WinCalendarInfo_Showing_Multiple_Owners_on_WinDayView_01.png[]
+
+白い色のタイムスロットは就業時間を表し、色の付いたタイムスロットは非就業時間を表します。スクリーンショットからわかるように、どのオーナーも就業日の開始時刻と終了時刻は同じです。各オーナーの就業時間の変更方法についての詳細は、 link:windayview-setting-different-working-hours-for-different-owners.html[「オーナーごとに異なる就業時間を設定」]を参照してください。

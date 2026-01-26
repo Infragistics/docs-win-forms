@@ -1,0 +1,67 @@
+﻿////
+
+|metadata|
+{
+    "name": "winformattedlinklabel-adding-a-hyperlink-as-an-item-in-winexplorerbar",
+    "controlName": ["WinFormattedLinkLabel"],
+    "tags": ["How Do I"],
+    "guid": "{CDC2C50A-D02C-4E7B-8E44-EDEC8E0B6397}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar での項目としてのハイパーリンクの追加
+
+pick:[win-forms="link:{ApiPlatform}win{ApiVersion}~infragistics.win.formattedlinklabel.formattedlinkeditor.html[FormattedLinkEditor]"]  クラスを使用すると、埋め込みエディタを使用するすべての {ProductName} コントロールにハイパーリンクを追加することができます。FormattedLinkEditor は、{ProductName} コントロールにこの機能を提供するために、埋め込みエディタ基本クラスから派生します。このトピックでは、いずれも FormattedLinkEditor クラスを使用する 3 つの項目を含むひとつのグループを持つ WinExplorerBar コントロールを設定する手順を説明します。
+
+[start=1]
+. *WinExplorerBar を作成します。*
+
+.. UltraExplorerBar コントロールをツールボックスから Windows Formsにドラッグします。
+.. [プロパティ] ウィンドウで Dock プロパティを見つけ、Left に設定します。
+
+image::images/Win_WinFormattedLinkLabel_Walkthrough_Adding_a_Hyperlink_as_an_Item_in_WinExplorerBar_01.png[]
+
+[start=2]
+. *ひとつのグループと 3 つの項目を作成します。*
+
+.. ExplorerBar を右クリックして [グループの追加] を選択します。グループが追加されます。
+.. そのグループを右クリックして [項目の追加] を選択します。グループにひとつの項目が追加されます。
+.. 前述の手順を繰り返して、さらに 2 つの項目をグループに追加します。
+
+image::images/Win_WinFormattedLinkLabel_Walkthrough_Adding_a_Hyperlink_as_an_Item_in_WinExplorerBar_02.png[]
+
+[start=3]
+. *3 つの項目でハイパーリンクを作成します。*
+
+.. WinExplorerBar コントロールを右クリックして、[UltraExplorerBar デザイナ…] を選択します。UltraExplorerBar デザイナが表示されます。
+.. 最初のグループを展開します。
+.. グループ内の最初の項目を選択して、Text プロパティを "<a href="www.infragistics.com">Infragistics</a>" に設定します。
+.. グループ内の 2 つ目の項目を選択して、プロパティを "<a href="www.microsoft.com">Microsoft</a>" に設定します。
+.. グループ内の 3 つ目の項目を選択して、Text プロパティを "<a href="www.google.com">Google</a>" に設定します。
+.. [閉じる] をクリックします。
+
+image::images/Win_WinFormattedLinkLabel_Walkthrough_Adding_a_Hyperlink_as_an_Item_in_WinExplorerBar_03.png[]
+
+[start=4]
+. *WinExplorerBar のエディタ コントロールをWinFormattedLinkLabelに設定します。*
+
+.. UltraFormattedLinkLabel コントロールをツールボックスから Windows Formsにドラッグします。
+.. WinExplorerBar を選択して、[プロパティ] ウィンドウで ItemSettings を展開します。
+.. EditorControl プロパティを探し、ultraFormattedLinkLabel1 に設定します。WinExplorerBar 内のすべての項目が raw テキストからフォーマットされたハイパーリンクに変わります。
+
+image::images/Win_WinFormattedLinkLabel_Walkthrough_Adding_a_Hyperlink_as_an_Item_in_WinExplorerBar_04.png[]
+
+[start=5]
+. *プログラムを実行します。*
+
+いずれかのリンクをクリックすると、Internet Explorer のウィンドウに適当なリンクが開きます。
+
+image::images/Win_WinFormattedLinkLabel_Walkthrough_Adding_a_Hyperlink_as_an_Item_in_WinExplorerBar_05.png[]
+
+[NOTE]
+====
+*注：*  WinFormattedLinkLabel コントロールは、必ず .NET Process クラスを使用して新しいリンクを開きます。したがって、開いたリンクをどのように処理するかは WinFormattedLinkLabel ではなくシステムによって決まります。
+====

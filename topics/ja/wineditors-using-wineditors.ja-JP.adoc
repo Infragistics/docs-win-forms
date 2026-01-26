@@ -1,0 +1,38 @@
+﻿////
+|metadata|
+{
+    "name": "wineditors-using-wineditors",
+    "controlName": ["WinEditors"],
+    "tags": ["Application Scenarios","Extending"],
+    "guid": "{50FDE50D-645E-4AA7-A2D4-04BC0940C9CB}",
+    "buildFlags": [],
+    "createdOn": "2007-07-11T14:15:53Z"
+}
+|metadata|
+////
+
+= WinEditors の使用
+
+このセクションには、2 つ以上の WinEditor™ コントロールに適用する機能を使用する方法を紹介する簡潔なタスクベースのトピックが含まれています。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:wineditors-choosing-an-appearance.html[XP と 2000 のいずれかの外観を選択する]
+* link:wineditors-binding-wincomboeditor-and-winoptionset-controls-to-data.html[WinComboEditor コントロールおよび WinOptionSet コントロールのデータバインディング]
+* link:wineditors-displaying-a-custom-string-for-a-null-value.html[Null 値のカスタム文字列を表示]
+* link:wineditors-displaying-spin-buttons.html[スピン ボタンの表示]
+* link:wineditors-hiding-the-drop-down-button.html[ドロップダウン ボタンの使用]
+* link:winmaskededitorbase-increment-an-editor-using-custom-input.html[カスタム入力を使用してエディターを増分]
+* link:winnumericeditor-incrementing-the-spin-value.html[定数値で増分]
+* link:winmaskededit-incrementing-the-spin-value.html[定数値で WinMaskedEdit を増分]
+* link:wineditors-limiting-the-number-of-input-characters.html[入力文字数を制限する]
+* link:wineditors-limiting-the-number-of-items-added-to-the-mru-list.html[MRU リストに追加する項目数の制限]
+* link:wineditors-modifying-the-drop-down-list-and-appearance.html[ドロップダウン メニューの外観と項目リストの変更]
+* link:wineditors-modifying-the-settings-of-wingrids-editor.html[WinGrid のエディタの設定を変更する]
+* link:wineditors-preventing-drop-down-menu-from-displaying.html[ドロップダウンエディタが表示しないようにする]
+* link:wineditors-sort-items-in-the-drop-down-list.html[ドロップダウンリストの項目をソート]
+* link:wineditors-configuring-the-width-of-the-drop-down-menu.html[DropDownListWidth プロパティを使用]
+* link:wineditors-culture-specific-formatting.html[FormatProvider プロパティを使用してカルチャを操作する]
+* link:wineditors-displaying-items-with-images.html[ImageLists の使用]
+* link:wineditors-using-wineditors-in-the-datagridview-control.html[DataGridView コントロールでの WinEditor の使用] 
+* link:wineditors-windows-message-support.html[Windows メッセージのサポート]

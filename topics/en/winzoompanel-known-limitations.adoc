@@ -1,0 +1,46 @@
+﻿////
+|metadata|
+{
+    "controlName": ["UltraZoomPanel"],
+    "tags": []
+}
+|metadata|
+////
+
+= WinZoomPanel Known Limitations
+
+Due to various reasons, some controls have certain limitations when zooming. Below are the limitations and how to avoid or resolve them.
+
+== List of Limitations
+
+=== OS Drawn Glyphs
+
+==== Limitation:
+By default, when we draw some UIElements we delegate this job to the operating system. Such UIElements are the checkbox glyph, dropdown buttons, radio button glyphs, among others. In our framework, we refer to this as OS themes. Many of these elements are drawn with hardcoded size by the OS, making it impossible to enlarge them. For example, the checkbox glyph will always remain 13x13 pixels no matter the control's size. Consequently, by default some of the UIElements in the controls won’t respond to zooming.
+
+==== Resolution:
+When using zooming in your application, we suggest removing OS themes. Please see link:styling-removing-os-themes[Removing OS Themes across the Entire Application] for information about how you can accomplish this.
+
+=== Scaling up images
+
+==== The limitation:
+Some of the UIElements in our controls display various images. In order to not bloat our assemblies’ size we have made most of these images as small as possible. This has the side effect that the images get blurry when the UIElement is zoomed.
+
+==== How to resolve this:
+Currently the only way to resolve this is to provide higher resolution images for these UIElements. This can be either done through AppStylist or through the Image and ImageBackground properties of the Appearance class. If the UIElement’s image can’t be modified through an appearance object, the final option is to use the IUIElementDrawFilter interface.
+
+=== Month Calendar
+
+==== The limitation:
+The UltraDateTimeEditor uses the Microsoft MonthCalendar control for its dropdown. This the MonthCalendar has predefined size for its UIElements and this can’t be changed. The UltraDateTimeEditor will scale properly its textbox portion, however it will be unable to scale it dropdown portion.
+
+==== How to resolve this:
+You can replace the UltraDateTimeEditor with UltraCalendarCombo. The UltraCalendarCombo uses a calendar created by Infragistics and we have full control over how its UIElements are drawn. This means that the control will scale itself properly when zoomed. Note that the UltraCalendarCombo is an embeddable editor, so you can replace the UltraDateTimeEditor even if it is embedded in another control.
+
+=== Child controls in various container controls
+
+==== The limitation:
+All Infragistics container controls inside the UltraZoomPanel will scale their own UIElements. However their child controls inside them will not be scaled.
+
+==== How to resolve this:
+You can add an UltraZoomPanel as the child of the container control, then add the child controls that you want to be scaled inside the UltraZoomPanel. For example, if you are using an UltraTabControl and you want to zoom the controls inside a certain tab, you should add an UltraZoomPanel inside the tab and add the child controls inside the UltraZoomPanel. Note that if you are using an UltraPanel and you want to zoom the controls inside it, you need to change the UltraPanel to and UltraZoomPanel. The UltraZoomPanel inherits the UltraPanel, so this shouldn’t affect your application in any way other than enabling zooming. If, because of the container controls in your application, you have more than one UltraZoomPanel and you want to synchronize their ZoomFactor, you can use the ZoomFactorChanged event to do this.

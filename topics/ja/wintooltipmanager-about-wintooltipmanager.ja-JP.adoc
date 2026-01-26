@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintooltipmanager-about-wintooltipmanager",
+    "controlName": ["WinToolTipManager"],
+    "tags": ["Getting Started"],
+    "guid": "{0EC0F9DF-ACD9-4321-B780-7A7E4F9AD35E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WinToolTipManager について
+
+WinToolTipManager コントロールを使用すると、Windows Formsの任意のコントロールに "UltraToolTip" というエクステンダ プロパティを追加できます。UltraToolTip プロパティは、WinToolTipManager でコントロールを管理することを目的とします。これにより、マウスがコントロールの上に置かれたときにツールチップを自動的に表示できるようになります。
+
+* 外観のサポート - アルファ ブレンディング、グラデーション、画像などを含め、完全な外観がサポートされます。
+* BalloonTips -- ツールチップの隅を丸めて吹き出しのような外観にします。
+
+image::images/WinToolTipManager_About_WinToolTipManager_01.png[]

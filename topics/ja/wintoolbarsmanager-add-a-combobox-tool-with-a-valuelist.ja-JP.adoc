@@ -1,0 +1,108 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-add-a-combobox-tool-with-a-valuelist",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{0453CC7B-0697-4306-BF8B-20729C075324}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= ValueList を使用した ComboBox ツールの追加
+
+WinToolbarsManager にはツールバーやメニューに追加できる 15 種類のツールが含まれています。ここでは、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.comboboxtool.html[ComboBoxTool]"]  をツールバーに追加し、ValueList を使用してコンボ ボックスに値を取り込む例を示します。
+
+== デザインタイムの場合
+
+[start=1]
+. UltraWinToolbar エレメントを設定するため、UltraToolbarsManager エレメント上で右クリックし、[ユーザー設定] を選択して、デザインタイムの [ユーザー設定] ダイアログを開きます。
+[start=2]
+. 新しいツールを作成するため、ユーザー設定の [ツール] タブをクリックしてから [新規] ボタンをクリックします。
+[start=3]
+. ComboBox ツールを選択し、[追加] ボタンをクリックします。
+[start=4]
+. [閉じる] ボタンをクリックして [新しいツール] ダイアログを閉じます。
+[start=5]
+. 値を ValueList に追加するため、ValueList プロパティを展開して ValueListItems プロパティを選択します。次に省略ボタン（プロパティエントリの右端にある「...」ボタン）をクリックして、ValueListItems Collection エディタを表示します。
+[start=6]
+. [追加] ボタンをクリックして値をリストに挿入します。
+[start=7]
+. 値の追加が完了したら、[OK] をクリックして ValueListItems Collection エディタを閉じます。
+[start=8]
+. ユーザー設定の [ツールバー] タブをクリックしてから [新規作成] ボタンをクリックします。
+[start=9]
+. 必要であればツールバーの名前を変更して [OK] をクリックし、ツールバーを作成します。
+[start=10]
+. [ツール] タブをクリックし、ComboBox ツールをフォーム上のツールバーにドラッグします。
+
+== ランタイムの場合
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinToolbars
+Imports Infragistics.Win
+...
+Private Sub AddingaComboBoxToolwithaValueList_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Dim comboboxtool As New ComboBoxTool("comboboxtool")
+	' ComboBox に表示される valuelist を作成します。
+	Dim valuelist1 As New ValueList()
+	' ValueList に関連する項目を作成します。
+	Dim item1 As New ValueListItem()
+	Dim item2 As New ValueListItem()
+	Dim item3 As New ValueListItem()
+	' 項目のテキストを設定します。
+	item1.DisplayText = "Classical"
+	item2.DisplayText = "Rock"
+	item3.DisplayText = "Metal"
+	' 項目を ValueList に追加します。
+	valuelist1.ValueListItems.Add(item1)
+	valuelist1.ValueListItems.Add(item2)
+	valuelist1.ValueListItems.Add(item3)
+	' ComboBox の ValueList に、新しく作成した ValueList を設定します。
+	comboboxtool.ValueList = valuelist1
+	' ツールをツール コレクションに追加します。
+	Me.UltraToolbarsManager1.Tools.Add(comboboxtool)
+	' ツールをツールバーの Tools コレクションに追加します。
+	Me.UltraToolbarsManager1.Toolbars(0).Tools.Add(comboboxtool)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinToolbars;
+using Infragistics.Win;
+...
+private void AddingaComboBoxToolwithaValueList_Load(object sender, System.EventArgs e)
+{
+	ComboBoxTool comboboxtool = new ComboBoxTool("comboboxtool");
+	// ComboBox に表示される valuelist を作成します。
+	ValueList valuelist1 = new ValueList();
+	// ValueList に関連する項目を作成します。
+	ValueListItem  item1 = new ValueListItem();
+	ValueListItem item2 = new ValueListItem();
+	ValueListItem item3 = new ValueListItem();
+	// 項目のテキストを設定します。
+	item1.DisplayText = "Classical";
+	item2.DisplayText = "Rock";
+	item3.DisplayText = "Metal";
+	// 項目を ValueList に追加します。
+	valuelist1.ValueListItems.Add(item1);
+	valuelist1.ValueListItems.Add(item2);
+	valuelist1.ValueListItems.Add(item3);
+	// ComboBox の ValueList に、新しく作成した ValueList を設定します。
+	comboboxtool.ValueList = valuelist1;
+	// ツールをツール コレクションに追加します。
+	this.ultraToolbarsManager1.Tools.Add(comboboxtool);
+	// ツールをツールバーの Tools コレクションに追加します。
+	this.ultraToolbarsManager1.Toolbars[0].Tools.Add(comboboxtool);
+}
+----
+
+image::images/WinToolbarsManager_Add_a_ComboBox_Tool_with_a_ValueList_01.png[]

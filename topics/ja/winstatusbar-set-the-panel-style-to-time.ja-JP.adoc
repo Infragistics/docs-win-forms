@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "winstatusbar-set-the-panel-style-to-time",
+    "controlName": ["WinStatusBar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{85D5EEAB-9356-4AFF-A187-227CC21696E4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= パネル スタイルを Time に設定
+
+Time パネルは現在の時刻を表示するために使用されます。時刻の表示形式は、パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~datetimeformat.html[DateTimeFormat]"]  プロパティによって決まります。
+
+Time スタイルのパネルをデザインタイムに設定するには：
+
+[start=1]
+. WinStatusBar を Windows Formsに追加します。
+[start=2]
+. プロパティ ページで、Panels プロパティまで下にスクロールします。省略ボタンをクリックして pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanelscollection.html[Panels]"]  コレクションを表示します。
+[start=3]
+. [追加] ボタンをクリックします。これで、新しいパネルが追加されます。
+[start=4]
+. パネルの pick:[win-forms="link:{ApiPlatform}win.ultrawinstatusbar{ApiVersion}~infragistics.win.ultrawinstatusbar.ultrastatuspanel~style.html[Style]"]  を "Time" に設定します。[OK] をクリックします。
+
+選択するパネルに時刻が表示されます。
+
+ランタイムの場合
+
+ランタイムにパネルを追加してそのタイプを "Time" に設定するには、次のコードを使用します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinStatusBar
+...
+Private Sub WinStatusBarQuickTourTimePanel_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraStatusBar1.Panels.Add("Time", PanelStyle.Time)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinStatusBar;
+...
+private void WinStatusBarQuickTourTimePanel_Load(object sender, System.EventArgs e)
+{
+	this.ultraStatusBar1.Panels.Add("Time", PanelStyle.Time);
+}
+----
+
+image::images/WinStatusBar_Set_the_Panel_Style_to_Time_01.png[]
+
+[NOTE]
+====
+*注：* 現在の日付を表示する Date パネルもあります。
+====

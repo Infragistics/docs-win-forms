@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "wintoolbarsmanager-creating-a-taskpane-toolbar-part-1-of-3",
+    "controlName": ["WinToolbarsManager"],
+    "tags": [],
+    "guid": "{D305E498-8A10-4793-A564-160F7EFAB627}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= TaskPane ツールバーの作成（パート 1）
+
+このトピックでは、WinToolbarsManager の組み込みのデザイナを使用して UltraTaskPaneToolbar を作成する方法について説明します。
+
+{ProductName} 2005 Volume 1 から、Microsoft Office のタスク ペイン スタイルに基づく新しいツールバー タイプ、pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.ultrataskpanetoolbar.html[UltraTaskPaneToolbar]"]  が導入されました。タスク ペインは UltraToolbar の派生クラスとして実装されており、ドラッグしてフローティング ウィンドウに表示できる点で標準のツールバーに似ています。UltraTaskPaneToolbar の内容領域は、選択されている pick:[win-forms="link:{ApiPlatform}win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[TaskPaneTool]"]  に関連付けられたコントロールが占めます link:/infragistics.win.ultrawintoolbars{ApiVersion}~infragistics.win.ultrawintoolbars.taskpanetool.html[。]
+
+[start=1]
+. 新しい Visual Studio C# または VB.NET Windows アプリケーションを作成します。
+[start=2]
+. デザイン ビューでフォームを開き、ツールボックスで UltraToolbarsManager コンポーネントを探します。UltraToolbarsManager を左クリックしてフォームにドラッグするか、またはツールボックス上でダブルクリックして、プロジェクトに UltraToolbarsManager を追加します。パネル コントロール コンテナをフォームに追加するかどうかを確認するダイアログが表示されるので、[いいえ] を選択します。
+
+image::Images/WinToolbars_Creating_Task_Pane_Toolbar_Designers_01.png[]
+
+[start=3]
+. コンポーネント トレイで UltraToolbarsManager1 を選択し、フォーム デザイナ上の [新しいツールバー] ボタンを左または右クリックします。[新しいツール] ダイアログが表示されます。
+
+image::Images/WinToolbars_Creating_Task_Pane_Toolbar_Designers_02.png[]
+
+.. [新しいツール] ダイアログの最初のテキストボックス（[ツールバー名]）に「myTaskPane」と入力します。これはツールバーの名前であると同時に、UltraToolbarsManager のツールバー コレクション内でこの TaskPaneToolbar を識別するためのキーにもなります。
+.. [ツールバーの種類] ドロップダウンから [タスクペイン ツールバー] を選択します。
+.. ツールバーの位置を表す最後のドロップダウンから [右端にドッキング] を選択して [OK] をクリックします。これで、UltraTaskPaneToolbar がフォームの右端に追加されます。
+.. デザイナ上のフォームは次のスクリーンショットのようになります。
+
+image::Images/WinToolbars_Creating_Task_Pane_Toolbar_Designers_03.png[]
+
+[start=4]
+. これが UltraTaskPaneToolbar を作成するための基本です。UltraToolbarsManager1 コンポーネントを右クリックして [ユーザー設定] を選択すると、[ユーザー設定] ダイアログの「ツールバー」タブに今、作成した UltraTaskPaneToolbar が表示されます。ここで、デザイナで通常のツールバーを作成する場合と同様にツールバーのプロパティを変更できます。
+
+[NOTE]
+====
+*注:* link:wintoolbarsmanager-design-time-customize-dialog-box.html[[ユーザー設定] ダイアログ ボックス]で UltraTaskPaneToolbar を作成することもできます。そのためには、[ユーザー設定] ダイアログを開いて「ツールバー」タブを選択し、右側の [新規作成] ボタンをクリックします。 上記と同様に [新しいツール] ダイアログが表示されます。[新しいツール] ダイアログの最初のテキストボックス（[ツールバー名]）に「myTaskPane」と入力します。これはツールバーの名前であると同時に、UltraToolbarsManager のツールバー コレクション内でこの TaskPaneToolbar を識別するためのキーにもなります。[ツールバーの種類] ドロップダウンから [タスクペイン ツールバー] を選択します。ツールバーの位置を表す最後のドロップダウンから [右端にドッキング] を選択して [OK] をクリックします。これで、UltraTaskPaneToolbar が左ペインのツールバーのリストに追加され、フォームにも追加されます。
+====

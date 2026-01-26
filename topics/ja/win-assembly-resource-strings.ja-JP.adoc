@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-assembly-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "{C69AF638-9385-4E08-87D7-18E5BD44D56F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アセンブリ リソース文字列
+
+Windows Formsの個々のコントロール／コンポーネントは、コントロールによりエンド ユーザーに対して表示される文字列値を変更する機能が提供します。この機能とその使用方法についての詳しい説明は、 link:win-customizing-assembly-resource-strings.html[アセンブリ リソース文字列のカスタマイズ]を参照してください。
+
+以下のリンクをクリックすると、その特定の Infragistics .NET アセンブリのすべてのリソース文字列のリスト、および文字列のデフォルト値を確認することができます。
+
+* link:shared-resource-strings.html[Shared リソース文字列]
+* link:supportdialogs-resource-strings.html[SupportDialogs リソース文字列]
+* link:appstylist-resource-strings.html[AppStylist リソース文字列]
+* link:appstylistsupport-resource-strings.html[AppStylistSupport リソース文字列]
+* link:textdocument-library-resource-strings.html[TextDocument ライブラリ リソース文字列]
+* link:win-resource-strings.html[Win リソース文字列]
+* link:wincalcmanager-resource-strings.html[WinCalcManager リソース文字列]
+* link:wincalcmanager-formulabuilder-resource-strings.html[WinCalcManager FormulaBuilder リソース文字列]
+* link:wincarousel-resource-strings-reference.html[WinCarousel リソース文字列]
+* link:windatasource-resource-strings.html[WinDataSource リソース文字列]
+* link:windockmanager-resource-strings.html[WinDockManager リソース文字列]
+* link:wineditors-resource-strings.html[WinEditors リソース文字列]
+* link:winexplorerbar-resource-strings.html[WinExplorerBar リソース文字列]
+* link:winformattedtextwordwriter-resource-strings.html[WinFormattedTextWordWriter リソース文字列]
+* link:winganttview-resource-strings.html[WinGanttView リソース文字列]
+* link:wingrid-resource-strings.html[WinGrid リソース文字列]
+* link:wingriddocumentexporter-resource-strings.html[WinGridDocumentExporter リソース文字列]
+* link:wingridexcelexporter-resource-string.html[WinGridExcelExporter リソース文字列]
+* link:wingridwordwriter-resource-strings.html[WinGridWordWriter リソース文字列]
+* link:wininkprovider-resource-strings.html[WinInkProvider リソース文字列]
+* link:winlistbar-resource-strings.html[WinListbar リソース文字列]
+* link:winlistview-resource-strings.html[WinListView リソース文字列]
+* link:winlivetileview-resource-strings.html[WinLiveTileView リソース文字列]
+* link:winmaskededit-resource-strings.html[WinMaskedEdit リソース文字列]
+* link:winmisc-resource-strings.html[WinMisc リソース文字列]
+* link:winpivotgrid-resource-strings.html[WinPivotGrid リソース文字列]
+* link:winprintpreviewdialog-resource-strings.html[WinPrintPreviewDialog リソース文字列]
+* link:winradialmenu-resource-strings.html[WinRadialMenu リソース文字列]
+* link:winschedule-resource-strings.html[WinSchedule リソース文字列]
+* link:winspellchecker-resource-strings.html[WinSpellChecker リソース文字列]
+* link:winspreadsheet-resource-strings.html[WinSpreadsheet リソース文字列]
+* link:winstatusbar-resource-strings.html[WinStatusBar リソース文字列]
+* link:wintabbedmdi-resource-strings.html[WinTabbedMdi リソース文字列]
+* link:wintab-resource-strings.html[WinTab リソース文字列]
+* link:wintoolbarsmanager-resource-strings.html[WinToolbarsManager リソース文字列]
+* link:wintree-resource-strings.html[WinTree リソース文字列]
+* link:word-library-resource-strings.html[Word Library リソース文字列]

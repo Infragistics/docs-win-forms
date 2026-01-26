@@ -1,0 +1,38 @@
+﻿////
+|metadata|
+{
+    "name": "winschedule-scroll-the-current-day-into-view",
+    "controlName": ["WinSchedule"],
+    "tags": [],
+    "guid": "{219CD32E-BA1D-46B9-91B7-616B11BB626E}","buildFlags": [],
+    "createdOn": "2005-07-07T00:00:00Z"
+}
+|metadata|
+////
+
+= 現在の日の表示領域へのスクロール
+
+このトピックは以下の WinSchedule™ コントロールに適用されます。
+
+* WinMonthViewSingle™
+* WinWeekView™
+
+次のコードは、pick:[win-forms="link:{ApiPlatform}win.ultrawinschedule{ApiVersion}~infragistics.win.ultrawinschedule.ultramonthviewsingle~scrolldayintoview.html[ScrollDayIntoView]"]  メソッドを使用して、特定の日を WinMonthViewSingle および WinWeekView エレメントの表示領域にスクロールする方法を示しています。
+
+*Visual Basic の場合:*
+[source, vb]
+Private Sub Scroll_the_Current_Day_into_View_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.UltraMonthViewSingle1.ScrollDayIntoView(DateTime.Today)
+        Me.UltraWeekView1.ScrollDayIntoView(DateTime.Today)
+End Sub    
+
+
+
+*C# の場合:*
+[source, csharp]
+private void Scroll_the_Current_Day_into_View_Load(object sender, EventArgs e)
+{
+        this.ultraMonthViewSingle1.ScrollDayIntoView(DateTime.Today);
+        this.ultraWeekView1.ScrollDayIntoView(DateTime.Today);
+}

@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "winexplorerbar-understanding-winexplorerbar",
+    "controlName": ["WinExplorerBar"],
+    "tags": ["Getting Started"],
+    "guid": "{EA3620D7-5DB1-4A36-8013-B8F9A405207C}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WinExplorerBar の理解
+
+WinExplorerBar コントロール、ならびにその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WinExplorerBar コントロールを使用することの利点を理解できます。
+
+WinExplorerBar コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:winexplorerbar-about-winexplorerbar.html[WinExplorerBar について] -- WinExplorerBar コントロールの概要を説明しています。
+* link:winexplorerbar-differences-between-winexplorerbar-and-winlistbar.html[WinExplorerBar と WinListBar の違い] -- WinExplorerBar コントロールと WinListBar コントロールの違いを説明し、WinExplorerBar が WinListBar の高度なバージョンであることを理解します。
+* link:winexplorerbar-terms-and-concepts.html[用語と概念] -- WinExplorerBar コントロールの概念を説明しています。
+* link:winexplorerbar-replacing-winlistbar-with-winexplorerbar.html[WinListBar を WinExplorerBar で置き換え] -- WinListBar コントロールを WinExplorerBar に置換するための手順を説明しています。
+* link:winexplorerbar-item-styles.html[項目のスタイル] -- 項目で使用できる 4 つのスタイル（Button、StateButton、Label、および Separator）について説明しています。
+* link:winexplorerbar-smart-tag.html[WinExplorerBar スマート タグ] -- WinExplorerBar コントロールのスマート タグで表示されるプロパティと設定について説明しています。

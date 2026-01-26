@@ -1,0 +1,19 @@
+﻿= WinRadioButton について
+
+link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraradiobutton.html[WinRadioButton] は、グループ内の他の WinRadioButton にリンクされたチェック可能なボタンです。グループ内の 1 つの WinRadioButton のみがチェックされるため、WinRadioButton が選択されると、グループ内の他のすべてのボタンがチェック解除されます。これは、相互に排他的なオプションの選択が必要なシナリオで役に立ちます。
+
+デフォルトでは、UI の同じコンテナー内のすべての WinRadioButton がグループ化されます。このように、同じパネル、グループ ボックス、またはその他のコンテナーでオプションをグループ化することにより、ラジオ ボタンの機能を容易に表すことができます。
+
+image:images/winradiobutton-control-containers.png[alt="WinGroupBoxes での WinRadioButtons はデフォルトでグループ化されます"]
+
+== GroupManager
+WinRadioButton は、link:{ApiPlatform}win.ultrawineditors{ApiVersion}~infragistics.win.ultrawineditors.ultraradiobuttongroupmanager.html[WinRadioButtonGroupManager] コンポーネントを使用して手動でグループ化することもできます。WinRadioButton は `GroupManager` プロパティを設定することによって WinRadioButtonGroupManager に追加できます:
+
+[source, csharp]
+ultraRadioButton1.GroupManager = ultraRadioButtonGroupManager1;
+
+これにより、UI で相互に排他的なオプションのカスタム スキーマが可能になります。GroupManager 内の WinRadioButton は、GroupManager に対して行われた外観設定を優先し、グループ化されたオプションを視覚的に識別しやすくします。
+
+image:images/winradiobuttongroupmanager_example.png[alt="WinRadioButtonGroupManager での WinRadioButtons は水平方向にグループ化されます"]
+
+

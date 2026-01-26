@@ -1,0 +1,203 @@
+﻿////
+
+|metadata|
+{
+    "name": "windatasource-getting-started",
+    "controlName": ["WinDataSource"],
+    "tags": ["Application Scenarios","Getting Started"],
+    "guid": "{1AA50902-7762-499F-B6FB-B27EFE8E66A3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= はじめに
+
+WinDataSource は、{ProductName} に含まれる強力なコンポーネントです。その利点は、ひとつ以上の階層的なエンティティ（バンド）のデザインタイムおよびランタイムのデータ バインディングをサポートするために必要なインタフェースを正しく実装できる点にあります。このヘルプ トピックでは、Northwind Categories テーブルで作業をすることができるサブクラス化した WinDataSource の作成方法について説明します。
+
+== 基本的な要件
+
+単純なビジネス クラスを作成するためには、いくつかの基本機能を装備する必要があります。最小限必要な機能は以下のとおりです。
+
+* データの取得
+* データの作成
+* データの削除
+* データの更新
+
+サブクラス化した WinDataSource には、これらのタスクを本質的に実現する機能を持ちます。これを実現するために、WinDataSource コンポーネントを介して使用することができるイベントのいくつかを理解する必要があります。重要なイベントは次のとおりです。
+
+OnRowEndEdit
+
+このイベントは、編集操作を開始した行が編集を完了したときに発生します。通常、グリッドにバインドされ各行を選択すると、Begin Edit が発生し、その行から移動すると End Edit が発生します。このイベントを処理することにより、データの新規追加の場合は新しいレコードをデータベースに挿入する、または既存のレコードを変更内容で更新するの 2 つの可能なタスクを実行します。
+
+OnRowAdded
+
+このイベントは、新しい行が WinDataSource コンポーネントに挿入された後に発生します。このイベントは、新しく挿入された行にデフォルトを設定するのに役立ちます。今回の例では、このイベントを使用してプライマリ キー フィールドに自動番号を割り当てます。この自動番号は、行の初期追加時にデータベースから取得するものではなく、デクリメントした負数のプライマリ キーを識別するために使用します。この負数のプライマリ キーは、データベースへの挿入時に、サーバーによって実際に生成されたプライマリ キー値に置き換えます。
+
+OnRowDeleting
+
+このイベントは、実際の行が削除される前に発生します。このイベントでは、対応するレコードをデータベースから削除するコマンドを発行します。
+
+== 例
+
+対象とすべき重要な部分は、WinDataSource コンポーネントをサブクラス化する方法です。新しいクラス プロジェクトを作成し、このプロジェクトで "UltraNorthwindDataSource" という名前の新しいコンポーネントを追加します。コンポーネント デザイナを右クリックしてコードを表示します。コードで、継承されるコントロールを変更する必要があります。変更は以下のとおりです。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinDataSource
+Imports Infragistics.Win
+Imports System.Data.SqlClient
+' 以下はこのクラスが UltraDataSource から継承するための変更です。
+Public Class UltraNorthwindDataSource
+	Inherits UltraDataSource
+----
+
+*C# の場合：*
+
+----
+using System;
+using System.ComponentModel;
+using System.Collections;
+using System.Diagnostics;
+using Infragistics.Win.UltraWinDataSource;
+using Infragistics.Win;
+using System.Data;
+using System.Data.SqlClient;
+namespace Northwind.Data.CS
+{
+	// 以下はこのクラスが UltraDataSource から継承するための変更です。
+	public class UltraNorthwindDataSource : UltraDataSource
+----
+
+サブクラス化したコンポーネントまたはコントロールで特定のオブジェクトを作成するときには、Visual Studio はホスティング フォームの Initialize Component コード セクションでこれらのプロパティとオブジェクトを繰り返す傾向があります。サブクラス化したバージョンで列を追加することによって、WinDataSource コンポーネントをカスタマイズするため、複製を回避したい場合があります。そのためには、サブクラス化した WinDataSource に次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+#Region " Serialization Duplicate Control "
+	' フォームの InitializeComponent でのシリアル化を中止するため、False を返します。
+	Protected Shadows Function ShouldSerializeBand() As Boolean
+		Return False
+	End Function
+	' 複製を避けるため、フォームの InitializeComponent でのシリアル化を中止します。
+	<system.ComponentModel.DesignerSerializationVisibility( _
+	  System.ComponentModel.DesignerSerializationVisibility.Hidden)> _
+	Public Shadows ReadOnly Property Band() As Infragistics.Win.UltraWinDataSource.UltraDataBand
+		Get
+			Return MyBase.Band ' シリアル化できないバージョンでバンドをラップします。
+		End Get
+	End Property
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Serialization Duplicate Control
+	// フォームの InitializeComponent でのシリアル化を中止するため、False を返します。
+	protected new bool  ShouldSerializeBand()
+	{
+		return false;
+	}
+	// 複製を避けるため、フォームの InitializeComponent でのシリアル化を中止します。
+	[System.ComponentModel.DesignerSerializationVisibility(
+	  System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+	public new Infragistics.Win.UltraWinDataSource.UltraDataBand Band
+	{
+		get
+		{
+			return base.Band; // シリアル化できないバージョンでバンドをラップします。
+		}	
+	}
+#endregion
+----
+
+以下は接続文字列にアクセスするためのメソッドを後で使用するためにプロパティを作成しました。クラス内で使用するために次の自動番号を返すためのプロパティもここで作成されます。
+
+*Visual Basic の場合：*
+
+----
+#Region " Properties "
+	' データを取得するために提供する接続文字列
+	Private _cn As String = ""
+	Public Property ConnectionString() As String
+		Get
+			Return _cn
+		End Get
+		Set(ByVal Value As String)
+			_cn = Value
+		End Set
+	End Property
+	' このプロパティはこの特定のフォームの範囲に限って使用される
+	' 次の自動番号を返します。実際の自動番号は
+	' 実際の挿入が発生するときには常にデータベースから取得されます。
+	Private _next As Integer = 0
+	Private ReadOnly Property NextAutoNumber() As Integer
+		Get
+			_next -= 1
+			Return _next
+		End Get
+	End Property
+#End Region
+----
+
+*C# の場合：*
+
+----
+#region Properties
+	// データを取得するために提供する接続文字列
+	private string _cn = "";
+	public string ConnectionString
+	{
+		get{return _cn;}
+		set{_cn = value;}
+	}
+	private int _next = 0;
+	// このプロパティはこの特定のフォームの範囲に限って使用される
+	// 次の自動番号を返します。実際の自動番号は
+	// 実際の挿入が発生するときには常にデータベースから取得されます。
+	private int NextAutoNumber
+	{
+		get{_next--;return _next;}
+}
+#endregion
+----
+
+ここで、WinDataSource スキーマを定義する準備ができました。このスキーマは Northwind Categories テーブルに準拠します。WinDataSource コンポーネントの各フィールドは、カテゴリー テーブル内のフィールドにマップします。以下のコードを使用して、列を WinDataSource コンポーネントに追加できます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub InitSchema()
+	'サブクラス化したコンポーネントに列が表示し、
+	'強く型付けされた構造を使用します。
+	MyBase.Band.Key = "Categories"
+	MyBase.Band.Columns.Add("CategoryID", GetType(Integer)).ReadOnly = DefaultableBoolean.True
+	MyBase.Band.Columns.Add("CategoryName", GetType(String)).AllowDBNull = DefaultableBoolean.False
+	MyBase.Band.Columns.Add("Description", GetType(String)).AllowDBNull = DefaultableBoolean.False
+	MyBase.Band.Columns.Add("Picture", GetType(Byte())).AllowDBNull = DefaultableBoolean.False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void InitSchema()
+{
+	// サブクラス化したコンポーネントに列が表示し、
+	// 強く型付けされた構造を使用します。 
+	base.Band.Key = "Categories";
+	base.Band.Columns.Add("CategoryID", typeof(int)).ReadOnly = DefaultableBoolean.True;
+	base.Band.Columns.Add("CategoryName", typeof(String)).AllowDBNull = DefaultableBoolean.False;
+	base.Band.Columns.Add("Description", typeof(String)).AllowDBNull = DefaultableBoolean.False;
+	base.Band.Columns.Add("Picture", typeof(Byte[])).AllowDBNull = DefaultableBoolean.False;
+}
+----
+
+このメソッドは、InitializeComponent メソッドの後にサブクラス化した WinDataSource のコンストラクタ内でこのメソッドを呼び出すことが重要です。この手法を使用することにより、デザインタイムにすべてのフィールドとプロパティが表示される、強く型付けされたコンポーネントを作成できます。さらに、グリッドへのバインドも簡単になり、すべての列と型が即座に作成されます。
+
+== 関連トピック
+
+link:windatasource-retrieving-data-in-your-business-class.html[ビジネスクラスでのデータの取得]

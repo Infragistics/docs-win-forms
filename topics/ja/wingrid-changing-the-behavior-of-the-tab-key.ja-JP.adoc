@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-changing-the-behavior-of-the-tab-key",
+    "controlName": ["WinGrid"],
+    "tags": ["Grids","How Do I","Navigation"],
+    "guid": "{7B572F29-0914-411A-AE6A-2DE8C07A43F2}",  
+    "buildFlags": [],
+    "createdOn": "2005-11-07T00:00:00Z"
+}
+|metadata|
+////
+
+= TAB キーの動作の変更
+
+WinGrid のデフォルト動作では、TAB キーが押されると、ひとつのセルから次のセルにフォーカスが移ります。pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout.html[Layout]"]  オブジェクトの pick:[win-forms="link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridlayout~tabnavigation.html[TabNavigation]"]  プロパティを使用すると、TAB　キーを押したときに次のセルのかわりに次のコントロールへと移動させることができます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.Win.UltraWinGrid
+...
+Private Sub ChangingtheBehavioroftheTabKey_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.UltraGrid1.DisplayLayout.TabNavigation = TabNavigation.NextControl
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.Win.UltraWinGrid;
+...
+private void ChangingtheBehavioroftheTabKey_Load(object sender, System.EventArgs e)
+{
+	this.ultraGrid1.DisplayLayout.TabNavigation = TabNavigation.NextControl;
+}
+----

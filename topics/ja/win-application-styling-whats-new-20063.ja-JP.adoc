@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "win-application-styling-whats-new-20063",
+    "controlName": [],
+    "tags": [],
+    "guid": "{A7A764EE-A125-4D8E-B152-88149D59ED0A}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-08T00:03:41Z"
+}
+|metadata|
+////
+
+= アプリケーション スタイリング 2006.3
+
+以下のリンクをクリックすることによって、2006 Volume 3 のリリースで Infragistics に追加された AppStylist™ への新しい拡張を学習してください。
+
+* link:win-new-eyedropper-whats-new-20063.html[新しい Eyedropper]
+* link:win-new-resource-previews-whats-new-20063.html[新しいリソース プレビュー]
+* link:win-new-used-by-list-whats-new-20063.html[新しい "Used By" リスト]
+* link:win-selective-importing-whats-new-20063.html[選択的なインポート]

@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "wingrid-beforerowsdeleted-event",
+    "controlName": ["WinGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{BA82F459-7A8D-46A8-81EB-6D2C5B4CDDB9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= BeforeRowsDeleted イベント
+
+WinGrid™ によって組み込み機能を提供することで行を削除できます。エンド ユーザーはグリッド内でひとつ以上の行を選択し、Delete キーボード キーを押すだけです。エンド ユーザーは削除される行がプロンプト表示します。ユーザーが [はい] または [OK] を選択すると、行はグリッドから削除されます。行が削除される直前に、BeforeRowsDeleted イベントが発生します。削除される行の実際のリストにアクセスする必要がある場合、BeforeRowsDeleted イベントを処理できます。このイベントでは、Delete アクションでユーザーにプロンプト表示される本来の MessageBox を抑制できるので、ユーザー自身のメッセージを提供できます。行へのアクセスは、e.Rows イベント引数を介して提供されます。状況に応じて、各行を反復してアクションを実行したい場合があります。以下の例は、BeforeRowsDeleted イベントを処理する方法を示しています。これによって、各行を反復して、対応する ListObject（この場合は Customer）にアクセスし、明示的に Customer の Delete メソッドを呼び出すことができます。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraGrid1_BeforeRowsDeleted( _
+   ByVal sender As System.Object, _
+   ByVal e As BeforeRowsDeletedEventArgs) _
+   Handles UltraGrid1.BeforeRowsDeleted
+   e.DisplayPromptMsg = True
+   Dim tmp as Integer = e.Rows.Length - 1
+   For i As Integer = 0 To tmp
+      Dim c As Customer = _
+      DirectCast(e.Rows(0).ListObject, Customer)
+      c.Delete()
+   Next
+   DataManager.UpdateAll()
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void ultraGrid1_BeforeRowsDeleted(
+   object sender, 
+   BeforeRowsDeletedEventArgs e)
+{
+   e.DisplayPromptMsg = true;
+   int tmp = e.Rows.Length;
+   for (int i = 0; i < tmp; i++)
+   {
+      Customer c = e.Rows[0].ListObject as Customer;
+      c.Delete();
+   }
+   DataManager.UpdateAll();
+}
+----
+
+e.DisplayPromptMsg を True に設定することで、WinGrid はエンド ユーザーにデフォルト プロンプトを示します。この例では、ビジネス エンティティを含むカスタム ビジネス オブジェクト ライブラリだけでなく、これらのエンティティで操作を作成、読み取り、更新および削除ができるデータ マネージャも使用しています。これらのカスタム エンティティは、削除される時に常に呼び出す必要がある Delete メソッドを持ちます。このイベントでは、各行をどのように反復して ListObject Row プロパティを介して Customer オブジェクトにアクセスするかに注意してください。次に Customer の Delete メソッドを呼び出します。ループの最後で、カスタム ライブラリの DataManager クラスを使用してこれらのレコードの変更を解決します。このケースでは、削除とマークされたすべての Customers がデータベースに解決されます。行を反復するために使用されるロジックに注意してください。各反復で、コレクション内のエレメント 0 を参照します。これによって、各 Customer を削除する時にコレクションの制限を超えないことを保証します。e.Rows[i] を使用して各エンティティを単に参照する場合、エンティティが削除されて、変数 i が増えると、コレクションの境界を超過するため、コレクションの制限を超えます。

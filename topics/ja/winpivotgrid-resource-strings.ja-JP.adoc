@@ -1,0 +1,90 @@
+﻿////
+|metadata|
+{
+    "name": "winpivotgrid-resource-strings",
+    "controlName": [],
+    "tags": [],
+    "guid": "0e20b36a-7934-45a8-badc-88b3187607d4",
+    "buildFlags": [],
+    "createdOn": "2014-03-19T17:13:23.188041Z"
+}
+|metadata|
+////
+
+= WinPivotGrid リソース文字列
+
+このトピックは、このアセンブリを参照するコントロールおよびコンポーネントの内部に定義されたテキスト要素をカスタマイズするために使用される Infragistics `WinPivotGrid` アセンブリ リソース文字列のリストを提供します。リソース文字列には、ダイアログ ボックスのキャプションや警告メッセージ、アラートなどが含まれます。
+
+以下の表は、このアセンブリで使用されるリソース文字列の名前および文字列のカスタマイズ可能なデフォルト テキスト値をリストします。
+
+[options="header", cols="a,a"]
+|====
+|リソース文字列名|デフォルト値
+
+|CountEquals
+| 項目数 = {0} 
+
+|Exception_DataSourceInitializationTimeoutElapsed
+| 操作がタイムアウトになりました。{0} ミリ秒の後 OLAP サーバーから応答が受信されませんでした。 
+
+|Exception_NonOLAPDataSource
+|割り当てられたデータ ソースは Infragistics.Olap.OlapDataSource から派生する必要があります。
+
+|Exception_UpdateInProgress_Class
+| {0} クラスのプロパティは、非同期更新が処理中の場合に変更できません。
+
+|Exception_AsyncOperationPending
+| 更新操作が保留中であるため、データ ソースを更新できません。
+
+|Exception_KeyNotFound
+| キー {0} を持つ項目はこのコレクションに存在しません。
+
+|Exception_CannotModifySelection
+| 以前要求された選択変更が実行されているため、{0} コレクションを変更できません。 
+
+|DropAreaText_Filter
+| フィルター
+
+|DropAreaText_Column
+| 列 
+
+|DropAreaText_Row
+| 行 
+
+|DropAreaText_Measure
+| メジャー
+
+|Tooltip_Remove
+| 削除
+
+|Tooltip_Sort
+| 並べ替え 
+
+|Select_A_Catalog
+| [カタログの選択] 
+
+|Select_A_Cube
+| [キューブの選択]
+
+|Tooltip_Filter
+| フィルター... 
+
+|Tooltip_Expand
+| 展開
+
+|Tooltip_Collapse
+| 縮小
+
+|Tooltip_Expand_Caption
+| '{0}' を展開する 
+
+|Tooltip_Collapse_Caption
+| '{0}' を縮小する
+
+|FilterSelectorButton_OK
+| OK
+
+|FilterSelectorButton_Cancel
+| キャンセル 
+
+|====

@@ -1,0 +1,80 @@
+﻿////
+|metadata|
+{
+    "name": "wingrid-configuring-initial-sort-order",
+    "controlName": [],
+    "tags": [],
+    "guid": "f68935b0-54bf-4422-bc76-1c9a6d6516df",
+    "buildFlags": [],
+    "createdOn": "2014-01-21T18:47:25.0832377Z"
+}
+|metadata|
+////
+
+= 並べ替え順序の初期設定を構成
+
+== トピックの概要
+
+=== 目的
+
+このトピックは  _WinGrid_™ 列の並べ替え順序を初期設定する方法を紹介します。
+
+== 並べ替え順序の初期設定を選択
+
+=== 概要
+
+この機能は、定義済みの最初の並べ替え順序を適用するオプションを提供します。ユーザーが列ヘッダーをクリックすると、最初の並べ替え順序はデータの表示に影響します。最初の並べ替え順序を設定するために `SortDirection` `Enum` 型の link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride~initialsortdirection.html[InitialSortDirection] プロパティを追加しました。デフォルト値は  _Ascending_   順序です。このプロパティは link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridoverride_members.html[UltraGridOverride] クラスおよび link:{ApiPlatform}win.ultrawingrid{ApiVersion}~infragistics.win.ultrawingrid.ultragridcolumn_members.html[UltraGridColumn] クラスに追加されました。開発者がすべての列または特定の列の並べ替え順序を選択できます。
+
+初期並べ替え順序のオプション:
+
+*  _Ascending_  
+*  _Default_   ( _Ascending_  )
+*  _Descending_  
+
+以下の例はすべての列に適用されます。つまり、任意の列ヘッダーを最初にクリックすると、列を  _Ascending_   順序に並べ替えます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Override.InitialSortDirection = SortDirection.Ascending;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Override.InitialSortDirection = SortDirection.Ascending
+----
+
+以下の例は特定の列に適用されます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ultraGrid1.DisplayLayout.Bands[0].Columns[2].InitialSortDirection = SortDirection.Ascending;
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+ultraGrid1.DisplayLayout.Bands(0).Columns(2).InitialSortDirection = SortDirection.Ascending
+----
+
+[[_Ref370929790]]
+== 関連コンテンツ
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:wingrid-using-wingrid.html[WinGrid の使用]
+
+|このセクションは関連トピックのリンクを提供します。
+|====
