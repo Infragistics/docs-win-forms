@@ -1,7 +1,54 @@
-# docs-win-forms
-docs-win-forms
+<div style="display: flex; flex-flow: row; margin-bottom: 1rem; font-family: 'Titillium Web'">
+    <img style="border-radius: 0.25rem; align-self: center; justify-content: left; " alt="Infragistics" src="https://www.infragistics.com/media/441501/horz_logo.png"/>
+    <div style="display: flex; flex-flow: row; justify-content: center; margin-left: 1rem;
+    align-items: center; font-family: 'Arial'; font-size: 24pt"> Win-Forms </div>
+</div>
+
+
+# Infragistics Docs for Win-Forms Components
+ 
+Welcome to the help topics repository for [Infragistics Win-Forms](https://www.infragistics.com/help/winforms/) components. By interacting with the content in this repository you have an opportunity to interface directly with the Infragistics product teams to help build better product documentation. Pull requests, comments and issues are all welcome!
+
+## Docs Organization
+
+Every topic for this help set is found in the [topics](./topics/) folder. While this can make for a long list of files, this flat structure makes it easy to find files by name.
+
+The best way to find the file you are looking for is to navigate to a page on the [Infragistics Win-Forms](https://www.infragistics.com/help/winforms/) help and pull the file name from the page's URL. If for some reason you are not able to locate the file name in this repository, then you are likely seeking a shared topic and need to look in a shared repository. 
+
+## Shared Repository
+
+The [docs-common](https://github.com/Infragistics/docs-common) repository is built in concert with this repository to make a final help set. The docs-common repository contains topics for these components:
+
+- [barcodes](https://github.com/Infragistics/docs-common/tree/main/topics/en/barcodes)
+- [bullet-graph](https://github.com/Infragistics/docs-common/tree/main/topics/en/bullet-graph)
+- [category-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/category-chart)
+- [data-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/data-chart)
+- [data-pie-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/data-pie-chart)
+- [document-engine](https://github.com/Infragistics/docs-common/tree/main/topics/en/document-engine)
+- [donut-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/donut-chart)
+- [financial-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/financial-chart)
+- [funnel-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/funnel-chart)
+- [geographic-map](https://github.com/Infragistics/docs-common/tree/main/topics/en/geographic-map)
+- [linear-gauge](https://github.com/Infragistics/docs-common/tree/main/topics/en/linear-gauge)
+- [pie-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/pie-chart)
+- [radial-gauge](https://github.com/Infragistics/docs-common/tree/main/topics/en/radial-gauge)
+- [shape-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/shape-chart)
+- [sparkline](https://github.com/Infragistics/docs-common/tree/main/topics/en/sparkline)
+- [spreadsheet](https://github.com/Infragistics/docs-common/tree/main/topics/en/spreadsheet)
+- [win-web-chart](https://github.com/Infragistics/docs-common/tree/main/topics/en/win-web-chart)
+
+
+## API Documentation
+
+A large portion of the product documentation is not represented in this repository as the API documentation is generated directly from the product's source code. To provide feedback on a generated API topic, please create [support request](http://www.infragistics.com/my-account/submit-support-request) and include the full URL to the topic in your description.
+
+## Licensing
+
+The documentation included in this repository is published under the [Attribution-ShareAlike 4.0 International](license.txt) license, and all source code examples retain the respective license of the published software.
 
 ## Topics Ported from IG DevOps Repositories
 
-https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-en
-https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-ja
+The following Azure DevOps repositories were ported to [topics](./topics/) folder:
+
+- https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-en
+- https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-ja
