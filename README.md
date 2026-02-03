@@ -1,23 +1,24 @@
 <div style="display: flex; flex-flow: row; margin-bottom: 1rem; font-family: 'Titillium Web'">
-    <img style="border-radius: 0.25rem; align-self: center; justify-content: left; " alt="Infragistics" src="https://www.infragistics.com/media/441501/horz_logo.png"/>
-    <div style="display: flex; flex-flow: row; justify-content: center; margin-left: 1rem;
-    align-items: center; font-family: 'Arial'; font-size: 24pt"> Win-Forms </div>
+    <!-- <img style="border-radius: 0.25rem; align-self: center; justify-content: left; " alt="Infragistics" src="https://www.infragistics.com/media/441501/horz_logo.png"/> -->
+    <!-- <div style="display: flex; flex-flow: row; justify-content: center; margin-left: 1rem;
+    align-items: center; font-family: 'Arial'; font-size: 24pt"> Win-Forms </div> -->
 </div>
 
+![Infragistics repository title](./ig-title.svg)
 
 # Infragistics Docs for Win-Forms Components
  
-Welcome to the help topics repository for [Infragistics Win-Forms](https://www.infragistics.com/help/winforms/) components. By interacting with the content in this repository you have an opportunity to interface directly with the Infragistics product teams to help build better product documentation. Pull requests, comments and issues are all welcome!
+Welcome to the help topics repository for [Infragistics Win-Forms](https://www.infragistics.com/help/winforms/) components. By interacting with the content in this repository, you can learn how to use these components. Also you have an opportunity to interface directly with the Infragistics product teams to help build better product documentation. Pull requests, comments and issues are all welcome!
 
 ## Docs Organization
 
-Every topic for this help set is found in the [topics](./topics/) folder. While this can make for a long list of files, this flat structure makes it easy to find files by name.
+Most topics in this help documentation can be found in the [topics/en](./topics/en/) folder. While this can make for a long list of files, this flat structure makes it easy to find files by name.
 
-The best way to find the file you are looking for is to navigate to a page on the [Infragistics Win-Forms](https://www.infragistics.com/help/winforms/) help and pull the file name from the page's URL. If for some reason you are not able to locate the file name in this repository, then you are likely seeking a shared topic and need to look in a shared repository. 
+The best way to find the file you are looking for is to navigate to a page on the [Infragistics Win-Forms](https://www.infragistics.com/help/winforms/) help and pull the file name from the page's URL. If for some reason you are not able to locate the file name in this repository, then you are likely seeking a shared topic and need to look in the [docs-common](https://github.com/Infragistics/docs-common) repository. 
 
 ## Shared Repository
 
-The [docs-common](https://github.com/Infragistics/docs-common) repository is built in concert with this repository to make a final help set. The docs-common repository contains topics for these components:
+This repository depends on the [docs-common](https://github.com/Infragistics/docs-common) repository to make a final help documentation. The docs-common repository contains topics for these components:
 
 - [barcodes](https://github.com/Infragistics/docs-common/tree/main/topics/en/barcodes)
 - [bullet-graph](https://github.com/Infragistics/docs-common/tree/main/topics/en/bullet-graph)
@@ -45,10 +46,10 @@ A large portion of the product documentation is not represented in this reposito
 ## Licensing
 
 The documentation included in this repository is published under the [Attribution-ShareAlike 4.0 International](license.txt) license, and all source code examples retain the respective license of the published software.
-
+<!-- 
 ## Topics Ported from IG DevOps Repositories
 
 The following Azure DevOps repositories were ported to [topics](./topics/) folder:
 
 - https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-en
-- https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-ja
+- https://infragistics.visualstudio.com/NetAdvantage/_git/winforms-docs-ja -->
