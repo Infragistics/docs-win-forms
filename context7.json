@@ -1,0 +1,10 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "Infragistics WinForms Docs",
+  "description": "Docs repository for Infragistics WinForms components.",
+  "folders": [],
+  "excludeFolders": [ "topics/ja" ],
+  "excludeFiles": [],
+  "rules": ["Use repository to get information on how to use Infragistics WinForms components."],
+  "previousVersions": []
+}
