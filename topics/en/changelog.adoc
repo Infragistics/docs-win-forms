@@ -29,20 +29,22 @@ This topic contains the following sections:
 [options="header", cols="a,a,a"]
 |====
 
+|Bug Number|Control|Description
+
 | `2378`
 | Editors
 | UltraDateTimeEditor always select last month and date while changing the year and month respectively
 
 | `27870`
-| Menu
+| UltraToolbarsManager
 | Context menu does not show up in UI Automation's application tree if setting UIAutomationForCodedUITestingEnabled to false
 
 | `35085`
-| UltraWinCalcManager
+| UltraGrid
 | Grid throws exceptions when summaries columns prior to adding sorted columns with groupby
 
 | `35658`
-| Grid
+| UltraCombo
 | With UIAutomationForCodedUITestingEnabled set to false the UltraCombo drop-down items are not accessible
 
 | `36959`
