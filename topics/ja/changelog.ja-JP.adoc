@@ -90,8 +90,6 @@
 
 - `DataPieChart` に `OthersCategoryBrush` と `OthersCategoryOutline` が追加されました。
 
-
-
 [[Ref_25_2_65]]
 
 == 25.2.65 (2025 年 12 月)
