@@ -76,8 +76,8 @@
 | AssigningCategoryStyle の args.GetItems が null であるか、フラグメント シリーズのアイテムを更新するために機能しない。
 
 | `41731`
-| UltraToolBarsManager
-| UltraToolBarsManager の ApplicationMenu が WinForms デザイナーに表示されない。
+| UltraToolbarsManager
+| UltraToolbarsManager の ApplicationMenu が WinForms デザイナーに表示されない。
 
 | `41739`
 | UltraGanttView
