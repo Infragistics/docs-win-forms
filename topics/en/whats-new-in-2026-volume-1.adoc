@@ -1,0 +1,21 @@
+////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""],
+    "guid": "bdeecd92-0709-4c7f-b479-649a99b6d6e4"
+}
+|metadata|
+////
+
+= What's New in 2026 Volume 1
+
+=== Range Bar Series
+
+The link:{DataChartLink}.RangeBarSeries.html[RangeBarSeries] is now available in the link:{DataChartLink}.{DataChartName}.html[{DataChartName}] and provides the bar-oriented counterpart to the link:{DataChartLink}.RangeColumnSeries.html[RangeColumnSeries] for displaying high-to-low ranges as horizontal bars.
+
+Use the `CategoryYAxis` for categories and the `NumericXAxis` for values, then bind the series with the `LowMemberPath` and `HighMemberPath` properties. You can also round the corners of the rendered bars with `RadiusX` and `RadiusY`, and customize how the high and low values appear in the Data Legend.
+
+The following topic reviews this new series type in more detail:
+
+* link:datachart-category-range-bar-series.html[Range Bar Series]

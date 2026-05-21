@@ -1,0 +1,158 @@
+////
+|metadata|
+{
+    "name": "datachart-category-range-bar-series",
+    "controlName": ["{DataChartName}"],
+    "tags": ["Application Scenarios","Charting","How Do I"],
+    "guid": "b6f72554-ae23-4b95-a2ea-6d3ae4a097cf",
+    "buildFlags": [],
+    "createdOn": "2026-05-21T00:00:00Z"
+}
+|metadata|
+////
+
+= 範囲棒シリーズ
+
+このトピックは、コード例を示して、link:{DataChartLink}.rangebarseries.html[RangeBarSeries] を link:{DataChartLink}.{DataChartName}.html[{DataChartName}]™ コントロールで使用する方法を説明します。
+
+== 概要
+
+トピックは以下のとおりです。
+
+* <<Introduction,概要>>
+* <<DataRequirements,データ要件>>
+* <<DataRenderingRules,データ描画の規則>>
+* <<DataBindingExample,データ バインディング例>>
+* <<SeriesProperties,シリーズ プロパティ>>
+* <<RelatedContent,関連コンテンツ>>
+
+[[Introduction]]
+== 概要
+
+範囲棒シリーズは、link:datachart-category-series-overview.html[カテゴリ シリーズ] のグループに属し、データ ポイントの 2 つの値の差を示す横棒のコレクションを使用して描画します。このタイプのシリーズは、同一データ ポイントにおける安値と高値の差を強調したり、複数の項目を比較したりする場合に便利です。範囲の値は x 軸 (NumericXAxis) に表され、カテゴリは y 軸 (CategoryYAxis) に表示されます。link:{DataChartLink}.rangebarseries.html[RangeBarSeries] は、link:{DataChartLink}.rangecolumnseries.html[RangeColumnSeries] の縦方向版であり、link:{DataChartLink}.barseries.html[BarSeries] が link:{DataChartLink}.columnseries.html[ColumnSeries] の縦方向版である関係と同様です。シリーズの他のタイプとサポートされる軸の詳細は、link:datachart-category-series-overview.html[カテゴリ シリーズ] と link:datachart-axes.html[チャート軸] のトピックを参照してください。
+
+[[DataRequirements]]
+== データ要件
+
+{DataChartName} コントロールは固有のデータ モデルに簡単にバインドできますが、そのシリーズが必要とする適切な量と型のデータを必ず指定してください。使用しているシリーズの種類に基づいた最小要件をデータが満たさない場合、コントロールはエラーを生成します。データ シリーズ要件の詳細は、link:datachart-series-requirements.html[シリーズ要件] および link:datachart-category-series-overview.html[カテゴリ シリーズ] を参照してください。
+
+以下は、`RangeBarSeries` タイプのデータ要件の一覧です。
+
+* データ モデルには、値の間の範囲を描画するために少なくとも 2 つの数値データ列が必要です。
+* データ モデルには、ラベル用の文字列または日時フィールドを任意で含めることができます。
+* データ ソースには少なくとも 1 つのデータ項目が必要です。
+
+[[DataRenderingRules]]
+== データ描画の規則
+
+`RangeBarSeries` は以下の規則を使用してデータを描画します。
+
+* データ マッピングの link:{DataChartLink}.RangeCategorySeries{ApiProp}LowMemberPath.html[LowMemberPath] および link:{DataChartLink}.RangeCategorySeries{ApiProp}HighMemberPath.html[HighMemberPath] プロパティで指定された 2 つのデータ値をもつ各行は、これらの値の差を表す個別の横棒として描画されます。
+* y 軸上のデータ マッピングの `Label` プロパティにマップされる文字列または日時の列は、カテゴリ ラベルとして使用されます。`Label` のデータ マッピングが指定されない場合、デフォルトのラベルが使用されます。
+* カテゴリ ラベルは y 軸上に描かれ、データ値は x 軸上に描かれます。
+* 描画時には、複数の `RangeBarSeries` シリーズは各クラスターが 1 つのデータ ポイントを表すクラスターとして描画されます。{DataChartName} コントロールの `Series` コレクションの最初のシリーズはクラスターの下側に描画され、後続のシリーズはその上に描画されます。詳細は、link:datachart-multiple-series.html[複数シリーズ] のトピックを参照してください。
+
+[[DataBindingExample]]
+== データ バインディング例
+
+以下のコード スニペットは、link:{DataChartLink}.rangebarseries.html[RangeBarSeries] オブジェクトをカテゴリ データ サンプル (link:resources-sample-energy-data.html[エネルギー データのサンプル] リソースからダウンロード可能) にバインドする方法を示します。`RangeBarSeries` のデータ要件の詳細は、このトピックのデータ要件セクションを参照してください。
+
+ifdef::win-forms[]
+*C# の場合:*
+[source,csharp]
+----
+var data = new EnergyDataSource();
+var xAxis = new NumericXAxis();
+var yAxis = new CategoryYAxis();
+yAxis.DataSource = data;
+yAxis.Label = "{Country}";
+
+var series1 = new RangeBarSeries();
+series1.DataSource = data;
+series1.HighMemberPath = "Coal";
+series1.LowMemberPath = "Oil";
+series1.Title = "Coal vs Oil";
+series1.XAxis = xAxis;
+series1.YAxis = yAxis;
+
+var series2 = new RangeBarSeries();
+series2.DataSource = data;
+series2.HighMemberPath = "Hydro";
+series2.LowMemberPath = "Nuclear";
+series2.Title = "Hydro vs Nuclear";
+series2.XAxis = xAxis;
+series2.YAxis = yAxis;
+
+var chart = new {DataChartName}();
+chart.Axes.Add(xAxis);
+chart.Axes.Add(yAxis);
+chart.Series.Add(series1);
+chart.Series.Add(series2);
+----
+
+*Visual Basic の場合:*
+[source,vb]
+----
+Dim data As New EnergyDataSource()
+Dim xAxis As New NumericXAxis()
+Dim yAxis As New CategoryYAxis()
+yAxis.DataSource = data
+yAxis.Label = "{Country}"
+
+Dim series1 As New RangeBarSeries()
+series1.DataSource = data
+series1.HighMemberPath = "Coal"
+series1.LowMemberPath = "Oil"
+series1.Title = "Coal vs Oil"
+series1.XAxis = xAxis
+series1.YAxis = yAxis
+
+Dim series2 As New RangeBarSeries()
+series2.DataSource = data
+series2.HighMemberPath = "Hydro"
+series2.LowMemberPath = "Nuclear"
+series2.Title = "Hydro vs Nuclear"
+series2.XAxis = xAxis
+series2.YAxis = yAxis
+
+Dim chart As New {DataChartName}()
+chart.Axes.Add(xAxis)
+chart.Axes.Add(yAxis)
+chart.Series.Add(series1)
+chart.Series.Add(series2)
+----
+endif::win-forms[]
+
+[[SeriesProperties]]
+== シリーズ プロパティ
+
+`RangeBarSeries` は、他の範囲シリーズと同じ low/high 値マッピングをサポートし、さらに次のプロパティを使用できます。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ |説明
+
+|`HighMemberPath`
+|各横棒の高値を含むデータ列を指定します。
+
+|`LowMemberPath`
+|各横棒の安値を含むデータ列を指定します。
+
+|`RadiusX` および `RadiusY`
+|描画される棒の角丸半径を指定します。
+
+|`LowMemberAsLegendLabel` および `HighMemberAsLegendLabel`
+|Data Legend に表示される安値と高値のカスタム ラベルを指定します。
+
+|`LowMemberAsLegendUnit` および `HighMemberAsLegendUnit`
+|Data Legend に表示される安値と高値のカスタム単位を指定します。
+|====
+
+[[RelatedContent]]
+== 関連コンテンツ
+
+* link:datachart-axes.html[軸]
+* link:datachart-category-bar-series.html[棒シリーズ]
+* link:datachart-category-range-column-series.html[範囲柱状シリーズ]
+* link:datachart-category-range-area-series.html[範囲領域シリーズ]
+* link:datachart-series-requirements.html[シリーズ要件]
