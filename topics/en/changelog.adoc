@@ -4,6 +4,7 @@
 
 This topic contains the following sections:
 
+* <<Ref_26_1, 26.1 (May 2026)>>
 * <<Ref_25_2_111, 25.2.111 (March 2026)>>
 * <<Ref_25_2_65, 25.2.65 (December 2025)>>
 * <<Ref_25_2_41, 25.2.41 (November 2025)>>
@@ -19,6 +20,20 @@ This topic contains the following sections:
 * <<Ref_23_2_180,23.2.180 (June 2024)>>
 * <<Ref_23_2_131,23.2.131 (April 2024)>>
 * <<Ref_23_2, 23.2 (2023)>> 
+
+[[Ref_26_1]]
+
+== 26.1 (May 2026)
+
+=== Enhancements
+
+==== Charts
+
+- Added a new `MarkerSize` property to chart series that support markers so you can set the marker width and height to an exact pixel size.
+
+- Setting `MarkerSize` to `NaN` restores the default template-driven marker size, and the property also applies when using lightweight markers.
+
+- `BubbleSeries` continues to use radius-based sizing, so `MarkerSize` does not override bubble radius values.
 
 [[Ref_25_2_111]]
 

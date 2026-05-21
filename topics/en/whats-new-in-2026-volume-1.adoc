@@ -1,0 +1,43 @@
+////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= What's New in 2026 Volume 1
+
+=== Chart Marker Size
+
+The link:{DataChartLink}.{DataChartName}.html[{DataChartName}] now supports a new `MarkerSize` property on series that render markers. This property lets you set an exact square marker size in pixels without changing the marker template.
+
+You can use `MarkerSize` to:
+
+- keep marker dimensions consistent across supported series
+- make markers larger or smaller at runtime
+- restore the default template-driven marker size by setting the property to `NaN`
+
+The `MarkerSize` property also works when `UseLightweightMarkers` is enabled.
+
+The following marker-based series support this property:
+
+- `LineSeries`
+- `SplineSeries`
+- `AreaSeries`
+- `SplineAreaSeries`
+- `ColumnSeries`
+- `ScatterSeries`
+- `ScatterLineSeries`
+- `ScatterSplineSeries`
+- `PolarLineSeries`
+- `PolarSplineSeries`
+- `PolarScatterSeries`
+- `RadialLineSeries`
+- `RadialAreaSeries`
+
+[NOTE]
+====
+`BubbleSeries` continues to size bubbles from its radius member path and `RadiusScale`, so `MarkerSize` does not override bubble radius values.
+====

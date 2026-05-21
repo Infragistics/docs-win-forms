@@ -1,0 +1,43 @@
+////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2026 Volume 1 の新機能
+
+=== チャートのマーカー サイズ
+
+link:{DataChartLink}.{DataChartName}.html[{DataChartName}] では、マーカーを描画するシリーズで新しい `MarkerSize` プロパティがサポートされるようになりました。このプロパティを使用すると、マーカー テンプレートを変更せずに、正方形のマーカー サイズをピクセル単位で正確に設定できます。
+
+`MarkerSize` は次の用途に使用できます。
+
+- 対応するシリーズ間でマーカーの寸法を統一する
+- 実行時にマーカーを大きくしたり小さくしたりする
+- プロパティを `NaN` に設定して、テンプレートに基づく既定のマーカー サイズに戻す
+
+この `MarkerSize` プロパティは、`UseLightweightMarkers` が有効な場合にも機能します。
+
+このプロパティをサポートするマーカー ベースのシリーズは次のとおりです。
+
+- `LineSeries`
+- `SplineSeries`
+- `AreaSeries`
+- `SplineAreaSeries`
+- `ColumnSeries`
+- `ScatterSeries`
+- `ScatterLineSeries`
+- `ScatterSplineSeries`
+- `PolarLineSeries`
+- `PolarSplineSeries`
+- `PolarScatterSeries`
+- `RadialLineSeries`
+- `RadialAreaSeries`
+
+[NOTE]
+====
+`BubbleSeries` は引き続き半径メンバー パスと `RadiusScale` に基づいてサイズが決定されるため、`MarkerSize` はバブルの半径値を上書きしません。
+====
