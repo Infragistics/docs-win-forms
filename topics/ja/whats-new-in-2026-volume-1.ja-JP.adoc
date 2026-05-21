@@ -1,0 +1,14 @@
+﻿////
+|metadata|
+{
+    "tags": [],
+    "controlName": [""]
+}
+|metadata|
+////
+
+= 2026 Volume 1 の新機能
+
+=== チャート
+
+v26.1 では、マーカー関連のチャート列挙体に `Checkmark` マーカー タイプが追加されました。たとえば、link:{DataChartLink}.LegendItemBadgeShape.html[LegendItemBadgeShape] で `Checkmark` を使用すると、サポートされているチャートの凡例にチェックマーク バッジを表示できます。
