@@ -11,7 +11,7 @@
 
 === チャートのマーカー サイズ
 
-link:{DataChartLink}.{DataChartName}.html[{DataChartName}] では、マーカーを描画するシリーズで新しい `MarkerSize` プロパティがサポートされるようになりました。このプロパティを使用すると、マーカー テンプレートを変更せずに、正方形のマーカー サイズをピクセル単位で正確に設定できます。
+link:{DataChartLink}.{DataChartName}.html[{DataChartName}] では、マーカーを描画するシリーズで新しい `MarkerSize` プロパティがサポートされるようになりました。このプロパティを使用すると、マーカー テンプレートを変更せずに、正方形のマーカー サイズをデバイス独立ピクセル単位で正確に設定できます。
 
 `MarkerSize` は次の用途に使用できます。
 

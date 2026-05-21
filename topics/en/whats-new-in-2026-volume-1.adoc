@@ -11,7 +11,7 @@
 
 === Chart Marker Size
 
-The link:{DataChartLink}.{DataChartName}.html[{DataChartName}] now supports a new `MarkerSize` property on series that render markers. This property lets you set an exact square marker size in pixels without changing the marker template.
+The link:{DataChartLink}.{DataChartName}.html[{DataChartName}] now supports a new `MarkerSize` property on series that render markers. This property lets you set an exact square marker size in device-independent pixels without changing the marker template.
 
 You can use `MarkerSize` to:
 
