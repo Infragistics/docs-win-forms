@@ -15,7 +15,6 @@
 
 このセクションを理解すれば、次のボリューム リリースで Windows Forms のコントロールおよびコンポーネントに加えられたすべての新しい機能および拡張機能を簡単にたどることができます。
 
-* link:whats-new-in-2026-volume-1.html[2026 Volume 1]
 * link:whats-new-in-2022-volume-1.html[2022 Volume 1]
 * link:whats-new-in-2021-volume-2.html[2021 Volume 2]
 * link:whats-new-in-2021-volume-1.html[2021 Volume 1]
