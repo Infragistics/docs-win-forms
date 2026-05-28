@@ -24,7 +24,7 @@ In order to display a legend for the {DataPieChartName} an ItemLegend needs to b
 
 By default, the ItemLegend will show the same content as the label that is shown for each slice in the {DataPieChartName}. This can be modified by utilizing the `LegendSliceLabelContentMode` property on the chart. This exposes a `RadialLabelMode` enumeration that can allow you to show the label, value, percentage, or any combination of those as the legend's content for each data pie chart slice.
 
-The ItemLegend badge is also able to be modified. By default, it will appear as a filled circle corresponding to the color of the associated data pie chart slice. This can be configured by using the `LegendItemBadgeShape` property of the chart and you can set this to be a circle, line, bar, column, and more.
+The ItemLegend badge is also able to be modified. By default, it will appear as a filled circle corresponding to the color of the associated data pie chart slice. This can be configured by using the `LegendItemBadgeShape` property of the chart and you can set this to be a circle, line, bar, column, `Checkmark`, and more.
 
 [[CodeExample]]
 === Code Example
