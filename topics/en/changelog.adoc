@@ -4,7 +4,7 @@
 
 This topic contains the following sections:
 
-* <<Ref_26_1, 26.1 (2026)>>
+* <<Ref_26_1, 26.1 (May 2026)>>
 * <<Ref_25_2_111, 25.2.111 (March 2026)>>
 * <<Ref_25_2_65, 25.2.65 (December 2025)>>
 * <<Ref_25_2_41, 25.2.41 (November 2025)>>
@@ -23,13 +23,21 @@ This topic contains the following sections:
 
 [[Ref_26_1]]
 
-== 26.1 (2026)
+== 26.1 (May 2026)
 
 === New Chart Features
 
 ==== Range Bar Series
 
 Added `RangeBarSeries` to `{DataChartName}` so you can render low-to-high ranges as horizontal bars by combining a `CategoryYAxis` with a `NumericXAxis`. For more information, see link:datachart-category-range-bar-series.html[Range Bar Series].
+
+=== Enhancements
+
+==== Charts
+
+- Added a new `MarkerSize` property to chart series that support markers so you can set the marker width and height to an exact device-independent pixel size.
+-- Setting `MarkerSize` to `NaN` restores the default template-driven marker size, and the property also applies when using lightweight markers.
+-- `BubbleSeries` continues to use radius-based sizing, so `MarkerSize` does not override bubble radius values.
 
 [[Ref_25_2_111]]
 
