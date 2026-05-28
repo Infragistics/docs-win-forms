@@ -30,6 +30,9 @@ This topic contains the following sections:
 ==== Charts
 
 - Added the `Checkmark` marker type to supported chart marker enumerations, including `LegendItemBadgeShape`.
+- Added a new `MarkerSize` property to chart series that support markers so you can set the marker width and height to an exact device-independent pixel size.
+-- Setting `MarkerSize` to `NaN` restores the default template-driven marker size, and the property also applies when using lightweight markers.
+-- `BubbleSeries` continues to use radius-based sizing, so `MarkerSize` does not override bubble radius values.
 
 [[Ref_25_2_111]]
 
