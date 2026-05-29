@@ -25,6 +25,12 @@ This topic contains the following sections:
 
 == 26.1 (May 2026)
 
+=== New Chart Features
+
+==== Range Bar Series
+
+Added `RangeBarSeries` to `{DataChartName}` so you can render low-to-high ranges as horizontal bars by combining a `CategoryYAxis` with a `NumericXAxis`. For more information, see link:datachart-category-range-bar-series.html[Range Bar Series].
+
 === Enhancements
 
 ==== Charts
