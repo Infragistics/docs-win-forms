@@ -13,7 +13,7 @@
 
 = 範囲棒シリーズ
 
-このトピックは、コード例を示して、link:{DataChartLink}.rangebarseries.html[RangeBarSeries] を link:{DataChartLink}.{DataChartName}.html[{DataChartName}]™ コントロールで使用する方法を説明します。
+このトピックは、コード例を示して、link:{DataChartLink}.RangeBarSeries.html[RangeBarSeries] を link:{DataChartLink}.{DataChartName}.html[{DataChartName}]™ コントロールで使用する方法を説明します。
 
 == 概要
 
@@ -27,14 +27,14 @@
 * <<RelatedContent,関連コンテンツ>>
 
 [[Introduction]]
-== 概要
+== はじめに
 
-範囲棒シリーズは、link:datachart-category-series-overview.html[カテゴリ シリーズ] のグループに属し、データ ポイントの 2 つの値の差を示す横棒のコレクションを使用して描画します。このタイプのシリーズは、同一データ ポイントにおける安値と高値の差を強調したり、複数の項目を比較したりする場合に便利です。範囲の値は x 軸 (NumericXAxis) に表され、カテゴリは y 軸 (CategoryYAxis) に表示されます。link:{DataChartLink}.rangebarseries.html[RangeBarSeries] は、link:{DataChartLink}.rangecolumnseries.html[RangeColumnSeries] の縦方向版であり、link:{DataChartLink}.barseries.html[BarSeries] が link:{DataChartLink}.columnseries.html[ColumnSeries] の縦方向版である関係と同様です。シリーズの他のタイプとサポートされる軸の詳細は、link:datachart-category-series-overview.html[カテゴリ シリーズ] と link:datachart-axes.html[チャート軸] のトピックを参照してください。
+範囲棒シリーズは、link:datachart-category-series-overview.html[カテゴリ シリーズ] のグループに属し、データ ポイントの 2 つの値の差を示す横棒のコレクションを使用して描画します。このタイプのシリーズは、同一データ ポイントにおける安値と高値の差を強調したり、複数の項目を比較したりする場合に便利です。範囲の値は x 軸 (NumericXAxis) に表され、カテゴリは y 軸 (CategoryYAxis) に表示されます。link:{DataChartLink}.RangeBarSeries.html[RangeBarSeries] は、link:{DataChartLink}.rangecolumnseries.html[RangeColumnSeries] の横方向版であり、link:{DataChartLink}.barseries.html[BarSeries] が link:{DataChartLink}.columnseries.html[ColumnSeries] の横方向版である関係と同様です。シリーズの他のタイプとサポートされる軸の詳細は、link:datachart-category-series-overview.html[カテゴリ シリーズ] と link:datachart-axes.html[チャート軸] のトピックを参照してください。
 
 [[DataRequirements]]
 == データ要件
 
-{DataChartName} コントロールは固有のデータ モデルに簡単にバインドできますが、そのシリーズが必要とする適切な量と型のデータを必ず指定してください。使用しているシリーズの種類に基づいた最小要件をデータが満たさない場合、コントロールはエラーを生成します。データ シリーズ要件の詳細は、link:datachart-series-requirements.html[シリーズ要件] および link:datachart-category-series-overview.html[カテゴリ シリーズ] を参照してください。
+{DataChartName} コントロールは独自のデータ モデルに簡単にバインドできますが、そのシリーズが必要とする適切な量と型のデータを必ず指定してください。使用しているシリーズの種類に基づいた最小要件をデータが満たさない場合、コントロールはエラーを生成します。データ シリーズ要件の詳細は、link:datachart-series-requirements.html[シリーズ要件] および link:datachart-category-series-overview.html[カテゴリ シリーズ] を参照してください。
 
 以下は、`RangeBarSeries` タイプのデータ要件の一覧です。
 
@@ -55,7 +55,7 @@
 [[DataBindingExample]]
 == データ バインディング例
 
-以下のコード スニペットは、link:{DataChartLink}.rangebarseries.html[RangeBarSeries] オブジェクトをカテゴリ データ サンプル (link:resources-sample-energy-data.html[エネルギー データのサンプル] リソースからダウンロード可能) にバインドする方法を示します。`RangeBarSeries` のデータ要件の詳細は、このトピックのデータ要件セクションを参照してください。
+以下のコード スニペットは、link:{DataChartLink}.RangeBarSeries.html[RangeBarSeries] オブジェクトをカテゴリ データ サンプル (link:resources-sample-energy-data.html[エネルギー データのサンプル] リソースからダウンロード可能) にバインドする方法を示します。`RangeBarSeries` のデータ要件の詳細は、このトピックのデータ要件セクションを参照してください。
 
 ifdef::win-forms[]
 *C# の場合:*
@@ -126,7 +126,7 @@ endif::win-forms[]
 [[SeriesProperties]]
 == シリーズ プロパティ
 
-`RangeBarSeries` は、他の範囲シリーズと同じ low/high 値マッピングをサポートし、さらに次のプロパティを使用できます。
+`RangeBarSeries` は、他の範囲シリーズと同じ 安値/高値マッピングをサポートし、さらに次のプロパティを使用できます。
 
 [options="header", cols="a,a"]
 |====
