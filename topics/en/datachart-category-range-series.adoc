@@ -1,0 +1,38 @@
+////
+
+|metadata|
+{
+    "name": "datachart-category-range-series",
+    "controlName": ["{DataChartName}"],
+    "tags": ["Charting","Data Presentation"],
+    "guid": "c005ff6e-eb4d-4841-bf36-cad5f95f3ec6",  
+    "buildFlags": ["NETCORE","WPF"],
+    "createdOn": "2015-06-19T17:59:11.0170588Z"
+}
+|metadata|
+////
+
+= Range Series
+
+The {DataChartName} control has a group of Range Series that use two numeric values to render each data point. Range values are represented on one axis, and categories are displayed on the other axis.
+
+The following table maps type of category range series to shape:
+
+[options="header", cols="30a,70a"]
+|====
+|Series Type |Description
+
+| link:datachart-category-range-column-series.html[Range Column Series]
+|Renders as vertical columns extending from one value to another.
+
+| link:datachart-category-range-area-series.html[Range Area Series]
+|Renders as a filled area between low and high values across categories.
+
+| link:datachart-category-range-bar-series.html[Range Bar Series]
+|Renders as horizontal bars extending from one value to another.
+|====
+
+== Related Topics
+
+* link:datachart-category-series-overview.html[Category Series]
+* link:datachart-series-requirements.html[Series Requirements]
