@@ -57,7 +57,7 @@
 
 |`3353`
 |Schedule
-|UltraWinSchedule - 28 日の 2 月において、第 4 平日の予定が生成されない。
+|UltraWinSchedule - 2 月が 28 日の場合に 4 週目の平日の予定が生成されない。
 
 |`3477`
 |Grid
@@ -65,7 +65,7 @@
 
 |`25156`
 |Grid
-|UltraFormattedTextEditor が Word へのエクスポート時にフォント サイズを無視する。
+|UltraFormattedTextEditor が Word へのエクスポート時にフォント サイズを反映しない。
 
 |`27128`
 |Grid
@@ -101,11 +101,11 @@
 
 |`40060`
 |GridExcelExporter
-|MaxExcelRowCount のデータで GridExcelExporter が InvalidOperationException エラーをスローする。
+|GridExcelExporter で MaxExcelRowCount のデータを使用すると InvalidOperationException エラーが発生する。
 
 |`40087`
 |Map
-|UltraGeographicMap - ズーム中にタイル間のギャップが表示される。
+|UltraGeographicMap - ズーム中にタイル間の隙間が表示される。
 
 |`41075`
 |ToolbarsManager
