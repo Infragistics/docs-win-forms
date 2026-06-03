@@ -40,6 +40,88 @@ Added `RangeBarSeries` to `{DataChartName}` so you can render low-to-high ranges
 -- Setting `MarkerSize` to `NaN` restores the default template-driven marker size, and the property also applies when using lightweight markers.
 -- `BubbleSeries` continues to use radius-based sizing, so `MarkerSize` does not override bubble radius values.
 
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+
+|Bug Number|Control|Description
+
+|`3174`
+|Tree
+|UltraTree is looking for the Infragistics.Win.Design DLL in .NET Core
+
+|`3316`
+|ToolbarsManager
+|When using inherited Forms, adding a new UltraTab does not serialize the UltraTab object
+
+|`3353`
+|Schedule
+|UltraWinSchedule - 28-day February fails to generate appointment on the 4th weekday
+
+|`3477`
+|Grid
+|UltraGrid crashes with AccessViolationException on .NET Framework 4.8
+
+|`25156`
+|Grid
+|UltraFormattedTextEditor doesn't respect the font size while exporting to word
+
+|`27128`
+|Grid
+|The summary row in the UltraGrid is not focusable, and as such is unable to be read by screen-readers like Narrator
+
+|`28213`
+|ExplorerBar
+|[High DPI] - Image and Font scaling is very inconsistent and incorrect.
+
+|`29665`
+|Combo
+|[Accessibility][Screen Reader] - UltraCombo doesn't get read by reader with checkbox options
+
+|`32595`
+|Grid
+|high dpi with images do not scale properly
+
+|`32761`
+|Editors
+|UltraComboEditor narrator doesn't read the selected value
+
+|`33659`
+|DataChart
+|LegendHighlightingMode property does not work in Windows Forms
+
+|`34335`
+|Grid
+|Windows Narrator - Extra Text been added when reading Child Row band of the UltraGrid
+
+|`39557`
+|Combo
+|Using UltraCombox Extra word "Pane" is being added to accessibility text
+
+|`40060`
+|GridExcelExporter
+|GridExcelExporter InvalidOperationException error with MaxExcelRowCount data
+
+|`40087`
+|Map
+|UltraGeographicMap - Gaps between tiles visible during zooming
+
+|`41075`
+|ToolbarsManager
+|ArgumentOutOfRangeException occurs in UltraToolbarsManager in net10
+
+|`41102`
+|ToolbarsManager
+|NullReferenceException in ToolMenuItem
+
+|`41739`
+|GanttView
+|GanttView - TimelineVisibleDateTimeRangeChanged events raised after Form has been closed
+
+|====
+
+
 [[Ref_25_2_111]]
 
 == 25.2.111 (March 2026)

@@ -40,6 +40,88 @@
 -- `MarkerSize` を `NaN` に設定すると、テンプレートに基づく既定のマーカー サイズに戻ります。また、このプロパティは軽量マーカーの使用時にも適用されます。
 -- `BubbleSeries` は引き続き半径ベースのサイズ設定を使用するため、`MarkerSize` はバブルの半径値を上書きしません。
 
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+
+|バグ番号|コントロール|説明
+
+|`3174`
+|Tree
+|UltraTree が .NET Core で Infragistics.Win.Design DLL を検索する。
+
+|`3316`
+|ToolbarsManager
+|継承されたフォームを使用している場合、新しい UltraTab を追加しても UltraTab オブジェクトがシリアル化されない。
+
+|`3353`
+|Schedule
+|UltraWinSchedule - 2 月が 28 日の場合に 4 週目の平日の予定が生成されない。
+
+|`3477`
+|Grid
+|UltraGrid が .NET Framework 4.8 で AccessViolationException によりクラッシュする。
+
+|`25156`
+|Grid
+|UltraFormattedTextEditor が Word へのエクスポート時にフォント サイズを反映しない。
+
+|`27128`
+|Grid
+|UltraGrid のサマリー行にフォーカスを設定できないため、Narrator などのスクリーン リーダーで読み上げることができない。
+
+|`28213`
+|ExplorerBar
+|[高 DPI] - 画像とフォントのスケーリングが非常に不整合かつ不正確。
+
+|`29665`
+|Combo
+|[アクセシビリティ][スクリーン リーダー] - チェックボックス オプションがある場合に、UltraCombo がスクリーン リーダーで読み上げられない。
+
+|`32595`
+|Grid
+|画像を含む高 DPI 環境で、画像が正しくスケーリングされない。
+
+|`32761`
+|Editors
+|UltraComboEditor でナレーターが選択値を読み上げない。
+
+|`33659`
+|DataChart
+|Windows Forms で LegendHighlightingMode プロパティが機能しない。
+
+|`34335`
+|Grid
+|Windows ナレーター - UltraGrid の子行バンドを読み上げる際に余分なテキストが追加される。
+
+|`39557`
+|Combo
+|UltraCombo を使用すると、アクセシビリティ テキストに余分な「Pane」という単語が追加される。
+
+|`40060`
+|GridExcelExporter
+|GridExcelExporter で MaxExcelRowCount のデータを使用すると InvalidOperationException エラーが発生する。
+
+|`40087`
+|Map
+|UltraGeographicMap - ズーム中にタイル間の隙間が表示される。
+
+|`41075`
+|ToolbarsManager
+|net10 の UltraToolbarsManager で ArgumentOutOfRangeException が発生する。
+
+|`41102`
+|ToolbarsManager
+|ToolMenuItem で NullReferenceException が発生する。
+
+|`41739`
+|GanttView
+|GanttView - フォームが閉じられた後に TimelineVisibleDateTimeRangeChanged イベントが発生する。
+
+|====
+
+
 [[Ref_25_2_111]]
 
 == 25.2.111 (2026 年 3 月)
