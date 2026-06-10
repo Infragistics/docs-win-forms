@@ -5,6 +5,7 @@
 This topic contains the following sections:
 
 * <<Ref_26_1, 26.1 (May 2026)>>
+** <<BC_26_1,.Breaking Change>>
 * <<Ref_25_2_111, 25.2.111 (March 2026)>>
 * <<Ref_25_2_65, 25.2.65 (December 2025)>>
 * <<Ref_25_2_41, 25.2.41 (November 2025)>>
@@ -24,6 +25,15 @@ This topic contains the following sections:
 [[Ref_26_1]]
 
 == 26.1 (May 2026)
+
+..NET (Core) only
+ 
+Replaced BinaryFormatter with new custom Infragistics Serializer - this will be the default serializer for serialization. If the Microsoft Binary Formatter is enabled and your binary data is in the older format the Microsoft Binary Formatter will still be used for deserialization.
+
+[[BC_26_1]]
+==== Breaking Change
+
+The new custom serializer is forward compatible in regards to binary files generated with prior versions of the Ultimate UI for Windows Forms toolset. Files originally generated with the BinaryFormatter can still be read and deserialized using the new serializer. However, the BinaryFormatter used in prior versions does not have the ability to deserialize files generated in the new version
 
 === New Chart Features
 
