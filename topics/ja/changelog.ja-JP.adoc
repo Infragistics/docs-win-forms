@@ -28,12 +28,13 @@
 
 ..NET (Core) のみ
 
-BinaryFormatter を新しいカスタムの Infragistics Serializer に置き換えました。これがシリアル化の既定のシリアライザーになります。Microsoft Binary Formatter が有効で、バイナリ データが以前の形式の場合は、逆シリアル化に引き続き Microsoft Binary Formatter が使用されます。
+BinaryFormatter を新しいカスタムの Infragistics Serializer に置き換えました。これがシリアル化の既定のシリアライザーになります。Microsoft Binary Formatter が有効で、バイナリ データが以前の形式である場合は、逆シリアル化に引き続き Microsoft Binary Formatter が使用されます。
 
 [[BC_26_1]]
 ==== 重大な変更
 
-新しいカスタム シリアライザーは、Ultimate UI for Windows Forms ツールセットの以前のバージョンで生成されたバイナリ ファイルに対して前方互換性があります。BinaryFormatter で生成された元のファイルは、新しいシリアライザーを使用して引き続き読み取りおよび逆シリアル化できます。ただし、以前のバージョンで使用されていた BinaryFormatter は、新しいバージョンで生成されたファイルを逆シリアル化する機能を持っていません。
+新しいカスタム シリアライザーは、Ultimate UI for Windows Forms ツールセットの以前のバージョンで生成されたバイナリ ファイルに対して前方互換性があります。BinaryFormatter で生成された元のファイルは、新しいシリアライザーを使用して引き続き読み取りおよび逆シリアル化できます。ただし、以前のバージョンで使用されていた BinaryFormatter には、新しいバージョンで生成されたファイルを逆シリアル化する機能はありません。
+
 
 === 新しいチャート機能
 
