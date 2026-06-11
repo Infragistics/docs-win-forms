@@ -4,8 +4,8 @@
 
 This topic contains the following sections:
 
-* <<Ref_26_1, 26.1 (May 2026)>>
-** <<BC_26_1,.Breaking Change>>
+* <<Ref_26_1, 26.1 (June 2026)>>
+** <<BC_26_1,Breaking Change>>
 * <<Ref_25_2_111, 25.2.111 (March 2026)>>
 * <<Ref_25_2_65, 25.2.65 (December 2025)>>
 * <<Ref_25_2_41, 25.2.41 (November 2025)>>
@@ -14,7 +14,7 @@ This topic contains the following sections:
 * <<Ref_25_1, 25.1 (2025)>>
 * <<Ref_24_2_27, 24.2.27 (February 2025)>>
 * <<Ref_24_2, 24.2 (2024)>>
-** <<BC_24_2,.Breaking Change>>
+** <<BC_24_2,Breaking Change>>
 * <<Ref_24_1_57, 24.1.57>>
 * <<Ref_24_1_38,24.1.38 (August 2024)>>
 ** <<BC_24_1_13,Breaking Changes 24.1.38 (August 2024)>>
@@ -24,11 +24,11 @@ This topic contains the following sections:
 
 [[Ref_26_1]]
 
-== 26.1 (May 2026)
+== 26.1 (June 2026)
 
-..NET (Core) only
+.NET (Core) only
  
-Replaced BinaryFormatter with new custom Infragistics Serializer - this will be the default serializer for serialization. If the Microsoft Binary Formatter is enabled and your binary data is in the older format the Microsoft Binary Formatter will still be used for deserialization.
+Replaced BinaryFormatter with new custom Infragistics Serializer - this will be the default serializer for serialization. If the Microsoft Binary Formatter is enabled and your binary data is in the older format, the Microsoft Binary Formatter will still be used for deserialization.
 
 [[BC_26_1]]
 ==== Breaking Change
