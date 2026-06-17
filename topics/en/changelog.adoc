@@ -4,6 +4,7 @@
 
 This topic contains the following sections:
 
+* <<Ref_26_1_27, 26.1.27 (June 2026) >>
 * <<Ref_26_1, 26.1 (June 2026)>>
 ** <<BC_26_1,Breaking Change>>
 * <<Ref_25_2_111, 25.2.111 (March 2026)>>
@@ -21,6 +22,36 @@ This topic contains the following sections:
 * <<Ref_23_2_180,23.2.180 (June 2024)>>
 * <<Ref_23_2_131,23.2.131 (April 2024)>>
 * <<Ref_23_2, 23.2 (2023)>> 
+
+[[Ref_26_1_27]]
+
+== 26.1.27 (June 2026)
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+
+|Bug Number|Control|Description
+
+|`3512`
+|TextEditor
+|UltraTextEditor shows context menu on right-click edge when unfocused even when ContextMenu and ContextMenuStrip are disabled
+
+|`3590`
+|AppStyling
+|Button styling is different in Visual Studio 2022 versus Visual Studio 2026 with Office2010Blue .isl
+
+|`3605`
+|ToolbarsManager
+|Cannot add a Main Menu Bar type of toolbar
+
+|`3632`
+|NumericEditor
+|UltraNumericEditor fires ValueChanged twice when SpinIncrement is set and in/decrementing with the keyboard
+
+|====
+
 
 [[Ref_26_1]]
 
