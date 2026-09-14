@@ -35,8 +35,6 @@ This topic contains the following sections:
 * *Add StartInset/EndInset pixel-gap range properties to linear gauge, bullet graph, and radial gauge*
 +
 Ranges on the linear gauge, bullet graph, and radial gauge can only be offset by value, which requires knowing the control's pixel dimensions to produce a fixed-size gap. This adds `StartInset`/`EndInset` properties that inset a range's start/end by a number of device-independent pixels, enabling pixel-precise gaps between adjacent ranges regardless of control size.
-```csharp
-// 50px gap between two adjacent ranges, independent of gauge width
 
 ==== DataChart
 
