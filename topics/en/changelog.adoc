@@ -4,6 +4,7 @@
 
 This topic contains the following sections:
 
+* <<Ref_26_1_78, 26.1.78 (September 2026) >>
 * <<Ref_26_1_27, 26.1.27 (June 2026) >>
 * <<Ref_26_1, 26.1 (June 2026)>>
 ** <<BC_26_1,Breaking Change>>
@@ -22,6 +23,61 @@ This topic contains the following sections:
 * <<Ref_23_2_180,23.2.180 (June 2024)>>
 * <<Ref_23_2_131,23.2.131 (April 2024)>>
 * <<Ref_23_2, 23.2 (2023)>> 
+
+[[Ref_26_1_78]]
+
+== 26.1.78 (September 2026)
+
+=== New Features
+
+==== BulletGraph
+
+* *Add StartInset/EndInset pixel-gap range properties to linear gauge, bullet graph, and radial gauge*
++
+Ranges on the linear gauge, bullet graph, and radial gauge can only be offset by value, which requires knowing the control's pixel dimensions to produce a fixed-size gap. This adds `StartInset`/`EndInset` properties that inset a range's start/end by a number of device-independent pixels, enabling pixel-precise gaps between adjacent ranges regardless of control size.
+```csharp
+// 50px gap between two adjacent ranges, independent of gauge width
+
+==== DataChart
+
+* *New Axis visibility properties*
++
+- Added properties `AreLabelsVisible, AreAnnotationsVisible, AreTickMarksVisible` and `IsLabelPanelVisible` to `Axis`, they can be used to toggle visibility for each type of element in the axis.
+- Added properties `XAxisIsLabelPanelVisible, YAxisIsLabelPanelVisible, XAxisAreLabelsVisible, YAxisAreLabelsVisible, XAxisAreAnnotationsVisible, YAxisAreAnnotationsVisible, XAxisAreTickMarksVisible, YAxisAreTickMarksVisible` to XYCharts
+
+* *Add marker size scaling to legends*
+
+* *Add FormatSpecifiers to TimeXAxis*
+
+=== Bug Fixes
+
+[options="header", cols="a,a,a"]
+|====
+
+|Bug Number|Control|Description
+
+|`3738`
+|ToolbarsManager
+|NotSupportedException occurs when launching the Quick Access Toolbar customization menu in UltraToolbarsManager
+
+|`3773`
+|DockManager
+|UltraDockManager serialization constructor is "internal" instead of "protected internal"
+
+|`3812`
+|ToolbarsManager
+|Issue with large number of bumped tools.
+
+|`3865`
+|DockManager
+|Loading a binary file saved from older version generates a NullReferenceException
+
+|`17097`
+|Spreadsheet
+|Row height of merged cells differs from how they appear in MS Excel
+
+|====
+
 
 [[Ref_26_1_27]]
 

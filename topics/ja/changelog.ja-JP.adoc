@@ -4,6 +4,7 @@
 
 このトピックは、以下のセクションで構成されます。
 
+* <<Ref_26_1_78, 26.1.78 (2026 年 9 月)>>
 * <<Ref_26_1_27, 26.1.27 (2026 年 6 月) >>
 * <<Ref_26_1, 26.1 (2026 年 6 月)>>
 ** <<BC_26_1,重大な変更>>
@@ -22,6 +23,61 @@
 * <<Ref_23_2_180,23.2.180 (2024 年 6 月)>>
 * <<Ref_23_2_131,23.2.131 (2024 年 4 月)>>
 * <<Ref_23_2, 23.2 (2023 年)>> 
+
+[[Ref_26_1_78]]
+
+== 26.1.78 (2026 年 9 月)
+
+=== 新しい機能
+
+==== BulletGraph
+
+* *線形ゲージ、ブレット グラフ、およびラジアル ゲージに StartInset/EndInset のピクセル間隔範囲プロパティを追加*
++
+線形ゲージ、ブレット グラフ、およびラジアル ゲージの範囲は、値でのみオフセットでき、固定サイズのギャップを作成するにはコントロールのピクセル寸法を知る必要がありました。この追加により、範囲の開始/終了をデバイスに依存しないピクセル数で内側に寄せる `StartInset`/`EndInset` プロパティが提供され、コントロール サイズに関係なく、隣接する範囲の間にピクセル単位で正確なギャップを作成できます。
+```csharp
+// 50px gap between two adjacent ranges, independent of gauge width
+
+==== DataChart
+
+* *新しい軸の表示/非表示プロパティ*
++
+- `Axis` に `AreLabelsVisible`、`AreAnnotationsVisible`、`AreTickMarksVisible`、`IsLabelPanelVisible` の各プロパティを追加し、軸内の各要素の表示/非表示を切り替えられるようにしました。
+- `XYCharts` に `XAxisIsLabelPanelVisible`、`YAxisIsLabelPanelVisible`、`XAxisAreLabelsVisible`、`YAxisAreLabelsVisible`、`XAxisAreAnnotationsVisible`、`YAxisAreAnnotationsVisible`、`XAxisAreTickMarksVisible`、`YAxisAreTickMarksVisible` の各プロパティを追加しました。
+
+* *凡例でマーカー サイズのスケーリングを追加*
+
+* *TimeXAxis に FormatSpecifiers を追加*
+
+=== バグ修正
+
+[options="header", cols="a,a,a"]
+|====
+
+|バグ番号|コントロール|説明
+
+|`3738`
+|ToolbarsManager
+|UltraToolbarsManager の [クイック アクセス ツールバー] カスタマイズ メニューを起動すると、NotSupportedException が発生する。
+
+|`3773`
+|DockManager
+|UltraDockManager のシリアル化 コンストラクターが "internal" ではなく "protected internal" になっている。
+
+|`3812`
+|ToolbarsManager
+|多数の bumped tools がある場合に問題が発生する。
+
+|`3865`
+|DockManager
+|古いバージョンで保存されたバイナリ ファイルを読み込むと、NullReferenceException が発生する。
+
+|`17097`
+|Spreadsheet
+|結合セルの行の高さが、MS Excel で表示される高さと一致しない。
+
+|====
+
 
 [[Ref_26_1_27]]
 
