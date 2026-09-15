@@ -32,9 +32,9 @@
 
 ==== BulletGraph
 
-* *線形ゲージ、ブレット グラフ、およびラジアル ゲージに StartInset/EndInset のピクセル間隔範囲プロパティを追加*
+* *リニア ゲージ、ブレット グラフ、およびラジアル ゲージに、ピクセル単位で間隔を指定する StartInset/EndInset 範囲プロパティを追加*
 +
-線形ゲージ、ブレット グラフ、およびラジアル ゲージの範囲は、値でのみオフセットでき、固定サイズのギャップを作成するにはコントロールのピクセル寸法を知る必要がありました。この追加により、範囲の開始/終了をデバイスに依存しないピクセル数で内側に寄せる `StartInset`/`EndInset` プロパティが提供され、コントロール サイズに関係なく、隣接する範囲の間にピクセル単位で正確なギャップを作成できます。
+リニア ゲージ、ブレット グラフ、およびラジアル ゲージの範囲は、スケール上の値でしか開始位置と終了位置を指定できず、固定サイズのギャップを作成するには、コントロールのピクセル寸法を把握しておく必要がありました。範囲の開始/終了をデバイス独立ピクセル単位で内側に寄せる `StartInset`/`EndInset` プロパティが追加され、コントロール サイズに関係なく、隣接する範囲の間にピクセル単位で正確なギャップを作成できるようになりました。
 
 ==== DataChart
 
@@ -43,7 +43,7 @@
 - `Axis` に `AreLabelsVisible`、`AreAnnotationsVisible`、`AreTickMarksVisible`、`IsLabelPanelVisible` の各プロパティを追加し、軸内の各要素の表示/非表示を切り替えられるようにしました。
 - `XYCharts` に `XAxisIsLabelPanelVisible`、`YAxisIsLabelPanelVisible`、`XAxisAreLabelsVisible`、`YAxisAreLabelsVisible`、`XAxisAreAnnotationsVisible`、`YAxisAreAnnotationsVisible`、`XAxisAreTickMarksVisible`、`YAxisAreTickMarksVisible` の各プロパティを追加しました。
 
-* *凡例でマーカー サイズのスケーリングを追加*
+* *凡例にマーカー サイズのスケーリングを追加*
 
 * *TimeXAxis に FormatSpecifiers を追加*
 
@@ -56,15 +56,15 @@
 
 |`3738`
 |ToolbarsManager
-|UltraToolbarsManager の [クイック アクセス ツールバー] カスタマイズ メニューを起動すると、NotSupportedException が発生する。
+|UltraToolbarsManager の [クイック アクセス ツールバー] のカスタマイズ メニューを起動すると、NotSupportedException が発生する。
 
 |`3773`
 |DockManager
-|UltraDockManager のシリアル化 コンストラクターが "internal" ではなく "protected internal" になっている。
+|UltraDockManager のシリアル化コンストラクターが "internal" ではなく "protected internal" になっている。
 
 |`3812`
 |ToolbarsManager
-|多数の bumped tools がある場合に問題が発生する。
+|ツールバーから押し出されたツールが多数ある場合に問題が発生する。
 
 |`3865`
 |DockManager
